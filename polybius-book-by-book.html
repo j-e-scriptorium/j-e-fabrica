@@ -21,6 +21,9 @@
   h1{font-size:clamp(25px,5vw,42px);line-height:1.05;margin:0 0 6px;font-weight:400;letter-spacing:-.01em}
   h1 em{font-style:italic;color:var(--murex-soft)}
   .standfirst{margin:0;color:var(--muted);font-size:clamp(14px,2.4vw,16.5px);max-width:62ch}
+  .backlink{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);
+    text-decoration:none;display:inline-block;margin-bottom:10px}
+  .backlink:hover{color:var(--ink)}
 
   .mapcard{position:relative;border:1px solid var(--rule);border-radius:2px;background:var(--sea-deep);overflow:hidden}
   svg#map{display:block;width:100%;height:auto;background:var(--sea)}
@@ -123,6 +126,7 @@
 <div class="wrap">
 
 <header>
+  <a class="backlink" href="index.html">&larr; the Fabrica</a>
   <h1>Polybius, book by book: the scroll and the <em>symplokē</em></h1>
   <p class="standfirst">Pick a book. The rail under the map is that book from its first chapter to its last; each mark is an episode, coloured for whoever is acting. Play it and the action walks the map in the order Polybius wrote it.</p>
 </header>
