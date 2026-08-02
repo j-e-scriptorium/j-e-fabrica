@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>St. Isid. UW - About</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="fabrica-components.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -36,7 +36,7 @@
 
     <script>
         async function loadComponents() {
-            const response = await fetch('fabrica-components.html');
+            const response = await fetch('assets/fabrica-components.html');
             const text = await response.text();
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');

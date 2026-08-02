@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>St. Isid. UW - Visualizations</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="fabrica-components.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -25,7 +25,7 @@
                     <p class="exhibit-kind">an atlas</p>
                     <p class="exhibit-blurb">Ten voyages that happened and ten that did not, charted on the same coastlines &mdash; from Magellan and the Beagle to Odysseus and the Pequod. Click a name to trace it; click two to compare.</p>
                     <div class="exhibit-links">
-                        <a href="voyages.html">Open</a>
+                        <a href="voyages/">Open</a>
                     </div>
                 </div>
             </div>
@@ -39,7 +39,7 @@
                     <p class="exhibit-kind">the scroll and the map</p>
                     <p class="exhibit-blurb">Pick a book of the Histories; a rail of its chapters walks the Mediterranean in the order Polybius wrote it, from Book&nbsp;1's Rome to the fragments of Book&nbsp;40.</p>
                     <div class="exhibit-links">
-                        <a href="polybius-book-by-book.html">Open</a>
+                        <a href="polybius/">Open</a>
                     </div>
                 </div>
             </div>
@@ -62,7 +62,7 @@
 
     <script>
         async function loadComponents() {
-            const response = await fetch('fabrica-components.html');
+            const response = await fetch('assets/fabrica-components.html');
             const text = await response.text();
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');

@@ -4,8 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>St. Isid. UW - Recreations</title>
-    <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="stylesheet" href="fabrica-components.css">
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
 </head>
 <body>
     <div id="header-placeholder"></div>
@@ -25,7 +25,7 @@
                     <p class="exhibit-kind">a mancala for the hand</p>
                     <p class="exhibit-blurb">Stretch the string from peg to peg; the bones it crosses are yours &mdash; then return one tithe to the water. Play against a friend or four grades of computer.</p>
                     <div class="exhibit-links">
-                        <a href="school.html">Open</a>
+                        <a href="school/">Open</a>
                     </div>
                 </div>
             </div>
@@ -48,7 +48,7 @@
 
     <script>
         async function loadComponents() {
-            const response = await fetch('fabrica-components.html');
+            const response = await fetch('assets/fabrica-components.html');
             const text = await response.text();
             const parser = new DOMParser();
             const doc = parser.parseFromString(text, 'text/html');
