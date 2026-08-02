@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Expansion of America — a map growing outward</title>
+<style>
+:root{
+  --paper:#f2ead4; --paper-2:#e8ddbe; --ink:#2c2418; --mid:#6b5f47; --faint:#9c8f70; --rule:#c9bb95;
+  --blank:#fbf7ec; --territory:#d8c493; --state:#2f4d6b; --state-soft:#4d6f92;
+  --accent:#8a3324;
+  --serif:Georgia,"Liberation Serif","Times New Roman",serif;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --mono:ui-monospace,"DejaVu Sans Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{font-family:var(--serif);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1180px;margin:0 auto;padding:24px 18px 64px}
+
+.backlink{font-family:var(--sans);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);
+  text-decoration:none;display:inline-block;margin-bottom:12px}
+.backlink:hover{color:var(--ink)}
+
+h1{font-family:var(--serif);font-weight:400;font-size:clamp(24px,4.4vw,38px);margin:0 0 6px;letter-spacing:-.01em}
+.standfirst{max-width:66ch;color:var(--mid);font-size:15px;margin:0 0 22px}
+
+.mapcard{position:relative;border:1px solid var(--rule);background:var(--blank)}
+svg.map{display:block;width:100%;height:auto}
+.st{stroke:#8a7c54;stroke-width:.6;transition:fill .5s ease}
+.st.blank{fill:var(--blank)}
+.st.territory{fill:var(--territory)}
+.st.admitted{fill:var(--state)}
+.st:hover{stroke:var(--accent);stroke-width:1.6}
+.st.cur{stroke:var(--accent);stroke-width:2.2}
+
+.tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);font-family:var(--sans);
+  font-size:12.5px;line-height:1.5;padding:8px 11px;max-width:260px;border-radius:2px;opacity:0;
+  transition:opacity .12s;z-index:5;box-shadow:0 4px 14px rgba(0,0,0,.28)}
+.tip.on{opacity:1}
+.tip b{display:block;font-size:13.5px;margin-bottom:2px}
+.tip .yr{font-family:var(--mono);color:#d8c493;font-size:11px;letter-spacing:.04em}
+
+.timeline{margin-top:18px;border-top:1px solid var(--rule);padding-top:16px}
+.yearrow{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:8px}
+.yearnum{font-family:var(--serif);font-size:44px;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
+.yearmeta{font-family:var(--sans);font-size:12px;color:var(--mid);line-height:1.7}
+.yearmeta b{color:var(--ink);font-weight:600}
+.slider{display:flex;align-items:center;gap:12px}
+input[type=range]{flex:1;accent-color:var(--accent)}
+.controls{display:flex;gap:8px;align-items:center;margin-top:10px;flex-wrap:wrap}
+button.ctl{font-family:var(--sans);font-size:11px;letter-spacing:.08em;text-transform:uppercase;
+  background:var(--paper);border:1px solid var(--rule);padding:7px 13px;cursor:pointer;color:var(--ink)}
+button.ctl:hover{border-color:var(--accent);color:var(--accent)}
+
+.ticks{display:flex;gap:2px;margin-top:12px;overflow-x:auto;padding-bottom:2px}
+.tick{flex:1 1 0;min-width:64px;font-family:var(--mono);font-size:9.5px;letter-spacing:.02em;color:var(--mid);
+  background:none;border:0;border-top:2px solid var(--rule);padding:5px 3px 0;text-align:left;cursor:pointer}
+.tick:hover{border-top-color:var(--accent);color:var(--accent)}
+.tick.past{border-top-color:var(--state-soft)}
+
+.detail{margin-top:26px;border-top:1px solid var(--rule);padding-top:20px;display:grid;
+  grid-template-columns:1fr 220px;gap:24px}
+.detail.empty .dprose{color:var(--faint);font-style:italic}
+.dname{font-family:var(--serif);font-size:clamp(20px,3vw,27px);margin:0 0 4px}
+.dmeta{font-family:var(--sans);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
+.dprose{margin:0;max-width:62ch;font-size:15.5px}
+.dimages{display:flex;flex-direction:column;gap:10px}
+.dimages img{width:100%;display:block;border:1px solid var(--rule);background:#fff}
+.dimages .cap{font-family:var(--sans);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:-6px 0 4px}
+
+.foot{margin-top:40px;border-top:1px solid var(--rule);padding-top:18px;color:var(--mid);font-size:13.5px}
+.foot h3{font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);
+  font-weight:600;margin:0 0 10px}
+.legend{display:flex;gap:20px;flex-wrap:wrap;margin-bottom:14px;font-family:var(--sans);font-size:12px;align-items:center}
+.legend .sw{display:inline-block;width:14px;height:14px;margin-right:6px;vertical-align:-2px;border:1px solid #8a7c54}
+.foot p{max-width:80ch;margin:0 0 10px}
+
+@media (max-width:760px){
+  .detail{grid-template-columns:1fr}
+  .dimages{flex-direction:row;flex-wrap:wrap}
+  .dimages > div{flex:1 1 45%}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<a class="backlink" href="../index.html">&larr; the Fabrica</a>
+<h1>The Expansion of America</h1>
+<p class="standfirst">Scrub the year to watch the country's territory arrive, and its states get admitted into it &mdash; not always the same year, sometimes decades apart. Hover a state for its story; darker means statehood, tan means it's American ground but not yet a state.</p>
+
+<div class="mapcard">
+  <svg class="map" id="map" viewBox="0 0 1015 594" role="img" aria-label="Map of the United States, showing territory and statehood by year"></svg>
+  <div class="tip" id="tip"></div>
+</div>
+
+<div class="timeline">
+  <div class="yearrow">
+    <div class="yearnum" id="yearnum">1776</div>
+    <div class="yearmeta" id="yearmeta"></div>
+  </div>
+  <div class="slider">
+    <input type="range" id="slider" min="1776" max="1959" step="1" value="1776">
+  </div>
+  <div class="controls">
+    <button class="ctl" id="play">Play</button>
+    <button class="ctl" id="reset">1776</button>
+    <button class="ctl" id="end">1959</button>
+  </div>
+  <div class="ticks" id="ticks"></div>
+</div>
+
+<div class="detail empty" id="detail">
+  <div>
+    <h2 class="dname" id="dname">&nbsp;</h2>
+    <div class="dmeta" id="dmeta"></div>
+    <p class="dprose" id="dprose">Hover or tap a state on the map.</p>
+  </div>
+  <div class="dimages" id="dimages"></div>
+</div>
+
+<div class="foot">
+  <h3>Reading the map</h3>
+  <div class="legend">
+    <span><span class="sw" style="background:#fbf7ec"></span>not yet part of the US</span>
+    <span><span class="sw" style="background:#d8c493"></span>US territory</span>
+    <span><span class="sw" style="background:#2f4d6b"></span>admitted as a state</span>
+  </div>
+  <p>State outlines are modern borders throughout &mdash; this map does not attempt to draw the precise, often short-lived boundaries of historical territories (Missouri Territory, Indian Territory, and the rest), only when each present-day state's land became American ground and when it became a state. Each state is assigned to the single acquisition its land is dominantly identified with; land genuinely contested between two acquisitions, or reorganized more than once, is simplified to one. Boundaries come from the US Census Bureau (via <span class="monospace">us-atlas</span>), Albers USA projection.</p>
+  <p>State origin blurbs, illustrations, and flags are illustrative, not exhaustive &mdash; see each state's own history for the fuller story.</p>
+</div>
+
+</div>
+
+<script src="usa-states.js"></script>
+<script src="acquisitions.js"></script>
+<script>
+"use strict";
+
+var NS = "http://www.w3.org/2000/svg";
+function el(t, a) { var e = document.createElementNS(NS, t); for (var k in a) e.setAttribute(k, a[k]); return e; }
+
+var map = document.getElementById("map");
+map.setAttribute("viewBox", USA_VIEWBOX.join(" "));
+
+var STATES = null, byPostal = {}, acqByPostal = {}, milestones = [];
+var pathEls = {};
+var year = 1776, curPostal = null, pinned = false, playing = false, playTimer = null;
+
+ACQUISITIONS.forEach(function (a) {
+  a.states.forEach(function (p) { acqByPostal[p] = a; });
+});
+
+var gStates = el("g", {});
+map.appendChild(gStates);
+Object.keys(USA_STATE_PATHS).forEach(function (postal) {
+  var p = el("path", { d: USA_STATE_PATHS[postal], class: "st blank", "data-postal": postal });
+  gStates.appendChild(p);
+  pathEls[postal] = p;
+});
+
+function statusAt(postal, y) {
+  var acq = acqByPostal[postal], st = byPostal[postal];
+  if (!acq || y < acq.year) return "blank";
+  if (!st || y < st.year) return "territory";
+  return "state";
+}
+
+function render() {
+  document.getElementById("yearnum").textContent = year;
+  var nStates = 0;
+  Object.keys(pathEls).forEach(function (postal) {
+    var s = statusAt(postal, year);
+    if (s === "state") nStates++;
+    var cls = s === "state" ? "admitted" : s;
+    pathEls[postal].setAttribute("class", "st " + cls + (postal === curPostal ? " cur" : ""));
+  });
+
+  var lastAcq = null;
+  ACQUISITIONS.forEach(function (a) { if (a.year <= year) lastAcq = a; });
+  var lastState = null;
+  STATES.forEach(function (s) { if (s.year <= year && (!lastState || s.year > lastState.year)) lastState = s; });
+
+  var bits = [nStates + " state" + (nStates === 1 ? "" : "s") + " in the Union"];
+  if (lastAcq) bits.push("latest territory: <b>" + lastAcq.name + "</b> (" + lastAcq.year + ")");
+  if (lastState) bits.push("latest state: <b>" + lastState.name + "</b> (" + lastState.year + ")");
+  document.getElementById("yearmeta").innerHTML = bits.join(" &nbsp;&middot;&nbsp; ");
+
+  document.getElementById("slider").value = year;
+  [].forEach.call(document.querySelectorAll(".tick"), function (t) {
+    t.classList.toggle("past", +t.dataset.year <= year);
+  });
+
+  if (pinned && curPostal) showDetail(curPostal, true);
+}
+
+function setYear(y) {
+  year = Math.max(1776, Math.min(1959, y));
+  render();
+}
+
+function showTip(postal, evt) {
+  var acq = acqByPostal[postal], st = byPostal[postal];
+  if (!acq || year < acq.year) return; // nothing to say about unclaimed land
+  var tip = document.getElementById("tip");
+  var status = (st && year >= st.year) ? ("state since " + st.year) : ("territory since " + acq.year);
+  var name = st ? st.name : postal;
+  var blurb = st ? st.blurb : acq.note;
+  tip.innerHTML = "<b>" + name + "</b><span class='yr'>" + status + "</span>" +
+    "<div style='margin-top:5px'>" + blurb.slice(0, 170) + (blurb.length > 170 ? "&hellip;" : "") + "</div>";
+  var box = map.closest(".mapcard").getBoundingClientRect();
+  var x = evt.clientX - box.left, y2 = evt.clientY - box.top;
+  var left = Math.min(x + 16, box.width - 270);
+  tip.style.left = Math.max(6, left) + "px";
+  tip.style.top = Math.max(6, y2 - 10) + "px";
+  tip.classList.add("on");
+}
+function hideTip() { document.getElementById("tip").classList.remove("on"); }
+
+function showDetail(postal, keepPin) {
+  var st = byPostal[postal], acq = acqByPostal[postal];
+  var d = document.getElementById("detail");
+  if (!st || year < acq.year) {
+    d.classList.add("empty");
+    document.getElementById("dname").textContent = " ";
+    document.getElementById("dmeta").textContent = "";
+    document.getElementById("dprose").textContent = "Hover or tap a state on the map.";
+    document.getElementById("dimages").innerHTML = "";
+    return;
+  }
+  d.classList.remove("empty");
+  var admitted = year >= st.year;
+  document.getElementById("dname").textContent = st.name;
+  document.getElementById("dmeta").textContent = admitted
+    ? ("State since " + st.year + " · territory (" + acq.name + ") since " + acq.year)
+    : ("Territory (" + acq.name + ") since " + acq.year + " · not yet a state in " + year);
+  document.getElementById("dprose").textContent = st.blurb;
+  document.getElementById("dimages").innerHTML =
+    "<div><div class='cap'>Flag</div><img src='" + st.flag + "' alt='Flag of " + st.name + "'></div>" +
+    "<div><div class='cap'>" + st.name + "</div><img src='" + st.illustration + "' alt='" + st.name + "'></div>";
+  curPostal = postal;
+  if (keepPin === undefined) pinned = true;
+  render();
+}
+
+gStates.addEventListener("mousemove", function (e) {
+  if (e.target.classList && e.target.classList.contains("st")) {
+    var postal = e.target.dataset.postal;
+    showTip(postal, e);
+    if (!pinned) showDetail(postal, false);
+  }
+});
+gStates.addEventListener("mouseleave", function () { hideTip(); });
+gStates.addEventListener("click", function (e) {
+  if (e.target.classList && e.target.classList.contains("st")) {
+    var postal = e.target.dataset.postal;
+    pinned = true;
+    showDetail(postal, true);
+  }
+});
+
+document.getElementById("slider").addEventListener("input", function (e) {
+  stop();
+  setYear(+e.target.value);
+});
+document.getElementById("reset").addEventListener("click", function () { stop(); setYear(1776); });
+document.getElementById("end").addEventListener("click", function () { stop(); setYear(1959); });
+
+function stop() {
+  playing = false;
+  clearInterval(playTimer);
+  document.getElementById("play").textContent = "Play";
+}
+document.getElementById("play").addEventListener("click", function () {
+  if (playing) { stop(); return; }
+  playing = true;
+  this.textContent = "Stop";
+  var idx = 0;
+  while (idx < milestones.length && milestones[idx] <= year) idx++;
+  if (idx >= milestones.length) idx = 0;
+  playTimer = setInterval(function () {
+    if (idx >= milestones.length) { stop(); return; }
+    setYear(milestones[idx]);
+    idx++;
+  }, 650);
+});
+
+function buildTicks() {
+  var host = document.getElementById("ticks");
+  ACQUISITIONS.forEach(function (a) {
+    var b = document.createElement("button");
+    b.className = "tick";
+    b.dataset.year = a.year;
+    b.innerHTML = a.year + "<br>" + a.name;
+    b.title = a.note;
+    b.addEventListener("click", function () { stop(); setYear(a.year); });
+    host.appendChild(b);
+  });
+}
+
+fetch("states.json").then(function (r) { return r.json(); }).then(function (data) {
+  STATES = data;
+  STATES.forEach(function (s) { byPostal[s.postal] = s; });
+  var ys = {};
+  ACQUISITIONS.forEach(function (a) { ys[a.year] = 1; });
+  STATES.forEach(function (s) { ys[s.year] = 1; });
+  milestones = Object.keys(ys).map(Number).sort(function (a, b) { return a - b; });
+  buildTicks();
+  render();
+});
+</script>
+</body>
+</html>
