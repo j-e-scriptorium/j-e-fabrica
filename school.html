@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>School</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#e9dfc8; --paper-2:#ded2b6; --ink:#2a2620; --ink-soft:#5b5345;
+    --line:#8a7c5f; --p1:#9c3b29; --p2:#284b6b; --catch:#b8862c; --rim:#3a3324;
+    --bone:#efe7d2; --bone-d:#b9ad8c; --bone-line:#6f6650;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;height:100%}
+  body{
+    font-family:"EB Garamond",Georgia,serif;color:var(--ink);
+    background:radial-gradient(120% 100% at 50% 0%, #efe6d2 0%, var(--paper) 45%, var(--paper-2) 100%);
+    min-height:100%;display:flex;flex-direction:column;align-items:center;padding:24px 16px 48px;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;opacity:.05;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:46px;letter-spacing:.02em;margin:0 0 2px}
+  .sub{font-style:italic;color:var(--ink-soft);margin:0 0 18px;font-size:18px;max-width:560px;text-align:center}
+  .wrap{display:flex;gap:28px;flex-wrap:wrap;justify-content:center;align-items:flex-start;max-width:980px}
+  canvas{
+    display:block;
+    width:min(540px, 92vw); height:min(540px, 92vw);
+    background:radial-gradient(circle at 50% 42%, #f1e8d4 0%, #e3d8bd 70%, #d8cbac 100%);
+    border-radius:50%;box-shadow:0 10px 30px rgba(40,30,10,.28), inset 0 0 0 1px rgba(58,51,36,.25);
+    cursor:crosshair;touch-action:none;
+  }
+  .panel{width:300px;max-width:100%;display:flex;flex-direction:column;gap:14px}
+  .card{background:rgba(255,252,244,.55);border:1px solid var(--line);border-radius:10px;padding:14px 16px;box-shadow:0 2px 6px rgba(40,30,10,.10)}
+  .turn{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:600}
+  .scores{display:flex;gap:12px;margin-top:8px}
+  .score{flex:1;text-align:center;padding:8px 4px;border-radius:8px;background:rgba(0,0,0,.04)}
+  .score b{display:block;font-size:30px;font-family:"Cormorant Garamond",serif}
+  .score span{font-size:14px}
+  .s1{box-shadow:inset 0 0 0 2px var(--p1)} .s2{box-shadow:inset 0 0 0 2px var(--p2)}
+  .meta{color:var(--ink-soft);font-size:15px;margin-top:8px}
+  label{display:block;font-size:15px;margin:10px 0 2px;color:var(--ink-soft)}
+  label span{float:right;color:var(--ink);font-variant-numeric:tabular-nums}
+  input[type=range]{width:100%;accent-color:var(--rim)}
+  select{width:100%;font-family:"EB Garamond",serif;font-size:15px;padding:7px 8px;border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.5);color:var(--ink)}
+  .aisel{margin-top:6px}
+  .row{display:flex;gap:8px}
+  button{font-family:"EB Garamond",serif;font-size:16px;cursor:pointer;background:var(--rim);color:#f3ead4;border:none;border-radius:8px;padding:9px 12px;flex:1;transition:transform .05s ease,filter .15s}
+  button:hover{filter:brightness(1.12)} button:active{transform:translateY(1px)}
+  button.ghost{background:transparent;color:var(--ink);box-shadow:inset 0 0 0 1px var(--line)}
+  .toggle{display:flex;border:1px solid var(--line);border-radius:8px;overflow:hidden}
+  .toggle button{border-radius:0;background:transparent;color:var(--ink-soft);flex:1;font-size:15px;padding:8px}
+  .toggle button.on{background:var(--rim);color:#f3ead4}
+  .warn{color:#8a2b1a;font-size:14px;font-style:italic;min-height:1em}
+  .hint{font-size:14px;color:var(--ink-soft);font-style:italic;min-height:1.2em}
+  .check{display:flex;align-items:center;gap:8px;margin-top:10px;font-size:15px;color:var(--ink-soft);cursor:pointer}
+  .check input{width:16px;height:16px;accent-color:var(--rim)}
+</style>
+</head>
+<body>
+  <h1>School</h1>
+  <p class="sub">Stretch the string from peg to peg; the bones it crosses are yours &mdash; then return one tithe to the water.</p>
+
+  <div class="wrap">
+    <canvas id="board" width="540" height="540"></canvas>
+    <div class="panel">
+
+      <div class="card" id="playCard">
+        <div class="turn" id="turn">&nbsp;</div>
+        <div class="scores">
+          <div class="score s1"><b id="sc1">0</b><span id="p1Label">Player 1</span></div>
+          <div class="score s2"><b id="sc2">0</b><span id="p2Label">Player 2</span></div>
+        </div>
+        <div class="meta" id="remain">48 bones on the board</div>
+        <div class="hint" id="preview">&nbsp;</div>
+      </div>
+
+      <div class="card">
+        <label>Player 1 (sets up first)</label>
+        <div class="toggle ptype" data-player="1">
+          <button data-type="human" class="on">Human</button>
+          <button data-type="cpu">Computer</button>
+        </div>
+        <select class="aisel" data-player="1" style="display:none">
+          <option value="greedy">Greedy</option>
+          <option value="oneply">One-ply</option>
+          <option value="twoply" selected>Two-ply</option>
+          <option value="endgame">Two-ply + boxing-out</option>
+        </select>
+
+        <label>Player 2</label>
+        <div class="toggle ptype" data-player="2">
+          <button data-type="human">Human</button>
+          <button data-type="cpu" class="on">Computer</button>
+        </div>
+        <select class="aisel" data-player="2">
+          <option value="greedy">Greedy</option>
+          <option value="oneply">One-ply</option>
+          <option value="twoply" selected>Two-ply</option>
+          <option value="endgame">Two-ply + boxing-out</option>
+        </select>
+
+        <label class="check"><input type="checkbox" id="leftovers"> Leftovers go to the second player</label>
+
+        <label class="check"><input type="checkbox" id="full" checked> Full form (return a tithe-bone each turn)</label>
+
+        <label>Offset <span id="offVal">+3 &rarr; 2nd</span></label>
+        <input type="range" id="offset" min="-8" max="8" step="1" value="3">
+
+        <label>Pegs <span id="pegVal">72</span></label>
+        <input type="range" id="pegs" min="24" max="100" step="2" value="72">
+        <label>Bones <span id="boneVal">48</span></label>
+        <input type="range" id="bones" min="10" max="60" step="1" value="48">
+        <label>Bone size <span id="tokVal">5.0%</span></label>
+        <input type="range" id="tok" min="30" max="100" step="1" value="50">
+        <div class="warn" id="warn">&nbsp;</div>
+        <div class="row" style="margin-top:6px">
+          <button id="newgame">New Game</button>
+          <button class="ghost" id="reseat">Same Board</button>
+        </div>
+        <div class="row" style="margin-top:8px">
+          <button class="ghost" id="undo">&#8630; Undo</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+<script>
+(()=>{
+  const cv=document.getElementById('board'), ctx=cv.getContext('2d');
+  const DPR=window.devicePixelRatio||1, SIZE=540;
+  cv.width=SIZE*DPR; cv.height=SIZE*DPR; ctx.scale(DPR,DPR);
+  const cx=SIZE/2, cy=SIZE/2, R=SIZE/2-26;
+  const BEAM=12, ENDTHRESH=8;
+
+  // ---- state ----
+  let pegs=[], bones=[], tokenR=18;
+  let curIdx=0, turn=1, score={1:0,2:0}, over=false;
+  let lastMoves=[], hoverPeg=null, busy=false, mousePos=null;
+  let fullForm=true, phase='aim', last2=[1,1], pendingCaught=0;
+  let method='none', firstMover=1, secondMover=2;
+  let finalScore=null, endNote='';
+  let anim=null, bonus=null, endAnim=null;
+  let players={1:{type:'human',ai:'twoply'}, 2:{type:'cpu',ai:'twoply'}};
+  let history=[];
+
+  const other=id=>id===1?2:1;
+  function aiShort(a){return a==='greedy'?'greedy':a==='oneply'?'1-ply':a==='twoply'?'2-ply':'2-ply+box';}
+  function pName(id){
+    const p=players[id];
+    if(p.type==='cpu') return 'CPU: '+aiShort(p.ai);
+    const humans=[1,2].filter(i=>players[i].type==='human');
+    return humans.length===1 ? 'You' : 'Player '+id;
+  }
+
+  // ---- geometry ----
+  function distToSeg(px,py,ax,ay,bx,by){
+    const dx=bx-ax,dy=by-ay,L=dx*dx+dy*dy;
+    if(L===0) return Math.hypot(px-ax,py-ay);
+    let t=Math.max(0,Math.min(1,((px-ax)*dx+(py-ay)*dy)/L));
+    return Math.hypot(px-(ax+t*dx),py-(ay+t*dy));
+  }
+  function catchesFor(a,b){
+    const A=pegs[a],B=pegs[b],hit=[];
+    bones.forEach((f,i)=>{if(f.alive&&distToSeg(f.x,f.y,A.x,A.y,B.x,B.y)<=tokenR)hit.push(i);});
+    return hit;
+  }
+  function aliveCount(){return bones.filter(f=>f.alive).length;}
+  function greedyBest(from){
+    let best=null,bn=-1;
+    for(let i=0;i<pegs.length;i++){if(i===from)continue;
+      const c=catchesFor(from,i).length; if(c>bn){bn=c;best=i;}}
+    return best;
+  }
+
+  // ---- board build & non-overlapping placement ----
+  function buildPegs(n){
+    pegs=[];
+    for(let i=0;i<n;i++){const ang=-Math.PI/2+i*2*Math.PI/n;
+      pegs.push({x:cx+R*Math.cos(ang),y:cy+R*Math.sin(ang),angle:ang});}
+  }
+  function pegSpacing(){return 2*R*Math.sin(Math.PI/pegs.length);}
+  function free(x,y,ignore){
+    const min=2*tokenR;
+    for(let i=0;i<bones.length;i++){const f=bones[i];
+      if(!f.alive||i===ignore)continue;
+      if((f.x-x)**2+(f.y-y)**2 < min*min) return false;}
+    return true;
+  }
+  function randPt(){
+    const inner=R-tokenR-4, r=inner*Math.sqrt(Math.random()), a=Math.random()*2*Math.PI;
+    return {x:cx+r*Math.cos(a), y:cy+r*Math.sin(a)};
+  }
+  function randFree(){ for(let k=0;k<600;k++){const p=randPt(); if(free(p.x,p.y,-1)) return p;} return randPt(); }
+  function clampInterior(x,y){
+    const dx=x-cx,dy=y-cy,d=Math.hypot(dx,dy),max=R-tokenR-4;
+    if(d<=max) return {x,y};
+    return {x:cx+dx/d*max, y:cy+dy/d*max};
+  }
+  function freeSpotNear(x,y){
+    let p=clampInterior(x,y);
+    if(free(p.x,p.y,-1)) return p;
+    for(let r=tokenR*0.6;r<R;r+=tokenR*0.5){
+      for(let a=0;a<2*Math.PI;a+=Math.PI/8){
+        const q=clampInterior(x+r*Math.cos(a),y+r*Math.sin(a));
+        if(free(q.x,q.y,-1)) return q;
+      }
+    }
+    return p;
+  }
+  function scatterBones(n){
+    bones=[];
+    for(let i=0;i<n;i++){
+      let placed=false;
+      for(let k=0;k<400 && !placed;k++){
+        const p=randPt();
+        if(free(p.x,p.y,-1)){bones.push({x:p.x,y:p.y,alive:true,fresh:false,born:0});placed=true;}
+      }
+      if(!placed){const p=randPt();bones.push({x:p.x,y:p.y,alive:true,fresh:false,born:0});}
+    }
+  }
+
+  // ---- new game ----
+  function newGame(reseat){
+    const n=+document.getElementById('pegs').value, nf=+document.getElementById('bones').value;
+    tokenR=R*(+document.getElementById('tok').value/1000);
+    fullForm=document.getElementById('full').checked;
+    method=document.getElementById('leftovers').checked ? 'leftovers' : 'none';
+    buildPegs(n);
+    if(!reseat||bones.length===0) scatterBones(nf); else bones.forEach(f=>{f.alive=true;f.fresh=false;f.born=0;});
+    curIdx=0; score={1:0,2:0}; over=false; lastMoves=[]; hoverPeg=null;
+    phase='aim'; last2=[1,1]; finalScore=null; endNote=''; anim=null; bonus=null; endAnim=null; history=[];
+    firstMover=1; secondMover=2; turn=firstMover;
+    syncWarn(); updateUI(); draw(); checkComputer();
+  }
+
+  // ---- undo (snapshot before each human action) ----
+  function snapshot(){
+    return {
+      bones: bones.map(b=>({x:b.x,y:b.y,alive:b.alive,fresh:b.fresh,born:b.born})),
+      score:{1:score[1],2:score[2]}, curIdx, turn, phase, over, last2:[...last2],
+      pendingCaught, lastMoves: lastMoves.map(m=>({...m})),
+      finalScore: finalScore?{...finalScore}:null, endNote
+    };
+  }
+  function pushHistory(){ history.push(snapshot()); if(history.length>200) history.shift(); }
+  function undo(){
+    if(busy || anim || !history.length) return;
+    const s=history.pop();
+    bones=s.bones.map(b=>({x:b.x,y:b.y,alive:b.alive,fresh:b.fresh,born:0}));
+    score={1:s.score[1],2:s.score[2]};
+    curIdx=s.curIdx; turn=s.turn; phase=s.phase; over=s.over; last2=[...s.last2];
+    pendingCaught=s.pendingCaught; lastMoves=s.lastMoves.map(m=>({...m}));
+    finalScore=s.finalScore?{...s.finalScore}:null; endNote=s.endNote;
+    hoverPeg=null; mousePos=null; bonus=null; endAnim=null;
+    updateUI(); draw();   // restored state is always a human's turn, so no checkComputer
+  }
+
+  // ---- human turn ----
+  function doCatch(toIdx){
+    if(over||phase!=='aim'||toIdx===curIdx) return;
+    const hit=catchesFor(curIdx,toIdx);
+    if(hit.length===0){    // a chord that collects nothing isn't a legal move; like lifting your finger
+      hoverPeg=null;
+      document.getElementById('preview').textContent='That chord catches nothing \u2014 cast another.';
+      draw(); return;
+    }
+    pushHistory();
+    hit.forEach(i=>bones[i].alive=false);
+    score[turn]+=hit.length;
+    lastMoves.push({from:curIdx,to:toIdx,player:turn});
+    curIdx=toIdx; pendingCaught=hit.length;
+    if(hit.length>=1) triggerBonus(hit.length, hit.map(i=>({x:bones[i].x,y:bones[i].y})));
+    const mustReturn = fullForm && (hit.length>0 || score[turn]>0);
+    if(mustReturn){ phase='place'; updateUI(); draw(); }
+    else finishTurn(hit.length);
+  }
+  function placeBack(x,y){
+    if(players[turn].type==='human') pushHistory();
+    const p=placementSpot(x,y);
+    bones.push({x:p.x,y:p.y,alive:true,fresh:true,born:performance.now()});
+    score[turn]-=1; phase='aim';
+    pulse(320);
+    finishTurn(pendingCaught-1);
+  }
+
+  // keep a thrown-back bone off every chord of the string on the board (and off other bones)
+  function placementSpot(x,y){
+    const segs=lastMoves.map(m=>[pegs[m.from],pegs[m.to]]);
+    const margin=tokenR+1.5;
+    const clearLines=(px,py)=>{ for(const s of segs){ if(distToSeg(px,py,s[0].x,s[0].y,s[1].x,s[1].y)<margin) return false; } return true; };
+    const ok=(px,py)=>{
+      const cl=clampInterior(px,py);
+      if(Math.hypot(cl.x-cx,cl.y-cy)>R-tokenR-4) return null;
+      if(!free(cl.x,cl.y,-1)) return null;
+      if(!clearLines(cl.x,cl.y)) return null;
+      return cl;
+    };
+    const start=clampInterior(x,y);
+    const s0=ok(start.x,start.y); if(s0) return s0;
+    for(let r=tokenR*0.3;r<2.2*R;r+=tokenR*0.35){       // spiral out to nearest spot clear of all lines
+      for(let a=0;a<2*Math.PI;a+=Math.PI/12){
+        const q=ok(start.x+r*Math.cos(a), start.y+r*Math.sin(a));
+        if(q) return q;
+      }
+    }
+    return clampInterior(x,y);
+  }
+
+  // a colored number (and a burst scaling with the count) on every catch
+  function triggerBonus(n,pts){
+    let bx=0,by=0; pts.forEach(p=>{bx+=p.x;by+=p.y;}); bx/=pts.length; by/=pts.length;
+    const d=Math.hypot(bx-cx,by-cy), maxd=R*0.6;
+    if(d>maxd){ bx=cx+(bx-cx)/d*maxd; by=cy+(by-cy)/d*maxd; }
+    bonus={n, t0:performance.now(), dur:500+Math.min(n,10)*100, x:bx, y:by, seed:Math.random()*6.283};
+    pulse(bonus.dur);
+  }
+  function triggerEndMessage(){
+    const f=finalScore||score;
+    let text;
+    if(f[1]===f[2]) text='A tie';
+    else { const win=f[1]>f[2]?1:2, wn=pName(win); text = wn==='You'?'You win':wn+' wins'; }
+    endAnim={t0:performance.now(), dur:3200, text, sub:f[1]+'\u2013'+f[2]};
+    pulse(endAnim.dur);
+  }
+  function finishTurn(profit){
+    last2=[last2[1],profit];
+    if(fullForm){ if(last2[0]<=0 && last2[1]<=0) over=true; }
+    if(aliveCount()===0) over=true;
+    if(over){ computeFinal(); triggerEndMessage(); }
+    turn = other(turn); hoverPeg=null;
+    updateUI(); draw(); if(!over) checkComputer();
+  }
+  function computeFinal(){
+    const f={1:score[1],2:score[2]};
+    const off=+document.getElementById('offset').value;
+    const lo = method==='leftovers' ? aliveCount() : 0;
+    f[secondMover]+=lo;
+    if(off>0) f[secondMover]+=off; else if(off<0) f[firstMover]+=(-off);
+    const parts=[];
+    if(off>0) parts.push('+'+off+' offset to '+pName(secondMover));
+    else if(off<0) parts.push('+'+(-off)+' offset to '+pName(firstMover));
+    if(lo>0) parts.push('+'+lo+' leftovers to '+pName(secondMover));
+    endNote = parts.length ? '('+parts.join('; ')+')' : '';
+    finalScore=f;
+  }
+
+  // ---- tithe placements ----
+  function placeStrategic(from){
+    const oIdx=greedyBest(from);
+    if(oIdx==null) return randFree();
+    const oppHit=catchesFor(from,oIdx);
+    oppHit.forEach(i=>bones[i].alive=false);
+    const mIdx=greedyBest(oIdx);
+    oppHit.forEach(i=>bones[i].alive=true);
+    if(mIdx==null) return randFree();
+    const O=pegs[oIdx],M=pegs[mIdx],A=pegs[from],B=pegs[oIdx];
+    let best=null,bd=-1;
+    for(let k=1;k<=14;k++){
+      const t=0.2+0.6*k/14;
+      const px=O.x+(M.x-O.x)*t, py=O.y+(M.y-O.y)*t;
+      const fpt=freeSpotNear(px,py);
+      const d=distToSeg(fpt.x,fpt.y,A.x,A.y,B.x,B.y);
+      if(d>bd){bd=d;best=fpt;}
+    }
+    return best||randFree();
+  }
+  function placeIsolated(j){
+    let best=null;
+    for(let t=0;t<60;t++){
+      const p=randFree();
+      const ang=Math.atan2(p.y-pegs[j].y,p.x-pegs[j].x);
+      let k=-1,bd=Infinity;
+      for(let kk=0;kk<pegs.length;kk++){ if(kk===j)continue;
+        const a=Math.atan2(pegs[kk].y-pegs[j].y,pegs[kk].x-pegs[j].x);
+        const d=Math.abs(((a-ang+Math.PI)%(2*Math.PI))-Math.PI);
+        if(d<bd){bd=d;k=kk;}
+      }
+      if(k>=0 && catchesFor(j,k).length===0) return p;
+      if(!best)best=p;
+    }
+    return best||randFree();
+  }
+  function placeCluster(){
+    const live=bones.filter(f=>f.alive);
+    if(!live.length) return randFree();
+    let b=live[0],bd=Infinity;
+    for(const f of live){const d=(f.x-cx)**2+(f.y-cy)**2; if(d<bd){bd=d;b=f;}}
+    for(let t=0;t<40;t++){
+      const a=Math.random()*2*Math.PI, d=2.05*tokenR;
+      const cl=clampInterior(b.x+d*Math.cos(a), b.y+d*Math.sin(a));
+      if(Math.hypot(cl.x-cx,cl.y-cy)<=R-tokenR-4 && free(cl.x,cl.y,-1)) return cl;
+    }
+    return randFree();
+  }
+
+  // ---- AI engines (selection over chord coverage cache) ----
+  function buildCover(){
+    const cov=new Array(pegs.length);
+    const live=[]; bones.forEach((f,idx)=>{if(f.alive)live.push(idx);});
+    for(let i=0;i<pegs.length;i++) cov[i]=new Array(pegs.length);
+    for(let i=0;i<pegs.length;i++){
+      const ax=pegs[i].x, ay=pegs[i].y;
+      for(let j=i+1;j<pegs.length;j++){
+        const bx=pegs[j].x, by=pegs[j].y, arr=[];
+        for(let t=0;t<live.length;t++){const f=bones[live[t]];
+          if(distToSeg(f.x,f.y,ax,ay,bx,by)<=tokenR) arr.push(live[t]);}
+        cov[i][j]=arr; cov[j][i]=arr;
+      }
+    }
+    return cov;
+  }
+  function coverArr(cov,i,j){const s=cov[i][j],out=[];for(let t=0;t<s.length;t++)if(bones[s[t]].alive)out.push(s[t]);return out;}
+  function coverCnt(cov,i,j){const s=cov[i][j];let n=0;for(let t=0;t<s.length;t++)if(bones[s[t]].alive)n++;return n;}
+  function hasPairFrom(cov,j){for(let k=0;k<pegs.length;k++){if(k===j)continue;if(coverCnt(cov,j,k)>=2)return true;}return false;}
+
+  function greedyMove(cov,cur){
+    let bn=-1,ties=[];
+    for(let j=0;j<pegs.length;j++){ if(j===cur)continue; const c=coverCnt(cov,cur,j);
+      if(c>bn){bn=c;ties=[j];}else if(c===bn)ties.push(j); }
+    const j = ties.length?ties[Math.floor(Math.random()*ties.length)]:(cur+1)%pegs.length;
+    return {j, arr:coverArr(cov,cur,j), place:'strategic'};
+  }
+  function oneplyMove(cov,cur){
+    let best=null,bv=-1e9,bArr=[];
+    for(let j=0;j<pegs.length;j++){ if(j===cur)continue;
+      const arr=coverArr(cov,cur,j), n=arr.length;
+      for(let q=0;q<arr.length;q++)bones[arr[q]].alive=false;
+      let opp=0; for(let k=0;k<pegs.length;k++){if(k===j)continue;const c=coverCnt(cov,j,k);if(c>opp)opp=c;}
+      for(let q=0;q<arr.length;q++)bones[arr[q]].alive=true;
+      const v=n-opp;
+      if(v>bv){bv=v;best=j;bArr=arr;}
+    }
+    if(best==null){best=(cur+1)%pegs.length;bArr=coverArr(cov,cur,best);}
+    return {j:best,arr:bArr,place:'strategic'};
+  }
+  function negamax(cov,cur,depth){
+    if(depth===0) return 0;
+    let cands=[];
+    for(let j=0;j<pegs.length;j++){ if(j===cur)continue; const arr=coverArr(cov,cur,j); if(arr.length)cands.push([arr.length,j,arr]); }
+    if(!cands.length) return 0;
+    cands.sort((a,b)=>b[0]-a[0]); if(cands.length>BEAM)cands.length=BEAM;
+    let best=-1e9;
+    for(let t=0;t<cands.length;t++){ const n=cands[t][0],j=cands[t][1],arr=cands[t][2];
+      for(let q=0;q<arr.length;q++)bones[arr[q]].alive=false;
+      const v=n-negamax(cov,j,depth-1);
+      for(let q=0;q<arr.length;q++)bones[arr[q]].alive=true;
+      if(v>best)best=v;
+    }
+    return best;
+  }
+  function twoplyMove(cov,cur){
+    let cands=[];
+    for(let j=0;j<pegs.length;j++){ if(j===cur)continue; const arr=coverArr(cov,cur,j); if(arr.length)cands.push([arr.length,j,arr]); }
+    if(!cands.length){ const j=(cur+1)%pegs.length; return {j,arr:[],place:'strategic'}; }
+    cands.sort((a,b)=>b[0]-a[0]); const lim=Math.max(BEAM,16); if(cands.length>lim)cands.length=lim;
+    let best=null,bv=-1e9,bArr=[];
+    for(let t=0;t<cands.length;t++){ const n=cands[t][0],j=cands[t][1],arr=cands[t][2];
+      for(let q=0;q<arr.length;q++)bones[arr[q]].alive=false;
+      const v=n-negamax(cov,j,2);
+      for(let q=0;q<arr.length;q++)bones[arr[q]].alive=true;
+      if(v>bv){bv=v;best=j;bArr=arr;}
+    }
+    return {j:best,arr:bArr,place:'strategic'};
+  }
+  function endgameMove(cov,cur,me){
+    const opp=other(me), alive=aliveCount();
+    if(method==='leftovers' && alive<=ENDTHRESH){
+      if(me===secondMover){
+        if(score[me]+alive > score[opp]){
+          let feas=[];
+          for(let j=0;j<pegs.length;j++){ if(j===cur)continue;
+            const arr=coverArr(cov,cur,j); if(arr.length!==1) continue;   // scoreless = catch 1, return 1
+            for(let q=0;q<arr.length;q++)bones[arr[q]].alive=false;
+            const starved=!hasPairFrom(cov,j);
+            for(let q=0;q<arr.length;q++)bones[arr[q]].alive=true;
+            if(starved) feas.push([arr.length,j,arr]);
+          }
+          if(feas.length){ feas.sort((a,b)=>a[0]-b[0]); const f=feas[0]; return {j:f[1],arr:f[2],place:'isolated'}; }
+        }
+      } else {
+        if(score[opp]+alive >= score[me]){
+          let rows=[];
+          for(let j=0;j<pegs.length;j++){ if(j===cur)continue;
+            const arr=coverArr(cov,cur,j), n=arr.length;
+            for(let q=0;q<arr.length;q++)bones[arr[q]].alive=false;
+            let opp2=0; for(let k=0;k<pegs.length;k++){if(k===j)continue;const c=coverCnt(cov,j,k);if(c>opp2)opp2=c;}
+            for(let q=0;q<arr.length;q++)bones[arr[q]].alive=true;
+            rows.push([n>=2?1:0, n-opp2, j, arr]);
+          }
+          rows.sort((a,b)=> b[0]-a[0] || b[1]-a[1]);
+          const r=rows[0]; return {j:r[2],arr:r[3],place:'cluster'};
+        }
+      }
+    }
+    return twoplyMove(cov,cur);
+  }
+
+  // ---- computer turn ----
+  function checkComputer(){
+    if(over||phase!=='aim'||busy) return;
+    if(players[turn].type!=='cpu') return;
+    busy=true; updateUI();
+    setTimeout(()=>aiMove(turn), 350);
+  }
+  function aiMove(id){
+    const cov=buildCover(), ai=players[id].ai;
+    let mv;
+    if(ai==='endgame') mv=endgameMove(cov,curIdx,id);
+    else if(ai==='twoply') mv=twoplyMove(cov,curIdx);
+    else if(ai==='oneply') mv=oneplyMove(cov,curIdx);
+    else mv=greedyMove(cov,curIdx);
+    if(mv.arr.length===0){                       // a 0-catch is illegal; take a real catch if one exists
+      const g=greedyMove(cov,curIdx);
+      if(g.arr.length>=1) mv={j:g.j,arr:g.arr,place:'strategic'};
+    }
+    if(mv.j==null){ busy=false; finishTurn(0); return; }
+    animateChord(curIdx,mv.j,mv.arr,()=>applyCpuMove(mv));
+  }
+  function applyCpuMove(mv){
+    const toIdx=mv.j;
+    mv.arr.forEach(i=>bones[i].alive=false);
+    score[turn]+=mv.arr.length;
+    lastMoves.push({from:curIdx,to:toIdx,player:turn});
+    curIdx=toIdx; pendingCaught=mv.arr.length; busy=false;
+    if(mv.arr.length>=1) triggerBonus(mv.arr.length, mv.arr.map(i=>({x:bones[i].x,y:bones[i].y})));
+    const mustReturn = fullForm && (mv.arr.length>0 || score[turn]>0);
+    if(mustReturn){
+      let p;
+      if(mv.place==='isolated') p=placeIsolated(curIdx);
+      else if(mv.place==='cluster') p=placeCluster();
+      else p=placeStrategic(curIdx);
+      placeBack(p.x,p.y);
+    } else finishTurn(mv.arr.length);
+  }
+
+  // ---- animation ----
+  function animateChord(from,to,hitArr,onDone){
+    const A=pegs[from],B=pegs[to],dx=B.x-A.x,dy=B.y-A.y,L=(dx*dx+dy*dy)||1, tpar={};
+    hitArr.forEach(i=>{const f=bones[i]; tpar[i]=Math.max(0,Math.min(1,((f.x-A.x)*dx+(f.y-A.y)*dy)/L));});
+    anim={from,to,hitSet:new Set(hitArr),tpar,t0:performance.now(),dur:650,progress:0,onDone};
+    requestAnimationFrame(animTick);
+  }
+  function animTick(now){
+    if(!anim) return;
+    anim.progress=Math.min(1,(now-anim.t0)/anim.dur);
+    draw();
+    if(anim.progress<1) requestAnimationFrame(animTick);
+    else { const cb=anim.onDone; anim=null; draw(); if(cb)cb(); }
+  }
+  function pulse(ms){ const t0=performance.now(); (function step(now){ draw(); if(now-t0<ms) requestAnimationFrame(step); })(performance.now()); }
+
+  // ---- drawing ----
+  function bonePath(scale){
+    const p=new Path2D(), c=scale*0.46, off=scale*0.36, cr=scale*0.34;
+    p.moveTo(c,0); p.arc(0,0,c,0,2*Math.PI);
+    for(const s of [[1,1],[1,-1],[-1,1],[-1,-1]]){
+      p.moveTo(s[0]*off+cr, s[1]*off); p.arc(s[0]*off,s[1]*off,cr,0,2*Math.PI);
+    }
+    return p;
+  }
+  function drawBone(x,y,lit,fresh,glow,birth){
+    glow = (glow==null) ? (lit?1:0) : glow;
+    birth = (birth==null) ? 1 : birth;
+    ctx.save(); ctx.translate(x,y); if(birth!==1) ctx.scale(birth,birth);
+    if(glow>0){
+      const hr=tokenR*2.3;
+      const gg=ctx.createRadialGradient(0,0,tokenR*0.25, 0,0,hr);
+      gg.addColorStop(0,'rgba(255,201,74,'+(0.85*glow)+')');
+      gg.addColorStop(0.45,'rgba(255,176,40,'+(0.40*glow)+')');
+      gg.addColorStop(1,'rgba(255,176,40,0)');
+      ctx.beginPath();ctx.arc(0,0,hr,0,2*Math.PI);ctx.fillStyle=gg;ctx.fill();
+    }
+    const sc=tokenR*1.16;
+    ctx.fillStyle = glow>0 ? '#a86f12' : '#6f6650';
+    ctx.fill(bonePath(sc));
+    const g=ctx.createRadialGradient(-sc*0.18,-sc*0.18,sc*0.1, 0,0,sc*0.85);
+    if(glow>0){ g.addColorStop(0,'#fff6d2'); g.addColorStop(1,'#f3c84f'); }
+    else { g.addColorStop(0, fresh?'#e6efe2':'#f4ecd8'); g.addColorStop(1, fresh?'#bcd0c0':'#cabf9f'); }
+    ctx.fillStyle=g; ctx.fill(bonePath(sc*0.86));
+    if(glow>0){ ctx.lineWidth=2.4; ctx.strokeStyle='rgba(255,214,96,'+(0.95*glow)+')'; ctx.stroke(bonePath(sc*0.98)); }
+    ctx.beginPath();ctx.ellipse(-sc*0.16,-sc*0.18,sc*0.16,sc*0.1,-0.5,0,2*Math.PI);
+    ctx.fillStyle='rgba(255,255,255,.5)';ctx.fill();
+    ctx.restore();
+  }
+  function draw(){
+    ctx.clearRect(0,0,SIZE,SIZE);
+    ctx.beginPath();ctx.arc(cx,cy,R,0,2*Math.PI);ctx.lineWidth=2.5;ctx.strokeStyle='rgba(58,51,36,.5)';ctx.stroke();
+
+    const L=lastMoves.length, STRONG=0.42, FLOOR=0.13;
+    lastMoves.forEach((m,k)=>{
+      const a=pegs[m.from],b=pegs[m.to];
+      const age=(L-1)-k;                       // 0 = most recent
+      const al = age<3 ? FLOOR+(STRONG-FLOOR)*(1-age/3) : FLOOR;
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.lineWidth=1.5;
+      ctx.strokeStyle=(m.player===1?'rgba(156,59,41,':'rgba(40,75,107,')+al+')';ctx.stroke();
+    });
+
+    let previewHit=[];
+    if(phase==='aim'&&hoverPeg!=null&&!over&&!busy&&hoverPeg!==curIdx){
+      previewHit=catchesFor(curIdx,hoverPeg);
+      const a=pegs[curIdx],b=pegs[hoverPeg];
+      ctx.beginPath();ctx.moveTo(a.x,a.y);ctx.lineTo(b.x,b.y);ctx.lineWidth=2.5;ctx.setLineDash([6,5]);
+      ctx.strokeStyle=turn===1?'#9c3b29':'#284b6b';ctx.stroke();ctx.setLineDash([]);
+    }
+    const pset=new Set(previewHit);
+
+    if(anim){
+      const A=pegs[anim.from], B=pegs[anim.to];
+      const ex=A.x+(B.x-A.x)*anim.progress, ey=A.y+(B.y-A.y)*anim.progress;
+      ctx.beginPath();ctx.moveTo(A.x,A.y);ctx.lineTo(ex,ey);
+      ctx.lineWidth=3.2;ctx.lineCap='round';ctx.strokeStyle=turn===1?'#9c3b29':'#284b6b';ctx.stroke();ctx.lineCap='butt';
+      ctx.beginPath();ctx.arc(ex,ey,4.5,0,2*Math.PI);ctx.fillStyle=turn===1?'#9c3b29':'#284b6b';ctx.fill();
+    }
+
+    pegs.forEach((p,i)=>{
+      ctx.beginPath();ctx.arc(p.x,p.y,i===curIdx?5:3,0,2*Math.PI);
+      ctx.fillStyle=i===curIdx?'#3a3324':'rgba(58,51,36,.55)';ctx.fill();
+      if(i===curIdx){ctx.beginPath();ctx.arc(p.x,p.y,8,0,2*Math.PI);ctx.lineWidth=1.5;ctx.strokeStyle='#3a3324';ctx.stroke();}
+    });
+
+    const now=performance.now();
+    bones.forEach((f,i)=>{ if(!f.alive) return;
+      let glow = pset.has(i)?1:0;
+      if(anim && anim.hitSet.has(i)) glow=Math.max(glow, anim.progress>=anim.tpar[i]?1:0);
+      let birth=1;
+      if(f.born){ const b=Math.min(1,(now-f.born)/260); birth=1-Math.pow(1-b,3); }
+      drawBone(f.x,f.y, glow>0, f.fresh, glow, birth);
+    });
+
+    if(phase==='place'&&mousePos){
+      const p=placementSpot(mousePos.x,mousePos.y);
+      ctx.globalAlpha=.6; drawBone(p.x,p.y,false,true); ctx.globalAlpha=1;
+    }
+
+    if(bonus){
+      const p=(performance.now()-bonus.t0)/bonus.dur;
+      if(p>=1) bonus=null; else drawBonus(bonus,p);
+    }
+    if(endAnim){
+      const p=(performance.now()-endAnim.t0)/endAnim.dur;
+      if(p>=1) endAnim=null; else drawEndMessage(endAnim,p);
+    }
+  }
+
+  function drawEndMessage(e,p){
+    const alpha = p<0.12 ? p/0.12 : (p>0.62 ? Math.max(0,1-(p-0.62)/0.38) : 1);
+    const grow=Math.min(1,p/0.18), ease=1-Math.pow(1-grow,3), scale=0.72+0.28*ease;
+    ctx.save(); ctx.translate(cx,cy); ctx.scale(scale,scale);
+    const rg=ctx.createRadialGradient(0,0,10, 0,0,R*0.92);
+    rg.addColorStop(0,'rgba(244,236,216,'+(alpha*0.86)+')');
+    rg.addColorStop(0.7,'rgba(244,236,216,'+(alpha*0.5)+')');
+    rg.addColorStop(1,'rgba(244,236,216,0)');
+    ctx.beginPath();ctx.arc(0,0,R*0.92,0,2*Math.PI);ctx.fillStyle=rg;ctx.fill();
+    const fs=R*0.21;
+    ctx.font='600 '+fs+'px "Cormorant Garamond", Georgia, serif';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.lineWidth=Math.max(2,fs*0.05); ctx.strokeStyle='rgba(120,74,10,'+(alpha*0.8)+')';
+    ctx.strokeText(e.text,0,-fs*0.18);
+    ctx.fillStyle='rgba(58,51,36,'+alpha+')';
+    ctx.fillText(e.text,0,-fs*0.18);
+    const fs2=R*0.11;
+    ctx.font='500 '+fs2+'px "Cormorant Garamond", Georgia, serif';
+    ctx.fillStyle='rgba(90,80,55,'+(alpha*0.95)+')';
+    ctx.fillText(e.sub, 0, fs*0.55);
+    ctx.restore();
+  }
+
+  function tierColor(n){
+    if(n<=1) return {fill:'224,72,55',  stroke:'120,22,15'};   // red
+    if(n<=3) return {fill:'205,127,50', stroke:'92,52,16'};    // bronze
+    if(n<=5) return {fill:'214,218,226',stroke:'108,114,126'}; // silver
+    return    {fill:'255,206,82', stroke:'120,74,10'};         // gold
+  }
+  function drawBonus(b,p){
+    const env = p<0.18 ? p/0.18 : 1-(p-0.18)/0.82;
+    const alpha=Math.max(0,Math.min(1,env)), n=b.n, col=tierColor(n);
+    ctx.save(); ctx.translate(b.x,b.y);
+    // ring(s) — always one, two for big gold
+    const rings = n>=9?2:1;
+    for(let r=0;r<rings;r++){
+      const rr=(0.2+1.0*p)*(tokenR*(1.8+(n-1)*0.32)) + r*tokenR*1.2;
+      ctx.beginPath();ctx.arc(0,0,rr,0,2*Math.PI);
+      ctx.lineWidth=Math.max(0.5,2.4*(1-p)); ctx.strokeStyle='rgba('+col.fill+','+(alpha*0.5)+')'; ctx.stroke();
+    }
+    // rays — none for 1, growing thereafter
+    const rays = n<=1?0:(n-1)*3;
+    if(rays){
+      const len=(0.25+0.75*p)*tokenR*(2+(n-1)*1.2);
+      for(let i=0;i<rays;i++){
+        const ang=b.seed + i*2*Math.PI/rays, r0=tokenR*0.8*(0.4+0.6*p);
+        ctx.beginPath();
+        ctx.moveTo(Math.cos(ang)*r0, Math.sin(ang)*r0);
+        ctx.lineTo(Math.cos(ang)*(r0+len), Math.sin(ang)*(r0+len));
+        ctx.lineWidth=2.2; ctx.lineCap='round'; ctx.strokeStyle='rgba('+col.fill+','+(alpha*0.8)+')'; ctx.stroke();
+      }
+      ctx.lineCap='butt';
+    }
+    // sparkle particles for the elaborate gold tiers
+    if(n>=7){
+      const parts=(n-6)*9, len=tokenR*(2+(n-1)*1.2);
+      for(let i=0;i<parts;i++){
+        const ang=b.seed*1.7 + i*2.39996, dist=len*(0.55+0.5*(((i*37)%100)/100))*(0.6+0.6*p);
+        ctx.beginPath();ctx.arc(Math.cos(ang)*dist, Math.sin(ang)*dist, 2.4*(1-p)+1, 0,2*Math.PI);
+        ctx.fillStyle='rgba('+col.fill+','+(alpha*0.9)+')';ctx.fill();
+      }
+    }
+    // the number
+    const pop=1+0.22*Math.sin(Math.min(1,p*3.2)*Math.PI/2);
+    const fs=(tokenR*1.8 + (n-1)*tokenR*0.34)*pop;
+    const label = n + (n>=9?'\u2009!!':n>=7?'\u2009!':'');
+    ctx.font='600 '+fs+'px "Cormorant Garamond", Georgia, serif';
+    ctx.textAlign='center'; ctx.textBaseline='middle';
+    ctx.lineWidth=Math.max(2,fs*0.07); ctx.strokeStyle='rgba('+col.stroke+','+alpha+')'; ctx.strokeText(label,0,0);
+    ctx.fillStyle='rgba('+col.fill+','+alpha+')'; ctx.fillText(label,0,0);
+    ctx.restore();
+  }
+
+  // ---- UI ----
+  function updateUI(){
+    document.getElementById('sc1').textContent=score[1];
+    document.getElementById('sc2').textContent=score[2];
+    document.getElementById('p1Label').textContent=pName(1);
+    document.getElementById('p2Label').textContent=pName(2);
+    const ac=aliveCount();
+    document.getElementById('remain').textContent=ac+' bone'+(ac===1?'':'s')+' on the board';
+    const undoBtn=document.getElementById('undo');
+    if(undoBtn) undoBtn.disabled = !(history.length && !busy && !anim);
+    const t=document.getElementById('turn'), pv=document.getElementById('preview');
+    const nm=pName(turn), human=players[turn].type==='human';
+    if(over){
+      const f=finalScore||score;
+      let w; if(f[1]===f[2]) w='A tie'; else { const win=f[1]>f[2]?1:2; const wn=pName(win); w = wn==='You'?'You win':wn+' wins'; }
+      t.textContent=w+' \u2014 '+f[1]+'\u2013'+f[2]+(endNote?'  '+endNote:''); pv.innerHTML='&nbsp;';
+    }else if(busy){ t.textContent=nm+' is plotting\u2026'; pv.innerHTML='&nbsp;';
+    }else if(phase==='place'){
+      t.textContent = (human&&nm==='You') ? 'Return a tithe-bone' : nm+': return a tithe-bone';
+      pv.textContent = human ? 'Click in the water to set it down (costs one point).' : '\u00a0';
+    }else{
+      t.textContent = (human&&nm==='You') ? 'Your move' : nm+'\u2019s move';
+    }
+  }
+  function syncWarn(){
+    const w=document.getElementById('warn');
+    if(2*tokenR<pegSpacing()){w.textContent='Bone diameter < peg spacing \u2014 some chords may be unreachable.';}
+    else w.innerHTML='&nbsp;';
+  }
+
+  // ---- input ----
+  function nearestPeg(mx,my){let bi=0,bd=Infinity;pegs.forEach((p,i)=>{const d=(p.x-mx)**2+(p.y-my)**2;if(d<bd){bd=d;bi=i;}});return bi;}
+  function localPos(e){
+    const r=cv.getBoundingClientRect();
+    const X=(e.touches&&e.touches[0]?e.touches[0].clientX:e.clientX)-r.left;
+    const Y=(e.touches&&e.touches[0]?e.touches[0].clientY:e.clientY)-r.top;
+    return {x:X*(SIZE/r.width), y:Y*(SIZE/r.height)};
+  }
+  function humanTurn(){ return players[turn].type==='human'; }
+  function canAim(){return !over&&!busy&&phase==='aim'&&humanTurn();}
+  function canPlace(){return !over&&!busy&&phase==='place'&&humanTurn();}
+  function showAimPreview(){
+    if(hoverPeg==null) return;
+    const n=catchesFor(curIdx,hoverPeg).length;
+    document.getElementById('preview').textContent=
+      hoverPeg===curIdx?'\u2014':('This chord takes '+n+' bone'+(n===1?'':'s'));
+  }
+
+  let lastTouch=0, dragging=null;
+  cv.addEventListener('mousemove',e=>{
+    if(performance.now()-lastTouch<800) return;
+    mousePos=localPos(e);
+    if(canAim()){ hoverPeg=nearestPeg(mousePos.x,mousePos.y); showAimPreview(); draw(); }
+    else if(canPlace()){ draw(); }
+  });
+  cv.addEventListener('mouseleave',()=>{hoverPeg=null;mousePos=null;
+    if(phase==='aim'&&!over) document.getElementById('preview').innerHTML='&nbsp;';draw();});
+  cv.addEventListener('click',e=>{
+    if(performance.now()-lastTouch<800) return;
+    const p=localPos(e);
+    if(canAim()){ doCatch(nearestPeg(p.x,p.y)); }
+    else if(canPlace()){ placeBack(p.x,p.y); }
+  });
+  cv.addEventListener('touchstart',e=>{
+    lastTouch=performance.now(); e.preventDefault(); const p=localPos(e); mousePos=p;
+    if(canAim()){ dragging='aim'; hoverPeg=nearestPeg(p.x,p.y); showAimPreview(); draw(); }
+    else if(canPlace()){ dragging='place'; draw(); }
+  },{passive:false});
+  cv.addEventListener('touchmove',e=>{
+    lastTouch=performance.now(); e.preventDefault(); const p=localPos(e); mousePos=p;
+    if(dragging==='aim'&&canAim()){ hoverPeg=nearestPeg(p.x,p.y); showAimPreview(); draw(); }
+    else if(dragging==='place'&&canPlace()){ draw(); }
+  },{passive:false});
+  cv.addEventListener('touchend',e=>{
+    lastTouch=performance.now(); e.preventDefault();
+    if(dragging==='aim'&&canAim()&&hoverPeg!=null&&hoverPeg!==curIdx){ const j=hoverPeg; dragging=null; doCatch(j); }
+    else if(dragging==='place'&&canPlace()&&mousePos){ const q=mousePos; dragging=null; placeBack(q.x,q.y); }
+    else { dragging=null; }
+  },{passive:false});
+
+  // ---- controls ----
+  const pegsEl=document.getElementById('pegs'),boneEl=document.getElementById('bones'),tokEl=document.getElementById('tok');
+  function lbl(){
+    document.getElementById('pegVal').textContent=pegsEl.value;
+    document.getElementById('boneVal').textContent=boneEl.value;
+    document.getElementById('tokVal').textContent=(tokEl.value/10).toFixed(1)+'%';
+    const ov=+document.getElementById('offset').value;
+    document.getElementById('offVal').textContent = ov===0 ? '0' : (ov>0 ? '+'+ov+' \u2192 2nd' : (-ov)+' \u2192 1st');
+  }
+  [pegsEl,boneEl,tokEl].forEach(el=>el.addEventListener('input',()=>{lbl();
+    tokenR=R*(tokEl.value/1000); buildPegs(+pegsEl.value); syncWarn(); draw();}));
+  document.getElementById('offset').addEventListener('input',lbl);   // affects only the final tally; no restart
+  document.getElementById('newgame').addEventListener('click',()=>newGame(false));
+  document.getElementById('reseat').addEventListener('click',()=>newGame(true));
+  document.getElementById('full').addEventListener('change',()=>newGame(true));
+  document.getElementById('leftovers').addEventListener('change',()=>newGame(true));
+  document.getElementById('undo').addEventListener('click',undo);
+
+  document.querySelectorAll('.ptype').forEach(tg=>{
+    const id=+tg.dataset.player;
+    tg.querySelectorAll('button').forEach(b=>b.addEventListener('click',()=>{
+      tg.querySelectorAll('button').forEach(x=>x.classList.remove('on')); b.classList.add('on');
+      players[id].type=b.dataset.type;
+      document.querySelector('.aisel[data-player="'+id+'"]').style.display = b.dataset.type==='cpu'?'block':'none';
+      newGame(true);
+    }));
+  });
+  document.querySelectorAll('.aisel').forEach(sel=>{
+    const id=+sel.dataset.player;
+    players[id].ai=sel.value;
+    sel.addEventListener('change',()=>{ players[id].ai=sel.value; newGame(true); });
+  });
+
+  lbl(); newGame(false);
+})();
+</script>
+</body>
+</html>
