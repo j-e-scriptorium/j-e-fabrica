@@ -25,14 +25,15 @@ body{font-family:var(--serif);font-size:16px;line-height:1.5;-webkit-font-smooth
 h1{font-family:var(--serif);font-weight:400;font-size:clamp(24px,4.4vw,38px);margin:0 0 6px;letter-spacing:-.01em}
 .standfirst{max-width:66ch;color:var(--mid);font-size:15px;margin:0 0 22px}
 
-.mapcard{position:relative;border:1px solid var(--rule);background:var(--blank)}
+.mapcard{position:relative;border:1px solid var(--rule);background:var(--blank);margin-top:18px}
 svg.map{display:block;width:100%;height:auto}
-.st{stroke:#8a7c54;stroke-width:.6;transition:fill .5s ease}
-.st.blank{fill:var(--blank)}
-.st.territory{fill:var(--territory)}
+.st{stroke:#8a7c54;stroke-width:.6;transition:fill .5s ease,stroke .5s ease;cursor:pointer}
+.st.blank{fill:var(--blank);stroke:var(--blank)}
+.st.territory{fill:var(--territory);stroke:var(--territory)}
 .st.admitted{fill:var(--state)}
-.st:hover{stroke:var(--accent);stroke-width:1.6}
-.st.cur{stroke:var(--accent);stroke-width:2.2}
+.st.admitted.blend{stroke:var(--state)}
+.st:hover{stroke:var(--accent)!important;stroke-width:1.6}
+.st.cur{stroke:var(--accent)!important;stroke-width:2.2}
 
 .tip{position:absolute;pointer-events:none;background:var(--ink);color:var(--paper);font-family:var(--sans);
   font-size:12.5px;line-height:1.5;padding:8px 11px;max-width:260px;border-radius:2px;opacity:0;
@@ -41,7 +42,7 @@ svg.map{display:block;width:100%;height:auto}
 .tip b{display:block;font-size:13.5px;margin-bottom:2px}
 .tip .yr{font-family:var(--mono);color:#d8c493;font-size:11px;letter-spacing:.04em}
 
-.timeline{margin-top:18px;border-top:1px solid var(--rule);padding-top:16px}
+.timeline{}
 .yearrow{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-bottom:8px}
 .yearnum{font-family:var(--serif);font-size:44px;line-height:1;color:var(--accent);font-variant-numeric:tabular-nums}
 .yearmeta{font-family:var(--sans);font-size:12px;color:var(--mid);line-height:1.7}
@@ -60,14 +61,21 @@ button.ctl:hover{border-color:var(--accent);color:var(--accent)}
 .tick.past{border-top-color:var(--state-soft)}
 
 .detail{margin-top:26px;border-top:1px solid var(--rule);padding-top:20px;display:grid;
-  grid-template-columns:1fr 220px;gap:24px}
+  grid-template-columns:1fr 360px;gap:24px}
 .detail.empty .dprose{color:var(--faint);font-style:italic}
 .dname{font-family:var(--serif);font-size:clamp(20px,3vw,27px);margin:0 0 4px}
 .dmeta{font-family:var(--sans);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint);margin-bottom:10px}
 .dprose{margin:0;max-width:62ch;font-size:15.5px}
-.dimages{display:flex;flex-direction:column;gap:10px}
-.dimages img{width:100%;display:block;border:1px solid var(--rule);background:#fff}
+.dimages{display:flex;gap:10px}
+.dimages > div{flex:1;min-width:0}
+.dimages img{width:100%;display:block;border:1px solid var(--rule);background:#fff;cursor:zoom-in;transition:opacity .15s}
+.dimages img:hover{opacity:.82}
 .dimages .cap{font-family:var(--sans);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--faint);margin:-6px 0 4px}
+
+.lightbox{position:fixed;inset:0;background:rgba(20,16,8,.86);display:none;align-items:center;justify-content:center;
+  z-index:20;cursor:zoom-out;padding:34px}
+.lightbox.on{display:flex}
+.lightbox img{max-width:100%;max-height:100%;box-shadow:0 10px 40px rgba(0,0,0,.5)}
 
 .foot{margin-top:40px;border-top:1px solid var(--rule);padding-top:18px;color:var(--mid);font-size:13.5px}
 .foot h3{font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);
@@ -78,8 +86,6 @@ button.ctl:hover{border-color:var(--accent);color:var(--accent)}
 
 @media (max-width:760px){
   .detail{grid-template-columns:1fr}
-  .dimages{flex-direction:row;flex-wrap:wrap}
-  .dimages > div{flex:1 1 45%}
 }
 @media (prefers-reduced-motion:reduce){*{transition:none!important}}
 </style>
@@ -89,12 +95,7 @@ button.ctl:hover{border-color:var(--accent);color:var(--accent)}
 
 <a class="backlink" href="../index.html">&larr; the Fabrica</a>
 <h1>The Expansion of America</h1>
-<p class="standfirst">Scrub the year to watch the country's territory arrive, and its states get admitted into it &mdash; not always the same year, sometimes decades apart. Hover a state for its story; darker means statehood, tan means it's American ground but not yet a state.</p>
-
-<div class="mapcard">
-  <svg class="map" id="map" viewBox="0 0 1015 594" role="img" aria-label="Map of the United States, showing territory and statehood by year"></svg>
-  <div class="tip" id="tip"></div>
-</div>
+<p class="standfirst">Scrub the year to watch the country's territory arrive, and its states get admitted into it &mdash; not always the same year, sometimes decades apart. Hover a state to name it; click for its story, and to jump the timeline to its admission. Darker means statehood, tan means it's American ground but not yet a state.</p>
 
 <div class="timeline">
   <div class="yearrow">
@@ -110,6 +111,11 @@ button.ctl:hover{border-color:var(--accent);color:var(--accent)}
     <button class="ctl" id="end">1959</button>
   </div>
   <div class="ticks" id="ticks"></div>
+</div>
+
+<div class="mapcard">
+  <svg class="map" id="map" viewBox="0 0 1015 594" role="img" aria-label="Map of the United States, showing territory and statehood by year"></svg>
+  <div class="tip" id="tip"></div>
 </div>
 
 <div class="detail empty" id="detail">
@@ -129,10 +135,13 @@ button.ctl:hover{border-color:var(--accent);color:var(--accent)}
     <span><span class="sw" style="background:#2f4d6b"></span>admitted as a state</span>
   </div>
   <p>State outlines are modern borders throughout &mdash; this map does not attempt to draw the precise, often short-lived boundaries of historical territories (Missouri Territory, Indian Territory, and the rest), only when each present-day state's land became American ground and when it became a state. Each state is assigned to the single acquisition its land is dominantly identified with; land genuinely contested between two acquisitions, or reorganized more than once, is simplified to one. Boundaries come from the US Census Bureau (via <span class="monospace">us-atlas</span>), Albers USA projection.</p>
+  <p>Three states spent time as literal parts of an already-admitted neighbor rather than their own territory: Kentucky and West Virginia were Virginia until they split off (1792 and 1863), and Maine was Massachusetts until 1820 &mdash; each renders blended into its parent, with no border, until its own admission. Texas's claim into what's now eastern New Mexico and a strip of southeastern Colorado, relinquished in the Compromise of 1850, is shown the same way, appearing 1845&ndash;1850; that shape is a rough approximation, not a sourced historical boundary.</p>
   <p>State origin blurbs, illustrations, and flags are illustrative, not exhaustive &mdash; see each state's own history for the fuller story.</p>
 </div>
 
 </div>
+
+<div class="lightbox" id="lightbox"><img id="lightboxImg" src="" alt=""></div>
 
 <script src="usa-states.js"></script>
 <script src="acquisitions.js"></script>
@@ -144,6 +153,20 @@ function el(t, a) { var e = document.createElementNS(NS, t); for (var k in a) e.
 
 var map = document.getElementById("map");
 map.setAttribute("viewBox", USA_VIEWBOX.join(" "));
+
+/* States that spent time as literally part of an already-admitted neighbor before splitting
+   off — not a new territorial acquisition of their own, so they inherit the parent's status
+   (and blend into it, no border) until their own admission year. */
+var STATE_MERGES = {
+  KY: { into: "VA", until: 1792 },
+  WV: { into: "VA", until: 1863 },
+  ME: { into: "MA", until: 1820 }
+};
+
+/* The Republic/State of Texas's claim into what's now eastern New Mexico and a strip of
+   southeastern Colorado, relinquished in the Compromise of 1850. A rough approximation,
+   not a sourced historical boundary — see the footnote in the page. */
+var TX_CLAIM_PATH = "M294,351 L298,328 L296,260 L300,237 L338,197 L393,215 L393,339 L371,339 Z";
 
 var STATES = null, byPostal = {}, acqByPostal = {}, milestones = [];
 var pathEls = {};
@@ -160,28 +183,43 @@ Object.keys(USA_STATE_PATHS).forEach(function (postal) {
   gStates.appendChild(p);
   pathEls[postal] = p;
 });
+var txClaimEl = el("path", { d: TX_CLAIM_PATH, class: "st admitted blend", "data-postal": "TX" });
+gStates.appendChild(txClaimEl);
 
+function isMergedChild(postal, y) {
+  var m = STATE_MERGES[postal];
+  return !!(m && y < m.until);
+}
+function isActiveParent(postal, y) {
+  for (var k in STATE_MERGES) { if (STATE_MERGES[k].into === postal && y < STATE_MERGES[k].until) return true; }
+  return false;
+}
 function statusAt(postal, y) {
+  if (isMergedChild(postal, y)) return statusAt(STATE_MERGES[postal].into, y);
   var acq = acqByPostal[postal], st = byPostal[postal];
   if (!acq || y < acq.year) return "blank";
   if (!st || y < st.year) return "territory";
   return "state";
 }
 
-function render() {
+function renderMap() {
   document.getElementById("yearnum").textContent = year;
-  var nStates = 0;
   Object.keys(pathEls).forEach(function (postal) {
     var s = statusAt(postal, year);
-    if (s === "state") nStates++;
     var cls = s === "state" ? "admitted" : s;
-    pathEls[postal].setAttribute("class", "st " + cls + (postal === curPostal ? " cur" : ""));
+    var blend = isMergedChild(postal, year) || isActiveParent(postal, year);
+    pathEls[postal].setAttribute("class", "st " + cls + (blend ? " blend" : "") + (postal === curPostal ? " cur" : ""));
   });
+  var claiming = year >= 1845 && year < 1850;
+  txClaimEl.style.display = claiming ? "" : "none";
+  if (claiming) txClaimEl.setAttribute("class", "st admitted blend" + (curPostal === "TX" ? " cur" : ""));
+
+  var nStates = STATES ? STATES.filter(function (s) { return s.year <= year; }).length : 0;
 
   var lastAcq = null;
   ACQUISITIONS.forEach(function (a) { if (a.year <= year) lastAcq = a; });
   var lastState = null;
-  STATES.forEach(function (s) { if (s.year <= year && (!lastState || s.year > lastState.year)) lastState = s; });
+  if (STATES) STATES.forEach(function (s) { if (s.year <= year && (!lastState || s.year > lastState.year)) lastState = s; });
 
   var bits = [nStates + " state" + (nStates === 1 ? "" : "s") + " in the Union"];
   if (lastAcq) bits.push("latest territory: <b>" + lastAcq.name + "</b> (" + lastAcq.year + ")");
@@ -193,38 +231,14 @@ function render() {
     t.classList.toggle("past", +t.dataset.year <= year);
   });
 
-  if (pinned && curPostal) showDetail(curPostal, true);
 }
 
-function setYear(y) {
-  year = Math.max(1776, Math.min(1959, y));
-  render();
-}
-
-function showTip(postal, evt) {
-  var acq = acqByPostal[postal], st = byPostal[postal];
-  if (!acq || year < acq.year) return; // nothing to say about unclaimed land
-  var tip = document.getElementById("tip");
-  var status = (st && year >= st.year) ? ("state since " + st.year) : ("territory since " + acq.year);
-  var name = st ? st.name : postal;
-  var blurb = st ? st.blurb : acq.note;
-  tip.innerHTML = "<b>" + name + "</b><span class='yr'>" + status + "</span>" +
-    "<div style='margin-top:5px'>" + blurb.slice(0, 170) + (blurb.length > 170 ? "&hellip;" : "") + "</div>";
-  var box = map.closest(".mapcard").getBoundingClientRect();
-  var x = evt.clientX - box.left, y2 = evt.clientY - box.top;
-  var left = Math.min(x + 16, box.width - 270);
-  tip.style.left = Math.max(6, left) + "px";
-  tip.style.top = Math.max(6, y2 - 10) + "px";
-  tip.classList.add("on");
-}
-function hideTip() { document.getElementById("tip").classList.remove("on"); }
-
-function showDetail(postal, keepPin) {
+function updateDetail(postal) {
   var st = byPostal[postal], acq = acqByPostal[postal];
   var d = document.getElementById("detail");
-  if (!st || year < acq.year) {
+  if (!postal || !st || year < acq.year) {
     d.classList.add("empty");
-    document.getElementById("dname").textContent = " ";
+    document.getElementById("dname").textContent = " ";
     document.getElementById("dmeta").textContent = "";
     document.getElementById("dprose").textContent = "Hover or tap a state on the map.";
     document.getElementById("dimages").innerHTML = "";
@@ -238,12 +252,58 @@ function showDetail(postal, keepPin) {
     : ("Territory (" + acq.name + ") since " + acq.year + " · not yet a state in " + year);
   document.getElementById("dprose").textContent = st.blurb;
   document.getElementById("dimages").innerHTML =
-    "<div><div class='cap'>Flag</div><img src='" + st.flag + "' alt='Flag of " + st.name + "'></div>" +
-    "<div><div class='cap'>" + st.name + "</div><img src='" + st.illustration + "' alt='" + st.name + "'></div>";
-  curPostal = postal;
-  if (keepPin === undefined) pinned = true;
+    "<div><div class='cap'>Flag</div><img src='" + st.flag + "' alt='Flag of " + st.name + "' data-full='" + st.flag + "'></div>" +
+    "<div><div class='cap'>" + st.name + "</div><img src='" + st.illustration + "' alt='" + st.name + "' data-full='" + st.illustration + "'></div>";
+}
+
+/* renderMap() repaints the map/timeline chrome only; updateDetail() repaints the panel
+   only. Keeping them separate avoids the mutual recursion a combined render() used to
+   fall into whenever a state was pinned (render -> showDetail -> render -> ...). */
+function render() {
+  renderMap();
+  if (pinned && curPostal) updateDetail(curPostal);
+}
+
+function setYear(y) {
+  year = Math.max(1776, Math.min(1959, y));
   render();
 }
+
+function showTip(postal, evt) {
+  var acq = acqByPostal[postal], st = byPostal[postal];
+  if (!acq || year < acq.year) return; // nothing to say about unclaimed land
+  var tip = document.getElementById("tip");
+  var status = (st && year >= st.year) ? ("state since " + st.year) : ("territory since " + acq.year);
+  var name = st ? st.name : postal;
+  tip.innerHTML = "<b>" + name + "</b><span class='yr'>" + status + "</span>";
+  var box = map.closest(".mapcard").getBoundingClientRect();
+  var x = evt.clientX - box.left, y2 = evt.clientY - box.top;
+  var left = Math.min(x + 16, box.width - 270);
+  tip.style.left = Math.max(6, left) + "px";
+  tip.style.top = Math.max(6, y2 - 10) + "px";
+  tip.classList.add("on");
+}
+function hideTip() { document.getElementById("tip").classList.remove("on"); }
+
+/* postal: which state to show. keepPin=false for a live hover preview (does not lock
+   the selection); omit (or true) to lock it in, as on click. */
+function showDetail(postal, keepPin) {
+  curPostal = postal;
+  if (keepPin === undefined) pinned = true;
+  updateDetail(postal);
+  renderMap(); // just refreshes the "cur" outline; doesn't touch the panel, so no recursion
+}
+
+var lightbox = document.getElementById("lightbox"), lightboxImg = document.getElementById("lightboxImg");
+document.getElementById("dimages").addEventListener("click", function (e) {
+  if (e.target.tagName === "IMG") {
+    lightboxImg.src = e.target.dataset.full;
+    lightboxImg.alt = e.target.alt;
+    lightbox.classList.add("on");
+  }
+});
+lightbox.addEventListener("click", function () { lightbox.classList.remove("on"); });
+window.addEventListener("keydown", function (e) { if (e.key === "Escape") lightbox.classList.remove("on"); });
 
 gStates.addEventListener("mousemove", function (e) {
   if (e.target.classList && e.target.classList.contains("st")) {
@@ -256,7 +316,9 @@ gStates.addEventListener("mouseleave", function () { hideTip(); });
 gStates.addEventListener("click", function (e) {
   if (e.target.classList && e.target.classList.contains("st")) {
     var postal = e.target.dataset.postal;
+    stop();
     pinned = true;
+    if (byPostal[postal]) year = byPostal[postal].year; // jump to that state's own admission year
     showDetail(postal, true);
   }
 });
