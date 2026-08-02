@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Twenty Voyages — an atlas of things that happened and things that did not</title>
+<style>
+:root{
+  --paper:#e9e7e0; --sea:#f5f4f0; --land:#dcd7c7; --coast:#b3aa93;
+  --grat:#d2cec1; --ink:#23262a; --mid:#6f747c; --faint:#9aa0a8; --rule:#cdc9bd;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,"Helvetica Neue","Liberation Sans",Arial,sans-serif;
+  --serif:Georgia,"Liberation Serif","Times New Roman",serif;
+  --mono:ui-monospace,"DejaVu Sans Mono",Menlo,Consolas,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;background:var(--paper);color:var(--ink)}
+body{font-family:var(--serif);font-size:16px;line-height:1.5;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1240px;margin:0 auto;padding:26px 18px 70px}
+
+h1{font-family:var(--sans);font-weight:600;font-size:clamp(13px,1.6vw,15px);letter-spacing:.26em;
+   text-transform:uppercase;margin:0 0 8px}
+.dek{max-width:70ch;color:#4c5158;font-size:15px;margin:0 0 20px}
+
+.menu{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:12px 0;margin-bottom:16px}
+.mrow{display:flex;align-items:flex-start;gap:12px;margin:6px 0}
+.mlab{font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);
+      width:72px;flex:none;padding-top:7px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;flex:1}
+.chip{display:inline-flex;align-items:stretch;border:1px solid var(--rule);background:#fff;cursor:pointer;
+      font-family:var(--sans);font-size:12px;overflow:hidden}
+.chip .nm,.chip .pl{font:inherit;color:inherit;background:none;border:0;cursor:pointer}
+.chip .nm{padding:5px 10px;white-space:nowrap}
+.chip .pl{padding:5px 8px;border-left:1px solid var(--rule);color:var(--faint);font-size:12px}
+.chip button:focus-visible{outline:2px solid #2f6fb0;outline-offset:-2px}
+.chip .pl:hover{background:rgba(0,0,0,.08);color:var(--ink)}
+.chip:hover{border-color:#8a9099}
+.chip.on{color:#fff;border-color:transparent}
+.chip.on .pl{border-left-color:rgba(255,255,255,.45);color:rgba(255,255,255,.9)}
+.chip .sw{width:4px;flex:none}
+.tools{display:flex;gap:8px;align-items:center;margin-top:10px;font-family:var(--sans);font-size:11px;color:var(--mid)}
+.tools button{font-family:var(--sans);font-size:11px;letter-spacing:.08em;background:#fff;border:1px solid var(--rule);
+  padding:5px 11px;cursor:pointer;color:var(--ink)}
+.tools button:hover{border-color:#8a9099}
+
+.mapbox{position:relative;border:1px solid var(--rule);background:var(--sea);overflow:hidden}
+svg.map{display:block;width:100%;height:auto;cursor:grab}
+svg.map.drag{cursor:grabbing}
+.mapui{position:absolute;right:9px;top:9px;display:flex;flex-direction:column;gap:4px}
+.mapui button{width:27px;height:27px;font-family:var(--sans);font-size:14px;line-height:1;
+  background:rgba(255,255,255,.92);border:1px solid var(--rule);cursor:pointer;color:var(--ink)}
+.stamp{position:absolute;left:11px;bottom:8px;font-family:var(--mono);font-size:10px;letter-spacing:.1em;
+  color:#7e848c;pointer-events:none}
+
+.striphead{display:flex;justify-content:space-between;align-items:baseline;margin:20px 0 3px;gap:14px;
+  font-family:var(--sans);font-size:10px;letter-spacing:.15em;text-transform:uppercase;color:var(--faint)}
+.strip svg{display:block;width:100%;height:66px}
+.controls{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 24px}
+.controls button{font-family:var(--sans);font-size:11px;letter-spacing:.1em;text-transform:uppercase;
+  background:#fff;border:1px solid var(--rule);padding:8px 14px;cursor:pointer;color:var(--ink)}
+.controls button:hover{border-color:#8a9099}
+
+.detail{display:grid;grid-template-columns:210px 1fr;gap:30px;border-top:1px solid var(--rule);padding-top:20px}
+.eyebrow{font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint)}
+.legno{font-family:var(--sans);font-size:44px;font-weight:300;line-height:1;margin:6px 0 10px}
+.meta{font-family:var(--sans);font-size:11px;color:var(--mid);line-height:1.9}
+.meta b{font-weight:600;color:var(--ink)}
+.detail h2{font-family:var(--serif);font-weight:400;font-size:clamp(20px,2.4vw,27px);margin:0 0 4px}
+.detail .where{font-family:var(--sans);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--faint);margin-bottom:12px}
+.detail p{margin:0 0 12px;max-width:64ch}
+.gist{border-left:2px solid var(--rule);padding-left:14px;color:#4c5158;font-size:15px;margin:0 0 16px;max-width:64ch}
+
+table{border-collapse:collapse;width:100%;font-family:var(--sans);font-size:12.5px}
+th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--rule);vertical-align:top}
+th{font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);font-weight:600}
+td.num{text-align:right;font-variant-numeric:tabular-nums}
+.swatch{display:inline-block;width:10px;height:10px;margin-right:7px}
+.bar{height:9px;display:block}
+.cmpnote{font-family:var(--serif);color:#4c5158;font-size:14.5px;max-width:74ch;margin:16px 0 0}
+
+.foot{margin-top:46px;border-top:1px solid var(--rule);padding-top:18px;color:#5d636b;font-size:13.5px}
+.foot h3{font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);
+  font-weight:600;margin:0 0 10px}
+.foot p{max-width:80ch;margin:0 0 10px}
+@media (max-width:760px){
+  .detail{grid-template-columns:1fr;gap:10px}
+  .mlab{width:100%;padding-top:0}
+  .mrow{flex-direction:column;gap:4px}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<h1>Twenty Voyages</h1>
+<p class="dek">Ten that happened and ten that did not, charted on the same coastlines. Click a name to see it; click the <b>+</b> to add a second and compare. Where a voyage contains a voyage — Odysseus talking to the Phaeacians, Marlow on the Thames, Aeneas at Dido's table — the told part is drawn in a lighter hand than the part that is actually happening. Drag the map to pan, scroll to zoom.</p>
+
+<div class="menu">
+  <div class="mrow"><div class="mlab">Real</div><div class="chips" id="chipsReal"></div></div>
+  <div class="mrow"><div class="mlab">Invented</div><div class="chips" id="chipsFict"></div></div>
+  <div class="tools">
+    <button id="clear">Clear</button>
+    <button id="allReal">All ten real</button>
+    <button id="allFict">All ten invented</button>
+    <span id="selcount"></span>
+  </div>
+</div>
+
+<div class="mapbox">
+  <svg class="map" id="map" role="img" aria-label="World map of twenty voyages"></svg>
+  <div class="mapui">
+    <button id="zin" title="Zoom in">+</button>
+    <button id="zout" title="Zoom out">&minus;</button>
+    <button id="zfit" title="Fit selection">&#9633;</button>
+  </div>
+  <div class="stamp" id="stamp"></div>
+</div>
+
+<div id="single">
+  <div class="striphead"><span id="striplab"></span><span>bar height = how firmly the position is fixed</span></div>
+  <div class="strip"><svg id="strip" preserveAspectRatio="none"></svg></div>
+  <div class="controls">
+    <button id="play">Run the voyage</button>
+    <button id="prev">&larr; Previous</button>
+    <button id="next">Next &rarr;</button>
+  </div>
+  <p class="gist" id="gist"></p>
+  <div class="detail">
+    <div>
+      <div class="eyebrow" id="eyebrow">Stage</div>
+      <div class="legno" id="legno">1</div>
+      <div class="meta" id="meta"></div>
+    </div>
+    <div>
+      <h2 id="title"></h2>
+      <div class="where" id="where"></div>
+      <p id="note"></p>
+    </div>
+  </div>
+</div>
+
+<div id="compare" style="display:none"></div>
+
+<div class="foot">
+  <h3>How to read it</h3>
+  <p>Coastlines are Natural Earth 1:50 million, public domain. Real tracks are solid, invented ones dashed. A filled square means the position is documented or explicitly stated in the text; a half-tone disc means it is inferred from a fixed point nearby; a hollow ring means it is notional — somebody's proposal, and usually a contested one. Tracks are drawn as straight lines between waypoints, so a leg shown straight was very often sailed as a long series of tacks.</p>
+  <p>Sea tracks are routed around land: where a straight line between two waypoints would cross a continent, the course is found by search over an ocean grid, so the ships go round the Cape rather than through it. Distances are measured along that routed path and remain floors rather than logs — no allowance is made for tacking, for the wide Atlantic arc da Gama actually sailed, or for the months Magellan spent working up and down a coast. Where a documented figure exists the method comes out close but not exact: Bligh's open-boat voyage measures 4,019 nautical miles here against a logged 3,618, the extra being detours the grid imposes that he did not sail. Treat everything to about a tenth either way, and as useful for comparing voyages with each other rather than for settling arguments about logs.</p>
+</div>
+
+</div>
+
+<script src="basemap.js"></script>
+<script src="voyages.js"></script>
+<script>
+"use strict";
+
+/* ---------- projection: Miller cylindrical, clamped to 85 degrees ---------- */
+var W=3600, R=W/(2*Math.PI), CLAMP=85;
+function my(lat){var l=Math.max(-CLAMP,Math.min(CLAMP,lat));
+  return 1.25*R*Math.log(Math.tan(Math.PI/4+0.4*l*Math.PI/180));}
+var YT=my(CLAMP), H=YT-my(-CLAMP);
+function px(lon){return (lon+180)/360*W;}
+function py(lat){return YT-my(lat);}
+function d2r(a){return a*Math.PI/180;}
+function gc(a,b,c,d){var s=Math.sin,dy=d2r(d-b),dx=d2r(c-a);
+  var h=s(dy/2)*s(dy/2)+Math.cos(d2r(b))*Math.cos(d2r(d))*s(dx/2)*s(dx/2);
+  return 6371*2*Math.asin(Math.min(1,Math.sqrt(h)));}
+function unwrap(pts){
+  var out=[],prev=null;
+  for(var i=0;i<pts.length;i++){
+    var lon=pts[i][0];
+    if(prev!==null){ while(lon-prev>180) lon-=360; while(lon-prev<-180) lon+=360; }
+    out.push([lon,pts[i][1]]); prev=lon;
+  }
+  return out;
+}
+var NS="http://www.w3.org/2000/svg";
+function el(t,a){var e=document.createElementNS(NS,t);for(var k in a)e.setAttribute(k,a[k]);return e;}
+function pathd(pts,close){var s="";for(var i=0;i<pts.length;i++)
+  s+=(i?"L":"M")+px(pts[i][0]).toFixed(1)+" "+py(pts[i][1]).toFixed(1)+" ";return s+(close?"Z":"");}
+function clear(g){while(g.firstChild)g.removeChild(g.firstChild);}
+
+/* ---------- base map, drawn three times so tracks can cross the antimeridian ---------- */
+var map=document.getElementById("map");
+map.setAttribute("viewBox","0 0 "+W+" "+H.toFixed(1));
+var gWorld=el("g",{}); map.appendChild(gWorld);
+
+var landD=""; decodeLand().forEach(function(r){ landD+=pathd(r,true); });
+var riverD=""; for(var rk in RIVERS) riverD+=pathd(RIVERS[rk],false);
+
+for(var copy=-1;copy<=1;copy++){
+  var g=el("g",{transform:"translate("+(copy*W)+",0)"});
+  g.appendChild(el("rect",{x:0,y:0,width:W,height:H,fill:"#f5f4f0"}));
+  var grat=el("g",{stroke:"#d2cec1",fill:"none","stroke-width":0.7,"data-grat":"1"});
+  for(var lo=-180;lo<180;lo+=15) grat.appendChild(el("line",{x1:px(lo),y1:0,x2:px(lo),y2:H}));
+  for(var la=-75;la<=75;la+=15) grat.appendChild(el("line",{x1:0,y1:py(la),x2:W,y2:py(la)}));
+  g.appendChild(grat);
+  g.appendChild(el("line",{x1:0,y1:py(0),x2:W,y2:py(0),stroke:"#bdb8a8","stroke-width":0.9,"data-eq":"1"}));
+  g.appendChild(el("path",{d:landD,fill:"#dcd7c7",stroke:"#b3aa93","stroke-width":0.8,
+    "stroke-linejoin":"round","data-land":"1"}));
+  g.appendChild(el("path",{d:riverD,fill:"none",stroke:"#a9b7bd","stroke-width":1.5,
+    "stroke-linecap":"round","data-river":"1"}));
+  var dots=el("g",{fill:"#c9c2ae","data-dots":"1"});
+  LAND_DOTS.forEach(function(d){dots.appendChild(el("circle",{cx:px(d[0]),cy:py(d[1]),r:2.4,"data-br":2.4}));});
+  g.appendChild(dots);
+  var seas=el("g",{fill:"#a9aeb4","font-family":"system-ui,sans-serif","letter-spacing":"2",
+    "text-anchor":"middle","font-size":9,"data-seas":"1"});
+  SEAS.forEach(function(s){var t=el("text",{x:px(s.x),y:py(s.y)});t.textContent=s.n;seas.appendChild(t);});
+  g.appendChild(seas);
+  gWorld.appendChild(g);
+}
+var gTrack=el("g",{}); map.appendChild(gTrack);
+var gPins=el("g",{});  map.appendChild(gPins);
+var gLbl=el("g",{});   map.appendChild(gLbl);
+
+/* ---------- state ---------- */
+var sel=[], legIdx=0, playing=false, timer=null;
+var vb={x:0,y:0,w:W,h:H}, tgt={x:0,y:0,w:W,h:H}, raf=null;
+var byId={}; VOYAGES.forEach(function(v){byId[v.id]=v;});
+
+/* expand a chain of legs into a polyline, inserting any baked sea-route via points */
+function expandTrack(legs){
+  var pts=[], pinAt=[];
+  legs.forEach(function(l,i){
+    if(i>0 && l.v) for(var k=0;k<l.v.length;k++) pts.push([l.v[k][0],l.v[k][1]]);
+    pinAt.push(pts.length);
+    pts.push([l.x,l.y]);
+  });
+  return {pts:unwrap(pts), pinAt:pinAt, legs:legs};
+}
+function chainLen(pts){
+  var d=0; for(var i=1;i<pts.length;i++) d+=gc(pts[i-1][0],pts[i-1][1],pts[i][0],pts[i][1]);
+  return d;
+}
+/* the told track carries its connecting legs, so a narrated voyage still joins its departure port */
+function toldChain(legs){
+  var keep=new Array(legs.length), any=false;
+  legs.forEach(function(l,i){ if(l.t==="told"){ keep[i]=true; any=true;
+    for(var j=i-1;j>=0;j--){ if(legs[j].t!=="pro"){ keep[j]=true; break; } }
+    for(var k=i+1;k<legs.length;k++){ if(legs[k].t!=="pro"){ keep[k]=true; break; } }
+  }});
+  return any? legs.filter(function(l,i){return keep[i];}) : [];
+}
+VOYAGES.forEach(function(v){
+  v._ch={
+    m:    expandTrack(v.legs.filter(function(l){return !l.t;})),
+    told: expandTrack(toldChain(v.legs)),
+    pro:  expandTrack(v.legs.filter(function(l){return l.t==="pro";}))
+  };
+  /* pin coordinates come from the chain that owns each leg */
+  ["m","pro","told"].forEach(function(key){
+    var c=v._ch[key];
+    c.legs.forEach(function(l,i){
+      if(key==="told" && l.t!=="told") return;      /* connectors keep their own chain's value */
+      l._x=c.pts[c.pinAt[i]][0]; l._y=c.pts[c.pinAt[i]][1];
+    });
+  });
+  /* one honest number: the whole voyage in narrative order, prologue excluded */
+  var narr=expandTrack(v.legs.filter(function(l){return l.t!=="pro";}));
+  v._km=Math.round(chainLen(narr.pts));
+  var o=narr.pts[0], far=0;
+  narr.pts.forEach(function(q){var d=gc(o[0],o[1],q[0],q[1]); if(d>far) far=d;});
+  v._far=Math.round(far);
+});
+
+/* ---------- menu ---------- */
+function buildChips(){
+  [["Real","real"],["Fict","fiction"]].forEach(function(pair){
+    var host=document.getElementById("chips"+pair[0]); host.innerHTML="";
+    VOYAGES.filter(function(v){return v.kind===pair[1];}).forEach(function(v){
+      var c=document.createElement("div"); c.className="chip"; c.dataset.id=v.id;
+      c.setAttribute("role","group"); c.setAttribute("aria-label",v.title);
+      var sw=document.createElement("div"); sw.className="sw"; sw.style.background=v.colour;
+      var nm=document.createElement("button"); nm.className="nm"; nm.textContent=v.title;
+      nm.setAttribute("aria-label","Chart "+v.title);
+      var pl=document.createElement("button"); pl.className="pl"; pl.textContent="+";
+      pl.title="Add "+v.title+" to the comparison"; pl.setAttribute("aria-label","Add "+v.title+" to the comparison");
+      c.appendChild(sw); c.appendChild(nm); c.appendChild(pl);
+      nm.addEventListener("click",function(e){e.stopPropagation();stop();sel=[v.id];legIdx=0;render(true);});
+      pl.addEventListener("click",function(e){e.stopPropagation();stop();
+        var i=sel.indexOf(v.id);
+        if(i>=0) sel.splice(i,1); else sel.push(v.id);
+        if(sel.length===1) legIdx=0;
+        render(true);});
+      host.appendChild(c);
+    });
+  });
+}
+function paintChips(){
+  [].forEach.call(document.querySelectorAll(".chip"),function(c){
+    var on=sel.indexOf(c.dataset.id)>=0;
+    c.classList.toggle("on",on);
+    c.style.background = on ? byId[c.dataset.id].colour : "#fff";
+  });
+  document.getElementById("selcount").textContent =
+    sel.length===0 ? "nothing selected" : (sel.length===1 ? "" : sel.length+" selected — comparing");
+}
+
+/* ---------- tracks ---------- */
+var pending=[], pinBoxes=[];
+function drawTracks(){
+  clear(gTrack); clear(gPins); clear(gLbl);
+  pending=[]; pinBoxes=[];
+  if(!sel.length) return;
+  var single = sel.length===1;
+  sel.forEach(function(id){
+    var v=byId[id];
+    if(v._ch.pro.pts.length>1)
+      gTrack.appendChild(el("path",{d:pathd(v._ch.pro.pts,false),
+        fill:"none",stroke:v.colour,"stroke-width":2,opacity:".35","stroke-dasharray":"2 6",
+        "stroke-linejoin":"round"}));
+    if(v._ch.told.pts.length>1)
+      gTrack.appendChild(el("path",{d:pathd(v._ch.told.pts,false),fill:"none",stroke:v.colour,
+        "stroke-width":2.4,opacity:".45","stroke-dasharray":"3 7","stroke-linejoin":"round",
+        "stroke-linecap":"round"}));
+    if(v._ch.m.pts.length>1){
+      var a={d:pathd(v._ch.m.pts,false),fill:"none",stroke:v.colour,
+             "stroke-width":3.2,"stroke-linejoin":"round","stroke-linecap":"round"};
+      if(v.kind!=="real") a["stroke-dasharray"]="10 7";
+      gTrack.appendChild(el("path",a));
+    }
+    if(v.ghost){
+      gTrack.appendChild(el("path",{d:pathd(v.ghost.pts,false),fill:"none",stroke:"#8a9099",
+        "stroke-width":2,"stroke-dasharray":"2 6",opacity:".85"}));
+      if(single){
+        var last=v.ghost.pts[v.ghost.pts.length-1];
+        pending.push({x:px(last[0]),y:py(last[1]),s:v.ghost.label,fill:"#8a9099",weight:"400",pri:2});
+      }
+    }
+    if(v.told && single){
+      gTrack.appendChild(el("circle",{cx:px(v.told.x),cy:py(v.told.y),r:7,fill:"none",stroke:v.colour,
+        "stroke-width":1.6,"stroke-dasharray":"2 3"}));
+      pending.push({x:px(v.told.x),y:py(v.told.y),s:"told from: "+v.told.p,fill:v.colour,weight:"400",pri:1});
+    }
+    v.legs.forEach(function(l,i){
+      var cur = single && i===legIdx;
+      var x=px(l._x), y=py(l._y);
+      if(l.c===3) gPins.appendChild(el("rect",{x:x-3.4,y:y-3.4,width:6.8,height:6.8,fill:v.colour,
+        opacity:cur?1:.85,"data-cx":x,"data-cy":y,"data-bw":6.8}));
+      else if(l.c===2) gPins.appendChild(el("circle",{cx:x,cy:y,r:3.8,fill:v.colour,opacity:cur?1:.6,"data-br":3.8}));
+      else gPins.appendChild(el("circle",{cx:x,cy:y,r:4.2,fill:"#f5f4f0",stroke:v.colour,
+        "stroke-width":1.7,opacity:cur?1:.85,"data-br":4.2,"data-bs":1.7}));
+      if(cur) gPins.appendChild(el("circle",{cx:x,cy:y,r:13,fill:"none",stroke:v.colour,
+        "stroke-width":1.6,opacity:".55","data-br":13,"data-bs":1.6}));
+      pinBoxes.push([x,y]);
+      if(single) pending.push({x:x,y:y,s:l.p,cur:cur,fill:cur?"#23262a":"#5d636b",
+        weight:cur?"600":"400",pri:cur?0:3+i});
+    });
+    if(single){
+      var o=v.legs[0], rose=el("g",{stroke:v.colour,fill:"none",opacity:".3","data-rose":"1"});
+      for(var k=0;k<16;k++){
+        var ang=k*Math.PI/8, len=(k%4===0)?34:(k%2===0?24:16);
+        rose.appendChild(el("line",{x1:px(o._x),y1:py(o._y),
+          x2:px(o._x)+Math.sin(ang)*len,y2:py(o._y)-Math.cos(ang)*len,
+          "stroke-width":k%4===0?1.6:0.9,"data-bw":k%4===0?1.6:0.9}));
+      }
+      rose.appendChild(el("circle",{cx:px(o._x),cy:py(o._y),r:11,"stroke-width":0.9,"data-br":11,"data-bs":0.9}));
+      gTrack.insertBefore(rose,gTrack.firstChild);
+    }
+  });
+  scaleFurniture();
+  placeLabels();
+}
+
+/* greedy label placement: eight candidate positions, drop what will not fit */
+function placeLabels(){
+  clear(gLbl);
+  if(!pending.length) return;
+  var U=vb.w/1150, fs=11*U, lh=fs*1.12;
+  var x0=vb.x-fs*4, x1=vb.x+vb.w+fs*4, y0=vb.y-fs*2, y1=vb.y+vb.h+fs*2;
+  var placed=[], out=[], curEl=null;
+  pinBoxes.forEach(function(p){ placed.push([p[0]-4*U,p[1]-4*U,8*U,8*U]); });
+  var order=pending.slice().sort(function(a,b){return a.pri-b.pri;});
+  order.forEach(function(L){
+    if(L.x<x0||L.x>x1||L.y<y0||L.y>y1) return;
+    var w=L.s.length*fs*0.53, h=lh;
+    var cands=[[9*U,4*U],[-9*U-w,4*U],[-w/2,-7*U],[-w/2,14*U],[9*U,-7*U],[9*U,14*U],
+               [-9*U-w,-7*U],[-9*U-w,14*U]];
+    var got=null;
+    for(var c=0;c<cands.length;c++){
+      var bx=L.x+cands[c][0], by=L.y+cands[c][1]-h*0.78;
+      var hit=false;
+      for(var k=0;k<placed.length;k++){
+        var q=placed[k];
+        if(bx<q[0]+q[2] && bx+w>q[0] && by<q[1]+q[3] && by+h>q[1]){hit=true;break;}
+      }
+      if(!hit){ got=[L.x+cands[c][0], L.y+cands[c][1], bx, by]; break; }
+    }
+    if(!got){ if(!L.cur) return; got=[L.x+9*U, L.y+4*U, L.x+9*U, L.y+4*U-h*0.78]; }
+    placed.push([got[2],got[3],w,h]);
+    var t=el("text",{x:got[0].toFixed(1),y:got[1].toFixed(1),fill:L.fill,
+      "font-family":"system-ui,-apple-system,sans-serif","font-weight":L.weight,
+      "font-size":fs.toFixed(2),stroke:"#f5f4f0","stroke-width":(3.2*U).toFixed(2),
+      "stroke-linejoin":"round","paint-order":"stroke"});
+    t.textContent=L.s;
+    if(L.cur) curEl=t; else out.push(t);
+  });
+  out.forEach(function(t){gLbl.appendChild(t);});
+  if(curEl) gLbl.appendChild(curEl);
+}
+
+function bbox(){
+  var xs=[],ys=[];
+  sel.forEach(function(id){
+    var v=byId[id];
+    v.legs.forEach(function(l){ xs.push(px(l._x)); ys.push(py(l._y)); });
+    if(v.told){ xs.push(px(v.told.x)); ys.push(py(v.told.y)); }
+  });
+  if(!xs.length) return {x:0,y:0,w:W,h:H};
+  var x0=Math.min.apply(null,xs),x1=Math.max.apply(null,xs);
+  var y0=Math.min.apply(null,ys),y1=Math.max.apply(null,ys);
+  var pad=Math.max(90,(x1-x0)*0.09,(y1-y0)*0.16);
+  x0-=pad*1.7;x1+=pad*1.7;y0-=pad;y1+=pad;
+  var w=Math.min(Math.max(x1-x0,(y1-y0)*(W/H)), W*1.05);
+  var h=w*(H/W);
+  var cy=(y0+y1)/2;
+  return {x:(x0+x1)/2-w/2, y:Math.max(-60,Math.min(H-h+60,cy-h/2)), w:w, h:h};
+}
+
+function scaleFurniture(){
+  var U=vb.w/1150;
+  function sw(sel,base){ [].forEach.call(document.querySelectorAll(sel),function(e){
+    e.setAttribute("stroke-width",(base*U).toFixed(2)); }); }
+  sw("[data-grat]",0.7); sw("[data-eq]",0.9); sw("[data-land]",0.8); sw("[data-river]",1.6);
+  [].forEach.call(document.querySelectorAll("[data-seas]"),function(e){
+    e.setAttribute("font-size",(9*U).toFixed(2));
+    e.setAttribute("opacity", vb.w>W*0.4?0.8:0.25); });
+  [].forEach.call(document.querySelectorAll("[data-dots] circle"),function(c){
+    c.setAttribute("r",Math.max(0.8,2.4*U).toFixed(2)); });
+  [].forEach.call(gTrack.querySelectorAll("path,circle,line"),function(p){
+    if(!p.dataset.bw0){
+      p.dataset.bw0=p.getAttribute("stroke-width")||1;
+      var da=p.getAttribute("stroke-dasharray"); if(da) p.dataset.bd0=da;
+      if(p.hasAttribute("r")) p.dataset.br0=p.getAttribute("r");
+    }
+    p.setAttribute("stroke-width",(p.dataset.bw0*U).toFixed(2));
+    if(p.dataset.bd0) p.setAttribute("stroke-dasharray",
+      p.dataset.bd0.split(" ").map(function(n){return (parseFloat(n)*U).toFixed(2);}).join(" "));
+    if(p.dataset.br0) p.setAttribute("r",(p.dataset.br0*U).toFixed(2));
+  });
+  [].forEach.call(gPins.querySelectorAll("circle"),function(c){
+    c.setAttribute("r",(c.dataset.br*U).toFixed(2));
+    if(c.dataset.bs) c.setAttribute("stroke-width",(c.dataset.bs*U).toFixed(2));
+  });
+  [].forEach.call(gPins.querySelectorAll("rect"),function(r){
+    var s=r.dataset.bw*U;
+    r.setAttribute("width",s); r.setAttribute("height",s);
+    r.setAttribute("x",(+r.dataset.cx)-s/2); r.setAttribute("y",(+r.dataset.cy)-s/2);
+  });
+}
+var lblTimer=null;
+function reflowLabels(){ clearTimeout(lblTimer); lblTimer=setTimeout(placeLabels,110); }
+function applyVB(){
+  map.setAttribute("viewBox",vb.x.toFixed(1)+" "+vb.y.toFixed(1)+" "+vb.w.toFixed(1)+" "+vb.h.toFixed(1));
+  scaleFurniture();
+}
+function anim(){
+  var e=Math.abs(tgt.x-vb.x)+Math.abs(tgt.y-vb.y)+Math.abs(tgt.w-vb.w);
+  if(e<0.8){vb={x:tgt.x,y:tgt.y,w:tgt.w,h:tgt.h};applyVB();placeLabels();raf=null;return;}
+  var f=0.18;
+  vb.x+=(tgt.x-vb.x)*f;vb.y+=(tgt.y-vb.y)*f;vb.w+=(tgt.w-vb.w)*f;vb.h+=(tgt.h-vb.h)*f;
+  applyVB(); raf=requestAnimationFrame(anim);
+}
+function nudge(){if(!raf)raf=requestAnimationFrame(anim);}
+function fit(){tgt=bbox();nudge();}
+
+var dragging=false,lastX,lastY;
+map.addEventListener("mousedown",function(e){dragging=true;lastX=e.clientX;lastY=e.clientY;map.classList.add("drag");});
+window.addEventListener("mouseup",function(){dragging=false;map.classList.remove("drag");});
+window.addEventListener("mousemove",function(e){
+  if(!dragging)return;
+  var r=map.getBoundingClientRect(), s=vb.w/r.width;
+  vb.x-=(e.clientX-lastX)*s; vb.y-=(e.clientY-lastY)*s;
+  lastX=e.clientX;lastY=e.clientY; tgt={x:vb.x,y:vb.y,w:vb.w,h:vb.h}; applyVB(); reflowLabels();
+});
+map.addEventListener("wheel",function(e){
+  e.preventDefault();
+  var r=map.getBoundingClientRect();
+  var fx=(e.clientX-r.left)/r.width, fy=(e.clientY-r.top)/r.height;
+  var k=e.deltaY>0?1.18:1/1.18;
+  var nw=Math.max(W*0.010,Math.min(W*1.5,vb.w*k)), nh=nw*(H/W);
+  vb.x+=(vb.w-nw)*fx; vb.y+=(vb.h-nh)*fy; vb.w=nw; vb.h=nh;
+  tgt={x:vb.x,y:vb.y,w:vb.w,h:vb.h}; applyVB(); reflowLabels();
+},{passive:false});
+function zoomBy(k){var nw=Math.max(W*0.010,Math.min(W*1.5,vb.w*k)),nh=nw*(H/W);
+  vb.x+=(vb.w-nw)/2;vb.y+=(vb.h-nh)/2;vb.w=nw;vb.h=nh;tgt={x:vb.x,y:vb.y,w:vb.w,h:vb.h};applyVB();reflowLabels();}
+document.getElementById("zin").onclick=function(){zoomBy(1/1.4);};
+document.getElementById("zout").onclick=function(){zoomBy(1.4);};
+document.getElementById("zfit").onclick=fit;
+
+/* ---------- single-voyage strip and detail ---------- */
+var strip=document.getElementById("strip");
+function drawStrip(){
+  var v=byId[sel[0]], SWD=1200, SHT=66;
+  strip.setAttribute("viewBox","0 0 "+SWD+" "+SHT);
+  clear(strip);
+  var n=v.legs.length, bw=SWD/n;
+  strip.appendChild(el("line",{x1:0,y1:SHT-13,x2:SWD,y2:SHT-13,stroke:"#cdc9bd","stroke-width":1}));
+  v.legs.forEach(function(l,i){
+    var h=[0,14,30,46][l.c];
+    var base = l.t==="told"?0.45:(l.t==="pro"?0.28:1);
+    var r=el("rect",{x:(i*bw+1).toFixed(1),y:SHT-13-h,width:Math.max(2,bw-2).toFixed(1),height:h,
+      fill:v.colour,opacity:(i===legIdx?1:base*0.55).toFixed(2)});
+    r.style.cursor="pointer";
+    r.addEventListener("click",function(){stop();legIdx=i;render(false);});
+    var tt=el("title"); tt.textContent=(i+1)+". "+l.p; r.appendChild(tt);
+    strip.appendChild(r);
+    if(l.k) strip.appendChild(el("circle",{cx:(i*bw+bw/2).toFixed(1),cy:SHT-13-h-7,r:2.6,
+      fill:(l.k==="wreck"||l.k==="death")?"#b03a2e":"#6f747c",opacity:i===legIdx?1:.55}));
+  });
+}
+var KIND={landfall:"landfall",death:"a death",wreck:"wreck or foundering",turn:"the turning point"};
+var CERT={3:"documented, or stated in the text",2:"inferred from a fixed point nearby",1:"notional — somebody's proposal"};
+function drawDetail(){
+  var v=byId[sel[0]], l=v.legs[legIdx];
+  document.getElementById("striplab").textContent=v.title+" — "+v.years+" — "+v.legs.length+" stages";
+  document.getElementById("gist").textContent=v.gist;
+  document.getElementById("eyebrow").textContent =
+    l.t==="told" ? "Narrated stage" : (l.t==="pro" ? "Before the voyage" : "Stage");
+  document.getElementById("legno").textContent=(legIdx+1);
+  document.getElementById("title").textContent=l.p;
+  var trueLon=((l.x+540)%360)-180;
+  document.getElementById("where").textContent=
+    (l.d?l.d+"  ·  ":"")+Math.abs(l.y).toFixed(1)+"°"+(l.y>=0?"N":"S")+"  "+
+    Math.abs(trueLon).toFixed(1)+"°"+(trueLon>=0?"E":"W");
+  document.getElementById("note").textContent=l.n;
+  var m=["<b>"+v.title+"</b>, "+v.years, v.sub, CERT[l.c]];
+  if(l.k) m.push(KIND[l.k]);
+  m.push("&nbsp;");
+  m.push("track: "+v._km.toLocaleString()+" km");
+  m.push("furthest from start: "+v._far.toLocaleString()+" km");
+  if(v.stat.days) m.push("duration: "+v.stat.days.toLocaleString()+" days");
+  m.push(v.stat.out+" &rarr; "+v.stat.back);
+  document.getElementById("meta").innerHTML=m.join("<br>");
+  document.getElementById("stamp").textContent=v.title.toUpperCase()+"  ·  "+v.years+"  ·  "+l.p.toUpperCase();
+}
+
+/* ---------- comparison ---------- */
+function drawCompare(){
+  var host=document.getElementById("compare");
+  var vs=sel.map(function(id){return byId[id];});
+  var maxKm=Math.max.apply(null,vs.map(function(v){return v._km;}));
+  var maxD =Math.max.apply(null,vs.map(function(v){return v.stat.days||0;}))||1;
+  var rows=vs.map(function(v){
+    return "<tr>"+
+     "<td><span class='swatch' style='background:"+v.colour+"'></span><b>"+v.title+"</b>"+
+       "<div style='color:#7b7f86;font-size:11.5px;margin-left:17px'>"+v.sub+"</div></td>"+
+     "<td>"+v.years+"</td>"+
+     "<td class='num'>"+v._km.toLocaleString()+
+       "<div style='margin-top:4px'><span class='bar' style='background:"+v.colour+
+       ";width:"+(v._km/maxKm*100).toFixed(1)+"%'></span></div></td>"+
+     "<td class='num'>"+(v.stat.days?v.stat.days.toLocaleString():"&mdash;")+
+       (v.stat.days?"<div style='margin-top:4px'><span class='bar' style='background:"+v.colour+
+        ";opacity:.5;width:"+(v.stat.days/maxD*100).toFixed(1)+"%'></span></div>":"")+"</td>"+
+     "<td class='num'>"+v._far.toLocaleString()+"</td>"+
+     "<td>"+v.stat.out+"<div style='color:#7b7f86'>&rarr; "+v.stat.back+"</div></td></tr>";
+  }).join("");
+  var reals=vs.filter(function(v){return v.kind==="real";}).length;
+  var note = (reals && reals<vs.length)
+    ? "Mixed. The dashed tracks are the ones nobody sailed — though on this projection they are not obviously the less plausible ones."
+    : (reals===0
+      ? "All invented. Notice how much of the track is drawn in the lighter hand: that is the part being told rather than happening, and in several of these it is nearly the whole voyage."
+      : "All documented. Distances are along the plotted track, so treat them as floors.");
+  /* latitude profile: what each voyage did with the world's north-south axis */
+  var CW=1200, CH=210, PADL=46, PADR=12, PADT=14, PADB=22;
+  function cx(f){return PADL+f*(CW-PADL-PADR);}
+  function cy(lat){return PADT+((85-lat)/170)*(CH-PADT-PADB);}
+  var prof="<svg viewBox='0 0 "+CW+" "+CH+"' style='display:block;width:100%;height:210px;margin-bottom:18px'>";
+  [60,30,0,-30,-60].forEach(function(la){
+    prof+="<line x1='"+PADL+"' y1='"+cy(la).toFixed(1)+"' x2='"+(CW-PADR)+"' y2='"+cy(la).toFixed(1)+
+      "' stroke='"+(la===0?"#b9b3a3":"#ddd9cd")+"' stroke-width='1'/>"+
+      "<text x='"+(PADL-7)+"' y='"+(cy(la)+3.5).toFixed(1)+"' text-anchor='end' font-size='9.5' "+
+      "font-family='system-ui,sans-serif' fill='#9aa0a8'>"+Math.abs(la)+"&#176;"+(la>0?"N":(la<0?"S":""))+"</text>";
+  });
+  vs.forEach(function(v){
+    var pts=v._ch.m.pts.concat(v._ch.told.pts.length>v._ch.m.pts.length?v._ch.told.pts:[]);
+    if(v._ch.m.pts.length<2 && v._ch.told.pts.length>1) pts=v._ch.told.pts;
+    var d="";
+    for(var i=0;i<pts.length;i++)
+      d+=(i?"L":"M")+cx(i/(pts.length-1)).toFixed(1)+" "+cy(pts[i][1]).toFixed(1)+" ";
+    prof+="<path d='"+d+"' fill='none' stroke='"+v.colour+"' stroke-width='"+
+      (vs.length>6?1.6:2.2)+"' stroke-linejoin='round' opacity='.9'"+
+      (v.kind==="real"?"":" stroke-dasharray='7 5'")+"/>";
+  });
+  prof+="<text x='"+PADL+"' y='"+(CH-5)+"' font-size='9.5' font-family='system-ui,sans-serif' "+
+    "fill='#9aa0a8'>start</text><text x='"+(CW-PADR)+"' y='"+(CH-5)+"' text-anchor='end' font-size='9.5' "+
+    "font-family='system-ui,sans-serif' fill='#9aa0a8'>end &#183; latitude against progress along the track</text></svg>";
+
+  host.innerHTML= prof+
+   "<table><thead><tr><th>Voyage</th><th>Years</th><th class='num'>Track, km</th><th class='num'>Days</th>"+
+   "<th class='num'>Furthest from start, km</th><th>Out &rarr; back</th></tr></thead><tbody>"+
+   rows+"</tbody></table><p class='cmpnote'>"+note+"</p>";
+  document.getElementById("stamp").textContent=vs.length+" VOYAGES COMPARED";
+}
+
+/* ---------- render ---------- */
+function render(refit){
+  paintChips();
+  var single=sel.length===1;
+  document.getElementById("single").style.display=single?"":"none";
+  document.getElementById("compare").style.display=sel.length>1?"":"none";
+  if(single && legIdx>=byId[sel[0]].legs.length) legIdx=0;
+  drawTracks();
+  if(single){ drawStrip(); drawDetail(); }
+  else if(sel.length>1) drawCompare();
+  else document.getElementById("stamp").textContent="SELECT A VOYAGE";
+  if(refit) fit(); else scaleFurniture();
+}
+
+/* ---------- controls ---------- */
+function stop(){playing=false;clearInterval(timer);document.getElementById("play").textContent="Run the voyage";}
+document.getElementById("play").onclick=function(){
+  if(sel.length!==1) return;
+  if(playing){stop();return;}
+  playing=true; this.textContent="Stop";
+  var v=byId[sel[0]];
+  if(legIdx>=v.legs.length-1) legIdx=0;
+  render(false);
+  timer=setInterval(function(){
+    if(legIdx>=v.legs.length-1){stop();return;}
+    legIdx++; render(false);
+    var l=v.legs[legIdx];
+    tgt={x:px(l._x)-vb.w/2,y:py(l._y)-vb.h/2,w:vb.w,h:vb.h}; nudge();
+  },1900);
+};
+document.getElementById("prev").onclick=function(){stop();if(sel.length===1&&legIdx>0){legIdx--;render(false);}};
+document.getElementById("next").onclick=function(){stop();
+  if(sel.length===1&&legIdx<byId[sel[0]].legs.length-1){legIdx++;render(false);}};
+document.getElementById("clear").onclick=function(){stop();sel=[];render(true);};
+document.getElementById("allReal").onclick=function(){stop();
+  sel=VOYAGES.filter(function(v){return v.kind==="real";}).map(function(v){return v.id;});render(true);};
+document.getElementById("allFict").onclick=function(){stop();
+  sel=VOYAGES.filter(function(v){return v.kind==="fiction";}).map(function(v){return v.id;});render(true);};
+window.addEventListener("keydown",function(e){
+  if(sel.length!==1)return;
+  if(e.key==="ArrowLeft"){stop();if(legIdx>0){legIdx--;render(false);}}
+  if(e.key==="ArrowRight"){stop();if(legIdx<byId[sel[0]].legs.length-1){legIdx++;render(false);}}
+});
+
+buildChips();
+sel=["magellan"]; legIdx=0; render(true);
+</script>
+</body>
+</html>
