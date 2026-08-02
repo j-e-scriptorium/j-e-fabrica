@@ -1,0 +1,502 @@
+[
+  {
+    "postal": "NJ",
+    "name": "New Jersey",
+    "rank": 17,
+    "year": 1787,
+    "blurb": "Two proprietary colonies—Quaker West, Puritan-leaning East—stitched into one province. Its 1776 constitution let propertied women vote, until 1807. The New Jersey Plan lost at Philadelphia but won the Senate; ratification was swift and unanimous.",
+    "illustration": "images/nj-illustration.jpg",
+    "map": "images/nj-map.jpg",
+    "flag": "images/nj-flag.jpg"
+  },
+  {
+    "postal": "DE",
+    "name": "Delaware",
+    "rank": 13,
+    "year": 1787,
+    "blurb": "New Sweden, then Dutch, then English—finally the “Three Lower Counties,” ruled by Pennsylvania’s governor, their own assembly, and no charter. The colony that barely existed on paper ratified unanimously, in four days, making it the “First State.”",
+    "illustration": "images/de-illustration.jpg",
+    "map": "images/de-map.jpg",
+    "flag": "images/de-flag.jpg"
+  },
+  {
+    "postal": "PA",
+    "name": "Pennsylvania",
+    "rank": 10,
+    "year": 1787,
+    "blurb": "Penn’s Holy Experiment became the Revolution’s capital: Declaration, Articles, and Constitution all signed in Philadelphia. Its radical 1776 constitution scandalized elites. It ratified second—after a mob dragged two dissenters into the hall for quorum.",
+    "illustration": "images/pa-illustration.jpg",
+    "map": "images/pa-map.jpg",
+    "flag": "images/pa-flag.jpg"
+  },
+  {
+    "postal": "MD",
+    "name": "Maryland",
+    "rank": 21,
+    "year": 1788,
+    "blurb": "The Calverts’ refuge for English Catholics, until Protestant migrants disenfranchised them. It refused to ratify the Articles of Confederation until the big states ceded their western claims, creating the public domain later states were carved from.",
+    "illustration": "images/md-illustration.jpg",
+    "map": "images/md-map.jpg",
+    "flag": "images/md-flag.jpg"
+  },
+  {
+    "postal": "SC",
+    "name": "South Carolina",
+    "rank": 20,
+    "year": 1788,
+    "blurb": "A Barbadian slave society transplanted whole, with a Fundamental Constitution drafted by John Locke. Rice made Charleston the richest city in British America—and the interests thus formed shaped the Convention’s slavery bargains, then Sumter.",
+    "illustration": "images/sc-illustration.jpg",
+    "map": "images/sc-map.jpg",
+    "flag": "images/sc-flag.jpg"
+  },
+  {
+    "postal": "GA",
+    "name": "Georgia",
+    "rank": 19,
+    "year": 1788,
+    "blurb": "Britain’s last colony, Oglethorpe’s utopian buffer against Spanish Florida: a debtors’ haven that banned slavery, rum, and lawyers. The debtors were never transported and the bans were abandoned. It ratified quickly—its Indian wars needed federal troops.",
+    "illustration": "images/ga-illustration.jpg",
+    "map": "images/ga-map.jpg",
+    "flag": "images/ga-flag.jpg"
+  },
+  {
+    "postal": "NY",
+    "name": "New York",
+    "rank": 16,
+    "year": 1788,
+    "blurb": "New Netherland’s commercial DNA survived the English seizure of 1664. Its ratification vote was the nailbiter The Federalist was written to win. In the end it was won by the news that its vote wasn’t needed—nine states had already ratified.",
+    "illustration": "images/ny-illustration.jpg",
+    "map": "images/ny-map.jpg",
+    "flag": "images/ny-flag.jpg"
+  },
+  {
+    "postal": "CT",
+    "name": "Connecticut",
+    "rank": 15,
+    "year": 1788,
+    "blurb": "Self-governing under the Fundamental Orders since 1639—arguably the first written constitution—and so attached to its charter that colonists hid it in an oak from a royal governor. Its Compromise saved the Convention; the charter itself served until 1818.",
+    "illustration": "images/ct-illustration.jpg",
+    "map": "images/ct-map.jpg",
+    "flag": "images/ct-flag.jpg"
+  },
+  {
+    "postal": "NH",
+    "name": "New Hampshire",
+    "rank": 12,
+    "year": 1788,
+    "blurb": "Founded on fish and timber rather than God. First to adopt an independent constitution—January 1776, six months before the Declaration. It ratified in June 1788, and as the ninth state to do so, it brought the Constitution into effect.",
+    "illustration": "images/nh-illustration.jpg",
+    "map": "images/nh-map.jpg",
+    "flag": "images/nh-flag.jpg"
+  },
+  {
+    "postal": "VA",
+    "name": "Virginia",
+    "rank": 9,
+    "year": 1788,
+    "blurb": "In 1607, the first lasting settlement; in 1619, the first assembly and the first negroes. Under the Articles it ceded the Northwest to be national territory. Later it brought the Convention its working plan, and supplied four of the first five presidents.",
+    "illustration": "images/va-illustration.jpg",
+    "map": "images/va-map.jpg",
+    "flag": "images/va-flag.jpg"
+  },
+  {
+    "postal": "MA",
+    "name": "Massachusetts",
+    "rank": 8,
+    "year": 1788,
+    "blurb": "Covenant government from the Mayflower Compact on, and the seedbed of the Revolution. Adams’s 1780 constitution—drafted by convention, ratified by the people—invented the method the nation copied; Shays’s Rebellion scared the country into Philadelphia.",
+    "illustration": "images/ma-illustration.jpg",
+    "map": "images/ma-map.jpg",
+    "flag": "images/ma-flag.jpg"
+  },
+  {
+    "postal": "NC",
+    "name": "North Carolina",
+    "rank": 18,
+    "year": 1789,
+    "blurb": "The \"valley of humility between two mountains of conceit\" refused to ratify the Constitution until Congress promised a Bill of Rights—by which time George Washington was already president and the new federal government was already operational.",
+    "illustration": "images/nc-illustration.jpg",
+    "map": "images/nc-map.jpg",
+    "flag": "images/nc-flag.jpg"
+  },
+  {
+    "postal": "RI",
+    "name": "Rhode Island",
+    "rank": 14,
+    "year": 1790,
+    "blurb": "Roger Williams's experiment in soul liberty became the Union's last holdout: it boycotted the Convention, rejected the Constitution by popular referendum, and ratified 34-32 only when the new government prepared to treat it as a foreign nation.",
+    "illustration": "images/ri-illustration.jpg",
+    "map": "images/ri-map.jpg",
+    "flag": "images/ri-flag.jpg"
+  },
+  {
+    "postal": "VT",
+    "name": "Vermont",
+    "rank": 11,
+    "year": 1791,
+    "blurb": "Fourteen years an unrecognized republic: its own coin, the first constitution banning adult slavery, the Green Mountain Boys evicting New York's sheriffs, and quiet talks with the British as leverage. Admitted in 1791 as Kentucky's free counterweight.",
+    "illustration": "images/vt-illustration.jpg",
+    "map": "images/vt-map.jpg",
+    "flag": "images/vt-flag.jpg"
+  },
+  {
+    "postal": "KY",
+    "name": "Kentucky",
+    "rank": 23,
+    "year": 1792,
+    "blurb": "Virginia’s western counties outgrew rule from Richmond. What next: strike out as an independent nation on the Spanish Mississippi, or enter the Union on equal terms? Virginia consented to its own division, and so statehood crossed the Appalachians.",
+    "illustration": "images/ky-illustration.jpg",
+    "map": "images/ky-map.jpg",
+    "flag": "images/ky-flag.jpg"
+  },
+  {
+    "postal": "TN",
+    "name": "Tennessee",
+    "rank": 33,
+    "year": 1796,
+    "blurb": "Settlers past the mountains governed themselves by the Watauga compact, then tried a breakaway State of Franklin that Congress ignored until it collapsed. North Carolina's cession made it the Southwest Territory—and the first territory ever turned state.",
+    "illustration": "images/tn-illustration.jpg",
+    "map": "images/tn-map.jpg",
+    "flag": "images/tn-flag.jpg"
+  },
+  {
+    "postal": "OH",
+    "name": "Ohio",
+    "rank": 32,
+    "year": 1803,
+    "blurb": "The first state carved from the public domain proved the Republic could develop territories into equal states. In a rush to admit Ohio and so oust the Federalist territorial governor Congress forgot the formal resolution, an omission fixed retroactively in 1953.",
+    "illustration": "images/oh-illustration.jpg",
+    "map": "images/oh-map.jpg",
+    "flag": "images/oh-flag.jpg"
+  },
+  {
+    "postal": "LA",
+    "name": "Louisiana",
+    "rank": 25,
+    "year": 1812,
+    "blurb": "The Purchase Jefferson doubted he had constitutional power to make delivered a French- and Spanish-speaking, Catholic, civil-law society. Statehood tested whether the republic could absorb it. The Code Napoléon's descendant governs Louisiana still.",
+    "illustration": "images/la-illustration.jpg",
+    "map": "images/la-map.jpg",
+    "flag": "images/la-flag.jpg"
+  },
+  {
+    "postal": "IN",
+    "name": "Indiana",
+    "rank": 41,
+    "year": 1816,
+    "blurb": "The second state carved out the Northwest Territory tested the Ordinance’s anti-slavery article: Gov. Harrison spent a decade smuggling slavery in as “indenture”; the settlers voted his faction down.",
+    "illustration": "images/in-illustration.jpg",
+    "map": "images/in-map.jpg",
+    "flag": "images/in-flag.jpg"
+  },
+  {
+    "postal": "MS",
+    "name": "Mississippi",
+    "rank": 36,
+    "year": 1817,
+    "blurb": "Born of the Yazoo scandal: Georgia’s bribed legislature sold the western lands, the sale was rescinded, and Fletcher v. Peck made the mess constitutional law. The territory Congress organized out of it rode cotton and Native cessions to statehood.",
+    "illustration": "images/ms-illustration.jpg",
+    "map": "images/ms-map.jpg",
+    "flag": "images/ms-flag.jpg"
+  },
+  {
+    "postal": "IL",
+    "name": "Illinois",
+    "rank": 37,
+    "year": 1818,
+    "blurb": "Delegate Nathaniel Pope quietly moved the northern border 41 miles up to capture a scrap of Lake Michigan shore—and with it, future Chicago. Admitted with perhaps 35,000 people, well short of the legal threshold, thanks to an imaginative census.",
+    "illustration": "images/il-illustration.jpg",
+    "map": "images/il-map.jpg",
+    "flag": "images/il-flag.jpg"
+  },
+  {
+    "postal": "AL",
+    "name": "Alabama",
+    "rank": 38,
+    "year": 1819,
+    "blurb": "Jackson’s destruction of the Red Sticks at Horseshoe Bend opened the Creek lands; “Alabama Fever” did the rest. Carved from Mississippi Territory, it went from war zone to Cotton Kingdom statehood in just five years.",
+    "illustration": "images/al-illustration.jpg",
+    "map": "images/al-map.jpg",
+    "flag": "images/al-flag.jpg"
+  },
+  {
+    "postal": "ME",
+    "name": "Maine",
+    "rank": 27,
+    "year": 1820,
+    "blurb": "Two centuries a noncontiguous district of Massachusetts—which notoriously declined to defend it when the British occupied the coast in 1814. Finally admitted to statehood as Missouri’s makeweight in the first great sectional bargain.",
+    "illustration": "images/me-illustration.jpg",
+    "map": "images/me-map.jpg",
+    "flag": "images/me-flag.jpg"
+  },
+  {
+    "postal": "MO",
+    "name": "Missouri",
+    "rank": 24,
+    "year": 1821,
+    "blurb": "The first Louisiana Purchase territory to seek statehood with slavery rung what Jefferson called “a fire bell in the night.” Congress paired it with free Maine and extended the Mason-Dixon line as the free-slave boundary, a compromise held for thirty years.",
+    "illustration": "images/mo-illustration.jpg",
+    "map": "images/mo-map.jpg",
+    "flag": "images/mo-flag.jpg"
+  },
+  {
+    "postal": "AR",
+    "name": "Arkansas",
+    "rank": 46,
+    "year": 1836,
+    "blurb": "A conventional cotton-frontier statehood, admitted as Michigan's slave-state pair to hold the Senate balance. Its rougher edge showed fast: within a year, its House Speaker killed a fellow legislator with a Bowie knife mid-session—and was acquitted.",
+    "illustration": "images/ar-illustration.jpg",
+    "map": "images/ar-map.jpg",
+    "flag": "images/ar-flag.jpg"
+  },
+  {
+    "postal": "MI",
+    "name": "Michigan",
+    "rank": 34,
+    "year": 1837,
+    "blurb": "Fought Ohio in the nearly bloodless Toledo War, lost the political fight, and took the Upper Peninsula as a consolation prize everyone mocked, until it turned out to have rich veins of copper and iron.",
+    "illustration": "images/mi-illustration.jpg",
+    "map": "images/mi-map.jpg",
+    "flag": "images/mi-flag.jpg"
+  },
+  {
+    "postal": "FL",
+    "name": "Florida",
+    "rank": 26,
+    "year": 1845,
+    "blurb": "The oldest European settlement in the USA, St. Augustine predating Jamestown by 42 years. Spain ceded it in 1819 after Jackson invaded without quite asking; the Seminole Wars, the costliest Indian wars in US history, then delayed statehood a generation.",
+    "illustration": "images/fl-illustration.jpg",
+    "map": "images/fl-map.jpg",
+    "flag": "images/fl-flag.jpg"
+  },
+  {
+    "postal": "TX",
+    "name": "Texas",
+    "rank": 1,
+    "year": 1845,
+    "blurb": "Mexico invited the settlers; Santa Anna's centralism lost them. The Alamo and San Jacinto forged a European-recognized republic that lasted nine years before debt nearly sank it. Annexation by joint resolution brought war with Mexico and redrew the continent.",
+    "illustration": "images/tx-illustration.jpg",
+    "map": "images/tx-map.jpg",
+    "flag": "images/tx-flag.jpg"
+  },
+  {
+    "postal": "IA",
+    "name": "Iowa",
+    "rank": 50,
+    "year": 1846,
+    "blurb": "The machinery of American state-making working exactly as designed: Louisiana Purchase land, opened by the Black Hawk Purchase, organized as a territory, settled, constitution drafted, admitted.",
+    "illustration": "images/ia-illustration.jpg",
+    "map": "images/ia-map.jpg",
+    "flag": "images/ia-flag.jpg"
+  },
+  {
+    "postal": "WI",
+    "name": "Wisconsin",
+    "rank": 45,
+    "year": 1848,
+    "blurb": "The incredible shrinking territory: lost lakeshore to Illinois, the peninsula fight to Michigan, the far bank to future Minnesota. Lead miners—the “badgers”—arrived before the farmers. The last state formed wholly from the old Northwest Territory.",
+    "illustration": "images/wi-illustration.jpg",
+    "map": "images/wi-map.jpg",
+    "flag": "images/wi-flag.jpg"
+  },
+  {
+    "postal": "CA",
+    "name": "California",
+    "rank": 3,
+    "year": 1850,
+    "blurb": "The Bear Flag Republic lasted 25 days, until US troops brought in martial law. Gold was struck nine days before Mexico signed California away. Forty-niners leapfrogged the territorial stage, simply writing their own constitution and demanding admission.",
+    "illustration": "images/ca-illustration.jpg",
+    "map": "images/ca-map.jpg",
+    "flag": "images/ca-flag.jpg"
+  },
+  {
+    "postal": "MN",
+    "name": "Minnesota",
+    "rank": 47,
+    "year": 1858,
+    "blurb": "Fur posts and Fort Snelling became a wheat boom that quintupled the population in a decade. Admission stalled in a Senate poisoned by Kansas.",
+    "illustration": "images/mn-illustration.jpg",
+    "map": "images/mn-map.jpg",
+    "flag": "images/mn-flag.jpg"
+  },
+  {
+    "postal": "OR",
+    "name": "Oregon",
+    "rank": 30,
+    "year": 1859,
+    "blurb": "The Pacific Northwest was an Anglo-American condominium 1818 to ‘46. Decades of wagon trains clarified the southern half’s American destiny, and Polk and Peel settled on the 49th parallel. Oregon’s 1857 constitution excluded both slavery and free negroes.",
+    "illustration": "images/or-illustration.jpg",
+    "map": "images/or-map.jpg",
+    "flag": "images/or-flag.jpg"
+  },
+  {
+    "postal": "KS",
+    "name": "Kansas",
+    "rank": 4,
+    "year": 1861,
+    "blurb": "The Kansas-Nebraska Act left slave or free up to the people. The result was “Bleeding Kansas,” the Civil War before the Civil War: ballot-box fraud, rival governments, guerrilla warfare, massacres. When the South walked out, Congress let Kansas into the Union.",
+    "illustration": "images/ks-illustration.jpg",
+    "map": "images/ks-map.jpg",
+    "flag": "images/ks-flag.jpg"
+  },
+  {
+    "postal": "WV",
+    "name": "West Virginia",
+    "rank": 22,
+    "year": 1863,
+    "blurb": "When Virginia seceded the Unionist counties declared themselves “Restored” Virginia, then consented—as Virginia—to their own separation from it. Lincoln’s cabinet split 3–3 on whether it was a valid bootstrap or unlawful secession. Lincoln signed.",
+    "illustration": "images/wv-illustration.jpg",
+    "map": "images/wv-map.jpg",
+    "flag": "images/wv-flag.jpg"
+  },
+  {
+    "postal": "NV",
+    "name": "Nevada",
+    "rank": 31,
+    "year": 1864,
+    "blurb": "Split from Utah Territory after the Comstock Lode; admitted with a population that never met the threshold because Lincoln wanted its votes. Its constitution went to Washington by wire—reputedly the longest telegram ever sent.",
+    "illustration": "images/nv-illustration.jpg",
+    "map": "images/nv-map.jpg",
+    "flag": "images/nv-flag.jpg"
+  },
+  {
+    "postal": "NE",
+    "name": "Nebraska",
+    "rank": 35,
+    "year": 1867,
+    "blurb": "The Kansas–Nebraska Act of 1854 detonated the party system and set up the war. Nebraska itself entered quietly afterward, the first state admitted over a presidential veto: Johnson objected to Congress’s insistence the state enfranchise negroes.",
+    "illustration": "images/ne-illustration.jpg",
+    "map": "images/ne-map.jpg",
+    "flag": "images/ne-flag.jpg"
+  },
+  {
+    "postal": "CO",
+    "name": "Colorado",
+    "rank": 42,
+    "year": 1876,
+    "blurb": "Pikes Peak gold built an extralegal “Jefferson Territory” before Congress caught up. Johnson twice vetoed statehood; Grant signed in the centennial year, just in time for Colorado’s electors to help hand Hayes the presidency.",
+    "illustration": "images/co-illustration.jpg",
+    "map": "images/co-map.jpg",
+    "flag": "images/co-flag.jpg"
+  },
+  {
+    "postal": "MT",
+    "name": "Montana",
+    "rank": 48,
+    "year": 1889,
+    "blurb": "Gold camps at Bannack and Virginia City ran on vigilante justice. Copper barons succeeded the vigilantes, and by 1889 the camps had matured into statehood.",
+    "illustration": "images/mt-illustration.jpg",
+    "map": "images/mt-map.jpg",
+    "flag": "images/mt-flag.jpg"
+  },
+  {
+    "postal": "SD",
+    "name": "South Dakota",
+    "rank": 44,
+    "year": 1889,
+    "blurb": "Custer found gold in the Black Hills. The treaty guaranteeing them to the Lakota could not stop the rush. The result: the Great Sioux War, the boom, and division into two states.",
+    "illustration": "images/sd-illustration.jpg",
+    "map": "images/sd-map.jpg",
+    "flag": "images/sd-flag.jpg"
+  },
+  {
+    "postal": "ND",
+    "name": "North Dakota",
+    "rank": 43,
+    "year": 1889,
+    "blurb": "Railroads stitched northern Dakota to Minneapolis rather than to southern Dakota—so Congress made two states. Harrison shuffled the admission papers so no one would know which he signed first; only alphabetical convention makes it the 39th.",
+    "illustration": "images/nd-illustration.jpg",
+    "map": "images/nd-map.jpg",
+    "flag": "images/nd-flag.jpg"
+  },
+  {
+    "postal": "WA",
+    "name": "Washington",
+    "rank": 39,
+    "year": 1889,
+    "blurb": "Settlers north of the Columbia won a carveout from the Oregon Territory in 1853. Congress renamed from “Columbia” to “Washington,” supposedly to avoid confusion. The Northern Pacific finally delivered statehood 36 years on.",
+    "illustration": "images/wa-illustration.jpg",
+    "map": "images/wa-map.jpg",
+    "flag": "images/wa-flag.jpg"
+  },
+  {
+    "postal": "ID",
+    "name": "Idaho",
+    "rank": 49,
+    "year": 1890,
+    "blurb": "Assembled from other territories’ leftovers after gold strikes on the Clearwater, with borders so awkward Congress nearly divided it between Washington and Nevada in 1887. It survived and entered in 1890.",
+    "illustration": "images/id-illustration.jpg",
+    "map": "images/id-map.jpg",
+    "flag": "images/id-flag.jpg"
+  },
+  {
+    "postal": "WY",
+    "name": "Wyoming",
+    "rank": 40,
+    "year": 1890,
+    "blurb": "The territory gave women the franchise in 1869, and refused statehood unless they were allowed to retain it. Congress balked, but ultimately gave in.",
+    "illustration": "images/wy-illustration.jpg",
+    "map": "images/wy-map.jpg",
+    "flag": "images/wy-flag.jpg"
+  },
+  {
+    "postal": "UT",
+    "name": "Utah",
+    "rank": 6,
+    "year": 1896,
+    "blurb": "The Mormons proposed Deseret: a commonwealth from the Rockies to a seaport at San Diego. Washington answered with an army, polygamy prosecutions, and corporate dissolution of the church itself. Statehood came only after the LDS abandoned polygamy in 1890.",
+    "illustration": "images/ut-illustration.jpg",
+    "map": "images/ut-map.jpg",
+    "flag": "images/ut-flag.jpg"
+  },
+  {
+    "postal": "OK",
+    "name": "Oklahoma",
+    "rank": 7,
+    "year": 1907,
+    "blurb": "Two territories: land-run boomers in one; in the other, five nations reconstituting themselves after the Trail of Tears. Congress rejected their proposed State of Sequoyah and merged the two. In 2020 the Supreme Court held the reservations never dissolved.",
+    "illustration": "images/ok-illustration.jpg",
+    "map": "images/ok-map.jpg",
+    "flag": "images/ok-flag.jpg"
+  },
+  {
+    "postal": "AZ",
+    "name": "Arizona",
+    "rank": 29,
+    "year": 1912,
+    "blurb": "Twice sought to break away from the more hispanic New Mexico: in 1861, when they were a single territory, and the western half voted for secession; then in 1912, when New Mexico was on the brink of statehood and Arizonans won their separate statehood.",
+    "illustration": "images/az-illustration.jpg",
+    "map": "images/az-map.jpg",
+    "flag": "images/az-flag.jpg"
+  },
+  {
+    "postal": "NM",
+    "name": "New Mexico",
+    "rank": 5,
+    "year": 1912,
+    "blurb": "Spain governed Santa Fe a decade before the Mayflower sailed. Conquered in 1846, it already had nearly the population needed to qualify for statehood, but most were Spanish-speaking Catholic mestizos. Six decades and a railroad later, Congress admitted it.",
+    "illustration": "images/nm-illustration.jpg",
+    "map": "images/nm-map.jpg",
+    "flag": "images/nm-flag.jpg"
+  },
+  {
+    "postal": "AK",
+    "name": "Alaska",
+    "rank": 28,
+    "year": 1959,
+    "blurb": "Seward's 1867 folly sat essentially ungoverned for seventeen years—no courts or territorial government, just the Army and a customs house. Gold rushes, a Japanese invasion of the Aleutians, and Cold War geography finally made the case for statehood.",
+    "illustration": "images/ak-illustration.jpg",
+    "map": "images/ak-map.jpg",
+    "flag": "images/ak-flag.jpg"
+  },
+  {
+    "postal": "HI",
+    "name": "Hawaiʻi",
+    "rank": 2,
+    "year": 1959,
+    "blurb": "Unified under Kamehameha a century earlier, Hawaiʻi in 1893 was an Anglo-aligned monarchy. Then American sugar planters staged a coup and negotiated US annexation. Admitted to statehood only after PanAm made it feasible and Pearl Harbor made it desirable.",
+    "illustration": "images/hi-illustration.jpg",
+    "map": "images/hi-map.jpg",
+    "flag": "images/hi-flag.jpg"
+  }
+]
