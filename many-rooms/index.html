@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Many Rooms &mdash; the Fabrica</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;1,500&family=EB+Garamond:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#efe6d0; --paper-2:#e2d5b4; --ink:#2a2620; --ink-soft:#5b5345;
+    --line:#9c8f6e; --rust:#9c4a2b; --rust-dark:#7a3a21; --gold:#a5761f;
+    --rim:#3a3324; --card:#f6efdc;
+    --good:#4c6f3d; --warn:#a5761f; --meh:#9c4a2b; --cold:#4a4438;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;min-height:100%}
+  body{
+    font-family:"EB Garamond",Georgia,serif;color:var(--ink);
+    background:radial-gradient(120% 100% at 50% 0%, #f3ebd4 0%, var(--paper) 45%, var(--paper-2) 100%);
+    min-height:100%;display:flex;flex-direction:column;align-items:center;padding:24px 16px 56px;
+  }
+  body::before{
+    content:"";position:fixed;inset:0;pointer-events:none;opacity:.05;z-index:0;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+  .backlink{font-family:"EB Garamond",serif;font-style:italic;font-size:14px;color:var(--ink-soft);
+    text-decoration:none;display:inline-block;margin-bottom:8px;position:relative;z-index:1}
+  .backlink:hover{color:var(--ink)}
+  h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:46px;letter-spacing:.02em;margin:0 0 2px;position:relative;z-index:1}
+  .sub{font-style:italic;color:var(--ink-soft);margin:0 0 18px;font-size:17px;max-width:520px;text-align:center;position:relative;z-index:1}
+
+  .modebar{display:flex;gap:8px;align-items:center;margin-bottom:18px;position:relative;z-index:1;flex-wrap:wrap;justify-content:center}
+  .modebtn,.statsbtn{font-family:"EB Garamond",serif;font-size:15px;cursor:pointer;background:transparent;
+    color:var(--ink-soft);border:1px solid var(--line);border-radius:8px;padding:7px 14px}
+  .modebtn.on{background:var(--rim);color:#f3ead4;border-color:var(--rim)}
+  .modebtn:hover:not(.on){filter:brightness(1.05);border-color:var(--ink-soft)}
+  .statsbtn{margin-left:6px}
+  .statsbtn:hover{border-color:var(--ink-soft)}
+
+  #app{width:min(600px,94vw);position:relative;z-index:1}
+
+  .card{background:rgba(255,252,244,.62);border:1px solid var(--line);border-radius:12px;
+    padding:20px 22px;box-shadow:0 3px 14px rgba(40,30,10,.14)}
+  .center{text-align:center}
+
+  /* room progress dots */
+  .rooms{display:flex;justify-content:center;gap:10px;margin-bottom:14px}
+  .room-dot{width:20px;height:22px;border:2px solid var(--line);border-radius:2px 2px 6px 6px;position:relative;background:transparent}
+  .room-dot.done{background:var(--rust);border-color:var(--rust-dark)}
+  .room-dot.current{border-color:var(--rim);box-shadow:0 0 0 3px rgba(58,51,36,.15)}
+  .room-dot::after{content:"";position:absolute;right:3px;top:50%;width:2px;height:2px;border-radius:50%;background:var(--ink-soft)}
+
+  .roomlabel{text-align:center;font-family:"Cormorant Garamond",serif;font-weight:600;font-size:20px;margin-bottom:2px}
+  .scoretally{text-align:center;color:var(--ink-soft);font-size:14px;margin-bottom:16px}
+  .scoretally b{color:var(--ink);font-variant-numeric:tabular-nums}
+
+  .poem{
+    font-family:"Cormorant Garamond",Georgia,serif;font-size:20px;line-height:1.55;
+    text-align:center;white-space:pre-line;padding:18px 10px 22px;
+    border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin:0 0 20px;
+  }
+
+  .guessRow{display:flex;flex-direction:column;gap:6px;align-items:center}
+  .yearReadout{font-family:"Cormorant Garamond",serif;font-size:34px;font-weight:600;
+    font-variant-numeric:tabular-nums;color:var(--rust-dark)}
+  input[type=range]{width:100%;accent-color:var(--rim);height:22px}
+  .rangeEnds{display:flex;justify-content:space-between;width:100%;font-size:12px;color:var(--ink-soft);margin-top:-4px}
+  .numrow{display:flex;gap:8px;align-items:center;margin-top:6px}
+  .numrow input[type=number]{width:90px;font-family:"EB Garamond",serif;font-size:16px;padding:6px 8px;
+    border:1px solid var(--line);border-radius:8px;background:rgba(255,255,255,.5);color:var(--ink);text-align:center}
+  button.primary{font-family:"EB Garamond",serif;font-size:16px;cursor:pointer;background:var(--rim);
+    color:#f3ead4;border:none;border-radius:8px;padding:10px 18px;transition:transform .05s ease,filter .15s;margin-top:14px}
+  button.primary:hover{filter:brightness(1.15)}
+  button.primary:active{transform:translateY(1px)}
+  button.ghost{font-family:"EB Garamond",serif;font-size:15px;cursor:pointer;background:transparent;
+    color:var(--ink);border:1px solid var(--line);border-radius:8px;padding:8px 14px}
+  button.ghost:hover{border-color:var(--ink-soft)}
+
+  /* reveal */
+  .revealHead{text-align:center;margin-bottom:14px}
+  .revealAuthor{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:600;font-style:italic}
+  .revealMeta{font-size:14px;color:var(--ink-soft);margin-top:2px}
+  .points{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:600;text-align:center;margin:8px 0 4px}
+  .points.bullseye{color:var(--good)}
+  .diffline{text-align:center;color:var(--ink-soft);font-size:15px;margin-bottom:16px}
+
+  .timeline{position:relative;height:54px;margin:10px 4px 6px}
+  .timeline .track{position:absolute;top:24px;left:0;right:0;height:2px;background:var(--line)}
+  .timeline .mark{position:absolute;top:14px;width:2px;height:22px;background:var(--ink-soft)}
+  .timeline .mark.guess{background:var(--rust)}
+  .timeline .mark.actual{background:var(--good)}
+  .timeline .tag{position:absolute;top:-6px;font-size:11px;color:var(--ink-soft);transform:translateX(-50%);white-space:nowrap}
+  .timeline .tag.guess{color:var(--rust-dark)}
+  .timeline .tag.actual{color:var(--good);top:38px}
+  .timelineEnds{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft)}
+
+  .footnote{font-size:13px;color:var(--ink-soft);font-style:italic;text-align:center;margin-top:6px}
+
+  /* summary */
+  .summaryScore{font-family:"Cormorant Garamond",serif;font-size:52px;font-weight:600;text-align:center;
+    color:var(--rust-dark);margin:6px 0 0}
+  .summaryOutOf{text-align:center;color:var(--ink-soft);margin-bottom:16px}
+  .breakdown{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+  .breakrow{display:flex;justify-content:space-between;align-items:center;font-size:14.5px;
+    padding:6px 10px;border-radius:6px;background:rgba(0,0,0,.03)}
+  .breakrow .who{font-style:italic;color:var(--ink-soft)}
+  .breakrow .yr{font-variant-numeric:tabular-nums}
+  .breakrow .pt{font-variant-numeric:tabular-nums;font-weight:600}
+  .tiles{text-align:center;font-size:26px;letter-spacing:4px;margin:6px 0 16px}
+  .summaryBtns{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}
+  .countdown{text-align:center;font-size:13px;color:var(--ink-soft);margin-top:16px}
+
+  /* stats modal */
+  .modal{position:fixed;inset:0;background:rgba(20,16,8,.45);display:flex;align-items:center;
+    justify-content:center;z-index:10;padding:16px}
+  .modal.hidden{display:none}
+  .modalCard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:22px 24px;
+    width:min(420px,92vw);box-shadow:0 8px 30px rgba(0,0,0,.3);max-height:86vh;overflow:auto}
+  .modalCard h2{font-family:"Cormorant Garamond",serif;font-weight:600;margin:0 0 14px;text-align:center}
+  .statgrid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:16px}
+  .statbox{text-align:center;padding:10px 4px;border-radius:8px;background:rgba(0,0,0,.04)}
+  .statbox b{display:block;font-size:26px;font-family:"Cormorant Garamond",serif;font-variant-numeric:tabular-nums}
+  .statbox span{font-size:12px;color:var(--ink-soft)}
+  .hist{display:flex;align-items:flex-end;gap:4px;height:70px;margin:10px 0 4px}
+  .histbar{flex:1;background:var(--rust);border-radius:2px 2px 0 0;min-height:2px;position:relative}
+  .histlabels{display:flex;gap:4px;font-size:10px;color:var(--ink-soft);text-align:center}
+  .histlabels span{flex:1}
+  .modalClose{display:block;margin:18px auto 0}
+  .aboutbit{font-size:12.5px;color:var(--ink-soft);text-align:center;margin-top:14px;line-height:1.5}
+
+  .loading,.errbox{text-align:center;color:var(--ink-soft);font-style:italic;padding:40px 10px}
+
+  @media (max-width:480px){
+    h1{font-size:38px}
+    .poem{font-size:18px}
+    .yearReadout{font-size:28px}
+  }
+</style>
+</head>
+<body>
+  <a class="backlink" href="../index.html">&larr; the Fabrica</a>
+  <h1>Many Rooms</h1>
+  <p class="sub">Fourteen lines, no name, no date. Guess the year the room was built.</p>
+
+  <div class="modebar">
+    <button class="modebtn on" id="modeDailyBtn">Today's Five</button>
+    <button class="modebtn" id="modePracticeBtn">Practice</button>
+    <button class="statsbtn" id="openStats">Stats</button>
+  </div>
+
+  <div id="app"><div class="loading">Unlocking the rooms&hellip;</div></div>
+
+  <div class="modal hidden" id="statsModal">
+    <div class="modalCard">
+      <h2>Your Many Rooms</h2>
+      <div class="statgrid">
+        <div class="statbox"><b id="stPlayed">0</b><span>Played</span></div>
+        <div class="statbox"><b id="stAvg">0</b><span>Avg score</span></div>
+        <div class="statbox"><b id="stBest">0</b><span>Best score</span></div>
+        <div class="statbox"><b id="stStreak">0</b><span>Streak</span></div>
+        <div class="statbox"><b id="stMaxStreak">0</b><span>Best streak</span></div>
+        <div class="statbox"><b id="stExact">0</b><span>Bullseyes</span></div>
+      </div>
+      <div class="hist" id="histWrap"></div>
+      <div class="histlabels" id="histLabels"></div>
+      <p class="aboutbit">2,258 sonnets by 53 authors, 1535&ndash;1928, drawn from a corpus of 23 Project Gutenberg volumes. Five new rooms unlock each day at 00:00 UTC.</p>
+      <button class="ghost modalClose" id="closeStats">Close</button>
+    </div>
+  </div>
+
+<script>
+(function(){
+  "use strict";
+
+  var MIN_YEAR = 1530, MAX_YEAR = 1930;
+  var ROUNDS_PER_DAY = 5;
+  var HALF_LIFE = 15; // years for score to halve
+  var MAX_ROUND_SCORE = 5000;
+  var EPOCH_MS = Date.UTC(2026, 0, 1); // day 1 of the daily rotation
+  var STATS_KEY = "manyRoomsStats.v1";
+  var HISTORY_CAP = 120; // days of per-day history retained
+
+  var CORPUS = null;
+  var app = document.getElementById("app");
+
+  // ---------- utility: seeded RNG ----------
+  function hashSeed(str){
+    var h = 1779033703 ^ str.length;
+    for (var i = 0; i < str.length; i++){
+      h = Math.imul(h ^ str.charCodeAt(i), 3432918353);
+      h = (h << 13) | (h >>> 19);
+    }
+    return function(){
+      h = Math.imul(h ^ (h >>> 16), 2246822507);
+      h = Math.imul(h ^ (h >>> 13), 3266489909);
+      h ^= h >>> 16;
+      return h >>> 0;
+    };
+  }
+  function mulberry32(a){
+    return function(){
+      a |= 0; a = (a + 0x6D2B79F5) | 0;
+      var t = Math.imul(a ^ (a >>> 15), 1 | a);
+      t = (t + Math.imul(t ^ (t >>> 7), 61 | t)) ^ t;
+      return ((t ^ (t >>> 14)) >>> 0) / 4294967296;
+    };
+  }
+  function rngFromString(str){
+    var seedFn = hashSeed(str);
+    return mulberry32(seedFn());
+  }
+
+  // ---------- date helpers ----------
+  function todayKeyUTC(){
+    var d = new Date();
+    return d.getUTCFullYear() + "-" + pad2(d.getUTCMonth()+1) + "-" + pad2(d.getUTCDate());
+  }
+  function pad2(n){ return n < 10 ? "0"+n : ""+n; }
+  function dayNumberFromKey(key){
+    var parts = key.split("-").map(Number);
+    var ms = Date.UTC(parts[0], parts[1]-1, parts[2]);
+    return Math.floor((ms - EPOCH_MS) / 86400000) + 1;
+  }
+  function msUntilNextUTCMidnight(){
+    var now = new Date();
+    var next = Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate()+1);
+    return next - now.getTime();
+  }
+
+  // ---------- scoring ----------
+  function scoreForDiff(diff){
+    var s = MAX_ROUND_SCORE * Math.pow(2, -diff / HALF_LIFE);
+    s = Math.round(s);
+    if (s < 0) s = 0;
+    if (s > MAX_ROUND_SCORE) s = MAX_ROUND_SCORE;
+    return s;
+  }
+  function tileForDiff(diff){
+    if (diff === 0) return "🎯"; // dart
+    if (diff <= 5) return "🟩"; // green
+    if (diff <= 15) return "🟨"; // yellow
+    if (diff <= 40) return "🟧"; // orange
+    return "⬛"; // black
+  }
+
+  // ---------- corpus selection ----------
+  function loadCorpus(){
+    return fetch("sonnets.json").then(function(r){
+      if (!r.ok) throw new Error("fetch failed: " + r.status);
+      return r.json();
+    }).then(function(data){
+      CORPUS = data.filter(function(d){ return Array.isArray(d.lines) && d.lines.length === 14; });
+      return CORPUS;
+    });
+  }
+
+  function pickDaily(dateKey){
+    var rng = rngFromString("many-rooms:" + dateKey);
+    var n = CORPUS.length;
+    var used = {};
+    var usedAuthors = {};
+    var picks = [];
+    var guardAttempts = 0;
+    while (picks.length < ROUNDS_PER_DAY && guardAttempts < n * 8){
+      guardAttempts++;
+      var idx = Math.floor(rng() * n);
+      var s = CORPUS[idx];
+      if (used[idx]) continue;
+      if (usedAuthors[s.author] && guardAttempts < n * 4) continue; // prefer author variety, relax if struggling
+      used[idx] = true;
+      usedAuthors[s.author] = true;
+      picks.push(s);
+    }
+    // fallback fill (corpus smaller than ROUNDS_PER_DAY, or pathological rng loop) — shouldn't trigger in practice
+    while (picks.length < ROUNDS_PER_DAY && picks.length < n){
+      var j = Math.floor(rng() * n);
+      if (!used[j]){ used[j] = true; picks.push(CORPUS[j]); }
+    }
+    return picks;
+  }
+
+  function pickPracticeOne(excludeIds){
+    var n = CORPUS.length;
+    var s;
+    var tries = 0;
+    do {
+      s = CORPUS[Math.floor(Math.random() * n)];
+      tries++;
+    } while (excludeIds[s.id] && tries < 40);
+    return s;
+  }
+
+  // ---------- stats persistence ----------
+  function loadStats(){
+    try {
+      var raw = localStorage.getItem(STATS_KEY);
+      if (!raw) return defaultStats();
+      var s = JSON.parse(raw);
+      if (!s || typeof s !== "object") return defaultStats();
+      s.history = s.history || {};
+      return s;
+    } catch (e){ return defaultStats(); }
+  }
+  function defaultStats(){
+    return {
+      version: 1, played: 0, totalScore: 0, bestScore: 0,
+      currentStreak: 0, maxStreak: 0, lastPlayedDay: null,
+      exactCount: 0, history: {}
+    };
+  }
+  function saveStats(s){
+    try { localStorage.setItem(STATS_KEY, JSON.stringify(s)); } catch (e){ /* storage unavailable — stats just won't persist */ }
+  }
+  function recordDailyResult(dateKey, dayNumber, rounds){
+    var stats = loadStats();
+    if (stats.history[dateKey]) return stats; // already recorded, don't double count
+
+    var totalScore = 0, exact = 0;
+    var entryRounds = rounds.map(function(r){
+      totalScore += r.score;
+      if (r.diff === 0) exact++;
+      return { author: r.sonnet.author, title: r.sonnet.title, year: r.sonnet.year, guess: r.guess, diff: r.diff, score: r.score };
+    });
+
+    stats.played += 1;
+    stats.totalScore += totalScore;
+    stats.exactCount = (stats.exactCount||0) + exact;
+    if (totalScore > stats.bestScore) stats.bestScore = totalScore;
+
+    var prevDay = stats.lastPlayedDay;
+    if (prevDay){
+      var gapDays = dayNumberFromKey(dateKey) - dayNumberFromKey(prevDay);
+      stats.currentStreak = (gapDays === 1) ? stats.currentStreak + 1 : 1;
+    } else {
+      stats.currentStreak = 1;
+    }
+    if (stats.currentStreak > stats.maxStreak) stats.maxStreak = stats.currentStreak;
+    stats.lastPlayedDay = dateKey;
+
+    stats.history[dateKey] = { dayNumber: dayNumber, totalScore: totalScore, rounds: entryRounds };
+
+    // trim history
+    var keys = Object.keys(stats.history).sort();
+    while (keys.length > HISTORY_CAP){
+      delete stats.history[keys.shift()];
+    }
+
+    saveStats(stats);
+    return stats;
+  }
+
+  // ---------- app state ----------
+  var mode = "daily"; // "daily" | "practice"
+  var daily = { dateKey: null, dayNumber: null, sonnets: [], roundIndex: 0, rounds: [], done: false };
+  var practice = { sonnet: null, seen: {}, guess: null, revealed: false, sessionScore: 0, sessionCount: 0 };
+
+  function startDaily(){
+    var dateKey = todayKeyUTC();
+    var dayNumber = dayNumberFromKey(dateKey);
+    var stats = loadStats();
+    var existing = stats.history[dateKey];
+    daily.dateKey = dateKey;
+    daily.dayNumber = dayNumber;
+    if (existing){
+      // already completed today — reconstruct a lightweight summary-only view
+      daily.done = true;
+      daily.rounds = existing.rounds.map(function(r){
+        return { sonnet: { author: r.author, title: r.title, year: r.year }, guess: r.guess, diff: r.diff, score: r.score };
+      });
+      renderDailySummary(existing.totalScore, true);
+      return;
+    }
+    daily.done = false;
+    daily.sonnets = pickDaily(dateKey);
+    daily.roundIndex = 0;
+    daily.rounds = [];
+    renderDailyRoom();
+  }
+
+  function startPractice(){
+    practice.sonnet = pickPracticeOne(practice.seen);
+    practice.seen[practice.sonnet.id] = true;
+    practice.guess = null;
+    practice.revealed = false;
+    renderPracticeRoom();
+  }
+
+  // ---------- rendering: shared bits ----------
+  function poemHTML(lines){
+    return lines.map(escapeHTML).join("\n");
+  }
+  function escapeHTML(s){
+    return s.replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");
+  }
+  var SMALL_WORDS = {a:1,an:1,and:1,as:1,at:1,but:1,by:1,for:1,if:1,in:1,nor:1,of:1,on:1,or:1,so:1,the:1,to:1,up:1,yet:1};
+  // Many source titles come off the page in shouting caps (old typesetting convention).
+  // Re-case them for display only, leaving already mixed-case titles (and acronyms) untouched.
+  function smartTitleCase(title){
+    if (!title || title !== title.toUpperCase()) return title;
+    var count = (title.match(/[A-Za-z][A-Za-z']*/g) || []).length;
+    var i = -1;
+    return title.replace(/[A-Za-z][A-Za-z']*/g, function(word){
+      i++;
+      if (word.length > 1 && /^[IVXLCDM]+$/.test(word)) return word; // roman numeral
+      var lower = word.toLowerCase();
+      var isEdge = (i === 0) || (i === count - 1);
+      if (!isEdge && SMALL_WORDS.hasOwnProperty(lower)) return lower;
+      return lower.charAt(0).toUpperCase() + lower.slice(1);
+    });
+  }
+  function yearTypeLabel(t){
+    if (t === "pub") return "published";
+    if (t === "comp") return "composed";
+    if (t === "approx") return "approximate date";
+    return t || "";
+  }
+  function clampYear(y){
+    y = Math.round(y);
+    if (y < MIN_YEAR) y = MIN_YEAR;
+    if (y > MAX_YEAR) y = MAX_YEAR;
+    return y;
+  }
+
+  function guessControlsHTML(defaultYear){
+    return ''
+      + '<div class="guessRow">'
+      +   '<div class="yearReadout" id="yearReadout">' + defaultYear + '</div>'
+      +   '<input type="range" id="yearSlider" min="' + MIN_YEAR + '" max="' + MAX_YEAR + '" value="' + defaultYear + '" step="1">'
+      +   '<div class="rangeEnds"><span>' + MIN_YEAR + '</span><span>' + MAX_YEAR + '</span></div>'
+      +   '<div class="numrow">'
+      +     '<input type="number" id="yearNumber" min="' + MIN_YEAR + '" max="' + MAX_YEAR + '" value="' + defaultYear + '">'
+      +     '<button class="primary" id="submitGuess">Lock it in</button>'
+      +   '</div>'
+      + '</div>';
+  }
+  function wireGuessControls(onSubmit){
+    var slider = document.getElementById("yearSlider");
+    var number = document.getElementById("yearNumber");
+    var readout = document.getElementById("yearReadout");
+    function syncFromSlider(){ number.value = slider.value; readout.textContent = slider.value; }
+    function syncFromNumber(){
+      var y = clampYear(number.value || slider.value);
+      slider.value = y; number.value = y; readout.textContent = y;
+    }
+    slider.addEventListener("input", syncFromSlider);
+    number.addEventListener("change", syncFromNumber);
+    number.addEventListener("keydown", function(e){ if (e.key === "Enter"){ syncFromNumber(); onSubmit(clampYear(slider.value)); } });
+    document.getElementById("submitGuess").addEventListener("click", function(){
+      onSubmit(clampYear(slider.value));
+    });
+  }
+
+  function timelineHTML(guess, actual){
+    var span = MAX_YEAR - MIN_YEAR;
+    var gPct = ((guess - MIN_YEAR) / span) * 100;
+    var aPct = ((actual - MIN_YEAR) / span) * 100;
+    return ''
+      + '<div class="timeline">'
+      +   '<div class="track"></div>'
+      +   '<div class="mark guess" style="left:' + gPct + '%"></div>'
+      +   '<div class="tag guess" style="left:' + gPct + '%">you: ' + guess + '</div>'
+      +   '<div class="mark actual" style="left:' + aPct + '%"></div>'
+      +   '<div class="tag actual" style="left:' + aPct + '%">' + actual + '</div>'
+      + '</div>'
+      + '<div class="timelineEnds"><span>' + MIN_YEAR + '</span><span>' + MAX_YEAR + '</span></div>';
+  }
+
+  // ---------- daily mode rendering ----------
+  function roomDotsHTML(){
+    var html = '<div class="rooms">';
+    for (var i = 0; i < ROUNDS_PER_DAY; i++){
+      var cls = "room-dot";
+      if (i < daily.roundIndex) cls += " done";
+      else if (i === daily.roundIndex) cls += " current";
+      html += '<div class="' + cls + '"></div>';
+    }
+    html += '</div>';
+    return html;
+  }
+  function tallyHTML(){
+    var total = daily.rounds.reduce(function(a,r){ return a + r.score; }, 0);
+    return '<p class="scoretally">Score so far: <b>' + total.toLocaleString() + '</b> / ' + (ROUNDS_PER_DAY * MAX_ROUND_SCORE).toLocaleString() + '</p>';
+  }
+
+  function renderDailyRoom(){
+    var sonnet = daily.sonnets[daily.roundIndex];
+    var html = ''
+      + roomDotsHTML()
+      + '<div class="roomlabel">Room ' + (daily.roundIndex+1) + ' of ' + ROUNDS_PER_DAY + '</div>'
+      + tallyHTML()
+      + '<div class="card">'
+      +   '<div class="poem">' + poemHTML(sonnet.lines) + '</div>'
+      +   guessControlsHTML(1730)
+      + '</div>';
+    app.innerHTML = html;
+    wireGuessControls(function(guess){ revealDailyRoom(sonnet, guess); });
+  }
+
+  function revealDailyRoom(sonnet, guess){
+    var diff = Math.abs(guess - sonnet.year);
+    var score = scoreForDiff(diff);
+    daily.rounds.push({ sonnet: sonnet, guess: guess, diff: diff, score: score });
+
+    var isLast = (daily.roundIndex === ROUNDS_PER_DAY - 1);
+    var subtitle = sonnet.sequence && sonnet.sequence !== sonnet.title
+      ? sonnet.sequence + (sonnet.num ? ", no. " + sonnet.num : "")
+      : "";
+
+    var html = ''
+      + roomDotsHTML()
+      + '<div class="roomlabel">Room ' + (daily.roundIndex+1) + ' of ' + ROUNDS_PER_DAY + '</div>'
+      + tallyHTML()
+      + '<div class="card">'
+      +   '<div class="revealHead">'
+      +     '<div class="revealAuthor">' + escapeHTML(sonnet.author) + '</div>'
+      +     '<div class="revealMeta">' + escapeHTML(smartTitleCase(sonnet.title)) + (subtitle ? ' &mdash; ' + escapeHTML(subtitle) : '') + '</div>'
+      +     '<div class="revealMeta">' + sonnet.year + ' (' + yearTypeLabel(sonnet.year_type) + ')' + '</div>'
+      +   '</div>'
+      +   '<div class="points' + (diff === 0 ? ' bullseye' : '') + '">' + score.toLocaleString() + ' pts' + (diff === 0 ? '  — bullseye' : '') + '</div>'
+      +   '<div class="diffline">You guessed ' + guess + ' &mdash; off by ' + diff + (diff === 1 ? ' year' : ' years') + '</div>'
+      +   timelineHTML(guess, sonnet.year)
+      +   '<div class="center"><button class="primary" id="nextRoom">' + (isLast ? "See results" : "Next room") + '</button></div>'
+      + '</div>';
+    app.innerHTML = html;
+    document.getElementById("nextRoom").addEventListener("click", function(){
+      if (isLast){
+        finishDaily();
+      } else {
+        daily.roundIndex++;
+        renderDailyRoom();
+      }
+    });
+  }
+
+  function finishDaily(){
+    var totalScore = daily.rounds.reduce(function(a,r){ return a + r.score; }, 0);
+    recordDailyResult(daily.dateKey, daily.dayNumber, daily.rounds);
+    daily.done = true;
+    renderDailySummary(totalScore, false);
+  }
+
+  function renderDailySummary(totalScore, alreadyPlayed){
+    var tiles = daily.rounds.map(function(r){ return tileForDiff(r.diff); }).join("");
+    var breakdown = daily.rounds.map(function(r, i){
+      return '<div class="breakrow">'
+        + '<span class="who">' + (i+1) + '. ' + escapeHTML(r.sonnet.author) + '</span>'
+        + '<span class="yr">' + r.sonnet.year + ' &middot; guessed ' + r.guess + '</span>'
+        + '<span class="pt">' + r.score.toLocaleString() + '</span>'
+        + '</div>';
+    }).join("");
+
+    var ms = msUntilNextUTCMidnight();
+    var hrs = Math.floor(ms / 3600000);
+    var mins = Math.floor((ms % 3600000) / 60000);
+
+    var html = ''
+      + '<div class="card">'
+      +   (alreadyPlayed ? '<p class="footnote">You have already walked today\'s five rooms. Come back tomorrow &mdash; or try Practice below.</p>' : '')
+      +   '<div class="roomlabel">Day ' + daily.dayNumber + '</div>'
+      +   '<div class="summaryScore">' + totalScore.toLocaleString() + '</div>'
+      +   '<div class="summaryOutOf">out of ' + (ROUNDS_PER_DAY * MAX_ROUND_SCORE).toLocaleString() + '</div>'
+      +   '<div class="tiles">' + tiles + '</div>'
+      +   '<div class="breakdown">' + breakdown + '</div>'
+      +   '<div class="summaryBtns">'
+      +     '<button class="primary" id="shareBtn">Copy results</button>'
+      +     '<button class="ghost" id="toPracticeBtn">Play Practice</button>'
+      +   '</div>'
+      +   '<div class="countdown">Next five rooms unlock in ' + hrs + 'h ' + mins + 'm (00:00 UTC)</div>'
+      + '</div>';
+    app.innerHTML = html;
+
+    document.getElementById("shareBtn").addEventListener("click", function(){
+      var url = location.href.split("#")[0].split("?")[0];
+      var text = "Many Rooms — Day " + daily.dayNumber + "\n"
+        + totalScore.toLocaleString() + " / " + (ROUNDS_PER_DAY * MAX_ROUND_SCORE).toLocaleString() + "\n"
+        + tiles + "\n" + url;
+      copyToClipboard(text, this);
+    });
+    document.getElementById("toPracticeBtn").addEventListener("click", function(){
+      setMode("practice");
+    });
+  }
+
+  function copyToClipboard(text, btn){
+    var done = function(){
+      var original = btn.textContent;
+      btn.textContent = "Copied!";
+      setTimeout(function(){ btn.textContent = original; }, 1400);
+    };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(text).then(done).catch(function(){ fallbackCopy(text); done(); });
+    } else {
+      fallbackCopy(text); done();
+    }
+  }
+  function fallbackCopy(text){
+    var ta = document.createElement("textarea");
+    ta.value = text; ta.style.position = "fixed"; ta.style.opacity = "0";
+    document.body.appendChild(ta); ta.select();
+    try { document.execCommand("copy"); } catch (e){ /* clipboard unavailable — user can select manually */ }
+    document.body.removeChild(ta);
+  }
+
+  // ---------- practice mode rendering ----------
+  function renderPracticeRoom(){
+    var sonnet = practice.sonnet;
+    var html = ''
+      + '<div class="roomlabel">Practice</div>'
+      + '<p class="scoretally">Session: <b>' + practice.sessionScore.toLocaleString() + '</b> pts over ' + practice.sessionCount + (practice.sessionCount === 1 ? ' room' : ' rooms') + '</p>'
+      + '<div class="card">'
+      +   '<div class="poem">' + poemHTML(sonnet.lines) + '</div>'
+      +   guessControlsHTML(1730)
+      + '</div>';
+    app.innerHTML = html;
+    wireGuessControls(function(guess){ revealPracticeRoom(sonnet, guess); });
+  }
+
+  function revealPracticeRoom(sonnet, guess){
+    var diff = Math.abs(guess - sonnet.year);
+    var score = scoreForDiff(diff);
+    practice.sessionScore += score;
+    practice.sessionCount += 1;
+
+    var subtitle = sonnet.sequence && sonnet.sequence !== sonnet.title
+      ? sonnet.sequence + (sonnet.num ? ", no. " + sonnet.num : "")
+      : "";
+
+    var html = ''
+      + '<div class="roomlabel">Practice</div>'
+      + '<p class="scoretally">Session: <b>' + practice.sessionScore.toLocaleString() + '</b> pts over ' + practice.sessionCount + (practice.sessionCount === 1 ? ' room' : ' rooms') + '</p>'
+      + '<div class="card">'
+      +   '<div class="revealHead">'
+      +     '<div class="revealAuthor">' + escapeHTML(sonnet.author) + '</div>'
+      +     '<div class="revealMeta">' + escapeHTML(smartTitleCase(sonnet.title)) + (subtitle ? ' &mdash; ' + escapeHTML(subtitle) : '') + '</div>'
+      +     '<div class="revealMeta">' + sonnet.year + ' (' + yearTypeLabel(sonnet.year_type) + ')' + '</div>'
+      +   '</div>'
+      +   '<div class="points' + (diff === 0 ? ' bullseye' : '') + '">' + score.toLocaleString() + ' pts' + (diff === 0 ? '  — bullseye' : '') + '</div>'
+      +   '<div class="diffline">You guessed ' + guess + ' &mdash; off by ' + diff + (diff === 1 ? ' year' : ' years') + '</div>'
+      +   timelineHTML(guess, sonnet.year)
+      +   '<div class="center"><button class="primary" id="nextPractice">Next room</button></div>'
+      + '</div>';
+    app.innerHTML = html;
+    document.getElementById("nextPractice").addEventListener("click", startPractice);
+  }
+
+  // ---------- mode switching ----------
+  function setMode(next){
+    mode = next;
+    document.getElementById("modeDailyBtn").classList.toggle("on", mode === "daily");
+    document.getElementById("modePracticeBtn").classList.toggle("on", mode === "practice");
+    if (mode === "daily") startDaily();
+    else startPractice();
+  }
+
+  // ---------- stats modal ----------
+  function renderStatsModal(){
+    var s = loadStats();
+    document.getElementById("stPlayed").textContent = s.played;
+    document.getElementById("stAvg").textContent = s.played ? Math.round(s.totalScore / s.played).toLocaleString() : "0";
+    document.getElementById("stBest").textContent = s.bestScore.toLocaleString();
+    document.getElementById("stStreak").textContent = s.currentStreak;
+    document.getElementById("stMaxStreak").textContent = s.maxStreak;
+    document.getElementById("stExact").textContent = s.exactCount || 0;
+
+    // histogram of daily totals across recorded history, bucketed into 5 bands
+    var bands = [0,0,0,0,0];
+    var max = ROUNDS_PER_DAY * MAX_ROUND_SCORE;
+    Object.keys(s.history).forEach(function(k){
+      var total = s.history[k].totalScore;
+      var idx = Math.min(4, Math.floor((total / max) * 5));
+      bands[idx]++;
+    });
+    var peak = Math.max.apply(null, bands.concat([1]));
+    var wrap = document.getElementById("histWrap");
+    var labels = document.getElementById("histLabels");
+    wrap.innerHTML = bands.map(function(v){
+      var h = Math.max(2, Math.round((v / peak) * 66));
+      return '<div class="histbar" style="height:' + h + 'px" title="' + v + '"></div>';
+    }).join("");
+    labels.innerHTML = ["0","5k","10k","15k","20k+"].map(function(l){ return '<span>' + l + '</span>'; }).join("");
+  }
+
+  // ---------- boot ----------
+  document.getElementById("modeDailyBtn").addEventListener("click", function(){ if (mode !== "daily") setMode("daily"); });
+  document.getElementById("modePracticeBtn").addEventListener("click", function(){ if (mode !== "practice") setMode("practice"); });
+  document.getElementById("openStats").addEventListener("click", function(){
+    renderStatsModal();
+    document.getElementById("statsModal").classList.remove("hidden");
+  });
+  document.getElementById("closeStats").addEventListener("click", function(){
+    document.getElementById("statsModal").classList.add("hidden");
+  });
+  document.getElementById("statsModal").addEventListener("click", function(e){
+    if (e.target.id === "statsModal") document.getElementById("statsModal").classList.add("hidden");
+  });
+
+  loadCorpus().then(function(){
+    startDaily();
+  }).catch(function(err){
+    app.innerHTML = '<div class="errbox">The rooms won’t open here &mdash; this page needs to be served over http(s), not opened directly as a file. (' + escapeHTML(String(err.message || err)) + ')</div>';
+  });
+})();
+</script>
+</body>
+</html>
