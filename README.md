@@ -12,7 +12,7 @@ assets/                     shared header/footer, styles, logo, favicon
 voyages/                    exhibit: Twenty Voyages (an atlas)
 polybius/                   exhibit: Polybius, book by book
 school/                     exhibit: School (a recreation)
-many-rooms/                 not yet built — sonnet corpus + pipeline for a sonnet-dating game
+many-rooms/                 exhibit: Many Rooms (a sonnet-dating game), plus the corpus + pipeline behind it
 ```
 
 Each exhibit is self-contained in its own folder (its own `index.html`, plus whatever data/scripts it needs) and gets a small "&larr; the Fabrica" link back to the homepage. Exhibits are otherwise free to have their own look and feel — the shell only wraps the homepage and the catalog/about pages.
