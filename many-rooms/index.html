@@ -143,7 +143,7 @@
 <body>
   <a class="backlink" href="../index.html">&larr; the Fabrica</a>
   <h1>Many Rooms</h1>
-  <p class="sub">Fourteen lines, no name, no date. Guess the year the room was built.</p>
+  <p class="sub">No name, no date &mdash; not even always fourteen lines. Guess the year the room was built.</p>
 
   <div class="modebar">
     <button class="modebtn on" id="modeDailyBtn">Today's Five</button>
@@ -166,7 +166,7 @@
       </div>
       <div class="hist" id="histWrap"></div>
       <div class="histlabels" id="histLabels"></div>
-      <p class="aboutbit">2,258 sonnets by 53 authors, 1535&ndash;1928, drawn from a corpus of 23 Project Gutenberg volumes. Five new rooms unlock each day at 00:00 UTC.</p>
+      <p class="aboutbit">2,260 sonnets (and a few deliberate irregulars) by 53 authors, 1535&ndash;1928, drawn from a corpus of 23 Project Gutenberg volumes. Five new rooms unlock each day at 00:00 UTC.</p>
       <button class="ghost modalClose" id="closeStats">Close</button>
     </div>
   </div>
@@ -252,7 +252,11 @@
       if (!r.ok) throw new Error("fetch failed: " + r.status);
       return r.json();
     }).then(function(data){
-      CORPUS = data.filter(function(d){ return Array.isArray(d.lines) && d.lines.length === 14; });
+      // Most rooms are 14 lines, but the corpus also carries a few deliberate
+      // irregular forms (curtal sonnets, Meredith's 16-line "Modern Love"
+      // stanzas, Shakespeare's 12- and 15-liners) — accept any plausible
+      // sonnet-length poem rather than only the regular form.
+      CORPUS = data.filter(function(d){ return Array.isArray(d.lines) && d.lines.length >= 10 && d.lines.length <= 16; });
       return CORPUS;
     });
   }
@@ -417,6 +421,12 @@
     if (t === "approx") return "approximate date";
     return t || "";
   }
+  function irregularNoteHTML(sonnet){
+    var n = sonnet.lines.length;
+    if (n === 14 && !sonnet.irregular) return "";
+    var word = n < 14 ? "short" : "long";
+    return '<div class="revealMeta">an irregular sonnet &mdash; ' + n + ' lines (' + word + ')</div>';
+  }
   function clampYear(y){
     y = Math.round(y);
     if (y < MIN_YEAR) y = MIN_YEAR;
@@ -518,6 +528,7 @@
       +     '<div class="revealAuthor">' + escapeHTML(sonnet.author) + '</div>'
       +     '<div class="revealMeta">' + escapeHTML(smartTitleCase(sonnet.title)) + (subtitle ? ' &mdash; ' + escapeHTML(subtitle) : '') + '</div>'
       +     '<div class="revealMeta">' + sonnet.year + ' (' + yearTypeLabel(sonnet.year_type) + ')' + '</div>'
+      +     irregularNoteHTML(sonnet)
       +   '</div>'
       +   '<div class="points' + (diff === 0 ? ' bullseye' : '') + '">' + score.toLocaleString() + ' pts' + (diff === 0 ? '  — bullseye' : '') + '</div>'
       +   '<div class="diffline">You guessed ' + guess + ' &mdash; off by ' + diff + (diff === 1 ? ' year' : ' years') + '</div>'
@@ -636,6 +647,7 @@
       +     '<div class="revealAuthor">' + escapeHTML(sonnet.author) + '</div>'
       +     '<div class="revealMeta">' + escapeHTML(smartTitleCase(sonnet.title)) + (subtitle ? ' &mdash; ' + escapeHTML(subtitle) : '') + '</div>'
       +     '<div class="revealMeta">' + sonnet.year + ' (' + yearTypeLabel(sonnet.year_type) + ')' + '</div>'
+      +     irregularNoteHTML(sonnet)
       +   '</div>'
       +   '<div class="points' + (diff === 0 ? ' bullseye' : '') + '">' + score.toLocaleString() + ' pts' + (diff === 0 ? '  — bullseye' : '') + '</div>'
       +   '<div class="diffline">You guessed ' + guess + ' &mdash; off by ' + diff + (diff === 1 ? ' year' : ' years') + '</div>'
