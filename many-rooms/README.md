@@ -1,6 +1,6 @@
-# Many Rooms — sonnet corpus v1.1
+# Many Rooms — sonnet corpus v1.2
 
-**2,260 sonnets by 53 authors, 1535–1928 — US public domain (pub ≤1930)**, normalized JSON, from
+**2,262 sonnets by 53 authors, 1535–1928 — US public domain (pub ≤1930)**, normalized JSON, from
 23 Project Gutenberg volumes (GITenberg mirrors). Pipeline: `extract.py`
 (add a volume = add a config) then `fixup.py` (dates, splits, hygiene).
 
@@ -21,6 +21,24 @@ from Knight's chronological edition** (the "Composed 1802.—Published
 Ecclesiastical Sonnets) · Keats 18 · EBB 44 · D.G. Rossetti 98 · Hopkins
 23 (22 comp-dated 1877–89) · Brooke 14 · Yeats: Leda and the Swan (comp
 1923; the split line 11 rejoined).
+
+## Added in v1.2 (user-supplied, cross-checked against the existing corpus)
+Rupert Brooke +2: "He Wonders Whether to Praise or to Blame Her" and "A
+Memory" (both from *1914 and Other Poems*, comp. c.1913, pre-dating the
+war sonnets — dated separately from their blanket-1915 siblings in this
+same volume; the two dates now coexist in one sequence, a minor
+inconsistency worth revisiting). Also fixed a mistitled entry: s00871,
+carried since v0.x as "The Pacific, 1914", is in fact "Sonnet
+(Suggested by some of the Proceedings of the Society for Psychical
+Research)" — same text, wrong heading; title corrected, text untouched.
+Provenance: user-supplied text, cross-verified line-for-line against
+Sonnets from the Portuguese I–XLIV and 12 already-present Brooke poems
+(all matched exactly) before anything was added.
+Not added: two James Weldon Johnson poems ("Mother Night" and "Sonnet,
+from the Spanish of Plácido," *Fifty Years & Other Poems*, 1917) were
+supplied but each ran only 13 lines after the title was stripped out of
+the line array — one line short of a sonnet, ending mid-sentence.
+Held pending a complete text.
 
 ## Fixes applied since v0.1
 Sidney & Spenser: conservative positional u/v–i/j normalization
