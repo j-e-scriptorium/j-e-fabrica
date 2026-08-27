@@ -243,12 +243,21 @@
   }
 
   // ---------- scoring ----------
+  var APPROX_TOLERANCE = 5; // years of free margin on approx-dated sonnets
   function scoreForDiff(diff){
     var s = MAX_ROUND_SCORE * Math.pow(2, -diff / HALF_LIFE);
     s = Math.round(s);
     if (s < 0) s = 0;
     if (s > MAX_ROUND_SCORE) s = MAX_ROUND_SCORE;
     return s;
+  }
+  // Some sonnets only have an estimated composition date (year_type "approx"
+  // — see the corpus README's "Dating convention"), so a single year is
+  // false precision. Guesses within APPROX_TOLERANCE years score as if
+  // exact; further off, the free margin is subtracted before scoring.
+  function scoringDiff(sonnet, rawDiff){
+    if (sonnet.year_type !== "approx") return rawDiff;
+    return Math.max(0, rawDiff - APPROX_TOLERANCE);
   }
   function tileForDiff(diff){
     if (diff === 0) return "🎯"; // dart
@@ -451,6 +460,17 @@
     if (!sonnet.date_note) return "";
     return '<div class="revealMeta dateSource">' + escapeHTML(sonnet.date_note) + '</div>';
   }
+  function diffLineHTML(sonnet, guess, rawDiff, scoreDiff){
+    var base = 'You guessed ' + guess;
+    if (sonnet.year_type !== "approx"){
+      return base + ' &mdash; off by ' + rawDiff + (rawDiff === 1 ? ' year' : ' years');
+    }
+    if (rawDiff <= APPROX_TOLERANCE){
+      return base + ' &mdash; within ' + APPROX_TOLERANCE + ' years of this estimated date, scored as exact';
+    }
+    return base + ' &mdash; off by ' + rawDiff + ' years (estimated date, first ' + APPROX_TOLERANCE
+      + ' free &rarr; scored as ' + scoreDiff + ')';
+  }
   function clampYear(y){
     y = Math.round(y);
     if (y < MIN_YEAR) y = MIN_YEAR;
@@ -534,7 +554,8 @@
   }
 
   function revealDailyRoom(sonnet, guess){
-    var diff = Math.abs(guess - sonnet.year);
+    var rawDiff = Math.abs(guess - sonnet.year);
+    var diff = scoringDiff(sonnet, rawDiff);
     var score = scoreForDiff(diff);
     daily.rounds.push({ sonnet: sonnet, guess: guess, diff: diff, score: score });
 
@@ -556,7 +577,7 @@
       +     irregularNoteHTML(sonnet)
       +   '</div>'
       +   '<div class="points' + (diff === 0 ? ' bullseye' : '') + '">' + score.toLocaleString() + ' pts' + (diff === 0 ? '  — bullseye' : '') + '</div>'
-      +   '<div class="diffline">You guessed ' + guess + ' &mdash; off by ' + diff + (diff === 1 ? ' year' : ' years') + '</div>'
+      +   '<div class="diffline">' + diffLineHTML(sonnet, guess, rawDiff, diff) + '</div>'
       +   timelineHTML(guess, sonnet.year)
       +   '<div class="center"><button class="primary" id="nextRoom">' + (isLast ? "See results" : "Next room") + '</button></div>'
       + '</div>';
@@ -655,7 +676,8 @@
   }
 
   function revealPracticeRoom(sonnet, guess){
-    var diff = Math.abs(guess - sonnet.year);
+    var rawDiff = Math.abs(guess - sonnet.year);
+    var diff = scoringDiff(sonnet, rawDiff);
     var score = scoreForDiff(diff);
     practice.sessionScore += score;
     practice.sessionCount += 1;
@@ -676,7 +698,7 @@
       +     irregularNoteHTML(sonnet)
       +   '</div>'
       +   '<div class="points' + (diff === 0 ? ' bullseye' : '') + '">' + score.toLocaleString() + ' pts' + (diff === 0 ? '  — bullseye' : '') + '</div>'
-      +   '<div class="diffline">You guessed ' + guess + ' &mdash; off by ' + diff + (diff === 1 ? ' year' : ' years') + '</div>'
+      +   '<div class="diffline">' + diffLineHTML(sonnet, guess, rawDiff, diff) + '</div>'
       +   timelineHTML(guess, sonnet.year)
       +   '<div class="center"><button class="primary" id="nextPractice">Next room</button></div>'
       + '</div>';

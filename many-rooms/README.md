@@ -34,6 +34,12 @@ the 1530s–40s (when they wrote) rather than 1557 (when Tottel's Miscellany
 first printed them after both were dead) — publication dating would make them
 indistinguishable from everyone else Tottel printed decades later.
 
+**Scoring reflects that `approx` is a range, not a point.** A guess within
+`APPROX_TOLERANCE` (5 years, in `many-rooms/index.html`) of an `approx`-dated
+sonnet's year scores as if exact; further off, those 5 years are subtracted
+from the miss before scoring, rather than counted against it. `pub` and
+`comp` sonnets get no such margin — they score on the raw guess.
+
 ## What's in it
 Elizabethans: Sidney A&S 107 · Daniel Delia 64 · Constable Diana 64 ·
 Lodge Phillis 33 · Fletcher Licia 50 · Spenser Amoretti 63 · Griffin
