@@ -30,7 +30,16 @@
     text-decoration:none;display:inline-block;margin-bottom:8px;position:relative;z-index:1}
   .backlink:hover{color:var(--ink)}
   h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:46px;letter-spacing:.02em;margin:0 0 2px;position:relative;z-index:1}
-  .sub{font-style:italic;color:var(--ink-soft);margin:0 0 18px;font-size:17px;max-width:520px;text-align:center;position:relative;z-index:1}
+  .sub{font-style:italic;color:var(--ink-soft);margin:0 0 6px;font-size:17px;max-width:520px;text-align:center;position:relative;z-index:1}
+
+  .datenote{font-size:13px;color:var(--ink-soft);margin:0 0 8px;text-align:center;position:relative;z-index:1}
+  .linklike{font-family:"EB Garamond",serif;font-size:13px;font-style:italic;background:none;border:none;
+    color:var(--rust-dark);text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0}
+  .linklike:hover{color:var(--rust)}
+  .datenoteBody{font-size:13.5px;color:var(--ink-soft);max-width:480px;text-align:center;line-height:1.5;
+    margin:0 0 16px;padding:10px 16px;border:1px dashed var(--line);border-radius:8px;
+    background:rgba(255,252,244,.4);position:relative;z-index:1}
+  .datenoteBody.hidden{display:none}
 
   .modebar{display:flex;gap:8px;align-items:center;margin-bottom:18px;position:relative;z-index:1;flex-wrap:wrap;justify-content:center}
   .modebtn,.statsbtn{font-family:"EB Garamond",serif;font-size:15px;cursor:pointer;background:transparent;
@@ -83,6 +92,7 @@
   .revealHead{text-align:center;margin-bottom:14px}
   .revealAuthor{font-family:"Cormorant Garamond",serif;font-size:24px;font-weight:600;font-style:italic}
   .revealMeta{font-size:14px;color:var(--ink-soft);margin-top:2px}
+  .dateSource{font-size:12.5px;font-style:italic}
   .points{font-family:"Cormorant Garamond",serif;font-size:30px;font-weight:600;text-align:center;margin:8px 0 4px}
   .points.bullseye{color:var(--good)}
   .diffline{text-align:center;color:var(--ink-soft);font-size:15px;margin-bottom:16px}
@@ -143,7 +153,9 @@
 <body>
   <a class="backlink" href="../index.html">&larr; the Fabrica</a>
   <h1>Many Rooms</h1>
-  <p class="sub">Fourteen lines, no name, no date. Guess the year the room was built.</p>
+  <p class="sub">No name, no date &mdash; not even always fourteen lines. Guess the year the sonnet was written.</p>
+  <p class="datenote"><button class="linklike" id="dateNoteBtn" type="button">What do we mean by "written"?</button></p>
+  <p class="datenoteBody hidden" id="dateNoteBody">"Written" means the year of first publication &mdash; except when a sonnet was first published after its poet's death, in which case it means the year it was composed (marked "composed" on the reveal screen; published-in-lifetime sonnets are marked "published"). A few dates are only approximate, marked accordingly.</p>
 
   <div class="modebar">
     <button class="modebtn on" id="modeDailyBtn">Today's Five</button>
@@ -166,7 +178,7 @@
       </div>
       <div class="hist" id="histWrap"></div>
       <div class="histlabels" id="histLabels"></div>
-      <p class="aboutbit">2,258 sonnets by 53 authors, 1535&ndash;1928, drawn from a corpus of 23 Project Gutenberg volumes. Five new rooms unlock each day at 00:00 UTC.</p>
+      <p class="aboutbit">2,387 playable sonnets (and a few deliberate irregulars) by 87 authors, 1535&ndash;1928, drawn from a corpus of 23 Project Gutenberg volumes plus other sources. Another 49, mostly recovered from an 1880 anthology scan, are in the archive undated or unfinished, waiting on research before they can join the game. Five new rooms unlock each day at 00:00 UTC.</p>
       <button class="ghost modalClose" id="closeStats">Close</button>
     </div>
   </div>
@@ -231,12 +243,21 @@
   }
 
   // ---------- scoring ----------
+  var APPROX_TOLERANCE = 5; // years of free margin on approx-dated sonnets
   function scoreForDiff(diff){
     var s = MAX_ROUND_SCORE * Math.pow(2, -diff / HALF_LIFE);
     s = Math.round(s);
     if (s < 0) s = 0;
     if (s > MAX_ROUND_SCORE) s = MAX_ROUND_SCORE;
     return s;
+  }
+  // Some sonnets only have an estimated composition date (year_type "approx"
+  // — see the corpus README's "Dating convention"), so a single year is
+  // false precision. Guesses within APPROX_TOLERANCE years score as if
+  // exact; further off, the free margin is subtracted before scoring.
+  function scoringDiff(sonnet, rawDiff){
+    if (sonnet.year_type !== "approx") return rawDiff;
+    return Math.max(0, rawDiff - APPROX_TOLERANCE);
   }
   function tileForDiff(diff){
     if (diff === 0) return "🎯"; // dart
@@ -252,7 +273,19 @@
       if (!r.ok) throw new Error("fetch failed: " + r.status);
       return r.json();
     }).then(function(data){
-      CORPUS = data.filter(function(d){ return Array.isArray(d.lines) && d.lines.length === 14; });
+      // Most rooms are 14 lines, but the corpus also carries a few deliberate
+      // irregular forms (curtal sonnets, Meredith's 16-line "Modern Love"
+      // stanzas, Shakespeare's 12- and 15-liners) — accept any plausible
+      // sonnet-length poem rather than only the regular form. The corpus also
+      // carries sonnets with no established year (year: null, e.g. undated
+      // OCR recoveries awaiting research) or a needs_review flag (a line or
+      // two still garbled) — those are kept for future dating/cleanup but
+      // held out of play, since there's nothing to guess or the text isn't
+      // trustworthy yet.
+      CORPUS = data.filter(function(d){
+        return Array.isArray(d.lines) && d.lines.length >= 10 && d.lines.length <= 16
+          && typeof d.year === "number" && !d.needs_review;
+      });
       return CORPUS;
     });
   }
@@ -417,6 +450,27 @@
     if (t === "approx") return "approximate date";
     return t || "";
   }
+  function irregularNoteHTML(sonnet){
+    var n = sonnet.lines.length;
+    if (n === 14 && !sonnet.irregular) return "";
+    var word = n < 14 ? "short" : "long";
+    return '<div class="revealMeta">an irregular sonnet &mdash; ' + n + ' lines (' + word + ')</div>';
+  }
+  function dateNoteHTML(sonnet){
+    if (!sonnet.date_note) return "";
+    return '<div class="revealMeta dateSource">' + escapeHTML(sonnet.date_note) + '</div>';
+  }
+  function diffLineHTML(sonnet, guess, rawDiff, scoreDiff){
+    var base = 'You guessed ' + guess;
+    if (sonnet.year_type !== "approx"){
+      return base + ' &mdash; off by ' + rawDiff + (rawDiff === 1 ? ' year' : ' years');
+    }
+    if (rawDiff <= APPROX_TOLERANCE){
+      return base + ' &mdash; within ' + APPROX_TOLERANCE + ' years of this estimated date, scored as exact';
+    }
+    return base + ' &mdash; off by ' + rawDiff + ' years (estimated date, first ' + APPROX_TOLERANCE
+      + ' free &rarr; scored as ' + scoreDiff + ')';
+  }
   function clampYear(y){
     y = Math.round(y);
     if (y < MIN_YEAR) y = MIN_YEAR;
@@ -500,7 +554,8 @@
   }
 
   function revealDailyRoom(sonnet, guess){
-    var diff = Math.abs(guess - sonnet.year);
+    var rawDiff = Math.abs(guess - sonnet.year);
+    var diff = scoringDiff(sonnet, rawDiff);
     var score = scoreForDiff(diff);
     daily.rounds.push({ sonnet: sonnet, guess: guess, diff: diff, score: score });
 
@@ -518,9 +573,11 @@
       +     '<div class="revealAuthor">' + escapeHTML(sonnet.author) + '</div>'
       +     '<div class="revealMeta">' + escapeHTML(smartTitleCase(sonnet.title)) + (subtitle ? ' &mdash; ' + escapeHTML(subtitle) : '') + '</div>'
       +     '<div class="revealMeta">' + sonnet.year + ' (' + yearTypeLabel(sonnet.year_type) + ')' + '</div>'
+      +     dateNoteHTML(sonnet)
+      +     irregularNoteHTML(sonnet)
       +   '</div>'
       +   '<div class="points' + (diff === 0 ? ' bullseye' : '') + '">' + score.toLocaleString() + ' pts' + (diff === 0 ? '  — bullseye' : '') + '</div>'
-      +   '<div class="diffline">You guessed ' + guess + ' &mdash; off by ' + diff + (diff === 1 ? ' year' : ' years') + '</div>'
+      +   '<div class="diffline">' + diffLineHTML(sonnet, guess, rawDiff, diff) + '</div>'
       +   timelineHTML(guess, sonnet.year)
       +   '<div class="center"><button class="primary" id="nextRoom">' + (isLast ? "See results" : "Next room") + '</button></div>'
       + '</div>';
@@ -619,7 +676,8 @@
   }
 
   function revealPracticeRoom(sonnet, guess){
-    var diff = Math.abs(guess - sonnet.year);
+    var rawDiff = Math.abs(guess - sonnet.year);
+    var diff = scoringDiff(sonnet, rawDiff);
     var score = scoreForDiff(diff);
     practice.sessionScore += score;
     practice.sessionCount += 1;
@@ -636,9 +694,11 @@
       +     '<div class="revealAuthor">' + escapeHTML(sonnet.author) + '</div>'
       +     '<div class="revealMeta">' + escapeHTML(smartTitleCase(sonnet.title)) + (subtitle ? ' &mdash; ' + escapeHTML(subtitle) : '') + '</div>'
       +     '<div class="revealMeta">' + sonnet.year + ' (' + yearTypeLabel(sonnet.year_type) + ')' + '</div>'
+      +     dateNoteHTML(sonnet)
+      +     irregularNoteHTML(sonnet)
       +   '</div>'
       +   '<div class="points' + (diff === 0 ? ' bullseye' : '') + '">' + score.toLocaleString() + ' pts' + (diff === 0 ? '  — bullseye' : '') + '</div>'
-      +   '<div class="diffline">You guessed ' + guess + ' &mdash; off by ' + diff + (diff === 1 ? ' year' : ' years') + '</div>'
+      +   '<div class="diffline">' + diffLineHTML(sonnet, guess, rawDiff, diff) + '</div>'
       +   timelineHTML(guess, sonnet.year)
       +   '<div class="center"><button class="primary" id="nextPractice">Next room</button></div>'
       + '</div>';
@@ -684,6 +744,12 @@
   }
 
   // ---------- boot ----------
+  document.getElementById("dateNoteBtn").addEventListener("click", function(){
+    var body = document.getElementById("dateNoteBody");
+    var showing = !body.classList.contains("hidden");
+    body.classList.toggle("hidden");
+    this.textContent = showing ? "What do we mean by \"written\"?" : "Hide";
+  });
   document.getElementById("modeDailyBtn").addEventListener("click", function(){ if (mode !== "daily") setMode("daily"); });
   document.getElementById("modePracticeBtn").addEventListener("click", function(){ if (mode !== "practice") setMode("practice"); });
   document.getElementById("openStats").addEventListener("click", function(){

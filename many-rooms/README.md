@@ -1,12 +1,44 @@
-# Many Rooms — sonnet corpus v1.1
+# Many Rooms — sonnet corpus v1.4
 
-**2,260 sonnets by 53 authors, 1535–1928 — US public domain (pub ≤1930)**, normalized JSON, from
-23 Project Gutenberg volumes (GITenberg mirrors). Pipeline: `extract.py`
+**2,387 playable sonnets by 87 authors, 1535–1928 — US public domain (pub ≤1930)**, plus
+49 more sitting in the archive out of play — 35 undated (`year: null`), 14 dated but
+still `needs_review` — until someone can finish them — **2,436 records total**, 101
+authors. Normalized JSON, from 23 Project Gutenberg volumes
+(GITenberg mirrors) plus other public-domain sources. Pipeline: `extract.py`
 (add a volume = add a config) then `fixup.py` (dates, splits, hygiene).
 
 ## Schema
-`{id, author, title, sequence, num, year, year_type(pub|comp|approx), spelling,
-lines[14], source_pg, irregular?}`
+`{id, author, title, sequence, num, year, year_type(pub|comp|approx|unknown), spelling,
+lines[14], source_pg, irregular?, needs_review?, source?, author_dates?, date_note?}`
+
+`year: null` + `year_type: "unknown"` marks a sonnet with no established date — kept in
+the archive, held out of the game (the game filters on `typeof year === "number"`).
+`needs_review: true` marks a sonnet whose text still has a gap an OCR pass couldn't
+close (a missing word or line, not just noise) — also held out of play regardless of
+whether it later gets a date. `date_note`, where present, is a short citation for
+the reveal screen (e.g. "on Thomas Clere, d. Apr. 1545; pr. Tottel 1557").
+
+## Dating convention
+
+**A sonnet's `year` is its first-publication date, except where first publication
+was posthumous, in which case `year` is the composition date instead** — and a
+sonnet first published in the same calendar year its poet died counts as
+published in the poet's lifetime, not posthumously (so it's dated by
+publication, `year_type: "pub"`, not composition). `year_type` records which
+rule produced the date: `pub` (published in the poet's lifetime, including the
+death-year case above), `comp` (composition, firmly pinned by an occasion,
+letter, or datable death), `approx` (composition, estimated to within a few
+years — treat the year as approximate, not exact), `unknown` (no date
+established at all). This is why, for example, Wyatt and Surrey are dated to
+the 1530s–40s (when they wrote) rather than 1557 (when Tottel's Miscellany
+first printed them after both were dead) — publication dating would make them
+indistinguishable from everyone else Tottel printed decades later.
+
+**Scoring reflects that `approx` is a range, not a point.** A guess within
+`APPROX_TOLERANCE` (5 years, in `many-rooms/index.html`) of an `approx`-dated
+sonnet's year scores as if exact; further off, those 5 years are subtracted
+from the miss before scoring, rather than counted against it. `pub` and
+`comp` sonnets get no such margin — they score on the raw guess.
 
 ## What's in it
 Elizabethans: Sidney A&S 107 · Daniel Delia 64 · Constable Diana 64 ·
@@ -21,6 +53,81 @@ from Knight's chronological edition** (the "Composed 1802.—Published
 Ecclesiastical Sonnets) · Keats 18 · EBB 44 · D.G. Rossetti 98 · Hopkins
 23 (22 comp-dated 1877–89) · Brooke 14 · Yeats: Leda and the Swan (comp
 1923; the split line 11 rejoined).
+
+## Added in v1.4 (dating pass on the v1.3 batch, user-supplied)
+Dates applied to 137 of the 172 Main's Treasury sonnets added in v1.3, moving
+them from `year: null` into play — the corpus's convention (see "Dating
+convention" above) supplied by the same source, plus five more first-line
+repairs (opening lines the Index of First Lines in v1.3 couldn't reach) and
+one text-driven `date_note`. Also: two James Weldon Johnson sonnets ("Mother
+Night" and a Plácido translation, both *Fifty Years & Other Poems*, 1917)
+added with `needs_review: true` — each is missing its final line in the
+source text supplied, so both keep a known, correct date but stay out of
+play until the missing line turns up; and the two Rupert Brooke additions
+from v1.2 were redated 1913→1915 (`approx`/`comp`→`pub`) to apply the
+death-year rule correctly: *1914 and Other Poems* was published in 1915,
+the year Brooke died, which counts as published-in-lifetime, not
+posthumous — matching the dating already used for its 15 siblings already
+in the corpus.
+
+The remaining 35 of the 172 stay undated: Main's anthology gives only
+poets' life-dates, and this pass didn't reach every poem (nine C. T. Turner
+sonnets need matching against three later Turner volumes on Archive.org;
+six Hartley Coleridge sonnets split between an 1833 and a posthumous 1851
+volume; a handful of others have no clean lead at all). All still sit in
+the corpus, undated, out of play.
+
+## Added in v1.3 (Main's *Treasury of English Sonnets*, 1880 — user-supplied)
+172 sonnets recovered from an OCR scan of Main's 1880 anthology (IA
+`treasuryofenglis00mainuoft`), supplied pre-extracted with per-poem
+`needs_review`/repair metadata. Two entirely new poets enter the corpus:
+Charles Tennyson Turner (21) and William Drummond of Hawthornden (14),
+plus additions to Wyatt, Surrey, Spenser, Sidney, Constable, Chapman,
+Florio, Barnes, Browne, Edwards, Mason, Warton, W. Roscoe, Wordsworth,
+Charlotte Smith, Thurlow, Elliott, W. S. Roscoe, Kirke White, Wilson,
+De Vere, R. Roscoe, Procter, Shelley (2 sections of *Ode to the West
+Wind*), Keats, Talfourd, Hartley Coleridge, Blanchard, Sterling, EBB,
+Alford, W. C. Roscoe, Julian Fane, Clare, Hemans, Hood, Hallam, Faber,
+and Gray. 255 candidates were dedupe-checked against the existing
+corpus first (exact + fuzzy, same-author word-overlap) — 83 were
+already present and were skipped rather than duplicated; one further
+poem (Spenser, Amoretti 75, "One day I wrote her name...") was dropped
+from this batch because its opening line was missing entirely from the
+extraction, not just garbled.
+
+Every included poem got a hand pass against its OCR: drop-cap corruption
+(the scan's illuminated first letters routinely OCR as noise — running
+headers glued onto opening words, page numbers and author life-dates
+glued into verse lines, stray symbols standing in for punctuation) was
+corrected wherever the intended text was unambiguous from what survived;
+19 poems where a genuine word or line was missing (not just garbled) got
+`needs_review: true` and stay text-as-found rather than guessed-at. One
+mistitled-but-correct-text case from the running-header noise (Turner's
+"Letty's Globe" retained its OCR'd alternate subtitle rather than the
+better-known title, since the familiar title itself never appears in the
+extraction) was left as supplied rather than supplied from memory.
+
+**None of the 172 carry a date** — Main's anthology gives only poets'
+life-dates, never per-poem composition or publication years, and
+research to date them individually wasn't feasible this round. All 172
+are `year: null, year_type: "unknown"`, present in the corpus and
+excluded from play until dated.
+Rupert Brooke +2: "He Wonders Whether to Praise or to Blame Her" and "A
+Memory" (both from *1914 and Other Poems*, comp. c.1913, pre-dating the
+war sonnets — dated separately from their blanket-1915 siblings in this
+same volume; the two dates now coexist in one sequence, a minor
+inconsistency worth revisiting). Also fixed a mistitled entry: s00871,
+carried since v0.x as "The Pacific, 1914", is in fact "Sonnet
+(Suggested by some of the Proceedings of the Society for Psychical
+Research)" — same text, wrong heading; title corrected, text untouched.
+Provenance: user-supplied text, cross-verified line-for-line against
+Sonnets from the Portuguese I–XLIV and 12 already-present Brooke poems
+(all matched exactly) before anything was added.
+Not added: two James Weldon Johnson poems ("Mother Night" and "Sonnet,
+from the Spanish of Plácido," *Fifty Years & Other Poems*, 1917) were
+supplied but each ran only 13 lines after the title was stripped out of
+the line array — one line short of a sonnet, ending mid-sentence.
+Held pending a complete text.
 
 ## Fixes applied since v0.1
 Sidney & Spenser: conservative positional u/v–i/j normalization
