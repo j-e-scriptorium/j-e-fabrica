@@ -1,12 +1,20 @@
-# Many Rooms — sonnet corpus v1.2
+# Many Rooms — sonnet corpus v1.3
 
-**2,262 sonnets by 53 authors, 1535–1928 — US public domain (pub ≤1930)**, normalized JSON, from
-23 Project Gutenberg volumes (GITenberg mirrors). Pipeline: `extract.py`
+**2,262 playable sonnets by 53 authors, 1535–1928 — US public domain (pub ≤1930)**, plus
+172 more sitting in the archive undated (`year: null`) until someone can date them —
+**2,434 records total**, 100 authors. Normalized JSON, from 23 Project Gutenberg volumes
+(GITenberg mirrors) plus other public-domain sources. Pipeline: `extract.py`
 (add a volume = add a config) then `fixup.py` (dates, splits, hygiene).
 
 ## Schema
-`{id, author, title, sequence, num, year, year_type(pub|comp|approx), spelling,
-lines[14], source_pg, irregular?}`
+`{id, author, title, sequence, num, year, year_type(pub|comp|approx|unknown), spelling,
+lines[14], source_pg, irregular?, needs_review?, source?, author_dates?}`
+
+`year: null` + `year_type: "unknown"` marks a sonnet with no established date — kept in
+the archive, held out of the game (the game filters on `typeof year === "number"`).
+`needs_review: true` marks a sonnet whose text still has a gap an OCR pass couldn't
+close (a missing word or line, not just noise) — also held out of play regardless of
+whether it later gets a date.
 
 ## What's in it
 Elizabethans: Sidney A&S 107 · Daniel Delia 64 · Constable Diana 64 ·
@@ -22,7 +30,41 @@ Ecclesiastical Sonnets) · Keats 18 · EBB 44 · D.G. Rossetti 98 · Hopkins
 23 (22 comp-dated 1877–89) · Brooke 14 · Yeats: Leda and the Swan (comp
 1923; the split line 11 rejoined).
 
-## Added in v1.2 (user-supplied, cross-checked against the existing corpus)
+## Added in v1.3 (Main's *Treasury of English Sonnets*, 1880 — user-supplied)
+172 sonnets recovered from an OCR scan of Main's 1880 anthology (IA
+`treasuryofenglis00mainuoft`), supplied pre-extracted with per-poem
+`needs_review`/repair metadata. Two entirely new poets enter the corpus:
+Charles Tennyson Turner (21) and William Drummond of Hawthornden (14),
+plus additions to Wyatt, Surrey, Spenser, Sidney, Constable, Chapman,
+Florio, Barnes, Browne, Edwards, Mason, Warton, W. Roscoe, Wordsworth,
+Charlotte Smith, Thurlow, Elliott, W. S. Roscoe, Kirke White, Wilson,
+De Vere, R. Roscoe, Procter, Shelley (2 sections of *Ode to the West
+Wind*), Keats, Talfourd, Hartley Coleridge, Blanchard, Sterling, EBB,
+Alford, W. C. Roscoe, Julian Fane, Clare, Hemans, Hood, Hallam, Faber,
+and Gray. 255 candidates were dedupe-checked against the existing
+corpus first (exact + fuzzy, same-author word-overlap) — 83 were
+already present and were skipped rather than duplicated; one further
+poem (Spenser, Amoretti 75, "One day I wrote her name...") was dropped
+from this batch because its opening line was missing entirely from the
+extraction, not just garbled.
+
+Every included poem got a hand pass against its OCR: drop-cap corruption
+(the scan's illuminated first letters routinely OCR as noise — running
+headers glued onto opening words, page numbers and author life-dates
+glued into verse lines, stray symbols standing in for punctuation) was
+corrected wherever the intended text was unambiguous from what survived;
+19 poems where a genuine word or line was missing (not just garbled) got
+`needs_review: true` and stay text-as-found rather than guessed-at. One
+mistitled-but-correct-text case from the running-header noise (Turner's
+"Letty's Globe" retained its OCR'd alternate subtitle rather than the
+better-known title, since the familiar title itself never appears in the
+extraction) was left as supplied rather than supplied from memory.
+
+**None of the 172 carry a date** — Main's anthology gives only poets'
+life-dates, never per-poem composition or publication years, and
+research to date them individually wasn't feasible this round. All 172
+are `year: null, year_type: "unknown"`, present in the corpus and
+excluded from play until dated.
 Rupert Brooke +2: "He Wonders Whether to Praise or to Blame Her" and "A
 Memory" (both from *1914 and Other Poems*, comp. c.1913, pre-dating the
 war sonnets — dated separately from their blanket-1915 siblings in this

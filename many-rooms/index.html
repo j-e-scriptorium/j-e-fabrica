@@ -30,7 +30,16 @@
     text-decoration:none;display:inline-block;margin-bottom:8px;position:relative;z-index:1}
   .backlink:hover{color:var(--ink)}
   h1{font-family:"Cormorant Garamond",Georgia,serif;font-weight:600;font-size:46px;letter-spacing:.02em;margin:0 0 2px;position:relative;z-index:1}
-  .sub{font-style:italic;color:var(--ink-soft);margin:0 0 18px;font-size:17px;max-width:520px;text-align:center;position:relative;z-index:1}
+  .sub{font-style:italic;color:var(--ink-soft);margin:0 0 6px;font-size:17px;max-width:520px;text-align:center;position:relative;z-index:1}
+
+  .datenote{font-size:13px;color:var(--ink-soft);margin:0 0 8px;text-align:center;position:relative;z-index:1}
+  .linklike{font-family:"EB Garamond",serif;font-size:13px;font-style:italic;background:none;border:none;
+    color:var(--rust-dark);text-decoration:underline;text-underline-offset:2px;cursor:pointer;padding:0}
+  .linklike:hover{color:var(--rust)}
+  .datenoteBody{font-size:13.5px;color:var(--ink-soft);max-width:480px;text-align:center;line-height:1.5;
+    margin:0 0 16px;padding:10px 16px;border:1px dashed var(--line);border-radius:8px;
+    background:rgba(255,252,244,.4);position:relative;z-index:1}
+  .datenoteBody.hidden{display:none}
 
   .modebar{display:flex;gap:8px;align-items:center;margin-bottom:18px;position:relative;z-index:1;flex-wrap:wrap;justify-content:center}
   .modebtn,.statsbtn{font-family:"EB Garamond",serif;font-size:15px;cursor:pointer;background:transparent;
@@ -143,7 +152,9 @@
 <body>
   <a class="backlink" href="../index.html">&larr; the Fabrica</a>
   <h1>Many Rooms</h1>
-  <p class="sub">No name, no date &mdash; not even always fourteen lines. Guess the year the room was built.</p>
+  <p class="sub">No name, no date &mdash; not even always fourteen lines. Guess the year the sonnet was written.</p>
+  <p class="datenote"><button class="linklike" id="dateNoteBtn" type="button">What do we mean by "written"?</button></p>
+  <p class="datenoteBody hidden" id="dateNoteBody">"Written" means the year of first publication &mdash; except when a sonnet was first published after its poet's death, in which case it means the year it was composed (marked "composed" on the reveal screen; published-in-lifetime sonnets are marked "published"). A few dates are only approximate, marked accordingly.</p>
 
   <div class="modebar">
     <button class="modebtn on" id="modeDailyBtn">Today's Five</button>
@@ -166,7 +177,7 @@
       </div>
       <div class="hist" id="histWrap"></div>
       <div class="histlabels" id="histLabels"></div>
-      <p class="aboutbit">2,262 sonnets (and a few deliberate irregulars) by 53 authors, 1535&ndash;1928, drawn from a corpus of 23 Project Gutenberg volumes. Five new rooms unlock each day at 00:00 UTC.</p>
+      <p class="aboutbit">2,262 playable sonnets (and a few deliberate irregulars) by 53 authors, 1535&ndash;1928, drawn from a corpus of 23 Project Gutenberg volumes plus other sources. Another 172, mostly recovered from an 1880 anthology scan, are in the archive undated and waiting on research before they can join the game. Five new rooms unlock each day at 00:00 UTC.</p>
       <button class="ghost modalClose" id="closeStats">Close</button>
     </div>
   </div>
@@ -255,8 +266,16 @@
       // Most rooms are 14 lines, but the corpus also carries a few deliberate
       // irregular forms (curtal sonnets, Meredith's 16-line "Modern Love"
       // stanzas, Shakespeare's 12- and 15-liners) — accept any plausible
-      // sonnet-length poem rather than only the regular form.
-      CORPUS = data.filter(function(d){ return Array.isArray(d.lines) && d.lines.length >= 10 && d.lines.length <= 16; });
+      // sonnet-length poem rather than only the regular form. The corpus also
+      // carries sonnets with no established year (year: null, e.g. undated
+      // OCR recoveries awaiting research) or a needs_review flag (a line or
+      // two still garbled) — those are kept for future dating/cleanup but
+      // held out of play, since there's nothing to guess or the text isn't
+      // trustworthy yet.
+      CORPUS = data.filter(function(d){
+        return Array.isArray(d.lines) && d.lines.length >= 10 && d.lines.length <= 16
+          && typeof d.year === "number" && !d.needs_review;
+      });
       return CORPUS;
     });
   }
@@ -696,6 +715,12 @@
   }
 
   // ---------- boot ----------
+  document.getElementById("dateNoteBtn").addEventListener("click", function(){
+    var body = document.getElementById("dateNoteBody");
+    var showing = !body.classList.contains("hidden");
+    body.classList.toggle("hidden");
+    this.textContent = showing ? "What do we mean by \"written\"?" : "Hide";
+  });
   document.getElementById("modeDailyBtn").addEventListener("click", function(){ if (mode !== "daily") setMode("daily"); });
   document.getElementById("modePracticeBtn").addEventListener("click", function(){ if (mode !== "practice") setMode("practice"); });
   document.getElementById("openStats").addEventListener("click", function(){
