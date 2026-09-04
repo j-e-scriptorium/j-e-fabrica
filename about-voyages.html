@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Isid. UW - About Twenty Voyages</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <p><a href="visualizations.html">&larr; Visualizations</a></p>
+        <h1 class="small-caps">Twenty Voyages</h1>
+        <p class="standfirst">An atlas of ten voyages that happened and ten that did not, charted on the same coastlines.</p>
+
+        <p>Ten of these voyages are historical: Columbus's first crossing, Magellan and Elcano's circumnavigation, Vasco da Gama's route to India, Cook's <i>Endeavour</i>, Darwin's <i>Beagle</i>, the <i>Mayflower</i>, the <i>Titanic</i>, Zheng He's Ming treasure fleets, Shackleton's open-boat crossing of the Southern Ocean in the <i>James Caird</i>, and Bligh's twenty-three-foot launch after the mutiny on the <i>Bounty</i>. The other ten never happened: Odysseus's ten years home from Troy, Aeneas out of a burning city, the <i>Pequod</i>'s pursuit of Moby-Dick, Sindbad's seven voyages, Gulliver's four, the <i>Argo</i>'s run for the Golden Fleece, Coleridge's Ancient Mariner, the <i>Nautilus</i> under twenty thousand leagues, Huck and Jim's raft down the Mississippi, and Marlow's passage up the Congo in <i>Heart of Darkness</i>. All twenty are plotted on the same map, at the same scale, so a reader can see how a route invented in the eighth century BC compares to one sailed in the sixteenth century AD.</p>
+
+        <p>Click a name to trace its voyage stage by stage; the map frames itself to the route and a panel names each landfall. Click a second name to compare two at once &mdash; the view switches to a latitude profile and a table, so real and invented itineraries can be measured against each other directly rather than just eyeballed. Left and right arrow keys step through a single voyage's stages once one is loaded; drag to pan the map, scroll or use the on-map buttons to zoom.</p>
+
+        <p>Every position on the map is marked for how firmly it is known. A filled square is a place and moment stated outright in the source or documented in the historical record. A half-tone disc is inferred &mdash; not stated, but placed from a fixed point nearby. A hollow ring is notional: somebody's proposal for a contested location, offered without much confidence. Solid tracks are voyages that happened; dashed tracks are invented ones. A few finer distinctions apply to the fiction: a faint dotted line marks a prologue that precedes the voyage proper (the outward passage of the <i>Bounty</i>, the drift before the <i>Endurance</i> was crushed), and a light dashed line marks movement that is narrated within the story rather than depicted as happening &mdash; Odysseus telling the Phaeacians his own history, Marlow recounting his journey from a deck on the Thames, Aeneas at Dido's table.</p>
+
+        <p>The coastlines themselves are drawn from Natural Earth's public-domain 1:50m land data, with a handful of rivers hand-traced for the voyages that go up them, and ocean and sea names set as labels rather than pulled from a live map service &mdash; the atlas runs entirely from three files, with nothing fetched from outside.</p>
+
+        <p><a href="voyages/">Open Twenty Voyages &rarr;</a></p>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponents() {
+            const response = await fetch('assets/fabrica-components.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+
+            const headerTemplate = doc.getElementById('site-header');
+            document.getElementById('header-placeholder').innerHTML = headerTemplate.innerHTML;
+
+            const footerTemplate = doc.getElementById('site-footer');
+            document.getElementById('footer-placeholder').innerHTML = footerTemplate.innerHTML;
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>

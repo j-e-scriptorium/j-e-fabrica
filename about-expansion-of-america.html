@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Isid. UW - About The Expansion of America</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <p><a href="visualizations.html">&larr; Visualizations</a></p>
+        <h1 class="small-caps">The Expansion of America</h1>
+        <p class="standfirst">A map growing outward: territory added to the United States, year by year, and the states admitted into it.</p>
+
+        <p>Scrub the year from 1776 to 1959 and watch two things happen at different speeds: the country's territory arriving &mdash; by treaty, purchase, annexation, or cession &mdash; and its states being admitted into the union, which is very often a much later event than the territory itself becoming American ground. The map shades the two differently: tan for territory that is American but not yet a state, darker for statehood, so the gap between the two is visible rather than smoothed over.</p>
+
+        <p>Hover a state to name it; click one for its own short account of the path to statehood, and the timeline jumps to the year that state was admitted. Every state's entry comes from a single reference source pairing all fifty with a paragraph on how each got there, ranked by how interesting a story it tells.</p>
+
+        <p><a href="expansion-of-america/">Open The Expansion of America &rarr;</a></p>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponents() {
+            const response = await fetch('assets/fabrica-components.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+
+            const headerTemplate = doc.getElementById('site-header');
+            document.getElementById('header-placeholder').innerHTML = headerTemplate.innerHTML;
+
+            const footerTemplate = doc.getElementById('site-footer');
+            document.getElementById('footer-placeholder').innerHTML = footerTemplate.innerHTML;
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>
