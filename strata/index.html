@@ -171,11 +171,15 @@ header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
   padding:12px 26px;cursor:pointer;box-shadow:var(--shadow)}
 .cta:hover{background:#26514a} .cta:active{transform:translateY(1px);box-shadow:none}
 .cta[disabled]{background:var(--paper-2);color:var(--ink-3);cursor:not-allowed;box-shadow:none}
-.sheet{position:fixed;inset:0;background:rgba(34,30,25,.5);display:none;align-items:flex-end;
-  justify-content:center;z-index:1000}
+/* The reveal sheet docks at the bottom rather than covering the screen,
+   and doesn't intercept clicks itself — so the map stays visible and
+   zoomable/draggable above it while you look over what you got wrong.
+   Only the card itself (and its buttons) captures the pointer. */
+.sheet{position:fixed;inset:0;background:rgba(34,30,25,.15);display:none;align-items:flex-end;
+  justify-content:center;z-index:1000;pointer-events:none}
 .sheet.on{display:flex}
 .card{background:var(--paper);border-top:2px solid var(--ink);width:100%;max-width:1120px;
-  max-height:88vh;overflow:auto;padding:20px 22px 24px}
+  max-height:60vh;overflow:auto;padding:20px 22px 24px;pointer-events:auto;box-shadow:0 -2px 14px rgba(34,30,25,.25)}
 .scorerow{display:grid;grid-template-columns:1fr 1fr auto;gap:12px;align-items:end;
   border-bottom:1.5px solid var(--ink);padding-bottom:12px;margin-bottom:14px}
 .sc .lab{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
@@ -479,6 +483,7 @@ function showReveal(it,km,yrs,ps,ts,sum,dir,early){
    '<span class="tag">'+fill(COPY.tagConf,{level:it.confidence})+'</span></div>'+
  '<button class="cta" id="nextBtn">'+(last?COPY.lastRound:COPY.next)+'</button>';
  document.getElementById('sheet').classList.add('on');
+ document.getElementById('map').scrollIntoView({behavior:'smooth',block:'start'});
  const b=document.getElementById('nextBtn');
  b.onclick=()=>{document.getElementById('sheet').classList.remove('on');
   idx++;if(idx>=rounds.length)finish();else loadRound();};
