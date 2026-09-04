@@ -1,7 +1,7 @@
 {
  "corpus": "Story of the World vol. 1 — ancient history guessing game",
  "version": "1.0",
- "count": 379,
+ "count": 380,
  "config": {
   "slider": {
    "minYear": -9000,
@@ -1552,13 +1552,13 @@
    "precisionLabel": "dated to about a century"
   },
   {
-   "id": "c07-babylon",
+   "id": "c07-babylon-original",
    "chapter": 7,
    "tier": "A",
    "category": "city",
    "difficulty": 2,
-   "prompt": "Babylon",
-   "subtitle": "A minor town on the Euphrates that twice became the centre of the world.",
+   "prompt": "Babylon (Original)",
+   "subtitle": "A minor town on the Euphrates, until Hammurabi made it an empire's capital.",
    "place": {
     "shape": "circle",
     "lat": 32.54,
@@ -1568,19 +1568,19 @@
    },
    "time": {
     "start": -1894,
-    "end": -300,
+    "end": -1595,
     "timeBasis": "occupation",
-    "label": "From the Old Babylonian dynasty to the Hellenistic decline"
+    "label": "The Old Babylonian dynasty, from its founding to its fall to a Hittite raid"
    },
-   "lambdaYears": 250,
+   "lambdaYears": 120,
    "lambdaKm": 500,
    "dateBasis": "conventional",
    "confidence": "high",
-   "reveal": "Babylon began as a fairly minor town on the Euphrates River, but rose twice to become one of the most powerful and famous cities in the ancient world. The first peak came under King Hammurabi in the 18th century BC, who made it the capital of an empire covering much of Mesopotamia; the second, over a thousand years later, came under Nebuchadnezzar II in the 6th century BC, when Babylon was rebuilt with famously grand architecture, including its high walls and processional gate. Because these two golden ages are separated by roughly a thousand years, any specific story \"about Babylon\" usually really belongs to one era or the other rather than to the city in general.",
-   "timeShare": 0.38,
-   "timeMax": 1900,
-   "placeMax": 3100,
-   "precisionLabel": "known only as a long era"
+   "reveal": "Babylon began as a fairly minor town on the Euphrates River, but rose to become one of the most powerful cities in the ancient world under King Hammurabi in the 18th century BC, who made it the capital of an empire covering much of Mesopotamia and gave it the law code he is remembered for today. His descendants continued ruling the city for about a century and a half after his death, though the empire gradually weakened, until a raiding Hittite army arrived all the way from Anatolia, sacked Babylon, and ended the dynasty around 1595 BC. The city survived the collapse but faded in importance for the next thousand years, until it was rebuilt on a far grander scale under the later Neo-Babylonian dynasty.",
+   "timeShare": 0.28,
+   "timeMax": 1400,
+   "placeMax": 3600,
+   "precisionLabel": "dated to a few centuries"
   },
   {
    "id": "c07-code-of-hammurabi",
@@ -6121,6 +6121,37 @@
    "timeMax": 2500,
    "placeMax": 2500,
    "precisionLabel": "dated to the year"
+  },
+  {
+   "id": "c23-babylon-rebuilt",
+   "chapter": 23,
+   "tier": "A",
+   "category": "city",
+   "difficulty": 2,
+   "prompt": "Babylon (Rebuilt)",
+   "subtitle": "The city made new again, with high walls and a gate of blue glazed brick.",
+   "place": {
+    "shape": "circle",
+    "lat": 32.54,
+    "lon": 44.42,
+    "radiusKm": 50,
+    "label": "Babylon, near Hillah, Iraq"
+   },
+   "time": {
+    "start": -626,
+    "end": -300,
+    "timeBasis": "occupation",
+    "label": "From the rise of the Neo-Babylonian dynasty to the city's eclipse by Seleucia"
+   },
+   "lambdaYears": 60,
+   "lambdaKm": 500,
+   "dateBasis": "secure",
+   "confidence": "high",
+   "reveal": "A thousand years after Hammurabi's empire had faded, Babylon rose again under the Neo-Babylonian dynasty, above all under King Nebuchadnezzar II in the 6th century BC, who rebuilt the city on a spectacular scale, with towering walls, the glazed-brick Ishtar Gate, and, by tradition, the Hanging Gardens. It briefly became the largest and richest city in the world for a second time, and it was here that the Persian king Cyrus the Great arrived in 539 BC, ending Neo-Babylonian rule with barely a fight. The rebuilt city remained important even under Persian and later Greek rule — Alexander the Great died there in 323 BC, reportedly planning to make it his own capital — before gradually being eclipsed once a new nearby city, Seleucia, drew away its population.",
+   "timeShare": 0.28,
+   "timeMax": 1400,
+   "placeMax": 3600,
+   "precisionLabel": "dated to a few centuries"
   },
   {
    "id": "c23-belshazzar",
