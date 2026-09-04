@@ -68,10 +68,12 @@ const COPY = {
   scorePlace:   "Place",
   scoreTime:    "Time",
   scoreRound:   "Round",
-  insideShape:  "inside the answer",
-  outsideKm:    "{km} km outside",
-  insideSpan:   "inside the answer",
-  outsideYears: "{years} yr outside",
+  placeInRange: "Within range.",
+  placeMiss:    "{km} km too far to the {dir}.",
+  timeInRange:  "Within range.",
+  timeEarly:    "{years} yr too early.",
+  timeLate:     "{years} yr too late.",
+  ptsOfMax:     "{score} of {max} pts",
   outOfMax:     "of {max}",
   tagChapter:   "Chapter {n}",
   tagBasis:     "{basis} date",
@@ -178,6 +180,7 @@ header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
   border-bottom:1.5px solid var(--ink);padding-bottom:12px;margin-bottom:14px}
 .sc .lab{font-family:'Space Mono',monospace;font-size:9.5px;letter-spacing:.13em;text-transform:uppercase;color:var(--ink-3)}
 .sc .val{font-family:'Zilla Slab',serif;font-size:27px;font-weight:700;line-height:1.05;font-variant-numeric:tabular-nums}
+.sc .val.txt{font-family:Archivo,system-ui,sans-serif;font-size:16px;font-weight:600;line-height:1.3;letter-spacing:0}
 .sc .sub{font-size:11.5px;color:var(--ink-3);font-family:'Space Mono',monospace}
 .sc.total .val{color:var(--patina);font-size:33px}
 .perfect{color:var(--patina)}
@@ -288,14 +291,46 @@ function segDist(p,a,b){const vx=b[0]-a[0],vy=b[1]-a[1],wx=p[0]-a[0],wy=p[1]-a[1
 function inPoly(lat,lon,pts){let c=false;
  for(let i=0,j=pts.length-1;i<pts.length;j=i++){const yi=pts[i][0],xi=pts[i][1],yj=pts[j][0],xj=pts[j][1];
   if(((yi>lat)!==(yj>lat))&&(lon<(xj-xi)*(lat-yi)/(yj-yi)+xi))c=!c;}return c;}
-function kmOutside(g,p){
- if(p.shape==='circle')return Math.max(0,haversine(g.lat,g.lng,p.lat,p.lon)-p.radiusKm);
- if(p.shape==='multipoint')return Math.max(0,Math.min.apply(null,p.points.map(q=>haversine(g.lat,g.lng,q[0],q[1])))-(p.radiusKm||100));
- if(p.shape==='polygon'){if(inPoly(g.lat,g.lng,p.points))return 0;
+/* Compass bearing from (lat1,lon1) to (lat2,lon2), 0-360, 0=north. */
+function bearingDeg(lat1,lon1,lat2,lon2){
+ const y=Math.sin(rad(lon2-lon1))*Math.cos(rad(lat2));
+ const x=Math.cos(rad(lat1))*Math.sin(rad(lat2))-Math.sin(rad(lat1))*Math.cos(rad(lat2))*Math.cos(rad(lon2-lon1));
+ return (Math.atan2(y,x)*180/Math.PI+360)%360;}
+/* The middle of the narrowest arc of bearings (0-360) that contains every
+   one of them — i.e. the direction that bisects the widest angle a set of
+   points subtends as seen from one viewpoint. Found by sorting the
+   bearings around the circle and cutting at their single largest gap;
+   the arc on the far side of that gap is the one that contains them all. */
+function circularMid(bearings){
+ const s=bearings.slice().sort((a,b)=>a-b),n=s.length;
+ let maxGap=-1,gapIdx=0;
+ for(let i=0;i<n;i++){const gap=i+1<n?s[i+1]-s[i]:360-s[n-1]+s[0];
+  if(gap>maxGap){maxGap=gap;gapIdx=i;}}
+ const start=s[(gapIdx+1)%n];
+ return (start+(360-maxGap)/2)%360;}
+const COMPASS=['N','NE','E','SE','S','SW','W','NW'];
+const compassOf=deg=>COMPASS[Math.round(deg/45)%8];
+/* Distance outside the answer shape, plus (when outside) the direction the
+   guess missed in. For a circle that's just the bearing from its center to
+   the guess. For a polygon or a scattered set of points, it's the widest
+   angle the shape subtends as seen from the guess — its two extremities,
+   bisected, then flipped, so "the shape is off to the NE of the guess"
+   is reported as "the guess is too far to the SW". */
+function placeMiss(g,p){
+ if(p.shape==='circle'){const km=Math.max(0,haversine(g.lat,g.lng,p.lat,p.lon)-p.radiusKm);
+  return {km,dirDeg:km?bearingDeg(p.lat,p.lon,g.lat,g.lng):null};}
+ if(p.shape==='multipoint'){let best=Infinity;
+  p.points.forEach(q=>{best=Math.min(best,haversine(g.lat,g.lng,q[0],q[1]));});
+  const km=Math.max(0,best-(p.radiusKm||100));if(!km)return {km,dirDeg:null};
+  const mid=circularMid(p.points.map(q=>bearingDeg(g.lat,g.lng,q[0],q[1])));
+  return {km,dirDeg:(mid+180)%360};}
+ if(p.shape==='polygon'){if(inPoly(g.lat,g.lng,p.points))return {km:0,dirDeg:null};
   const lat0=p.points.reduce((s,q)=>s+q[0],0)/p.points.length;
   const P=proj(g.lat,g.lng,lat0),V=p.points.map(q=>proj(q[0],q[1],lat0));
-  let m=Infinity;for(let i=0,j=V.length-1;i<V.length;j=i++)m=Math.min(m,segDist(P,V[j],V[i]));return m;}
- return 0;}
+  let m=Infinity;for(let i=0,j=V.length-1;i<V.length;j=i++)m=Math.min(m,segDist(P,V[j],V[i]));
+  const mid=circularMid(p.points.map(q=>bearingDeg(g.lat,g.lng,q[0],q[1])));
+  return {km:m,dirDeg:(mid+180)%360};}
+ return {km:0,dirDeg:null};}
 const yearsOutside=(y,t)=>Math.max(0,t.start-y,y-t.end);
 const decay=(d,l,max)=>Math.round(max*Math.exp(-d/l));
 
@@ -326,6 +361,7 @@ document.getElementById('eraSel').innerHTML='<option value="-1">'+COPY.bc+'</opt
 /* ---------- map ---------- */
 const map=L.map('map',{minZoom:2,maxBounds:[[-85,-200],[85,200]],maxBoundsViscosity:.8,attributionControl:false}).setView([27,26],2);
 L.geoJSON(landGeoJSON(),{style:{stroke:true,color:'#8A7048',weight:.7,fillColor:'#D9CBA3',fillOpacity:1}}).addTo(map);
+L.geoJSON(riversGeoJSON(),{style:{color:'#4C7C91',weight:1.1,opacity:.75}}).addTo(map);
 const pinIcon=L.divIcon({className:'',iconSize:[16,16],iconAnchor:[8,8],
  html:'<div style="width:14px;height:14px;background:#8A4B24;border:2px solid #221E19;transform:rotate(45deg)"></div>'});
 map.on('click',e=>{if(locked)return;guess=e.latlng;
@@ -396,7 +432,7 @@ function loadRound(){
   '<span class="pn">'+COPY.splitTime+' '+it.timeMax.toLocaleString()+
     ' &nbsp;·&nbsp; '+COPY.splitPlace+' '+it.placeMax.toLocaleString()+'</span>';
  document.getElementById('mapMsg').textContent=COPY.mapBefore;
- map.setView([27,26],2);year=SETTINGS.startYear;drawYear();}
+ year=SETTINGS.startYear;drawYear();}
 function drawAnswer(it){
  const p=it.place,st={color:'#2F6357',weight:2,fillColor:'#2F6357',fillOpacity:.18};
  if(p.shape==='circle')layer=L.circle([p.lat,p.lon],Object.assign({radius:p.radiusKm*1000},st));
@@ -409,23 +445,25 @@ function drawAnswer(it){
 submit.onclick=()=>{
  if(locked)return;
  const it=rounds[idx];
- const km=kmOutside(guess,it.place),yrs=yearsOutside(year,it.time);
+ const pm=placeMiss(guess,it.place),km=pm.km,yrs=yearsOutside(year,it.time);
  const ps=decay(km,it.lambdaKm,it.placeMax),ts=decay(yrs,it.lambdaYears,it.timeMax),sum=ps+ts;
  total+=sum;results.push({it:it,sum:sum});
  locked=true;drawAnswer(it);
  const f1=yearToFrac(it.time.start),f2=yearToFrac(it.time.end);
  ansBand.style.left=(f1*100)+'%';ansBand.style.width=Math.max(.4,(f2-f1)*100)+'%';ansBand.style.display='block';
- header();showReveal(it,km,yrs,ps,ts,sum);};
-function showReveal(it,km,yrs,ps,ts,sum){
+ header();
+ const dir=pm.dirDeg!=null?compassOf(pm.dirDeg):null;
+ showReveal(it,km,yrs,ps,ts,sum,dir,year<it.time.start);};
+function showReveal(it,km,yrs,ps,ts,sum,dir,early){
  const inP=km===0,inT=yrs===0,last=idx>=rounds.length-1;
+ const placeText=inP?COPY.placeInRange:fill(COPY.placeMiss,{km:Math.round(km).toLocaleString(),dir:dir});
+ const timeText=inT?COPY.timeInRange:fill(early?COPY.timeEarly:COPY.timeLate,{years:yrs.toLocaleString()});
  document.getElementById('card').innerHTML=
  '<div class="scorerow">'+
-  '<div class="sc"><div class="lab">'+COPY.scorePlace+'</div><div class="val'+(inP?' perfect':'')+'">'+ps.toLocaleString()+'</div>'+
-   '<div class="sub">'+(inP?COPY.insideShape:fill(COPY.outsideKm,{km:Math.round(km).toLocaleString()}))+
-   ' · '+fill(COPY.outOfMax,{max:it.placeMax.toLocaleString()})+'</div></div>'+
-  '<div class="sc"><div class="lab">'+COPY.scoreTime+'</div><div class="val'+(inT?' perfect':'')+'">'+ts.toLocaleString()+'</div>'+
-   '<div class="sub">'+(inT?COPY.insideSpan:fill(COPY.outsideYears,{years:yrs.toLocaleString()}))+
-   ' · '+fill(COPY.outOfMax,{max:it.timeMax.toLocaleString()})+'</div></div>'+
+  '<div class="sc"><div class="lab">'+COPY.scorePlace+'</div><div class="val txt'+(inP?' perfect':'')+'">'+placeText+'</div>'+
+   '<div class="sub">'+fill(COPY.ptsOfMax,{score:ps.toLocaleString(),max:it.placeMax.toLocaleString()})+'</div></div>'+
+  '<div class="sc"><div class="lab">'+COPY.scoreTime+'</div><div class="val txt'+(inT?' perfect':'')+'">'+timeText+'</div>'+
+   '<div class="sub">'+fill(COPY.ptsOfMax,{score:ts.toLocaleString(),max:it.timeMax.toLocaleString()})+'</div></div>'+
   '<div class="sc total"><div class="lab">'+COPY.scoreRound+'</div><div class="val">'+sum.toLocaleString()+'</div>'+
    '<div class="sub">'+fill(COPY.outOfMax,{max:T.toLocaleString()})+'</div></div>'+
  '</div>'+
