@@ -1,6 +1,6 @@
 # Strata — ancient-history corpus v1.0
 
-**379 rounds, all forty-two chapters of Susan Wise Bauer's _The Story of the World, Volume 1: Ancient Times_,**
+**380 rounds, all forty-two chapters of Susan Wise Bauer's _The Story of the World, Volume 1: Ancient Times_,**
 plus 17 further "enrichment" items outside the book itself (`tier: "C"`, held out of play
 by default — `SETTINGS.includeTierC` in `index.html`).
 
