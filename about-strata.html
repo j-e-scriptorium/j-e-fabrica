@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Isid. UW - About Strata</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <p><a href="recreations.html">&larr; Recreations</a></p>
+        <h1 class="small-caps">Strata</h1>
+        <p class="standfirst">Where and when? Drop a pin, set a year, and find out how close the ancient world was standing.</p>
+
+        <p>Each round names something from antiquity &mdash; a person, a city, an empire, a battle, a myth, an idea, an object &mdash; and describes it without saying where or when. You drop a pin on the map and drag a five-band timeline (or type an exact year) to answer both at once, in the style of Anthropeum's Geoguessr. A round scores out of 5,000 points, split between place and time and falling off smoothly &mdash; exponentially &mdash; the further outside the true window or shape your guess lands, so a near miss still earns most of the points and only a wild guess earns none.</p>
+
+        <p>The 5,000-point split between place and time is not fixed: it follows how precisely each item can actually be dated. Something datable to the year or the decade weighs time heavily, since getting it close is a real achievement; something "known only as a long era" &mdash; the drying of the Green Sahara, say &mdash; puts almost all the weight on place instead, since no amount of guessing will pin a millennia-wide window any tighter. A bar under each prompt shows the split before you answer, so you know going in whether the date is the kind of thing that can be nailed down.</p>
+
+        <p>The 379 rounds are drawn from all forty-two chapters of Susan Wise Bauer's <i>The Story of the World, Volume&nbsp;1: Ancient Times</i>, weighted toward the book's own core material (17 further "enrichment" items, outside the book itself, are held out of play by default). Each game deals ten rounds, shuffled for chapter and category so a single sitting doesn't repeat itself, and is replayable at will &mdash; there's no daily limit.</p>
+
+        <p>A few things behind the scores are worth knowing. Where the book's traditional dating and current scholarship disagree, the window you're scored against is the union of both, so knowing either one gets full credit rather than being marked down for disagreeing with the book. The handful of patriarchal narratives (Abraham, Isaac, and so on) use the later end of the proposed range, following Kenneth Kitchen's chronology, rather than the earlier dates some older reference works still give. A couple of Chapter&nbsp;1 items reach back past 7000&nbsp;BC, beyond the slider's nominal start; eleven items whose subjects run past the book's endpoint &mdash; an institution or a practice still continuing in some form &mdash; are capped at AD&nbsp;500 for scoring, since that's where the timeline ends, even though the real story runs later.</p>
+
+        <p>The map is drawn from the same public-domain coastline data as <a href="voyages/">Twenty Voyages</a>, and the game runs entirely from its own files &mdash; nothing is fetched from a live map service to answer a round.</p>
+
+        <p><a href="strata/">Open Strata &rarr;</a></p>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponents() {
+            const response = await fetch('assets/fabrica-components.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+
+            const headerTemplate = doc.getElementById('site-header');
+            document.getElementById('header-placeholder').innerHTML = headerTemplate.innerHTML;
+
+            const footerTemplate = doc.getElementById('site-footer');
+            document.getElementById('footer-placeholder').innerHTML = footerTemplate.innerHTML;
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>

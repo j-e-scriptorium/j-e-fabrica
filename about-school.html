@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Isid. UW - About School</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <p><a href="recreations.html">&larr; Recreations</a></p>
+        <h1 class="small-caps">School</h1>
+        <p class="standfirst">A mancala for the hand: stretch the string from peg to peg, and the bones it crosses are yours.</p>
+
+        <p>The board is a ring of pegs with a scatter of "bones" &mdash; tokens &mdash; set out among them. On your turn you draw a straight line, a taut string, from one peg to another anywhere around the ring; every bone that line passes over is captured and added to your score. In the game's "full form," capturing costs something back: each turn you also return one tithe-bone to the water at the center of the board, so a run of easy captures thins out and the endgame tightens.</p>
+
+        <p>Play against a friend, or set either seat to a computer opponent of one of four strengths &mdash; Greedy, which always takes the biggest capture in front of it; One-ply and Two-ply, which look one or two moves ahead; and Two-ply with boxing-out, which also plays for position rather than points alone. The board itself is adjustable: how many pegs ring it, how many bones are in play, and how large the bones are drawn.</p>
+
+        <p><a href="school/">Open School &rarr;</a></p>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponents() {
+            const response = await fetch('assets/fabrica-components.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+
+            const headerTemplate = doc.getElementById('site-header');
+            document.getElementById('header-placeholder').innerHTML = headerTemplate.innerHTML;
+
+            const footerTemplate = doc.getElementById('site-footer');
+            document.getElementById('footer-placeholder').innerHTML = footerTemplate.innerHTML;
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>

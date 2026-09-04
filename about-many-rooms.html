@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Isid. UW - About Many Rooms</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <p><a href="recreations.html">&larr; Recreations</a></p>
+        <h1 class="small-caps">Many Rooms</h1>
+        <p class="standfirst">No name, no date &mdash; not even always fourteen lines. Guess the year the sonnet was written.</p>
+
+        <p>Each room shows you a sonnet and nothing else: no author, no title, no date, no context. You read it and guess a year. The score is a smooth falloff from the true date, so a near miss still counts for something and only a wild guess collapses to nothing &mdash; the same shape of scoring, in spirit, as Anthropeum's Geoguessr, transposed from a coordinate on a map to a year on a line.</p>
+
+        <p>"Written" means the year of first publication, except when a sonnet was first published after its poet had died, in which case it means the year of composition instead &mdash; marked accordingly on the reveal screen. This matters more than it sounds: Wyatt and Surrey, for instance, are dated to the 1530s&ndash;40s, when they actually wrote, rather than to 1557, when Tottel's Miscellany first printed them posthumously &mdash; publication dating would put them decades later than they belong, indistinguishable from everyone else Tottel printed that year. A handful of composition dates are only approximate, and are scored with a small margin of tolerance rather than penalized as if exact.</p>
+
+        <p>The corpus behind it: 2,387 playable sonnets (plus a few deliberate irregulars) by 87 authors, 1535&ndash;1928, drawn from twenty-three Project Gutenberg volumes and a few other public-domain sources &mdash; Wyatt and Surrey through the Elizabethan sequence-writers (Sidney, Daniel, Spenser, Shakespeare's 154, Drayton, and more), Donne and Milton, then Wordsworth (over 425, many individually dated from a chronological edition), Keats, Elizabeth Barrett Browning, Dante Gabriel Rossetti, Hopkins, Brooke, and Yeats. Another 49 sit in the archive undated or unfinished, held out of play until they can be researched or repaired. Five new rooms unlock every day at 00:00 UTC; an unlimited Practice mode draws from the whole corpus at any time.</p>
+
+        <p><a href="many-rooms/">Open Many Rooms &rarr;</a></p>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponents() {
+            const response = await fetch('assets/fabrica-components.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+
+            const headerTemplate = doc.getElementById('site-header');
+            document.getElementById('header-placeholder').innerHTML = headerTemplate.innerHTML;
+
+            const footerTemplate = doc.getElementById('site-footer');
+            document.getElementById('footer-placeholder').innerHTML = footerTemplate.innerHTML;
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>
