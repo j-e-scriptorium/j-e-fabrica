@@ -285,36 +285,52 @@ function haversine(a,b,c,d){const dLat=rad(c-a),dLon=rad(d-b);
  const s=Math.sin(dLat/2)**2+Math.cos(rad(a))*Math.cos(rad(c))*Math.sin(dLon/2)**2;
  return 2*R*Math.asin(Math.min(1,Math.sqrt(s)));}
 const proj=(lat,lon,lat0)=>[rad(lon)*R*Math.cos(rad(lat0)),rad(lat)*R];
-function nearestOnSeg(p,a,b){const vx=b[0]-a[0],vy=b[1]-a[1],wx=p[0]-a[0],wy=p[1]-a[1];
+function segDist(p,a,b){const vx=b[0]-a[0],vy=b[1]-a[1],wx=p[0]-a[0],wy=p[1]-a[1];
  const L=vx*vx+vy*vy;let t=L?((wx*vx+wy*vy)/L):0;t=Math.max(0,Math.min(1,t));
- const cx=a[0]+t*vx,cy=a[1]+t*vy;return {d:Math.hypot(p[0]-cx,p[1]-cy),x:cx,y:cy};}
-function unproj(xy,lat0){return [xy[1]/R*180/Math.PI,xy[0]/(R*Math.cos(rad(lat0)))*180/Math.PI];}
+ return Math.hypot(wx-t*vx,wy-t*vy);}
 function inPoly(lat,lon,pts){let c=false;
  for(let i=0,j=pts.length-1;i<pts.length;j=i++){const yi=pts[i][0],xi=pts[i][1],yj=pts[j][0],xj=pts[j][1];
   if(((yi>lat)!==(yj>lat))&&(lon<(xj-xi)*(lat-yi)/(yj-yi)+xi))c=!c;}return c;}
-/* Distance outside the answer shape, plus (when outside) the nearest point
-   on it — the reference the miss direction is measured from. */
-function placeMiss(g,p){
- if(p.shape==='circle'){const km=Math.max(0,haversine(g.lat,g.lng,p.lat,p.lon)-p.radiusKm);
-  return {km,ref:km?[p.lat,p.lon]:null};}
- if(p.shape==='multipoint'){let best=Infinity,bestPt=null;
-  p.points.forEach(q=>{const d=haversine(g.lat,g.lng,q[0],q[1]);if(d<best){best=d;bestPt=q;}});
-  const km=Math.max(0,best-(p.radiusKm||100));return {km,ref:km?bestPt:null};}
- if(p.shape==='polygon'){if(inPoly(g.lat,g.lng,p.points))return {km:0,ref:null};
-  const lat0=p.points.reduce((s,q)=>s+q[0],0)/p.points.length;
-  const P=proj(g.lat,g.lng,lat0),V=p.points.map(q=>proj(q[0],q[1],lat0));
-  let m=Infinity,mx=0,my=0;
-  for(let i=0,j=V.length-1;i<V.length;j=i++){const r=nearestOnSeg(P,V[j],V[i]);if(r.d<m){m=r.d;mx=r.x;my=r.y;}}
-  return {km:m,ref:unproj([mx,my],lat0)};}
- return {km:0,ref:null};}
-/* Compass direction the guess sits in, from the nearest point on the
-   correct answer — the direction the player overshot toward. */
+/* Compass bearing from (lat1,lon1) to (lat2,lon2), 0-360, 0=north. */
 function bearingDeg(lat1,lon1,lat2,lon2){
  const y=Math.sin(rad(lon2-lon1))*Math.cos(rad(lat2));
  const x=Math.cos(rad(lat1))*Math.sin(rad(lat2))-Math.sin(rad(lat1))*Math.cos(rad(lat2))*Math.cos(rad(lon2-lon1));
  return (Math.atan2(y,x)*180/Math.PI+360)%360;}
+/* The middle of the narrowest arc of bearings (0-360) that contains every
+   one of them — i.e. the direction that bisects the widest angle a set of
+   points subtends as seen from one viewpoint. Found by sorting the
+   bearings around the circle and cutting at their single largest gap;
+   the arc on the far side of that gap is the one that contains them all. */
+function circularMid(bearings){
+ const s=bearings.slice().sort((a,b)=>a-b),n=s.length;
+ let maxGap=-1,gapIdx=0;
+ for(let i=0;i<n;i++){const gap=i+1<n?s[i+1]-s[i]:360-s[n-1]+s[0];
+  if(gap>maxGap){maxGap=gap;gapIdx=i;}}
+ const start=s[(gapIdx+1)%n];
+ return (start+(360-maxGap)/2)%360;}
 const COMPASS=['N','NE','E','SE','S','SW','W','NW'];
 const compassOf=deg=>COMPASS[Math.round(deg/45)%8];
+/* Distance outside the answer shape, plus (when outside) the direction the
+   guess missed in. For a circle that's just the bearing from its center to
+   the guess. For a polygon or a scattered set of points, it's the widest
+   angle the shape subtends as seen from the guess — its two extremities,
+   bisected, then flipped, so "the shape is off to the NE of the guess"
+   is reported as "the guess is too far to the SW". */
+function placeMiss(g,p){
+ if(p.shape==='circle'){const km=Math.max(0,haversine(g.lat,g.lng,p.lat,p.lon)-p.radiusKm);
+  return {km,dirDeg:km?bearingDeg(p.lat,p.lon,g.lat,g.lng):null};}
+ if(p.shape==='multipoint'){let best=Infinity;
+  p.points.forEach(q=>{best=Math.min(best,haversine(g.lat,g.lng,q[0],q[1]));});
+  const km=Math.max(0,best-(p.radiusKm||100));if(!km)return {km,dirDeg:null};
+  const mid=circularMid(p.points.map(q=>bearingDeg(g.lat,g.lng,q[0],q[1])));
+  return {km,dirDeg:(mid+180)%360};}
+ if(p.shape==='polygon'){if(inPoly(g.lat,g.lng,p.points))return {km:0,dirDeg:null};
+  const lat0=p.points.reduce((s,q)=>s+q[0],0)/p.points.length;
+  const P=proj(g.lat,g.lng,lat0),V=p.points.map(q=>proj(q[0],q[1],lat0));
+  let m=Infinity;for(let i=0,j=V.length-1;i<V.length;j=i++)m=Math.min(m,segDist(P,V[j],V[i]));
+  const mid=circularMid(p.points.map(q=>bearingDeg(g.lat,g.lng,q[0],q[1])));
+  return {km:m,dirDeg:(mid+180)%360};}
+ return {km:0,dirDeg:null};}
 const yearsOutside=(y,t)=>Math.max(0,t.start-y,y-t.end);
 const decay=(d,l,max)=>Math.round(max*Math.exp(-d/l));
 
@@ -436,7 +452,7 @@ submit.onclick=()=>{
  const f1=yearToFrac(it.time.start),f2=yearToFrac(it.time.end);
  ansBand.style.left=(f1*100)+'%';ansBand.style.width=Math.max(.4,(f2-f1)*100)+'%';ansBand.style.display='block';
  header();
- const dir=pm.ref?compassOf(bearingDeg(pm.ref[0],pm.ref[1],guess.lat,guess.lng)):null;
+ const dir=pm.dirDeg!=null?compassOf(pm.dirDeg):null;
  showReveal(it,km,yrs,ps,ts,sum,dir,year<it.time.start);};
 function showReveal(it,km,yrs,ps,ts,sum,dir,early){
  const inP=km===0,inT=yrs===0,last=idx>=rounds.length-1;
