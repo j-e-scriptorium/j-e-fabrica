@@ -15,7 +15,9 @@ by default — `SETTINGS.includeTierC` in `index.html`).
 - `vendor/` — Leaflet 1.9.4 (self-hosted, no CDN) and `land.js`, world coastlines decoded
   from the same public-domain Natural Earth 1:50m data used by `../voyages/basemap.js`,
   rendered as a vector layer rather than raster map tiles so a round never depends on a
-  live tile server.
+  live tile server. `land.js` also carries a hand-traced `RIVERS` set (Nile, Tigris,
+  Euphrates, Indus, Ganges, and other major rivers) so the interior of a continent has
+  some legible structure — deliberately not modern political borders.
 
 ## Schema
 
