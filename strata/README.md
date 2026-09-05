@@ -7,7 +7,11 @@ by default — `SETTINGS.includeTierC` in `index.html`).
 ## Files
 
 - `index.html` — the game. Self-contained: the corpus is compiled into a `const ITEMS = [...]`
-  array in the page itself, not fetched at runtime.
+  array in the page itself, not fetched at runtime. On load it first asks which chapters
+  (1–42) to draw rounds from, via a two-handle drag range over the book's table of contents
+  (chapter titles are hardcoded display copy, not part of the corpus); rounds are then dealt
+  only from that range, and the round count quietly caps at however many questions the chosen
+  range actually has if that's fewer than `SETTINGS.roundsPerGame`.
 - `sotw1_corpus.json` — the source corpus this file to edit or regenerate from. Carries a
   few extra documentation fields (`sotwTime`, `scholarlyTime`, `timeShare`, `precisionLabel`)
   that `index.html` doesn't need at runtime because they're already baked into each item's

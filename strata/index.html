@@ -58,6 +58,19 @@ const COPY = {
   splitTime:    "time",
   splitPlace:   "place",
 
+  /* ---- chapter picker (shown once, before the first round) -------------- */
+  pickKicker:     "Before we start",
+  pickTitle:      "Which chapters?",
+  pickBody:       "Rounds are drawn only from the chapters you pick. Drag either end of the bar, or type the chapter numbers directly.",
+  pickFrom:       "From",
+  pickTo:         "To",
+  pickAll:        "All chapters",
+  pickStart:      "Start",
+  pickCountSame:  "{n} {noun} in chapter {ch}.",
+  pickCount:      "{n} questions across chapters {lo}–{hi}.",
+  pickNone:       "No questions in this range — widen it to play.",
+  changeChapters: "Change chapters",
+
   /* ---- buttons ---------------------------------------------------------- */
   submit:       "Submit guess",
   next:         "Next round",
@@ -130,6 +143,23 @@ header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
 .precision .pbar i{position:absolute;left:0;top:0;bottom:0;background:var(--patina)}
 .precision .pn{font-family:'Space Mono',monospace;font-size:10px;color:var(--ink-3)}
 .prompt p{margin:0;font-size:14px;line-height:1.48;color:var(--ink-3);max-width:76ch}
+.chtrack{position:relative;height:34px;margin-top:12px;border:1.5px solid var(--ink);
+  background:var(--paper);box-shadow:var(--shadow);cursor:pointer;touch-action:none}
+.chfill{position:absolute;top:0;bottom:0;background:var(--patina);opacity:.32;pointer-events:none}
+.chhandle{position:absolute;top:-7px;bottom:-7px;width:15px;margin-left:-7.5px;cursor:ew-resize}
+.chhandle::before{content:"";position:absolute;inset:0 4px;background:var(--sienna);border:1.5px solid var(--ink)}
+.chhandle:focus-visible::before{outline:2px solid var(--patina);outline-offset:2px}
+.chticks{position:relative;height:14px;margin:3px 2px 0}
+.chticks i{position:absolute;top:0;transform:translateX(-50%);font-family:'Space Mono',monospace;
+  font-size:9.5px;color:var(--ink-3)}
+.chreadout{display:flex;gap:20px;flex-wrap:wrap;margin:14px 0 4px;align-items:baseline}
+.chnum{display:flex;align-items:center;gap:8px;max-width:100%}
+.chnum label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--ink-3)}
+.chnum input{width:48px;font-family:'Space Mono',monospace;font-size:14px;font-weight:700;
+  text-align:center;border:1.5px solid var(--ink);background:var(--paper);padding:5px 2px}
+.chnum span{font-size:12.5px;color:var(--ink-3)}
+.chmeta{font-family:'Space Mono',monospace;font-size:11px;color:var(--ink-3);margin:12px 0 2px}
 #map{height:min(46vh,420px);min-height:260px;border:1.5px solid var(--ink);box-shadow:var(--shadow);background:#C7D6D3}
 .maphint{font-family:'Space Mono',monospace;font-size:10.5px;color:var(--ink-3);margin:5px 0 12px;
   display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
@@ -216,6 +246,30 @@ header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
   <div class="hstat" id="hstat"></div>
 </header>
 
+<div class="prompt" id="chapterScreen">
+  <div class="kicker" id="pickKicker"></div>
+  <h2 id="pickTitle">—</h2>
+  <p id="pickBody"></p>
+  <div class="chtrack" id="chTrack">
+    <div class="chfill" id="chFill"></div>
+    <div class="chhandle" id="chHandleLo" tabindex="0" role="slider" aria-label="First chapter"></div>
+    <div class="chhandle" id="chHandleHi" tabindex="0" role="slider" aria-label="Last chapter"></div>
+  </div>
+  <div class="chticks" id="chTicks"></div>
+  <div class="chreadout">
+    <div class="chnum"><label id="chFromLab"></label>
+      <input id="chFrom" type="number" inputmode="numeric"><span id="chFromTitle"></span></div>
+    <div class="chnum"><label id="chToLab"></label>
+      <input id="chTo" type="number" inputmode="numeric"><span id="chToTitle"></span></div>
+  </div>
+  <div class="chmeta" id="chMeta"></div>
+  <div class="actions">
+    <button class="cta" id="chStart"></button>
+    <button class="nudge" id="chAll"></button>
+  </div>
+</div>
+
+<div id="gameScreen" style="display:none">
 <div class="prompt">
   <div class="kicker" id="kicker"></div>
   <h2 id="pTitle">—</h2>
@@ -250,6 +304,7 @@ header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
 <div class="actions">
   <button class="cta" id="submit" disabled></button>
   <span class="mono" id="timeHint" style="font-size:11px;color:var(--ink-3)"></span>
+</div>
 </div>
 </div>
 
@@ -338,9 +393,30 @@ function placeMiss(g,p){
 const yearsOutside=(y,t)=>Math.max(0,t.start-y,y-t.end);
 const decay=(d,l,max)=>Math.round(max*Math.exp(-d/l));
 
+/* ---------- chapters ---------- */
+const CH_MIN=1,CH_MAX=ITEMS.reduce((m,i)=>Math.max(m,i.chapter),1);
+/* Titles from Susan Wise Bauer's table of contents (Well-Trained Mind Press),
+   display-only — used for the chapter picker, not for scoring or matching. */
+const CH_TITLES=["The Earliest People","Egyptians Lived on the Nile River","The First Writing",
+ "The Old Kingdom of Egypt","The First Sumerian Dictator","The Jewish People",
+ "Hammurabi and the Babylonians","The Assyrians","The First Cities of India",
+ "The Far East: Ancient China","Ancient Africa","Life in Early Crete",
+ "The Middle Kingdom of Egypt","The New Kingdom of Egypt","The Israelites Leave Egypt",
+ "The Early Greeks","The Phoenicians","The Return of Assyria","Greece Gets Civilized Again",
+ "Sparta and Athens","The Greek Gods","The Rise of Rome","Babylon Takes Over Again!",
+ "The Medes and the Persians","The Aryans of India","Writing, Fighting, and Thinking in China",
+ "The Wars of the Greeks","Alexander the Great","The Mauryan Empire of India",
+ "The People of the Americas","The Roman Republic","Rome's War with Carthage",
+ "The First Dynasties of China","The Rise of Julius Caesar","Caesar, Ruler of Rome",
+ "Israel Under Roman Rule","Rome and the Christians","Rome Begins to Weaken",
+ "Troubles in China","Lands East of China","The Attacking Barbarians","The End of Rome"];
+const chTitle=n=>CH_TITLES[n-1]||('Chapter '+n);
+let chLo=CH_MIN,chHi=CH_MAX;
+function poolFor(lo,hi){return ITEMS.filter(i=>(SETTINGS.includeTierC||i.tier!=='C')&&i.chapter>=lo&&i.chapter<=hi);}
+
 /* ---------- rounds ---------- */
 function pickRounds(n){
- const pool=ITEMS.filter(i=>SETTINGS.includeTierC||i.tier!=='C').slice();
+ const pool=poolFor(chLo,chHi);
  for(let i=pool.length-1;i>0;i--){const j=Math.floor(Math.random()*(i+1));[pool[i],pool[j]]=[pool[j],pool[i]];}
  const out=[],ch=new Set(),ct=new Set();
  for(const it of pool){if(out.length>=n)break;
@@ -350,7 +426,7 @@ function pickRounds(n){
  for(const it of pool){if(out.length>=n)break;if(out.indexOf(it)<0)out.push(it);}
  return out.sort(()=>Math.random()-.5);}
 
-let rounds=pickRounds(SETTINGS.roundsPerGame),idx=0,total=0,results=[];
+let rounds=[],idx=0,total=0,results=[],roundCount=SETTINGS.roundsPerGame;
 let year=SETTINGS.startYear,guess=null,marker=null,layer=null,locked=false,drag=false;
 
 /* ---------- static copy ---------- */
@@ -361,6 +437,13 @@ document.getElementById('mapCredit').textContent=COPY.mapCredit;
 document.getElementById('timeHint').textContent=COPY.timeHint;
 document.getElementById('submit').textContent=COPY.submit;
 document.getElementById('eraSel').innerHTML='<option value="-1">'+COPY.bc+'</option><option value="1">'+COPY.ad+'</option>';
+document.getElementById('pickKicker').textContent=COPY.pickKicker;
+document.getElementById('pickTitle').textContent=COPY.pickTitle;
+document.getElementById('pickBody').textContent=COPY.pickBody;
+document.getElementById('chFromLab').textContent=COPY.pickFrom;
+document.getElementById('chToLab').textContent=COPY.pickTo;
+document.getElementById('chStart').textContent=COPY.pickStart;
+document.getElementById('chAll').textContent=COPY.pickAll;
 
 /* ---------- map ---------- */
 const map=L.map('map',{minZoom:2,maxBounds:[[-85,-200],[85,200]],maxBoundsViscosity:.8,attributionControl:false}).setView([27,26],2);
@@ -420,7 +503,7 @@ function ready(){submit.disabled=!guess;}
 
 /* ---------- round lifecycle ---------- */
 function header(){document.getElementById('hstat').innerHTML=
- COPY.round+' <b>'+(idx+1)+'</b> '+COPY.roundOf+' '+SETTINGS.roundsPerGame+
+ COPY.round+' <b>'+(idx+1)+'</b> '+COPY.roundOf+' '+roundCount+
  ' &nbsp;·&nbsp; '+COPY.score+' <b>'+total.toLocaleString()+'</b>';}
 function loadRound(){
  const it=rounds[idx];locked=false;guess=null;
@@ -493,19 +576,91 @@ function finish(){
  document.getElementById('card').innerHTML=
  '<div class="final"><div class="lab">'+COPY.finalHeading+'</div>'+
   '<div class="big">'+total.toLocaleString()+'</div>'+
-  '<div class="lab">'+fill(COPY.finalOutOf,{max:(T*SETTINGS.roundsPerGame).toLocaleString()})+'</div></div>'+
+  '<div class="lab">'+fill(COPY.finalOutOf,{max:(T*roundCount).toLocaleString()})+'</div></div>'+
  '<div class="breakdown">'+results.map((r,i)=>
    '<div class="brow"><div><span class="n">'+(i+1)+'.</span> '+r.it.prompt+'</div>'+
    '<div class="n">'+r.sum.toLocaleString()+'</div></div>').join('')+'</div>'+
  '<p class="reveal">'+fill(COPY.finalLine,{bestLabel:COPY.finalBest,best:best.it.prompt,
    bestScore:best.sum.toLocaleString(),hardestLabel:COPY.finalHardest,hardest:worst.it.prompt,
    hardestScore:worst.sum.toLocaleString()})+'</p>'+
- '<button class="cta" id="againBtn">'+COPY.playAgain+'</button>';
+ '<button class="cta" id="againBtn">'+COPY.playAgain+'</button>'+
+ '<button class="nudge" id="changeBtn">'+COPY.changeChapters+'</button>';
  document.getElementById('sheet').classList.add('on');
  document.getElementById('againBtn').onclick=()=>{
-  rounds=pickRounds(SETTINGS.roundsPerGame);idx=0;total=0;results=[];
-  document.getElementById('sheet').classList.remove('on');loadRound();};}
-loadRound();
+  document.getElementById('sheet').classList.remove('on');beginGame();};
+ document.getElementById('changeBtn').onclick=()=>{
+  document.getElementById('sheet').classList.remove('on');
+  document.getElementById('gameScreen').style.display='none';
+  document.getElementById('chapterScreen').style.display='';
+  drawChRange();};}
+
+/* ---------- chapter picker ---------- */
+const chFrom=document.getElementById('chFrom'),chTo=document.getElementById('chTo'),
+ chFill=document.getElementById('chFill'),chHandleLo=document.getElementById('chHandleLo'),
+ chHandleHi=document.getElementById('chHandleHi'),chTrack=document.getElementById('chTrack'),
+ chTicks=document.getElementById('chTicks'),chMeta=document.getElementById('chMeta'),
+ chFromTitle=document.getElementById('chFromTitle'),chToTitle=document.getElementById('chToTitle'),
+ chStartBtn=document.getElementById('chStart');
+chFrom.min=chTo.min=CH_MIN;chFrom.max=chTo.max=CH_MAX;
+chHandleLo.setAttribute('aria-valuemin',CH_MIN);chHandleLo.setAttribute('aria-valuemax',CH_MAX);
+chHandleHi.setAttribute('aria-valuemin',CH_MIN);chHandleHi.setAttribute('aria-valuemax',CH_MAX);
+[1,10,20,30,CH_MAX].forEach(n=>{const t=document.createElement('i');
+ t.style.left=(chFrac(n)*100)+'%';t.textContent=n;chTicks.appendChild(t);});
+function chFrac(n){return (n-CH_MIN)/(CH_MAX-CH_MIN);}
+function drawChRange(){
+ chLo=Math.max(CH_MIN,Math.min(chLo,CH_MAX));chHi=Math.max(CH_MIN,Math.min(chHi,CH_MAX));
+ if(chLo>chHi)chHi=chLo;
+ chHandleLo.style.left=(chFrac(chLo)*100)+'%';chHandleHi.style.left=(chFrac(chHi)*100)+'%';
+ chFill.style.left=(chFrac(chLo)*100)+'%';chFill.style.width=Math.max(0,(chFrac(chHi)-chFrac(chLo))*100)+'%';
+ chHandleLo.setAttribute('aria-valuenow',chLo);chHandleHi.setAttribute('aria-valuenow',chHi);
+ chHandleLo.setAttribute('aria-valuetext','Chapter '+chLo+': '+chTitle(chLo));
+ chHandleHi.setAttribute('aria-valuetext','Chapter '+chHi+': '+chTitle(chHi));
+ if(document.activeElement!==chFrom)chFrom.value=chLo;
+ if(document.activeElement!==chTo)chTo.value=chHi;
+ chFromTitle.textContent=chTitle(chLo);chToTitle.textContent=chTitle(chHi);
+ const n=poolFor(chLo,chHi).length;
+ chMeta.textContent=n===0?COPY.pickNone:
+  chLo===chHi?fill(COPY.pickCountSame,{n:n,noun:n===1?'question':'questions',ch:chLo}):
+   fill(COPY.pickCount,{n:n,lo:chLo,hi:chHi});
+ chStartBtn.disabled=n<1;}
+function chFromEvt(handle,clientX){const r=chTrack.getBoundingClientRect();
+ const f=(clientX-r.left)/r.width,n=Math.round(CH_MIN+f*(CH_MAX-CH_MIN));
+ const v=Math.max(CH_MIN,Math.min(CH_MAX,n));
+ if(handle==='lo')chLo=v;else chHi=v;drawChRange();}
+let chDrag=null;
+function chGrab(handle){return e=>{chDrag=handle;
+ (e.target.setPointerCapture&&e.target.setPointerCapture(e.pointerId));
+ chFromEvt(handle,e.clientX);e.preventDefault();};}
+chHandleLo.addEventListener('pointerdown',chGrab('lo'));
+chHandleHi.addEventListener('pointerdown',chGrab('hi'));
+chTrack.addEventListener('pointerdown',e=>{
+ if(e.target===chHandleLo||e.target===chHandleHi)return;
+ const r=chTrack.getBoundingClientRect(),n=Math.round(CH_MIN+((e.clientX-r.left)/r.width)*(CH_MAX-CH_MIN));
+ chDrag=Math.abs(n-chLo)<=Math.abs(n-chHi)?'lo':'hi';
+ chTrack.setPointerCapture(e.pointerId);chFromEvt(chDrag,e.clientX);});
+window.addEventListener('pointermove',e=>{if(chDrag)chFromEvt(chDrag,e.clientX);});
+window.addEventListener('pointerup',()=>chDrag=null);
+function chKey(handle){return e=>{const s=e.shiftKey?5:1;let d=0;
+ if(e.key==='ArrowLeft'||e.key==='ArrowDown')d=-s;
+ else if(e.key==='ArrowRight'||e.key==='ArrowUp')d=s;else return;
+ e.preventDefault();if(handle==='lo')chLo=Math.max(CH_MIN,Math.min(CH_MAX,chLo+d));
+ else chHi=Math.max(CH_MIN,Math.min(CH_MAX,chHi+d));drawChRange();};}
+chHandleLo.addEventListener('keydown',chKey('lo'));
+chHandleHi.addEventListener('keydown',chKey('hi'));
+chFrom.addEventListener('input',()=>{const v=parseInt(chFrom.value,10);if(!isNaN(v)){chLo=v;drawChRange();}});
+chTo.addEventListener('input',()=>{const v=parseInt(chTo.value,10);if(!isNaN(v)){chHi=v;drawChRange();}});
+document.getElementById('chAll').onclick=()=>{chLo=CH_MIN;chHi=CH_MAX;drawChRange();};
+function beginGame(){
+ roundCount=Math.min(SETTINGS.roundsPerGame,poolFor(chLo,chHi).length);
+ rounds=pickRounds(roundCount);idx=0;total=0;results=[];
+ document.getElementById('chapterScreen').style.display='none';
+ document.getElementById('gameScreen').style.display='';
+ /* the map was born inside a display:none ancestor and sized itself 0x0;
+    it needs a resize nudge now that its container actually has room. */
+ setTimeout(()=>map.invalidateSize(),0);
+ loadRound();}
+chStartBtn.onclick=beginGame;
+drawChRange();
 </script>
 </body>
 </html>
