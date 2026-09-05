@@ -197,6 +197,14 @@ a.exhibit-glyph:hover {
     text-decoration: underline;
 }
 
+/* Byline under a work's standfirst, on its About-the-work page */
+.byline {
+    color: #555;
+    font-size: 0.9rem;
+    font-style: italic;
+    margin: -0.5rem 0 1.5rem;
+}
+
 /* Faculty list on the About page */
 .faculty-list {
     list-style: none;
