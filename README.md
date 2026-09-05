@@ -10,7 +10,6 @@ Live at whatever this repo's GitHub Pages URL is; `index.html` is the homepage.
 index.html, about.html, visualizations.html, recreations.html   the site shell (see assets/)
 assets/                     shared header/footer, styles, logo, favicon
 voyages/                    exhibit: Twenty Voyages (an atlas)
-polybius/                   exhibit: Polybius, book by book
 school/                     exhibit: School (a recreation)
 many-rooms/                 exhibit: Many Rooms (a sonnet-dating game), plus the corpus + pipeline behind it
 ```
