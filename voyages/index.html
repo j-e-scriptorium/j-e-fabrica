@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Twenty Voyages — an atlas of things that happened and things that did not</title>
+<title>Thirty-Two Journeys — an atlas of things that happened and things that did not</title>
 <style>
 :root{
   --paper:#e9e7e0; --sea:#f5f4f0; --land:#dcd7c7; --coast:#b3aa93;
@@ -26,8 +26,8 @@ h1{font-family:var(--sans);font-weight:600;font-size:clamp(13px,1.6vw,15px);lett
 
 .menu{border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);padding:12px 0;margin-bottom:16px}
 .mrow{display:flex;align-items:flex-start;gap:12px;margin:6px 0}
-.mlab{font-family:var(--sans);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:var(--faint);
-      width:72px;flex:none;padding-top:7px}
+.mlab{font-family:var(--sans);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--faint);
+      width:96px;flex:none;padding-top:7px}
 .chips{display:flex;flex-wrap:wrap;gap:6px;flex:1}
 .chip{display:inline-flex;align-items:stretch;border:1px solid var(--rule);background:#fff;cursor:pointer;
       font-family:var(--sans);font-size:12px;overflow:hidden}
@@ -97,22 +97,26 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 <div class="wrap">
 
 <a class="backlink" href="../index.html">&larr; the Fabrica</a>
-<h1>Twenty Voyages</h1>
-<p class="dek">Ten that happened and ten that did not, charted on the same coastlines. Click a name to see it; click the <b>+</b> to add a second and compare. Where a voyage contains a voyage — Odysseus talking to the Phaeacians, Marlow on the Thames, Aeneas at Dido's table — the told part is drawn in a lighter hand than the part that is actually happening. Drag the map to pan, scroll to zoom.</p>
+<h1>Thirty-Two Journeys</h1>
+<p class="dek">Sixteen that happened and sixteen that did not; sixteen by sea and sixteen over land (a river counts as land), charted on the same coastlines. Click a name to see it; click the <b>+</b> to add a second and compare. Where a voyage contains a voyage — Odysseus talking to the Phaeacians, Marlow on the Thames, Aeneas at Dido's table — the told part is drawn in a lighter hand than the part that is actually happening. Drag the map to pan, scroll to zoom.</p>
 
 <div class="menu">
-  <div class="mrow"><div class="mlab">Real</div><div class="chips" id="chipsReal"></div></div>
-  <div class="mrow"><div class="mlab">Invented</div><div class="chips" id="chipsFict"></div></div>
+  <div class="mrow"><div class="mlab">Real · Sea</div><div class="chips" id="chipsRealSea"></div></div>
+  <div class="mrow"><div class="mlab">Real · Land</div><div class="chips" id="chipsRealLand"></div></div>
+  <div class="mrow"><div class="mlab">Invented · Sea</div><div class="chips" id="chipsFictSea"></div></div>
+  <div class="mrow"><div class="mlab">Invented · Land</div><div class="chips" id="chipsFictLand"></div></div>
   <div class="tools">
     <button id="clear">Clear</button>
-    <button id="allReal">All ten real</button>
-    <button id="allFict">All ten invented</button>
+    <button id="allReal">All real</button>
+    <button id="allFict">All invented</button>
+    <button id="allSea">All sea</button>
+    <button id="allLand">All land</button>
     <span id="selcount"></span>
   </div>
 </div>
 
 <div class="mapbox">
-  <svg class="map" id="map" role="img" aria-label="World map of twenty voyages"></svg>
+  <svg class="map" id="map" role="img" aria-label="World map of thirty-two journeys"></svg>
   <div class="mapui">
     <button id="zin" title="Zoom in">+</button>
     <button id="zout" title="Zoom out">&minus;</button>
@@ -148,8 +152,9 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 
 <div class="foot">
   <h3>How to read it</h3>
-  <p>Coastlines are Natural Earth 1:50 million, public domain. Real tracks are solid, invented ones dashed. A filled square means the position is documented or explicitly stated in the text; a half-tone disc means it is inferred from a fixed point nearby; a hollow ring means it is notional — somebody's proposal, and usually a contested one. Tracks are drawn as straight lines between waypoints, so a leg shown straight was very often sailed as a long series of tacks.</p>
-  <p>Sea tracks are routed around land: where a straight line between two waypoints would cross a continent, the course is found by search over an ocean grid, so the ships go round the Cape rather than through it. Distances are measured along that routed path and remain floors rather than logs — no allowance is made for tacking, for the wide Atlantic arc da Gama actually sailed, or for the months Magellan spent working up and down a coast. Where a documented figure exists the method comes out close but not exact: Bligh's open-boat voyage measures 4,019 nautical miles here against a logged 3,618, the extra being detours the grid imposes that he did not sail. Treat everything to about a tenth either way, and as useful for comparing voyages with each other rather than for settling arguments about logs.</p>
+  <p>Coastlines are Natural Earth 1:50 million, public domain. Real tracks are solid, invented ones dashed. A filled square means the position is documented or explicitly stated in the text; a half-tone disc means it is inferred from a fixed point nearby; a hollow ring means it is notional — somebody's proposal, and usually a contested one. Tracks are drawn as straight lines between waypoints, so a leg shown straight was very often sailed, or marched, as a long series of tacks or switchbacks.</p>
+  <p>Sea tracks are routed around land: where a straight line between two waypoints would cross a continent, the course is found by search over an ocean grid, so the ships go round the Cape rather than through it. Distances are measured along that routed path and remain floors rather than logs — no allowance is made for tacking, for the wide Atlantic arc da Gama actually sailed, or for the months Magellan spent working up and down a coast. Land tracks are not routed this way — crossing land is the point — so their lines are plainer, and a march through real mountains or desert will read as more direct on the map than it felt underfoot. Treat every distance here to about a tenth either way, and as useful for comparing journeys with each other rather than for settling arguments about logs.</p>
+  <p>Two of the invented land journeys are plotted on real coordinates their own texts never give directly. Gene Wolfe built <i>The Book of the New Sun</i>'s Urth on a real scale and a real river system; it is mapped here onto the Río de la Plata basin and the Andes. <i>The Lord of the Rings</i> follows an equivalence Tolkien himself stated, in a 1967 letter, rather than a guess of ours: the Shire at Oxford's latitude, Minas Tirith at Florence's, the mouths of the Anduin at ancient Troy's. Treat both tracks as illustrative, not as a claim about what either book says its own geography is.</p>
 </div>
 
 </div>
@@ -270,9 +275,10 @@ VOYAGES.forEach(function(v){
 
 /* ---------- menu ---------- */
 function buildChips(){
-  [["Real","real"],["Fict","fiction"]].forEach(function(pair){
-    var host=document.getElementById("chips"+pair[0]); host.innerHTML="";
-    VOYAGES.filter(function(v){return v.kind===pair[1];}).forEach(function(v){
+  [["chipsRealSea","real","sea"],["chipsRealLand","real","land"],
+   ["chipsFictSea","fiction","sea"],["chipsFictLand","fiction","land"]].forEach(function(spec){
+    var host=document.getElementById(spec[0]); host.innerHTML="";
+    VOYAGES.filter(function(v){return v.kind===spec[1] && v.domain===spec[2];}).forEach(function(v){
       var c=document.createElement("div"); c.className="chip"; c.dataset.id=v.id;
       c.setAttribute("role","group"); c.setAttribute("aria-label",v.title);
       var sw=document.createElement("div"); sw.className="sw"; sw.style.background=v.colour;
@@ -636,6 +642,10 @@ document.getElementById("allReal").onclick=function(){stop();
   sel=VOYAGES.filter(function(v){return v.kind==="real";}).map(function(v){return v.id;});render(true);};
 document.getElementById("allFict").onclick=function(){stop();
   sel=VOYAGES.filter(function(v){return v.kind==="fiction";}).map(function(v){return v.id;});render(true);};
+document.getElementById("allSea").onclick=function(){stop();
+  sel=VOYAGES.filter(function(v){return v.domain==="sea";}).map(function(v){return v.id;});render(true);};
+document.getElementById("allLand").onclick=function(){stop();
+  sel=VOYAGES.filter(function(v){return v.domain==="land";}).map(function(v){return v.id;});render(true);};
 window.addEventListener("keydown",function(e){
   if(sel.length!==1)return;
   if(e.key==="ArrowLeft"){stop();if(legIdx>0){legIdx--;render(false);}}
