@@ -449,6 +449,7 @@ document.getElementById('chAll').textContent=COPY.pickAll;
 /* ---------- map ---------- */
 const map=L.map('map',{minZoom:2,maxBounds:[[-85,-200],[85,200]],maxBoundsViscosity:.8,attributionControl:false}).setView([27,26],2);
 L.geoJSON(landGeoJSON(),{style:{stroke:true,color:'#8A7048',weight:.7,fillColor:'#D9CBA3',fillOpacity:1}}).addTo(map);
+L.geoJSON(lakesGeoJSON(),{style:{stroke:true,color:'#6B8F99',weight:.6,fillColor:'#C7D6D3',fillOpacity:1}}).addTo(map);
 L.geoJSON(riversGeoJSON(),{style:{color:'#4C7C91',weight:1.1,opacity:.75}}).addTo(map);
 const pinIcon=L.divIcon({className:'',iconSize:[16,16],iconAnchor:[8,8],
  html:'<div style="width:14px;height:14px;background:#8A4B24;border:2px solid #221E19;transform:rotate(45deg)"></div>'});

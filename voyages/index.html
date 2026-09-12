@@ -152,7 +152,7 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 
 <div class="foot">
   <h3>How to read it</h3>
-  <p>Coastlines are Natural Earth 1:50 million, public domain. Real tracks are solid, invented ones dashed. A filled square means the position is documented or explicitly stated in the text; a half-tone disc means it is inferred from a fixed point nearby; a hollow ring means it is notional — somebody's proposal, and usually a contested one. Tracks are drawn as straight lines between waypoints, so a leg shown straight was very often sailed, or marched, as a long series of tacks or switchbacks.</p>
+  <p>Coastlines are Natural Earth 1:50 million, public domain. Fifty major rivers and thirty major lakes are hand-traced at the same coarse precision, the lakes filled in the sea's own colour so they read as water cut into the land; two of them, the Aral Sea and Lake Chad, are drawn at their present, shrunken extent rather than the larger one on an older map. Real tracks are solid, invented ones dashed. A filled square means the position is documented or explicitly stated in the text; a half-tone disc means it is inferred from a fixed point nearby; a hollow ring means it is notional — somebody's proposal, and usually a contested one. Tracks are drawn as straight lines between waypoints, so a leg shown straight was very often sailed, or marched, as a long series of tacks or switchbacks.</p>
   <p>Sea tracks are routed around land: where a straight line between two waypoints would cross a continent, the course is found by search over an ocean grid, so the ships go round the Cape rather than through it. Distances are measured along that routed path and remain floors rather than logs — no allowance is made for tacking, for the wide Atlantic arc da Gama actually sailed, or for the months Magellan spent working up and down a coast. Land tracks are not routed this way — crossing land is the point — so their lines are plainer, and a march through real mountains or desert will read as more direct on the map than it felt underfoot. Treat every distance here to about a tenth either way, and as useful for comparing journeys with each other rather than for settling arguments about logs.</p>
   <p>Two of the invented land journeys are plotted on real coordinates their own texts never give directly. Gene Wolfe built <i>The Book of the New Sun</i>'s Urth on a real scale and a real river system; it is mapped here onto the Río de la Plata basin and the Andes. <i>The Lord of the Rings</i> follows an equivalence Tolkien himself stated, in a 1967 letter, rather than a guess of ours: the Shire at Oxford's latitude, Minas Tirith at Florence's, the mouths of the Anduin at ancient Troy's. Treat both tracks as illustrative, not as a claim about what either book says its own geography is.</p>
 </div>
@@ -197,6 +197,7 @@ map.setAttribute("viewBox","0 0 "+W+" "+H.toFixed(1));
 var gWorld=el("g",{}); map.appendChild(gWorld);
 
 var landD=""; decodeLand().forEach(function(r){ landD+=pathd(r,true); });
+var lakeD=""; for(var lk in LAKES) lakeD+=pathd(LAKES[lk],true);
 var riverD=""; for(var rk in RIVERS) riverD+=pathd(RIVERS[rk],false);
 
 for(var copy=-1;copy<=1;copy++){
@@ -209,6 +210,8 @@ for(var copy=-1;copy<=1;copy++){
   g.appendChild(el("line",{x1:0,y1:py(0),x2:W,y2:py(0),stroke:"#bdb8a8","stroke-width":0.9,"data-eq":"1"}));
   g.appendChild(el("path",{d:landD,fill:"#dcd7c7",stroke:"#b3aa93","stroke-width":0.8,
     "stroke-linejoin":"round","data-land":"1"}));
+  g.appendChild(el("path",{d:lakeD,fill:"#f5f4f0",stroke:"#b3aa93","stroke-width":0.6,
+    "stroke-linejoin":"round","data-lake":"1"}));
   g.appendChild(el("path",{d:riverD,fill:"none",stroke:"#a9b7bd","stroke-width":1.5,
     "stroke-linecap":"round","data-river":"1"}));
   var dots=el("g",{fill:"#c9c2ae","data-dots":"1"});
@@ -433,7 +436,7 @@ function scaleFurniture(){
   var U=vb.w/1150;
   function sw(sel,base){ [].forEach.call(document.querySelectorAll(sel),function(e){
     e.setAttribute("stroke-width",(base*U).toFixed(2)); }); }
-  sw("[data-grat]",0.7); sw("[data-eq]",0.9); sw("[data-land]",0.8); sw("[data-river]",1.6);
+  sw("[data-grat]",0.7); sw("[data-eq]",0.9); sw("[data-land]",0.8); sw("[data-lake]",0.6); sw("[data-river]",1.6);
   [].forEach.call(document.querySelectorAll("[data-seas]"),function(e){
     e.setAttribute("font-size",(9*U).toFixed(2));
     e.setAttribute("opacity", vb.w>W*0.4?0.8:0.25); });

@@ -22,3 +22,9 @@ function landGeoJSON(){
 function riversGeoJSON(){
   return {type:'MultiLineString',coordinates:Object.keys(RIVERS).map(function(k){return RIVERS[k];})};
 }
+/* lakes as a GeoJSON MultiPolygon. Unlike decodeLand()'s rings, LAKES'
+   rings are already explicitly closed (first point === last), and none
+   of them cross the antimeridian, so no extra handling is needed here. */
+function lakesGeoJSON(){
+  return {type:'MultiPolygon',coordinates:Object.keys(LAKES).map(function(k){return [LAKES[k]];})};
+}
