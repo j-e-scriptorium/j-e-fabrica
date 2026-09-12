@@ -16,12 +16,17 @@ by default — `SETTINGS.includeTierC` in `index.html`).
   few extra documentation fields (`sotwTime`, `scholarlyTime`, `timeShare`, `precisionLabel`)
   that `index.html` doesn't need at runtime because they're already baked into each item's
   `time`, `timeMax`, and `placeMax`.
-- `vendor/` — Leaflet 1.9.4 (self-hosted, no CDN) and `land.js`, world coastlines decoded
-  from the same public-domain Natural Earth 1:50m data used by `../voyages/basemap.js`,
-  rendered as a vector layer rather than raster map tiles so a round never depends on a
-  live tile server. `land.js` also carries a hand-traced `RIVERS` set (Nile, Tigris,
-  Euphrates, Indus, Ganges, and other major rivers) so the interior of a continent has
-  some legible structure — deliberately not modern political borders.
+- `vendor/` — Leaflet 1.9.4 (self-hosted, no CDN) and `land.js`, which just turns the
+  shared map data in `../../assets/worldmap.js` into GeoJSON (`landGeoJSON()`,
+  `riversGeoJSON()`, `lakesGeoJSON()`) for Leaflet to render as a vector layer, so a
+  round never depends on a live tile server. The actual data — coastlines, rivers,
+  and lakes, all public-domain Natural Earth 1:50m (`ne_50m_land`,
+  `ne_50m_rivers_lake_centerlines`, `ne_50m_lakes`), pulled from the project's own
+  GitHub mirror rather than hand-traced, so a river or lake is the same source and
+  point density as the coast it meets — lives in that one shared file rather than a
+  copy here, so it stays in sync with `../voyages/` automatically instead of by
+  hand. The rivers and lakes exist so the interior of a continent has some legible
+  structure — deliberately not modern political borders.
 
 ## Schema
 
