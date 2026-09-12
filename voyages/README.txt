@@ -2,17 +2,18 @@ THIRTY-TWO JOURNEYS — an atlas
 ===============================
 
 Open index.html in any browser. No server, no internet, nothing to install.
-All four files must stay together in the same folder.
+These files must stay together in the same relative layout — this folder,
+plus ../assets/worldmap.js one level up.
 
-  index.html   the site — layout, map drawing, interaction
-  voyages.js   the thirty-two journeys and their stages. This is the file to edit.
-  basemap.js   world coastlines (Natural Earth 1:50m, public domain), 50 rivers, sea labels
-  README.txt   this file
-
-  basemap.js's coastline and river data (LAND_ENC and RIVERS) is kept identical
-  to ../strata/vendor/land.js, so the two exhibits share one map. If you add,
-  move, or fix a river here, make the same change there — nothing imports
-  between the two, so it's a manual sync, not automatic.
+  index.html          the site — layout, map drawing, interaction
+  voyages.js          the thirty-two journeys and their stages. This is the file to edit.
+  basemap.js          exhibit-specific map data: ocean/sea labels (SEAS) only
+  ../assets/worldmap.js   world coastlines, land dots, 50 rivers, and the decoder
+                          (LAND_ENC, LAND_DOTS, RIVERS, decodeLand()) — the ACTUAL
+                          map data, shared with ../strata/ rather than copied. If
+                          you add, move, or fix a coastline or river, it changes
+                          for both exhibits, since there is only the one file.
+  README.txt          this file
 
 Sixteen journeys are real and sixteen are invented; sixteen are by sea and
 sixteen are over land (a river counts as land). Each journey carries both a

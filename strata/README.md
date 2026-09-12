@@ -16,12 +16,14 @@ by default — `SETTINGS.includeTierC` in `index.html`).
   few extra documentation fields (`sotwTime`, `scholarlyTime`, `timeShare`, `precisionLabel`)
   that `index.html` doesn't need at runtime because they're already baked into each item's
   `time`, `timeMax`, and `placeMax`.
-- `vendor/` — Leaflet 1.9.4 (self-hosted, no CDN) and `land.js`, world coastlines decoded
-  from the same public-domain Natural Earth 1:50m data used by `../voyages/basemap.js`,
-  rendered as a vector layer rather than raster map tiles so a round never depends on a
-  live tile server. `land.js` also carries a hand-traced `RIVERS` set (Nile, Tigris,
-  Euphrates, Indus, Ganges, and other major rivers) so the interior of a continent has
-  some legible structure — deliberately not modern political borders.
+- `vendor/` — Leaflet 1.9.4 (self-hosted, no CDN) and `land.js`, which just turns the
+  shared map data in `../../assets/worldmap.js` into GeoJSON (`landGeoJSON()`,
+  `riversGeoJSON()`) for Leaflet to render as a vector layer, so a round never depends
+  on a live tile server. The actual data — world coastlines (public-domain Natural
+  Earth 1:50m), 50 hand-traced major rivers, and the decoder — lives in that one shared
+  file rather than a copy here, so it stays in sync with `../voyages/` automatically
+  instead of by hand. The rivers exist so the interior of a continent has some legible
+  structure — deliberately not modern political borders.
 
 ## Schema
 
