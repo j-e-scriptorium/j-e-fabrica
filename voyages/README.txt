@@ -6,8 +6,13 @@ All four files must stay together in the same folder.
 
   index.html   the site — layout, map drawing, interaction
   voyages.js   the thirty-two journeys and their stages. This is the file to edit.
-  basemap.js   world coastlines (Natural Earth 1:50m, public domain), rivers, sea labels
+  basemap.js   world coastlines (Natural Earth 1:50m, public domain), 50 rivers, sea labels
   README.txt   this file
+
+  basemap.js's coastline and river data (LAND_ENC and RIVERS) is kept identical
+  to ../strata/vendor/land.js, so the two exhibits share one map. If you add,
+  move, or fix a river here, make the same change there — nothing imports
+  between the two, so it's a manual sync, not automatic.
 
 Sixteen journeys are real and sixteen are invented; sixteen are by sea and
 sixteen are over land (a river counts as land). Each journey carries both a
