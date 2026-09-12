@@ -19,12 +19,14 @@ by default — `SETTINGS.includeTierC` in `index.html`).
 - `vendor/` — Leaflet 1.9.4 (self-hosted, no CDN) and `land.js`, which just turns the
   shared map data in `../../assets/worldmap.js` into GeoJSON (`landGeoJSON()`,
   `riversGeoJSON()`, `lakesGeoJSON()`) for Leaflet to render as a vector layer, so a
-  round never depends on a live tile server. The actual data — world coastlines
-  (public-domain Natural Earth 1:50m), 50 hand-traced major rivers, 30 major lakes,
-  and the decoder — lives in that one shared file rather than a copy here, so it
-  stays in sync with `../voyages/` automatically instead of by hand. The rivers and
-  lakes exist so the interior of a continent has some legible structure —
-  deliberately not modern political borders.
+  round never depends on a live tile server. The actual data — coastlines, rivers,
+  and lakes, all public-domain Natural Earth 1:50m (`ne_50m_land`,
+  `ne_50m_rivers_lake_centerlines`, `ne_50m_lakes`), pulled from the project's own
+  GitHub mirror rather than hand-traced, so a river or lake is the same source and
+  point density as the coast it meets — lives in that one shared file rather than a
+  copy here, so it stays in sync with `../voyages/` automatically instead of by
+  hand. The rivers and lakes exist so the interior of a continent has some legible
+  structure — deliberately not modern political borders.
 
 ## Schema
 

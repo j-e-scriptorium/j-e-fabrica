@@ -8,12 +8,17 @@ plus ../assets/worldmap.js one level up.
   index.html          the site — layout, map drawing, interaction
   voyages.js          the thirty-two journeys and their stages. This is the file to edit.
   basemap.js          exhibit-specific map data: ocean/sea labels (SEAS) only
-  ../assets/worldmap.js   world coastlines, land dots, 50 rivers, 30 major lakes,
-                          and the decoder (LAND_ENC, LAND_DOTS, RIVERS, LAKES,
-                          decodeLand()) — the ACTUAL map data, shared with
-                          ../strata/ rather than copied. If you add, move, or fix
-                          a coastline, river, or lake, it changes for both
-                          exhibits, since there is only the one file.
+  ../assets/worldmap.js   world coastlines, land dots, major rivers and lakes, and
+                          the decoders (LAND_ENC, LAND_DOTS, RIVERS_ENC, LAKES_ENC,
+                          RIVERS, LAKES, decodeLand(), decodeDeltaRing()) — the
+                          ACTUAL map data, shared with ../strata/ rather than
+                          copied. Coastlines, rivers and lakes are all Natural
+                          Earth 1:50m, public domain, pulled once from the
+                          project's own GitHub mirror rather than hand-traced (the
+                          one exception is Tonle Sap, a monsoon lake that layer
+                          omits). If you add, move, or fix a coastline, river, or
+                          lake, it changes for both exhibits, since there is only
+                          the one file.
   README.txt          this file
 
 Sixteen journeys are real and sixteen are invented; sixteen are by sea and
