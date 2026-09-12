@@ -103,13 +103,31 @@ var SEAS=[
  {n:"WEDDELL SEA",x:-40,y:-72},{n:"NORTH SEA",x:3,y:56},{n:"GULF OF MEXICO",x:-91,y:25}
 ];
 
-/* decode the delta-encoded coastlines into [lon,lat] rings */
+/* decode the delta-encoded coastlines into [lon,lat] rings.
+   A few of the source rings (the Old World landmass, Antarctica) were
+   clipped at the antimeridian before encoding, so one delta partway
+   through them is really the seam between two separate closed pieces,
+   not a genuine small step — left alone, that single huge delta draws a
+   spurious line clear across the map. Detect it (|delta|>180°) and start
+   a new piece instead of joining it to the last point. */
 function decodeLand(){
   var out=[];
   for(var i=0;i<LAND_ENC.length;i++){
-    var a=LAND_ENC[i], x=a[0], y=a[1], r=[[x/100,y/100]];
-    for(var j=2;j<a.length;j+=2){ x+=a[j]; y+=a[j+1]; r.push([x/100,y/100]); }
-    out.push(r);
+    var a=LAND_ENC[i], x=a[0], y=a[1];
+    var ring=[[x/100,y/100]], pieces=[ring];
+    for(var j=2;j<a.length;j+=2){
+      var dx=a[j], dy=a[j+1];
+      if(Math.abs(dx)>18000 && j!==a.length-2){
+        x+=dx; y+=dy;
+        ring=[[x/100,y/100]];
+        pieces.push(ring);
+        continue;
+      }
+      if(Math.abs(dx)>18000) dx-=36000*Math.round(dx/36000);
+      x+=dx; y+=dy;
+      ring.push([x/100,y/100]);
+    }
+    for(var k=0;k<pieces.length;k++) if(pieces[k].length>1) out.push(pieces[k]);
   }
   return out;
 }
