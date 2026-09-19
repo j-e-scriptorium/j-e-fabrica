@@ -650,8 +650,7 @@ ghost:{label:"the Ohio: the way north they missed",pts:[[-89.18,37.00],[-88.60,3
  {x:-101.72,y:41.13,p:"Ogallala, Nebraska",d:"1876",c:1,k:"turn",n:"The railhead where a real drive would have sold out and stopped. This one keeps going, because Call's actual object was never the cattle market — it was the unfenced land past it."},
  {x:-105.8,y:44.5,p:"The Powder River country",d:"1876",c:1,k:"death",n:"Blue Duck's raiders and a rattlesnake pit account for two of the book's more gratuitous deaths here, in territory the drive has no real business crossing except that it is the most direct line north."},
  {x:-105.84,y:46.41,p:"The Yellowstone crossing",d:"1876",c:1,k:"death",n:"Gus McCrae is wounded by Native raiders near here and dies of the gangrene that follows rather than of the wound itself — a death the book takes its time over more than any other in it."},
- {x:-108.0,y:46.9,p:"The Musselshell country, Montana",d:"1876",c:1,k:"landfall",n:"The unclaimed grass Call had been driving toward the entire book, reached with the herd decimated, half the original hands dead, and Gus already buried once in Montana ground before Call digs him up again."},
- {x:-99.5,y:27.5,p:"Back to Texas",d:"epilogue",c:1,n:"Call hauls Gus's coffin, packed in charcoal against the smell, the length of the journey in reverse to bury him where he'd asked, near Lonesome Dove — a promise kept at a cost nobody watching the drive would have judged worth it, which is exactly the point the novel is making about him."}
+ {x:-108.0,y:46.9,p:"The Musselshell country, Montana",d:"1876",c:1,k:"landfall",n:"The unclaimed grass Call had been driving toward the entire book, reached with the herd decimated, half the original hands dead, and Gus already buried once in Montana ground before Call digs him up again."}
 ]},
 
 /* ---------------------------------------------------------- 28 */

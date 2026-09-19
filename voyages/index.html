@@ -98,7 +98,7 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 
 <a class="backlink" href="../index.html">&larr; the Fabrica</a>
 <h1>Thirty-Two Journeys</h1>
-<p class="dek">Sixteen that happened and sixteen that did not; sixteen by sea and sixteen over land (a river counts as land), charted on the same coastlines. Click a name to see it; click the <b>+</b> to add a second and compare. Where a voyage contains a voyage — Odysseus talking to the Phaeacians, Marlow on the Thames, Aeneas at Dido's table — the told part is drawn in a lighter hand than the part that is actually happening. Drag the map to pan, scroll to zoom.</p>
+<p class="dek">Sixteen that happened and sixteen that did not; sixteen by sea and sixteen over land (a river counts as land), charted on the same coastlines. Click a name to see it; click the <b>+</b> to add a second and compare. Where a journey contains a journey — Odysseus talking to the Phaeacians, Marlow on the Thames, Aeneas at Dido's table — the told part is drawn in a lighter hand than the part that is actually happening. Drag the map to pan, scroll to zoom.</p>
 
 <div class="menu">
   <div class="mrow"><div class="mlab">Real · Sea</div><div class="chips" id="chipsRealSea"></div></div>
@@ -129,7 +129,7 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
   <div class="striphead"><span id="striplab"></span><span>bar height = how firmly the position is fixed</span></div>
   <div class="strip"><svg id="strip" preserveAspectRatio="none"></svg></div>
   <div class="controls">
-    <button id="play">Run the voyage</button>
+    <button id="play">Run the journey</button>
     <button id="prev">&larr; Previous</button>
     <button id="next">Next &rarr;</button>
   </div>
@@ -232,6 +232,19 @@ var sel=[], legIdx=0, playing=false, timer=null;
 var vb={x:0,y:0,w:W,h:H}, tgt={x:0,y:0,w:W,h:H}, raf=null;
 var byId={}; VOYAGES.forEach(function(v){byId[v.id]=v;});
 
+/* ---------- URL state: the hash mirrors which journeys are turned on ---------- */
+function idsFromHash(){
+  var h=location.hash.replace(/^#/,"");
+  if(!h) return [];
+  return h.split(",").map(function(s){return decodeURIComponent(s.trim());})
+    .filter(function(id){return byId[id];});
+}
+function syncHash(){
+  var h=sel.length?"#"+sel.map(encodeURIComponent).join(","):"";
+  var url=location.pathname+location.search+h;
+  if(location.hash!==h) history.replaceState(null,"",url);
+}
+
 /* expand a chain of legs into a polyline, inserting any baked sea-route via points */
 function expandTrack(legs){
   var pts=[], pinAt=[];
@@ -291,12 +304,12 @@ function buildChips(){
       var pl=document.createElement("button"); pl.className="pl"; pl.textContent="+";
       pl.title="Add "+v.title+" to the comparison"; pl.setAttribute("aria-label","Add "+v.title+" to the comparison");
       c.appendChild(sw); c.appendChild(nm); c.appendChild(pl);
-      nm.addEventListener("click",function(e){e.stopPropagation();stop();sel=[v.id];legIdx=0;render(true);});
+      nm.addEventListener("click",function(e){e.stopPropagation();stop();sel=[v.id];legIdx=0;syncHash();render(true);});
       pl.addEventListener("click",function(e){e.stopPropagation();stop();
         var i=sel.indexOf(v.id);
         if(i>=0) sel.splice(i,1); else sel.push(v.id);
         if(sel.length===1) legIdx=0;
-        render(true);});
+        syncHash();render(true);});
       host.appendChild(c);
     });
   });
@@ -574,7 +587,7 @@ function drawCompare(){
   var note = (reals && reals<vs.length)
     ? "Mixed. The dashed tracks are the ones nobody sailed — though on this projection they are not obviously the less plausible ones."
     : (reals===0
-      ? "All invented. Notice how much of the track is drawn in the lighter hand: that is the part being told rather than happening, and in several of these it is nearly the whole voyage."
+      ? "All invented. Notice how much of the track is drawn in the lighter hand: that is the part being told rather than happening, and in several of these it is nearly the whole journey."
       : "All documented. Distances are along the plotted track, so treat them as floors.");
   /* latitude profile: what each voyage did with the world's north-south axis */
   var CW=1200, CH=210, PADL=46, PADR=12, PADT=14, PADB=22;
@@ -602,10 +615,10 @@ function drawCompare(){
     "font-family='system-ui,sans-serif' fill='#9aa0a8'>end &#183; latitude against progress along the track</text></svg>";
 
   host.innerHTML= prof+
-   "<table><thead><tr><th>Voyage</th><th>Years</th><th class='num'>Track, km</th><th class='num'>Days</th>"+
+   "<table><thead><tr><th>Journey</th><th>Years</th><th class='num'>Track, km</th><th class='num'>Days</th>"+
    "<th class='num'>Furthest from start, km</th><th>Out &rarr; back</th></tr></thead><tbody>"+
    rows+"</tbody></table><p class='cmpnote'>"+note+"</p>";
-  document.getElementById("stamp").textContent=vs.length+" VOYAGES COMPARED";
+  document.getElementById("stamp").textContent=vs.length+" JOURNEYS COMPARED";
 }
 
 /* ---------- render ---------- */
@@ -618,12 +631,12 @@ function render(refit){
   drawTracks();
   if(single){ drawStrip(); drawDetail(); }
   else if(sel.length>1) drawCompare();
-  else document.getElementById("stamp").textContent="SELECT A VOYAGE";
+  else document.getElementById("stamp").textContent="SELECT A JOURNEY";
   if(refit) fit(); else scaleFurniture();
 }
 
 /* ---------- controls ---------- */
-function stop(){playing=false;clearInterval(timer);document.getElementById("play").textContent="Run the voyage";}
+function stop(){playing=false;clearInterval(timer);document.getElementById("play").textContent="Run the journey";}
 document.getElementById("play").onclick=function(){
   if(sel.length!==1) return;
   if(playing){stop();return;}
@@ -641,23 +654,28 @@ document.getElementById("play").onclick=function(){
 document.getElementById("prev").onclick=function(){stop();if(sel.length===1&&legIdx>0){legIdx--;render(false);}};
 document.getElementById("next").onclick=function(){stop();
   if(sel.length===1&&legIdx<byId[sel[0]].legs.length-1){legIdx++;render(false);}};
-document.getElementById("clear").onclick=function(){stop();sel=[];render(true);};
+document.getElementById("clear").onclick=function(){stop();sel=[];syncHash();render(true);};
 document.getElementById("allReal").onclick=function(){stop();
-  sel=VOYAGES.filter(function(v){return v.kind==="real";}).map(function(v){return v.id;});render(true);};
+  sel=VOYAGES.filter(function(v){return v.kind==="real";}).map(function(v){return v.id;});syncHash();render(true);};
 document.getElementById("allFict").onclick=function(){stop();
-  sel=VOYAGES.filter(function(v){return v.kind==="fiction";}).map(function(v){return v.id;});render(true);};
+  sel=VOYAGES.filter(function(v){return v.kind==="fiction";}).map(function(v){return v.id;});syncHash();render(true);};
 document.getElementById("allSea").onclick=function(){stop();
-  sel=VOYAGES.filter(function(v){return v.domain==="sea";}).map(function(v){return v.id;});render(true);};
+  sel=VOYAGES.filter(function(v){return v.domain==="sea";}).map(function(v){return v.id;});syncHash();render(true);};
 document.getElementById("allLand").onclick=function(){stop();
-  sel=VOYAGES.filter(function(v){return v.domain==="land";}).map(function(v){return v.id;});render(true);};
+  sel=VOYAGES.filter(function(v){return v.domain==="land";}).map(function(v){return v.id;});syncHash();render(true);};
 window.addEventListener("keydown",function(e){
   if(sel.length!==1)return;
   if(e.key==="ArrowLeft"){stop();if(legIdx>0){legIdx--;render(false);}}
   if(e.key==="ArrowRight"){stop();if(legIdx<byId[sel[0]].legs.length-1){legIdx++;render(false);}}
 });
+window.addEventListener("hashchange",function(){
+  var ids=idsFromHash();
+  stop(); sel=ids; legIdx=0; render(true);
+});
 
 buildChips();
-sel=["magellan"]; legIdx=0; render(true);
+var initIds=idsFromHash();
+sel=initIds.length?initIds:["magellan"]; legIdx=0; render(true);
 </script>
 </body>
 </html>
