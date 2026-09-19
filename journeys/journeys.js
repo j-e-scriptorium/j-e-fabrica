@@ -7,7 +7,7 @@
    voyage fields: kind ('real'/'fiction'), domain ('sea'/'land' — a river counts as land)
    ============================================================ */
 
-var VOYAGES=[
+var JOURNEYS=[
 
 /* ============================================================
    REAL — SEA (8)

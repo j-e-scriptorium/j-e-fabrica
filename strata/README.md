@@ -24,7 +24,7 @@ by default — `SETTINGS.includeTierC` in `index.html`).
   `ne_50m_rivers_lake_centerlines`, `ne_50m_lakes`), pulled from the project's own
   GitHub mirror rather than hand-traced, so a river or lake is the same source and
   point density as the coast it meets — lives in that one shared file rather than a
-  copy here, so it stays in sync with `../voyages/` automatically instead of by
+  copy here, so it stays in sync with `../journeys/` automatically instead of by
   hand. The rivers and lakes exist so the interior of a continent has some legible
   structure — deliberately not modern political borders.
 

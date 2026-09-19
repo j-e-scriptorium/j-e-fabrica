@@ -161,7 +161,7 @@ td.num{text-align:right;font-variant-numeric:tabular-nums}
 
 <script src="../assets/worldmap.js"></script>
 <script src="basemap.js"></script>
-<script src="voyages.js"></script>
+<script src="journeys.js"></script>
 <script>
 "use strict";
 
@@ -230,7 +230,7 @@ var gLbl=el("g",{});   map.appendChild(gLbl);
 /* ---------- state ---------- */
 var sel=[], legIdx=0, playing=false, timer=null;
 var vb={x:0,y:0,w:W,h:H}, tgt={x:0,y:0,w:W,h:H}, raf=null;
-var byId={}; VOYAGES.forEach(function(v){byId[v.id]=v;});
+var byId={}; JOURNEYS.forEach(function(v){byId[v.id]=v;});
 
 /* ---------- URL state: the hash mirrors which journeys are turned on ---------- */
 function idsFromHash(){
@@ -268,7 +268,7 @@ function toldChain(legs){
   }});
   return any? legs.filter(function(l,i){return keep[i];}) : [];
 }
-VOYAGES.forEach(function(v){
+JOURNEYS.forEach(function(v){
   v._ch={
     m:    expandTrack(v.legs.filter(function(l){return !l.t;})),
     told: expandTrack(toldChain(v.legs)),
@@ -295,7 +295,7 @@ function buildChips(){
   [["chipsRealSea","real","sea"],["chipsRealLand","real","land"],
    ["chipsFictSea","fiction","sea"],["chipsFictLand","fiction","land"]].forEach(function(spec){
     var host=document.getElementById(spec[0]); host.innerHTML="";
-    VOYAGES.filter(function(v){return v.kind===spec[1] && v.domain===spec[2];}).forEach(function(v){
+    JOURNEYS.filter(function(v){return v.kind===spec[1] && v.domain===spec[2];}).forEach(function(v){
       var c=document.createElement("div"); c.className="chip"; c.dataset.id=v.id;
       c.setAttribute("role","group"); c.setAttribute("aria-label",v.title);
       var sw=document.createElement("div"); sw.className="sw"; sw.style.background=v.colour;
@@ -656,13 +656,13 @@ document.getElementById("next").onclick=function(){stop();
   if(sel.length===1&&legIdx<byId[sel[0]].legs.length-1){legIdx++;render(false);}};
 document.getElementById("clear").onclick=function(){stop();sel=[];syncHash();render(true);};
 document.getElementById("allReal").onclick=function(){stop();
-  sel=VOYAGES.filter(function(v){return v.kind==="real";}).map(function(v){return v.id;});syncHash();render(true);};
+  sel=JOURNEYS.filter(function(v){return v.kind==="real";}).map(function(v){return v.id;});syncHash();render(true);};
 document.getElementById("allFict").onclick=function(){stop();
-  sel=VOYAGES.filter(function(v){return v.kind==="fiction";}).map(function(v){return v.id;});syncHash();render(true);};
+  sel=JOURNEYS.filter(function(v){return v.kind==="fiction";}).map(function(v){return v.id;});syncHash();render(true);};
 document.getElementById("allSea").onclick=function(){stop();
-  sel=VOYAGES.filter(function(v){return v.domain==="sea";}).map(function(v){return v.id;});syncHash();render(true);};
+  sel=JOURNEYS.filter(function(v){return v.domain==="sea";}).map(function(v){return v.id;});syncHash();render(true);};
 document.getElementById("allLand").onclick=function(){stop();
-  sel=VOYAGES.filter(function(v){return v.domain==="land";}).map(function(v){return v.id;});syncHash();render(true);};
+  sel=JOURNEYS.filter(function(v){return v.domain==="land";}).map(function(v){return v.id;});syncHash();render(true);};
 window.addEventListener("keydown",function(e){
   if(sel.length!==1)return;
   if(e.key==="ArrowLeft"){stop();if(legIdx>0){legIdx--;render(false);}}

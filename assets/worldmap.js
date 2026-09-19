@@ -1,4 +1,4 @@
-/* World map data shared by Thirty-Two Journeys (../voyages/) and Strata
+/* World map data shared by Thirty-Two Journeys (../journeys/) and Strata
    (../strata/). This is the ONE copy of this data — both exhibits load
    this file directly rather than keeping their own, so a fix or addition
    here reaches both automatically.

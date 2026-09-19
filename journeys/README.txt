@@ -6,7 +6,7 @@ These files must stay together in the same relative layout — this folder,
 plus ../assets/worldmap.js one level up.
 
   index.html          the site — layout, map drawing, interaction
-  voyages.js          the thirty-two journeys and their stages. This is the file to edit.
+  journeys.js         the thirty-two journeys and their stages. This is the file to edit.
   basemap.js          exhibit-specific map data: ocean/sea labels (SEAS) only
   ../assets/worldmap.js   world coastlines, land dots, major rivers and lakes, and
                           the decoders (LAND_ENC, LAND_DOTS, RIVERS_ENC, LAKES_ENC,
@@ -49,7 +49,7 @@ READING THE MAP
   crossing land is the point, so there is no routing to avoid it.
 
 ADDING OR EDITING A JOURNEY
-  Open voyages.js in a text editor. Each journey is one block. A stage looks like:
+  Open journeys.js in a text editor. Each journey is one block. A stage looks like:
 
     {x:-70.10, y:41.28, p:"Nantucket", d:"Christmas Day", c:3, n:"A note.", k:"landfall"}
 

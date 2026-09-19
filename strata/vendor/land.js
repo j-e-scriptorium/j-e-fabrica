@@ -6,7 +6,7 @@
 /* land as a Leaflet-ready GeoJSON MultiPolygon, plus the too-small-to-be-a-
    polygon islands as points (LAND_DOTS, [lon,lat] pairs already). Rings are
    closed explicitly, since decodeLand()'s rings only close visually via an
-   SVG "Z" in the voyages map and are not literally first===last here. */
+   SVG "Z" in the journeys map and are not literally first===last here. */
 function landGeoJSON(){
   var rings=decodeLand().map(function(r){
     var closed=r.slice();
