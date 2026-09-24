@@ -10,7 +10,7 @@ const sim = new Function(html.split("/*BEGIN SIM*/")[1].split("/*END SIM*/")[0] 
           makeBolt, stepBolt, buildGrid, gridNear, pressure, muzzleFor,
           valueCuts, loopAmp, markLoops, periapsis, frameView, circuitArea,
           genome, resist, coreOf, targetOf, shotForce, frontWide, bindGrafts, graftSides,
-          biteBolt, muzzleSpeed, reachChain, chainTip};`)();
+          biteBolt, muzzleSpeed, reachChain, chainTip, volleyFrom, shotFrom};`)();
 const S = sim.S, D2R = Math.PI/180;
 const BASE = JSON.parse(JSON.stringify(S));
 function reset(){ for (const k in BASE) S[k] = BASE[k]; }
@@ -1259,6 +1259,82 @@ suite("The other mage");
     sim.layout(E);
     check("and an empty pot starts over from a seedling", E.roots.length === 1 && tips(E) > 0,
           E.list.length + " nodes after 30s");
+  }
+}
+
+// ── volleys ────────────────────────────────────────────────────────────
+suite("Volleys");
+{
+  const fig = { cap: 10, fan: null, gain: 1 };
+  const mz = (deg, run) => ({ x: 40*Math.cos(deg*D2R), y: 40*Math.sin(deg*D2R), dir: deg*D2R, run: run || 0, id: deg });
+  const mass = (b, m) => b.F/(S.forceK*sim.muzzleSpeed(m.run));
+  const total = (bs, fs) => bs.reduce((a, b, i) => a + mass(b, fs[i].muzzle), 0);
+  const charge = h => h/S.chargeWood;          // wood that holds h of charge
+
+  // one face is exactly one cut
+  {
+    const f = [{ charge: charge(25), muzzle: mz(10, 30) }];
+    const v = sim.volleyFrom(fig, f, null), one = sim.shotFrom(fig, f[0].charge, f[0].muzzle, null);
+    check("a stroke that opens one face fires exactly the shot a single cut does",
+          v.length === 1 && Math.abs(v[0].F - one.F) < 1e-9 && v[0].L === one.L && v[0].vx === one.vx,
+          "force " + v[0].F.toFixed(2) + " against " + one.F.toFixed(2));
+  }
+  // four even faces: one shot each, out of each face, channel widened by √4
+  {
+    const f = [0, 20, -20, 40].map(d => ({ charge: charge(20), muzzle: mz(d, 10) }));
+    const v = sim.volleyFrom(fig, f, null);
+    const dirs = v.map(b => Math.round(Math.atan2(b.vy, b.vx)/D2R)).sort((a, b) => a - b);
+    check("four even faces throw four shots, each along its own stem",
+          v.length === 4 && dirs.join() === "-20,0,20,40", "bearings " + dirs.join("°, ") + "°");
+    const m = total(v, f), each = Math.max(...v.map((b, i) => mass(b, f[i].muzzle)));
+    check("and pass twice what one cut can channel between them, none more than one cut would",
+          Math.abs(m - 2*fig.cap) < 1e-6 && each <= fig.cap + 1e-9,
+          m.toFixed(1) + " in all against a channel of " + fig.cap + ", " + each.toFixed(1) + " the heaviest");
+    S.volleyExp = 0;
+    const flat = total(sim.volleyFrom(fig, f, null), f);
+    reset();
+    check("with no widening a volley passes exactly one cut's worth, only spread",
+          Math.abs(flat - fig.cap) < 1e-6, flat.toFixed(2));
+  }
+  // a heavy limb with three twigs nicked on the way earns next to nothing for them
+  {
+    const f = [{ charge: charge(40), muzzle: mz(0) }].concat(
+      [15, -15, 30].map(d => ({ charge: charge(0.6), muzzle: mz(d) })));
+    const v = sim.volleyFrom(fig, f, null), m = total(v, f);
+    check("nicking twigs on the way to a limb does not widen the channel",
+          m < fig.cap*1.06, m.toFixed(2) + " against " + fig.cap + " for the limb alone");
+  }
+  // a stroke across the whole crown throws no more than volleyMax shots
+  {
+    const f = [];
+    for (let d = -60; d <= 60; d += 5) f.push({ charge: charge(3), muzzle: mz(d) });
+    const v = sim.volleyFrom(fig, f, null);
+    check("and a stroke across the whole crown throws at most " + S.volleyMax,
+          v.length === S.volleyMax, f.length + " faces, " + v.length + " shots");
+  }
+  // on real wood: a stroke across the crown against a stroke across one limb
+  {
+    const T = grow(240);
+    const fig2 = { cap: sim.capacity(T.girth), fan: sim.bestFan(T), gain: 1 };
+    const R = T.maxR, X = R*0.7, cut = [];
+    for (const n of T.list){
+      if (n.parent === null) continue;
+      if (cross(X, -R, X, R, n.x0, n.y0, n.x1, n.y1)) cut.push(n);
+    }
+    const faces = new Map();
+    for (const n of cut){
+      let q = T.nodes.get(n.parent), shadow = false;
+      while (q){ if (cut.includes(q)){ shadow = true; break; } q = q.parent === null ? null : T.nodes.get(q.parent); }
+      if (shadow) continue;
+      const m = sim.muzzleFor(T, n), f = faces.get(m.id) || { charge: 0, muzzle: m };
+      f.charge += sim.greenOf(T, n); faces.set(m.id, f);
+    }
+    const fs = [...faces.values()];
+    const v = sim.volleyFrom(fig2, fs, null);
+    const spread = v.map(b => Math.atan2(b.vy, b.vx));
+    const arc = (Math.max(...spread) - Math.min(...spread))/D2R;
+    check("across a real crown the volley fans out as the stems do",
+          v.length > 2 && arc > 20, v.length + " shots across " + arc.toFixed(0) + "°");
   }
 }
 

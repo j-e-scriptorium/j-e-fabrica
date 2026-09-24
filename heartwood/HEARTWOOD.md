@@ -2,7 +2,7 @@
 
 *A real-time duel fought by shaping a thing that grows on its own.*
 
-**Manual, v0.17.** This describes the game as built. Anything not yet built is
+**Manual, v0.18.** This describes the game as built. Anything not yet built is
 marked **[not built]** and collected in §11. Every number quoted is the current
 default and is a slider in the Constants panel.
 
@@ -29,7 +29,7 @@ the eye stays on geometry.
 | | input | time | what it costs | what it does |
 |---|---|---|---|---|
 | **Bend** | drag the wood | as long as you hold it | your hand | the limb keeps whatever shape it reached |
-| **Slice** | drag through open air across a limb | instant, on release | the limb and everything past it | cuts — **and fires** |
+| **Slice** | drag through open air across a limb | instant, on release | the limb and everything past it | cuts — **and fires**; across several limbs, a **volley** |
 | **Graft** | press a suggested pair and hold still for 0.8 s — or drag one tip onto another and hold | 0.8 s | both growing points | joins them into one node, closing a **ring** of wood and binding the two limbs together |
 
 While your hand is on a limb you are not cutting, that limb is not growing, and
@@ -48,10 +48,14 @@ turns at 16° a second, a budget for the *whole* limb, so thirty pliant joints
 turn no faster than three. A small correction takes a third of a second; the
 full span of a pull, three and a half.
 
-**A slice does not bite until you let go.** While you draw the stroke, the limbs
-it would take light up, the readout says what they hold and cost, and the flight
-arc of the shot is already on the board. You commit on release: you do not hover
-a thing you mean to cut, you slash at it.
+**A slice does not bite until you let go.** While you draw the stroke, everything
+it would take is painted over at its own girth — amber for a trim, red once it
+is a fifth of your wood or carries a ring — and a line beside the blade says how
+much of the tree that is. The flight arc of every shot it would throw is already
+on the board. You commit on release: you do not hover a thing you mean to cut,
+you slash at it. **And you can change your mind**: right-click (any second
+button), `Esc`, or a second finger on a touch screen puts the blade away with
+nothing cut.
 
 Your own blade will not cut your own trunk. Enemy fire can, and a pot left
 empty starts again from a seedling (§3); what loses is the core (§8).
@@ -240,6 +244,35 @@ channelled charge is worth**, and the two are kept apart deliberately.
 wood, so a barrel has to be spare: cut one carrying part of your figure and you
 fire once, then have no figure.
 
+### Volleys
+
+A stroke across several limbs throws **one shot out of every face it opens**,
+each along its own stem, at its own barrel's speed, gathered by the fan nearest
+it; siblings leave by the same face and count once, and past eight faces the
+rest are cut and their charge goes with the wood. The faces share one trunk and
+so one channel, but a channel opened in several places passes more than one
+opened in one:
+
+> **channel × (faces)^0.5**, where *faces* is how evenly the charge is spread
+> across them — (Σh)²/Σh², the participation ratio
+
+so four equal limbs pass twice what one cut can, while one heavy limb and three
+twigs nicked on the way pass barely more than the limb alone. What each face
+held is scaled down together to fit, so no one shot in a volley is ever heavier
+than a single cut would be.
+
+What it buys is spread. A volley puts more mass in the air than any single cut,
+across as many lines as the stems were pointing, each shot lighter and so easier
+for wood to stop. It shears a canopy, cuts rings, and finds a bare core by
+numbers; it does not bore. Measured headless against a tree nobody tends, at
+160, 240, 300 and 420 seconds, a stroke across the four best separate limbs did
+more core damage than the best single cut every time — by a fifth to two-thirds where the
+single shot landed, and outright where it missed — at three to four times the
+charge spent, so about 40% as much damage per unit of wood. Four trials, not
+enough to rank. Aimed cuts are the economy; a volley is tempo, bought with the
+tree. At `volleyExp` 0 a volley is
+never worth throwing.
+
 ---
 
 ## 6. Ballistics
@@ -390,8 +423,8 @@ plant; **New seedling** or `r` brings the screen back mid-match.
 Then the board, and one row of buttons: **Pause · 1× · New seedling ‖ Charge
 Aim Fan Spire Grafts ‖ Readout**. Charge, Aim and Grafts are on by default —
 between them, how a stroke is aimed and how a graft is found; everything with a
-number on it starts hidden. Keys: `space` pause, `r` new seedling, `c a f s g`
-the overlays, `h` the readout, `t` a drawer of tuning knobs with hand speed and
+number on it starts hidden. Keys: `space` pause, `r` new seedling, `Esc` put
+away a stroke, `c a f s g` the overlays, `h` the readout, `t` a drawer of tuning knobs with hand speed and
 wood speed among them.
 
 **The board does not move.** The view is set by the field and the window and
@@ -424,9 +457,11 @@ showing where those tips would sit unbent, **Spire** the longest straight run,
 gesture away — filtered twice, within reach *and* closing a ring worth
 something, or a crowded rim offers hundreds of worthless lenses.
 
-A stroke lights the limbs it would take in orange, everything past them dimmer,
-and turns the blade red if it would sever a ring; the readout says BREAKS A
-GRAFT in the same breath. Bolts dim as they spend themselves, and
+A stroke paints everything it would take at its own girth, in amber, and the
+limbs it severs brighter; past a fifth of your wood, or across a ring, the patch
+and the blade go red and the line beside the blade says so. The readout says
+BREAKS A GRAFT in the same breath, and for a volley gives the shots, their force
+in all and how hard the hardest presses. Bolts dim as they spend themselves, and
 **a shot flies in the colour of the buds that threw it**, as do the rings where
 it lands, so a crowded field stays legible. A temper's tell is drawn whatever
 the overlays say — on their tree, and on yours when a temper is playing your
@@ -457,6 +492,18 @@ eff   = force × min(1, cap/held) × reach              ← what the glow shows
 The trunk and any wood carrying a ring are skipped outright — `eff` zero — so
 the glow never offers a cut that costs you the tree or the gain.
 
+A volley is scored face by face, heaviest first, at most `volleyMax` of them:
+
+```
+h_i    = held at face i
+spread = (Σh)² / Σh²                                  how many faces, evenly counted
+k      = min(1, cap × spread^volleyExp / Σh)
+mass_i = min(cap, h_i × k)                            then force as above, per face
+```
+
+The glow scores single cuts only; what a volley would do is on the board as a
+dashed arc per face while the stroke is drawn.
+
 `peri` is flown, not solved (§12.11): long steps where the pull is weak, short
 ones deep in the well, one revolution and stop. That agrees with a fine
 integration to within 6 units at about 10 µs a limb, and stays affordable at
@@ -475,6 +522,11 @@ unambiguously good. And **flanking is beautiful and pointless** — a captured
 bolt arrives from behind, where nothing is softer. Both pay only once something
 faces the wrong way, which is also why the glow's halo-width channel carries no
 information.
+
+**Nobody volleys but you.** The tempers cut one limb at a time. A temper that
+answers a thin crown with a volley, and one that strips a canopy before a heavy
+shot, are both obvious and both unbuilt; until they exist, whether `volleyExp`
+0.5 is generous is a guess.
 
 **Nobody aims at a graft.** The other mage aims at your core and nothing else,
 so a ring breaks only when a shot bound for the heartwood crosses it on the way.

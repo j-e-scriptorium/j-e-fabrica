@@ -58,7 +58,7 @@
     text-transform:uppercase;margin-top:12px;border-bottom:1px solid var(--rule);padding-bottom:3px}
   dd{margin:0;color:var(--dim)}
   .hide{display:none}
-  #bar{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:5;
+  #bar{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:5;width:max-content;max-width:96vw;
     display:flex;gap:5px;align-items:center;background:var(--panel);
     border:1px solid var(--rule);padding:6px 7px;backdrop-filter:blur(3px)}
   #bar button{flex:0 0 auto;font-size:11.5px;padding:4px 10px}
@@ -181,6 +181,8 @@
   <div><kbd>press a blue line</kbd><span>and hold still: the two tips it joins are grafted into one.<br>The ring of wood a graft closes amplifies every shot you fire,<br>and the grafted limbs move together from then on</span></div>
   <div><kbd>tip onto tip</kbd><span>drag one tip to any other and hold them together<br>to graft a pair the board did not suggest</span></div>
   <div><kbd>slice the air</kbd><span>draw the stroke, and what it will take lights up.<br>Let go to cut, and fire, out of the cut face</span></div>
+  <div><kbd>right-click · Esc</kbd><span>mid-stroke: put the blade away and cut nothing<br>(on a touch screen, a second finger)</span></div>
+  <div><kbd>slice several</kbd><span>a stroke across several limbs throws a volley,<br>one lighter shot out of every face it opens</span></div>
   <div><kbd>space</kbd><span>pause</span></div>
   <div><kbd>r</kbd><span>start over</span></div>
   <div><kbd>c a f s g</kbd><span>charge glow, aim arc, fan, spire, grafts</span></div>
@@ -297,6 +299,8 @@ var S = {
   chargeWood:  0.06,    // charge released per unit of green wood severed
   frontK:      55,      // width of the bolt's front per radian of fan; no fan is the widest
   frontRef:    26,      // front length at which pressure is halved
+  volleyExp:   0.5,     // how far a stroke's channel widens with the faces it opens, evenly loaded
+  volleyMax:   8,       // the most shots one stroke can throw
 
 };
 var D2R = Math.PI / 180;
@@ -1415,6 +1419,42 @@ function shotFrom(fig, charge, muzzle, tgt){
   var fan = fanAt(fig.fan, Math.atan2(muzzle.y, muzzle.x));
   return makeBolt(fan, shotForce(released, muzzle.run, fig.gain), muzzle, tgt);
 }
+/* A stroke that takes several limbs throws a volley: one shot out of every
+   face it opened, each along its own stem at its own barrel's speed, each
+   gathered by the fan nearest it. The faces share one trunk, so they share
+   one channel — but a channel opened in several places passes more than one
+   opened in one, by the number of faces to the volleyExp. The count is not
+   how many faces there are but how evenly the charge is spread across them
+   (the participation ratio, (Σh)²/Σh²): four equal limbs count four, one
+   heavy limb and three twigs barely more than one, so a stroke that nicks a
+   few twigs on its way to the limb it meant earns nothing for it.
+   What each face held is scaled down together to fit the channel, so a volley
+   is the same shape of shot a stem at a time — heavy where the charge was
+   heavy — and never heavier in any one shot than a single cut would be. What
+   the widening buys is spread: more mass in the air, split across as many
+   lines as the stems were pointing, each lighter and so easier to stop. It
+   shears a canopy and cuts rings, and finds a bare core by numbers; it does
+   not bore. Siblings leave by the same face and count once. Faces past
+   volleyMax are cut, and their charge goes with the wood. */
+function volleyFrom(fig, faces, tgt){
+  var out = [], use = [], held = 0, sq = 0, i, f, h;
+  for (i = 0; i < faces.length; i++)
+    if (faces[i].muzzle && faces[i].charge > 0) use.push(faces[i]);
+  use.sort(function(a, b){ return b.charge - a.charge; });
+  if (use.length > S.volleyMax) use.length = S.volleyMax;
+  for (i = 0; i < use.length; i++){ h = use[i].charge*S.chargeWood; held += h; sq += h*h; }
+  if (held <= 0.01) return out;
+  var spread = held*held/sq;
+  var k = Math.min(1, fig.cap*Math.pow(spread, S.volleyExp)/held);
+  for (i = 0; i < use.length; i++){
+    f = use[i];
+    var m = Math.min(fig.cap, f.charge*S.chargeWood*k);
+    if (m <= 0.01) continue;
+    var fan = fanAt(fig.fan, Math.atan2(f.muzzle.y, f.muzzle.x));
+    out.push(makeBolt(fan, shotForce(m, f.muzzle.run, fig.gain), f.muzzle, tgt));
+  }
+  return out;
+}
 
 /* ══ The other mage ═══════════════════════════════════════════════════
    A mage that plays, with the same hand you have and no other. It grows by
@@ -1638,7 +1678,12 @@ var cv = document.getElementById("c"), ctx = cv.getContext("2d");
 function DPR(){ return window.devicePixelRatio || 1; }
 function fit(){ var d = DPR(); cv.width = innerWidth*d; cv.height = innerHeight*d; }
 addEventListener("resize", fit); fit();
-cv.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+// A right-click during a left-button stroke; not a long press on a touch
+// screen, which some browsers also report this way.
+cv.addEventListener("contextmenu", function(e){
+  e.preventDefault();
+  if (slice && slice.mask === 1 && activeType === "mouse") sheathe();
+});
 
 function toWorld(cx, cy){
   var d = DPR();
@@ -1794,8 +1839,13 @@ function pairLive(pr){
 }
 
 /* ── input ─────────────────────────────────────────────────────────── */
+var active = null, activeType = "";   // the pointer the gesture in progress belongs to
 cv.addEventListener("pointerdown", function(e){
+  // One hand. A second finger laid on the board while a stroke is being drawn
+  // puts the blade away; while a limb is held, it is simply ignored.
+  if (active !== null && e.pointerId !== active){ if (slice) sheathe(); return; }
   try { cv.setPointerCapture(e.pointerId); } catch (err) {}
+  active = e.pointerId; activeType = e.pointerType;
   var w = toWorld(e.clientX, e.clientY);
   if (T.hp !== undefined && T.hp <= 0) return;      // a spent mage has no hand
   if (T.mind) return;                               // nor one you are only watching
@@ -1817,8 +1867,20 @@ function startGesture(w, button){
     drag = { node:n, group:g, px:w.x, py:w.y, tx:n.x1, ty:n.y1, lx:w.x, ly:w.y, graft:null, gh:0,
              held: new Set(g.map(function(m){ return m.id; })), follow: new Set() };
   } else {
-    slice = { pts:[[w.x, w.y]], victims:[], charge:0, muzzle:null, heaviest:0, breaks:0 };
+    slice = { pts:[[w.x, w.y]], victims:[], cut:[], faces:[], shots:[], charge:0, muzzle:null,
+              breaks:0, lost:0, share:0, mask: button === 2 ? 2 : 1 };
   }
+}
+
+// Changing your mind. The blade has not bitten yet, so putting it away costs
+// nothing: right-click (or any other button) mid-stroke, Esc, or a second
+// finger. The button still held does nothing more until it is let go.
+function sheathe(){
+  if (!slice) return;
+  var p = slice.pts[slice.pts.length-1];
+  flash.push({x:p[0], y:p[1], t:0.5, kind:"sheathe"});
+  slice = null; hover = null;
+  FIG.muzzle = null; FC.length = 0; FCimpact = null; VOLLEY.n = 0;
 }
 
 // What this stroke would take, measured against the tree as it stands. The
@@ -1828,9 +1890,11 @@ function startGesture(w, button){
 // you are about to slash at, so the stroke itself has to be the cursor.
 function sliceReview(){
   var seen = slice.seen || (slice.seen = new Set());
+  var face = slice.byFace || (slice.byFace = new Map());
   var pts = slice.pts, i, k, n;
-  seen.clear(); slice.victims.length = 0;
-  slice.charge = 0; slice.heaviest = 0; slice.muzzle = null; slice.breaks = 0;
+  seen.clear(); face.clear(); slice.victims.length = 0; slice.cut.length = 0;
+  slice.faces.length = 0; slice.shots.length = 0;
+  slice.charge = 0; slice.muzzle = null; slice.breaks = 0; slice.lost = 0; slice.share = 0;
   if (pts.length < 2) return;
   for (i = 0; i < T.list.length; i++){
     n = T.list[i];
@@ -1850,16 +1914,32 @@ function sliceReview(){
     while (q){ if (seen.has(q.id)){ shadowed = true; break; }
                q = q.parent === null ? null : T.nodes.get(q.parent); }
     if (shadowed) continue;
+    slice.cut.push(n);
     var vg = greenOf(T, n);
     slice.charge += vg;
-    if (vg >= slice.heaviest){       // the greenest limb is the one that fires
-      slice.heaviest = vg;
-      slice.muzzle = muzzleFor(T, n);
-    }
+    // Every face the stroke opens throws its own shot; siblings leave by the
+    // same face, so they are one shot carrying both limbs' charge.
+    var m = muzzleFor(T, n), key = m.id >= 0 ? m.id : -1 - n.id;
+    var f = face.get(key);
+    if (!f){ f = { charge:0, muzzle:m, node:n, top:-1 }; face.set(key, f); slice.faces.push(f); }
+    f.charge += vg;
+    if (vg > f.top){ f.top = vg; f.node = n; }
   }
+  // heaviest first: that one is the shot the aim arc follows
+  slice.faces.sort(function(a, b){ return b.charge - a.charge; });
+  if (slice.faces.length) slice.muzzle = slice.faces[0].muzzle;
+  // and the price, as a share of the whole tree, so a stroke that is about to
+  // take a third of your wood says so before you let go
+  var lostLen = 0, allLen = 0;
+  below(T, slice.cut, function(q){ slice.lost++; lostLen += q.len; });
+  for (i = 0; i < T.list.length; i++) allLen += T.list[i].len;
+  slice.share = allLen > 0 ? lostLen/allLen : 0;
 }
 
 cv.addEventListener("pointermove", function(e){
+  if (active !== null && e.pointerId !== active) return;
+  // a second button pressed during a stroke arrives as a move, not a press
+  if (slice && (e.buttons & ~slice.mask)){ sheathe(); return; }
   var w = toWorld(e.clientX, e.clientY);
   if (fuse){
     // Moving off the press means you wanted the wood or the blade after all:
@@ -1914,14 +1994,17 @@ function setPull(g){
 function endPointer(){
   fuse = null;              // let go before the ring fills and nothing is fused
   if (slice){
-    var charge = slice.charge, muzzle = slice.muzzle, v = slice.victims;
+    // the tree has grown since the stroke last moved; read it as it stands
+    sliceReview();
+    var faces = slice.faces.map(function(f){ return { charge:f.charge, muzzle:f.muzzle }; });
+    var v = slice.victims;
     for (var i = 0; i < v.length; i++){
       if (!T.nodes.has(v[i].id)) continue;
       flash.push({x:v[i].x0, y:v[i].y0, t:0.45, kind:"cut"});
       cutNode(T, v[i]);
     }
     if (v.length) layout(T);
-    if (charge > 0) fireFromCut(charge, muzzle);
+    if (faces.length) fireVolley(faces);
     slice = null;
   }
   if (drag){
@@ -1932,14 +2015,22 @@ function endPointer(){
   }
   hover = null;
 }
-cv.addEventListener("pointerup", endPointer);
-cv.addEventListener("pointercancel", endPointer);
+cv.addEventListener("pointerup", function(e){
+  if (active !== null && e.pointerId !== active) return;
+  active = null; endPointer();
+});
+// the browser taking the pointer away is not a decision to cut
+cv.addEventListener("pointercancel", function(e){
+  if (active !== null && e.pointerId !== active) return;
+  active = null; sheathe(); endPointer();
+});
 addEventListener("keydown", function(e){
   if (choosing){
     if (e.key === "Enter"){ plantChosen(); e.preventDefault(); }
     if (e.key === "Escape" && chooserCancel) closeChooser();
     return;
   }
+  if (e.key === "Escape"){ sheathe(); return; }
   if (e.code === "Space"){ paused = !paused; e.preventDefault(); }
   if (e.key === "r" || e.key === "R") openChooser(true);
   // the tuning drawer is for development and has no button
@@ -2256,6 +2347,7 @@ function traceSeg(n){ ctx.moveTo(n.x0, n.y0); ctx.lineTo(n.x1, n.y1); }
 
 // Whatever your hand is on: the limb you are bending, or the wood the stroke
 // you are drawing would take, or the limb under an idle cursor.
+var DOOM = new Array(34), BIG_CUT = 0.2;   // a fifth of the tree is not a trim
 function drawHand(){
   var i;
   if (drag){
@@ -2266,18 +2358,33 @@ function drawHand(){
     }
     ctx.stroke(bp);
   } else if (slice && slice.victims.length){
-    // Everything the stroke will take, lit while you can still change your
-    // mind. The blade does not bite until you let go.
-    ctx.beginPath();
-    below(T, slice.victims, traceSeg);
-    ctx.lineWidth = 1.4/view.scale; ctx.strokeStyle = "rgba(226,150,110,.55)"; ctx.stroke();
+    // Everything the stroke will take, painted over at its own girth while you
+    // can still change your mind, so it reads as a patch of the tree rather
+    // than a hairline laid along it: amber for a trim, red once it is a real
+    // part of the tree or carries a ring. The blade does not bite until you
+    // let go, and right-click or Esc puts it away.
+    var grave = slice.breaks || slice.share >= BIG_CUT;
+    var rgb = grave ? "255,92,80" : "242,168,104";
+    for (i = 0; i < 34; i++) DOOM[i] = null;
+    below(T, slice.cut, function(q){
+      var L = wLevel(Math.max(0.5, q.thick));
+      if (!DOOM[L]) DOOM[L] = new Path2D();
+      DOOM[L].moveTo(q.x0, q.y0); DOOM[L].lineTo(q.x1, q.y1);
+    });
+    ctx.lineCap = "round";
+    ctx.strokeStyle = "rgba(" + rgb + ",.62)";
+    for (i = 0; i < 34; i++){
+      if (!DOOM[i]) continue;
+      ctx.lineWidth = wOf(i) + 2.4/view.scale; ctx.stroke(DOOM[i]);
+    }
+    // and the cuts themselves, brightest
     ctx.beginPath();
     for (i = 0; i < slice.victims.length; i++){
       var sv = slice.victims[i];
       ctx.moveTo(sv.x0, sv.y0); ctx.lineTo(sv.x1, sv.y1);
     }
-    ctx.lineWidth = 3.2/view.scale;
-    ctx.strokeStyle = slice.breaks ? "rgba(255,120,110,.95)" : "rgba(240,170,120,.95)";
+    ctx.lineWidth = 4.2/view.scale;
+    ctx.strokeStyle = "rgba(" + (grave ? "255,150,140" : "255,214,170") + ",.98)";
     ctx.stroke();
   } else if (hover && T.nodes.has(hover.id)){
     // everything you would lose by cutting here, so the price is as visible
@@ -2359,6 +2466,28 @@ function draw(){
     ctx.strokeStyle = slice.breaks ? "rgba(255,120,110,.9)"
                     : slice.victims.length ? "rgba(240,180,140,.8)" : "rgba(226,210,190,.45)";
     ctx.lineWidth = (slice.victims.length ? 1.8 : 1.2)/view.scale; ctx.stroke();
+    if (slice.cut.length){
+      // what the stroke costs and what it throws, beside the blade
+      var tip = slice.pts[slice.pts.length-1];
+      var grave = slice.breaks || slice.share >= BIG_CUT;
+      var pct = slice.share*100, words = (pct < 1 ? "<1" : Math.round(pct)) + "% of your wood";
+      if (slice.faces.length > 1)
+        words += " \u00b7 volley of " + Math.min(slice.faces.length, S.volleyMax);
+      if (slice.breaks) words += " \u00b7 breaks a graft";
+      ctx.font = (11.5/view.scale) + "px ui-sans-serif, system-ui, sans-serif";
+      ctx.textAlign = "start";
+      var tx = tip[0] + 12/view.scale, ty = tip[1] - 12/view.scale;
+      ctx.lineWidth = 3/view.scale; ctx.strokeStyle = "rgba(12,14,11,.85)";
+      ctx.strokeText(words, tx, ty);
+      ctx.fillStyle = grave ? "rgba(255,150,140,.98)" : "rgba(246,222,190,.95)";
+      ctx.fillText(words, tx, ty);
+      ctx.fillStyle = "rgba(200,196,180,.6)";
+      ctx.font = (10/view.scale) + "px ui-sans-serif, system-ui, sans-serif";
+      var how = activeType === "mouse" ? "right-click or Esc to put it away"
+              : "a second finger puts it away";
+      ctx.strokeText(how, tx, ty + 13/view.scale);
+      ctx.fillText(how, tx, ty + 13/view.scale);
+    }
   }
   for (i = 0; i < flash.length; i++){
     var f = flash[i], a = Math.max(0, f.t*2);
@@ -2559,6 +2688,21 @@ function measure(){
   FIG.aim = m ? fanNear(Math.atan2(m.y, m.x)) : FIG.fan;
   forecast(FIG.aim, m);
   FIG.topVal = valueCuts(T, FIG.cap, fanNear, targetOf(TD), FIG.gain);
+  // The stroke is re-read as the tree grows under it, and a volley shows every
+  // arc it would throw, not only the heaviest.
+  VOLLEY.n = 0;
+  if (slice && slice.pts.length > 1){
+    sliceReview();
+    var sh = volleyFrom(FIG, slice.faces, targetOf(TD));
+    for (i = 0; i < sh.length; i++) slice.shots.push(sh[i]);
+    for (i = 1; i < slice.faces.length && i < S.volleyMax; i++){
+      var vf = slice.faces[i], vm = vf.muzzle;
+      var va = VOLLEY.arcs[VOLLEY.n] || (VOLLEY.arcs[VOLLEY.n] = { path:[], hit:null, m:null });
+      va.m = vm;
+      va.hit = forecastInto(fanNear(Math.atan2(vm.y, vm.x)), vm, TD, va.path);
+      VOLLEY.n++;
+    }
+  }
   if (SHOW.loops) graftablePairs(); else PAIRS.length = 0;
   if (hoverPair && !fuse && !pairLive(hoverPair)) hoverPair = null;
 }
@@ -2586,6 +2730,24 @@ function drawAim(){
     ctx.setLineDash([5/view.scale, 6/view.scale]);
     ctx.strokeStyle = "rgba(226,236,180,.45)"; ctx.lineWidth = 1.3/view.scale;
     ctx.stroke(); ctx.setLineDash([]);
+  }
+  // the rest of a volley, each out of its own face
+  for (var v = 0; v < VOLLEY.n; v++){
+    var va = VOLLEY.arcs[v], P = va.path;
+    if (P.length > 3){
+      ctx.beginPath(); ctx.moveTo(P[0], P[1]);
+      for (var j = 2; j < P.length; j += 2) ctx.lineTo(P[j], P[j+1]);
+      ctx.setLineDash([3/view.scale, 6/view.scale]);
+      ctx.strokeStyle = "rgba(240,196,150,.38)"; ctx.lineWidth = 1.1/view.scale;
+      ctx.stroke(); ctx.setLineDash([]);
+    }
+    ctx.beginPath(); ctx.arc(va.m.x, va.m.y, 2.6/view.scale, 0, 7);
+    ctx.fillStyle = "rgba(240,210,170,.85)"; ctx.fill();
+    if (va.hit){
+      ctx.beginPath(); ctx.arc(va.hit.x, va.hit.y, (va.hit.core?6:3.4)/view.scale, 0, 7);
+      ctx.strokeStyle = va.hit.core ? "rgba(240,180,130,.85)" : "rgba(240,210,170,.55)";
+      ctx.lineWidth = 1.3/view.scale; ctx.stroke();
+    }
   }
   ctx.beginPath(); ctx.arc(m.x, m.y, 3.4/view.scale, 0, 7);
   ctx.fillStyle = "rgba(240,244,196,.9)"; ctx.fill();
@@ -2691,6 +2853,15 @@ function fireFromCut(charge, muzzle){
     flash.push({x:muzzle.x, y:muzzle.y, t:0.45, kind:"graft"});
   launch(b, false);
 }
+// A stroke's worth of cuts: one face fires exactly as fireFromCut does,
+// several throw a volley (volleyFrom).
+function fireVolley(faces){
+  FIG.cap = capacity(T.girth);
+  var bs = volleyFrom(FIG, faces, targetOf(TD));
+  if (!bs.length) return;
+  if (FIG.gain > 1.02) flash.push({x:bs[0].x, y:bs[0].y, t:0.45, kind:"graft"});
+  for (var i = 0; i < bs.length; i++) launch(bs[i], false);
+}
 // Into the air. Each shot flies in its owner's frame, the other mage's
 // mirrored, so both sides' shots obey the one law; `foe` says which way round.
 function launch(b, foe){
@@ -2701,7 +2872,7 @@ function launch(b, foe){
 }
 
 /* where the next shot would go, integrated with the same law */
-var FC = [], FCimpact = null;
+var FC = [], FCimpact = null, VOLLEY = { n:0, arcs:[] };
 function forecast(fan, muzzle){ FCimpact = forecastInto(fan, muzzle, TD, FC); }
 // The flight a shot would take out of its owner's frame, flown with the same
 // law, stopping at the first wood, husk or heartwood of the tree it is aimed at.
@@ -3013,13 +3184,25 @@ function hud(){
   // whichever limb is about to fire: the greenest one the stroke has crossed,
   // or, with no stroke in progress, the one under the cursor
   var sub = null;
-  if (slice && slice.muzzle){
-    for (var si = 0; si < slice.victims.length; si++){
-      var sv2 = slice.victims[si];
-      if (slice.muzzle.id === sv2.parent) { sub = sv2; break; }
+  if (slice && slice.faces.length) sub = slice.faces[0].node;
+  else if (!slice && hover && T.nodes.has(hover.id) && hover.parent !== null) sub = hover;
+  if (slice && slice.shots.length > 1){
+    // a volley: what it throws in all, and how hard the hardest of it presses
+    var vF = 0, vP = 0, vM = 0, vHeld = slice.charge*S.chargeWood;
+    for (var vi = 0; vi < slice.shots.length; vi++){
+      var vb = slice.shots[vi];
+      vF += vb.F; vP = Math.max(vP, pressure(vb.F, vb.L));
+      vM += vb.F/(S.forceK*muzzleSpeed(slice.faces[vi].muzzle.run)*FIG.gain);
     }
-  } else if (!slice && hover && T.nodes.has(hover.id) && hover.parent !== null) sub = hover;
-  if (sub){
+    var vWaste = vHeld - vM;
+    put("s-cut", "volley of " + slice.shots.length + " \u00b7 " + vF.toFixed(1) + " force in all \u00b7 cuts \u2264"
+                 + vP.toFixed(1) + " thick \u00b7 " + slice.lost + " node" + (slice.lost===1?"":"s") + " lost"
+                 + (vWaste > 0.5 ? ", " + vWaste.toFixed(0) + " wasted" : "")
+                 + (slice.breaks ? " \u00b7 BREAKS A GRAFT" : ""));
+    put("s-lands", (sub && T.nodes.has(sub.id) ? (sub.peri <= S.coreR*1.6 ? "heaviest into the heartwood"
+                 : sub.reach > 0.30 ? "heaviest into their canopy" : "heaviest past them") : "\u2014")
+                 + ", the rest spread");
+  } else if (sub){
     var dest = sub.peri <= S.coreR*1.6 ? "into the heartwood"
              : sub.reach > 0.30 ? "into their canopy, " + Math.round(sub.peri) + "u out"
              : "past them, " + Math.round(sub.peri) + "u wide";
@@ -3106,6 +3289,7 @@ var TUNABLE = [
   ["forceK",     0.005,0.1,0.001,"force per charge·speed",""],
   ["reachExp",   0,   1.5, 0.05, "reach into power",   ""],
   ["loopGain",   0,   0.3, 0.005,"graft gain",         "/area"],
+  ["volleyExp",  0,   1,   0.05, "volley widening",    ""],
   ["fadeHalf",   200,20000,100,  "force half-life",    " u"],
   "The field",
   ["foeHead",    0,   600, 10,   "their head start",   " s"],
@@ -3123,6 +3307,7 @@ var CHEAT = [
   ["fusing reach", "How close two tips must be brought before they will take. Wide enough and the canopy offers you grafts for free; narrow and every one has to be bent into place."],
   ["healing claim", "The slice of the whole budget that goes to closing wounds before the tips divide the rest, split among the open stubs in proportion to their girth. A slice sends a fresh bud up from the base of that stem; it climbs inside the wood and breaks out at the cut face, already the right girth and ready to branch. Zero turns healing off and makes every cut permanent \u2014 and leaves the tree a field of bare stumps, since nothing grows back where you cut."],
   ["graft gain", "The interest a graft pays, compounded per core-area of the ring of wood it closes. Charge let loose by a cut does not leave at once \u2014 it rings round every circuit the grafts have closed, gaining on every lap, and comes out of the cut face heavier than it went in. Because it compounds, one wide ring is worth far more than several tight ones, and because it applies to every shot, a graft is the only thing on the tree worth more than the wood it is made of. It is therefore also the thing your opponent will shoot at: cut any wood in the ring and the graft lets go and the gain is simply gone."],
+  ["volley widening", "How much more a stroke can channel for opening several faces at once. Every face shares the one trunk, so at 0 a volley passes exactly what a single cut would and only spreads it thinner; at 0.5 four evenly loaded faces pass twice what one would; at 1 they pass four times, and cutting one limb at a time is a mistake. The count is how evenly the charge is spread across the faces, not how many there are, so nicking twigs on the way to a limb earns nothing."],
   ["force half-life", "How far a bolt flies before it has spent half its force. This is the only thing on the field that runs down, and it is measured in units of flight rather than seconds \u2014 so it scales with the separation like everything else, and a captured orbit goes round five or six times, dimming, rather than circling for ever. Raise it and old shots accumulate into a hazard; lower it and only direct approaches matter."],
   ["force per charge\u00b7speed", "Converts a shot's mass and speed into force: mass is the charge the cut let go of, up to what the trunk can channel, and speed is what the straight run behind the cut gave it. Force is measured against wood thickness. A bolt pressing harder than a segment is thick cuts through and comes out the far side slower by what it spent; less, and the wood absorbs it and scars. Trunks stop what twigs cannot."],
   ["their head start", "Seconds of growth the opponent begins the match with. At zero you both start as seedlings and race; wind it up and you are fighting something already grown, which is the practice setting. It only takes effect on a new seedling."],
