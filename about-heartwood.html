@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Isid. UW - About Heartwood</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <p><a href="recreations.html">&larr; Recreations</a></p>
+        <h1 class="small-caps">Heartwood</h1>
+        <p class="standfirst">A real-time duel fought by shaping a thing that grows on its own.</p>
+        <p class="byline">By Hugo Purcell and S. Minerva Scribner.</p>
+
+        <p>Two mages face each other across a field, and neither casts directly. Each has a tree standing in a pot, growing and forking by rules it obeys whether or not anyone is watching; magic is not a verb either mage possesses but what an arrangement of wood <i>does</i>. You have three gestures. <b>Bend</b> a limb by dragging it, and it keeps the shape it reached &mdash; while the wood is still green. <b>Graft</b> two tips together and the ring of wood they close amplifies every shot you fire from then on. <b>Slice</b> through the air across a limb and, when you let go, the limb is cut and the charge in its green wood fires out of the cut face, along the line the stem was pointing. Bending is aiming; straightening a stem makes it a barrel; a stroke across several limbs throws a scattering volley instead of one aimed shot. Every shot costs the wood it was fired from.</p>
+
+        <p>The shots fly under the pull of the other tree's weight, bore through what wood they can, and score against the core in its pot once the seed-husk around it has split. Your tree is planted once, on three axes &mdash; habit, grain, and wood &mdash; each a trade, with the other mage's seedling in view before you commit. The other side can be left Still, or played by one of three tempers (Feral, Keeper, Master) that obey exactly the rules you do, with the same hand, and telegraph every shot; your own side can be handed to one of them too.</p>
+
+        <p>The game is a prototype and plays best with a mouse. The <b>Readout</b> button (or <kbd>h</kbd>) opens a panel of every number the board is working from, and the list of gestures and keys.</p>
+
+        <p><a href="heartwood/">Open Heartwood &rarr;</a></p>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponents() {
+            const response = await fetch('assets/fabrica-components.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+
+            const headerTemplate = doc.getElementById('site-header');
+            document.getElementById('header-placeholder').innerHTML = headerTemplate.innerHTML;
+
+            const footerTemplate = doc.getElementById('site-footer');
+            document.getElementById('footer-placeholder').innerHTML = footerTemplate.innerHTML;
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>

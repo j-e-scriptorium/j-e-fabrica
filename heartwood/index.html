@@ -1,0 +1,3204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Heartwood</title>
+<style>
+  :root{
+    --ground:#171a17; --ink:#cfd6c6; --dim:#8b9382; --rule:#2c3128;
+    --panel:rgba(18,21,17,.88);
+  }
+  *{box-sizing:border-box}
+  html,body{height:100%;margin:0;overflow:hidden;background:var(--ground);color:var(--ink);
+    font-family:ui-sans-serif,"Inter","Helvetica Neue",Arial,sans-serif;
+    -webkit-tap-highlight-color:transparent}
+  canvas{display:block;width:100vw;height:100vh;touch-action:none;cursor:crosshair}
+  .panel{position:fixed;background:var(--panel);border:1px solid var(--rule);
+    backdrop-filter:blur(3px);font-size:12.5px;line-height:1.45}
+  #hud{top:0;left:0;padding:10px 14px 11px;border-left:0;border-top:0;min-width:200px}
+  #hud h1{margin:0 0 2px;font-size:13px;font-weight:600}
+  #hud{max-height:100vh;overflow:auto}
+  #hud h1 span{color:var(--dim);font-weight:400}
+  .row{display:flex;justify-content:space-between;gap:18px;
+    font-family:ui-monospace,Menlo,Consolas,monospace;font-size:11.5px;color:var(--dim)}
+  .row b{font-weight:500;color:var(--ink)}
+  #keys{bottom:0;left:0;padding:9px 14px 11px;border-left:0;border-bottom:0;max-width:300px}
+  #keys div{color:var(--dim);display:flex;gap:8px}
+  #keys kbd{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;color:var(--ink);
+    border:1px solid var(--rule);background:#1e231c;padding:0 5px;border-radius:2px;
+    min-width:86px;display:inline-block;text-align:center}
+  #tune{top:0;right:0;padding:10px 14px 12px;border-right:0;border-top:0;width:264px;
+    max-height:100vh;overflow:auto}
+  #tune .hd{display:flex;justify-content:space-between;align-items:center;cursor:pointer;font-size:12px}
+  #tune .hd i{font-style:normal;color:var(--dim);font-size:11px}
+  #tune.closed .body{display:none}
+  .body{margin-top:9px}
+  .grp{margin:11px 0 5px;font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;
+    color:#6d7a60;border-bottom:1px solid var(--rule);padding-bottom:3px}
+  .grp:first-child{margin-top:2px}
+  label.s{display:block;margin:0 0 6px}
+  label.s .lb{display:flex;justify-content:space-between;
+    font-family:ui-monospace,Menlo,Consolas,monospace;font-size:10.5px;color:var(--dim)}
+  label.s .lb b{color:var(--ink);font-weight:500}
+  input[type=range]{width:100%;margin:1px 0 0;height:14px;accent-color:#7fb85e;background:transparent}
+  button{flex:1;font:inherit;font-size:11.5px;padding:4px 6px;color:var(--ink);
+    background:#1e231c;border:1px solid var(--rule);border-radius:2px;cursor:pointer}
+  button:hover{background:#27301f}
+  button.on{background:#37432c;border-color:#4d5e3d}
+  button:focus-visible,#tune .hd:focus-visible{outline:2px solid #7fb85e;outline-offset:1px}
+  details{margin-top:10px;border-top:1px solid var(--rule);padding-top:8px}
+  summary{cursor:pointer;color:var(--dim);font-size:11.5px;list-style:none}
+  summary::-webkit-details-marker{display:none}
+  summary::before{content:"▸ ";color:#6d7a60}
+  details[open] summary::before{content:"▾ "}
+  dl{margin:8px 0 0;font-size:11px;line-height:1.5}
+  dt{font-family:ui-monospace,Menlo,Consolas,monospace;color:#b8c7a6;margin-top:7px}
+  dt.ch{font-family:inherit;color:#6d7a60;font-size:10.5px;letter-spacing:.08em;
+    text-transform:uppercase;margin-top:12px;border-bottom:1px solid var(--rule);padding-bottom:3px}
+  dd{margin:0;color:var(--dim)}
+  .hide{display:none}
+  #bar{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);z-index:5;
+    display:flex;gap:5px;align-items:center;background:var(--panel);
+    border:1px solid var(--rule);padding:6px 7px;backdrop-filter:blur(3px)}
+  #bar button{flex:0 0 auto;font-size:11.5px;padding:4px 10px}
+  #bar .sep{width:1px;align-self:stretch;background:var(--rule);margin:0 3px}
+  #bar .quiet{color:var(--dim)}
+  #keys{bottom:56px;left:0}
+  #plant{position:fixed;inset:0;z-index:20;display:flex;align-items:center;justify-content:center;
+    background:rgba(10,12,9,.55);backdrop-filter:blur(2px)}
+  #plant.hide{display:none}
+  #plant .card{background:#151914;border:1px solid var(--rule);padding:18px 20px 16px;
+    width:min(860px,96vw);max-height:94vh;overflow:auto;display:flex;gap:22px;flex-wrap:wrap}
+  #plant h2{margin:0 0 2px;font-size:15px;font-weight:600}
+  #plant .sub{color:var(--dim);font-size:12px;margin-bottom:12px}
+  #plant .picks{flex:1 1 360px;min-width:300px}
+  #plant .axis{margin:0 0 12px}
+  #plant .axis .nm{font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:#6d7a60;margin-bottom:4px}
+  #plant .seg{display:flex;gap:5px}
+  #plant .seg button{flex:1;padding:6px 6px;font-size:12px}
+  #plant .blurb{color:var(--dim);font-size:11.5px;line-height:1.45;margin-top:5px;min-height:3em}
+  #plant .views{flex:0 1 330px;display:flex;flex-direction:column;gap:8px}
+  #plant .view{background:#1b2019;border:1px solid var(--rule);padding:6px 8px 8px}
+  #plant .view .hd{display:flex;justify-content:space-between;align-items:baseline;font-size:11.5px;color:var(--dim)}
+  #plant .view .hd b{color:var(--ink);font-weight:500}
+  #plant .view canvas{width:100%;height:150px;display:block;cursor:default}
+  #plant .go{display:flex;gap:8px;margin-top:4px}
+  #plant .go button{padding:7px 10px;font-size:12.5px}
+  #plant .go .plant{background:#37432c;border-color:#4d5e3d;flex:2}
+  #plant .foe-hd button{flex:0 0 auto;padding:1px 7px;font-size:10.5px}
+  .backlink{position:fixed;top:9px;right:14px;z-index:4;font-size:11.5px;color:var(--dim);
+    text-decoration:none;background:var(--panel);border:1px solid var(--rule);padding:3px 9px}
+  .backlink:hover{color:var(--ink)}
+  @media (max-width:760px){
+    #tune{width:214px}
+    #bar{flex-wrap:wrap;max-width:96vw;justify-content:center;bottom:8px}
+    #bar button{font-size:11px;padding:3px 7px}
+  }
+</style>
+</head>
+<body>
+<canvas id="c"></canvas>
+<a class="backlink" href="../index.html">&larr; the Fabrica</a>
+
+<div id="bar">
+  <button id="b-pause">Pause</button>
+  <button id="b-speed">1×</button>
+  <button id="b-reset">New seedling</button>
+  <div class="sep"></div>
+  <button id="b-charge">Charge</button>
+  <button id="b-aim">Aim</button>
+  <button id="b-fan">Fan</button>
+  <button id="b-spire">Spire</button>
+  <button id="b-loops">Grafts</button>
+  <div class="sep"></div>
+  <button id="b-read" class="quiet">Readout</button>
+</div>
+
+<div id="plant" class="hide">
+  <div class="card">
+    <div class="picks">
+      <h2>Plant a seedling</h2>
+      <div class="sub">What kind of tree you grow is chosen once, now. Every choice is a trade.</div>
+      <div id="axes"></div>
+      <div class="axis" id="mind-row"><div class="nm">Across the field</div><div class="seg"></div><div class="blurb"></div></div>
+      <div class="axis" id="hand-row"><div class="nm">This side</div><div class="seg"></div><div class="blurb"></div></div>
+      <div class="go">
+        <button id="p-cancel">Back to the match</button>
+        <button id="p-plant" class="plant">Plant</button>
+      </div>
+    </div>
+    <div class="views">
+      <div class="view"><div class="hd"><b>Yours</b><span id="p-mine"></span></div>
+        <canvas id="pv-mine" width="600" height="300"></canvas></div>
+      <div class="view"><div class="hd foe-hd"><b>Across the field</b>
+        <span><span id="p-theirs"></span> <button id="p-reroll" title="draw another opponent">another</button></span></div>
+        <canvas id="pv-theirs" width="600" height="300"></canvas></div>
+    </div>
+  </div>
+</div>
+
+<div class="panel hide" id="hud">
+  <h1>Heartwood <span>· prototype</span></h1>
+  <div class="grp">The tree</div>
+  <div class="row"><span>seedling</span><b id="s-mine">—</b></div>
+  <div class="row"><span>time</span><b id="s-time">0:00</b></div>
+  <div class="row"><span>wood</span><b id="s-len">0</b></div>
+  <div class="row"><span>growing tips</span><b id="s-bud">3</b></div>
+  <div class="row"><span>fastest tip</span><b id="s-fast">0.00</b></div>
+  <div class="row"><span>reach</span><b id="s-reach">1.0×</b></div>
+  <div class="row"><span>ramified</span><b id="s-ram">0</b></div>
+  <div class="row"><span>your core</span><b id="s-myhp">—</b></div>
+  <div class="row"><span>your hand</span><b id="s-myhand">—</b></div>
+  <div class="grp">Figures</div>
+  <div class="row"><span>fan</span><b id="s-fan">—</b></div>
+  <div class="row"><span>power</span><b id="s-pow">0</b></div>
+  <div class="row"><span>spire</span><b id="s-spire">0</b></div>
+  <div class="row"><span>converged</span><b id="s-conv">—</b></div>
+  <div class="row"><span>grafts</span><b id="s-loop">—</b></div>
+  <div class="row"><span>graft gain</span><b id="s-gain">—</b></div>
+  <div class="grp">The shot</div>
+  <div class="row"><span>in the wood</span><b id="s-chg">0</b></div>
+  <div class="row"><span>can channel</span><b id="s-cap">0</b></div>
+  <div class="row"><span>this cut</span><b id="s-cut">—</b></div>
+  <div class="row"><span>it lands</span><b id="s-lands">—</b></div>
+  <div class="row"><span>barrel</span><b id="s-barrel">—</b></div>
+  <div class="row"><span>muzzle speed</span><b id="s-speed">—</b></div>
+  <div class="row"><span>shot</span><b id="s-shot">—</b></div>
+  <div class="row"><span>in flight</span><b id="s-bolt">0</b></div>
+  <div class="grp">The other mage</div>
+  <div class="row"><span>seedling</span><b id="s-theirs">—</b></div>
+  <div class="row"><span>their wood</span><b id="s-dlen">0</b></div>
+  <div class="row"><span>their reach</span><b id="s-dreach">—</b></div>
+  <div class="row"><span>their trunk</span><b id="s-dgirth">—</b></div>
+  <div class="row"><span>healing</span><b id="s-dheal">—</b></div>
+  <div class="row"><span>their core</span><b id="s-hp">—</b></div>
+  <div class="row"><span>their hand</span><b id="s-mind">—</b></div>
+</div>
+
+<div class="panel hide" id="keys">
+  <div><kbd>drag the wood</kbd><span>bend it. What it reaches is what it keeps —<br>let go and take hold again to pull it further</span></div>
+  <div><kbd>press a blue line</kbd><span>and hold still: the two tips it joins are grafted into one.<br>The ring of wood a graft closes amplifies every shot you fire,<br>and the grafted limbs move together from then on</span></div>
+  <div><kbd>tip onto tip</kbd><span>drag one tip to any other and hold them together<br>to graft a pair the board did not suggest</span></div>
+  <div><kbd>slice the air</kbd><span>draw the stroke, and what it will take lights up.<br>Let go to cut, and fire, out of the cut face</span></div>
+  <div><kbd>space</kbd><span>pause</span></div>
+  <div><kbd>r</kbd><span>start over</span></div>
+  <div><kbd>c a f s g</kbd><span>charge glow, aim arc, fan, spire, grafts</span></div>
+  <div><kbd>h</kbd><span>the readout, and this list</span></div>
+  <div><kbd>t</kbd><span>tuning, for development</span></div>
+</div>
+
+<div class="panel hide" id="tune">
+  <div class="hd" id="tune-hd" tabindex="0" role="button"><span>Tuning</span><i id="caret">hide</i></div>
+  <div class="body" id="tune-body"></div>
+</div>
+
+<script>
+"use strict";
+/* ═══════════════════════════════════════════════════════════════════════
+   HEARTWOOD — a duel fought by shaping a thing that grows on its own.
+
+   Three gestures. Slicing cuts and fires; bending occupies the hand while the
+   wood follows it; grafting fuses two tips into a circuit. Everything else
+   follows from one vigor budget split among every live tip, so more tips means
+   slower tips and every prune is a reallocation between the tree's three jobs:
+   weapon, economy, and armour.
+
+   The file is in two halves. The SIM block below is the model and holds no
+   reference to the DOM — heartwood_tests.js pulls it straight out of this
+   file and runs it headless, so the tests cannot drift from the game. Below
+   that is the interface: planting, input, drawing, and a tuning drawer.
+
+   What kind of tree you grow lives in TRAITS and is chosen at planting; the
+   world everyone shares lives in S. A dozen of the S numbers that most repay
+   tuning have sliders in the drawer (`t`), each with a plain-English note.
+   ═══════════════════════════════════════════════════════════════════════ */
+/*BEGIN SIM*/
+/* ══════════════════════════════════════════════════════════════════════
+   The growth model. No DOM in here — it runs headless for testing.
+   A tree is a set of short internodes. A growing tip appends internodes;
+   every `forkLen` of axis it also throws a lateral. The vigor budget enters
+   at the pot and is handed down the tree fork by fork, so more tips means
+   slower tips, the axis that carries on can outgrow the branch that left it,
+   and bud size shows the share each tip ends up with.
+   ══════════════════════════════════════════════════════════════════════ */
+var S = {
+  // world
+  coreR:       11,      // radius of the pot the trunk stands in, world units
+  internode:   3.0,     // length of one internode
+  maxNodes:    4000,    // hard ceiling, performance only
+
+  // growth
+  firstFork:   9,       // how far the trunk runs before it forks at all, units
+  forkDecay:   0.82,    // fork length shrinks by this per generation
+  chopRamify:  1,       // levels a regrown shoot gains for having been cut back
+  diverge:     46,      // total angle opened at a fork, degrees
+  forkBias:    0.38,    // how that angle splits: 0 = axis stays straight, .5 = a symmetric Y
+  wander:      0,       // per-internode drift of a continuing axis, degrees
+  leadCap:     3,       // the fastest a leader may grow, as a multiple of the average tip
+  dormantMin:  0,       // tips below this share (u/s) stop entirely
+
+  // wood
+  setFlow:     3500,    // units of growth that must pass through an internode to set it
+  setTime:     900,     // seconds for an internode to set on age alone, as a backstop
+  thickK:      0.22,    // thickness per sqrt of accumulated flow (the pipe model)
+  girthRef:    14,      // the trunk of a tree in its prime; girth is measured against it
+  girthCap:    1.60,    // how much a fat trunk raises what a cut can channel
+
+  // bending
+  bendPer:     12,      // how far one internode may deviate from its rest angle in one pull, degrees
+  bendRate:    16,      // how fast the wood turns under the hand: degrees per second, shared by the whole limb
+  handSpeed:   40,      // how fast your grip itself travels, units per second
+
+  // grafting
+  graftR:      20,      // how close two tips must be before they will fuse, units
+  pairFloor:   3,       // core-areas a circuit must enclose before the board suggests it
+  pairShow:    10,      // how many of those the board offers at once
+  graftHold:   0.8,     // seconds of holding them together before they take
+  graftShare:  0.45,    // how much of the junction's flow feeds back down the other limb
+  graftStrain: 0.20,    // how far the two sides may be pulled apart, as a fraction of the loop's size
+
+  // recovery
+  healShare:   0.35,    // the slice of the budget that goes to healing wounds first
+  healSpeed:   2.0,     // stub-units covered per unit of vigor spent healing
+  healTaper:   0.20,    // the girth a new shoot emerges with, as a fraction of its stub's
+  shootAng:    26,      // angle a new shoot leaves the old line at, degrees
+
+  // figures
+  fanMin:      3,       // tips needed before a wedge counts as a fan
+  fanRes:      0,       // two tips closer than this in bearing count as one, degrees (0 = off)
+  wedgeFloor:  5,       // the tightest a wedge is allowed to read as, degrees
+  convCap:     4,       // how far gathering can be pushed before limbs foul
+  wedgeCap:    120,     // wider than this is not a fan, degrees
+  spireTol:    6,       // per-joint deviation still counted as straight, degrees
+
+  // the field
+  coreSep:     700,     // distance between the two cores, units
+  fieldSky:    0.38,    // how much room above and below the field, as a fraction of it
+  foeHead:     0,       // seconds of growth the opponent starts with over you
+  coreHP:      60,      // how much force a core absorbs before it is done
+  huskGirth:   10,      // the trunk girth that splits the husk round a seedling's core
+  huskR:       19,      // the husk's radius; while it holds, nothing reaches the core
+
+  // ballistics
+  capBase:     10,      // charge a bare figure holds before it lets go
+  loopGain:    0.025,    // force compounded per core-area of closed loop — the feedback
+  loopCap:     2,       // how far that feedback runs before the wood cannot hold it, ×
+  fadeHalf:    2600,    // units of flight over which a bolt loses half its force
+  forceK:      0.03,    // force per unit of charge per unit of muzzle speed
+  reachExp:    0.5,     // how steeply a fan's power rises with how far out its tips sit
+  speedBase:   28,      // bolt speed out of a kinked stem, units per second
+  speedSpire:  0.9,     // extra speed per unit of straight run behind the cut
+  gravMass:    2600000, // the enemy tree's pull, from its centre of mass. Circular
+                        // orbit speed there is sqrt(gravMass/r); escape from launch sqrt(2·gravMass/sep)
+  selfPull:    0,       // your own core's pull, as a fraction of the enemy's
+  maxBolts:    32,      // live shots at once; the oldest orbit gives way
+  soften:      34,      // softening length, so the singularity at the core is finite
+  chargeWood:  0.06,    // charge released per unit of green wood severed
+  frontK:      55,      // width of the bolt's front per radian of fan; no fan is the widest
+  frontRef:    26,      // front length at which pressure is halved
+
+};
+var D2R = Math.PI / 180;
+
+/* ══ The seedling ═════════════════════════════════════════════════════
+   What kind of tree you are growing is chosen once, at planting, and is
+   carried by the tree itself: every node holds a reference to its tree's
+   genome, so two trees on the same field can follow different rules. Each
+   axis is a trade, not an upgrade — the thing it gives you is paid for in
+   something you will miss. Everything else in S is the world, and is the
+   same for everyone.
+   ═══════════════════════════════════════════════════════════════════════ */
+var TRAITS = {
+  habit: { label: "Habit", pick: "upright", options: {
+    broom:   { name: "Broom",   genes: { apical: 0.50 },
+      blurb: "Every tip grows alike. Low, wide and dense; the widest fan and the most wood, but short, and no leader to shoot down." },
+    upright: { name: "Upright", genes: { apical: 0.55 },
+      blurb: "A rounded crown on a central trunk. More reach than a broom and a leader to shoot down, with a little less wood round the core." },
+    spear:   { name: "Spear",   genes: { apical: 0.60 },
+      blurb: "A cone round a strong leader. The longest reach and the narrowest crown, and the barest core." } } },
+  grain: { label: "Grain", pick: "even", options: {
+    fine:  { name: "Fine",  genes: { forkLen: 17 },
+      blurb: "Forks early and often. Dense, small, crowded with tips: armour, grafts for the taking, and slow growth at every one of them." },
+    even:  { name: "Even",  genes: { forkLen: 26 },
+      blurb: "The middle way." },
+    open:  { name: "Open",  genes: { forkLen: 34 },
+      blurb: "Runs long between forks. Fewer, faster tips and long straight wood: barrels come easier, but there is little to hide behind." } } },
+  wood: { label: "Wood", pick: "seasoned", options: {
+    light:    { name: "Light",    genes: { vigor: 16, density: 0.8 },
+      blurb: "Grows fast and heals fast: more reach and more girth, sooner. But the wood is soft, and so is the heart." },
+    seasoned: { name: "Seasoned", genes: { vigor: 14, density: 1.0 },
+      blurb: "The middle way." },
+    dense:    { name: "Dense",    genes: { vigor: 12.5, density: 1.35 },
+      blurb: "Slow-growing wood that turns fire, round a heart that takes a third as much again to spend." } } }
+};
+var AXES = ["habit", "grain", "wood"], DEFAULT_G = null;
+
+// A genome: the world's defaults, overlaid with whatever was picked.
+function genome(picks){
+  var g = { forkDecay: S.forkDecay, firstFork: S.firstFork, picks: {} };
+  for (var i = 0; i < AXES.length; i++){
+    var ax = AXES[i], p = picks && picks[ax] ? picks[ax] : TRAITS[ax].pick;
+    var o = TRAITS[ax].options[p];
+    for (var k in o.genes) g[k] = o.genes[k];
+    g.picks[ax] = p;
+  }
+  return g;
+}
+
+function mkNode(T, parentId, rel, order, side){
+  var n = {
+    id: T.nextId++, parent: parentId, order: order, side: side,
+    rel: rel, rest: rel, rel0: rel, attach: null,
+    len: 0.0001, age: 0, mass: 0,
+    bud: true, share: 0, sinceFork: 0, forkSide: 1, flow: 0, cracked: false,
+    healGoal: 0, healAt: 0, w: 0, q: 0, v: 0, sleep: false, lim: 0, g: T.g,
+    mate: null, slave: false, gstrain: 0, loopLen: 1,
+    loop: false,
+    runDir: 0, runLen: 0, runFrom: 0, ram: 0, gen: 0, sub: 0, val: 0, eff: 0,
+    reach: 0, front: 0, peri: 0, len0: 0,
+    children: [], x0:0, y0:0, x1:0, y1:0, abs:0, thick:1, bx:0, by:0, pabs:0
+  };
+  T.nodes.set(n.id, n);
+  if (parentId !== null) T.nodes.get(parentId).children.push(n.id);
+  return n;
+}
+
+// One trunk, standing in a pot, pointing at the other mage. Everything the
+// tree becomes follows from where that single axis forks and what you then
+// do to the forks.
+function newTree(seedRot, g){
+  var T = { nodes:new Map(), nextId:1, clock:0, list:[], roots:[], grafts:[],
+            g: g || genome(), husk: true, cgx: 0, cgy: 0 };
+  T.attach = (seedRot || 0) * D2R;
+  var n = mkNode(T, null, 0, 0, 1);
+  n.attach = T.attach;
+  T.roots.push(n.id);
+  return T;
+}
+
+// A shoot's fork interval shortens with branching depth and again with every
+// time the wood it grew back from was cut. Chop a limb repeatedly and it stops
+// running and starts ramifying: short stems, crowded, close to the trunk.
+function forkLen(n){
+  var g = n.g || (DEFAULT_G || (DEFAULT_G = genome()));
+  if (n.gen === 0 && n.ram === 0) return g.firstFork;   // the trunk forks early
+  return Math.max(S.internode*1.5,
+                  g.forkLen * Math.pow(g.forkDecay, n.gen - 1 + n.ram));
+}
+function stiffOf(n){
+  if (n.cracked) return 1;
+  // wood rigidifies in proportion to how much growth has flowed through it,
+  // so a trunk locks early and an outer twig stays pliant however old it is
+  return Math.min(1, n.mass/Math.max(1, S.setFlow) + n.age/Math.max(1, S.setTime));
+}
+function bendLimit(n){
+  return Math.max(0, S.bendPer*D2R * (1 - stiffOf(n)) / (1 + 0.08*n.thick));
+}
+
+/* A trunk never stops thickening, and girth is the whole of an old mage's
+   power. It is the largest capacitor on the tree, so a wider trunk channels a
+   heavier shot — and only that. Age buys weight, never haste: an ancient mage
+   does not grow or fire any faster, they simply hit like a falling wall. */
+function girthOf(T){
+  var r = T.roots.length ? T.nodes.get(T.roots[0]) : null;
+  return r ? r.thick : 1;
+}
+/* geometry + a pre-order list (parents always before children) */
+function layout(T){
+  T.list.length = 0;
+  var stack = T.stack || (T.stack = []), i, n, c, r;
+  var maxR2 = S.coreR*S.coreR;
+  stack.length = 0;
+  for (i = T.roots.length - 1; i >= 0; i--){
+    r = T.nodes.get(T.roots[i]);
+    if (!r) continue;
+    r.bx = Math.cos(r.attach)*S.coreR; r.by = Math.sin(r.attach)*S.coreR; r.pabs = r.attach;
+    stack.push(r);
+  }
+  while (stack.length){
+    n = stack.pop();
+    n.abs = n.pabs + n.rel;
+    n.x0 = n.bx; n.y0 = n.by;
+    n.thick = 1 + S.thickK*Math.sqrt(n.mass);
+    // Wood fattens and never lengthens: a junction stays where it was born,
+    // so a tree you keep cut back stays exactly as small as you keep it.
+    n.x1 = n.x0 + Math.cos(n.abs)*n.len;
+    n.y1 = n.y0 + Math.sin(n.abs)*n.len;
+    // the shoelace, summed from the pot out: any ring two tips would close
+    // can then be measured from its two ends alone (circuitArea)
+    var pp = n.parent === null ? null : T.nodes.get(n.parent);
+    n.shoe = (pp ? pp.shoe : 0) + n.x0*n.y1 - n.x1*n.y0;
+    var rr = n.x1*n.x1 + n.y1*n.y1; if (rr > maxR2) maxR2 = rr;
+    T.list.push(n);
+    for (i = n.children.length - 1; i >= 0; i--){
+      c = T.nodes.get(n.children[i]);
+      if (!c) continue;
+      c.bx = n.x1; c.by = n.y1; c.pabs = n.abs;
+      stack.push(c);
+    }
+  }
+  // Grafted tips are pinned to each other. The parent graph stays a tree, so
+  // the walk above is untouched; the loop exists as a constraint laid over it.
+  for (i = 0; i < T.grafts.length; i++){
+    var b = T.nodes.get(T.grafts[i]);
+    if (!b || !b.slave) continue;
+    var a = T.nodes.get(b.mate);
+    if (!a){ release(b); continue; }
+    // where the partner's own wood would put its tip, against where the
+    // junction actually is: the gap is the strain, measured against the size
+    // of the loop rather than one joint
+    var nx = b.x0 + Math.cos(b.abs)*b.len, ny = b.y0 + Math.sin(b.abs)*b.len;
+    b.gstrain = Math.hypot(a.x1 - nx, a.y1 - ny)/b.loopLen;
+    b.abs = Math.atan2(a.y1 - b.y0, a.x1 - b.x0);
+    b.x1 = a.x1; b.y1 = a.y1;
+  }
+  T.girth = girthOf(T);
+  T.maxR = Math.sqrt(maxR2);
+  // Where the wood's weight sits: the pull every shot at this tree falls
+  // toward. Weighted by volume, so the trunk anchors it and a crown drags it
+  // out toward the enemy as it fills.
+  var W = 0, X = 0, Y = 0, wv;
+  for (i = 0; i < T.list.length; i++){
+    n = T.list[i]; wv = n.len*n.thick*n.thick;
+    W += wv; X += wv*(n.x0 + n.x1); Y += wv*(n.y0 + n.y1);
+  }
+  T.cgx = W > 0 ? X/(2*W) : 0; T.cgy = W > 0 ? Y/(2*W) : 0;
+  // The husk round a seedling's core splits when the trunk outgrows it, and
+  // does not grow back.
+  if (T.husk && T.girth >= S.huskGirth){ T.husk = false; T.huskAt = T.clock; }
+  return T.maxR;
+}
+
+/* The circuit a graft closes, walked once: up from the slave tip to the
+   junction's common ancestor, then back down to the master, so the nodes come
+   out in order round the loop. Everything that asks a question about a loop —
+   how big it is, how much it encloses, whether a given internode carries it —
+   is asking about this walk, so there is only the one. */
+var LSEEN = new Set(), LWALK = [];
+function walkCircuit(T, a, b){
+  var out = LWALK; out.length = 0;
+  LSEEN.clear();
+  var q = a;
+  while (q){ LSEEN.add(q.id); q = q.parent === null ? null : T.nodes.get(q.parent); }
+  q = b;
+  while (q && !LSEEN.has(q.id)){ out.push(q); q = q.parent === null ? null : T.nodes.get(q.parent); }
+  var stop = q ? q.id : null, mid = out.length;
+  q = a;
+  while (q && q.id !== stop){ out.push(q); q = q.parent === null ? null : T.nodes.get(q.parent); }
+  for (var i = mid, j = out.length-1; i < j; i++, j--){    // the master's half runs backwards
+    var t = out[i]; out[i] = out[j]; out[j] = t;
+  }
+  return out.length ? out : null;
+}
+function loopWalk(T, b){
+  var a = b.mate === null ? null : T.nodes.get(b.mate);
+  return a ? walkCircuit(T, a, b) : null;
+}
+
+/* What a circuit between these two tips would enclose, without making it. The
+   ring runs out along one limb from where the two part, across the gap, and
+   back down the other; its shoelace is the one summed from the pot to the
+   first tip, less the one summed to the second, plus the step across — the
+   wood below the parting counts once each way and cancels. So it costs two
+   lookups, not a walk, which is what lets the board test every pair of tips
+   on a crowded rim for the handful worth pointing out. */
+function circuitArea(T, a, b){
+  return Math.abs((a.shoe || 0) - (b.shoe || 0) + a.x1*b.y1 - b.x1*a.y1)/2;
+}
+
+function makeGraft(T, a, b){
+  a.bud = false; b.bud = false;
+  b.slave = true; b.mate = a.id; a.mate = b.id;
+  // the partner's length becomes the span it now bridges, and is its rest
+  // length from here on: the gap between that and the true distance is strain
+  b.len0 = b.len;
+  b.len = Math.max(0.01, Math.hypot(a.x1-b.x0, a.y1-b.y0));
+  // and it now grows toward the junction, so at rest the two tips agree
+  b.rel = b.rest = wrapA(Math.atan2(a.y1-b.y0, a.x1-b.x0) - b.pabs);
+  // the size of the closed loop, so a wide loop tolerates more movement than a tight one
+  loopWalk(T, b);
+  for (var i = 0, L = 0; i < LWALK.length; i++) L += LWALK[i].len;
+  b.loopLen = Math.max(b.len, L);
+  T.grafts.push(b.id);
+  // one growing point leaves the junction, as one node rather than two
+  var sh = mkNode(T, a.id, 0, Math.min(a.order, b.order), a.side);
+  sh.forkSide = a.forkSide;
+  sh.sinceFork = Math.max(a.sinceFork, b.sinceFork);
+}
+
+function release(n){
+  if (n.slave && n.len0) n.len = n.len0;   // give back the length it had before fusing
+  n.mate = null; n.slave = false; n.gstrain = 0; n.len0 = 0;
+  n.bud = n.children.length === 0;    // a junction's master already carries its shoot
+}
+
+function breakGraft(T, b){
+  var a = b.mate === null ? null : T.nodes.get(b.mate);
+  if (a) release(a);
+  release(b);
+  var k = T.grafts.indexOf(b.id); if (k >= 0) T.grafts.splice(k, 1);
+}
+
+/* Split the vigor budget, and hand it down the tree rather than out to the
+   tips. Wounds are paid first, out of a slice off the top: making a healing
+   shoot compete tip-for-tip is the same as never healing at all, since on a
+   tree with two hundred growing points it would get a two-hundredth of the
+   budget and a chopped limb would stay a bare stub for ever.
+
+   What is left enters at the pot and is divided at every fork on the way up.
+   The continuing axis weighs `apical`, the lateral 1 − `apical`, each scaled by
+   how many growing tips it feeds — Borchert and Honda's rule. At one half this
+   is exactly a flat split and every tip grows at the same rate, which is a
+   broom. Above it the axis that carried on straight outgrows the branch that
+   peeled off it, at every fork, all the way up, and the tree grows a leader
+   with a hierarchy under it. Cut the leader and the share it was drawing flows
+   to whichever branch now continues the line below the cut: that branch becomes
+   the leader. Every prune is a reallocation, and now it has a direction. */
+function share(T, frozen){
+  var i, j, n, c, heals = T.heals || (T.heals = []), htot = 0, tips = 0;
+  var grow = T.growing || (T.growing = []);
+  var lam = Math.max(0.01, Math.min(0.99, T.g.apical));
+  heals.length = 0;
+  for (i = 0; i < T.list.length; i++){
+    n = T.list[i]; n.share = 0; n.v = 0; n.sleep = false;
+    if (frozen && frozen.has(n.id)) continue;
+    if (n.healGoal > 0 && !n.bud){
+      n.w = 1 + n.thick;                 // a fat stub has more reserve to push
+      heals.push(n); htot += n.w;
+    }
+  }
+  var vig = T.g.vigor;
+  var toHeal = heals.length ? vig*Math.min(0.9, S.healShare) : 0;
+  for (i = 0; i < heals.length; i++) heals[i].share = toHeal*heals[i].w/htot;
+  var toGrow = vig - toHeal;
+
+  // Tips starved below the floor stop, and what they would have drawn goes back
+  // into the tree; a tip that stops can start again the moment what was
+  // suppressing it is cut, because the question is asked afresh every step.
+  for (var pass = 0; pass < 6; pass++){
+    // demand: the growing tips each node feeds
+    for (i = 0; i < T.list.length; i++){
+      n = T.list[i];
+      n.q = (n.bud && !n.sleep && !(frozen && frozen.has(n.id))) ? 1 : 0;
+    }
+    for (i = T.list.length-1; i >= 0; i--){
+      n = T.list[i];
+      if (n.parent === null || !n.q) continue;
+      c = T.nodes.get(n.parent); if (c) c.q += n.q;
+    }
+    tips = 0;
+    for (i = 0; i < T.roots.length; i++){ c = T.nodes.get(T.roots[i]); if (c) tips += c.q; }
+    if (tips <= 0) return;
+    // supply, from the pot up
+    grow.length = 0;
+    for (i = 0; i < T.list.length; i++){
+      n = T.list[i];
+      n.v = n.parent === null ? toGrow*n.q/tips : n.v;
+      if (!n.q) continue;
+      if (n.bud){ n.share = n.v; grow.push(n); continue; }
+      if (n.children.length === 1){
+        c = T.nodes.get(n.children[0]); if (c) c.v = n.v;
+        continue;
+      }
+      // the axis carries on through whichever child is of the lowest order
+      var main = null, den = 0;
+      for (j = 0; j < n.children.length; j++){
+        c = T.nodes.get(n.children[j]);
+        if (c && c.q && (!main || c.order < main.order)) main = c;
+      }
+      for (j = 0; j < n.children.length; j++){
+        c = T.nodes.get(n.children[j]);
+        if (c && c.q) den += (c === main ? lam : 1-lam)*c.q;
+      }
+      for (j = 0; j < n.children.length; j++){
+        c = T.nodes.get(n.children[j]);
+        if (c) c.v = c.q ? n.v*(c === main ? lam : 1-lam)*c.q/den : 0;
+      }
+    }
+    // A shoot can only extend so fast. Dominance compounds at every fork the
+    // leader grows through, so without a ceiling it never stops pulling ahead
+    // and a tree with a leader can never be kept small; with one, what the
+    // leader cannot use goes back to the rest in proportion to what they had.
+    if (S.leadCap >= 1){
+      var cap = S.leadCap*toGrow/grow.length;
+      for (var it = 0; it < 8; it++){
+        var over = 0, free = 0;
+        for (i = 0; i < grow.length; i++){
+          n = grow[i];
+          if (n.share > cap){ over += n.share - cap; n.share = cap; }
+          else if (n.share < cap) free += n.share;
+        }
+        if (over <= 1e-9 || free <= 0) break;
+        for (i = 0; i < grow.length; i++){
+          n = grow[i];
+          if (n.share < cap) n.share += over*n.share/free;
+        }
+      }
+    }
+    if (S.dormantMin <= 0) return;
+    var slept = false;
+    for (i = 0; i < T.list.length; i++){
+      n = T.list[i];
+      if (n.bud && !n.sleep && n.q && n.share < S.dormantMin){
+        n.sleep = true; n.share = 0; slept = true;
+      }
+    }
+    if (!slept) return;
+    for (i = 0; i < T.list.length; i++) if (T.list[i].bud) T.list[i].share = 0;
+  }
+}
+
+function step(T, dt, frozen){
+  T.clock += dt;
+  layout(T);
+  share(T, frozen);
+  var i, n, p, buds = T.buds || (T.buds = []);
+  buds.length = 0;
+
+  for (i = 0; i < T.list.length; i++){
+    n = T.list[i];
+    n.flow = n.bud ? n.share : 0;
+    if (n.bud) buds.push(n);
+  }
+  for (i = T.list.length - 1; i >= 0; i--){
+    n = T.list[i];
+    n.mass += n.flow * dt;
+    if (n.parent !== null){ p = T.nodes.get(n.parent); if (p) p.flow += n.flow; }
+  }
+  for (i = 0; i < T.list.length; i++) T.list[i].age += dt;
+
+  // A junction pushes sap back down the limb it fused with, so a closed loop
+  // thickens and sets on both sides. That is the whole payoff for now.
+  for (i = T.grafts.length-1; i >= 0; i--){
+    var gb = T.nodes.get(T.grafts[i]);
+    if (!gb || !gb.slave){ T.grafts.splice(i, 1); continue; }
+    var ga = T.nodes.get(gb.mate);
+    if (!ga){ breakGraft(T, gb); continue; }
+    if (gb.gstrain > S.graftStrain){ breakGraft(T, gb); continue; }
+    var f = ga.flow * S.graftShare * dt, q = gb;
+    while (q){ q.mass += f; q = q.parent === null ? null : T.nodes.get(q.parent); }
+  }
+
+  // a healing shoot climbing the inside of a cut stem
+  for (i = 0; i < T.list.length; i++){
+    n = T.list[i];
+    if (n.healGoal <= 0 || n.share <= 0) continue;
+    n.healAt += n.share * S.healSpeed * dt;
+    if (n.healAt < n.healGoal) continue;
+    if (!n.bud && n.children.length < 2 && T.nodes.size < S.maxNodes){
+      var sh = mkNode(T, n.id, n.forkSide*S.shootAng*D2R, n.order, -n.side);
+      sh.forkSide = -n.forkSide;
+      sh.ram = n.ram; sh.gen = n.gen;
+      sh.sinceFork = n.healGoal % forkLen(sh);        // it arrives ready to branch
+      sh.mass = n.mass * S.healTaper;                 // and with a girth that fits the stem
+    }
+    n.healGoal = 0; n.healAt = 0;
+  }
+
+  // Coppice. Scarred wood does not put out a shoot, so a tree shot down to
+  // cracked stubs could be left with nothing growing and nothing healing —
+  // alive, and able to do nothing for ever. A stool cut to the ground comes
+  // back: the fattest stub left sends up a fresh shoot, and a pot with nothing
+  // in it at all starts again from a seedling. It costs everything above the
+  // stub, and the girth of a new trunk if the old one went too.
+  if (!buds.length){
+    var stub = null, healing = false;
+    for (i = 0; i < T.list.length; i++){
+      n = T.list[i];
+      if (n.healGoal > 0){ healing = true; break; }
+      if (!n.children.length && (!stub || n.mass > stub.mass)) stub = n;
+    }
+    if (!healing){
+      if (stub){
+        stub.cracked = false;
+        var L = 0; p = stub;
+        while (p){ L += p.len; p = p.parent === null ? null : T.nodes.get(p.parent); }
+        stub.healGoal = L; stub.healAt = 0;
+      } else if (!T.roots.length){
+        var r0 = mkNode(T, null, 0, 0, 1);
+        r0.attach = T.attach || 0;
+        T.roots.push(r0.id);
+      }
+    }
+  }
+
+  // extend, and lay down new internodes and laterals
+  for (i = 0; i < buds.length; i++){
+    var cur = buds[i];
+    if (cur.share <= 0) continue;
+    cur.len += cur.share * dt;
+    var guard = 0;
+    while (cur.len >= S.internode && T.nodes.size < S.maxNodes && guard++ < 8){
+      var over = cur.len - S.internode;
+      cur.len = S.internode;
+      cur.bud = false;
+      var sf = cur.sinceFork + S.internode;
+      var side = -cur.side;
+      var fs = cur.forkSide, forking = sf >= forkLen(cur);
+      var turn = forking ? -fs*S.diverge*S.forkBias*D2R : S.wander*D2R*side;
+      // The axis zigzags, turning one way at one fork and back at the next, so
+      // it heads alternately straight and a full kink off. The trunk's first
+      // fork turns half as far, which centres the zigzag on the line to the
+      // other mage instead of leaning the whole leader half a kink off it.
+      if (forking && cur.order === 0 && cur.gen === 0) turn *= 0.5;
+      var cont = mkNode(T, cur.id, turn, cur.order, side);
+      cont.len = Math.min(over, S.internode*0.98);
+      cont.share = cur.share;
+      cont.sinceFork = forking ? 0 : sf;
+      cont.forkSide = forking ? -fs : fs;
+      cont.ram = cur.ram;
+      cont.gen = cur.gen + (forking ? 1 : 0);
+      if (forking){
+        var lat = mkNode(T, cur.id, fs*S.diverge*(1-S.forkBias)*D2R, cur.order + 1, side);
+        lat.forkSide = fs;
+        lat.ram = cur.ram;
+        lat.gen = cur.gen + 1;
+        lat.share = 0;
+      }
+      cur = cont;
+    }
+  }
+
+}
+
+/* remove a node and everything past it */
+function cutNode(T, n){
+  if (!n) return 0;
+  if (n.parent !== null){
+    var p = T.nodes.get(n.parent);
+    if (p) p.children = p.children.filter(function(id){ return id !== n.id; });
+  } else {
+    T.roots = T.roots.filter(function(id){ return id !== n.id; });
+  }
+  var stack = [n], lost = 0;
+  while (stack.length){
+    var m = stack.pop(); lost += m.len;
+    if (m.mate !== null){
+      var mo = T.nodes.get(m.mate);
+      if (mo) release(mo);
+      // either end of the pair may be the one in the list, so clear both
+      var gk = T.grafts.indexOf(m.id); if (gk >= 0) T.grafts.splice(gk, 1);
+      if (mo){ gk = T.grafts.indexOf(mo.id); if (gk >= 0) T.grafts.splice(gk, 1); }
+    }
+    for (var i = 0; i < m.children.length; i++){
+      var c = T.nodes.get(m.children[i]); if (c) stack.push(c);
+    }
+    T.nodes.delete(m.id);
+  }
+  // The stub keeps every bit of girth it earned. A fresh shoot sets off from
+  // the base of the stem and climbs inside it, breaking out at the cut face in
+  // the state it would have reached had it grown there in the first place.
+  // Chop, let it run, chop again: the trunk fattens, the tree stays small.
+  var p = n.parent === null ? null : T.nodes.get(n.parent);
+  if (p && !p.cracked && p.healGoal <= 0 && !p.bud && p.children.length < 2){
+    p.ram = Math.min(12, p.ram + S.chopRamify);   // this spot is one cut more ramified
+    var L = 0, q = p;
+    while (q){ L += q.len; q = q.parent === null ? null : T.nodes.get(q.parent); }
+    p.healGoal = L; p.healAt = 0;
+  }
+  return lost;
+}
+
+/* ══ Figures ══════════════════════════════════════════════════════════
+   Nothing here changes the tree; it only measures it. Every tip counts —
+   a live bud, a fused junction, a bare stub left by the blade — so you are
+   always partly armed and the question is never whether you have a figure
+   but how good the one you have is. Fans give magnitude, spires velocity,
+   loops gain.
+   ═══════════════════════════════════════════════════════════════════════ */
+function wrapA(a){ while (a > Math.PI) a -= 2*Math.PI; while (a < -Math.PI) a += 2*Math.PI; return a; }
+
+function figureNodes(T){
+  var out = T.fig || (T.fig = []); out.length = 0;
+  for (var i = 0; i < T.list.length; i++){
+    var n = T.list[i];
+    if (n.children.length) continue;
+    out.push(n);
+  }
+  return out;
+}
+
+/* longest near-straight run of wood; one pass, parents before children */
+function bestSpire(T){
+  var best = null;
+  for (var i = 0; i < T.list.length; i++){
+    var n = T.list[i], p = n.parent === null ? null : T.nodes.get(n.parent);
+    if (p && Math.abs(wrapA(n.abs - p.runDir)) < S.spireTol*D2R){
+      n.runDir = p.runDir; n.runLen = p.runLen + n.len; n.runFrom = p.runFrom;
+    } else {
+      n.runDir = n.abs; n.runLen = n.len; n.runFrom = n.id;
+    }
+    if (!best || n.runLen > best.runLen) best = n;
+  }
+  return best;
+}
+
+/* the wedge worth most: total radius inside it, over how wide it has to open */
+function bestFan(T){
+  var pts = figureNodes(T), n = pts.length, i, k, j;
+  if (n < S.fanMin) return null;
+  if (n > 250){                      // the window search is quadratic in this;
+    pts = pts.slice();               // 250 is far past anything a hand can shape
+    pts.sort(function(a,b){ return (b.x1*b.x1+b.y1*b.y1) - (a.x1*a.x1+a.y1*a.y1); });
+    pts.length = 250; n = 250;
+  }
+  var arr = T.fanArr || (T.fanArr = []); arr.length = 0;
+  for (i = 0; i < n; i++){
+    var q = pts[i];
+    arr.push({ t: Math.atan2(q.y1, q.x1), r: Math.hypot(q.x1, q.y1), nt: 0, node: q });
+  }
+  layoutNatural(T);
+  for (i = 0; i < n; i++) arr[i].nt = Math.atan2(arr[i].node.ny1, arr[i].node.nx1);
+  arr.sort(function(a,b){ return a.t - b.t; });
+  // Tips crowded into the same bearing do not widen an aperture, and the
+  // plant's own ramification crowds them by the dozen. Keep one per fanRes,
+  // so a fan has to be an array of distinct directions rather than a clump.
+  if (S.fanRes > 0){
+    var res = S.fanRes*D2R, thin = [];
+    for (i = 0; i < arr.length; i++){
+      if (!thin.length || arr[i].t - thin[thin.length-1].t >= res) thin.push(arr[i]);
+      else if (arr[i].r > thin[thin.length-1].r) thin[thin.length-1] = arr[i];
+    }
+    if (thin.length > 1 && (thin[0].t + 2*Math.PI) - thin[thin.length-1].t < res) thin.pop();
+    arr = thin; n = arr.length;
+    if (n < S.fanMin) return null;
+  }
+  var w0 = S.wedgeFloor*D2R, cap = S.wedgeCap*D2R, best = null;
+  var byBearing = T.byBearing || (T.byBearing = []);
+  byBearing.length = 0; byBearing.length = 24;
+  for (i = 0; i < n; i++){
+    var sum = 0, lo = 0, hi = 0;
+    for (k = 0; k < n; k++){
+      j = (i+k) % n;
+      var span = arr[j].t - arr[i].t; if (span < 0) span += 2*Math.PI;
+      if (k > 0 && span > cap) break;
+      sum += arr[j].r;
+      var nd = wrapA(arr[j].nt - arr[i].nt);
+      if (nd < lo) lo = nd; if (nd > hi) hi = nd;
+      if (k+1 < S.fanMin) continue;
+      // how much narrower these tips sit than they would sit unbent. A cluster
+      // the plant made on its own reads 1; only your bending moves it.
+      var natural = hi - lo;
+      // gathering past this and the limbs are fouling each other
+      var conv = Math.min(S.convCap, (natural + w0)/(span + w0));
+      var P = 10*Math.pow(sum/(k+1)/S.coreR, S.reachExp)*conv;
+      var take = !best || P > best.P;
+      var mid = arr[i].t + span/2;
+      var bkt = ((Math.floor(wrapA(mid)/(Math.PI/12)) + 24) % 24);
+      if (take || !byBearing[bkt] || P > byBearing[bkt].P){
+        var f = { P:P, conv:conv, natural:natural, from:arr[i].t, span:span,
+                  count:k+1, rbar:sum/(k+1), nodes:[] };
+        for (var m = 0; m <= k; m++) f.nodes.push(arr[(i+m)%n].node);
+        if (take) best = f;
+        if (!byBearing[bkt] || P > byBearing[bkt].P) byBearing[bkt] = f;
+      }
+    }
+  }
+  if (best) best.byBearing = byBearing;
+  return best;
+}
+
+/* Where the tree would be if nobody had ever bent it. Used to ask how much of
+   a fan's tightness is the player's work and how much the plant's own habit. */
+function layoutNatural(T){
+  var stack = T.nstack || (T.nstack = []), i, n, c, r;
+  stack.length = 0;
+  for (i = T.roots.length - 1; i >= 0; i--){
+    r = T.nodes.get(T.roots[i]);
+    if (!r) continue;
+    r.nbx = Math.cos(r.attach)*S.coreR; r.nby = Math.sin(r.attach)*S.coreR; r.npabs = r.attach;
+    stack.push(r);
+  }
+  while (stack.length){
+    n = stack.pop();
+    var abs = n.npabs + n.rel0;      // same wood, same lengths, unbent angles
+    n.nx1 = n.nbx + Math.cos(abs)*n.len;
+    n.ny1 = n.nby + Math.sin(abs)*n.len;
+    for (i = n.children.length - 1; i >= 0; i--){
+      c = T.nodes.get(n.children[i]);
+      if (!c) continue;
+      c.nbx = n.nx1; c.nby = n.ny1; c.npabs = abs;
+      stack.push(c);
+    }
+  }
+}
+
+/* What every cut on the tree would be worth, in one sweep. The green wood
+   below a limb is the charge it holds, the fan nearest it is what would
+   channel that charge, and the product is the force a shot out of that cut
+   carries. Two passes, so the whole tree can be read rather than guessed at. */
+var MZ = { x:0, y:0, dir:0, run:0, id:-1 };
+function valueCuts(T, cap, fanOf, tgt, amp){
+  var i, n, p, top = 0;
+  tgt = tgt || targetOf(null);
+  var canopy = tgt.canopy || S.coreSep*0.35;
+  amp = amp || 1;
+  for (i = 0; i < T.list.length; i++){
+    n = T.list[i];
+    n.sub = n.len*(1 - stiffOf(n));
+    n.val = 0; n.eff = 0; n.reach = 0; n.front = 0; n.peri = 1e9;
+  }
+  for (i = T.list.length-1; i >= 0; i--){          // children always follow parents
+    n = T.list[i];
+    if (n.parent === null) continue;
+    p = T.nodes.get(n.parent);
+    if (p) p.sub += n.sub;
+  }
+  for (i = 0; i < T.list.length; i++){
+    n = T.list[i];
+    if (n.parent === null) continue;               // the trunk is not a cut
+    if (n.loop) continue;                          // and neither is a live circuit
+    var f = fanOf(Math.atan2(n.y0, n.x0));
+    p = T.nodes.get(n.parent);
+    var held = n.sub*S.chargeWood;
+    // Where it would go, and how fast, out of this particular stem
+    MZ.x = n.x0; MZ.y = n.y0; MZ.dir = p ? p.abs : n.abs; MZ.run = p ? p.runLen : 0;
+    n.val = shotForce(Math.min(held, cap), MZ.run, amp);
+    n.front = f ? frontOf(f) : frontWide();
+    // siblings share a muzzle, and most muzzles have not moved since the
+    // last reading: the pass is kept on the stem and only re-flown when it has
+    var c = p && (p.pass || (p.pass = [NaN, 0, 0, 0, 0, 0, 0]));
+    if (c && Math.abs(c[0] - MZ.x) < 0.3 && Math.abs(c[1] - MZ.y) < 0.3 &&
+        Math.abs(c[2] - MZ.dir) < 0.002 && Math.abs(c[3] - MZ.run) < 0.5 &&
+        Math.abs(c[4] - tgt.fx) < 1.5 && Math.abs(c[5] - tgt.fy) < 1.5) n.peri = c[6];
+    else {
+      n.peri = periapsis(MZ, tgt);
+      if (c){ c[0] = MZ.x; c[1] = MZ.y; c[2] = MZ.dir; c[3] = MZ.run;
+              c[4] = tgt.fx; c[5] = tgt.fy; c[6] = n.peri; }
+    }
+    n.reach = connects(n.peri, canopy);
+    // a shot that runs into a whole husk spends itself on it
+    if (tgt.husk && n.peri <= S.huskR) n.reach = Math.min(n.reach, 0.3);
+    // Charge past what your loops can channel is thrown away with the limb,
+    // so the limb worth cutting is the smallest that still fills the channel;
+    // and a shot that sails past the enemy is worth nothing however big it is.
+    n.eff = n.val * Math.min(1, cap/Math.max(1e-6, held)) * n.reach;
+    if (n.eff > top) top = n.eff;
+  }
+  return top;
+}
+
+/* Every internode carrying a closed circuit. Your own blade will still cut it
+   — nothing on the tree is sacred except the trunk — but the glow will never
+   recommend it, because a loop multiplies every shot you will ever fire and
+   the wood inside it can only throw one. */
+function markLoops(T){
+  var i, j, b;
+  for (i = 0; i < T.list.length; i++) T.list[i].loop = false;
+  for (i = 0; i < T.grafts.length; i++){
+    b = T.nodes.get(T.grafts[i]);
+    if (!b || !b.slave || !loopWalk(T, b)) continue;
+    for (j = 0; j < LWALK.length; j++) LWALK[j].loop = true;
+  }
+}
+
+/* the polygon a graft closes, and the area inside it */
+function loopPoly(T, b){
+  if (!loopWalk(T, b)) return null;
+  var pts = [[b.x1, b.y1]];
+  for (var k = 0; k < LWALK.length; k++) pts.push([LWALK[k].x0, LWALK[k].y0]);
+  var area = 0;
+  for (var i = 0; i < pts.length; i++){
+    var u = pts[i], v = pts[(i+1) % pts.length];
+    area += u[0]*v[1] - v[0]*u[1];
+  }
+  return { pts: pts, area: Math.abs(area)/2 };
+}
+
+/* ══ Ballistics ═══════════════════════════════════════════════════════
+   A shot leaves the cut face along the line of the stem behind it and is then
+   on its own under the enemy core's gravity, so its path is a conic. Slow
+   bolts are captured and curl into the near face; fast ones sweep wide and
+   arrive at the flank or cross and are gone. It spends half its force every
+   `fadeHalf` units flown, which is the one thing here that runs down.
+   ═══════════════════════════════════════════════════════════════════════ */
+/* A limb and everything past it, each node once. `from` is one node or
+   several; where one start lies below another it is not visited twice. */
+var BSTACK = [], BSEEN = new Set();
+function below(T, from, fn){
+  var st = BSTACK, i, m, c;
+  st.length = 0; BSEEN.clear();
+  if (Array.isArray(from)) for (i = 0; i < from.length; i++) st.push(from[i]);
+  else st.push(from);
+  while (st.length){
+    m = st.pop();
+    if (BSEEN.has(m.id)) continue;
+    BSEEN.add(m.id); fn(m);
+    for (i = 0; i < m.children.length; i++){ c = T.nodes.get(m.children[i]); if (c) st.push(c); }
+  }
+}
+
+/* the charge stored in a limb: its green wood, which is also its income */
+function greenOf(T, n){
+  var g = 0;
+  below(T, n, function(m){ g += m.len*(1 - stiffOf(m)); });
+  return g;
+}
+
+/* What one cut can channel. Girth, and nothing else: the trunk is the largest
+   capacitor you own and age is the only thing that widens it. Loops do not
+   enlarge the channel — they multiply what comes out of it, which is a
+   different axis and is kept a different axis on purpose. */
+function capacity(girth){
+  var g = Math.max(1, (girth || S.girthRef)/S.girthRef);
+  return S.capBase*Math.pow(g, S.girthCap);
+}
+
+/* A closed loop is a circuit, and a circuit rings. Charge let loose by a cut
+   does not leave at once: it goes round whatever loops the tree carries,
+   compounding a little on each lap, and comes out of the cut face heavier
+   than it went in. Gain compounds per core-area of enclosed loop, so a wide
+   circuit is worth far more than a tight one and several are worth more than
+   any single, up to the point the wood cannot hold the ringing.
+   This is the one thing on the tree that is worth more than the wood in it,
+   which is why a loop is the thing to build and the thing to shoot at. */
+function loopAmp(loopArea){
+  return Math.min(S.loopCap, Math.pow(1 + S.loopGain, loopArea/(S.coreR*S.coreR)));
+}
+
+/* A bolt leaves your core along the fan's bearing and is then on its own:
+   the enemy core is a mass, not a beacon. Below escape speed it is captured
+   and swings round; above it, it is deflected and goes on its way. */
+/* A fan's width is not more or less power, it is a different shape of shot.
+   The same force spread along a wide front presses on nothing hard enough to
+   get through a limb, but shears a whole swathe of twigs; gathered into a
+   narrow one it punches through heavy wood toward the core. */
+// A front cannot be narrower than the wedge floor lets a fan read, or a
+// perfectly gathered fan would be an infinitely sharp, unstoppable needle.
+function frontOf(fan){ return S.frontK * (fan.span + S.wedgeFloor*D2R); }
+// with no fan to gather it, a shot leaves as wide as a fan is ever allowed to be
+function frontWide(){ return S.frontK * (S.wedgeCap + S.wedgeFloor)*D2R; }
+/* What a shot carries: the charge the cut let go of — its mass — times the
+   speed the barrel gave it, times whatever the grafts added on the way out.
+   Mass is how much you cut off, up to what the trunk can channel; speed is
+   how much straight wood stands behind the cut. */
+function muzzleSpeed(run){ return S.speedBase + S.speedSpire*(run || 0); }
+function shotForce(mass, run, gain){ return S.forceK*mass*muzzleSpeed(run)*(gain || 1); }
+/* The other tree as a shooter sees it from its own pot: where its weight
+   sits (the pull), how far its crown reaches, and whether its husk holds.
+   With no tree at all, a bare core at the far pot. */
+function targetOf(X){
+  if (!X) return { fx: S.coreSep, fy: 0, canopy: S.coreSep*0.35, husk: false };
+  return { fx: S.coreSep - (X.cgx || 0), fy: X.cgy || 0, canopy: X.maxR || S.coreR, husk: !!X.husk };
+}
+function pressure(F, L){ return F / (1 + L/S.frontRef); }
+/* What a bolt has to beat to sever a piece of wood: its girth, times the
+   density of the species. This is the other half of the wood you chose — the
+   hardness that lets a limb turn fire is the same hardness that sets it before
+   you have finished shaping it. */
+function resist(n){ return n.thick*(n.g ? n.g.density : 1); }
+// and the heartwood itself: a dense tree's core absorbs more before it is spent
+function coreOf(g){ return S.coreHP*(g ? g.density : 1); }
+
+/* Where a shot would leave, if you cut this limb off: out of the face you
+   cut, along the line of the wood still attached to it. That stem's own
+   straight run is the barrel, so bending a limb is how you aim, and
+   straightening it is how you make it fast. */
+function muzzleFor(T, n){
+  if (!n || !T.nodes.has(n.id)) return null;
+  var p = n.parent === null ? null : T.nodes.get(n.parent);
+  if (!p) return { x:Math.cos(n.attach)*S.coreR, y:Math.sin(n.attach)*S.coreR,
+                   dir:n.attach, run:0, id:-1 };
+  return { x:p.x1, y:p.y1, dir:p.abs, run:p.runLen || 0, id:p.id };
+}
+
+function makeBolt(fan, force, muzzle, tgt){
+  var v = muzzleSpeed(muzzle.run);
+  var L = fan ? frontOf(fan) : frontWide();
+  tgt = tgt || targetOf(null);
+  return {
+    x: muzzle.x, y: muzzle.y,
+    vx: Math.cos(muzzle.dir)*v, vy: Math.sin(muzzle.dir)*v,
+    F: force, F0: force, L: L, L0: L,
+    n: Math.max(1, Math.min(15, Math.round(L/6))), alive: null,
+    run: 0, trail: [], fx: tgt.fx, fy: tgt.fy
+  };
+}
+
+/* A bite out of the wood costs the shot what the wood resisted, and the cost
+   comes off its speed: a shot that goes through a limb comes out the far side
+   slower, and a slower shot falls in tighter. */
+function biteBolt(b, r){
+  var F = Math.max(0, b.F - r), k = b.F > 0 ? F/b.F : 0;
+  b.F = F; b.vx *= k; b.vy *= k;
+}
+
+// the pull, toward the target tree's centre of mass
+function boltAccel(x, y, out, fx, fy){
+  var ex = (fx === undefined ? S.coreSep : fx) - x, ey = (fy || 0) - y;
+  var r2 = ex*ex + ey*ey + S.soften*S.soften, r = Math.sqrt(r2);
+  var a = S.gravMass / (r2*r);
+  out[0] = ex*a; out[1] = ey*a;
+  if (S.selfPull > 0){
+    var sx = -x, sy = -y;
+    var s2 = sx*sx + sy*sy + S.soften*S.soften, sr = Math.sqrt(s2);
+    var sa = S.gravMass*S.selfPull/(s2*sr);
+    out[0] += sx*sa; out[1] += sy*sa;
+  }
+  return out;
+}
+
+var accBuf = [0,0];
+function stepBolt(b, dt){
+  boltAccel(b.x, b.y, accBuf, b.fx, b.fy);       // velocity Verlet, so orbits close
+  var hx = b.vx + accBuf[0]*dt*0.5, hy = b.vy + accBuf[1]*dt*0.5;
+  var px = b.x, py = b.y;
+  b.x += hx*dt; b.y += hy*dt;
+  boltAccel(b.x, b.y, accBuf, b.fx, b.fy);
+  b.vx = hx + accBuf[0]*dt*0.5; b.vy = hy + accBuf[1]*dt*0.5;
+  var flew = Math.hypot(b.x-px, b.y-py);
+  b.run += flew;                            // how far it has flown, for the record
+  // A shot spends itself against the distance it covers, not against a clock:
+  // half its force every fadeHalf units. A captured orbit therefore goes round
+  // five or six times, dimming, and is gone — no countdown, and the number
+  // scales with the field like everything else here.
+  if (S.fadeHalf > 0) b.F *= Math.pow(0.5, flew/S.fadeHalf);
+  b.trail.push(b.x, b.y);
+  if (b.trail.length > 400) b.trail.splice(0, 2);
+  return [px, py];
+}
+
+/* How close a shot will pass to the enemy core. The pull is the target tree's
+   weight, so the path bends round its centre of mass; the core sits somewhere
+   behind that. The well is softened at the bottom, which is what keeps it
+   finite and also what stops the path being a clean conic — a pass close to
+   the centre of mass swings less than Kepler would have it, and the error was
+   tens of units exactly where it mattered. So the first lap is flown, coarsely:
+   long steps where the pull is weak, short ones deep in the well, stopping once
+   the shot has gone once round the centre of mass or left the field. That is
+   the pass that carries the shot's full force; later laps are spent ones.
+   `PASS.peri` is left holding the closest pass to the centre of mass. */
+var PASS = { peri: 0 };
+function periapsis(muzzle, tgt){
+  var fx = tgt ? tgt.fx : S.coreSep, fy = tgt ? tgt.fy : 0, cx = S.coreSep;
+  var v = muzzleSpeed(muzzle.run), mu = S.gravMass, e2 = S.soften*S.soften;
+  var x = muzzle.x, y = muzzle.y, vx = Math.cos(muzzle.dir)*v, vy = Math.sin(muzzle.dir)*v;
+  var best = Math.hypot(x - cx, y), bestF = Math.hypot(x - fx, y - fy), swept = 0;
+  var far = 9*S.coreSep*S.coreSep;
+  for (var k = 0; k < 600; k++){
+    var ex = fx - x, ey = fy - y, r2 = ex*ex + ey*ey + e2, r = Math.sqrt(r2);
+    var sp = Math.sqrt(vx*vx + vy*vy) + 1;
+    var dt = Math.min(0.3, 0.1*r/sp), a = mu/(r2*r);
+    vx += ex*a*dt*0.5; vy += ey*a*dt*0.5;
+    var px = x, py = y;
+    x += vx*dt; y += vy*dt;
+    ex = fx - x; ey = fy - y; r2 = ex*ex + ey*ey + e2; a = mu/(r2*Math.sqrt(r2));
+    vx += ex*a*dt*0.5; vy += ey*a*dt*0.5;
+    // nearest point of this step's segment to the core, and to the pull
+    var sx = x - px, sy = y - py, L = sx*sx + sy*sy || 1e-12;
+    var t = Math.max(0, Math.min(1, ((cx - px)*sx + (0 - py)*sy)/L));
+    var d = Math.hypot(px + sx*t - cx, py + sy*t);
+    if (d < best) best = d;
+    t = Math.max(0, Math.min(1, ((fx - px)*sx + (fy - py)*sy)/L));
+    d = Math.hypot(px + sx*t - fx, py + sy*t - fy);
+    if (d < bestF) bestF = d;
+    // once round the centre of mass is one lap
+    var rx = x - fx, ry = y - fy;
+    swept += (rx*vy - ry*vx)/(rx*rx + ry*ry + 1e-9)*dt;
+    if (Math.abs(swept) >= 2*Math.PI || x*x + y*y > far) break;
+  }
+  PASS.peri = bestF;
+  return best;
+}
+
+/* Reading of that: 1 where it strikes the core, falling away through the
+   canopy and to nothing once it sails past. */
+function connects(peri, canopy){
+  if (peri <= S.coreR) return 1;                 // straight into the heartwood
+  if (peri <= canopy){                           // through the canopy, and the
+    var t = (peri - S.coreR)/Math.max(1, canopy - S.coreR);   // deeper the better
+    return 0.55 - 0.32*t;
+  }
+  var over = (peri - canopy)/Math.max(1, canopy);
+  return Math.max(0, 0.23*(1 - over*1.6));
+}
+
+/* a static tree gets a coarse grid so a bolt does not test every twig */
+function buildGrid(T){
+  var cell = 14, g = new Map();
+  for (var i = 0; i < T.list.length; i++){
+    var n = T.list[i];
+    var ix = Math.floor((n.x0+n.x1)/2/cell), iy = Math.floor((n.y0+n.y1)/2/cell);
+    var k = ix*73856093 ^ iy*19349663;
+    var a = g.get(k); if (!a){ a = []; g.set(k, a); }
+    a.push(n);
+  }
+  T.grid = g; T.cell = cell;
+  return g;
+}
+function gridNear(T, x, y, out){
+  out.length = 0;
+  var c = T.cell, ix = Math.floor(x/c), iy = Math.floor(y/c);
+  for (var i = -1; i <= 1; i++) for (var j = -1; j <= 1; j++){
+    var a = T.grid.get((ix+i)*73856093 ^ (iy+j)*19349663);
+    if (a) for (var m = 0; m < a.length; m++) out.push(a[m]);
+  }
+  return out;
+}
+
+/* Where the board sits on the screen. A function of the field and the canvas
+   and of nothing else — in particular, not of how big either tree has got.
+   The two cores are fixed points in the world and they stay fixed points on
+   the screen, so nothing slides under your hand while you are trying to take
+   hold of a twig, and the distance between the two mages looks like what it
+   is: a constant. The cost is that the frame will not chase a tree that has
+   grown out of it. A tree that big is one you have failed to keep, and the
+   game already has an answer for that. */
+function frameView(W, H, out){
+  out = out || {};
+  var halfW = S.coreSep/2 + S.coreR*3;
+  var halfH = S.coreSep*S.fieldSky;
+  out.scale = Math.min(W*0.46/halfW, H*0.46/halfH);
+  out.fx = S.coreSep/2;                       // dead centre of the field, always
+  out.fy = 0;
+  return out;
+}
+
+/* ══ A graft binds ════════════════════════════════════════════════════
+   Two tips fused are one piece of wood. Pull on either limb and the junction
+   moves, and the other limb has to come with it: it bends toward the junction
+   at the same pace a hand bends wood, each joint giving in proportion to how
+   freely it gives. Whatever it cannot follow is strain, and past a point the
+   graft tears. The wood below where the two limbs part is shared, and moving
+   it moves both sides together, so it asks nothing of either.
+   ═══════════════════════════════════════════════════════════════════════ */
+var CHAIN_FK = [];
+// the tip a chain (tip first, base last) would reach from its own angles
+function chainTip(chain){
+  var last = chain.length - 1, n = chain[last];
+  var x = n.x0, y = n.y0, abs = n.pabs;
+  for (var i = last; i >= 0; i--){
+    n = chain[i];
+    var f = CHAIN_FK[i] || (CHAIN_FK[i] = [0, 0]);
+    f[0] = x; f[1] = y;
+    abs += n.rel; x += Math.cos(abs)*n.len; y += Math.sin(abs)*n.len;
+  }
+  CHAIN_FK.tip = [x, y];
+  return CHAIN_FK;
+}
+/* Walk a chain back to a remembered set of angles, at the wood's own rate.
+   Nothing on either tree may teleport, including a hand changing its mind. */
+function easeChain(chain, target, rate){
+  var want = 0, i, d = TURN;
+  while (d.length < chain.length) d.push(0);
+  for (i = 0; i < chain.length; i++){ d[i] = wrapA(target[i] - chain[i].rel); want += Math.abs(d[i]); }
+  if (want < 1e-6) return true;
+  var k = Math.min(1, rate/want);
+  for (i = 0; i < chain.length; i++) chain[i].rel += d[i]*k;
+  return k >= 1;
+}
+
+/* Bring a chain's tip toward (tx, ty). Each joint takes a share of the error
+   in proportion to how freely it gives, so the chain moves as one piece rather
+   than every joint lunging at the whole correction. `rate` is the wood's speed
+   limit and it is a limit on the *whole* chain, not on each joint: a limb with
+   thirty pliant joints turns no faster than a limb with three, because what is
+   moving is the limb. Returns the turning it actually used, so a hand with a
+   budget can be charged for it. */
+var TURN = [];
+function reachChain(chain, tx, ty, rate){
+  var used = 0;
+  for (var it = 0; it < 2 && used < rate; it++){
+    var tot = 0, i, n, want = 0;
+    for (i = 0; i < chain.length; i++){ chain[i].lim = bendLimit(chain[i]); tot += chain[i].lim; }
+    if (tot <= 1e-6) return used;
+    var fk = chainTip(chain), hx = fk.tip[0], hy = fk.tip[1];
+    while (TURN.length < chain.length) TURN.push(0);
+    for (i = 0; i < chain.length; i++){
+      n = chain[i]; TURN[i] = 0;
+      if (n.lim <= 0.0005) continue;
+      var d = wrapA(Math.atan2(ty - fk[i][1], tx - fk[i][0]) - Math.atan2(hy - fk[i][1], hx - fk[i][0]));
+      d = d*(n.lim/tot)*0.9;
+      var off = wrapA(n.rel + d - n.rest);        // and no further than one pull
+      d = n.rest + Math.max(-n.lim, Math.min(n.lim, off)) - n.rel;
+      TURN[i] = d; want += Math.abs(d);
+    }
+    if (want <= 1e-9) return used;
+    var k = Math.min(1, (rate - used)/want);      // the wood's own pace
+    for (i = 0; i < chain.length; i++) chain[i].rel += TURN[i]*k;
+    used += want*k;
+  }
+  return used;
+}
+// The two sides of a graft, each from its tip down to where they part.
+function graftSides(T, b){
+  var a = b.mate === null ? null : T.nodes.get(b.mate);
+  if (!a) return null;
+  var up = new Set(), q = a;
+  while (q){ up.add(q.id); q = q.parent === null ? null : T.nodes.get(q.parent); }
+  var sb = [], sa = [];
+  q = b;
+  while (q && !up.has(q.id)){ sb.push(q); q = q.parent === null ? null : T.nodes.get(q.parent); }
+  var fork = q ? q.id : null;
+  q = a;
+  while (q && q.id !== fork){ sa.push(q); q = q.parent === null ? null : T.nodes.get(q.parent); }
+  return { a: a, b: b, sa: sa, sb: sb };
+}
+// After a hand has moved the wood in `held` (a set of ids), bring every graft
+// it disturbed back together by bending the side the hand is not on. Returns
+// the nodes that followed, so the pull can be kept when the hand lets go.
+function bindGrafts(T, held, dt, followed){
+  if (!T.grafts.length) return followed;
+  layout(T);
+  var rate = S.bendRate*D2R*dt, any = false;
+  for (var i = 0; i < T.grafts.length; i++){
+    var b = T.nodes.get(T.grafts[i]);
+    if (!b || !b.slave) continue;
+    var sd = graftSides(T, b);
+    if (!sd || !sd.sa.length || !sd.sb.length) continue;
+    var onA = sd.sa.some(function(n){ return held.has(n.id); });
+    var onB = sd.sb.some(function(n){ return held.has(n.id); });
+    if (onA === onB) continue;                     // both sides move alike, or neither
+    var chain, tx, ty;
+    if (onA){ chain = sd.sb; tx = sd.a.x1; ty = sd.a.y1; }
+    else { var fk = chainTip(sd.sb); tx = fk.tip[0]; ty = fk.tip[1]; chain = sd.sa; }
+    reachChain(chain, tx, ty, rate);
+    if (followed) for (var k = 0; k < chain.length; k++) followed.add(chain[k]);
+    any = true;
+  }
+  if (any) layout(T);
+  return followed;
+}
+
+function bendGroup(T, n){
+  // Everything between your grip and the pot, nearest joint first. The wood
+  // beyond your grip rides along unchanged, the way a branch does when you
+  // push it. Rigid joints take nothing, so a bend localises itself.
+  var g = [n], cur = n.parent === null ? null : T.nodes.get(n.parent);
+  while (cur){ g.push(cur); cur = cur.parent === null ? null : T.nodes.get(cur.parent); }
+  return g;
+}
+/* ══ Reading a tree, whoever's it is ══════════════════════════════════
+   Every tree reads the same way from its own pot: its figures are measured
+   in its own frame, facing the other mage along +x, and so is the shot a cut
+   would throw. That is what lets one set of rules serve both sides — the
+   other mage's tree is grown, measured and fired exactly as yours is, and is
+   only mirrored when it is drawn and when something lands on it.
+   ═══════════════════════════════════════════════════════════════════════ */
+// the fan nearest a bearing, from the best one and its neighbours round the clock
+function fanAt(fan, bearing){
+  if (!fan) return null;
+  var list = fan.byBearing, best = fan, bd = 1e9;
+  if (!list) return fan;
+  for (var i = 0; i < list.length; i++){
+    var f = list[i]; if (!f) continue;
+    var d = Math.abs(wrapA(f.from + f.span/2 - bearing));
+    if (d < bd){ bd = d; best = f; }
+  }
+  return best;
+}
+// Everything a mage needs to know to choose a cut, in one pass: the grafts and
+// the gain they carry, the fan, the barrels, the channel, and what every cut
+// on the tree would be worth against the tree it is shooting at.
+function figuresOf(W, fig, tgt){
+  fig = fig || {};
+  markLoops(W);
+  var area = 0;
+  for (var i = 0; i < W.grafts.length; i++){
+    var b = W.nodes.get(W.grafts[i]);
+    if (!b || !b.slave) continue;
+    var lp = loopPoly(W, b); if (lp) area += lp.area;
+  }
+  fig.area = area; fig.gain = loopAmp(area);
+  fig.fan = bestFan(W); fig.spire = bestSpire(W); fig.cap = capacity(W.girth);
+  fig.topVal = valueCuts(W, fig.cap, function(b){ return fanAt(fig.fan, b); }, tgt, fig.gain);
+  return fig;
+}
+// The shot a cut throws: what the severed wood held, up to what the trunk can
+// channel, times the speed of the barrel behind the cut and the gain of the
+// grafts, gathered into a front by the fan nearest the cut. Nothing in the
+// wood, and there is no shot.
+function shotFrom(fig, charge, muzzle, tgt){
+  var released = Math.min(charge*S.chargeWood, fig.cap);
+  if (released <= 0.01 || !muzzle) return null;
+  var fan = fanAt(fig.fan, Math.atan2(muzzle.y, muzzle.x));
+  return makeBolt(fan, shotForce(released, muzzle.run, fig.gain), muzzle, tgt);
+}
+
+/* ══ The other mage ═══════════════════════════════════════════════════
+   A mage that plays, with the same hand you have and no other. It grows by
+   the rules you grow by, reads its own tree the way the glow reads yours,
+   bends at the speed wood can be bent, and fires by cutting. It is told
+   nothing you are not: where your core is, where your wood's weight sits,
+   how far your crown reaches, and whether your husk has split.
+   What separates one temper from another is only how much of that it uses —
+   whether it aims at all, how close it insists on passing before it lets go,
+   how early it takes hold of the stem, and how long it waits between shots.
+
+   Every temper telegraphs. The limb it means to cut is lit on its tree while
+   it works the stem round and for a beat after, with the arc the shot will
+   fly; that is the moment to shoot the loaded limb off before it fires.
+   ═══════════════════════════════════════════════════════════════════════ */
+var MINDS = {
+  still:  { name: "Still",  fires: false,
+    blurb: "Only grows. A target to practise on: it heals what you take off it and never answers." },
+  feral:  { name: "Feral",  fires: true, aimTo: 0, every: 16, windup: 3.0, first: 90, fill: 0.3,
+    blurb: "Cuts whatever glows brightest on its own tree and lets fly without aiming. Slow, and most of what it throws goes wide." },
+  keeper: { name: "Keeper", fires: true, aimTo: 0.5, aimFor: 2.5, tries: 1, every: 20, windup: 2.5, first: 75, fill: 0.45,
+    blurb: "Takes hold of a stem well before it means to fire and works it round toward your heartwood, but gives up on an aim early and waits a long time between shots." },
+  master: { name: "Master", fires: true, aimTo: 0.5, aimFor: 6, tries: 2, every: 14, windup: 1.6, first: 60, fill: 0.6,
+    blurb: "Chooses its limb early and will not let go of the stem until the arc runs into your heartwood. Fires often, and does not miss by much." }
+};
+var MIND_ORDER = ["still", "feral", "keeper", "master"];
+
+function newMind(level, seed){
+  var lv = MINDS[level] || MINDS.keeper;
+  return { level: MINDS[level] ? level : "keeper", lv: lv, state: "grow",
+           wait: lv.first || 0, seed: (seed || 1) >>> 0, limb: null, peri: 1e9,
+           acc: 0, t: 0, shots: 0, idle: 0, fig: {} };
+}
+function mindRnd(M){
+  M.seed = (Math.imul(M.seed, 1103515245) + 12345) >>> 0;
+  return (M.seed >>> 8) / 16777216;
+}
+function mindReset(M, wait){ M.state = "grow"; M.limb = null; M.wait = wait; M.peri = 1e9; }
+
+// Whatever the glow says is brightest: the biggest shot that is not mostly
+// waste and would land. A mind that aims then works that stem round to land
+// it better. Never a limb
+// carrying more than a third of the tree's green wood: a mage that fires its
+// own crown away has nothing left to fire with, or to hide behind.
+function mindPick(W, M){
+  var best = null, bv = 0, i, n, root = W.nodes.get(W.roots[0]);
+  var most = root ? 0.35*root.sub : 0;
+  for (i = 0; i < W.list.length; i++){
+    n = W.list[i];
+    if (n.parent === null || !n.children.length || n.loop || n.sub > most) continue;
+    if (n.eff > bv){ bv = n.eff; best = n; }
+  }
+  return best;
+}
+// How close the shot out of this limb would pass the enemy core. A slow shot
+// launched backwards can still be captured and fall in on the far side, and
+// the closed form will say so; but a hand that hauls a whole sapling round to
+// fire over its own shoulder is not playing the game you are. So a stem
+// pointed more than 60° off the line to the other pot counts as badly aimed
+// in proportion to how far off it is, and the climb pulls it back first.
+function mindPeri(W, limb, tgt){
+  bestSpire(W);
+  var mz = muzzleFor(W, limb);
+  var off = Math.abs(wrapA(mz.dir - Math.atan2(-mz.y, S.coreSep - mz.x)));
+  return periapsis(mz, tgt) + Math.max(0, off - Math.PI/3)*S.coreSep;
+}
+
+// Repeated pulls can walk green wood a long way round, and a hand with no
+// taste would coil a sapling into a spring to shave a few units off a pass.
+// This one never keeps a joint more than a few degrees from the angle it grew
+// at: summed down a long limb that is still a real sweep, but it bends the way
+// a tree someone kept is bent, not the way a clock spring is.
+var HAND_DEG = 5;
+function handPull(n, rel){
+  var k = HAND_DEG*D2R;
+  return n.rel0 + Math.max(-k, Math.min(k, wrapA(rel - n.rel0)));
+}
+
+// The wood the other mage's hand works on: the stem behind the cut and the
+// dozen joints under it, not the whole chain down to the pot. A hand that
+// hauls on everything between the tip and the trunk aims one limb by leaning
+// the whole tree, and a tree aimed that way a hundred times is a bent wreck.
+function aimGrip(W, n){
+  var g = bendGroup(W, n);
+  return g.length > 12 ? g.slice(0, 12) : g;
+}
+
+// Aiming, the way a hand aims: take hold of the stem behind the limb you mean
+// to cut and walk its tip sideways, watching where the shot would pass. While
+// the pass keeps closing, keep going that way; when it stops closing, try the
+// other way; after a few reversals the stem is as well aimed as this hand is
+// going to get it. The wood moves at the wood's pace, so aiming costs seconds,
+// and the seconds are what you can shoot it in.
+function mindAim(W, M, dt){
+  var p = M.limb.parent === null ? null : W.nodes.get(M.limb.parent);
+  if (!p){ M.done = true; return; }
+  // changing its mind costs it the walk back, at the same rate
+  if (M.easing){
+    if (easeChain(M.keep, M.kept, S.bendRate*D2R*dt)){
+      M.easing = false; M.hand = null;
+      if (M.pending){ M.pending = false; M.done = true; }
+    }
+    layout(W);
+    return;
+  }
+  var ax = p.x1 - p.x0, ay = p.y1 - p.y0, L = Math.hypot(ax, ay) || 1;
+  if (!M.hand){ M.hand = [p.x1, p.y1]; M.dir = 1; M.flips = M.flips || 0; M.stuck = 0; }
+  // its hand travels at the same speed yours does
+  var step = S.handSpeed*dt;
+  M.hand[0] += -ay/L*step*M.dir; M.hand[1] += ax/L*step*M.dir;
+  var g = aimGrip(W, p);
+  reachChain(g, M.hand[0], M.hand[1], S.bendRate*D2R*dt);
+  // taste is applied as it bends, not afterwards: what it aims is what it keeps
+  for (var i = 0; i < g.length; i++) g[i].rel = handPull(g[i], g[i].rel);
+  layout(W);
+  var now = mindPeri(W, M.limb, M.tgt);
+  if (now < M.peri - 1e-4){
+    M.peri = now; M.stuck = 0;
+    // the best the stem has been so far, to come back to: walking past the
+    // best line and keeping where you stopped is worse than not walking
+    var g = bendGroup(W, p);
+    M.keep = g; M.kept = g.map(function(n){ return n.rel; });
+  }
+  else if (++M.stuck > 6){                        // this way is not working
+    M.dir = -M.dir; M.stuck = 0; M.hand = null;
+    M.pending = ++M.flips >= (M.lv.tries || 2);   // and this was the last try
+    M.easing = !!(M.keep && M.kept);              // so walk back to the best line
+    if (!M.easing && M.pending){ M.pending = false; M.done = true; }
+  }
+  if (M.peri <= M.lv.aimTo*S.coreR){ M.easing = false; M.done = true; }
+}
+// What the hand got out of the wood is what the wood keeps, on either side.
+function mindKeep(W, M){
+  if (!M.limb) return;
+  var p = M.limb.parent === null ? null : W.nodes.get(M.limb.parent);
+  if (!p) return;
+  M.keep = null; M.kept = null; M.easing = false;
+  var g = aimGrip(W, p);
+  for (var i = 0; i < g.length; i++) g[i].rest = g[i].rel;
+  layout(W);
+}
+
+// One tick of the other mage's hand. Returns the shot, if it fired one, in
+// its own frame; the caller puts it in the air. `X` is the tree it is shooting
+// at (or that tree already read by targetOf), of which it takes only what the
+// glow takes of yours: where its weight sits, how far it reaches, and whether
+// its husk has split.
+function mindStep(W, M, dt, X){
+  if (!M || !M.lv.fires || !W.roots.length) return null;
+  M.tgt = X && X.fx !== undefined ? X : targetOf(X);
+  var alive = M.limb && W.nodes.has(M.limb.id) &&
+              (M.limb.parent === null || W.nodes.has(M.limb.parent));
+  M.t += dt;
+  M.wait -= dt;                                   // the clock runs in every state
+  if (M.state === "grow"){
+    // It takes hold of the stem well before it is ready to fire, because wood
+    // moves at the speed wood moves: a hand that waits for the moment and only
+    // then starts bending has already missed it. That is also why you get so
+    // long a look at the limb it means to cut.
+    var lead = (M.lv.aimTo ? (M.lv.aimFor || 6) : 0) + M.lv.windup;
+    if (M.wait > lead) return null;
+    figuresOf(W, M.fig, M.tgt);
+    var limb = M.fig.fan ? mindPick(W, M) : null;
+    // A shot out of a limb that holds a fraction of what the trunk could
+    // channel is mostly a way of pruning yourself. It lets the tree fill
+    // first — up to a point: past twice its usual wait it takes what there is.
+    var full = limb && limb.sub*S.chargeWood >= M.lv.fill*M.fig.cap;
+    if (!limb || (!full && M.idle < M.lv.every*2)){ M.idle += 3; M.wait = Math.max(M.wait, 3); return null; }
+    M.idle = 0;
+    M.limb = limb; M.t = 0; M.acc = 0; M.done = false; M.hand = null;
+    M.easing = false; M.pending = false; M.flips = 0;
+    M.peri = M.p0 = mindPeri(W, limb, M.tgt);
+    // the line it starts from is the line to beat: an aim that finds nothing
+    // better walks back to it rather than keeping where it wandered to
+    var pp = limb.parent === null ? null : W.nodes.get(limb.parent);
+    M.keep = pp ? aimGrip(W, pp) : null;
+    M.kept = M.keep ? M.keep.map(function(n){ return n.rel; }) : null;
+    M.state = M.lv.aimTo ? "aim" : "ready";
+    return null;
+  }
+  if (!alive){ mindReset(M, 2); return null; }   // you shot it off: start again
+  if (M.state === "aim"){
+    if (M.peri <= M.lv.aimTo*S.coreR) M.done = true;
+    else mindAim(W, M, dt);
+    // out of time, and not better than it started: walk back and take the shot
+    if (!M.done && !M.easing && M.t > (M.lv.aimFor || 6) && M.keep){
+      M.easing = true; M.pending = true;
+    }
+    if (M.done || M.t > (M.lv.aimFor || 6) + 3){
+      mindKeep(W, M);                              // it lets go, and the wood keeps it
+      M.state = "ready"; M.t = 0; M.acc = 0;
+    }
+    return null;
+  }
+  // ready: the limb is lit and the arc is drawn, and then, on the beat, it cuts
+  if (M.t < M.lv.windup || M.wait > 0) return null;
+  figuresOf(W, M.fig, M.tgt);
+  // what it predicted when it chose the limb, against what it is firing
+  M.p1 = mindPeri(W, M.limb, M.tgt);
+  var st = M.stat || (M.stat = { shots: 0, pass0: 0, pass1: 0, better: 0, worse: 0 });
+  st.shots++; st.pass0 += M.p0; st.pass1 += M.p1;
+  if (M.p1 < M.p0 - 0.5) st.better++; else if (M.p1 > M.p0 + 0.5) st.worse++;
+  var charge = greenOf(W, M.limb), muzzle = muzzleFor(W, M.limb);
+  cutNode(W, M.limb); layout(W);
+  var bolt = shotFrom(M.fig, charge, muzzle, M.tgt);
+  M.shots++;
+  mindReset(M, M.lv.every*(0.85 + 0.3*mindRnd(M)));
+  return bolt;
+}
+/*END SIM*/
+
+/* ══════════════════════════════════════════════════════════════════════
+   Interface
+   ══════════════════════════════════════════════════════════════════════ */
+var T = newTree(0);
+var paused = false, speed = 1, hover = null, drag = null, slice = null;
+var hoverPair = null, fuse = null;
+var view = {scale:1, cx:0, cy:0, fx:0, fy:0}, flash = [];
+
+var cv = document.getElementById("c"), ctx = cv.getContext("2d");
+function DPR(){ return window.devicePixelRatio || 1; }
+function fit(){ var d = DPR(); cv.width = innerWidth*d; cv.height = innerHeight*d; }
+addEventListener("resize", fit); fit();
+cv.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+
+function toWorld(cx, cy){
+  var d = DPR();
+  return { x:(cx*d - view.cx)/view.scale + view.fx, y:(cy*d - view.cy)/view.scale + view.fy };
+}
+function ptSeg(px,py,ax,ay,bx,by){
+  var dx=bx-ax, dy=by-ay, L=dx*dx+dy*dy, t = L ? ((px-ax)*dx+(py-ay)*dy)/L : 0;
+  t = t<0?0:t>1?1:t;
+  return Math.hypot(px-(ax+dx*t), py-(ay+dy*t));
+}
+function cross(ax,ay,bx,by,cx2,cy2,dx2,dy2){
+  function o(px,py,qx,qy,rx,ry){ return (qy-py)*(rx-qx)-(qx-px)*(ry-qy); }
+  var d1=o(ax,ay,bx,by,cx2,cy2), d2=o(ax,ay,bx,by,dx2,dy2),
+      d3=o(cx2,cy2,dx2,dy2,ax,ay), d4=o(cx2,cy2,dx2,dy2,bx,by);
+  return ((d1>0)!==(d2>0)) && ((d3>0)!==(d4>0));
+}
+function nodeAt(w, pad){
+  var best = null, bd = pad;
+  for (var i = 0; i < T.list.length; i++){
+    var n = T.list[i];
+    var d = ptSeg(w.x, w.y, n.x0, n.y0, n.x1, n.y1);
+    if (d < bd + n.thick*0.5){ bd = d; best = n; }
+  }
+  return best;
+}
+// The tip of a living shoot, for grabbing. Grafting is a hand gesture, so it
+// has to be possible to take hold of the thing you mean to fuse: pressing
+// anywhere near a leaf takes that shoot, not whatever segment happens to lie
+// under the pixel. A tip the board is pointing at wins over a nearer one it is
+// not — in a dense crown the press lands among several, and the hinted one is
+// the one you meant.
+function tipAt(w, r){
+  var best = null, bd = r, hinted = null, hd = r;
+  for (var i = 0; i < T.list.length; i++){
+    var n = T.list[i]; if (!n.bud || n.mate !== null) continue;
+    var d = Math.hypot(w.x-n.x1, w.y-n.y1);
+    if (d < bd){ bd = d; best = n; }
+    if (d < hd && partnerOf(n)){ hd = d; hinted = n; }
+  }
+  return hinted || best;
+}
+// the other half of a hinted pair, if this tip is in one
+function partnerOf(n){
+  for (var i = 0; i < PAIRS.length; i += 2){
+    if (PAIRS[i] === n) return PAIRS[i+1];
+    if (PAIRS[i+1] === n) return PAIRS[i];
+  }
+  return null;
+}
+// What the tip in your hand will fuse with: the partner the board offered,
+// while it is in reach — holding a hinted tip has to close the circuit that was
+// hinted, not a lens with whichever sibling happens to sit nearer — and
+// otherwise the nearest tip you have brought it to. Scanned live off the tree,
+// so it keeps up with cuts and with the tip you are dragging.
+function graftTarget(n, hx, hy){
+  if (!n || !n.bud || n.mate !== null || !T.nodes.has(n.id)) return null;
+  // The partner has to be where your hand is, not merely near the tip you are
+  // holding: in a crowded crown every tip has a neighbour within reach, and a
+  // bend that fused itself because you paused would make the crown unworkable.
+  var near = function(o){ return hx === undefined ||
+    Math.hypot(o.x1-hx, o.y1-hy) < S.graftR; };
+  var o = partnerOf(n);
+  if (o && T.nodes.has(o.id) && o.bud && o.mate === null && near(o) &&
+      Math.hypot(o.x1-n.x1, o.y1-n.y1) < S.graftR) return o;
+  var best = null, bd = S.graftR;
+  for (var i = 0; i < T.list.length; i++){
+    o = T.list[i];
+    if (o === n || !o.bud || o.mate !== null) continue;
+    if (o.id === n.parent || n.id === o.parent) continue;
+    if (!near(o)) continue;
+    var d = Math.hypot(o.x1-n.x1, o.y1-n.y1);
+    if (d < bd){ bd = d; best = o; }
+  }
+  return best;
+}
+// The pairs worth fusing, for the board to point out: you cannot build a
+// circuit you cannot see the makings of. Two conditions, and the second matters
+// more than the first — a crowded rim puts hundreds of tips within reach of each
+// other and almost every one of those pairs closes a lens worth nothing, so a
+// pair is only drawn if the circuit it would close is worth drawing. Bucketed by
+// the fusing reach, because a thousand-tip canopy is half a million pairs.
+var PAIRS = [], PTIPS = [], PCELL = new Map(), PCAND = [], PUSED = new Set();
+function graftablePairs(){
+  PAIRS.length = 0; PTIPS.length = 0; PCAND.length = 0; PCELL.clear(); PUSED.clear();
+  var c = Math.max(1, S.graftR), i, j, di, dj, n, o, a;
+  for (i = 0; i < T.list.length; i++){
+    n = T.list[i];
+    if (!n.bud || n.mate !== null) continue;
+    PTIPS.push(n);
+    var k = (Math.floor(n.x1/c)*73856093) ^ (Math.floor(n.y1/c)*19349663);
+    a = PCELL.get(k); if (!a){ a = []; PCELL.set(k, a); }
+    a.push(n);
+  }
+  for (i = 0; i < PTIPS.length; i++){
+    n = PTIPS[i];
+    var ix = Math.floor(n.x1/c), iy = Math.floor(n.y1/c);
+    for (di = -1; di <= 1; di++) for (dj = -1; dj <= 1; dj++){
+      a = PCELL.get(((ix+di)*73856093) ^ ((iy+dj)*19349663));
+      if (!a) continue;
+      for (j = 0; j < a.length; j++){
+        o = a[j];
+        if (o.id <= n.id || o.id === n.parent || n.id === o.parent) continue;
+        if (Math.hypot(o.x1-n.x1, o.y1-n.y1) >= S.graftR) continue;
+        var ar = circuitArea(T, n, o);
+        if (ar < S.pairFloor*S.coreR*S.coreR) continue;
+        PCAND.push({ a:n, b:o, area:ar });
+      }
+    }
+  }
+  // Neighbouring pairs along a seam all close much the same circuit, so
+  // drawing every one of them is a thicket rather than a hint. Best first,
+  // never two that share a tip, and only a handful: these are the circuits
+  // actually on offer, not every graft the wood would tolerate.
+  PCAND.sort(function(x, y){ return y.area - x.area; });
+  for (i = 0; i < PCAND.length && PAIRS.length < S.pairShow*2; i++){
+    var c = PCAND[i];
+    if (PUSED.has(c.a.id) || PUSED.has(c.b.id)) continue;
+    PUSED.add(c.a.id); PUSED.add(c.b.id);
+    PAIRS.push(c.a, c.b);
+  }
+  return PAIRS;
+}
+// The hint under the pointer. The line itself is the handle: you do not have to
+// find either tip in the leaves, only the stroke the board drew between them,
+// and a press anywhere along it takes the pair. Nearest line wins; the list is
+// best first, so a tie goes to the better circuit.
+function pairAt(w, r){
+  var best = null, bd = r;
+  for (var i = 0; i < PAIRS.length; i += 2){
+    var a = PAIRS[i], b = PAIRS[i+1];
+    var dx = b.x1-a.x1, dy = b.y1-a.y1, L2 = dx*dx + dy*dy || 1;
+    var t = Math.max(0, Math.min(1, ((w.x-a.x1)*dx + (w.y-a.y1)*dy)/L2));
+    var d = Math.hypot(w.x - a.x1 - t*dx, w.y - a.y1 - t*dy);
+    if (d < bd){ bd = d; best = { a:a, b:b }; }
+  }
+  if (best){
+    best.area = circuitArea(T, best.a, best.b);
+    walkCircuit(T, best.a, best.b);
+    best.walk = LWALK.slice();               // the wood the circuit would run through
+    best.gain = loopAmp(FIG.area + best.area);
+  }
+  return best;
+}
+// A pair stays fusable while both tips are alive, unfused and still in reach —
+// a little beyond the reach that offered it, so a tip swaying in the wind does
+// not snatch the pair back out of your hand.
+function pairLive(pr){
+  if (!pr) return false;
+  var a = pr.a, b = pr.b;
+  return T.nodes.has(a.id) && T.nodes.has(b.id) && a.bud && b.bud &&
+         a.mate === null && b.mate === null &&
+         Math.hypot(a.x1-b.x1, a.y1-b.y1) < S.graftR*1.25;
+}
+
+/* ── input ─────────────────────────────────────────────────────────── */
+cv.addEventListener("pointerdown", function(e){
+  try { cv.setPointerCapture(e.pointerId); } catch (err) {}
+  var w = toWorld(e.clientX, e.clientY);
+  if (T.hp !== undefined && T.hp <= 0) return;      // a spent mage has no hand
+  if (T.mind) return;                               // nor one you are only watching
+  // Pressing on a hinted loop takes the pair and fuses it where it stands: hold
+  // still until the ring fills. Nothing moves, so there is nothing to aim.
+  var pr = e.button === 2 ? null : pairAt(w, 7/view.scale);
+  if (pr){ fuse = { a:pr.a, b:pr.b, gain:pr.gain, h:0, x:w.x, y:w.y, button:e.button };
+           hoverPair = pr; return; }
+  startGesture(w, e.button);
+});
+// A bend if the press lands on wood, a stroke of the blade if it lands in air.
+function startGesture(w, button){
+  var n = button === 2 ? null
+        : (tipAt(w, 13/view.scale) || nodeAt(w, 9/view.scale));
+  if (n){
+    var g = bendGroup(T, n), pli = 0;
+    for (var i = 0; i < g.length; i++) pli += bendLimit(g[i]);
+    if (pli < 0.02){ flash.push({x:n.x1, y:n.y1, t:0.6, kind:"rigid"}); return; }
+    drag = { node:n, group:g, px:w.x, py:w.y, tx:n.x1, ty:n.y1, lx:w.x, ly:w.y, graft:null, gh:0,
+             held: new Set(g.map(function(m){ return m.id; })), follow: new Set() };
+  } else {
+    slice = { pts:[[w.x, w.y]], victims:[], charge:0, muzzle:null, heaviest:0, breaks:0 };
+  }
+}
+
+// What this stroke would take, measured against the tree as it stands. The
+// blade does not bite until you let go, so the limbs it will sever, the charge
+// they hold and the arc the shot would fly are all on the board before you
+// commit to any of it. That is the whole of aiming: you cannot hover a thing
+// you are about to slash at, so the stroke itself has to be the cursor.
+function sliceReview(){
+  var seen = slice.seen || (slice.seen = new Set());
+  var pts = slice.pts, i, k, n;
+  seen.clear(); slice.victims.length = 0;
+  slice.charge = 0; slice.heaviest = 0; slice.muzzle = null; slice.breaks = 0;
+  if (pts.length < 2) return;
+  for (i = 0; i < T.list.length; i++){
+    n = T.list[i];
+    if (n.parent === null) continue;        // your own blade spares the trunk
+    for (k = 1; k < pts.length; k++){
+      if (!cross(pts[k-1][0], pts[k-1][1], pts[k][0], pts[k][1],
+                 n.x0, n.y0, n.x1, n.y1)) continue;
+      slice.victims.push(n); seen.add(n.id);
+      if (n.loop) slice.breaks++;
+      break;
+    }
+  }
+  // a limb already doomed by a cut further in adds nothing of its own
+  for (i = 0; i < slice.victims.length; i++){
+    n = slice.victims[i];
+    var q = n.parent === null ? null : T.nodes.get(n.parent), shadowed = false;
+    while (q){ if (seen.has(q.id)){ shadowed = true; break; }
+               q = q.parent === null ? null : T.nodes.get(q.parent); }
+    if (shadowed) continue;
+    var vg = greenOf(T, n);
+    slice.charge += vg;
+    if (vg >= slice.heaviest){       // the greenest limb is the one that fires
+      slice.heaviest = vg;
+      slice.muzzle = muzzleFor(T, n);
+    }
+  }
+}
+
+cv.addEventListener("pointermove", function(e){
+  var w = toWorld(e.clientX, e.clientY);
+  if (fuse){
+    // Moving off the press means you wanted the wood or the blade after all:
+    // the gesture begins again from where you pressed, as if the hint were not
+    // there, and carries on to where the pointer is now.
+    if (Math.hypot(w.x-fuse.x, w.y-fuse.y) < 9/view.scale) return;
+    var at = { x:fuse.x, y:fuse.y }, bt = fuse.button;
+    fuse = null; hoverPair = null;
+    startGesture(at, bt);
+  }
+  if (drag){ drag.px = w.x; drag.py = w.y; return; }
+  if (slice){
+    var last = slice.pts[slice.pts.length-1];
+    if (Math.hypot(w.x-last[0], w.y-last[1]) < 1.2/view.scale) return;
+    slice.pts.push([w.x, w.y]);
+    if (slice.pts.length > 120) slice.pts.shift();
+    sliceReview();
+    return;
+  }
+  hoverPair = pairAt(w, 7/view.scale);
+  hover = hoverPair ? null : nodeAt(w, 9/view.scale);
+  cv.style.cursor = hoverPair ? "pointer" : "";
+});
+
+
+// One damped pass per frame. The joint you gripped is the handle, and each
+// joint takes a share of the error in proportion to how freely it gives, so
+// the chain moves as one piece rather than every joint lunging at the whole
+// correction and the limb overshooting by a factor of N.
+/* Your grip does not jump to the pointer and the wood does not jump to the
+   grip. The hand travels at a fixed speed through the world, dragging the
+   wood after it at the wood's own rate, so moving a limb from here to there
+   takes the time the distance costs — which is the whole price of a bend. */
+function solveBend(dt){
+  if (!T.nodes.has(drag.group[0].id)){ drag = null; return; }
+  var dx = drag.px - drag.tx, dy = drag.py - drag.ty, d = Math.hypot(dx, dy);
+  var step = S.handSpeed*dt;
+  if (d > step){ drag.tx += dx/d*step; drag.ty += dy/d*step; }
+  else { drag.tx = drag.px; drag.ty = drag.py; }
+  reachChain(drag.group, drag.tx, drag.ty, S.bendRate*D2R*dt);
+}
+
+// What the hand got out of the wood is what the wood keeps.
+function setPull(g){
+  if (!Array.isArray(g)) g = Array.from(g);
+  for (var i = 0; i < g.length; i++)
+    if (T.nodes.has(g[i].id)) g[i].rest = g[i].rel;
+}
+
+// The blade bites on release. Everything it will take has been lit up while
+// you drew the stroke; this is the moment you agreed to it.
+function endPointer(){
+  fuse = null;              // let go before the ring fills and nothing is fused
+  if (slice){
+    var charge = slice.charge, muzzle = slice.muzzle, v = slice.victims;
+    for (var i = 0; i < v.length; i++){
+      if (!T.nodes.has(v[i].id)) continue;
+      flash.push({x:v[i].x0, y:v[i].y0, t:0.45, kind:"cut"});
+      cutNode(T, v[i]);
+    }
+    if (v.length) layout(T);
+    if (charge > 0) fireFromCut(charge, muzzle);
+    slice = null;
+  }
+  if (drag){
+    // A pull is limited, not a hold: to take a limb further you let go and
+    // take hold of it again.
+    setPull(drag.group); setPull(drag.follow);
+    drag = null;
+  }
+  hover = null;
+}
+cv.addEventListener("pointerup", endPointer);
+cv.addEventListener("pointercancel", endPointer);
+addEventListener("keydown", function(e){
+  if (choosing){
+    if (e.key === "Enter"){ plantChosen(); e.preventDefault(); }
+    if (e.key === "Escape" && chooserCancel) closeChooser();
+    return;
+  }
+  if (e.code === "Space"){ paused = !paused; e.preventDefault(); }
+  if (e.key === "r" || e.key === "R") openChooser(true);
+  // the tuning drawer is for development and has no button
+  if (e.key === "t" || e.key === "T") document.getElementById("tune").classList.toggle("hide");
+  var k = e.key.toLowerCase();
+  if (OVB[k]) OVB[k].click();
+});
+
+// The hand, every frame. The wood follows at its own rate — that is the only
+// time a bend costs, and it is enough of one, because while you hold a limb
+// you are not cutting and the rest of the tree is growing untended.
+function holdTick(dt){
+  if (fuse){
+    if (!pairLive(fuse)){ fuse = null; hoverPair = null; return; }
+    fuse.h += dt;
+    if (fuse.h >= S.graftHold){
+      makeGraft(T, fuse.a, fuse.b);
+      flash.push({x:(fuse.a.x1+fuse.b.x1)/2, y:(fuse.a.y1+fuse.b.y1)/2, t:0.8, kind:"graft"});
+      fuse = null; hoverPair = null; layout(T); measure();
+    }
+    return;
+  }
+  if (!drag) return;
+  if (!T.nodes.has(drag.node.id)){ drag = null; return; }
+  solveBend(dt);
+  if (!drag) return;
+  // a grafted limb brings its partner with it
+  bindGrafts(T, drag.held, dt, drag.follow);
+
+  // Fusing by hand happens by bringing one tip to another and stopping there.
+  // A hand still on the move is bending, not grafting — in a crowded crown
+  // every tip has a neighbour in reach, and a bend that fused itself after a
+  // second of dragging would make the crown unworkable. So the ring fills only
+  // while the pair is in reach and the hand is holding its place.
+  var moved = Math.hypot(drag.px - drag.lx, drag.py - drag.ly);
+  drag.lx = drag.px; drag.ly = drag.py;
+  drag.graft = graftTarget(drag.node, drag.px, drag.py);
+  if (drag.graft && moved < 1.5*dt*60){
+    drag.gh += dt;
+    if (drag.gh >= S.graftHold){
+      setPull(drag.group); setPull(drag.follow);
+      makeGraft(T, drag.node, drag.graft);
+      flash.push({x:drag.node.x1, y:drag.node.y1, t:0.8, kind:"graft"});
+      drag.graft = null; drag.gh = 0; drag = null; layout(T);
+      return;
+    }
+  } else drag.gh = Math.max(0, drag.gh - dt*2);
+}
+
+/*BEGIN VIEW*/
+/* ── drawing ───────────────────────────────────────────────────────── */
+var BUCKET = new Array(256), healBuf = [];
+// Thickness is quantised on a square-root scale, so fine twigs still resolve
+// and an ancient trunk can be as wide as it likes.
+function wLevel(t){ var L = Math.round(Math.sqrt(t)*3); return L < 3 ? 3 : L > 33 ? 33 : L; }
+function wOf(L){ var q = L/3; return q*q; }
+
+/* Heavy wood is drawn as a tapered quad, from the girth it inherits to the
+   girth it passes on, so a trunk flares out of the pot and narrows into the
+   first fork instead of sitting there as a brick. Only the thick minority
+   needs it; everything finer is a stroke and batches as before. */
+function taperWood(W, pal){
+  var i, n, p, t0, t1, ax, ay, bx, by, L, list = W.list;
+  for (i = 0; i < list.length; i++){
+    n = list[i];
+    if (n.thick < 4) continue;
+    p = n.parent === null ? null : W.nodes.get(n.parent);
+    t1 = n.thick/2;
+    t0 = (p ? Math.max(p.thick, n.thick) : n.thick*1.22)/2;
+    ax = n.x1 - n.x0; ay = n.y1 - n.y0;
+    L = Math.hypot(ax, ay) || 1; ax /= L; ay /= L;
+    ctx.beginPath();
+    ctx.moveTo(n.x0 - ay*t0, n.y0 + ax*t0);
+    ctx.lineTo(n.x1 - ay*t1, n.y1 + ax*t1);
+    ctx.lineTo(n.x1 + ay*t1, n.y1 - ax*t1);
+    ctx.lineTo(n.x0 + ay*t0, n.y0 - ax*t0);
+    ctx.closePath();
+    ctx.fillStyle = woodColor(stiffOf(n), pal.dim, n.thick, pal);
+    ctx.fill();
+    ctx.beginPath(); ctx.arc(n.x1, n.y1, t1, 0, 7); ctx.fill();   // round the joint
+  }
+}
+function healPoint(W, n){
+  var chain = healBuf; chain.length = 0;
+  var q = n;
+  while (q){ chain.push(q); q = q.parent === null ? null : W.nodes.get(q.parent); }
+  var d = n.healAt;
+  for (var i = chain.length-1; i >= 0; i--){
+    var m = chain[i];
+    if (d <= m.len){
+      var t = m.len ? d/m.len : 0;
+      return [m.x0 + (m.x1-m.x0)*t, m.y0 + (m.y1-m.y0)*t];
+    }
+    d -= m.len;
+  }
+  return [n.x1, n.y1];
+}
+/* Two readings in one colour. Across: how set the wood is, sap to dry. Along:
+   how much girth it has put on, which for a trunk is the whole of its power —
+   so a young stem is drab, a trunk in its prime burns, and an ancient one goes
+   down dark. You can read a mage's strength from across the field without a
+   number, which is why both sides are drawn by the same rule and only the
+   hues differ: yours is green wood going amber and then mahogany, theirs is
+   pink going purple and then a near-black violet, and both grey off as they
+   set. Nothing about the two trees is different except the paint. */
+var MINE = { sap:[132,200,98], dry:[140,124,102], prime:[206,140,58], old:[118,50,42],
+             leaf:"150,214,110", vein:"188,234,142", tip:"226,236,214",
+             dead:"140,150,128", shoot:"186,234,142", knot:"104,84,68",
+             soil:"#22271f", eye:"170,210,130", dim:1 };
+var FOE  = { sap:[238,132,186], dry:[136,130,140], prime:[176,96,204], old:[76,44,104],
+             leaf:"222,128,182", vein:"246,180,216", tip:"228,212,234",
+             dead:"138,130,144", shoot:"242,168,212", knot:"84,70,92",
+             soil:"#241f27", eye:"236,150,200", dim:0.88 };
+function mix(a, b, t, o){ o[0]=a[0]+(b[0]-a[0])*t; o[1]=a[1]+(b[1]-a[1])*t; o[2]=a[2]+(b[2]-a[2])*t; return o; }
+var cbuf = [0,0,0], cbuf2 = [0,0,0];
+function woodColor(k, a, thick, pal){
+  pal = pal || MINE;
+  var c = mix(pal.sap, pal.dry, k, cbuf);
+  if (thick > 2){
+    var ref = Math.max(2, S.girthRef);
+    var t1 = Math.min(1, (thick-2)/(ref-2));
+    c = mix(c, pal.prime, t1, cbuf2);
+    if (thick > ref) c = mix(c, pal.old, Math.min(1, (thick-ref)/(ref*1.7)), cbuf2);
+  }
+  return "rgba("+Math.round(c[0])+","+Math.round(c[1])+","+Math.round(c[2])+","+
+         (a===undefined?1:a)+")";
+}
+
+/* One tree, in whichever colours it wears. Both mages are laid out, grown,
+   thickened, wounded and healed by the same code, so they are drawn by the
+   same code too; `mine` adds the things that are only true of the tree you
+   are holding — the charge glow, the limb under your hand, the pairs of tips
+   a graft away from a circuit. */
+function drawTree(W, pal, mine){
+  var i, n, b, hp;
+
+  // The trunk does not simply leave the pot on one side. Wood is laid down
+  // around the whole core, so an old mage ends up standing in a mound of his
+  // own timber — the collar, which carries the same girth colour as the trunk
+  // and is the plainest reading of age on the board.
+  var girth = W.girth || 1;
+  var potR = Math.max(S.coreR, S.coreR*0.35 + girth*0.62);
+  var spent = W.hp !== undefined && W.hp <= 0;
+  ctx.beginPath(); ctx.arc(0,0,potR+2.5,0,7); ctx.fillStyle = pal.soil; ctx.fill();
+  var cg = ctx.createRadialGradient(0,0,potR*0.15,0,0,potR);
+  cg.addColorStop(0, woodColor(1, pal.dim, girth*1.35, pal));
+  cg.addColorStop(1, woodColor(1, pal.dim*0.92, girth*0.72, pal));
+  ctx.beginPath(); ctx.arc(0,0,potR,0,7); ctx.fillStyle = cg; ctx.fill();
+  ctx.lineWidth = 1.6/view.scale;
+  ctx.strokeStyle = spent ? "rgba(90,84,92,.5)" : "rgba(24,28,20,.55)"; ctx.stroke();
+  // The husk: a seedling's core sits inside a seed coat that takes whatever
+  // reaches it, until the trunk outgrows it and it splits.
+  if (W.husk){
+    ctx.beginPath(); ctx.arc(0, 0, S.huskR, 0, 7);
+    ctx.fillStyle = "rgba(" + pal.tip + ",.07)"; ctx.fill();
+    ctx.strokeStyle = "rgba(" + pal.vein + "," + (0.4 + (W.huskHit || 0)).toFixed(2) + ")";
+    ctx.lineWidth = (1.6 + 4*(W.huskHit || 0))/view.scale; ctx.stroke();
+  } else if (W.huskAt !== undefined && W.clock - W.huskAt < 3){
+    // splitting: the coat falls away in pieces
+    var fall = (W.clock - W.huskAt)/3;
+    ctx.strokeStyle = "rgba(" + pal.vein + "," + (0.5*(1 - fall)).toFixed(2) + ")";
+    ctx.lineWidth = 1.6/view.scale;
+    for (var hq = 0; hq < 6; hq++){
+      var ha = hq*Math.PI/3 + 0.2;
+      ctx.beginPath(); ctx.arc(0, 0, S.huskR*(1 + fall*0.8), ha, ha + 0.7); ctx.stroke();
+    }
+  }
+  if (!spent){
+    // the core itself, dimming as it is spent
+    var lit = W.hp === undefined ? 1 : W.hp/W.hpMax;
+    ctx.beginPath(); ctx.arc(0,0,Math.max(2.4, S.coreR*0.42),0,7);
+    ctx.fillStyle = "rgba(" + pal.eye + "," + (0.08 + 0.20*lit).toFixed(2) + ")"; ctx.fill();
+  }
+
+  // wood, batched into a fixed grid of stiffness x width
+  for (i = 0; i < 256; i++) BUCKET[i] = null;
+  for (i = 0; i < W.list.length; i++){
+    n = W.list[i];
+    if (n.thick >= 4) continue;                 // the heavy wood is tapered below
+    var k = (stiffOf(n)*7)|0; if (k > 7) k = 7;
+    b = k*34 + wLevel(n.thick);
+    if (!BUCKET[b]) BUCKET[b] = new Path2D();
+    BUCKET[b].moveTo(n.x0, n.y0); BUCKET[b].lineTo(n.x1, n.y1);
+  }
+  ctx.lineCap = "round";
+  for (i = 0; i < 256; i++){
+    if (!BUCKET[i]) continue;
+    var lw = wOf(i % 34);
+    ctx.strokeStyle = woodColor(((i/34)|0)/7, pal.dim, lw, pal);
+    ctx.lineWidth = lw; ctx.stroke(BUCKET[i]);
+  }
+  taperWood(W, pal);
+
+  // fused junctions
+  for (i = 0; i < W.grafts.length; i++){
+    n = W.nodes.get(W.grafts[i]);
+    if (!n || !n.slave) continue;
+    var ma = W.nodes.get(n.mate); if (!ma) continue;
+    var rr = Math.max(1.6, (n.thick + ma.thick)*0.42);
+    ctx.beginPath(); ctx.arc(ma.x1, ma.y1, rr, 0, 7);
+    ctx.fillStyle = woodColor(Math.min(1, stiffOf(ma)+0.2), 1, ma.thick, pal); ctx.fill();
+    if (n.gstrain > S.graftStrain*0.45){
+      ctx.beginPath(); ctx.arc(ma.x1, ma.y1, rr+2.5, 0, 7);
+      ctx.strokeStyle = "rgba(217,123,90,"+Math.min(.9, n.gstrain/S.graftStrain).toFixed(2)+")";
+      ctx.lineWidth = 1.6; ctx.stroke();
+    }
+  }
+
+  if (mine) drawGlow();
+
+  // a healing shoot climbing its stem
+  for (i = 0; i < W.list.length; i++){
+    n = W.list[i]; if (n.healGoal <= 0) continue;
+    hp = healPoint(W, n);
+    ctx.beginPath(); ctx.arc(hp[0], hp[1], 2.2 + 2.4*(n.healAt/n.healGoal), 0, 7);
+    ctx.fillStyle = "rgba(" + pal.shoot + ",.85)"; ctx.fill();
+  }
+  for (i = 0; i < W.list.length; i++){
+    n = W.list[i]; if (!n.cracked) continue;
+    ctx.beginPath(); ctx.arc((n.x0+n.x1)/2, (n.y0+n.y1)/2, Math.max(1.2, n.thick*0.55), 0, 7);
+    ctx.fillStyle = "rgba(" + pal.knot + ",.9)"; ctx.fill();
+  }
+
+  if (mine) drawHand();
+
+  // A tip that has stopped growing: a bare stub the blade left, or half of a
+  // fused junction. It still counts toward a fan, so it is drawn.
+  for (i = 0; i < W.list.length; i++){
+    n = W.list[i];
+    if (n.bud || n.children.length) continue;
+    ctx.beginPath(); ctx.arc(n.x1, n.y1, 2.1, 0, 7);
+    ctx.fillStyle = "rgba(" + pal.tip + ",.55)"; ctx.fill();
+  }
+
+  // buds: leaf size is that tip's share of the budget
+  for (i = 0; i < W.list.length; i++){
+    n = W.list[i]; if (!n.bud) continue;
+    if (n.share <= 0){
+      ctx.beginPath(); ctx.arc(n.x1,n.y1,1.4,0,7);
+      ctx.fillStyle = "rgba(" + pal.dead + ",.5)"; ctx.fill();
+    } else {
+      leaf(n.x1, n.y1, n.abs, Math.min(7, 1.2 + 5.2*Math.pow(n.share, 0.4)), pal);
+    }
+  }
+
+  // Two tips within reach of each other are a loop waiting to be closed, and a
+  // loop is the only thing on the tree worth more than the wood in it. The
+  // board says so rather than leaving you to discover it by accident: press on
+  // the line and hold.
+  if (mine && SHOW.loops && PAIRS.length){
+    var pr = PAIRS;
+    ctx.setLineDash([2.5/view.scale, 3.5/view.scale]);
+    for (i = 0; i < pr.length; i += 2){
+      var rank = 1 - (i/2)/Math.max(1, pr.length/2);     // best first
+      ctx.beginPath();
+      ctx.moveTo(pr[i].x1, pr[i].y1); ctx.lineTo(pr[i+1].x1, pr[i+1].y1);
+      ctx.strokeStyle = "rgba(150,200,235," + (0.34 + 0.5*rank).toFixed(2) + ")";
+      ctx.lineWidth = (1.1 + 1.1*rank)/view.scale;
+      ctx.stroke();
+    }
+    ctx.setLineDash([]);
+    // a bead at the middle of each, which is where you press: a dashed line
+    // among the leaves is easy to lose, a lit point is not
+    for (i = 0; i < pr.length; i += 2){
+      var rk = 1 - (i/2)/Math.max(1, pr.length/2);
+      ctx.beginPath();
+      ctx.arc((pr[i].x1+pr[i+1].x1)/2, (pr[i].y1+pr[i+1].y1)/2, (2.2 + 1.6*rk)/view.scale, 0, 7);
+      ctx.fillStyle = "rgba(170,215,240," + (0.5 + 0.45*rk).toFixed(2) + ")"; ctx.fill();
+      ctx.strokeStyle = "rgba(14,20,26,.8)"; ctx.lineWidth = 1/view.scale; ctx.stroke();
+    }
+  }
+}
+
+// The light in the wood, and three readings at once. Brightness is how big a
+// shot a cut there throws, colour is where that shot ends up, and the width of
+// the halo is the width of the front it would carry. Read together: a pale limb
+// burning bright and thin is a killing blow; a broad green wash is a swathe off
+// their canopy. Wood carrying a circuit scores zero and stays dark.
+function drawGlow(){
+  if (!SHOW.charge || FIG.topVal <= 0.02) return;
+  var i, n, b;
+  ctx.save();
+  ctx.globalCompositeOperation = "lighter";
+  ctx.lineCap = "round";
+  for (i = 0; i < 36; i++) BUCKET[i] = null;
+  for (i = 0; i < T.list.length; i++){
+    n = T.list[i];
+    // square root, so the middle of the range is visible and you are
+    // choosing among candidates rather than being shown the single best
+    var v = Math.sqrt(n.eff/FIG.topVal);
+    if (v < 0.30) continue;
+    var lv = Math.min(5, ((v - 0.30)/0.70*6)|0);            // brightness
+    var hv = n.peri <= S.coreR*1.6 ? 0                      // into the heartwood
+           : n.reach > 0.30        ? 1                      // into their canopy
+                                   : 2;                     // past them
+    var wv = n.front < 26 ? 0 : n.front < 70 ? 1 : 2;        // the front it carries
+    b = (hv*3 + wv)*6 + lv;
+    if (!BUCKET[b]) BUCKET[b] = new Path2D();
+    BUCKET[b].moveTo(n.x0, n.y0); BUCKET[b].lineTo(n.x1, n.y1);
+  }
+  for (i = 0; i < 36; i++){
+    if (!BUCKET[i]) continue;
+    var lv2 = i % 6, wv2 = ((i/6)|0) % 3, hv2 = ((i/18)|0);
+    var col = hv2 === 0 ? "255,238,198" : hv2 === 1 ? "150,226,116" : "120,150,190";
+    var a = (hv2 === 2 ? 0.02 : 0.045) + (hv2 === 2 ? 0.05 : 0.15)*(lv2/5);
+    ctx.strokeStyle = "rgba(" + col + "," + a.toFixed(3) + ")";
+    ctx.lineWidth = (wv2 === 0 ? 2.0 : wv2 === 1 ? 5.0 : 10.0) + 3.5*(lv2/5);
+    ctx.stroke(BUCKET[i]);
+  }
+  ctx.restore();
+}
+
+function traceSeg(n){ ctx.moveTo(n.x0, n.y0); ctx.lineTo(n.x1, n.y1); }
+
+// Whatever your hand is on: the limb you are bending, or the wood the stroke
+// you are drawing would take, or the limb under an idle cursor.
+function drawHand(){
+  var i;
+  if (drag){
+    ctx.strokeStyle = "rgba(226,236,214,.55)"; ctx.lineWidth = 1.4;
+    var bp = new Path2D();
+    for (i = 0; i < drag.group.length; i++){
+      var m = drag.group[i]; bp.moveTo(m.x0,m.y0); bp.lineTo(m.x1,m.y1);
+    }
+    ctx.stroke(bp);
+  } else if (slice && slice.victims.length){
+    // Everything the stroke will take, lit while you can still change your
+    // mind. The blade does not bite until you let go.
+    ctx.beginPath();
+    below(T, slice.victims, traceSeg);
+    ctx.lineWidth = 1.4/view.scale; ctx.strokeStyle = "rgba(226,150,110,.55)"; ctx.stroke();
+    ctx.beginPath();
+    for (i = 0; i < slice.victims.length; i++){
+      var sv = slice.victims[i];
+      ctx.moveTo(sv.x0, sv.y0); ctx.lineTo(sv.x1, sv.y1);
+    }
+    ctx.lineWidth = 3.2/view.scale;
+    ctx.strokeStyle = slice.breaks ? "rgba(255,120,110,.95)" : "rgba(240,170,120,.95)";
+    ctx.stroke();
+  } else if (hover && T.nodes.has(hover.id)){
+    // everything you would lose by cutting here, so the price is as visible
+    // as the payoff
+    ctx.beginPath();
+    below(T, hover, traceSeg);
+    ctx.lineWidth = 1.2; ctx.strokeStyle = "rgba(226,236,214,.45)"; ctx.stroke();
+    ctx.beginPath(); ctx.moveTo(hover.x0,hover.y0); ctx.lineTo(hover.x1,hover.y1);
+    ctx.lineWidth = hover.thick+1.6; ctx.strokeStyle="rgba(226,236,214,.9)"; ctx.stroke();
+  }
+}
+
+var FRAME = {};
+function draw(){
+  var W = cv.width, H = cv.height;
+  var g = ctx.createRadialGradient(W/2,H/2,0,W/2,H/2,Math.max(W,H)*0.7);
+  g.addColorStop(0,"#1b1f1a"); g.addColorStop(1,"#0f120e");
+  ctx.fillStyle = g; ctx.fillRect(0,0,W,H);
+
+  var want = frameView(W, H, FRAME);
+  view.scale += (want.scale - view.scale)*0.12;      // only ever a resize or a slider
+  if (Math.abs(want.scale - view.scale) < 1e-4) view.scale = want.scale;
+  view.cx = W/2; view.cy = H/2;
+  view.fx = want.fx; view.fy = want.fy;
+
+  ctx.save();
+  ctx.translate(view.cx, view.cy); ctx.scale(view.scale, view.scale);
+  ctx.translate(-view.fx, -view.fy);
+
+  ctx.strokeStyle = "rgba(160,180,150,.07)"; ctx.lineWidth = 1/view.scale;
+  ctx.beginPath(); ctx.moveTo(S.coreR,0); ctx.lineTo(S.coreSep-S.coreR,0); ctx.stroke();
+
+  var i;
+  drawTree(T, MINE, true);
+  if (T.mind) drawMind(T, MINE);
+  if (TD){
+    // their tree lives in its own frame, facing +x from its own pot like
+    // yours; the world sees it mirrored across the field
+    ctx.save(); ctx.translate(S.coreSep, 0); ctx.scale(-1, 1);
+    drawTree(TD, FOE, false);
+    drawMind(TD, FOE);
+    ctx.restore();
+  }
+
+  drawBolts(false);
+  ctx.save(); ctx.translate(S.coreSep, 0); ctx.scale(-1, 1);
+  drawBolts(true);
+  ctx.restore();
+  for (i = 0; i < hits.length; i++){
+    var ht = hits[i], al = Math.max(0, ht.t*(ht.big?1.4:2.2));
+    ctx.beginPath(); ctx.arc(ht.x, ht.y, (ht.big?6:3)+(1-ht.t)*(ht.big?40:18), 0, 7);
+    ctx.strokeStyle = "rgba(" + (ht.foe ? FOE : MINE).vein + "," + al.toFixed(2) + ")";
+    ctx.lineWidth = 1.8; ctx.stroke();
+  }
+
+  ctx.font = (12/view.scale)+"px ui-sans-serif, system-ui, sans-serif";
+  ctx.textAlign = "center";
+  if (TD && TD.hp <= 0){
+    ctx.fillStyle = "rgba(" + FOE.vein + ",.7)";
+    ctx.fillText("spent", S.coreSep, S.coreR + 20/view.scale);
+  }
+  if (T.hp !== undefined && T.hp <= 0){
+    ctx.fillStyle = "rgba(" + MINE.vein + ",.8)";
+    ctx.fillText("spent \u2014 r to plant again", 0, S.coreR + 20/view.scale);
+  } else if (!T.roots.length){
+    ctx.fillStyle = "rgba(200,180,150,.8)";
+    ctx.fillText("nothing left in the pot", 0, S.coreR + 20/view.scale);
+  }
+  ctx.textAlign = "start";
+
+  if (SHOW.aim) drawAim();
+  if (SHOW.fan || SHOW.spire || SHOW.loops) drawFigures();
+  if (drag) drawHold();
+  if (fuse || (hoverPair && !drag && !slice)) drawPair(fuse || hoverPair);
+  if (slice && slice.pts.length > 1){
+    ctx.beginPath();
+    ctx.moveTo(slice.pts[0][0], slice.pts[0][1]);
+    for (i = 1; i < slice.pts.length; i++) ctx.lineTo(slice.pts[i][0], slice.pts[i][1]);
+    ctx.strokeStyle = slice.breaks ? "rgba(255,120,110,.9)"
+                    : slice.victims.length ? "rgba(240,180,140,.8)" : "rgba(226,210,190,.45)";
+    ctx.lineWidth = (slice.victims.length ? 1.8 : 1.2)/view.scale; ctx.stroke();
+  }
+  for (i = 0; i < flash.length; i++){
+    var f = flash[i], a = Math.max(0, f.t*2);
+    ctx.beginPath(); ctx.arc(f.x,f.y,3+(1-f.t)*14,0,7);
+    ctx.strokeStyle = f.kind==="cut"   ? "rgba(217,123,90,"+a+")"      // wood lost
+                    : f.kind==="graft" ? "rgba(150,200,235,"+a+")"      // a circuit
+                    : f.kind==="foe"   ? "rgba(246,160,200,"+a+")"      // they fired
+                                       : "rgba(198,186,150,"+a+")";     // nothing doing
+    ctx.lineWidth = 1.5; ctx.stroke();
+  }
+  ctx.restore();
+}
+
+// Shots in flight, drawn in their owner's frame and in the colour of their
+// owner's buds, so whose shot is whose is never a question.
+function drawBolts(foe){
+  var pal = foe ? FOE : MINE, trailC = pal.leaf, headC = pal.vein;
+  for (var i = 0; i < bolts.length; i++){
+    var bo = bolts[i], tr = bo.trail;
+    if (!!bo.foe !== foe) continue;
+    ctx.beginPath();
+    for (var q2 = 0; q2 < tr.length; q2 += 2){
+      if (q2 === 0) ctx.moveTo(tr[0], tr[1]); else ctx.lineTo(tr[q2], tr[q2+1]);
+    }
+    var spent = Math.max(0.10, Math.min(1, bo.F/Math.max(1e-6, bo.F0)));
+    ctx.strokeStyle = "rgba(" + trailC + "," + (0.45*spent).toFixed(3) + ")";
+    ctx.lineWidth = 1.6/view.scale; ctx.stroke();
+    var hx = -bo.vy, hy = bo.vx, hl = Math.hypot(hx,hy)||1;
+    hx = hx/hl*bo.L/2; hy = hy/hl*bo.L/2;
+    ctx.beginPath(); ctx.moveTo(bo.x-hx, bo.y-hy); ctx.lineTo(bo.x+hx, bo.y+hy);
+    ctx.strokeStyle = "rgba(" + headC + "," + (0.25 + 0.70*spent).toFixed(3) + ")";
+    ctx.lineWidth = Math.max(1.6, 1.0 + pressure(bo.F, bo.L)*0.5); ctx.lineCap = "round";
+    ctx.stroke();
+  }
+}
+
+// The other mage's tell, kept current while it works: the limb it means to
+// cut and everything that goes with it, the stem it is pulling round, and the
+// arc the shot would fly if it let go now.
+function mindTell(W, X){
+  var M = W.mind;
+  W.arc = W.arc || []; W.arcHit = null;
+  if (!M || !M.limb || M.state === "grow" || !W.nodes.has(M.limb.id)){ W.arc.length = 0; return; }
+  var mz = muzzleFor(W, M.limb);
+  W.arcHit = forecastInto(mz ? fanAt(M.fig.fan, Math.atan2(mz.y, mz.x)) : null, mz, X, W.arc);
+}
+// drawn in the tree's own frame, so it serves either side
+function drawMind(W, pal){
+  var M = W.mind, TD = W;
+  if (!M || !M.limb || M.state === "grow" || !W.nodes.has(M.limb.id)) return;
+  var k = 1/view.scale, n = M.limb, ready = M.state === "ready";
+  ctx.beginPath(); below(TD, n, traceSeg);
+  pal = pal || FOE;
+  ctx.lineWidth = 2*k; ctx.strokeStyle = "rgba(" + pal.tip + ",.55)"; ctx.stroke();
+  ctx.beginPath(); ctx.moveTo(n.x0, n.y0); ctx.lineTo(n.x1, n.y1);
+  ctx.lineWidth = n.thick + 3.5*k; ctx.strokeStyle = "rgba(" + pal.tip + ",.95)"; ctx.stroke();
+  if (n.parent !== null) strokeRun(TD, n.parent, "rgba(" + pal.vein + ",.7)", 3);
+  if (TD.arc.length > 3){
+    ctx.beginPath(); ctx.moveTo(TD.arc[0], TD.arc[1]);
+    for (var i = 2; i < TD.arc.length; i += 2) ctx.lineTo(TD.arc[i], TD.arc[i+1]);
+    ctx.setLineDash([5*k, 6*k]);
+    ctx.strokeStyle = "rgba(" + pal.leaf + "," + (ready ? ".6" : ".3") + ")"; ctx.lineWidth = 1.3*k;
+    ctx.stroke(); ctx.setLineDash([]);
+  }
+  if (TD.arcHit){
+    ctx.beginPath(); ctx.arc(TD.arcHit.x, TD.arcHit.y, (TD.arcHit.core ? 8 : 4.5)*k, 0, 7);
+    ctx.strokeStyle = "rgba(" + pal.vein + ",.9)"; ctx.lineWidth = 1.6*k; ctx.stroke();
+  }
+  // winding up: a ring round the cut face closing as the moment comes
+  if (ready){
+    ctx.beginPath();
+    ctx.arc(n.x0, n.y0, 7*k, -Math.PI/2, -Math.PI/2 + 2*Math.PI*Math.min(1, M.t/M.lv.windup));
+    ctx.strokeStyle = "rgba(" + pal.vein + ",.95)"; ctx.lineWidth = 2.4*k; ctx.stroke();
+  }
+}
+
+function leaf(x,y,ang,r,pal){
+  ctx.save(); ctx.translate(x,y); ctx.rotate(ang);
+  ctx.fillStyle = "rgba("+pal.leaf+",.9)";
+  ctx.save(); ctx.rotate(-0.6);
+  ctx.beginPath(); ctx.ellipse(r*0.5,0,r*0.58,r*0.27,0,0,7); ctx.fill(); ctx.restore();
+  ctx.save(); ctx.rotate(0.6);
+  ctx.beginPath(); ctx.ellipse(r*0.5,0,r*0.58,r*0.27,0,0,7); ctx.fill(); ctx.restore();
+  ctx.beginPath(); ctx.ellipse(r*0.72,0,r*0.46,r*0.24,0,0,7);
+  ctx.fillStyle="rgba("+pal.vein+",.95)"; ctx.fill();
+  ctx.restore();
+}
+
+function drawHold(){
+  var g = drag.group, i, n = g[0];
+  if (!T.nodes.has(n.id)) return;
+
+  // Your hand, and the wood chasing it. What the limb has reached is what you
+  // keep, so there is nothing to wait for: the gap you can see is the pull the
+  // wood has not given you, and letting go and taking hold again is how you
+  // ask for more.
+  ctx.beginPath(); ctx.arc(drag.px, drag.py, 4.5/view.scale, 0, 7);
+  ctx.fillStyle = "rgba(226,236,214,.55)"; ctx.fill();
+  var gap = Math.hypot(drag.px-n.x1, drag.py-n.y1);
+  if (gap > 1.5/view.scale){
+    ctx.beginPath(); ctx.moveTo(drag.px, drag.py); ctx.lineTo(n.x1, n.y1);
+    ctx.setLineDash([3/view.scale,4/view.scale]); ctx.lineWidth = 1/view.scale;
+    ctx.strokeStyle = "rgba(226,236,214,.35)"; ctx.stroke(); ctx.setLineDash([]);
+  }
+
+  // every tip this one could still fuse with, and how far along the near one is
+  if (drag.node.bud && drag.node.mate === null){
+    ctx.beginPath(); ctx.arc(n.x1, n.y1, S.graftR, 0, 7);
+    ctx.setLineDash([2.5/view.scale, 4/view.scale]); ctx.lineWidth = 1/view.scale;
+    ctx.strokeStyle = "rgba(150,200,235,.28)"; ctx.stroke(); ctx.setLineDash([]);
+  }
+  if (drag.graft){
+    var t = drag.graft, R = 9/view.scale;
+    ctx.beginPath(); ctx.moveTo(n.x1, n.y1); ctx.lineTo(t.x1, t.y1);
+    ctx.setLineDash([3/view.scale, 4/view.scale]); ctx.lineWidth = 1.4/view.scale;
+    ctx.strokeStyle = "rgba(150,200,235,.85)"; ctx.stroke(); ctx.setLineDash([]);
+    ctx.beginPath();
+    ctx.arc(t.x1, t.y1, R, -Math.PI/2, -Math.PI/2 + 2*Math.PI*Math.min(1, drag.gh/S.graftHold));
+    ctx.strokeStyle = "rgba(170,215,240,.95)"; ctx.lineWidth = 3/view.scale; ctx.stroke();
+  }
+}
+
+// The pair under the pointer or in your hand: both tips ringed, the join drawn
+// solid, what the circuit would bring you written beside it, and — while you
+// hold — the ring at the join filling toward the fuse.
+function drawPair(pr){
+  if (!pairLive(pr)) return;
+  var a = pr.a, b = pr.b, k = 1/view.scale, w = pr.walk, i;
+  var mx = (a.x1+b.x1)/2, my = (a.y1+b.y1)/2;
+  // the ring of wood the fuse would close, from one tip down to where the two
+  // limbs meet and back up to the other
+  if (w && w.length){
+    ctx.beginPath(); ctx.moveTo(w[0].x0, w[0].y0);
+    for (i = 1; i < w.length; i++) ctx.lineTo(w[i].x0, w[i].y0);
+    ctx.lineTo(a.x1, a.y1); ctx.lineTo(b.x1, b.y1); ctx.closePath();
+    ctx.fillStyle = "rgba(150,200,235,.12)"; ctx.fill();
+    ctx.strokeStyle = "rgba(150,200,235,.55)"; ctx.lineWidth = 1.6*k; ctx.stroke();
+  }
+  ctx.beginPath(); ctx.moveTo(a.x1, a.y1); ctx.lineTo(b.x1, b.y1);
+  ctx.strokeStyle = "rgba(170,215,240,.95)"; ctx.lineWidth = 2.2*k; ctx.stroke();
+  for (i = 0; i < 2; i++){
+    var t = i ? b : a;
+    ctx.beginPath(); ctx.arc(t.x1, t.y1, 5*k, 0, 7);
+    ctx.strokeStyle = "rgba(170,215,240,.9)"; ctx.lineWidth = 1.4*k; ctx.stroke();
+  }
+  ctx.beginPath(); ctx.arc(mx, my, 7*k, 0, 7);
+  ctx.fillStyle = "rgba(20,28,34,.6)"; ctx.fill();
+  if (fuse === pr){
+    ctx.beginPath();
+    ctx.arc(mx, my, 7*k, -Math.PI/2, -Math.PI/2 + 2*Math.PI*Math.min(1, pr.h/S.graftHold));
+    ctx.strokeStyle = "rgba(190,228,248,1)"; ctx.lineWidth = 3*k; ctx.stroke();
+  } else {
+    ctx.beginPath(); ctx.arc(mx, my, 7*k, 0, 7);
+    ctx.strokeStyle = "rgba(170,215,240,.35)"; ctx.lineWidth = 1.2*k; ctx.stroke();
+  }
+  ctx.font = (12*k) + "px ui-monospace, Menlo, monospace";
+  ctx.textAlign = "left";
+  var label = "graft \u00d7" + FIG.gain.toFixed(2) + " \u2192 \u00d7" + pr.gain.toFixed(2);
+  ctx.lineWidth = 3*k; ctx.strokeStyle = "rgba(14,18,14,.8)";
+  ctx.strokeText(label, mx + 14*k, my - 10*k);
+  ctx.fillStyle = "rgba(200,230,245,.95)";
+  ctx.fillText(fuse === pr ? label : label + "   hold", mx + 14*k, my - 10*k);
+  ctx.textAlign = "start";
+}
+
+/* ── figures ───────────────────────────────────────────────────────── */
+var FIG = { fan:null, spire:null, loops:[], cap:0, gain:1, area:0,
+            muzzle:null, topVal:0 }, figT = 0;
+// The tree, the bolts and what they hit are the game; the overlays are
+// instrumentation and wait to be asked for — except three. The charge glow is
+// part of the board, the sap alight in the wood, and without it you cannot see
+// which limb is loaded. Aim is how you see what a stroke will do before you
+// make it. Loops is how you see the circuit you are building, and the pairs
+// of tips that are one gesture away from being another.
+var SHOW = { charge:true, fan:false, spire:false, loops:true, aim:true };
+function measure(){
+  FIG.loops.length = 0;
+  var i, area = 0;
+  for (i = 0; i < T.grafts.length; i++){
+    var b = T.nodes.get(T.grafts[i]);
+    if (!b || !b.slave) continue;
+    var lp = loopPoly(T, b);
+    if (lp){ FIG.loops.push(lp); area += lp.area; }
+  }
+  FIG.area = area;
+  FIG.gain = loopAmp(area);
+  markLoops(T);
+  FIG.fan = bestFan(T);
+  FIG.spire = bestSpire(T);
+  FIG.cap = capacity(T.girth);
+  // The stroke you are drawing is the thing that will fire, so the arc follows
+  // the blade: draw across a limb and the shot it would throw is on the board
+  // before the wood is cut. With no stroke in progress the cursor stands in
+  // for one, so hovering a stem and bending it still shows the shot move.
+  var m = (slice && slice.muzzle) ? slice.muzzle
+        : (!slice && hover) ? muzzleFor(T, hover) : null;
+  FIG.muzzle = m;
+  FIG.aim = m ? fanNear(Math.atan2(m.y, m.x)) : FIG.fan;
+  forecast(FIG.aim, m);
+  FIG.topVal = valueCuts(T, FIG.cap, fanNear, targetOf(TD), FIG.gain);
+  if (SHOW.loops) graftablePairs(); else PAIRS.length = 0;
+  if (hoverPair && !fuse && !pairLive(hoverPair)) hoverPair = null;
+}
+
+/* the run of wood a shot would leave along, drawn back from the cut face */
+function strokeRun(T, id, style, w){
+  var q = T.nodes.get(id), guard = 0;
+  if (!q) return;
+  ctx.beginPath();
+  while (q && guard++ < 3000){
+    ctx.moveTo(q.x0, q.y0); ctx.lineTo(q.x1, q.y1);
+    if (q.id === q.runFrom) break;
+    q = q.parent === null ? null : T.nodes.get(q.parent);
+  }
+  ctx.strokeStyle = style; ctx.lineWidth = w/view.scale; ctx.stroke();
+}
+
+function drawAim(){
+  var m = FIG.muzzle;
+  if (!m) return;
+  if (m.id >= 0) strokeRun(T, m.id, "rgba(236,222,150,.7)", 3.2);
+  if (FC.length > 3){
+    ctx.beginPath(); ctx.moveTo(FC[0], FC[1]);
+    for (var i = 2; i < FC.length; i += 2) ctx.lineTo(FC[i], FC[i+1]);
+    ctx.setLineDash([5/view.scale, 6/view.scale]);
+    ctx.strokeStyle = "rgba(226,236,180,.45)"; ctx.lineWidth = 1.3/view.scale;
+    ctx.stroke(); ctx.setLineDash([]);
+  }
+  ctx.beginPath(); ctx.arc(m.x, m.y, 3.4/view.scale, 0, 7);
+  ctx.fillStyle = "rgba(240,244,196,.9)"; ctx.fill();
+  if (FCimpact){
+    ctx.beginPath(); ctx.arc(FCimpact.x, FCimpact.y, (FCimpact.core?7:4)/view.scale, 0, 7);
+    ctx.strokeStyle = FCimpact.core ? "rgba(240,180,130,.9)" : "rgba(226,236,180,.7)";
+    ctx.lineWidth = 1.6/view.scale; ctx.stroke();
+  }
+}
+
+function drawFigures(){
+  var i, j, f = FIG.aim || FIG.fan;
+  if (f && SHOW.fan){
+    var r0 = S.coreR, r1 = f.rbar*1.06;
+    ctx.beginPath();
+    ctx.moveTo(Math.cos(f.from)*r0, Math.sin(f.from)*r0);
+    ctx.arc(0, 0, r1, f.from, f.from + f.span);
+    ctx.lineTo(Math.cos(f.from+f.span)*r0, Math.sin(f.from+f.span)*r0);
+    ctx.arc(0, 0, r0, f.from + f.span, f.from, true);
+    ctx.closePath();
+    var glow = Math.min(0.30, 0.05 + f.P/1600);
+    ctx.fillStyle = "rgba(150,214,110,"+glow.toFixed(3)+")";
+    ctx.fill();
+    ctx.strokeStyle = "rgba(186,234,142,.35)"; ctx.lineWidth = 1/view.scale; ctx.stroke();
+    if (f.conv > 1.04){          // the wedge these tips would occupy unbent
+      var mid = f.from + f.span/2, half = f.natural/2;
+      ctx.beginPath();
+      ctx.arc(0, 0, r1*1.02, mid-half, mid+half);
+      ctx.strokeStyle = "rgba(186,234,142,.22)";
+      ctx.lineWidth = 1.5/view.scale; ctx.setLineDash([4/view.scale, 4/view.scale]);
+      ctx.stroke(); ctx.setLineDash([]);
+    }
+    for (i = 0; i < f.nodes.length; i++){
+      var q = f.nodes[i];
+      if (!T.nodes.has(q.id)) continue;
+      ctx.beginPath(); ctx.arc(q.x1, q.y1, 4/view.scale, 0, 7);
+      ctx.strokeStyle = "rgba(200,240,160,.9)"; ctx.lineWidth = 1.6/view.scale; ctx.stroke();
+    }
+  }
+  var sp = FIG.spire;
+  if (SHOW.spire && sp && T.nodes.has(sp.id) && sp.runLen > S.coreR)
+    strokeRun(T, sp.id, "rgba(236,222,150,.55)", 2.6);
+  // A loop is a circuit and it is drawn like one: the brighter it burns the
+  // more of the shot's gain it is carrying, which is also how obvious a target
+  // it makes. The whole of loop play is that those are the same thing.
+  if (SHOW.loops) for (i = 0; i < FIG.loops.length; i++){
+    var lp = FIG.loops[i], pts = lp.pts;
+    var turns = lp.area/(S.coreR*S.coreR);
+    var lit = Math.min(1, turns/18);
+    ctx.beginPath(); ctx.moveTo(pts[0][0], pts[0][1]);
+    for (j = 1; j < pts.length; j++) ctx.lineTo(pts[j][0], pts[j][1]);
+    ctx.closePath();
+    ctx.fillStyle = "rgba(120,180,220," + (0.08 + 0.16*lit).toFixed(3) + ")"; ctx.fill();
+    ctx.strokeStyle = "rgba(170,215,240," + (0.30 + 0.50*lit).toFixed(2) + ")";
+    ctx.lineWidth = (1 + 1.6*lit)/view.scale; ctx.stroke();
+  }
+}
+
+function newSeedling(){
+  T = newTree(0, genome(MY_PICKS)); layout(T); buildGrid(T);
+  T.hpMax = T.hp = coreOf(T.g);
+  // your side can be handed to a temper as well, and then the match plays itself
+  T.mind = MY_MIND === "hand" ? null : newMind(MY_MIND, 1 + Math.floor(Math.random()*1e9));
+  T.arc = []; T.arcHit = null;
+  hoverPair = null; fuse = null;
+  drag = null; slice = null; hover = null;
+  FIG.fan = null; FIG.aim = null; FIG.spire = null; FIG.muzzle = null;
+  FIG.loops.length = 0; FIG.area = 0; FIG.gain = 1;
+  FC.length = 0; FCimpact = null;
+  bolts.length = 0; hits.length = 0;
+  newFoe(genome(FOE_PICKS), FOE_MIND);
+}
+
+/* ── the other side ────────────────────────────────────────────────── */
+var TD = null, bolts = [], hitBuf = [], hits = [];
+/* The other mage. Same rules, same budget, grown in its own frame facing
+   +x exactly as yours is, and mirrored only where it meets the world — when
+   it is drawn, and when something lands on it. It starts as a seedling, grows
+   while you grow, heals what you take off it, and, unless it is Still, reads
+   its own tree and cuts at you (MINDS). */
+function newFoe(g, mind, seed){
+  TD = newTree(0, g);
+  for (var t = 0; t < S.foeHead; t += 0.15) step(TD, 0.15, null);
+  layout(TD); buildGrid(TD);
+  TD.hpMax = TD.hp = coreOf(TD.g);
+  TD.mind = newMind(mind || "still", seed || (1 + Math.floor(Math.random()*1e9)));
+  TD.arc = []; TD.arcHit = null;
+}
+
+// You do not pull a trigger and you do not wait for one to pull itself. The
+// charge is in the green wood; severing a limb releases what that limb held,
+// and whatever figure you have left is what shapes it on the way out.
+function loopArea(){ return FIG.area; }
+function fanNear(bearing){ return fanAt(FIG.fan, bearing); }
+
+function fireFromCut(charge, muzzle){
+  FIG.cap = capacity(T.girth);
+  if (!muzzle || Math.min(charge*S.chargeWood, FIG.cap) <= 0.01) return;
+  var b = shotFrom(FIG, charge, muzzle, targetOf(TD));
+  if (!b) return;
+  // The charge goes round the grafted circuits before it leaves, gaining on every lap.
+  if (FIG.gain > 1.02) for (var q = 0; q < FIG.loops.length; q++)
+    flash.push({x:muzzle.x, y:muzzle.y, t:0.45, kind:"graft"});
+  launch(b, false);
+}
+// Into the air. Each shot flies in its owner's frame, the other mage's
+// mirrored, so both sides' shots obey the one law; `foe` says which way round.
+function launch(b, foe){
+  b.foe = !!foe;
+  bolts.push(b);
+  // a shot that never meets anything circles for ever; this is only a valve
+  while (bolts.length > S.maxBolts) bolts.shift();
+}
+
+/* where the next shot would go, integrated with the same law */
+var FC = [], FCimpact = null;
+function forecast(fan, muzzle){ FCimpact = forecastInto(fan, muzzle, TD, FC); }
+// The flight a shot would take out of its owner's frame, flown with the same
+// law, stopping at the first wood, husk or heartwood of the tree it is aimed at.
+function forecastInto(fan, muzzle, target, out){
+  out.length = 0;
+  if (!muzzle) return null;
+  var b = makeBolt(fan, 1, muzzle, targetOf(target)), dt = 1/45;
+  var shell = target && target.husk ? S.huskR : S.coreR;
+  for (var k = 0; k < 620; k++){
+    var p = stepBolt(b, dt);
+    out.push(b.x, b.y);
+    var cx = S.coreSep - b.x, cy = b.y;          // where it is, seen from their pot
+    if (cx*cx + cy*cy < shell*shell) return {x:b.x, y:b.y, core:true};
+    if (target && target.grid){
+      var near = gridNear(target, cx, cy, hitBuf);
+      for (var m = 0; m < near.length; m++){
+        var n = near[m];
+        if (cross(S.coreSep - p[0], p[1], cx, cy, n.x0, n.y0, n.x1, n.y1))
+          return {x:b.x, y:b.y};
+      }
+    }
+    if (Math.hypot(b.x, b.y) > S.coreSep*3) return null;
+  }
+  return null;
+}
+
+function stepBolts(dt){
+  for (var i = bolts.length-1; i >= 0; i--){
+    var b = bolts[i];
+    // Whoever fired it, it flies in its owner's frame toward the other pot,
+    // and whatever it meets is seen from that pot: both trees stand facing
+    // +x from their own core, so one mirror serves either direction.
+    var W = b.foe ? T : TD;
+    if (!W){ bolts.splice(i,1); continue; }
+    var sx = b.foe ? -1 : 1, ox = b.foe ? S.coreSep : 0;   // own frame to the world
+    // it falls toward where the target's weight is now, which moves as the
+    // target grows and as it is cut
+    b.fx = S.coreSep - (W.cgx || 0); b.fy = W.cgy || 0;
+    var prev = stepBolt(b, dt);
+    var px = S.coreSep - prev[0], py = prev[1];
+    var cx = S.coreSep - b.x, cy = b.y;
+    // wood of the target tree to the world: theirs is mirrored, yours is not
+    var wx = W === TD ? -1 : 1, wo = W === TD ? S.coreSep : 0;
+
+    if (W.husk && cx*cx + cy*cy < S.huskR*S.huskR){   // the husk takes it whole
+      hits.push({x:ox + sx*b.x, y:b.y, t:0.5, foe:b.foe});
+      W.huskHit = 0.5;
+      bolts.splice(i,1); continue;
+    }
+    if (cx*cx + cy*cy < S.coreR*S.coreR){       // struck the core
+      if (W.hp !== undefined) W.hp = Math.max(0, W.hp - b.F);
+      hits.push({x:ox + sx*b.x, y:b.y, t:0.7, big:true, foe:b.foe});
+      bolts.splice(i,1); continue;
+    }
+    if (!b.alive){ b.alive = []; for (var z = 0; z < b.n; z++) b.alive.push(1); }
+    var p = pressure(b.F, b.L);
+    var ux = -(cy - py), uy = (cx - px);
+    var ul = Math.hypot(ux, uy) || 1; ux /= ul; uy /= ul;   // across the line of travel
+    var live = 0, dirty = false;
+    for (var q = 0; q < b.n; q++){
+      if (!b.alive[q]) continue;
+      live++;
+      var off = b.n === 1 ? 0 : (q/(b.n-1) - 0.5)*b.L0;
+      var ax = px + ux*off, ay = py + uy*off;
+      var bx2 = cx + ux*off, by2 = cy + uy*off;
+      var near = gridNear(W, bx2, by2, hitBuf), cut = null, bd = 1e9;
+      for (var k = 0; k < near.length; k++){
+        var n = near[k];
+        if (!W.nodes.has(n.id)) continue;
+        if (!cross(ax, ay, bx2, by2, n.x0, n.y0, n.x1, n.y1)) continue;
+        var d = Math.hypot((n.x0+n.x1)/2 - ax, (n.y0+n.y1)/2 - ay);
+        if (d < bd){ bd = d; cut = n; }
+      }
+      if (!cut) continue;
+      var r = resist(cut);
+      if (p > r){
+        biteBolt(b, r);
+        hits.push({x:wo + wx*cut.x0, y:cut.y0, t:0.4, foe:b.foe});
+        cutNode(W, cut); dirty = true;
+      } else {
+        // that part of the front is stopped; the rest goes on, narrower and
+        // therefore harder, so a sheet that loses its edges becomes a blade
+        cut.cracked = true; b.alive[q] = 0; live--;
+        hits.push({x:wo + wx*bx2, y:by2, t:0.4, foe:b.foe});
+      }
+    }
+    b.L = b.L0 * live / b.n;
+    if (dirty){ layout(W); buildGrid(W); }
+    if (live <= 0){ bolts.splice(i,1); continue; }
+    // Spent (it lost half its force every fadeHalf units flown), or gone.
+    if (b.F < Math.max(0.02, b.F0*0.02) ||
+        Math.hypot(b.x, b.y) > S.coreSep*4){ bolts.splice(i,1); }
+  }
+  for (i = hits.length-1; i >= 0; i--){ hits[i].t -= dt; if (hits[i].t <= 0) hits.splice(i,1); }
+}
+
+/*END VIEW*/
+/* ── planting ──────────────────────────────────────────────────────── */
+// The opening choice. Yours is chosen here; theirs is drawn at random each
+// match and shown before you commit, so what you plant can be an answer to
+// what is growing across the field. Growth waits while you choose.
+var MY_PICKS = { habit: "upright", grain: "even", wood: "seasoned" };
+var FOE_PICKS = drawPicks(), FOE_MIND = "keeper", MY_MIND = "hand";
+var choosing = false, chooserCancel = false;
+function drawPicks(){
+  var p = {};
+  for (var i = 0; i < AXES.length; i++){
+    var ks = Object.keys(TRAITS[AXES[i]].options);
+    p[AXES[i]] = ks[Math.floor(Math.random()*ks.length)];
+  }
+  return p;
+}
+function pickNames(g){
+  var out = [];
+  for (var i = 0; i < AXES.length; i++) out.push(TRAITS[AXES[i]].options[g.picks[AXES[i]]].name);
+  return out.join(" \u00b7 ");
+}
+
+// what a seedling grows into, left alone for three and a half minutes,
+// drawn trunk-up the way a tree is usually looked at; cached per combination
+var PREVIEW = new Map();
+function preview(canvas, picks, pal){
+  var key = AXES.map(function(a){ return picks[a]; }).join("/");
+  var P = PREVIEW.get(key);
+  if (!P){
+    P = newTree(0, genome(picks));
+    for (var t = 0; t < 210; t += 0.25) step(P, 0.25, null);
+    layout(P);
+    PREVIEW.set(key, P);
+  }
+  var c = canvas.getContext("2d"), W = canvas.width, H = canvas.height;
+  c.clearRect(0, 0, W, H);
+  var sc = Math.min((H - 24)/290, W/2/170), ox = W/2, oy = H - 12;   // fixed, so reach reads
+  c.fillStyle = "rgba(60,50,42,.8)";
+  c.beginPath(); c.ellipse(ox, oy + 4, 30, 6, 0, 0, 7); c.fill();
+  c.lineCap = "round";
+  var L = P.list.slice().sort(function(a, b){ return a.thick - b.thick; });
+  for (var i = 0; i < L.length; i++){
+    var n = L[i];
+    c.strokeStyle = woodColor(stiffOf(n), pal.dim, n.thick, pal);
+    c.lineWidth = Math.max(0.8, n.thick*sc*0.9);
+    c.beginPath();
+    c.moveTo(ox + n.y0*sc, oy - n.x0*sc); c.lineTo(ox + n.y1*sc, oy - n.x1*sc);
+    c.stroke();
+  }
+}
+
+function buildChooser(){
+  var host = document.getElementById("axes");
+  host.innerHTML = "";
+  AXES.forEach(function(ax){
+    var T0 = TRAITS[ax], row = document.createElement("div");
+    row.className = "axis";
+    row.innerHTML = '<div class="nm">' + T0.label + '</div><div class="seg"></div><div class="blurb"></div>';
+    var seg = row.querySelector(".seg"), blurb = row.querySelector(".blurb");
+    Object.keys(T0.options).forEach(function(k){
+      var b = document.createElement("button");
+      b.textContent = T0.options[k].name;
+      b.onclick = function(){ MY_PICKS[ax] = k; refreshChooser(); };
+      b.dataset.ax = ax; b.dataset.k = k;
+      seg.appendChild(b);
+    });
+    row.dataset.ax = ax;
+    host.appendChild(row);
+  });
+  // how each mage plays: not part of either tree, so their own rows
+  var mr = document.getElementById("mind-row"), ms = mr.querySelector(".seg");
+  ms.innerHTML = "";
+  MIND_ORDER.forEach(function(k){
+    var b = document.createElement("button");
+    b.textContent = MINDS[k].name; b.dataset.k = k;
+    b.onclick = function(){ FOE_MIND = k; refreshChooser(); };
+    ms.appendChild(b);
+  });
+  var hr = document.getElementById("hand-row"), hs = hr.querySelector(".seg");
+  hs.innerHTML = "";
+  ["hand"].concat(MIND_ORDER.filter(function(k){ return k !== "still"; })).forEach(function(k){
+    var b = document.createElement("button");
+    b.textContent = k === "hand" ? "Yours" : MINDS[k].name; b.dataset.k = k;
+    b.onclick = function(){ MY_MIND = k; refreshChooser(); };
+    hs.appendChild(b);
+  });
+}
+function refreshChooser(){
+  var rows = document.querySelectorAll("#axes .axis");
+  for (var i = 0; i < rows.length; i++){
+    var ax = rows[i].dataset.ax, bs = rows[i].querySelectorAll("button");
+    for (var j = 0; j < bs.length; j++) bs[j].classList.toggle("on", bs[j].dataset.k === MY_PICKS[ax]);
+    rows[i].querySelector(".blurb").textContent = TRAITS[ax].options[MY_PICKS[ax]].blurb;
+  }
+  var mr = document.getElementById("mind-row"), mb = mr.querySelectorAll("button");
+  for (var q = 0; q < mb.length; q++) mb[q].classList.toggle("on", mb[q].dataset.k === FOE_MIND);
+  mr.querySelector(".blurb").textContent = MINDS[FOE_MIND].blurb;
+  var hr = document.getElementById("hand-row"), hb = hr.querySelectorAll("button");
+  for (q = 0; q < hb.length; q++) hb[q].classList.toggle("on", hb[q].dataset.k === MY_MIND);
+  hr.querySelector(".blurb").textContent = MY_MIND === "hand"
+    ? "You shape this one: bend it, cut it, graft it."
+    : "Hand it to a temper and watch the two of them fight. " + MINDS[MY_MIND].blurb;
+  document.getElementById("p-mine").textContent = pickNames({ picks: MY_PICKS });
+  document.getElementById("p-theirs").textContent = pickNames({ picks: FOE_PICKS });
+  // let the buttons repaint before the previews are grown
+  setTimeout(function(){
+    preview(document.getElementById("pv-mine"), MY_PICKS, MINE);
+    preview(document.getElementById("pv-theirs"), FOE_PICKS, FOE);
+  }, 0);
+}
+function openChooser(cancellable){
+  choosing = true; chooserCancel = !!cancellable;
+  if (!cancellable) FOE_PICKS = FOE_PICKS || drawPicks();
+  else FOE_PICKS = drawPicks();
+  document.getElementById("p-cancel").style.display = cancellable ? "" : "none";
+  document.getElementById("plant").classList.remove("hide");
+  refreshChooser();
+}
+function closeChooser(){
+  choosing = false;
+  document.getElementById("plant").classList.add("hide");
+}
+function plantChosen(){ closeChooser(); newSeedling(); }
+buildChooser();
+document.getElementById("p-plant").onclick = plantChosen;
+document.getElementById("p-cancel").onclick = closeChooser;
+document.getElementById("p-reroll").onclick = function(){ FOE_PICKS = drawPicks(); refreshChooser(); };
+
+/* ── loop ──────────────────────────────────────────────────────────── */
+var FROZEN = new Set();
+var last = performance.now();
+function frame(now){
+  // the first frame's timestamp can precede the one taken at load
+  var dt = Math.max(0, Math.min(0.05, (now-last)/1000)); last = now;
+  holdTick(dt);
+  if (!paused && !choosing){
+    var total = dt*speed, sub = Math.max(1, Math.ceil(total/0.06));
+    var frozen = null;
+    if (drag){
+      // the limb in your hand does not grow while you hold it
+      frozen = FROZEN; frozen.clear();
+      below(T, drag.node, function(m){ frozen.add(m.id); });
+    } else if (fuse){
+      // nor do two tips you are fusing: a tip that forked under your finger
+      // would no longer be a tip
+      frozen = FROZEN; frozen.clear();
+      frozen.add(fuse.a.id); frozen.add(fuse.b.id);
+    }
+    var mine = T.hp === undefined || T.hp > 0;
+    if (mine) for (var s = 0; s < sub; s++) step(T, total/sub, frozen);
+    layout(T); buildGrid(T);                      // their shots land on it too
+    // the other mage grows on the same clock, out of the same rules, and plays
+    if (TD && TD.hp > 0){
+      for (s = 0; s < sub; s++) step(TD, total/sub, null);
+      layout(TD);
+      if (mine){
+        // both hands read the field as it stands before either of them cuts,
+        // so a match between two tempers is not decided by who moves first
+        var atT = targetOf(T), atTD = targetOf(TD);
+        if (T.mind){
+          var ours = mindStep(T, T.mind, total, atTD);
+          if (ours){
+            launch(ours, false);
+            flash.push({x:ours.x, y:ours.y, t:0.6, kind:"cut"});
+          }
+          layout(T); buildGrid(T);
+          mindTell(T, TD);
+        }
+        var shot = mindStep(TD, TD.mind, total, atT);
+        if (shot){
+          launch(shot, true);
+          flash.push({x:S.coreSep - shot.x, y:shot.y, t:0.6, kind:"foe"});
+        }
+        mindTell(TD, T);
+      }
+      layout(TD); buildGrid(TD);
+    }
+    var bsub = Math.max(1, Math.ceil(total/0.02));
+    for (s = 0; s < bsub; s++) stepBolts(total/bsub);
+  } else layout(T);
+  for (var f = flash.length-1; f >= 0; f--){ flash[f].t -= dt; if (flash[f].t <= 0) flash.splice(f,1); }
+  if (T.huskHit) T.huskHit = Math.max(0, T.huskHit - dt);
+  if (TD && TD.huskHit) TD.huskHit = Math.max(0, TD.huskHit - dt);
+  figT += dt;
+  if (figT > 0.12){ figT = 0; measure(); }
+  draw(); hud();
+  requestAnimationFrame(frame);
+}
+
+function hud(){
+  var len = 0, nb = 0, fast = 0, rm = 0, green = 0;
+  for (var i = 0; i < T.list.length; i++){
+    var n = T.list[i];
+    len += n.len;
+    green += n.len*(1 - stiffOf(n));
+    if (n.ram > rm) rm = n.ram;
+    if (n.bud && n.share > 0){ nb++; if (n.share > fast) fast = n.share; }
+  }
+  put("s-mine", pickNames(T.g));
+  put("s-time", Math.floor(T.clock/60)+":"+String(Math.floor(T.clock%60)).padStart(2,"0"));
+  put("s-len", Math.round(len));
+  put("s-bud", nb);
+  put("s-fast", fast.toFixed(2)+" u/s");
+  put("s-reach", ((T.maxR||S.coreR)/S.coreR).toFixed(1)+"×");
+  put("s-ram", rm ? rm + " level" + (rm>1?"s":"") : "—");
+  var f = FIG.fan;
+  put("s-fan", f ? f.count + " in " + (f.span*180/Math.PI).toFixed(0) + "°" : "—");
+  put("s-pow", f ? Math.round(f.P) : 0);
+  put("s-spire", FIG.spire ? Math.round(FIG.spire.runLen)+"u straight" : "—");
+  put("s-conv", f ? f.conv.toFixed(2)+"×" : "—");
+  put("s-chg", (green*S.chargeWood).toFixed(1));
+  put("s-cap", (FIG.cap||capacity(T.girth)).toFixed(1));
+  // whichever limb is about to fire: the greenest one the stroke has crossed,
+  // or, with no stroke in progress, the one under the cursor
+  var sub = null;
+  if (slice && slice.muzzle){
+    for (var si = 0; si < slice.victims.length; si++){
+      var sv2 = slice.victims[si];
+      if (slice.muzzle.id === sv2.parent) { sub = sv2; break; }
+    }
+  } else if (!slice && hover && T.nodes.has(hover.id) && hover.parent !== null) sub = hover;
+  if (sub){
+    var dest = sub.peri <= S.coreR*1.6 ? "into the heartwood"
+             : sub.reach > 0.30 ? "into their canopy, " + Math.round(sub.peri) + "u out"
+             : "past them, " + Math.round(sub.peri) + "u wide";
+    var lost = 0;
+    below(T, slice ? slice.victims : sub, function(){ lost++; });
+    var hf = fanNear(Math.atan2(sub.y0, sub.x0));
+    var hL = hf ? frontOf(hf) : 0;
+    var held = (slice ? slice.charge : sub.sub)*S.chargeWood;
+    var waste = held - Math.min(held, FIG.cap);
+    put("s-cut", sub.val.toFixed(1) + " force \u00b7 cuts \u2264"
+                 + (hf ? pressure(sub.val, hL).toFixed(1) : "0") + " thick \u00b7 "
+                 + lost + " node" + (lost===1?"":"s") + " lost"
+                 + (waste > 0.5 ? ", " + waste.toFixed(0) + " wasted" : "")
+                 + ((slice && slice.breaks) || (!slice && sub.loop)
+                    ? " \u00b7 BREAKS A GRAFT" : ""));
+    put("s-lands", dest);
+  } else { put("s-cut", "\u2014"); put("s-lands", "\u2014"); }
+  var m = FIG.muzzle;
+  if (m){
+    var esc = Math.sqrt(2*S.gravMass/S.coreSep);
+    var v = S.speedBase + S.speedSpire*m.run;
+    put("s-barrel", Math.round(m.run) + "u straight, aimed "
+                    + Math.round(wrapA(m.dir)*180/Math.PI) + "°");
+    put("s-speed", Math.round(v) + " u/s " + (v > esc ? "· clears the core" : "· falls in"));
+  } else { put("s-barrel", "—"); put("s-speed", "—"); }
+  var af = FIG.aim || FIG.fan;
+  if (af){
+    var Lf = frontOf(af), Ff = shotForce(FIG.cap, FIG.muzzle ? FIG.muzzle.run : 0, FIG.gain);
+    put("s-shot", Math.round(Lf)+"u front · cuts ≤" + pressure(Ff, Lf).toFixed(1) + " thick");
+  } else put("s-shot", "—");
+  put("s-bolt", bolts.length);
+  if (TD){
+    put("s-theirs", pickNames(TD.g));
+    var dlen = 0, dheal = 0;
+    for (i = 0; i < TD.list.length; i++){
+      dlen += TD.list[i].len;
+      if (TD.list[i].healGoal > 0) dheal++;
+    }
+    put("s-dlen", Math.round(dlen));
+    put("s-dreach", ((TD.maxR||S.coreR)/S.coreR).toFixed(1)+"×");
+    put("s-dgirth", TD.girth.toFixed(1));
+    put("s-dheal", dheal ? dheal + " wound" + (dheal>1?"s":"") + " closing" : "—");
+  }
+  put("s-hp", TD ? Math.round(TD.hp*100/TD.hpMax)+"% of " + Math.round(TD.hpMax) + (TD.husk ? " \u00b7 husked" : "") : "—");
+  put("s-myhp", T.hpMax ? Math.round(T.hp*100/T.hpMax)+"% of " + Math.round(T.hpMax) + (T.husk ? " \u00b7 husked" : "") : "—");
+  put("s-myhand", handOf(T));
+  put("s-mind", handOf(TD));
+  put("s-loop", FIG.loops.length
+      ? FIG.loops.length + " · " + Math.round(FIG.area/(S.coreR*S.coreR)) + " core-areas"
+      : "—");
+  put("s-gain", FIG.gain > 1.005 ? "×" + FIG.gain.toFixed(2)
+                + (FIG.gain >= S.loopCap - 1e-9 ? " (all it will hold)" : "") : "—");
+}
+// what a hand is doing, whichever side it is on
+function handOf(W){
+  var M = W && W.mind;
+  if (!W) return "\u2014";
+  if (!M) return W === T ? "yours" : "\u2014";
+  if (!M.lv.fires) return "still";
+  if (W.hp <= 0) return "spent";
+  return (M.state === "aim" ? "aiming a limb"
+        : M.state === "ready" ? "about to cut"
+        : M.lv.name.toLowerCase()) + " \u00b7 " + M.shots + " shot" + (M.shots === 1 ? "" : "s");
+}
+var CELL = {};
+function put(id,v){
+  var e = CELL[id] || (CELL[id] = document.getElementById(id));
+  if (e.textContent != v) e.textContent = v;
+}
+
+/* ── tuning drawer ─────────────────────────────────────────────────── */
+var TUNABLE = [
+  "Growth",
+  ["leadCap",    1,   12,  0.25, "leader ceiling",     "\u00d7"],
+  ["forkBias",   0,   0.5, 0.01, "fork balance",       ""],
+  ["healShare",  0,   0.9, 0.02, "healing claim",      ""],
+  ["setFlow",   50, 12000, 50,   "set flow",           " u"],
+  "Hands",
+  ["bendPer",    1,   25,  0.5,  "bend per pull",      "\u00b0"],
+  ["bendRate",   2,  120,  2,    "wood speed",         "\u00b0/s"],
+  ["handSpeed",  5,  300,  5,    "hand speed",         " u/s"],
+  ["graftR",     4,   50,  1,    "fusing reach",       " u"],
+  "Shots",
+  ["forceK",     0.005,0.1,0.001,"force per charge·speed",""],
+  ["reachExp",   0,   1.5, 0.05, "reach into power",   ""],
+  ["loopGain",   0,   0.3, 0.005,"graft gain",         "/area"],
+  ["fadeHalf",   200,20000,100,  "force half-life",    " u"],
+  "The field",
+  ["foeHead",    0,   600, 10,   "their head start",   " s"],
+  ["coreSep",    200,1200, 20,   "core separation",    " u"]
+];
+
+var CHEAT = [
+  ["reach into power", "How steeply a fan's power rises with how far out its tips sit. At 1 a fan twice as far out is twice as strong, which makes the tallest tree the strongest whatever else it does well. At 0.5 reach still pays — gathering still costs you something — but a compact tree is no longer outgunned for being compact."],
+  ["fork balance", "How the fork angle is split between the axis that carries on and the branch that leaves it. At 0 the axis runs dead straight and every tree comes with a barrel down its leader; above 0 it zigzags, turning one way at one fork and back at the next, and nothing grows straight for long \u2014 a barrel is something you make by pulling the kinks out. At 0.5 every fork is a symmetric Y and there is no axis at all."],
+  ["leader ceiling", "The fastest any one tip may grow, as a multiple of the average tip. Apical control compounds at every fork the leader grows through, so without a ceiling the leader never stops pulling ahead and a tree with one can never be kept small; with one, what the leader cannot use goes back to the rest in proportion to what they had, and the tree plateaus like any other. At 1 nothing may outgrow anything and apical control only shapes the laterals."],
+  ["set flow", "How much growth has to pass through an internode before it goes rigid. This is the main stiffening rule: a trunk carries everything and locks almost at once, an outer twig carries almost nothing and stays green and bendable however old it is. Lower it and the whole tree sets early."],
+  ["bend per pull", "How far one joint may be pushed off its rest angle in a single pull. Multiplied across the span, this is how much one grab of the limb is worth. Let go and take hold again and you get another pull's worth, so green wood can be walked a long way round by repeated tugs; wood that has set gives nothing however often you ask."],
+  ["wood speed", "How fast the wood turns under your hand, counted across the whole limb rather than per joint \u2014 thirty pliant joints turn no faster than three, because what is moving is the limb. This is the whole of what a bend costs in time: the limb does not go where you point, it travels there, and while it travels your hand is on it and the rest of the tree is growing untended. Wind it up and bending is free; wind it down and every shape you want has to be planned several seconds ahead of needing it."],
+  ["hand speed", "How fast your grip itself travels through the world. Between this and wood speed, moving a limb from here to there costs the time the distance costs: the grip crosses the gap at so many units a second, and the wood comes after it. Wind it up and the hand teleports and only the wood's own rate matters; wind it down and a limb on the far side of the crown is a journey."],
+  ["fusing reach", "How close two tips must be brought before they will take. Wide enough and the canopy offers you grafts for free; narrow and every one has to be bent into place."],
+  ["healing claim", "The slice of the whole budget that goes to closing wounds before the tips divide the rest, split among the open stubs in proportion to their girth. A slice sends a fresh bud up from the base of that stem; it climbs inside the wood and breaks out at the cut face, already the right girth and ready to branch. Zero turns healing off and makes every cut permanent \u2014 and leaves the tree a field of bare stumps, since nothing grows back where you cut."],
+  ["graft gain", "The interest a graft pays, compounded per core-area of the ring of wood it closes. Charge let loose by a cut does not leave at once \u2014 it rings round every circuit the grafts have closed, gaining on every lap, and comes out of the cut face heavier than it went in. Because it compounds, one wide ring is worth far more than several tight ones, and because it applies to every shot, a graft is the only thing on the tree worth more than the wood it is made of. It is therefore also the thing your opponent will shoot at: cut any wood in the ring and the graft lets go and the gain is simply gone."],
+  ["force half-life", "How far a bolt flies before it has spent half its force. This is the only thing on the field that runs down, and it is measured in units of flight rather than seconds \u2014 so it scales with the separation like everything else, and a captured orbit goes round five or six times, dimming, rather than circling for ever. Raise it and old shots accumulate into a hazard; lower it and only direct approaches matter."],
+  ["force per charge\u00b7speed", "Converts a shot's mass and speed into force: mass is the charge the cut let go of, up to what the trunk can channel, and speed is what the straight run behind the cut gave it. Force is measured against wood thickness. A bolt pressing harder than a segment is thick cuts through and comes out the far side slower by what it spent; less, and the wood absorbs it and scars. Trunks stop what twigs cannot."],
+  ["their head start", "Seconds of growth the opponent begins the match with. At zero you both start as seedlings and race; wind it up and you are fighting something already grown, which is the practice setting. It only takes effect on a new seedling."],
+  ["core separation", "How far apart the two cores stand. Every other ballistic number is really a ratio against this one."],
+];
+
+
+var OVB = {};
+var body = document.getElementById("tune-body");
+TUNABLE.forEach(function(t){
+  if (typeof t === "string"){
+    var hd = document.createElement("div");
+    hd.className = "grp"; hd.textContent = t;
+    body.appendChild(hd); return;
+  }
+  var key=t[0], lo=t[1], hi=t[2], stp=t[3], label=t[4], unit=t[5];
+  var l = document.createElement("label"); l.className="s";
+  l.innerHTML = '<span class="lb">'+label+'<b id="v-'+key+'">'+S[key]+unit+'</b></span>';
+  var r = document.createElement("input");
+  r.type="range"; r.min=lo; r.max=hi; r.step=stp; r.value=S[key];
+  r.addEventListener("input", function(){
+    S[key] = parseFloat(r.value);
+    document.getElementById("v-"+key).textContent = r.value+unit;
+  });
+  l.appendChild(r); body.appendChild(l);
+});
+[["charge","c"], ["aim","a"], ["fan","f"], ["spire","s"], ["loops","g"]]
+.forEach(function(o){
+  var b = document.getElementById("b-" + o[0]);
+  b.title = "key: " + o[1];
+  b.classList.toggle("on", !!SHOW[o[0]]);
+  b.onclick = function(){ SHOW[o[0]] = !SHOW[o[0]]; b.classList.toggle("on", SHOW[o[0]]); };
+  OVB[o[1]] = b;
+});
+
+// The board is the game. Everything with a number on it waits to be asked for.
+function panelToggle(btnId, keys, on){
+  var b = document.getElementById(btnId);
+  b.onclick = function(){
+    var show = keys[0].classList.contains("hide");
+    for (var i = 0; i < keys.length; i++) keys[i].classList.toggle("hide", !show);
+    b.classList.toggle("on", show);
+  };
+  OVB[on] = b;
+}
+panelToggle("b-read", [document.getElementById("hud"), document.getElementById("keys")], "h");
+
+
+document.getElementById("b-pause").onclick = function(e){
+  paused = !paused; e.target.textContent = paused?"Resume":"Pause"; e.target.classList.toggle("on", paused);
+};
+document.getElementById("b-speed").onclick = function(e){
+  speed = speed===1?4:speed===4?16:1; e.target.textContent = speed+"×"; e.target.classList.toggle("on", speed!==1);
+};
+document.getElementById("b-reset").onclick = function(){ openChooser(true); };
+
+var det = document.createElement("details");
+var dl = "<dl>";
+CHEAT.forEach(function(c){
+  dl += c[0] === "\u00a7" ? '<dt class="ch">'+c[1]+'</dt>'
+                           : "<dt>"+c[0]+"</dt><dd>"+c[1]+"</dd>";
+});
+dl += "</dl>";
+det.innerHTML = "<summary>what these do</summary>"+dl;
+body.appendChild(det);
+
+var panel = document.getElementById("tune");
+document.getElementById("tune-hd").onclick = function(){
+  panel.classList.toggle("closed");
+  document.getElementById("caret").textContent = panel.classList.contains("closed") ? "show" : "hide";
+};
+
+layout(T); buildGrid(T);
+newFoe(genome(FOE_PICKS), "still");
+openChooser(false);
+requestAnimationFrame(frame);
+</script>
+</body>
+</html>
