@@ -87,6 +87,28 @@
   #plant .go button{padding:7px 10px;font-size:12.5px}
   #plant .go .plant{background:#37432c;border-color:#4d5e3d;flex:2}
   #plant .foe-hd button{flex:0 0 auto;padding:1px 7px;font-size:10.5px}
+  #plant .p-rank{color:#e6cf8a}
+  #laurel{position:fixed;inset:0;z-index:15;display:flex;align-items:center;justify-content:center;
+    background:radial-gradient(circle at 50% 45%,rgba(60,52,24,.35),rgba(10,12,9,.55));pointer-events:none}
+  #laurel.hide{display:none}
+  #laurel .card{pointer-events:auto;text-align:center;background:#151914;border:1px solid #6b5d2e;
+    padding:22px 34px 18px;min-width:min(420px,92vw);max-width:92vw;
+    box-shadow:0 0 0 1px rgba(230,200,110,.12),0 0 60px rgba(230,200,110,.18);
+    animation:laurel-in .7s cubic-bezier(.2,1.4,.4,1) both}
+  #laurel .kick{font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#a79a6a}
+  #laurel h2{margin:6px 0 12px;font-size:34px;font-weight:600;letter-spacing:.02em;color:#f1dc98;
+    text-shadow:0 0 18px rgba(240,210,120,.45)}
+  #laurel .adv{color:var(--dim);font-size:13px}
+  #laurel .from{color:#8b9382;font-size:12px;margin-top:6px;min-height:0}
+  #laurel .from:empty{display:none}
+  #laurel .rank{font-size:22px;color:var(--ink);margin:4px 0 16px;font-weight:600}
+  #laurel.up .rank{color:#f6e3a4;animation:laurel-glow 2.4s ease-in-out .6s infinite}
+  #laurel .go{display:flex;gap:8px}
+  #laurel .go button{padding:7px 10px;font-size:12.5px}
+  #laurel .go .plant{background:#4a4322;border-color:#6b5d2e;flex:2}
+  @keyframes laurel-in{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
+  @keyframes laurel-glow{0%,100%{text-shadow:0 0 6px rgba(246,220,140,.25)}50%{text-shadow:0 0 22px rgba(246,220,140,.8)}}
+  @media (prefers-reduced-motion:reduce){#laurel .card,#laurel.up .rank{animation:none}}
   .backlink{position:fixed;top:9px;right:14px;z-index:4;font-size:11.5px;color:var(--dim);
     text-decoration:none;background:var(--panel);border:1px solid var(--rule);padding:3px 9px}
   .backlink:hover{color:var(--ink)}
@@ -119,7 +141,7 @@
   <div class="card">
     <div class="picks">
       <h2>Plant a seedling</h2>
-      <div class="sub">What kind of tree you grow is chosen once, now. Every choice is a trade.</div>
+      <div class="sub"><span id="p-rank" class="p-rank"></span> What kind of tree you grow is chosen once, now. Every choice is a trade.</div>
       <div id="axes"></div>
       <div class="axis" id="mind-row"><div class="nm">Across the field</div><div class="seg"></div><div class="blurb"></div></div>
       <div class="axis" id="hand-row"><div class="nm">This side</div><div class="seg"></div><div class="blurb"></div></div>
@@ -138,9 +160,24 @@
   </div>
 </div>
 
+<div id="laurel" class="hide" role="dialog" aria-live="polite">
+  <div class="card">
+    <div class="kick"></div>
+    <h2></h2>
+    <div class="adv"></div>
+    <div class="from"></div>
+    <div class="rank"></div>
+    <div class="go">
+      <button id="l-stay">Look at the field</button>
+      <button id="l-plant" class="plant">Plant again</button>
+    </div>
+  </div>
+</div>
+
 <div class="panel hide" id="hud">
   <h1>Heartwood <span>· prototype</span></h1>
   <div class="grp">The tree</div>
+  <div class="row"><span>rank</span><b id="s-rank">—</b></div>
   <div class="row"><span>seedling</span><b id="s-mine">—</b></div>
   <div class="row"><span>time</span><b id="s-time">0:00</b></div>
   <div class="row"><span>wood</span><b id="s-len">0</b></div>
@@ -166,6 +203,7 @@
   <div class="row"><span>muzzle speed</span><b id="s-speed">—</b></div>
   <div class="row"><span>shot</span><b id="s-shot">—</b></div>
   <div class="row"><span>in flight</span><b id="s-bolt">0</b></div>
+  <div class="row"><span>wards</span><b id="s-ward">—</b></div>
   <div class="grp">The other mage</div>
   <div class="row"><span>seedling</span><b id="s-theirs">—</b></div>
   <div class="row"><span>their wood</span><b id="s-dlen">0</b></div>
@@ -182,6 +220,7 @@
   <div><kbd>tip onto tip</kbd><span>drag one tip to any other and hold them together<br>to graft a pair the board did not suggest</span></div>
   <div><kbd>slice the air</kbd><span>draw the stroke, and what it will take lights up.<br>Let go to cut, and fire, out of the cut face</span></div>
   <div><kbd>right-click · Esc</kbd><span>mid-stroke: put the blade away and cut nothing<br>(on a touch screen, a second finger)</span></div>
+  <div><kbd>trim a leaf</kbd><span>a stroke that takes only leaves fires nothing:<br>each leaf falls to a ward that circles your core<br>and takes the force out of a shot that meets it</span></div>
   <div><kbd>slice several</kbd><span>a stroke across several limbs throws a volley,<br>one lighter shot out of every face it opens</span></div>
   <div><kbd>space</kbd><span>pause</span></div>
   <div><kbd>r</kbd><span>start over</span></div>
@@ -302,6 +341,16 @@ var S = {
   volleyExp:   0.5,     // how far a stroke's channel widens with the faces it opens, evenly loaded
   volleyMax:   8,       // the most shots one stroke can throw
 
+  // wards
+  leafLen:     10,      // the most unbranched wood at a tip that still counts as a leaf, units
+  wardK:       1,       // what a ward holds, as a multiple of a full-channel shot off a kinked stem
+  wardOrbit:   30,      // radius of the ring the wards keep round their core, units
+  wardSpin:    2.4,     // how fast they go round it, radians per second
+  wardSink:    90,      // how fast a trimmed leaf falls to its orbit, units per second
+  wardSize:    7,       // how close a shot must pass a ward to be caught, units
+  wardMax:     8,       // the most wards a mage can keep; the oldest gives way
+  wardFloor:   0.25,    // a ward faded below this fraction of what it held is gone
+
 };
 var D2R = Math.PI / 180;
 
@@ -373,7 +422,7 @@ function mkNode(T, parentId, rel, order, side){
 // do to the forks.
 function newTree(seedRot, g){
   var T = { nodes:new Map(), nextId:1, clock:0, list:[], roots:[], grafts:[],
-            g: g || genome(), husk: true, cgx: 0, cgy: 0 };
+            g: g || genome(), husk: true, cgx: 0, cgy: 0, wards: [] };
   T.attach = (seedRot || 0) * D2R;
   var n = mkNode(T, null, 0, 0, 1);
   n.attach = T.attach;
@@ -1456,6 +1505,82 @@ function volleyFrom(fig, faces, tgt){
   return out;
 }
 
+/* ══ Wards ════════════════════════════════════════════════════════════
+   Not every cut is a shot. A stroke that takes only leaves — the last few
+   units of unbranched wood at a tip, with no fork and no graft in them — has
+   no stem behind it worth the name, so nothing is thrown at the other mage.
+   Each leaf falls instead to a ring round your own core and goes round it,
+   and the wards spread themselves evenly round that ring as they come. A
+   shot of theirs that passes close to a ward loses what the ward holds, and
+   the ward loses what the shot carried: a ward holds exactly what a
+   full-channel shot off a kinked stem would carry, so one stops anything
+   thrown unaimed, and a straightened barrel or a graft punches through it
+   and comes out slower. Wards run down against the distance they travel,
+   like bolts, and the oldest gives way when there are too many.
+   ═══════════════════════════════════════════════════════════════════════ */
+function isLeaf(T, n){
+  if (!n || n.parent === null) return false;
+  var L = 0, q = n;
+  while (q){
+    if (q.children.length > 1 || q.mate !== null) return false;
+    L += q.len;
+    if (L > S.leafLen) return false;
+    q = q.children.length ? T.nodes.get(q.children[0]) : null;
+  }
+  return true;
+}
+// a stroke that takes nothing but leaves is a trim, and a trim wards
+function isTrim(T, cut){
+  if (!cut || !cut.length) return false;
+  for (var i = 0; i < cut.length; i++) if (!isLeaf(T, cut[i])) return false;
+  return true;
+}
+function wardHold(W, gain){ return S.wardK*shotForce(capacity(W.girth), 0, gain); }
+function makeWard(W, x, y, hold){
+  var w = { a: Math.atan2(y, x), r: Math.hypot(x, y), hold: hold, hold0: hold };
+  if (!W.wards) W.wards = [];
+  W.wards.push(w);
+  while (W.wards.length > S.wardMax) W.wards.shift();
+  return w;
+}
+function stepWards(W, dt){
+  var ws = W.wards, n = ws ? ws.length : 0, i, w;
+  if (!n) return;
+  var lead = ws[0].a, gap = 2*Math.PI/n;
+  for (i = 0; i < n; i++){
+    w = ws[i];
+    var dr = S.wardOrbit - w.r, sink = S.wardSink*dt;
+    var moved = Math.min(Math.abs(dr), sink);
+    w.r += dr >= 0 ? moved : -moved;
+    // each settles into its slot by going a little faster or slower, never backwards
+    var err = i ? wrapA(lead + i*gap - w.a) : 0;
+    var om = S.wardSpin*(1 + 0.8*Math.max(-1, Math.min(1, err*2)));
+    w.a = wrapA(w.a + om*dt);
+    var flew = om*w.r*dt + moved;
+    if (S.fadeHalf > 0) w.hold *= Math.pow(0.5, flew/S.fadeHalf);
+  }
+  for (i = n - 1; i >= 0; i--) if (ws[i].hold < ws[i].hold0*S.wardFloor) ws.splice(i, 1);
+}
+/* A bolt that has just flown from (ax,ay) to (bx,by), in the frame of the tree
+   it is aimed at, against that tree's wards. Returns where it was caught and
+   whether it was stopped there, or null if it passed clear. */
+function wardCatch(W, b, ax, ay, bx, by){
+  var ws = W.wards;
+  if (!ws || !ws.length) return null;
+  var reach = S.wardSize + b.L*0.25;
+  var sx = bx - ax, sy = by - ay, L = sx*sx + sy*sy || 1e-12;
+  for (var i = 0; i < ws.length; i++){
+    var w = ws[i], wx = Math.cos(w.a)*w.r, wy = Math.sin(w.a)*w.r;
+    var t = Math.max(0, Math.min(1, ((wx - ax)*sx + (wy - ay)*sy)/L));
+    if (Math.hypot(ax + sx*t - wx, ay + sy*t - wy) > reach) continue;
+    var took = Math.min(w.hold, b.F);
+    w.hold -= took; biteBolt(b, took);
+    if (w.hold < w.hold0*S.wardFloor) ws.splice(i, 1);
+    return { x: wx, y: wy, stopped: b.F <= 1e-6 };
+  }
+  return null;
+}
+
 /* ══ The other mage ═══════════════════════════════════════════════════
    A mage that plays, with the same hand you have and no other. It grows by
    the rules you grow by, reads its own tree the way the glow reads yours,
@@ -1868,7 +1993,7 @@ function startGesture(w, button){
              held: new Set(g.map(function(m){ return m.id; })), follow: new Set() };
   } else {
     slice = { pts:[[w.x, w.y]], victims:[], cut:[], faces:[], shots:[], charge:0, muzzle:null,
-              breaks:0, lost:0, share:0, mask: button === 2 ? 2 : 1 };
+              breaks:0, lost:0, share:0, trim:false, mask: button === 2 ? 2 : 1 };
   }
 }
 
@@ -1895,6 +2020,7 @@ function sliceReview(){
   seen.clear(); face.clear(); slice.victims.length = 0; slice.cut.length = 0;
   slice.faces.length = 0; slice.shots.length = 0;
   slice.charge = 0; slice.muzzle = null; slice.breaks = 0; slice.lost = 0; slice.share = 0;
+  slice.trim = false;
   if (pts.length < 2) return;
   for (i = 0; i < T.list.length; i++){
     n = T.list[i];
@@ -1927,7 +2053,10 @@ function sliceReview(){
   }
   // heaviest first: that one is the shot the aim arc follows
   slice.faces.sort(function(a, b){ return b.charge - a.charge; });
-  if (slice.faces.length) slice.muzzle = slice.faces[0].muzzle;
+  // Only leaves, and no stem behind them to throw anything: the leaves ward
+  // your own core instead, and there is no arc to show.
+  slice.trim = !slice.breaks && isTrim(T, slice.cut);
+  if (slice.faces.length && !slice.trim) slice.muzzle = slice.faces[0].muzzle;
   // and the price, as a share of the whole tree, so a stroke that is about to
   // take a third of your wood says so before you let go
   var lostLen = 0, allLen = 0;
@@ -1998,6 +2127,15 @@ function endPointer(){
     sliceReview();
     var faces = slice.faces.map(function(f){ return { charge:f.charge, muzzle:f.muzzle }; });
     var v = slice.victims;
+    if (slice.trim){
+      var hold = wardHold(T, FIG.gain);
+      for (var wi = 0; wi < slice.cut.length; wi++){
+        var lf = slice.cut[wi];
+        makeWard(T, lf.x1, lf.y1, hold);
+        flash.push({x:lf.x1, y:lf.y1, t:0.6, kind:"ward"});
+      }
+      faces.length = 0;
+    }
     for (var i = 0; i < v.length; i++){
       if (!T.nodes.has(v[i].id)) continue;
       flash.push({x:v[i].x0, y:v[i].y0, t:0.45, kind:"cut"});
@@ -2029,6 +2167,11 @@ addEventListener("keydown", function(e){
     if (e.key === "Enter"){ plantChosen(); e.preventDefault(); }
     if (e.key === "Escape" && chooserCancel) closeChooser();
     return;
+  }
+  var lau = document.getElementById("laurel");
+  if (!lau.classList.contains("hide")){
+    if (e.key === "Enter"){ openChooser(true); e.preventDefault(); return; }
+    if (e.key === "Escape"){ hideLaurel(); return; }
   }
   if (e.key === "Escape"){ sheathe(); return; }
   if (e.code === "Space"){ paused = !paused; e.preventDefault(); }
@@ -2364,7 +2507,7 @@ function drawHand(){
     // part of the tree or carries a ring. The blade does not bite until you
     // let go, and right-click or Esc puts it away.
     var grave = slice.breaks || slice.share >= BIG_CUT;
-    var rgb = grave ? "255,92,80" : "242,168,104";
+    var rgb = grave ? "255,92,80" : slice.trim ? "150,214,236" : "242,168,104";
     for (i = 0; i < 34; i++) DOOM[i] = null;
     below(T, slice.cut, function(q){
       var L = wLevel(Math.max(0.5, q.thick));
@@ -2384,7 +2527,7 @@ function drawHand(){
       ctx.moveTo(sv.x0, sv.y0); ctx.lineTo(sv.x1, sv.y1);
     }
     ctx.lineWidth = 4.2/view.scale;
-    ctx.strokeStyle = "rgba(" + (grave ? "255,150,140" : "255,214,170") + ",.98)";
+    ctx.strokeStyle = "rgba(" + (grave ? "255,150,140" : slice.trim ? "196,238,250" : "255,214,170") + ",.98)";
     ctx.stroke();
   } else if (hover && T.nodes.has(hover.id)){
     // everything you would lose by cutting here, so the price is as visible
@@ -2436,9 +2579,18 @@ function draw(){
   for (i = 0; i < hits.length; i++){
     var ht = hits[i], al = Math.max(0, ht.t*(ht.big?1.4:2.2));
     ctx.beginPath(); ctx.arc(ht.x, ht.y, (ht.big?6:3)+(1-ht.t)*(ht.big?40:18), 0, 7);
-    ctx.strokeStyle = "rgba(" + (ht.foe ? FOE : MINE).vein + "," + al.toFixed(2) + ")";
+    // a ward that catches a shot flares in its own colour, not the shooter's
+    ctx.strokeStyle = ht.ward ? "rgba(" + (ht.foe ? "196,238,250" : "246,200,232") + "," + al.toFixed(2) + ")"
+                    : "rgba(" + (ht.foe ? FOE : MINE).vein + "," + al.toFixed(2) + ")";
     ctx.lineWidth = 1.8; ctx.stroke();
   }
+  drawWards(T, MINE);
+  if (TD){
+    ctx.save(); ctx.translate(S.coreSep, 0); ctx.scale(-1, 1);
+    drawWards(TD, FOE);
+    ctx.restore();
+  }
+  drawFete();
 
   ctx.font = (12/view.scale)+"px ui-sans-serif, system-ui, sans-serif";
   ctx.textAlign = "center";
@@ -2464,6 +2616,7 @@ function draw(){
     ctx.moveTo(slice.pts[0][0], slice.pts[0][1]);
     for (i = 1; i < slice.pts.length; i++) ctx.lineTo(slice.pts[i][0], slice.pts[i][1]);
     ctx.strokeStyle = slice.breaks ? "rgba(255,120,110,.9)"
+                    : slice.trim ? "rgba(160,220,240,.85)"
                     : slice.victims.length ? "rgba(240,180,140,.8)" : "rgba(226,210,190,.45)";
     ctx.lineWidth = (slice.victims.length ? 1.8 : 1.2)/view.scale; ctx.stroke();
     if (slice.cut.length){
@@ -2471,7 +2624,10 @@ function draw(){
       var tip = slice.pts[slice.pts.length-1];
       var grave = slice.breaks || slice.share >= BIG_CUT;
       var pct = slice.share*100, words = (pct < 1 ? "<1" : Math.round(pct)) + "% of your wood";
-      if (slice.faces.length > 1)
+      if (slice.trim)
+        words = slice.cut.length === 1 ? "a leaf \u00b7 wards your core"
+              : slice.cut.length + " leaves \u00b7 " + slice.cut.length + " wards round your core";
+      else if (slice.faces.length > 1)
         words += " \u00b7 volley of " + Math.min(slice.faces.length, S.volleyMax);
       if (slice.breaks) words += " \u00b7 breaks a graft";
       ctx.font = (11.5/view.scale) + "px ui-sans-serif, system-ui, sans-serif";
@@ -2479,7 +2635,8 @@ function draw(){
       var tx = tip[0] + 12/view.scale, ty = tip[1] - 12/view.scale;
       ctx.lineWidth = 3/view.scale; ctx.strokeStyle = "rgba(12,14,11,.85)";
       ctx.strokeText(words, tx, ty);
-      ctx.fillStyle = grave ? "rgba(255,150,140,.98)" : "rgba(246,222,190,.95)";
+      ctx.fillStyle = grave ? "rgba(255,150,140,.98)"
+                    : slice.trim ? "rgba(196,236,250,.98)" : "rgba(246,222,190,.95)";
       ctx.fillText(words, tx, ty);
       ctx.fillStyle = "rgba(200,196,180,.6)";
       ctx.font = (10/view.scale) + "px ui-sans-serif, system-ui, sans-serif";
@@ -2495,10 +2652,71 @@ function draw(){
     ctx.strokeStyle = f.kind==="cut"   ? "rgba(217,123,90,"+a+")"      // wood lost
                     : f.kind==="graft" ? "rgba(150,200,235,"+a+")"      // a circuit
                     : f.kind==="foe"   ? "rgba(246,160,200,"+a+")"      // they fired
+                    : f.kind==="ward"  ? "rgba(170,228,246,"+a+")"      // a leaf falls to ward
                                        : "rgba(198,186,150,"+a+")";     // nothing doing
     ctx.lineWidth = 1.5; ctx.stroke();
   }
   ctx.restore();
+}
+
+// Wards, in their tree's own frame: leaves going round the core, each with a
+// faint halo the width of what it will catch, dimming as it runs down.
+function drawWards(W, pal){
+  var ws = W.wards, k = 1/view.scale;
+  if (!ws || !ws.length) return;
+  ctx.beginPath(); ctx.arc(0, 0, S.wardOrbit, 0, 7);
+  ctx.setLineDash([2*k, 7*k]); ctx.lineWidth = 1*k;
+  ctx.strokeStyle = "rgba(" + pal.vein + ",.18)"; ctx.stroke(); ctx.setLineDash([]);
+  for (var i = 0; i < ws.length; i++){
+    var w = ws[i], x = Math.cos(w.a)*w.r, y = Math.sin(w.a)*w.r;
+    var lit = Math.max(0.2, Math.min(1, w.hold/w.hold0));
+    ctx.beginPath(); ctx.arc(x, y, S.wardSize, 0, 7);
+    ctx.fillStyle = "rgba(" + pal.leaf + "," + (0.10*lit).toFixed(3) + ")"; ctx.fill();
+    ctx.strokeStyle = "rgba(" + pal.vein + "," + (0.55*lit).toFixed(3) + ")";
+    ctx.lineWidth = 1.2*k; ctx.stroke();
+    ctx.globalAlpha = 0.35 + 0.65*lit;
+    leaf(x, y, w.a + Math.PI/2, 6, pal);
+    ctx.globalAlpha = 1;
+  }
+}
+
+// The kill: the spent heartwood throws up a burst of leaves and sparks.
+var fete = [];
+function feteBurst(x, y){
+  fete.length = 0;
+  for (var i = 0; i < 110; i++){
+    var a = Math.random()*2*Math.PI, v = 30 + Math.random()*150;
+    fete.push({ x:x, y:y, vx:Math.cos(a)*v, vy:Math.sin(a)*v, spin:(Math.random()-0.5)*8,
+                a:a, t:0, life:1.6 + Math.random()*2.2, leaf: i % 3 !== 0,
+                r: 3 + Math.random()*5 });
+  }
+  for (i = 0; i < 4; i++) fete.push({ ring:true, x:x, y:y, t:-i*0.35, life:1.8 });
+}
+function stepFete(dt){
+  for (var i = fete.length-1; i >= 0; i--){
+    var p = fete[i];
+    p.t += dt;
+    if (p.t >= p.life){ fete.splice(i, 1); continue; }
+    if (p.ring) continue;
+    p.vx *= Math.pow(0.35, dt); p.vy = p.vy*Math.pow(0.35, dt) + 22*dt;   // they drift down
+    p.x += p.vx*dt; p.y += p.vy*dt; p.a += p.spin*dt;
+  }
+}
+function drawFete(){
+  for (var i = 0; i < fete.length; i++){
+    var p = fete[i], f = 1 - p.t/p.life;
+    if (p.t < 0) continue;
+    if (p.ring){
+      ctx.beginPath(); ctx.arc(p.x, p.y, 12 + p.t*110, 0, 7);
+      ctx.strokeStyle = "rgba(246,222,150," + (0.7*f).toFixed(3) + ")";
+      ctx.lineWidth = (1 + 3*f)/view.scale; ctx.stroke();
+    } else if (p.leaf){
+      ctx.globalAlpha = f; leaf(p.x, p.y, p.a, p.r, MINE); ctx.globalAlpha = 1;
+    } else {
+      ctx.beginPath(); ctx.arc(p.x, p.y, 1.6/view.scale + p.r*0.25*f, 0, 7);
+      ctx.fillStyle = "rgba(252,232,160," + f.toFixed(3) + ")"; ctx.fill();
+    }
+  }
 }
 
 // Shots in flight, drawn in their owner's frame and in the colour of their
@@ -2691,16 +2909,19 @@ function measure(){
   // The stroke is re-read as the tree grows under it, and a volley shows every
   // arc it would throw, not only the heaviest.
   VOLLEY.n = 0;
+  // A trim throws nothing, so it has no arcs.
   if (slice && slice.pts.length > 1){
     sliceReview();
-    var sh = volleyFrom(FIG, slice.faces, targetOf(TD));
-    for (i = 0; i < sh.length; i++) slice.shots.push(sh[i]);
-    for (i = 1; i < slice.faces.length && i < S.volleyMax; i++){
-      var vf = slice.faces[i], vm = vf.muzzle;
-      var va = VOLLEY.arcs[VOLLEY.n] || (VOLLEY.arcs[VOLLEY.n] = { path:[], hit:null, m:null });
-      va.m = vm;
-      va.hit = forecastInto(fanNear(Math.atan2(vm.y, vm.x)), vm, TD, va.path);
-      VOLLEY.n++;
+    if (!slice.trim){
+      var sh = volleyFrom(FIG, slice.faces, targetOf(TD));
+      for (i = 0; i < sh.length; i++) slice.shots.push(sh[i]);
+      for (i = 1; i < slice.faces.length && i < S.volleyMax; i++){
+        var vf = slice.faces[i], vm = vf.muzzle;
+        var va = VOLLEY.arcs[VOLLEY.n] || (VOLLEY.arcs[VOLLEY.n] = { path:[], hit:null, m:null });
+        va.m = vm;
+        va.hit = forecastInto(fanNear(Math.atan2(vm.y, vm.x)), vm, TD, va.path);
+        VOLLEY.n++;
+      }
     }
   }
   if (SHOW.loops) graftablePairs(); else PAIRS.length = 0;
@@ -2817,7 +3038,8 @@ function newSeedling(){
   FIG.fan = null; FIG.aim = null; FIG.spire = null; FIG.muzzle = null;
   FIG.loops.length = 0; FIG.area = 0; FIG.gain = 1;
   FC.length = 0; FCimpact = null;
-  bolts.length = 0; hits.length = 0;
+  bolts.length = 0; hits.length = 0; fete.length = 0;
+  LAUREL.won = false; LAUREL.wait = 0; hideLaurel();
   newFoe(genome(FOE_PICKS), FOE_MIND);
 }
 
@@ -2917,6 +3139,11 @@ function stepBolts(dt){
     // wood of the target tree to the world: theirs is mirrored, yours is not
     var wx = W === TD ? -1 : 1, wo = W === TD ? S.coreSep : 0;
 
+    var caught = wardCatch(W, b, px, py, cx, cy);   // a ward in the way takes what it holds
+    if (caught){
+      hits.push({x:wo + wx*caught.x, y:caught.y, t:0.6, big:caught.stopped, foe:b.foe, ward:true});
+      if (caught.stopped){ bolts.splice(i,1); continue; }
+    }
     if (W.husk && cx*cx + cy*cy < S.huskR*S.huskR){   // the husk takes it whole
       hits.push({x:ox + sx*b.x, y:b.y, t:0.5, foe:b.foe});
       W.huskHit = 0.5;
@@ -2970,6 +3197,48 @@ function stepBolts(dt){
 }
 
 /*END VIEW*/
+/* ── rank ──────────────────────────────────────────────────────────── */
+// A mage starts a novice and is raised a class by beating another mage with
+// their own hand. The ladder runs down from the fifth class to the first; only
+// its first rung can be earned so far. Rank is kept in this browser.
+var RANKS = ["Novice Mage", "Fifth-Class Mage"];
+var MY_RANK = 0;
+try { MY_RANK = Math.max(0, Math.min(RANKS.length-1,
+        parseInt(localStorage.getItem("heartwood.rank") || "0", 10) || 0)); } catch (e) {}
+function saveRank(){ try { localStorage.setItem("heartwood.rank", String(MY_RANK)); } catch (e) {} }
+
+var LAUREL = { won:false, wait:0, from:0, to:0, own:true };
+function victory(){
+  LAUREL.won = true; LAUREL.wait = 1.4;          // let the burst be seen first
+  LAUREL.own = !T.mind;
+  LAUREL.from = MY_RANK;
+  if (LAUREL.own && MY_RANK < RANKS.length-1){ MY_RANK++; saveRank(); }
+  LAUREL.to = MY_RANK;
+  feteBurst(S.coreSep, 0);
+  hits.push({x:S.coreSep, y:0, t:0.7, big:true, foe:false});
+}
+function showLaurel(){
+  var el = document.getElementById("laurel");
+  var up = LAUREL.own && LAUREL.to > LAUREL.from;
+  el.querySelector(".kick").textContent = "Their heartwood is spent";
+  el.querySelector("h2").textContent = LAUREL.own ? "Victory" : "Your temper has won";
+  el.querySelector(".adv").textContent = up ? "You have advanced to the rank of"
+                                       : LAUREL.own ? "You remain a" : "Rank is earned by your own hand. You are a";
+  el.querySelector(".from").textContent = up ? RANKS[LAUREL.from] + " \u2192" : "";
+  el.querySelector(".rank").textContent = RANKS[LAUREL.to];
+  el.classList.toggle("up", up);
+  el.classList.remove("hide");
+  refreshRank();
+}
+function hideLaurel(){
+  var el = document.getElementById("laurel");
+  if (el) el.classList.add("hide");
+}
+function refreshRank(){
+  var e = document.getElementById("p-rank");
+  if (e) e.textContent = "You are a " + RANKS[MY_RANK] + ".";
+}
+
 /* ── planting ──────────────────────────────────────────────────────── */
 // The opening choice. Yours is chosen here; theirs is drawn at random each
 // match and shown before you commit, so what you plant can be an answer to
@@ -3071,6 +3340,7 @@ function refreshChooser(){
   hr.querySelector(".blurb").textContent = MY_MIND === "hand"
     ? "You shape this one: bend it, cut it, graft it."
     : "Hand it to a temper and watch the two of them fight. " + MINDS[MY_MIND].blurb;
+  refreshRank();
   document.getElementById("p-mine").textContent = pickNames({ picks: MY_PICKS });
   document.getElementById("p-theirs").textContent = pickNames({ picks: FOE_PICKS });
   // let the buttons repaint before the previews are grown
@@ -3081,6 +3351,7 @@ function refreshChooser(){
 }
 function openChooser(cancellable){
   choosing = true; chooserCancel = !!cancellable;
+  hideLaurel();
   if (!cancellable) FOE_PICKS = FOE_PICKS || drawPicks();
   else FOE_PICKS = drawPicks();
   document.getElementById("p-cancel").style.display = cancellable ? "" : "none";
@@ -3095,6 +3366,8 @@ function plantChosen(){ closeChooser(); newSeedling(); }
 buildChooser();
 document.getElementById("p-plant").onclick = plantChosen;
 document.getElementById("p-cancel").onclick = closeChooser;
+document.getElementById("l-stay").onclick = hideLaurel;
+document.getElementById("l-plant").onclick = function(){ openChooser(true); };
 document.getElementById("p-reroll").onclick = function(){ FOE_PICKS = drawPicks(); refreshChooser(); };
 
 /* ── loop ──────────────────────────────────────────────────────────── */
@@ -3146,9 +3419,14 @@ function frame(now){
       }
       layout(TD); buildGrid(TD);
     }
+    if (mine) stepWards(T, total);
+    if (TD && TD.hp > 0) stepWards(TD, total);
     var bsub = Math.max(1, Math.ceil(total/0.02));
     for (s = 0; s < bsub; s++) stepBolts(total/bsub);
+    if (TD && TD.hp <= 0 && !LAUREL.won && mine) victory();
   } else layout(T);
+  stepFete(dt);
+  if (LAUREL.wait > 0 && (LAUREL.wait -= dt) <= 0) showLaurel();
   for (var f = flash.length-1; f >= 0; f--){ flash[f].t -= dt; if (flash[f].t <= 0) flash.splice(f,1); }
   if (T.huskHit) T.huskHit = Math.max(0, T.huskHit - dt);
   if (TD && TD.huskHit) TD.huskHit = Math.max(0, TD.huskHit - dt);
@@ -3167,6 +3445,7 @@ function hud(){
     if (n.ram > rm) rm = n.ram;
     if (n.bud && n.share > 0){ nb++; if (n.share > fast) fast = n.share; }
   }
+  put("s-rank", RANKS[MY_RANK]);
   put("s-mine", pickNames(T.g));
   put("s-time", Math.floor(T.clock/60)+":"+String(Math.floor(T.clock%60)).padStart(2,"0"));
   put("s-len", Math.round(len));
@@ -3184,9 +3463,14 @@ function hud(){
   // whichever limb is about to fire: the greenest one the stroke has crossed,
   // or, with no stroke in progress, the one under the cursor
   var sub = null;
-  if (slice && slice.faces.length) sub = slice.faces[0].node;
+  if (slice && slice.faces.length && !slice.trim) sub = slice.faces[0].node;
   else if (!slice && hover && T.nodes.has(hover.id) && hover.parent !== null) sub = hover;
-  if (slice && slice.shots.length > 1){
+  if (slice && slice.trim){
+    put("s-cut", slice.cut.length + " lea" + (slice.cut.length === 1 ? "f" : "ves") + " \u00b7 "
+                 + slice.cut.length + " ward" + (slice.cut.length === 1 ? "" : "s") + ", each holding "
+                 + wardHold(T, FIG.gain).toFixed(1) + " force");
+    put("s-lands", "round your own core");
+  } else if (slice && slice.shots.length > 1){
     // a volley: what it throws in all, and how hard the hardest of it presses
     var vF = 0, vP = 0, vM = 0, vHeld = slice.charge*S.chargeWood;
     for (var vi = 0; vi < slice.shots.length; vi++){
@@ -3234,6 +3518,9 @@ function hud(){
     put("s-shot", Math.round(Lf)+"u front · cuts ≤" + pressure(Ff, Lf).toFixed(1) + " thick");
   } else put("s-shot", "—");
   put("s-bolt", bolts.length);
+  put("s-ward", T.wards && T.wards.length
+      ? T.wards.length + " \u00b7 " + T.wards.reduce(function(a, w){ return a + w.hold; }, 0).toFixed(1) + " force held"
+      : "\u2014");
   if (TD){
     put("s-theirs", pickNames(TD.g));
     var dlen = 0, dheal = 0;
