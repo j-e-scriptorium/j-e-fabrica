@@ -1371,8 +1371,16 @@ suite("Wards");
   check("and the wards spread evenly round it", minGap > 0.8*Math.PI/2, (minGap/D2R).toFixed(0) + "° closest");
   check("they run down as they go round", T.wards.every(w => w.hold < hold && w.hold > 0.5*hold));
 
-  S.wardMax = 3; sim.makeWard(T, 30, 0, hold); reset();
-  check("the oldest gives way past the most a mage can keep", T.wards.length === 3);
+  {
+    const U = { wards: [] };
+    for (let i = 0; i < 300; i++) sim.makeWard(U, 60, i, hold);
+    const t0 = Date.now();
+    for (let t = 0; t < 2; t += 0.02) sim.stepWards(U, 0.02);
+    const b = sim.makeBolt(null, 1e6, { x: 0, y: 0, dir: 0, run: 0 }, null);
+    for (let k = 0; k < 1000; k++) sim.wardCatch(U, b, 200, 200, 201, 201);
+    check("there is no limit to how many a mage keeps, and three hundred cost little",
+          U.wards.length === 300 && Date.now() - t0 < 500, (Date.now() - t0) + " ms");
+  }
 
   // collisions
   const at = (w) => [Math.cos(w.a)*w.r, Math.sin(w.a)*w.r];

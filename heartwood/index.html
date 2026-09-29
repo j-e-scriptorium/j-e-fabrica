@@ -348,7 +348,6 @@ var S = {
   wardSpin:    2.4,     // how fast they go round it, radians per second
   wardSink:    90,      // how fast a trimmed leaf falls to its orbit, units per second
   wardSize:    7,       // how close a shot must pass a ward to be caught, units
-  wardMax:     8,       // the most wards a mage can keep; the oldest gives way
   wardFloor:   0.25,    // a ward faded below this fraction of what it held is gone
 
 };
@@ -1516,7 +1515,7 @@ function volleyFrom(fig, faces, tgt){
    full-channel shot off a kinked stem would carry, so one stops anything
    thrown unaimed, and a straightened barrel or a graft punches through it
    and comes out slower. Wards run down against the distance they travel,
-   like bolts, and the oldest gives way when there are too many.
+   like bolts; there is no limit to how many a mage can keep.
    ═══════════════════════════════════════════════════════════════════════ */
 function isLeaf(T, n){
   if (!n || n.parent === null) return false;
@@ -1540,7 +1539,6 @@ function makeWard(W, x, y, hold){
   var w = { a: Math.atan2(y, x), r: Math.hypot(x, y), hold: hold, hold0: hold };
   if (!W.wards) W.wards = [];
   W.wards.push(w);
-  while (W.wards.length > S.wardMax) W.wards.shift();
   return w;
 }
 function stepWards(W, dt){
@@ -2347,6 +2345,7 @@ function drawTree(W, pal, mine){
     ctx.beginPath(); ctx.arc(0,0,Math.max(2.4, S.coreR*0.42),0,7);
     ctx.fillStyle = "rgba(" + pal.eye + "," + (0.08 + 0.20*lit).toFixed(2) + ")"; ctx.fill();
   }
+  if (W.hpMax) drawCracks(W, potR, pal);
 
   // wood, batched into a fixed grid of stiffness x width
   for (i = 0; i < 256; i++) BUCKET[i] = null;
@@ -2393,8 +2392,13 @@ function drawTree(W, pal, mine){
   }
   for (i = 0; i < W.list.length; i++){
     n = W.list[i]; if (!n.cracked) continue;
-    ctx.beginPath(); ctx.arc((n.x0+n.x1)/2, (n.y0+n.y1)/2, Math.max(1.2, n.thick*0.55), 0, 7);
-    ctx.fillStyle = "rgba(" + pal.knot + ",.9)"; ctx.fill();
+    // a scar is a mark in the bark, not a hole through it: a short nick across
+    // the wood that stays small however thick the wood is
+    var sx = (n.x0+n.x1)/2, sy = (n.y0+n.y1)/2, sl = Math.min(2.4, 0.8 + n.thick*0.14);
+    var ca = Math.cos(n.abs + 1.1), sa = Math.sin(n.abs + 1.1);
+    ctx.beginPath(); ctx.moveTo(sx - ca*sl, sy - sa*sl); ctx.lineTo(sx + ca*sl, sy + sa*sl);
+    ctx.strokeStyle = "rgba(" + pal.knot + ",.85)"; ctx.lineWidth = Math.min(1.6, 0.6 + n.thick*0.08);
+    ctx.lineCap = "round"; ctx.stroke();
   }
 
   if (mine) drawHand();
@@ -2507,7 +2511,7 @@ function drawHand(){
     // part of the tree or carries a ring. The blade does not bite until you
     // let go, and right-click or Esc puts it away.
     var grave = slice.breaks || slice.share >= BIG_CUT;
-    var rgb = grave ? "255,92,80" : slice.trim ? "150,214,236" : "242,168,104";
+    var rgb = grave ? "255,92,80" : slice.trim ? "110,190,245" : "255,214,204";
     for (i = 0; i < 34; i++) DOOM[i] = null;
     below(T, slice.cut, function(q){
       var L = wLevel(Math.max(0.5, q.thick));
@@ -2527,7 +2531,7 @@ function drawHand(){
       ctx.moveTo(sv.x0, sv.y0); ctx.lineTo(sv.x1, sv.y1);
     }
     ctx.lineWidth = 4.2/view.scale;
-    ctx.strokeStyle = "rgba(" + (grave ? "255,150,140" : slice.trim ? "196,238,250" : "255,214,170") + ",.98)";
+    ctx.strokeStyle = "rgba(" + (grave ? "255,150,140" : slice.trim ? "190,232,255" : "255,238,232") + ",.98)";
     ctx.stroke();
   } else if (hover && T.nodes.has(hover.id)){
     // everything you would lose by cutting here, so the price is as visible
@@ -2592,21 +2596,6 @@ function draw(){
   }
   drawFete();
 
-  ctx.font = (12/view.scale)+"px ui-sans-serif, system-ui, sans-serif";
-  ctx.textAlign = "center";
-  if (TD && TD.hp <= 0){
-    ctx.fillStyle = "rgba(" + FOE.vein + ",.7)";
-    ctx.fillText("spent", S.coreSep, S.coreR + 20/view.scale);
-  }
-  if (T.hp !== undefined && T.hp <= 0){
-    ctx.fillStyle = "rgba(" + MINE.vein + ",.8)";
-    ctx.fillText("spent \u2014 r to plant again", 0, S.coreR + 20/view.scale);
-  } else if (!T.roots.length){
-    ctx.fillStyle = "rgba(200,180,150,.8)";
-    ctx.fillText("nothing left in the pot", 0, S.coreR + 20/view.scale);
-  }
-  ctx.textAlign = "start";
-
   if (SHOW.aim) drawAim();
   if (SHOW.fan || SHOW.spire || SHOW.loops) drawFigures();
   if (drag) drawHold();
@@ -2615,36 +2604,13 @@ function draw(){
     ctx.beginPath();
     ctx.moveTo(slice.pts[0][0], slice.pts[0][1]);
     for (i = 1; i < slice.pts.length; i++) ctx.lineTo(slice.pts[i][0], slice.pts[i][1]);
-    ctx.strokeStyle = slice.breaks ? "rgba(255,120,110,.9)"
-                    : slice.trim ? "rgba(160,220,240,.85)"
-                    : slice.victims.length ? "rgba(240,180,140,.8)" : "rgba(226,210,190,.45)";
+    // the blade wears the colour of what it will do: blue wards, red-white
+    // fires, red costs you a real part of the tree or a graft
+    var sgrave = slice.breaks || slice.share >= BIG_CUT;
+    ctx.strokeStyle = sgrave ? "rgba(255,110,100,.92)"
+                    : slice.trim ? "rgba(140,210,245,.9)"
+                    : slice.victims.length ? "rgba(255,222,214,.9)" : "rgba(226,210,190,.45)";
     ctx.lineWidth = (slice.victims.length ? 1.8 : 1.2)/view.scale; ctx.stroke();
-    if (slice.cut.length){
-      // what the stroke costs and what it throws, beside the blade
-      var tip = slice.pts[slice.pts.length-1];
-      var grave = slice.breaks || slice.share >= BIG_CUT;
-      var pct = slice.share*100, words = (pct < 1 ? "<1" : Math.round(pct)) + "% of your wood";
-      if (slice.trim)
-        words = slice.cut.length === 1 ? "a leaf \u00b7 wards your core"
-              : slice.cut.length + " leaves \u00b7 " + slice.cut.length + " wards round your core";
-      else if (slice.faces.length > 1)
-        words += " \u00b7 volley of " + Math.min(slice.faces.length, S.volleyMax);
-      if (slice.breaks) words += " \u00b7 breaks a graft";
-      ctx.font = (11.5/view.scale) + "px ui-sans-serif, system-ui, sans-serif";
-      ctx.textAlign = "start";
-      var tx = tip[0] + 12/view.scale, ty = tip[1] - 12/view.scale;
-      ctx.lineWidth = 3/view.scale; ctx.strokeStyle = "rgba(12,14,11,.85)";
-      ctx.strokeText(words, tx, ty);
-      ctx.fillStyle = grave ? "rgba(255,150,140,.98)"
-                    : slice.trim ? "rgba(196,236,250,.98)" : "rgba(246,222,190,.95)";
-      ctx.fillText(words, tx, ty);
-      ctx.fillStyle = "rgba(200,196,180,.6)";
-      ctx.font = (10/view.scale) + "px ui-sans-serif, system-ui, sans-serif";
-      var how = activeType === "mouse" ? "right-click or Esc to put it away"
-              : "a second finger puts it away";
-      ctx.strokeText(how, tx, ty + 13/view.scale);
-      ctx.fillText(how, tx, ty + 13/view.scale);
-    }
   }
   for (i = 0; i < flash.length; i++){
     var f = flash[i], a = Math.max(0, f.t*2);
@@ -2677,6 +2643,48 @@ function drawWards(W, pal){
     ctx.globalAlpha = 0.35 + 0.65*lit;
     leaf(x, y, w.a + Math.PI/2, 6, pal);
     ctx.globalAlpha = 1;
+  }
+}
+
+/* How spent a core is, read off the pot: cracks run out from the heart as it
+   takes damage, more of them and longer, each a dark fissure with the core's
+   own light showing along it. They are fixed per crack, so a crack that has
+   appeared stays where it is and only lengthens. Spent, the pot is split
+   right across and the light is out. */
+var CRACKS = (function(){
+  var out = [], seed = 7;
+  function r(){ seed = (seed*16807) % 2147483647; return seed/2147483647; }
+  for (var i = 0; i < 9; i++){
+    var a = i*2*Math.PI/9 + (r() - 0.5)*0.5, pts = [];
+    for (var j = 1; j <= 5; j++) pts.push([j/5, a + (r() - 0.5)*0.55, (r() - 0.5)]);
+    out.push({ at: (i + 0.3)/9, pts: pts });
+  }
+  // the order they open in, so the first few spread round the pot
+  var order = [0, 4, 7, 2, 5, 8, 1, 3, 6];
+  return order.map(function(k, n){ out[k].at = n/9*0.92; return out[k]; });
+})();
+function drawCracks(W, potR, pal){
+  var dmg = 1 - Math.max(0, W.hp)/W.hpMax;
+  if (dmg <= 0.001) return;
+  var spent = W.hp <= 0, k = 1/view.scale, R = potR + 1.5;
+  for (var i = 0; i < CRACKS.length; i++){
+    var c = CRACKS[i];
+    if (dmg <= c.at) continue;
+    var len = spent ? 1 : Math.min(1, (dmg - c.at)/0.28);
+    ctx.beginPath(); ctx.moveTo(0, 0);
+    for (var j = 0; j < c.pts.length; j++){
+      var p = c.pts[j], f = p[0];
+      if (f > len) f = len;
+      var rr = R*f, a = p[1] + p[2]*0.25/Math.max(0.2, f);
+      ctx.lineTo(Math.cos(a)*rr, Math.sin(a)*rr);
+      if (p[0] >= len) break;
+    }
+    ctx.lineCap = "round"; ctx.lineJoin = "round";
+    ctx.strokeStyle = "rgba(10,8,8,.92)"; ctx.lineWidth = 0.9 + 1.1*dmg + 0.6*k; ctx.stroke();
+    if (!spent){
+      ctx.strokeStyle = "rgba(" + pal.eye + "," + (0.35 + 0.35*dmg).toFixed(2) + ")";
+      ctx.lineWidth = 0.2 + 0.2*dmg; ctx.stroke();
+    }
   }
 }
 
@@ -2861,14 +2869,21 @@ function drawPair(pr){
     ctx.beginPath(); ctx.arc(mx, my, 7*k, 0, 7);
     ctx.strokeStyle = "rgba(170,215,240,.35)"; ctx.lineWidth = 1.2*k; ctx.stroke();
   }
-  ctx.font = (12*k) + "px ui-monospace, Menlo, monospace";
-  ctx.textAlign = "left";
-  var label = "graft \u00d7" + FIG.gain.toFixed(2) + " \u2192 \u00d7" + pr.gain.toFixed(2);
-  ctx.lineWidth = 3*k; ctx.strokeStyle = "rgba(14,18,14,.8)";
-  ctx.strokeText(label, mx + 14*k, my - 10*k);
-  ctx.fillStyle = "rgba(200,230,245,.95)";
-  ctx.fillText(fuse === pr ? label : label + "   hold", mx + 14*k, my - 10*k);
-  ctx.textAlign = "start";
+  // what it is worth, as a ring round the bead: the gain you have, dim, and
+  // what this graft would take it to, bright, both out of the most it will hold
+  var g0 = Math.max(0, Math.min(1, (FIG.gain - 1)/(S.loopCap - 1)));
+  var g1 = Math.max(0, Math.min(1, (pr.gain - 1)/(S.loopCap - 1)));
+  var top = -Math.PI/2, R2 = 11*k;
+  ctx.beginPath(); ctx.arc(mx, my, R2, 0, 7);
+  ctx.strokeStyle = "rgba(20,28,34,.7)"; ctx.lineWidth = 3.4*k; ctx.stroke();
+  if (g1 > g0){
+    ctx.beginPath(); ctx.arc(mx, my, R2, top + 2*Math.PI*g0, top + 2*Math.PI*g1);
+    ctx.strokeStyle = "rgba(190,228,248,.95)"; ctx.lineWidth = 2.6*k; ctx.stroke();
+  }
+  if (g0 > 0){
+    ctx.beginPath(); ctx.arc(mx, my, R2, top, top + 2*Math.PI*g0);
+    ctx.strokeStyle = "rgba(120,160,185,.8)"; ctx.lineWidth = 2.6*k; ctx.stroke();
+  }
 }
 
 /* ── figures ───────────────────────────────────────────────────────── */
