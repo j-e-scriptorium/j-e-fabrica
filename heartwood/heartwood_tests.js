@@ -10,7 +10,8 @@ const sim = new Function(html.split("/*BEGIN SIM*/")[1].split("/*END SIM*/")[0] 
           makeBolt, stepBolt, buildGrid, gridNear, pressure, muzzleFor,
           valueCuts, loopAmp, markLoops, periapsis, frameView, circuitArea,
           genome, resist, coreOf, targetOf, shotForce, frontWide, bindGrafts, graftSides,
-          biteBolt, muzzleSpeed, reachChain, chainTip, volleyFrom, shotFrom};`)();
+          biteBolt, muzzleSpeed, reachChain, chainTip, volleyFrom, shotFrom,
+          isLeaf, isTrim, wardHold, makeWard, stepWards, wardCatch};`)();
 const S = sim.S, D2R = Math.PI/180;
 const BASE = JSON.parse(JSON.stringify(S));
 function reset(){ for (const k in BASE) S[k] = BASE[k]; }
@@ -1336,6 +1337,73 @@ suite("Volleys");
     check("across a real crown the volley fans out as the stems do",
           v.length > 2 && arc > 20, v.length + " shots across " + arc.toFixed(0) + "°");
   }
+}
+
+// ── wards ──────────────────────────────────────────────────────────────
+suite("Wards");
+{
+  reset();
+  const T = grow(240);
+  const leaves = T.list.filter(n => n.children.length === 0 && n.parent !== null && sim.isLeaf(T, n));
+  const forked = T.list.filter(n => n.parent !== null && n.children.length > 1);
+  check("a bare tip is a leaf", leaves.length > 20, leaves.length + " leaves");
+  check("a limb with a fork in it is not", forked.length > 0 && forked.every(n => !sim.isLeaf(T, n)));
+  check("the trunk is never a leaf", !sim.isLeaf(T, T.nodes.get(T.roots[0])));
+  check("a stroke is a trim only if everything it takes is a leaf",
+        sim.isTrim(T, leaves.slice(0, 3)) && !sim.isTrim(T, [leaves[0], forked[0]]) && !sim.isTrim(T, []));
+
+  const hold = sim.wardHold(T, 1);
+  check("a ward holds what a full-channel shot off a kinked stem carries",
+        Math.abs(hold - sim.shotForce(sim.capacity(T.girth), 0, 1)) < 1e-9, hold.toFixed(1) + " force");
+
+  // it falls to its orbit and the wards spread round it
+  T.wards = [];
+  for (let i = 0; i < 4; i++) sim.makeWard(T, 120, 5 + i, hold);
+  for (let t = 0; t < 4; t += 0.02) sim.stepWards(T, 0.02);
+  const rs = T.wards.map(w => w.r), as = T.wards.map(w => w.a).sort((a, b) => a - b);
+  let minGap = 7;
+  for (let i = 0; i < as.length; i++){
+    const g = ((as[(i+1) % as.length] - as[i]) + 2*Math.PI) % (2*Math.PI);
+    minGap = Math.min(minGap, g);
+  }
+  check("a trimmed leaf falls to the ring round its core", rs.every(r => Math.abs(r - S.wardOrbit) < 1e-6),
+        rs.map(r => r.toFixed(1)).join(", "));
+  check("and the wards spread evenly round it", minGap > 0.8*Math.PI/2, (minGap/D2R).toFixed(0) + "° closest");
+  check("they run down as they go round", T.wards.every(w => w.hold < hold && w.hold > 0.5*hold));
+
+  {
+    const U = { wards: [] };
+    for (let i = 0; i < 300; i++) sim.makeWard(U, 60, i, hold);
+    const t0 = Date.now();
+    for (let t = 0; t < 2; t += 0.02) sim.stepWards(U, 0.02);
+    const b = sim.makeBolt(null, 1e6, { x: 0, y: 0, dir: 0, run: 0 }, null);
+    for (let k = 0; k < 1000; k++) sim.wardCatch(U, b, 200, 200, 201, 201);
+    check("there is no limit to how many a mage keeps, and three hundred cost little",
+          U.wards.length === 300 && Date.now() - t0 < 500, (Date.now() - t0) + " ms");
+  }
+
+  // collisions
+  const at = (w) => [Math.cos(w.a)*w.r, Math.sin(w.a)*w.r];
+  T.wards = []; sim.makeWard(T, S.wardOrbit, 0, 10);
+  const weak = sim.makeBolt(null, 6, { x: 0, y: 0, dir: 0, run: 0 }, null);
+  weak.L = 14;
+  const [wx, wy] = at(T.wards[0]);
+  let c = sim.wardCatch(T, weak, wx - 3, wy, wx + 3, wy);
+  check("a ward stops a shot lighter than what it holds", c && c.stopped && weak.F === 0);
+  check("and keeps the rest", T.wards.length === 1 && Math.abs(T.wards[0].hold - 4) < 1e-9,
+        T.wards.length ? T.wards[0].hold.toFixed(1) + " left" : "gone");
+  const heavy = sim.makeBolt(null, 30, { x: 0, y: 0, dir: 0, run: 0 }, null);
+  heavy.L = 14;
+  const v0 = Math.hypot(heavy.vx, heavy.vy);
+  c = sim.wardCatch(T, heavy, wx - 3, wy, wx + 3, wy);
+  check("a heavier shot punches through, lighter and slower",
+        c && !c.stopped && Math.abs(heavy.F - 26) < 1e-9 && Math.hypot(heavy.vx, heavy.vy) < v0);
+  check("and the ward is spent on it", T.wards.length === 0);
+  sim.makeWard(T, S.wardOrbit, 0, 10);
+  const wide = sim.makeBolt(null, 6, { x: 0, y: 0, dir: 0, run: 0 }, null);
+  check("a shot that passes clear is not touched",
+        sim.wardCatch(T, wide, wx - 3, wy + 60, wx + 3, wy + 60) === null && wide.F === 6);
+  reset();
 }
 
 console.log("\n" + (failures ? failures + " FAILURES" : "all checks passed"));

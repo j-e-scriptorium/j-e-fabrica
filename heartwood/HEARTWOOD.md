@@ -2,7 +2,7 @@
 
 *A real-time duel fought by shaping a thing that grows on its own.*
 
-**Manual, v0.18.** This describes the game as built. Anything not yet built is
+**Manual, v0.20.** This describes the game as built. Anything not yet built is
 marked **[not built]** and collected in §11. Every number quoted is the current
 default and is a slider in the Constants panel.
 
@@ -29,7 +29,7 @@ the eye stays on geometry.
 | | input | time | what it costs | what it does |
 |---|---|---|---|---|
 | **Bend** | drag the wood | as long as you hold it | your hand | the limb keeps whatever shape it reached |
-| **Slice** | drag through open air across a limb | instant, on release | the limb and everything past it | cuts — **and fires**; across several limbs, a **volley** |
+| **Slice** | drag through open air across a limb | instant, on release | the limb and everything past it | cuts — **and fires**; across several limbs, a **volley**; across leaves alone, a **ward** |
 | **Graft** | press a suggested pair and hold still for 0.8 s — or drag one tip onto another and hold | 0.8 s | both growing points | joins them into one node, closing a **ring** of wood and binding the two limbs together |
 
 While your hand is on a limb you are not cutting, that limb is not growing, and
@@ -49,9 +49,9 @@ turn no faster than three. A small correction takes a third of a second; the
 full span of a pull, three and a half.
 
 **A slice does not bite until you let go.** While you draw the stroke, everything
-it would take is painted over at its own girth — amber for a trim, red once it
-is a fifth of your wood or carries a ring — and a line beside the blade says how
-much of the tree that is. The flight arc of every shot it would throw is already
+it would take is painted over at its own girth — red-tinted white for a shot,
+blue for a ward (§5), red once it is a fifth of your wood or carries a ring —
+and the blade wears the same colour. The flight arc of every shot it would throw is already
 on the board. You commit on release: you do not hover a thing you mean to cut,
 you slash at it. **And you can change your mind**: right-click (any second
 button), `Esc`, or a second finger on a touch screen puts the blade away with
@@ -193,8 +193,9 @@ thing to build and the thing to shoot at (§12.5).
 
 **Making one.** With **Grafts** on, the board draws a dashed line between each
 of the ten best pairs of tips within reach, a lit bead at its middle. Point at
-one and the ring it would close is shaded in, with the gain as it stands and as
-it would be: `graft ×1.00 → ×1.78`. Press and hold still for 0.8 s and the two
+one and the ring it would close is shaded in, and a ring round the bead reads
+the gain out of the ×2 ceiling: dim for what you have, bright for what this
+graft would add. Press and hold still for 0.8 s and the two
 tips become one node, neither growing while you hold. Pairs the board does not
 suggest are made by hand: take a shoot, bring its tip to another, hold your hand
 there for the same 0.8 s. Both the tips and *your hand* must be within 20 units
@@ -272,6 +273,32 @@ charge spent, so about 40% as much damage per unit of wood. Four trials, not
 enough to rank. Aimed cuts are the economy; a volley is tempo, bought with the
 tree. At `volleyExp` 0 a volley is
 never worth throwing.
+
+### Wards
+
+**A stroke that takes only leaves fires nothing at them.** A leaf is the last
+10 units of unbranched wood at a tip, with no fork and no graft in it; a stroke
+whose every severed limb is a leaf is a **trim**, and a trim is defensive magic.
+Each leaf falls to a ring 30 units round your own core and goes round it at
+2.4 radians a second, and the wards spread themselves evenly round the ring as
+they arrive. Take one leaf and you have one ward; trim a spray of them and you
+have a spray. Anything with a fork or a stem in it fires as before, so the same
+blade does both and the stroke preview shows which: blue for a trim,
+red-tinted white for a shot.
+
+**A ward holds what an unaimed shot carries**: exactly the force of a
+full-channel cut off a kinked stem, `capacity × 0.03 × 28`, times your graft
+gain. A shot of theirs passing within 7 units of a ward (plus a quarter of its
+front) loses that much force, off its speed as wood takes it, and the ward loses
+what the shot carried. So one ward stops anything thrown without aiming; a
+straightened barrel, a thick trunk or a graft punches through it and comes on
+slower, and it takes two or three wards stacked round the ring to stop it.
+
+Wards run down by the same law as shots, half their hold every 2600 units
+travelled — about half a minute on the ring — and go once they are below a
+quarter. There is no limit to how many you keep. The price is
+the leaves themselves: the buds that were growing there, and the shoots that
+must climb back up to replace them.
 
 ---
 
@@ -353,6 +380,14 @@ spending your own limbs on it — which is the pressure behind aiming properly a
 behind grafts.
 
 When your core is spent your tree stops, your hand stops, and `r` plants again.
+
+**Rank.** A mage starts as a **Novice**. Spend another mage's heartwood with
+your own hand and you are raised to **Fifth-Class Mage**: the spent core throws
+up a burst of leaves and sparks, and a card announces the promotion. The ladder
+runs down through the fourth, third and second classes to the first, but only
+the first rung can be earned so far; a win after that says you remain what you
+are. A match your side's temper won earns nothing. Rank is kept in the browser,
+shown on the planting screen and in the readout.
 
 ### The other mage
 
@@ -436,9 +471,14 @@ Wood reads two ways at once: across, how set it is, sap to dry grey; along, how
 much girth it has put on, drab through a burning prime down to near black.
 **Yours runs green→amber→mahogany, theirs pink→purple→violet.** Live buds carry
 leaf glyphs sized by their vigour share; stopped tips are pale dots; scarred
-joints are dark knots; a healing shoot is a bright bead climbing the stem it
+wood carries a small dark nick, the same size on a trunk as on a twig; a healing shoot is a bright bead climbing the stem it
 repairs; a husked core wears a pale ring at 19 units that falls away in pieces
-when the trunk splits it.
+when the trunk splits it. **A core shows its damage as cracks** running out
+from the heart across the pot, lit from inside: more of them and longer as it
+is spent, nine at the end, when the pot is split across and the light goes out.
+Wards are leaves going round the core on a faint
+dotted ring, each haloed at the width it catches and dimming as it runs down; a
+ward that catches a shot flares in its owner's colour.
 
 **The charge glow** is the sap alight in the wood, not instrumentation. Every
 limb is scored by the shot a cut there would throw and reads three ways at once:
@@ -457,9 +497,10 @@ showing where those tips would sit unbent, **Spire** the longest straight run,
 gesture away — filtered twice, within reach *and* closing a ring worth
 something, or a crowded rim offers hundreds of worthless lenses.
 
-A stroke paints everything it would take at its own girth, in amber, and the
-limbs it severs brighter; past a fifth of your wood, or across a ring, the patch
-and the blade go red and the line beside the blade says so. The readout says
+**Nothing on the board is written.** A stroke paints everything it would take
+at its own girth, red-tinted white for a shot and blue for a ward, and the limbs
+it severs brighter; past a fifth of your wood, or across a ring, the patch and
+the blade go red. The numbers are in the readout, which says
 BREAKS A GRAFT in the same breath, and for a volley gives the shots, their force
 in all and how hard the hardest presses. Bolts dim as they spend themselves, and
 **a shot flies in the colour of the buds that threw it**, as do the rings where
@@ -514,7 +555,7 @@ a muzzle that has not moved keeps its answer — 0.5 ms warm against 13 cold.
 
 ## 11. Not built, and open questions
 
-**The ward.** A fan pointed away from the enemy should emit a repulsion field
+**The deflecting fan.** A fan pointed away from the enemy should emit a repulsion field
 across its own arc, widening the turn radius of incoming bolts: same primitive,
 different bearing. Two things wait on it. **A wide fan has no job** — at equal
 force a spike takes 52 nodes where the widest front takes 20, and gathering is
@@ -522,6 +563,16 @@ unambiguously good. And **flanking is beautiful and pointless** — a captured
 bolt arrives from behind, where nothing is softer. Both pay only once something
 faces the wrong way, which is also why the glow's halo-width channel carries no
 information.
+
+**Nobody wards but you.** The tempers never trim, and they aim as though
+your wards were not there. A temper that reads your ring and waits for a gap,
+or throws a cheap shot to strip a ward before the heavy one, is the obvious
+answer and is unbuilt. Whether an unlimited ring of wards at a full unaimed shot
+each is too much shelter, or a single ward too little, is unmeasured.
+
+**The classes above the fifth.** Fourth to first class need something to be
+earned against — harder tempers, a campaign, conditions on the win — and none
+of it is decided.
 
 **Nobody volleys but you.** The tempers cut one limb at a time. A temper that
 answers a thin crown with a volley, and one that strips a canopy before a heavy
