@@ -2,7 +2,7 @@
 
 *A real-time duel fought by shaping a thing that grows on its own.*
 
-**Manual, v0.20.** This describes the game as built. Anything not yet built is
+**Manual, v0.21.** This describes the game as built. Anything not yet built is
 marked **[not built]** and collected in §11. Every number quoted is the current
 default and is a slider in the Constants panel.
 
@@ -128,11 +128,8 @@ run, chop again — the trunk fattens while the tree stays small. Where scarred
 wood puts out no shoot the fattest stub **coppices** instead, and an empty pot
 starts again from a seedling.
 
-**The husk.** A seedling's core sits inside a seed coat of radius 19, and a shot
-that reaches it is spent on it whole. The coat cannot be broken from outside: it
-splits when the trunk inside it reaches a girth of 10, at 105 s on light wood,
-120 on seasoned, 134 on dense. Until then neither mage can be killed, and the
-opening is all shape, position and wood.
+**No shell.** A seedling's core is bare from the first second. What protects it
+is what you make: wards (§5), and the wood in front of it.
 
 **Style.** The habit decides what tree you have to work with; the hand decides
 which it becomes, and the bonsai styles fall out of the gestures rather than
@@ -276,15 +273,22 @@ never worth throwing.
 
 ### Wards
 
-**A stroke that takes only leaves fires nothing at them.** A leaf is the last
-10 units of unbranched wood at a tip, with no fork and no graft in it; a stroke
-whose every severed limb is a leaf is a **trim**, and a trim is defensive magic.
-Each leaf falls to a ring 30 units round your own core and goes round it at
-2.4 radians a second, and the wards spread themselves evenly round the ring as
-they arrive. Take one leaf and you have one ward; trim a spray of them and you
-have a spray. Anything with a fork or a stem in it fires as before, so the same
+**A stroke that takes only leaves fires nothing at them.** A leaf is a tuft at
+a tip: a cut that takes no more than 18 units of wood in all, forked or not,
+with no graft in it. A stroke whose every severed limb is a leaf is a **trim**,
+and a trim is defensive magic. Take one leaf and you have one ward; trim a spray
+of them and you have a spray. Anything heavier fires as before, so the same
 blade does both and the stroke preview shows which: blue for a trim,
 red-tinted white for a shot.
+
+**Each ward keeps its own orbit.** A trimmed leaf drops toward your core,
+gathering spin as it falls and easing as it arrives, and locks onto a circle of
+its own rather than swinging back out to where it was cut. The orbit is 24 units
+plus three-tenths of the way further out the leaf was, up to 72: leaves from the
+rim of the crown make the outer shells, leaves from near the trunk the inner
+ones. Wider orbits go round slower (2.4 radians a second at 30 units, falling as
+the three-halves power), so a shell of wards drifts through itself and never
+holds one pattern for long.
 
 **A ward holds what an unaimed shot carries**: exactly the force of a
 full-channel cut off a kinked stem, `capacity × 0.03 × 28`, times your graft
@@ -292,13 +296,14 @@ gain. A shot of theirs passing within 7 units of a ward (plus a quarter of its
 front) loses that much force, off its speed as wood takes it, and the ward loses
 what the shot carried. So one ward stops anything thrown without aiming; a
 straightened barrel, a thick trunk or a graft punches through it and comes on
-slower, and it takes two or three wards stacked round the ring to stop it.
+slower, and it takes two or three wards in its path to stop it.
 
 Wards run down by the same law as shots, half their hold every 2600 units
-travelled — about half a minute on the ring — and go once they are below a
+travelled — somewhere between half a minute and a minute, depending on the
+orbit — and go once they are below a
 quarter. There is no limit to how many you keep. The price is
 the leaves themselves: the buds that were growing there, and the shoots that
-must climb back up to replace them.
+must climb back up to replace them. A mage's wards go out when its core does.
 
 ---
 
@@ -364,7 +369,7 @@ built]** A campaign that keeps your tree across opponents.
 
 ## 8. Winning
 
-Enemy core integrity to zero — once its husk has split (§3). It absorbs 60
+Enemy core integrity to zero. It absorbs 60
 force, scaled by the density of the wood they planted: 48 for light, 60 for
 seasoned, 81 for dense. A good shot off a young tree carries 9 to 18 and loses
 some of that boring in, so a seasoned core takes something like six clean hits,
@@ -472,12 +477,12 @@ much girth it has put on, drab through a burning prime down to near black.
 **Yours runs green→amber→mahogany, theirs pink→purple→violet.** Live buds carry
 leaf glyphs sized by their vigour share; stopped tips are pale dots; scarred
 wood carries a small dark nick, the same size on a trunk as on a twig; a healing shoot is a bright bead climbing the stem it
-repairs; a husked core wears a pale ring at 19 units that falls away in pieces
-when the trunk splits it. **A core shows its damage as cracks** running out
-from the heart across the pot, lit from inside: more of them and longer as it
-is spent, nine at the end, when the pot is split across and the light goes out.
-Wards are leaves going round the core on a faint
-dotted ring, each haloed at the width it catches and dimming as it runs down; a
+repairs. **A core shows its damage as cracks** running out from the heart
+across the pot, lit from inside: more of them and longer as it is spent.
+**Death is a different thing to look at:** the light in the cracks goes out, a
+black split runs up the trunk and out along every limb of any weight, the wood
+behind it goes to ash and the leaves wither. Wards are leaves going round the
+core, each on the faint circle of its own orbit once it has settled, each haloed at the width it catches and dimming as it runs down; a
 ward that catches a shot flares in its owner's colour.
 
 **The charge glow** is the sap alight in the wood, not instrumentation. Every
@@ -525,8 +530,7 @@ force = 0.03 × min(held, cap) × speed × gain          mass × speed
 front = 55 × (fan span + 5°), or 120 with no fan
 peri  = closest the shot passes their core, over its first lap round their
         centre of mass                                (flown coarsely, see below)
-reach = 1 at the core, 0.55→0.23 through their canopy, 0 past it; and at most
-        0.3 into a husk that still holds
+reach = 1 at the core, 0.55→0.23 through their canopy, 0 past it
 eff   = force × min(1, cap/held) × reach              ← what the glow shows
 ```
 
@@ -590,11 +594,10 @@ about half the damage of not bothering — so the tempers no longer do it, thoug
 it remains the player's tool. That may say more about the fan being worth less
 since force became mass times speed.
 
-**What the husk pushed rather than solved.** A seedling can no longer be killed,
-but the first minute after the husk splits is now the sharpest moment in the
-match, with the crown thin and the core newly bare. Whether that is a turn or a
-cliff is a question for a player; the knobs are the splitting girth and the
-radius.
+**The opening is bare.** Nothing shelters a seedling's core but the wards its
+mage trims and the few twigs in front of it, and the tempers' first shots come
+at 60 to 90 seconds. Whether a new player can learn to ward in time, or the
+opening is decided before they have, is a question for a player.
 
 **Captured shots grind.** With the pull at the centre of mass and the well
 softened, an orbit precesses, so a shot that misses on its first lap comes round
