@@ -4,7 +4,11 @@
    NAME, and the LABEL_Y/LABEL_X label point. The first number is the lowest
    Leaflet zoom at which the label appears, derived from Natural Earth's own
    MIN_LABEL so small countries wait until there is room for them.
-   Rows: [minZoom, name, lat, lon]. */
+   Rows: [minZoom, name, lat, lon].
+   Hand-adjusted: Jordan's label point sits beside Israel's in the Negev, and
+   the two collide over the Levant, where many rounds land. It is moved
+   north-east into Jordan's eastern bulk and held back until zoom 5, below
+   which there is no room for it beside Israel and Palestine. */
 var COUNTRY_LABELS=[
 [2, "Algeria", 27.4, 2.81],
 [2, "Argentina", -33.5, -64.17],
@@ -154,7 +158,6 @@ var COUNTRY_LABELS=[
 [4, "Hong Kong", 22.45, 114.1],
 [4, "Hungary", 47.09, 19.45],
 [4, "Jamaica", 18.14, -77.32],
-[4, "Jordan", 30.81, 36.38],
 [4, "Laos", 19.43, 102.53],
 [4, "Latvia", 57.07, 25.46],
 [4, "Lebanon", 34.13, 35.99],
@@ -190,6 +193,7 @@ var COUNTRY_LABELS=[
 [4, "United Arab Emirates", 23.47, 54.55],
 [4, "Vanuatu", -15.37, 166.91],
 [4, "eSwatini", -26.53, 31.47],
+[5, "Jordan", 31.8, 37.8],
 [5, "Albania", 40.65, 20.11],
 [5, "Andorra", 42.55, 1.54],
 [5, "Anguilla", 18.24, -63.03],
