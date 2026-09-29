@@ -27,6 +27,10 @@ by default — `SETTINGS.includeTierC` in `index.html`).
   copy here, so it stays in sync with `../voyages/` automatically instead of by
   hand. The rivers and lakes exist so the interior of a continent has some legible
   structure — deliberately not modern political borders.
+  `countries.js` holds modern country names at Natural Earth 1:50m admin-0 label points
+  (`COUNTRY_LABELS`, each with the lowest zoom at which it shows), overlaid on the map only
+  after a guess is submitted, so the answer can be read against today's map without the
+  borders prompting the guess itself.
 
 ## Schema
 
