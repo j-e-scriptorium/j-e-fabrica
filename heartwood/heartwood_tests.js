@@ -11,7 +11,7 @@ const sim = new Function(html.split("/*BEGIN SIM*/")[1].split("/*END SIM*/")[0] 
           valueCuts, loopAmp, markLoops, periapsis, frameView, circuitArea,
           genome, resist, coreOf, targetOf, shotForce, frontWide, bindGrafts, graftSides,
           biteBolt, muzzleSpeed, reachChain, chainTip, volleyFrom, shotFrom,
-          isLeaf, isTrim, wardHold, makeWard, stepWards, wardCatch};`)();
+          isLeaf, isTrim, wardHold, makeWard, stepWards, wardCatch, below};`)();
 const S = sim.S, D2R = Math.PI/180;
 const BASE = JSON.parse(JSON.stringify(S));
 function reset(){ for (const k in BASE) S[k] = BASE[k]; }
@@ -1097,29 +1097,6 @@ suite("An old trunk");
   reset();
 }
 
-// ── the husk ───────────────────────────────────────────────────────────
-suite("The husk");
-{
-  const young = grow(30), old = grow(240);
-  check("a seedling's core sits in a husk, and the trunk splits it", young.husk && !old.husk,
-        "whole at 30s (trunk " + young.girth.toFixed(1) + "), gone by 240s (trunk " + old.girth.toFixed(1) +
-        " against " + S.huskGirth + ")");
-  const g = require(__dirname + "/harness.js")(FILE);
-  g.T = g.newTree(0, g.genome({})); g.layout(g.T); g.T.hp = g.T.hpMax = 60;
-  g.newFoe(g.genome({}), "still", 1);
-  const fire = () => {             // straight down the line into their pot, harder than anything
-    g.bolts.length = 0;
-    const b = g.makeBolt(null, 500, { x: S.coreR, y: 0, dir: 0, run: 300, id: -1 }, g.targetOf(g.TD));
-    g.launch(b, false);
-    for (let k = 0; k < 4000 && g.bolts.length; k++) g.stepBolts(1/120);
-  };
-  const hp0 = g.TD.hp; fire();
-  const kept = g.TD.hp === hp0;
-  g.TD.husk = false; fire();
-  check("while it holds nothing reaches the core; once it splits, everything can", kept && g.TD.hp < hp0,
-        "a 500-force shot: core untouched through the husk, " + (hp0 - g.TD.hp).toFixed(0) + " taken without it");
-}
-
 // ── the other mage ─────────────────────────────────────────────────────
 // Needs shots in the air and landing, which is the renderer's half of the
 // file; the harness loads the whole game headless.
@@ -1177,7 +1154,7 @@ suite("The other mage");
   // Each temper against a tree nobody tends, over three seeds and four
   // minutes of fire: how much force reaches the core, and when.
   function harass(level, secs){
-    const out = { dmg: 0, early: 0, shots: 0, ready: [], stat: { shots: 0, pass0: 0, pass1: 0, better: 0, worse: 0 } };
+    const out = { dmg: 0, early: 0, shots: 0, ready: [], stat: { shots: 0, pass0: 0, pass1: 0, better: 0, worse: 0, bent: 0 } };
     for (const sd of [1, 3, 5]){
       const g = load(FILE);
       g.T = g.newTree(0, g.genome({})); g.layout(g.T); g.buildGrid(g.T); g.T.hp = g.T.hpMax = 1e9;
@@ -1191,9 +1168,9 @@ suite("The other mage");
         if (g.TD.mind.state === "ready" && was !== "ready") readyAt = t;
         if (b){ g.launch(b, true); out.shots++; if (readyAt !== null) out.ready.push(t - readyAt); readyAt = null; }
         g.layout(g.TD); g.buildGrid(g.TD);
-        const hp = g.T.hp, husked = g.T.husk;
+        const hp = g.T.hp;
         for (let k = 0; k < 3; k++) g.stepBolts(0.05/3);
-        out.dmg += hp - g.T.hp; if (husked) out.early += hp - g.T.hp;
+        out.dmg += hp - g.T.hp;
       }
       const st = g.TD.mind.stat;
       if (st) for (const k in st) out.stat[k] += st[k];
@@ -1201,10 +1178,10 @@ suite("The other mage");
     return out;
   }
   const hF = harass("feral", 400), hK = harass("keeper", 400), hM = harass("master", 400);
-  const aim = h => h.stat || { shots: 0, pass0: 0, pass1: 0, better: 0, worse: 0 };
+  const aim = h => h.stat || { shots: 0, pass0: 0, pass1: 0, better: 0, worse: 0, bent: 0 };
   const aF = aim(hF), aK = aim(hK), aM = aim(hM);
   check("a Feral mage never touches the stem before it fires",
-        aF.better === 0 && aF.worse === 0 && aF.shots > 3,
+        aF.bent === 0 && aF.shots > 3,
         aF.shots + " shots, every one out of the limb exactly as it grew");
   check("aiming closes the pass the shot is predicted to make",
         aK.better > aK.worse && aM.better > aM.worse &&
@@ -1218,8 +1195,6 @@ suite("The other mage");
         ", Feral " + hF.shots + "; into the core, " + hM.dmg.toFixed(0) + ", " +
         hK.dmg.toFixed(0) + " and " + hF.dmg.toFixed(0) + " force against a core that holds " + S.coreHP +
         " (which shot lands is luck enough that these do not rank reliably)");
-  check("nothing reaches a seedling's core through its husk", hF.early + hK.early + hM.early === 0,
-        (hF.shots + hK.shots + hM.shots) + " shots between them, none of them through the husk");
   const tell = [].concat(hK.ready, hM.ready);
   const MN = g0.MINDS;
   check("every shot is telegraphed for its full wind-up", tell.length > 5 &&
@@ -1345,31 +1320,34 @@ suite("Wards");
   reset();
   const T = grow(240);
   const leaves = T.list.filter(n => n.children.length === 0 && n.parent !== null && sim.isLeaf(T, n));
-  const forked = T.list.filter(n => n.parent !== null && n.children.length > 1);
+  const bulky = T.list.filter(n => n.parent !== null && n.children.length > 1 && sim.greenOf(T, n) > 0 &&
+                                   (() => { let L = 0; sim.below(T, n, m => { L += m.len; }); return L > S.leafLen; })());
+  const tuft = T.list.find(n => n.parent !== null && n.children.length > 1 && sim.isLeaf(T, n));
   check("a bare tip is a leaf", leaves.length > 20, leaves.length + " leaves");
-  check("a limb with a fork in it is not", forked.length > 0 && forked.every(n => !sim.isLeaf(T, n)));
+  check("a limb with more wood than a tuft of leaves is not", bulky.length > 0 && bulky.every(n => !sim.isLeaf(T, n)));
+  check("but a small forked tuft is", !!tuft);
   check("the trunk is never a leaf", !sim.isLeaf(T, T.nodes.get(T.roots[0])));
   check("a stroke is a trim only if everything it takes is a leaf",
-        sim.isTrim(T, leaves.slice(0, 3)) && !sim.isTrim(T, [leaves[0], forked[0]]) && !sim.isTrim(T, []));
+        sim.isTrim(T, leaves.slice(0, 3)) && !sim.isTrim(T, [leaves[0], bulky[0]]) && !sim.isTrim(T, []));
 
   const hold = sim.wardHold(T, 1);
   check("a ward holds what a full-channel shot off a kinked stem carries",
         Math.abs(hold - sim.shotForce(sim.capacity(T.girth), 0, 1)) < 1e-9, hold.toFixed(1) + " force");
 
-  // it falls to its orbit and the wards spread round it
+  // each falls toward the core and settles on a circular orbit of its own
   T.wards = [];
-  for (let i = 0; i < 4; i++) sim.makeWard(T, 120, 5 + i, hold);
-  for (let t = 0; t < 4; t += 0.02) sim.stepWards(T, 0.02);
-  const rs = T.wards.map(w => w.r), as = T.wards.map(w => w.a).sort((a, b) => a - b);
-  let minGap = 7;
-  for (let i = 0; i < as.length; i++){
-    const g = ((as[(i+1) % as.length] - as[i]) + 2*Math.PI) % (2*Math.PI);
-    minGap = Math.min(minGap, g);
-  }
-  check("a trimmed leaf falls to the ring round its core", rs.every(r => Math.abs(r - S.wardOrbit) < 1e-6),
-        rs.map(r => r.toFixed(1)).join(", "));
-  check("and the wards spread evenly round it", minGap > 0.8*Math.PI/2, (minGap/D2R).toFixed(0) + "° closest");
-  check("they run down as they go round", T.wards.every(w => w.hold < hold && w.hold > 0.5*hold));
+  const starts = [40, 80, 120, 160];
+  for (const r of starts) sim.makeWard(T, r, 0.5*r, hold);
+  const track = [];
+  for (let t = 0; t < 6; t += 0.02){ sim.stepWards(T, 0.02); if (t > 4) track.push(T.wards.map(w => w.r)); }
+  const orbits = T.wards.map(w => w.orbit);
+  const round = track.every(rs => rs.every((r, i) => Math.abs(r - orbits[i]) < 0.5));
+  const inward = T.wards.every((w, i) => w.orbit < Math.hypot(starts[i], 0.5*starts[i]));
+  const apart = orbits.every((o, i) => i === 0 || o > orbits[i-1] + 4);
+  check("a trimmed leaf falls inward and locks onto a circular orbit", round && inward,
+        orbits.map(o => o.toFixed(0)).join(", ") + " u");
+  check("each on its own, wider the further out it was cut", apart);
+  check("they run down as they go round", T.wards.every(w => w.hold < hold && w.hold > 0.3*hold));
 
   {
     const U = { wards: [] };
@@ -1384,7 +1362,7 @@ suite("Wards");
 
   // collisions
   const at = (w) => [Math.cos(w.a)*w.r, Math.sin(w.a)*w.r];
-  T.wards = []; sim.makeWard(T, S.wardOrbit, 0, 10);
+  T.wards = []; sim.makeWard(T, S.wardNear, 0, 10);
   const weak = sim.makeBolt(null, 6, { x: 0, y: 0, dir: 0, run: 0 }, null);
   weak.L = 14;
   const [wx, wy] = at(T.wards[0]);
@@ -1399,7 +1377,7 @@ suite("Wards");
   check("a heavier shot punches through, lighter and slower",
         c && !c.stopped && Math.abs(heavy.F - 26) < 1e-9 && Math.hypot(heavy.vx, heavy.vy) < v0);
   check("and the ward is spent on it", T.wards.length === 0);
-  sim.makeWard(T, S.wardOrbit, 0, 10);
+  sim.makeWard(T, S.wardNear, 0, 10);
   const wide = sim.makeBolt(null, 6, { x: 0, y: 0, dir: 0, run: 0 }, null);
   check("a shot that passes clear is not touched",
         sim.wardCatch(T, wide, wx - 3, wy + 60, wx + 3, wy + 60) === null && wide.F === 6);

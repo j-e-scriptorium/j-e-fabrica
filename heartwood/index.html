@@ -318,8 +318,6 @@ var S = {
   fieldSky:    0.38,    // how much room above and below the field, as a fraction of it
   foeHead:     0,       // seconds of growth the opponent starts with over you
   coreHP:      60,      // how much force a core absorbs before it is done
-  huskGirth:   10,      // the trunk girth that splits the husk round a seedling's core
-  huskR:       19,      // the husk's radius; while it holds, nothing reaches the core
 
   // ballistics
   capBase:     10,      // charge a bare figure holds before it lets go
@@ -342,11 +340,13 @@ var S = {
   volleyMax:   8,       // the most shots one stroke can throw
 
   // wards
-  leafLen:     10,      // the most unbranched wood at a tip that still counts as a leaf, units
+  leafLen:     18,      // the most wood a cut may take and still be a trim of leaves, units
   wardK:       1,       // what a ward holds, as a multiple of a full-channel shot off a kinked stem
-  wardOrbit:   30,      // radius of the ring the wards keep round their core, units
-  wardSpin:    2.4,     // how fast they go round it, radians per second
-  wardSink:    90,      // how fast a trimmed leaf falls to its orbit, units per second
+  wardNear:    24,      // the tightest orbit a ward keeps round its core, units
+  wardFar:     72,      // the widest
+  wardKeep:    0.3,     // how much of the way out it was cut a leaf keeps as its orbit
+  wardSpin:    2.4,     // how fast a ward goes round at 30 units out, radians per second
+  wardSink:    90,      // the fastest a trimmed leaf falls toward its orbit, units per second
   wardSize:    7,       // how close a shot must pass a ward to be caught, units
   wardFloor:   0.25,    // a ward faded below this fraction of what it held is gone
 
@@ -421,7 +421,7 @@ function mkNode(T, parentId, rel, order, side){
 // do to the forks.
 function newTree(seedRot, g){
   var T = { nodes:new Map(), nextId:1, clock:0, list:[], roots:[], grafts:[],
-            g: g || genome(), husk: true, cgx: 0, cgy: 0, wards: [] };
+            g: g || genome(), cgx: 0, cgy: 0, wards: [] };
   T.attach = (seedRot || 0) * D2R;
   var n = mkNode(T, null, 0, 0, 1);
   n.attach = T.attach;
@@ -516,9 +516,6 @@ function layout(T){
     W += wv; X += wv*(n.x0 + n.x1); Y += wv*(n.y0 + n.y1);
   }
   T.cgx = W > 0 ? X/(2*W) : 0; T.cgy = W > 0 ? Y/(2*W) : 0;
-  // The husk round a seedling's core splits when the trunk outgrows it, and
-  // does not grow back.
-  if (T.husk && T.girth >= S.huskGirth){ T.husk = false; T.huskAt = T.clock; }
   return T.maxR;
 }
 
@@ -1020,8 +1017,6 @@ function valueCuts(T, cap, fanOf, tgt, amp){
               c[4] = tgt.fx; c[5] = tgt.fy; c[6] = n.peri; }
     }
     n.reach = connects(n.peri, canopy);
-    // a shot that runs into a whole husk spends itself on it
-    if (tgt.husk && n.peri <= S.huskR) n.reach = Math.min(n.reach, 0.3);
     // Charge past what your loops can channel is thrown away with the limb,
     // so the limb worth cutting is the smallest that still fills the channel;
     // and a shot that sails past the enemy is worth nothing however big it is.
@@ -1128,11 +1123,11 @@ function frontWide(){ return S.frontK * (S.wedgeCap + S.wedgeFloor)*D2R; }
 function muzzleSpeed(run){ return S.speedBase + S.speedSpire*(run || 0); }
 function shotForce(mass, run, gain){ return S.forceK*mass*muzzleSpeed(run)*(gain || 1); }
 /* The other tree as a shooter sees it from its own pot: where its weight
-   sits (the pull), how far its crown reaches, and whether its husk holds.
+   sits (the pull) and how far its crown reaches.
    With no tree at all, a bare core at the far pot. */
 function targetOf(X){
-  if (!X) return { fx: S.coreSep, fy: 0, canopy: S.coreSep*0.35, husk: false };
-  return { fx: S.coreSep - (X.cgx || 0), fy: X.cgy || 0, canopy: X.maxR || S.coreR, husk: !!X.husk };
+  if (!X) return { fx: S.coreSep, fy: 0, canopy: S.coreSep*0.35 };
+  return { fx: S.coreSep - (X.cgx || 0), fy: X.cgy || 0, canopy: X.maxR || S.coreR };
 }
 function pressure(F, L){ return F / (1 + L/S.frontRef); }
 /* What a bolt has to beat to sever a piece of wood: its girth, times the
@@ -1505,11 +1500,12 @@ function volleyFrom(fig, faces, tgt){
 }
 
 /* ══ Wards ════════════════════════════════════════════════════════════
-   Not every cut is a shot. A stroke that takes only leaves — the last few
-   units of unbranched wood at a tip, with no fork and no graft in them — has
-   no stem behind it worth the name, so nothing is thrown at the other mage.
-   Each leaf falls instead to a ring round your own core and goes round it,
-   and the wards spread themselves evenly round that ring as they come. A
+   Not every cut is a shot. A stroke that takes only leaves — a tuft of wood
+   at a tip, no more than leafLen of it and no graft in it — has no stem
+   behind it worth the name, so nothing is thrown at the other mage. Each
+   leaf falls instead toward your own core, gathering way as it goes, and
+   locks into a circular orbit of its own; the further out it was cut, the
+   wider its orbit, and the wider an orbit, the slower it goes round. A
    shot of theirs that passes close to a ward loses what the ward holds, and
    the ward loses what the shot carried: a ward holds exactly what a
    full-channel shot off a kinked stem would carry, so one stops anything
@@ -1519,12 +1515,13 @@ function volleyFrom(fig, faces, tgt){
    ═══════════════════════════════════════════════════════════════════════ */
 function isLeaf(T, n){
   if (!n || n.parent === null) return false;
-  var L = 0, q = n;
-  while (q){
-    if (q.children.length > 1 || q.mate !== null) return false;
+  var L = 0, st = [n], q, i;
+  while (st.length){
+    q = st.pop();
+    if (q.mate !== null || q.loop) return false;
     L += q.len;
     if (L > S.leafLen) return false;
-    q = q.children.length ? T.nodes.get(q.children[0]) : null;
+    for (i = 0; i < q.children.length; i++){ var c = T.nodes.get(q.children[i]); if (c) st.push(c); }
   }
   return true;
 }
@@ -1535,8 +1532,13 @@ function isTrim(T, cut){
   return true;
 }
 function wardHold(W, gain){ return S.wardK*shotForce(capacity(W.girth), 0, gain); }
+function wardOrbitOf(r, a){
+  var o = S.wardNear + Math.max(0, r - S.wardNear)*S.wardKeep + 3*Math.sin(a*7);
+  return Math.max(S.wardNear, Math.min(S.wardFar, o));
+}
 function makeWard(W, x, y, hold){
-  var w = { a: Math.atan2(y, x), r: Math.hypot(x, y), hold: hold, hold0: hold };
+  var r = Math.hypot(x, y), a = Math.atan2(y, x), o = wardOrbitOf(r, a);
+  var w = { a: a, r: r, r0: r, orbit: o, hold: hold, hold0: hold };
   if (!W.wards) W.wards = [];
   W.wards.push(w);
   return w;
@@ -1544,15 +1546,16 @@ function makeWard(W, x, y, hold){
 function stepWards(W, dt){
   var ws = W.wards, n = ws ? ws.length : 0, i, w;
   if (!n) return;
-  var lead = ws[0].a, gap = 2*Math.PI/n;
   for (i = 0; i < n; i++){
     w = ws[i];
-    var dr = S.wardOrbit - w.r, sink = S.wardSink*dt;
-    var moved = Math.min(Math.abs(dr), sink);
+    // it falls, easing as it nears its orbit, and gathers its spin as it
+    // arrives, so it spirals in and settles on a circle rather than swinging
+    // out again to where it was cut
+    var dr = w.orbit - w.r;
+    var moved = Math.min(Math.abs(dr), S.wardSink*dt, Math.abs(dr)*4*dt + 0.02);
     w.r += dr >= 0 ? moved : -moved;
-    // each settles into its slot by going a little faster or slower, never backwards
-    var err = i ? wrapA(lead + i*gap - w.a) : 0;
-    var om = S.wardSpin*(1 + 0.8*Math.max(-1, Math.min(1, err*2)));
+    var got = 1 - Math.abs(w.orbit - w.r)/Math.max(1, Math.abs(w.orbit - w.r0));
+    var om = S.wardSpin*Math.pow(30/w.orbit, 1.5)*got*got;
     w.a = wrapA(w.a + om*dt);
     var flew = om*w.r*dt + moved;
     if (S.fadeHalf > 0) w.hold *= Math.pow(0.5, flew/S.fadeHalf);
@@ -1584,7 +1587,7 @@ function wardCatch(W, b, ax, ay, bx, by){
    the rules you grow by, reads its own tree the way the glow reads yours,
    bends at the speed wood can be bent, and fires by cutting. It is told
    nothing you are not: where your core is, where your wood's weight sits,
-   how far your crown reaches, and whether your husk has split.
+   and how far your crown reaches.
    What separates one temper from another is only how much of that it uses —
    whether it aims at all, how close it insists on passing before it lets go,
    how early it takes hold of the stem, and how long it waits between shots.
@@ -1723,8 +1726,7 @@ function mindKeep(W, M){
 // One tick of the other mage's hand. Returns the shot, if it fired one, in
 // its own frame; the caller puts it in the air. `X` is the tree it is shooting
 // at (or that tree already read by targetOf), of which it takes only what the
-// glow takes of yours: where its weight sits, how far it reaches, and whether
-// its husk has split.
+// glow takes of yours: where its weight sits and how far it reaches.
 function mindStep(W, M, dt, X){
   if (!M || !M.lv.fires || !W.roots.length) return null;
   M.tgt = X && X.fx !== undefined ? X : targetOf(X);
@@ -1750,6 +1752,7 @@ function mindStep(W, M, dt, X){
     M.limb = limb; M.t = 0; M.acc = 0; M.done = false; M.hand = null;
     M.easing = false; M.pending = false; M.flips = 0;
     M.peri = M.p0 = mindPeri(W, limb, M.tgt);
+    var mz0 = muzzleFor(W, limb); M.d0 = mz0 ? mz0.dir : 0;
     // the line it starts from is the line to beat: an aim that finds nothing
     // better walks back to it rather than keeping where it wandered to
     var pp = limb.parent === null ? null : W.nodes.get(limb.parent);
@@ -1777,10 +1780,11 @@ function mindStep(W, M, dt, X){
   figuresOf(W, M.fig, M.tgt);
   // what it predicted when it chose the limb, against what it is firing
   M.p1 = mindPeri(W, M.limb, M.tgt);
-  var st = M.stat || (M.stat = { shots: 0, pass0: 0, pass1: 0, better: 0, worse: 0 });
+  var st = M.stat || (M.stat = { shots: 0, pass0: 0, pass1: 0, better: 0, worse: 0, bent: 0 });
   st.shots++; st.pass0 += M.p0; st.pass1 += M.p1;
   if (M.p1 < M.p0 - 0.5) st.better++; else if (M.p1 > M.p0 + 0.5) st.worse++;
   var charge = greenOf(W, M.limb), muzzle = muzzleFor(W, M.limb);
+  if (muzzle && Math.abs(wrapA(muzzle.dir - M.d0)) > 1e-3) st.bent++;   // it moved the stem
   cutNode(W, M.limb); layout(W);
   var bolt = shotFrom(M.fig, charge, muzzle, M.tgt);
   M.shots++;
@@ -2322,23 +2326,6 @@ function drawTree(W, pal, mine){
   ctx.beginPath(); ctx.arc(0,0,potR,0,7); ctx.fillStyle = cg; ctx.fill();
   ctx.lineWidth = 1.6/view.scale;
   ctx.strokeStyle = spent ? "rgba(90,84,92,.5)" : "rgba(24,28,20,.55)"; ctx.stroke();
-  // The husk: a seedling's core sits inside a seed coat that takes whatever
-  // reaches it, until the trunk outgrows it and it splits.
-  if (W.husk){
-    ctx.beginPath(); ctx.arc(0, 0, S.huskR, 0, 7);
-    ctx.fillStyle = "rgba(" + pal.tip + ",.07)"; ctx.fill();
-    ctx.strokeStyle = "rgba(" + pal.vein + "," + (0.4 + (W.huskHit || 0)).toFixed(2) + ")";
-    ctx.lineWidth = (1.6 + 4*(W.huskHit || 0))/view.scale; ctx.stroke();
-  } else if (W.huskAt !== undefined && W.clock - W.huskAt < 3){
-    // splitting: the coat falls away in pieces
-    var fall = (W.clock - W.huskAt)/3;
-    ctx.strokeStyle = "rgba(" + pal.vein + "," + (0.5*(1 - fall)).toFixed(2) + ")";
-    ctx.lineWidth = 1.6/view.scale;
-    for (var hq = 0; hq < 6; hq++){
-      var ha = hq*Math.PI/3 + 0.2;
-      ctx.beginPath(); ctx.arc(0, 0, S.huskR*(1 + fall*0.8), ha, ha + 0.7); ctx.stroke();
-    }
-  }
   if (!spent){
     // the core itself, dimming as it is spent
     var lit = W.hp === undefined ? 1 : W.hp/W.hpMax;
@@ -2346,6 +2333,7 @@ function drawTree(W, pal, mine){
     ctx.fillStyle = "rgba(" + pal.eye + "," + (0.08 + 0.20*lit).toFixed(2) + ")"; ctx.fill();
   }
   if (W.hpMax) drawCracks(W, potR, pal);
+  var dead = spent;
 
   // wood, batched into a fixed grid of stiffness x width
   for (i = 0; i < 256; i++) BUCKET[i] = null;
@@ -2365,6 +2353,7 @@ function drawTree(W, pal, mine){
     ctx.lineWidth = lw; ctx.stroke(BUCKET[i]);
   }
   taperWood(W, pal);
+  if (dead) drawDeath(W);
 
   // fused junctions
   for (i = 0; i < W.grafts.length; i++){
@@ -2381,7 +2370,7 @@ function drawTree(W, pal, mine){
     }
   }
 
-  if (mine) drawGlow();
+  if (mine && !dead) drawGlow();
 
   // a healing shoot climbing its stem
   for (i = 0; i < W.list.length; i++){
@@ -2403,6 +2392,8 @@ function drawTree(W, pal, mine){
 
   if (mine) drawHand();
 
+  // on a dead tree the leaves wither with the wood
+  if (dead) ctx.globalAlpha = Math.max(0.18, 1 - (W.deathT || 0)*0.6);
   // A tip that has stopped growing: a bare stub the blade left, or half of a
   // fused junction. It still counts toward a fan, so it is drawn.
   for (i = 0; i < W.list.length; i++){
@@ -2422,6 +2413,7 @@ function drawTree(W, pal, mine){
       leaf(n.x1, n.y1, n.abs, Math.min(7, 1.2 + 5.2*Math.pow(n.share, 0.4)), pal);
     }
   }
+  ctx.globalAlpha = 1;
 
   // Two tips within reach of each other are a loop waiting to be closed, and a
   // loop is the only thing on the tree worth more than the wood in it. The
@@ -2625,17 +2617,21 @@ function draw(){
   ctx.restore();
 }
 
-// Wards, in their tree's own frame: leaves going round the core, each with a
+// Wards, in their tree's own frame: leaves going round the core, each on its
+// own orbit and with a
 // faint halo the width of what it will catch, dimming as it runs down.
 function drawWards(W, pal){
   var ws = W.wards, k = 1/view.scale;
   if (!ws || !ws.length) return;
-  ctx.beginPath(); ctx.arc(0, 0, S.wardOrbit, 0, 7);
-  ctx.setLineDash([2*k, 7*k]); ctx.lineWidth = 1*k;
-  ctx.strokeStyle = "rgba(" + pal.vein + ",.18)"; ctx.stroke(); ctx.setLineDash([]);
   for (var i = 0; i < ws.length; i++){
     var w = ws[i], x = Math.cos(w.a)*w.r, y = Math.sin(w.a)*w.r;
     var lit = Math.max(0.2, Math.min(1, w.hold/w.hold0));
+    // its orbit, faintly, once it has settled onto it
+    if (Math.abs(w.r - w.orbit) < 1){
+      ctx.beginPath(); ctx.arc(0, 0, w.orbit, 0, 7);
+      ctx.strokeStyle = "rgba(" + pal.vein + "," + (0.07*lit).toFixed(3) + ")";
+      ctx.lineWidth = 1*k; ctx.stroke();
+    }
     ctx.beginPath(); ctx.arc(x, y, S.wardSize, 0, 7);
     ctx.fillStyle = "rgba(" + pal.leaf + "," + (0.10*lit).toFixed(3) + ")"; ctx.fill();
     ctx.strokeStyle = "rgba(" + pal.vein + "," + (0.55*lit).toFixed(3) + ")";
@@ -2684,6 +2680,47 @@ function drawCracks(W, potR, pal){
     if (!spent){
       ctx.strokeStyle = "rgba(" + pal.eye + "," + (0.35 + 0.35*dmg).toFixed(2) + ")";
       ctx.lineWidth = 0.2 + 0.2*dmg; ctx.stroke();
+    }
+  }
+}
+
+/* A spent mage is not a badly cracked one. The split that finished the core
+   runs on up the trunk and out along every limb of any weight, faster than
+   anything else on the board moves, and the wood behind it goes to ash. */
+var ASH = new Array(34);
+function drawDeath(W){
+  var t = W.deathT || 0, reach = t*160, i, n;
+  var ash = Math.min(0.62, t*0.45);
+  for (i = 0; i < 34; i++) ASH[i] = null;
+  for (i = 0; i < W.list.length; i++){
+    n = W.list[i];
+    var L = wLevel(Math.max(0.5, n.thick));
+    if (!ASH[L]) ASH[L] = new Path2D();
+    ASH[L].moveTo(n.x0, n.y0); ASH[L].lineTo(n.x1, n.y1);
+  }
+  ctx.lineCap = "round";
+  ctx.strokeStyle = "rgba(46,44,46," + ash.toFixed(3) + ")";
+  for (i = 0; i < 34; i++) if (ASH[i]){ ctx.lineWidth = wOf(i) + 0.6; ctx.stroke(ASH[i]); }
+  var root = W.roots.length ? W.nodes.get(W.roots[0]) : null;
+  if (!root) return;
+  var st = [[root, 0]], k = 1/view.scale;
+  ctx.lineJoin = "miter";
+  while (st.length){
+    var e = st.pop(); n = e[0];
+    var d0 = e[1];
+    if (d0 > reach) continue;
+    var f = Math.min(1, (reach - d0)/Math.max(1e-6, n.len));
+    var jig = Math.min(3, n.thick*0.3)*((n.id & 1) ? 1 : -1);
+    var dx = n.x1 - n.x0, dy = n.y1 - n.y0, dl = Math.hypot(dx, dy) || 1;
+    var mx = n.x0 + dx*0.5*f - dy/dl*jig*f, my = n.y0 + dy*0.5*f + dx/dl*jig*f;
+    ctx.beginPath(); ctx.moveTo(n.x0, n.y0); ctx.lineTo(mx, my);
+    ctx.lineTo(n.x0 + dx*f, n.y0 + dy*f);
+    ctx.strokeStyle = "rgba(8,6,6,.95)";
+    ctx.lineWidth = Math.max(0.9*k, Math.min(2.8, n.thick*0.24)); ctx.stroke();
+    if (f < 1) continue;
+    for (i = 0; i < n.children.length; i++){
+      var c = W.nodes.get(n.children[i]);
+      if (c && c.thick >= 0.5*n.thick && c.thick > 1.4) st.push([c, d0 + n.len]);
     }
   }
 }
@@ -3112,12 +3149,12 @@ function launch(b, foe){
 var FC = [], FCimpact = null, VOLLEY = { n:0, arcs:[] };
 function forecast(fan, muzzle){ FCimpact = forecastInto(fan, muzzle, TD, FC); }
 // The flight a shot would take out of its owner's frame, flown with the same
-// law, stopping at the first wood, husk or heartwood of the tree it is aimed at.
+// law, stopping at the first wood or heartwood of the tree it is aimed at.
 function forecastInto(fan, muzzle, target, out){
   out.length = 0;
   if (!muzzle) return null;
   var b = makeBolt(fan, 1, muzzle, targetOf(target)), dt = 1/45;
-  var shell = target && target.husk ? S.huskR : S.coreR;
+  var shell = S.coreR;
   for (var k = 0; k < 620; k++){
     var p = stepBolt(b, dt);
     out.push(b.x, b.y);
@@ -3158,11 +3195,6 @@ function stepBolts(dt){
     if (caught){
       hits.push({x:wo + wx*caught.x, y:caught.y, t:0.6, big:caught.stopped, foe:b.foe, ward:true});
       if (caught.stopped){ bolts.splice(i,1); continue; }
-    }
-    if (W.husk && cx*cx + cy*cy < S.huskR*S.huskR){   // the husk takes it whole
-      hits.push({x:ox + sx*b.x, y:b.y, t:0.5, foe:b.foe});
-      W.huskHit = 0.5;
-      bolts.splice(i,1); continue;
     }
     if (cx*cx + cy*cy < S.coreR*S.coreR){       // struck the core
       if (W.hp !== undefined) W.hp = Math.max(0, W.hp - b.F);
@@ -3443,8 +3475,10 @@ function frame(now){
   stepFete(dt);
   if (LAUREL.wait > 0 && (LAUREL.wait -= dt) <= 0) showLaurel();
   for (var f = flash.length-1; f >= 0; f--){ flash[f].t -= dt; if (flash[f].t <= 0) flash.splice(f,1); }
-  if (T.huskHit) T.huskHit = Math.max(0, T.huskHit - dt);
-  if (TD && TD.huskHit) TD.huskHit = Math.max(0, TD.huskHit - dt);
+  // a spent tree splits up the trunk over the next seconds
+  // and its wards go out with it
+  if (T.hp !== undefined && T.hp <= 0){ T.deathT = (T.deathT || 0) + dt; T.wards.length = 0; }
+  if (TD && TD.hp <= 0){ TD.deathT = (TD.deathT || 0) + dt; TD.wards.length = 0; }
   figT += dt;
   if (figT > 0.12){ figT = 0; measure(); }
   draw(); hud();
@@ -3548,8 +3582,8 @@ function hud(){
     put("s-dgirth", TD.girth.toFixed(1));
     put("s-dheal", dheal ? dheal + " wound" + (dheal>1?"s":"") + " closing" : "—");
   }
-  put("s-hp", TD ? Math.round(TD.hp*100/TD.hpMax)+"% of " + Math.round(TD.hpMax) + (TD.husk ? " \u00b7 husked" : "") : "—");
-  put("s-myhp", T.hpMax ? Math.round(T.hp*100/T.hpMax)+"% of " + Math.round(T.hpMax) + (T.husk ? " \u00b7 husked" : "") : "—");
+  put("s-hp", TD ? Math.round(TD.hp*100/TD.hpMax)+"% of " + Math.round(TD.hpMax) : "—");
+  put("s-myhp", T.hpMax ? Math.round(T.hp*100/T.hpMax)+"% of " + Math.round(T.hpMax) : "—");
   put("s-myhand", handOf(T));
   put("s-mind", handOf(TD));
   put("s-loop", FIG.loops.length
