@@ -248,7 +248,7 @@ OBS = [
  dict(g=['cyj','cyy','cyk','cyp'],y=1773,pop=16000,raw='Gaignard learned the Comanches “comprise fully four thousand warriors”; Hämäläinen derives about 16,000',basis='warriors × 4',loc='inferred',at=(35.0,-100.5),r=400,src='Gaignard (1773–74) via Hämäläinen, The Comanche Empire (2008), p. 102',kind='primary'),
  dict(g=['cyj','cyy','cyk','cyp'],y=1780,pop=20000,raw='Estimates of Comanche numbers in 1780, when most numerous, “are usually around 20,000”',basis='souls',loc='inferred',at=(34.8,-100.5),r=400,src='Wikipedia, “Comanche history” (summary of the literature)',kind='secondary'),
  dict(g=['cyj','cyy','cyk','cyp'],y=1781,pop=40000,raw='Hämäläinen’s high reckoning: a 1785 account gives the eastern Comanches 2,000 fighting men after losing two-thirds to smallpox, so “the total Comanche population in the early 1780s reached or exceeded forty thousand”',basis='souls',loc='inferred',at=(34.8,-100.5),r=400,src='Hämäläinen, The Comanche Empire (2008), pp. 102–3',kind='secondary'),
- dict(g=['cyy','cyk','cyp'],y=1819,pop=11000,raw='“In 1819 the three bands consisted of 10,000 to 12,000 souls… 2000 to 2500 warriors” (Comanche, Yamparack, Tenawa)',basis='souls',loc='inferred',at=(33.0,-99.5),r=400,src='David G. Burnet to the Indian Office, Texas Indian Papers vol. 3; also in Kavanagh, “Comanche”, Handbook of North American Indians 13 (2001), p. 901 (“about 3,000 warriors out of a total population of 10,000–12,000 (Burnet 1851)”)',kind='primary'),
+ dict(g=['cyy','cyk','cyp'],y=1819,pop=11000,raw='Written in 1847 “from the recollection of near thirty years”, his information “entirely too limited and imperfect” (Kavanagh, Comanche Political History, p. 354): “In 1819 the three bands consisted of 10,000 to 12,000 souls… 2000 to 2500 warriors” (Comanche, Yamparack, Tenawa)',basis='souls',loc='inferred',at=(33.0,-99.5),r=400,src='David G. Burnet to the Indian Office, Texas Indian Papers vol. 3; also in Kavanagh, “Comanche”, Handbook of North American Indians 13 (2001), p. 901 (“about 3,000 warriors out of a total population of 10,000–12,000 (Burnet 1851)”)',kind='secondary'),
  dict(g='cyn',y=1847,pop=1750,raw='Nokoni “said to number 1,750, in 250 lodges, evidently a gross exaggeration”',basis='souls',loc='inferred',at=(34.3,-99.9),r=200,src=HODGE+', “Detsanayuka”',kind='primary'),
  dict(g='cyn',y=1869,pop=312,raw='“in 1869 their number was 312”',basis='souls',loc='inferred',at=P['ft_sill'],r=60,src=HODGE+', “Detsanayuka”',kind='primary',whole=False),
  dict(g='cyn',y=1872,pop=250,raw='“in 1872 they were reported at 250”',basis='souls',loc='inferred',at=P['ft_sill'],r=60,src=HODGE+', “Detsanayuka”',kind='primary',whole=False),
@@ -720,11 +720,12 @@ LAKOTA=['bru','ogl','min','hnk','sih','sna','twk']
 COM=['cyj','cyy','cyk','cyp','cyn','cyq']
 EPI = [
  (1780.6,1782.0,'Smallpox, 1780–82',
-   {**{g:.5 for g in ['ass','asn','cre','crw','sik','kai','pik','gv','sho']},
-    **{g:.6 for g in ['man','hid','ari']}, 'cwm':.43,'cwr':.43,
-    **{g:.43 for g in LAKOTA+['ynk','yku','ykl','chy','ara','kio','kap','cyj','cyy','cyk']}, 'cyp':.6,
-    **{g:.3 for g in ['pwc','pwk','pws','wic','lip','jic','sis','wpt']}, **{g:.2 for g in ['oma','pon','oto','mis','kaw','osg','osl','iow','mde','wpk']}},
-   'Fenn, Pox Americana (working mortality rate of 43% for the Missouri villages, Crow and Sioux; fur traders reported 50–98% among the Atsina, Cree, Assiniboine and Blackfoot); Hämäläinen (eastern Comanche reported losing two-thirds)','sourced for the north, Crow, Sioux and eastern Comanche; assumed (lower) at the edges'),
+   {**{g:.55 for g in ['ass','asn','cre','crw','sik','kai','pik','gv','sho']},
+    **{g:.68 for g in ['man','hid','ari']}, 'cwm':.43,'cwr':.43,
+    **{g:.2 for g in LAKOTA+['ynk','yku','ykl','chy','ara','kio','kap']}, 'cyp':.6, **{g:.3 for g in ['cyj','cyy','cyk']},
+    **{g:.3 for g in ['pwc','pwk','pws','wic','jic']}, 'lip':.15, **{g:.15 for g in ['sis','wpt']},
+    **{g:.2 for g in ['oma','pon','oto','mis','kaw','osg','osl','iow']}, **{g:.1 for g in ['mde','wpk']}},
+   'Fenn, Pox Americana (2001), ch. 6 and epilogue, read in full. North: the traders put losses at 50–98%; Oman, counting the tents left, “about three fifths had perished”; Umfreville, “at least one half” of the plains Indians. Missouri villages: Lehmer’s overall 68% for the Mandan, Hidatsa and Arikara. Crow: Larocque’s 2,000 lodges before the smallpox against 2,400 people in 1805 (after 1801–02 as well); Fenn’s minimum is 21.5%. Sioux: Fenn’s minimum assumes a third infected at the 43% case-fatality rate (about 14%), lower than among the villages because nomads were less exposed and some were immune from 1734–35. Eastern Comanche: Vial and Chaves (1785) report two-thirds dead, which Fenn thinks may be too high. Lipan: “more than four hundred” dead (Cabello, Dec. 1780)','sourced for the north (55%), the Missouri villages (68%), the Lipan (15%, of about 2,900) and the eastern Comanche (60%); Crow at 43% (above Fenn’s minimum, as Larocque implies); the Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache at 20%, just above Fenn’s minimum for the Sioux; the western Comanche at 30% (still 16,000–18,000 in the mid-1780s, Hämäläinen p. 102); the rest assumed'),
  (1801.3,1802.3,'Smallpox, 1801–02',
    {'oma':.6,'pon':.6,**{g:.45 for g in ['oto','mis','pwc','pwk','pws','ari','wic']},'kaw':.3,
     **{g:.25 for g in LAKOTA+['ynk','yku','ykl','man','hid']}, **{g:.2 for g in ['cyy','cyk','cyp','kio','kap','lip','osg','osl','osa','chy','ara','cwm','cwr']}},
@@ -1653,11 +1654,12 @@ HBKI=lambda pp: HBC2('Kiowa','Levy',pp)
 HBPP=lambda pp: HBC2('Plains Apache','Foster and McCollough',pp)
 HBLI=lambda pp: HBC2('Lipan Apache','Opler',pp)
 COM5=['cyy','cyk','cyp','cyn','cyq']
+CPH=lambda pp: f'Kavanagh, Comanche Political History: An Ethnohistorical Perspective, 1706–1875 (1996), {pp}'
 OBS += [
  # ---- Comanche
  _cnt('cyk',1786.3,8400,'Spring 1786: eight Kotsoteka rancherías of 700 lodges in an area 40 leagues square; “at 12 residents each, there were 8,400 persons”',HBCO('p. 900'),(35.3,-101.0),r=250,basis='lodges × 12 (Kavanagh)'),
  pl('cyk',1788.55,'July 1788: a Comanche village of 372 lodges on the upper Red River (Loomis and Nasatir; division ours)',(34.6,-100.6),80,HBCO('p. 900')),
- _cnt(COM5,1846,14300,'Butler and Lewis 1846: 14,300 among the several divisions',HBCO('p. 901'),(34.0,-100.5),r=300),
+ _cnt(COM5,1846,15600,'Butler and Lewis, final report, July 1846: Yamparika 500 lodges and 3,500 souls; Hois 400 and 2,800; Kotsoteka over 300 and 2,000; Noonah 250 and 2,750; Nokoni 250 and 1,750; Tenewa 400 and 2,800 (sum 15,600; Butler’s March letter had five bands of about 500 lodges at 5 a lodge, 12,500). Kavanagh calls the list confused and the figures unreliable; the Handbook gives 14,300',CPH('pp. 297–99'),(34.0,-100.5),r=300),
  _cnt('cyp',1859.6,384,'August 1859: 384 Penatika Comanches moved from the Brazos reserve to the Wichita Agency at Fort Cobb (the reserve Comanches only)',HBCO('p. 888'),(35.1,-98.45),r=15,whole=False),
  *pls(['cyy','cyq'],1874.4,'Spring 1874: the Yamparika, Kwahada and other Comanches convene on Elk Creek in western Oklahoma before the attack on the hunters at Adobe Walls',(35.2,-99.35),25,HBCO('p. 889')),
  # ---- Kiowa
@@ -1739,7 +1741,8 @@ OBS += [
 EPI += [
  (1848.2,1848.8,'Smallpox, 1848 (Comanchería)',{**{g:.05 for g in COM5}},'Hämäläinen, The Comanche Empire (2008), p. 302: “In 1848, three years into a dry spell, smallpox ravaged Comanchería, and in 1849 a virulent cholera epidemic … carried away uncounted numbers”; Kavanagh, “Comanche”, Handbook 13 (2001), p. 902: “L.H. Williams (1849) and R.S. Neighbors (1849) reported that the 1848–1849 smallpox-cholera epidemic killed 300”','event sourced; the only contemporary count (300 deaths for both years) is taken as a floor, and 5% a year applied for 1848 and 1849 (rate ours)'),
  (1850.0,1861.0,'Drought and famine, 1850–60 (Comanchería)',{**{g:.35 for g in COM5}},'Hämäläinen, The Comanche Empire (2008), ch. 7, pp. 294–302 and n. 9 (p. 431): a drought from 1845, the collapse of the southern bison herds and malnutrition that lowered fertility, so that “Comanches’ population dropped in the 1850s and 1860s from around 20,000 to below 5,000”','decline sourced; the rate is scaled so that, with the 1848–49 and early-1860s losses, Hämäläinen’s series is reproduced (ours)'),
- (1871.0,1875.5,'Hunger and war, 1871–75 (Comanchería)',{**{g:.3 for g in COM5}},'Hämäläinen, The Comanche Empire (2008), pp. 339–40: “in their battles with the U.S. Army in the early 1870s, the Comanches suffered only a few hundred casualties, yet their population plummeted from four or five thousand in 1870 to around fifteen hundred in 1875”, through “a systematic assault on the Comanches’ economy”; Kavanagh, Handbook 13 (2001), p. 901, on Tatum’s 1870 count of 3,742: “the Kwahada figure is probably an exageration”','decline sourced; rate ours (30%, allowing for Tatum’s overcount of the Kwahada)'),
+ (1871.0,1874.0,'Hunger and war, 1871–73 (Comanchería)',{**{g:.15 for g in COM5}},'Hämäläinen, The Comanche Empire (2008), pp. 339–40: the population “plummeted from four or five thousand in 1870 to around fifteen hundred in 1875” through “a systematic assault on the Comanches’ economy”; Kavanagh, Comanche Political History (1996), pp. 471–73: 3,742 in Dec. 1870 (1,000 of them an estimate of those never reported) and 2,643 at the census of March 1874','decline sourced; rate ours'),
+ (1874.5,1875.5,'Red River War and surrender, 1874–75 (Comanchería)',{**{g:.3 for g in COM5}},'Kavanagh, Comanche Political History (1996), p. 473, and Handbook 13 (2001), p. 901: 2,643 at the census of March 1874, 1,721 in 1875 (1,556 south of the Washita and 165 Penateka at the Wichita agency); Hämäläinen, p. 339: “only a few hundred casualties” in battle, the rest hunger, flight and loss of the herds','decline sourced; rate ours (part of the fall is people not yet counted in 1875)'),
 ]
 
 # ---------------------------------------------------------------------------------------------
@@ -1869,7 +1872,7 @@ OBS += [
  c90(['wic','kit'],424,'Wichita reservation: “Wichita and affiliated Towaconie” 150, “Keechie and Wichita” 66, “Waco and Wichita” 34, “Wichita” 174','p. 528',P['anadarko'],r=40),
 ]
 EPI += [
- (1780.6,1782.0,'Smallpox, 1780–82 (Sarsi and Stoney)',{'sar':.5,'sto':.5},'Fenn, Pox Americana, as for the Blackfoot and Assiniboine (no figure for either people)','assumed, at the rate used for their neighbours'),
+ (1780.6,1782.0,'Smallpox, 1780–82 (Sarsi and Stoney)',{'sar':.55,'sto':.55},'Fenn, Pox Americana (2001), ch. 6: the rate sourced for their neighbours (no figure for either people)','assumed, at the rate used for their neighbours'),
  (1837.45,1838.0,'Smallpox, 1837–38 (Sarsi and Stoney)',{'sar':.5,'sto':.25},'Dempsey, “Sarcee”, Handbook 13 (2001), p. 635: “They suffered a major loss during the smallpox epidemic of 1837–1838” (100 tents in 1824, 50 in 1841, p. 636); Stoney: none stated','Sarsi scaled from the tent counts; Stoney assumed, as the Northern Assiniboine'),
  (1869.7,1870.3,'Smallpox, 1869–70 (Sarsi)',{'sar':.45},'Dempsey, “Sarcee”, Handbook 13 (2001), p. 635: lodges reduced “from 50 to 12”; 420 people in 1870 before it and 255 on the 1877 roll (p. 636)','scaled between the lodge count and the 1877 roll (ours)'),
  (1862.8,1862.85,'Attack on the Tonkawa near Anadarko, Oct. 1862',{'tkw':.4},'Newcomb and Campbell, “Tonkawa”, Handbook 13 (2001), p. 955: “Some 137 men, women, and children were killed”; about 245 had come north in 1859','sourced (fraction of about 300 to 340)'),
@@ -1911,4 +1914,23 @@ OBS += [
  pl('jic',1883.64,'20 Aug. 1883: all the Jicarilla removed to the Mescalero Apache reservation',(33.15,-105.77),20,HB10('p. 452')),
  _cnt('jic',1846.8,500,'1846: Charles Bent reports “about 100 lodges of 500 Jicarillas throughout New Mexico”',HB10('p. 451'),(36.5,-105.4),r=150),
  _cnt('jic',1900,815,'1900: 815 (Jicarilla Apache tribal census rolls)',HB10('p. 454, table 1'),(36.93,-107.0),r=30,basis='census'),
+]
+
+# ---------------------------------------------------------------------------------------------
+# Kavanagh, Comanche Political History (1996), read in full in the PDF supplied by the project's owner.
+# Table 7.12 (pp. 472–73) gives band populations by division for Nov. 1869 (Badger), Dec. 1870 (Tatum) and March 1874,
+# the last a census taken for Agent Haworth, who thought its total “not above their actual number”. Tatum's 1870 total is
+# already a record. Divisions as Kavanagh assigns them; the Detsakana go with the Yamparika and the Tenewa with the Nokoni.
+OBS += [
+ _cnt(COM5,1838.4,20000,'Bonnell, Texan commissioner of Indian affairs, after a trading trip to one village, 1838: “We learned from them that the Nation consisted of about 20,000 souls and could raise about 5,000 warriors” (hearsay in a polemical letter, Kavanagh says)',CPH('p. 228'),(33.5,-99.5),r=400),
+ _cnt('cyp',1846,2800,'Butler and Lewis 1846: the “Hooish” (Hois, the Penateka) “about 400 lodges, averaging about seven to the lodge making about 2800 souls”, probably on Neighbors’s information; “the only pre-epidemic count … it is unreliable”',CPH('pp. 299, 332, 385'),(31.5,-98.8),r=150),
+ _cnt('cyp',1854.6,1200,'1854: the “whole Southern Band”, including Ketumsee, Potsanaquahip and Sanaco, “consisted of 1,200 people”',CPH('p. 385'),(33.2,-99.2),r=120),
+ _cnt(['cyy','cyk'],1856.5,3200,'Whitfield, 1856: the Arkansas River Comanches, 400 lodges, 800 men, 1,200 women, 3,200 in all (the northern divisions trading on the Arkansas only)',CPH('p. 381, table 6.10'),(37.8,-99.5),r=150,whole=False),
+ _cnt(['cyk','cyq'],1866.8,2000,'Norton, New Mexico superintendent, 1866: “a large body (about two thousand) continually occupying the eastern portion of this territory” under Mowway, Puertas and others (the New Mexico-trading Kotsoteka and Kwahada only)',CPH('pp. 405–6'),(35.0,-103.0),r=150,whole=False),
+ _cnt(COM5,1869.9,4445,'Badger’s list, Nov. 1869: 1,927 present, 558 absent, and an estimated 1,960 never reported, off the reservation',CPH('pp. 472–73, table 7.12'),P['ft_sill'],r=200),
+ _cnt('cyy',1874.2,1228,'March 1874 census (Haworth): Yamparika bands 1,128 and Detsakana 100',CPH('p. 472, table 7.12'),P['ft_sill'],r=60,basis='census'),
+ _cnt('cyn',1874.2,322,'March 1874 census (Haworth): Nokoni bands 272 and Tenewa 50',CPH('p. 472, table 7.12'),P['ft_sill'],r=60,basis='census'),
+ _cnt('cyk',1874.2,310,'March 1874 census (Haworth): Kotsoteka bands under Mowway, Kawertzeme, Black Duck and Prairie Fire, 310',CPH('p. 472, table 7.12'),P['ft_sill'],r=60,basis='census'),
+ _cnt('cyq',1874.2,649,'March 1874 census (Haworth): Kwahada bands 649, besides those still out',CPH('p. 472, table 7.12'),P['ft_sill'],r=60,basis='census'),
+ _cnt('cyp',1874.2,195,'March 1874 census (Haworth): Penateka under Seichinicah and Asatoyet, 195; the bands of Asehabit and Tosaway were at the Wichita agency and not counted',CPH('p. 473, table 7.12'),P['ft_sill'],r=60,basis='census',whole=False),
 ]

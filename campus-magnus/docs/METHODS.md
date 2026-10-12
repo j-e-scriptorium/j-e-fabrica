@@ -99,7 +99,7 @@ Every count is then divided by its family's factor and the model refitted (lines
 
 | Test | Script | Output | Result |
 |---|---|---|---|
-| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 435 counts; median miss ×1.20 (interpolation ×1.26); 2-sd coverage 0.90 before widening |
+| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 441 counts; median miss ×1.20 (interpolation ×1.27); 2-sd coverage 0.90 before widening |
 | Held-out places | `calib_pos.py`, `calib_halo.py` | `model/build/poscal.json` | median 109 km nomadic (smoother), 107 km (drawn curve), 48 km village |
 | Withheld season-dated places | `recheck_seas.py` | console | 264 places; 120 against 127 km |
 | Whole-model sensitivity | `sens.py` | `model/build/sensitivity.json` | table under “Sensitivity of the population totals” on the map page |

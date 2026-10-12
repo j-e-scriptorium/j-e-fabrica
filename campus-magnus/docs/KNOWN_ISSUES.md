@@ -4,30 +4,30 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 
 ## 1. The Comanche population, 1819–1875
 
-- **The tension.** The fit puts the Comanche at about 10,800 in 1830 and 11,000 in 1846. Three groups of sources disagree:
-  - Burnet (1819) and Berlandier (late 1820s): 10,000–12,000 (Kavanagh, Handbook 13, pp. 900–901);
-  - the agents of 1843–49: 14,300–20,000;
-  - Hämäläinen (2008): 20,000–30,000 in the 1820s and 1830s (p. 179) and "near the twenty-thousand level" about 1849 (p. 293).
-- **Why the fit sits low.** It is not mainly the growth prior. Hodge's small figures for 1869–72 are partial counts and never entered the fit. The 1840s figures are pulled down by the 1819 and 1829 counts of 10,000–12,000 through the growth prior, and every Handbook-cited count is in the catch-all "other sources" family, whose factor (1.19) scales them down. Accepting 20,000 in the 1840s would mean either growth from 1829 that no source describes, or Burnet and Berlandier counting only part of the nation.
-- **What the model now includes**, after Hämäläinen was read in full:
-  - smallpox 1816 (40%) and 1839–40 (20%);
-  - 1848 smallpox and 1849 cholera at 5% each, since Williams and Neighbors reported 300 deaths for both years (Kavanagh, p. 902), against Hämäläinen's description of severe losses (p. 302);
-  - drought and famine, 1850–60, at 35% (rate ours, scaled to Hämäläinen's series, ch. 7 and n. 9);
-  - smallpox, famine and war in the early 1860s at 40% (Hämäläinen p. 313: "as many as four thousand", leaving 5,000 in 1865);
-  - hunger and war, 1871–75, at 30% (rate ours; pp. 339–40).
-- **Status.** Open. The fit runs about 3,200 in 1865 and 2,900 in 1870, against Hämäläinen's 5,000 and Tatum's 3,742.
-- **Would settle it.** Kavanagh, *Comanche Political History* (1996), for how each figure of 1819–49 was made and what part of the nation it covers; the Butler and Lewis (1846) and Neighbors (1849) reports themselves.
-- **Effect if the high reading is right.** The southern-plains total in the 1840s rises by 5,000–9,000, and the Comanche dots by about 50% in area.
+- **The figures, and how Kavanagh's *Comanche Political History* (1996) shows them to have been made.**
+  - Burnet's 10,000–12,000 "in 1819" was written in 1847 "from the recollection of near thirty years" (p. 354), and is weighted as a reconstruction.
+  - Bonnell's 20,000 (1838) is hearsay from one village, in a polemical letter (p. 228).
+  - Butler and Lewis's 1846 report gives every division in lodges at seven to a lodge, 15,600 in all. Butler's own letter four months earlier had 12,500 at five to a lodge. Kavanagh calls the list confused and its figures unreliable (pp. 297–300, 332).
+  - Neighbors's 20,000 of 1849 and the "19,200" of 1841–45 are round figures from Texas, which Kavanagh notes describe only the Comanches known to Anglo-Texans (p. 354).
+  - After 1850 the counts are concrete: the Penateka at 2,800 (1846, unreliable), 1,200 (1854) and 384 (1859); the Arkansas River Comanches at 3,200 (Whitfield 1856); the New Mexico Kotsoteka and Kwahada at about 2,000 (Norton 1866); 4,445 in 1869 (including an estimated 1,960 never reported); 3,742 in 1870 (including 1,000 estimated); 2,643 at the census of March 1874; 1,721 in 1875.
+- **Verdict.** The best contemporary whole-nation figure for the 1840s is Butler and Lewis's 12,500–15,600, itself unreliable; the 20,000 figures are round hearsay. The fit, about 11,800 in 1846, sits a little under the Butler and Lewis range. Hämäläinen's 20,000–30,000 for the 1820s–40s is not supported by any count Kavanagh reports and is weighted as a reconstruction.
+- **What remains uncertain.** Whether the decline from the 1840s to the 1860s came mainly in 1848–49 (Hämäläinen: severe; the only contemporary count, 300 deaths) or in the drought of the 1850s. The model puts most of it in the 1850s and early 1860s, with rates of its own scaled to the counts.
+- **Would settle it.** Winfrey and Day, *Indian Papers of Texas*, for the Neighbors, Stem and Hardee reports in full.
 
 ## 2. Epidemic mortality rates are mostly assumed
 
-- **Scale.** The single most influential input before 1800 (±25% on every rate moves the 1780 total between 138,000 and 183,000). Most division-level rates are scaled from a regional figure or assumed (JUDGMENTS §7).
-- **Would settle it.** Fenn, *Pox Americana* (2001), and Thornton (1987) reread for division-level figures; Trimble's work on the Missouri epidemics; for 1837, the Fort Clark and Fort Union journals.
+- **Scale.** Still the single most influential input before 1800: ±25% on every rate moves the 1780 total between 137,000 and 188,000.
+- **1780–82, after reading Fenn, *Pox Americana* (2001).**
+  - Sourced: the northern plains (55%), the Missouri villages (68%, Lehmer), the Lipan (more than 400 dead, about 15%) and the eastern Comanche (two-thirds reported, 60% used).
+  - Fenn's 43% is a case-fatality rate (deaths among the infected, from Madras in the 1960s), not a mortality rate. Her own minimum for the nomadic Sioux, a third infected, is about 14%. The Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache lose 20%, the western Comanche 30%: assumed, just above that minimum.
+  - The Crow stay at 43%, above Fenn's 21.5% minimum, because Larocque's lodge count implies far heavier losses.
+- **Other epidemics.** Most division-level rates for 1801–02, 1837–38 (beyond the sourced ones) and 1849 remain scaled or assumed (JUDGMENTS §7).
+- **Would settle it.** Thornton (1987); Trimble's work and the Fort Clark journal for 1837; Hackett for the Canadian epidemics.
 
 ## 3. The eighteenth century rests on few records
 
 - **Thin coverage.** Of 345 division × period cells, 33 have neither a count nor a place (`coverage_by_division_and_period.csv`, flag `thin`). Fourteen of them are 1700–49, mostly the northern plains (Blackfoot divisions, Gros Ventre, both Crow divisions, Shoshone, Northern Assiniboine, Cree) and the Osage and Ponca.
-- **What fills the gap.** The map draws these years from keyframes and smoothing. Their held-out error (×1.41 for population, 1700–99) is the worst of any period.
+- **What fills the gap.** The map draws these years from keyframes and smoothing. Their held-out error (×1.45 for population, 1700–99) is the worst of any period.
 - **Would settle it.** Russell, *Eighteenth-Century Western Cree and Their Neighbours* (1991); Burpee's editions of Henday (1907), Cocking (1908) and La Vérendrye (1927); A. B. Thomas, *After Coronado* (1935) and *Forgotten Frontiers* (1932) for the Spanish documents; Bolton's *Athanase de Mézières* (1914) for the Wichita, Kitsai and Tonkawa; Nasatir, *Before Lewis and Clark* (1952) for Truteau and Mackay.
 
 ## 4. Canadian peoples after 1870 and before 1790
@@ -39,7 +39,7 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 
 - **The assumption.** Reservation censuses (1868 on) anchor the source-family factors at 1.0. Agents had reasons to inflate rolls (rations) and sometimes to deflate them. If they ran systematically high, every earlier family's factor inherits the bias.
 - **Partial check.** Counts called "census", "roll" or "enrollment" are weighted more tightly than agents' estimates. Where an agent's figure is flagged in the source as high (Arapaho 1872, "probably too high", Fowler), the record says so.
-- **A check that does not decide it.** The special Indian census of 1890 is now in the record, but it largely reproduced the agency rolls: its figures for the Crow, Kansa, Iowa, Otoe-Missouria and Southern Cheyenne are identical to the Indian Office’s for that year. Where it differs it adds detail (division-level splits at Standing Rock, Rosebud and Fort Berthold), not an independent count.
+- **A check that does not decide it.** The special Indian census of 1890, in the record, largely reproduced the agency rolls: its figures for the Crow, Kansa, Iowa, Otoe-Missouria and Southern Cheyenne are identical to the Indian Office’s for that year. Where it differs it adds detail (division-level splits at Standing Rock, Rosebud and Fort Berthold), not an independent count.
 - **Would settle it.** The 1900 census Indian schedules, which were enumerated household by household, compared with the agency rolls of 1900.
 
 ## 6. The band layer is largely illustrative
@@ -63,7 +63,6 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
   - Prescott's 1850 Mdewakanton count via Schoolcraft;
   - the treaty-council attendance lists for Fort Laramie (1851) and Medicine Lodge (1867), taken from Wikipedia;
   - several Texas and Oklahoma sites recalled (El Cañón mission, Van Dorn's fight, the Wichita refugee camp of 1865).
-- Hämäläinen's figures and the San Carlos settlement of 1787, formerly tier C, now cite pages of the book, read in full.
 - **Other recalled material.** The seasonal literature patterns, the original 129 settlement dates (since checked against references, each naming its check), and the band places.
 - The header of `data_src.py` describes the documented records as read for this build. The tier-C records are the exceptions, and each is marked in its source field.
 

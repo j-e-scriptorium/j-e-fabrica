@@ -3,7 +3,8 @@
 Tier is about how the text reached this project, not about the source's own quality.
   A1  A work read in a PDF supplied by the project's owner, page-cited: Handbook of North American Indians vols. 10, 11
       and 13; the 1890 census Report on Indians Taxed and Indians Not Taxed (1894), its tables read from the page
-      images; Hämäläinen, The Comanche Empire (2008).
+      images; Hämäläinen, The Comanche Empire (2008); Kavanagh, Comanche Political History (1996);
+      Fenn, Pox Americana (2001, an EPUB without print pages, cited by chapter).
   A2  Original or standard printed text read in a full-text copy online (Internet Archive, Project Gutenberg,
       UNL Lewis & Clark edition, digitised Indian Office reports, BAE series).
   B   Reference article read online (Wikipedia, Historical Marker Database, Handbook of Texas, Encyclopedia of
@@ -15,9 +16,9 @@ import re
 
 C_MARKERS = ('recalled', 'not checked', 'as quoted in', 'reader’s highlight', "reader's highlight",
              'as summarized in Wikipedia', 'Brooks, Captives', 'Thornton, American Indian',
-             'Fenn, Pox', 'Calloway', 'Burnet to the Indian Office',
+             'Calloway', 'Burnet to the Indian Office',
              'Ray, Indians in the Fur Trade', 'Moodie', 'Ewers', 'West, The Contested', 'Isenberg',
-             'Frazer, Forts', 'Hannings', 'Milloy', 'Binnema', 'Kavanagh, Comanche Political')
+             'Frazer, Forts', 'Hannings', 'Milloy', 'Binnema')
 B_MARKERS = ('Wikipedia', 'Historical Marker Database', 'hmdb', 'Handbook of Texas', 'Encyclopedia of the Great Plains',
              'Encyclopedia of Saskatchewan', 'DCB', 'Dictionary of Canadian Biography', 'nps.gov', 'National Park Service',
              'North American Forts', 'Kansapedia', 'northamericanforts', 'State Historical Society', 'history.nd.gov')
@@ -32,7 +33,7 @@ A2_MARKERS = ('Swanton', 'Mooney', 'Clark', 'Lewis & Clark', 'Annual Report of t
 def tier(src: str) -> str:
     """Weakest component wins when a record cites several works."""
     s = src or ''
-    hb = any(k in s for k in ('Handbook of North American Indians, vol. 1', 'Report on Indians Taxed', 'Comanche Empire (2008), p'))
+    hb = any(k in s for k in ('Handbook of North American Indians, vol. 1', 'Report on Indians Taxed', 'Comanche Empire (2008), p', 'Comanche Political History: An Ethnohistorical Perspective, 1706–1875 (1996), p', 'Pox Americana (2001), ch'))
     if 'Hämäläinen' in s and 'Comanche Empire (2008), p' not in s: return 'C'
     if any(k in s for k in ('recalled', 'not checked', 'as quoted in', 'highlight', 'as summarized in')):
         return 'C'

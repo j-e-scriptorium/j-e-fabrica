@@ -32,7 +32,7 @@ The page loads its data with plain `<script>` tags, so it runs from `file://`; o
 
 | File | One row per |
 |---|---|
-| `records.csv` (1,295) | Documented record: a count, a place, or both, with the source's words, the source and locator, a provenance tier, judgment flags, whether it steers the track, and the fitted and held-out values at that point. |
+| `records.csv` (1,306) | Documented record: a count, a place, or both, with the source's words, the source and locator, a provenance tier, judgment flags, whether it steers the track, and the fitted and held-out values at that point. |
 | `sources.csv` | Source, with records drawn from it, tier and peoples covered. |
 | `keyframes_our_guesses.csv` (519) | Our own guess. **Never data.** 250 carry no note; their basis is interpolation between neighbouring documented states. |
 | `epidemics_and_shocks.csv` | Epidemic or famine × division: dates, mortality applied, whether the fraction is sourced, scaled or assumed. |
@@ -51,20 +51,20 @@ Each record is tiered by how its text reached the project, not by the quality of
 
 | Tier | Meaning | Records |
 |---|---|---|
-| A1 | A work read in a PDF supplied by the project's owner, page-cited: *Handbook of North American Indians* vols. 10, 11 and 13; the 1890 census *Report on Indians Taxed and Indians Not Taxed* (1894), its tables read from the page images; Hämäläinen, *The Comanche Empire* (2008). | 514 |
+| A1 | A work read in a PDF or EPUB supplied by the project's owner, page-cited: *Handbook of North American Indians* vols. 10, 11 and 13; the 1890 census *Report on Indians Taxed and Indians Not Taxed* (1894), its tables read from the page images; Hämäläinen, *The Comanche Empire* (2008); Kavanagh, *Comanche Political History* (1996); Fenn, *Pox Americana* (2001, cited by chapter). | 525 |
 | A2 | A standard printed source read in full text (BAE series, Indian Office reports, the Lewis and Clark journals, travellers' narratives). | 624 |
 | B | A reference article read online (mostly Wikipedia, for battle, treaty, agency and site coordinates; Handbook of Texas; Encyclopedia of the Great Plains). | 135 |
 | C | Second-hand or recalled: the work itself was not read. A lead to verify. | 22 |
 
-922 records (71%) carry a page, table, entry or document number.
+933 records (71%) carry a page, table, entry or document number.
 
 ## Reliability
 
-1. **Population, held out.** Each of 435 division counts withheld in turn and predicted: median miss a factor of 1.20 (1.26 for plain interpolation); 1.41 for 1700–99, 1.33 for 1800–39, 1.23 for 1840–69, 1.11 for 1870–1905. 90% fall inside the 2-sd range before the 25% widening shown on the map.
+1. **Population, held out.** Each of 441 division counts withheld in turn and predicted: median miss a factor of 1.20 (1.27 for plain interpolation); 1.45 for 1700–99, 1.33 for 1800–39, 1.23 for 1840–69, 1.11 for 1870–1905. 90% fall inside the 2-sd range before the 25% widening shown on the map.
 2. **Place, held out.** 476 nomadic places, each withheld together with any other place within half a year: the drawn track misses by a median 107 km (123 km without our keyframes); the smoother that sets the halo, 109 km (111 km). Village divisions: 48 km over 231 places (53 km). (`model/src/calib_track.py`, `calib_pos.py`.)
 3. **Seasonal round.** 264 withheld season-dated places: median miss 120 km, against 127 km with no seasonal move.
-4. **Most influential assumption.** Epidemic mortality: scaling every fraction by 0.75 or 1.25 moves the 1780 total from 155,000 to 138,000 or 183,000.
-5. **Weakest stretches.** The eighteenth century, the northern plains before 1790, Canadian peoples after 1870, and the Comanche 1819–1875 (`docs/KNOWN_ISSUES.md`). The band layer is illustration constrained by division totals, not evidence.
+4. **Most influential assumption.** Epidemic mortality: scaling every fraction by 0.75 or 1.25 moves the 1780 total from 155,000 to 137,000 or 188,000.
+5. **Weakest stretches.** The eighteenth century, the northern plains before 1790, Canadian peoples after 1870, and the decline of the Comanche between the 1840s and the 1860s (`docs/KNOWN_ISSUES.md`). The band layer is illustration constrained by division totals, not evidence.
 
 ## Rebuilding
 

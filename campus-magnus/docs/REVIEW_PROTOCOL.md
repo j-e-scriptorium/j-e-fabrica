@@ -46,7 +46,7 @@ Specific questions a Plains ethnohistorian is best placed to answer:
 4. Which assumed epidemic rates (`epidemics_and_shocks.csv`, basis "assumed" or "scaled") are most out of line with the literature?
 5. Are the seasonal-round directions in `seasonal_patterns.csv` correct for each people? Their sources were recalled, not reread.
 6. Are any of the 519 keyframes (`keyframes_our_guesses.csv`) clearly wrong? Look especially at the 250 with no note, and at places before 1790.
-7. Is any people or division missing that should be on a map of this scope? Candidates include the Plains Ojibwe before 1780, the Caddo, the Quapaw and the Plains Métis. The Sarsi, Stoney, Tonkawa and Kitsai are now on the map.
+7. Is any people or division missing that should be on a map of this scope? Candidates include the Plains Ojibwe before 1780, the Caddo, the Quapaw and the Plains Métis. The Sarsi, Stoney, Tonkawa and Kitsai are on the map.
 
 ## 3. Does the model reproduce, and do its tests hold?
 
