@@ -1,0 +1,54 @@
+{
+ "tiers": {
+  "A2": 624,
+  "B": 137,
+  "A1": 407,
+  "C": 27
+ },
+ "records": 1195,
+ "keyframes": 489,
+ "epidemic_rows": 212,
+ "keyframes_without_note": 242,
+ "keyframe_roles": {
+  "place+persons": 400,
+  "persons only": 74,
+  "place only": 10,
+  "marker only (defers to records)": 5
+ },
+ "counts": 573,
+ "places_only": 622,
+ "steer": 674,
+ "with_locator": 816,
+ "flags": {
+  "place_placed_by_us": 419,
+  "kept_off_track": 112,
+  "date_ours": 5,
+  "identification_judged": 21,
+  "assumed_quantity": 75,
+  "multiplier_ours": 75,
+  "place_centre_ours": 34,
+  "multiplier_stated_by_source": 32,
+  "partial_group": 40,
+  "recalled": 3
+ },
+ "coverage_thin": 32,
+ "coverage_rows": 321,
+ "epi_basis": {
+  "sourced for the north, Crow, Sioux and e": 50,
+  "sourced for the Omaha": 35,
+  "sourced for the Comanche": 8,
+  "sourced, except the lighter Lakota, Cree": 28,
+  "assumed below Mooney’s plains-wide third": 13,
+  "sourced for the Kiowa and Cheyenne (the ": 21,
+  "assumed": 11,
+  "event sourced": 20,
+  "sourced": 6,
+  "sourced (fraction of about 1,600)": 1,
+  "sourced (fraction of about 2,400)": 3,
+  "sourced for the Kansa": 2,
+  "sourced for the Otoe-Missouria": 4,
+  "rate assumed": 6,
+  "sourced for the Piegan and Blood": 2,
+  "sourced for the Kiowa": 2
+ }
+}

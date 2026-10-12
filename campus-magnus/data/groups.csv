@@ -1,0 +1,63 @@
+group_id,tribe,division,language_family,start,end,lifeway
+bru,Lakota,Brulé (Sičháŋǧu),dakotan,1700,1905,nomadic
+ogl,Lakota,Oglala,dakotan,1700,1905,nomadic
+min,Lakota,Miniconjou,dakotan,1700,1905,nomadic
+hnk,Lakota,Hunkpapa,dakotan,1700,1905,nomadic
+sih,Lakota,Sihasapa (Blackfeet Lakota),dakotan,1700,1905,nomadic
+sna,Lakota,Itazipčho (Sans Arc),dakotan,1700,1905,nomadic
+twk,Lakota,Oohenunpa (Two Kettle),dakotan,1700,1905,nomadic
+ynk,Yankton,Yankton,dakotan,1700,1905,nomadic
+yku,Yanktonai,Upper Yanktonai & Cuthead,dakotan,1700,1905,nomadic
+ykl,Yanktonai,Hunkpatina (Lower Yanktonai),dakotan,1700,1905,nomadic
+mde,Dakota,Mdewakanton,dakotan,1700,1905,village
+wpk,Dakota,Wahpekute,dakotan,1700,1905,nomadic
+wpt,Dakota,Wahpeton,dakotan,1700,1905,nomadic
+sis,Dakota,Sisseton,dakotan,1700,1905,nomadic
+ass,Assiniboine,Southern (Missouri) Assiniboine,dakotan,1700,1905,nomadic
+asn,Assiniboine,Northern (Saskatchewan) Assiniboine,dakotan,1700,1905,nomadic
+cre,Plains Cree,Qu’Appelle–Touchwood Cree,algonquian,1700,1905,nomadic
+crw,Plains Cree,Fort des Prairies Cree,algonquian,1700,1905,nomadic
+crs,Plains Cree,Cypress Hills–Wood Mountain Cree,algonquian,1790,1905,nomadic
+ojb,Plains Ojibwe,Pembina–Turtle Mountain,algonquian,1780,1905,nomadic
+sik,Blackfoot,Siksika,algonquian,1700,1905,nomadic
+kai,Blackfoot,Kainai (Blood),algonquian,1700,1905,nomadic
+pik,Blackfoot,Piikani (Piegan),algonquian,1700,1905,nomadic
+gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",algonquian,1700,1905,nomadic
+chy,Cheyenne,Cheyenne (before division),algonquian,1700,1832,village→nomadic
+chn,Cheyenne,Northern Cheyenne,algonquian,1832,1905,nomadic
+chs,Cheyenne,Southern Cheyenne,algonquian,1832,1905,nomadic
+ara,Arapaho,Arapaho (before division),algonquian,1700,1835,nomadic
+arn,Arapaho,Northern Arapaho,algonquian,1835,1905,nomadic
+ars,Arapaho,Southern Arapaho,algonquian,1835,1905,nomadic
+cwm,Crow,Mountain Crow,msiouan,1700,1905,nomadic
+cwr,Crow,River Crow,msiouan,1700,1884,nomadic
+man,Mandan,Mandan,msiouan,1700,1905,village
+hid,Hidatsa,Hidatsa,msiouan,1700,1905,village
+kio,Kiowa,Kiowa,kiowa,1700,1905,nomadic
+kap,Plains Apache,Plains (Kiowa) Apache,athabaskan,1700,1905,nomadic
+apc,Plains Apache,Cuartelejo & Paloma Apache,athabaskan,1700,1732,village
+jic,Jicarilla,Jicarilla Apache,athabaskan,1700,1905,nomadic
+lip,Lipan,Lipan Apache,athabaskan,1700,1905,nomadic
+cyj,Comanche,Jupe,numic,1700,1795,nomadic
+cyy,Comanche,Yamparika,numic,1700,1905,nomadic
+cyk,Comanche,Kotsoteka,numic,1700,1905,nomadic
+cyp,Comanche,Penateka (Eastern Comanche),numic,1745,1905,nomadic
+cyn,Comanche,Nokoni,numic,1830,1905,nomadic
+cyq,Comanche,Kwahadi,numic,1835,1905,nomadic
+sho,Shoshone,Eastern (Plains) Shoshone,numic,1700,1905,nomadic
+wic,Wichita,Wichita (Taovaya & allies),caddoan,1700,1905,village
+pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),caddoan,1700,1905,village
+pwk,Pawnee,Kitkahahki (Republican Pawnee),caddoan,1700,1905,village
+pws,Pawnee,Skiri (Loup Pawnee),caddoan,1700,1905,village
+ari,Arikara,Arikara,caddoan,1700,1905,village
+oma,Omaha,Omaha,dhegiha,1700,1905,village
+pon,Ponca,Ponca,dhegiha,1700,1905,village
+oto,Oto,Oto,dhegiha,1700,1905,village
+mis,Missouria,Missouria,dhegiha,1700,1830,village
+kaw,Kansa,Kansa (Kaw),dhegiha,1700,1905,village
+osg,Osage,Great Osage,dhegiha,1700,1905,village
+osl,Osage,Little Osage,dhegiha,1700,1905,village
+osa,Osage,Arkansas Osage (Claremore’s band),dhegiha,1802,1839,village
+iow,Iowa,Iowa (Báxoje),dhegiha,1700,1905,village
+u_cas,Unidentified,"Castahana (Clark 1805; probably an Arapahoan group, Parks 2001)",unident,1805,1805,
+u_dot,Unidentified,"Dotame (Clark 1805; probably a Plains Apachean group, Parks 2001)",unident,1805,1805,

@@ -1,0 +1,198 @@
+division_id,unit_id,name,year,lat,lon,note
+bru,bru.bru_sic,Sičangu proper,1854.0,41.6,-101.8,
+bru,bru.bru_sic,Sičangu proper,1855.67,41.28,-102.12,"Ash Hollow (Blue Water Creek): Harney destroys Little Thunder’s camp of about 250, 3 Sept. 1855"
+bru,bru.bru_sic,Sičangu proper,1857,42.4,-101.5,
+bru,bru.bru_low,Kul wičaša (Lower Brulé),1800,43.75,-99.45,Lower Brulé at the confluence of the White River and the Missouri
+bru,bru.bru_low,Kul wičaša (Lower Brulé),1860,43.8,-99.5,
+bru,bru.bru_low,Kul wičaša (Lower Brulé),1868.5,43.1,-99.3,Whetstone agency
+bru,bru.bru_low,Kul wičaša (Lower Brulé),1875,44.07,-99.58,Lower Brulé agency
+bru,bru.bru_low,Kul wičaša (Lower Brulé),1905,44.07,-99.58,
+bru,bru.bru_cbr,Conquering Bear’s camp,1854.5,42.13,-104.4,Awaiting annuities on the North Platte
+bru,bru.bru_cbr,Conquering Bear’s camp,1854.63,42.13,-104.4,"Grattan fight, 19 Aug. 1854: Conquering Bear mortally wounded"
+ogl,ogl.ogl_itc,Itešiča (Bad Face),1866.5,44.4,-106.6,Red Cloud’s war on the Bozeman Trail
+ogl,ogl.ogl_itc,Itešiča (Bad Face),1868.9,44.2,-105.9,
+ogl,ogl.ogl_kiy,Kiyuksa,1852,40.6,-101.2,Republican River country
+ogl,ogl.ogl_kiy,Kiyuksa,1865.05,40.98,-102.26,"Attack on Julesburg, Jan. 1865"
+ogl,ogl.ogl_kiy,Kiyuksa,1867.53,39.52,-101.7,"Kidder fight, July 1867"
+ogl,ogl.ogl_kiy,Kiyuksa,1869.5,40.6,-101.6,
+ogl,ogl.ogl_kiy,Kiyuksa,1871,42.2,-104.2,
+ogl,ogl.ogl_oyu,Oyuhpe,1874,45.2,-106.4,Powder & Tongue rivers
+ogl,ogl.ogl_oyu,Oyuhpe,1876.47,45.57,-107.43,"Little Bighorn camp, June 1876"
+ogl,ogl.ogl_oyu,Oyuhpe,1877.02,45.286,-106.58,"Wolf Mountain fight, 8 Jan. 1877"
+ogl,ogl.ogl_oyu,Oyuhpe,1877.35,42.67,-103.47,"Crazy Horse surrenders at Camp Robinson, May 1877"
+ogl,ogl.ogl_wag,Wagluhe,1841,42.2,-104.55,Camped at Fort John/Fort Laramie
+ogl,ogl.ogl_wag,Wagluhe,1868,42.2,-104.55,
+ogl,ogl.ogl_wag,Wagluhe,1871.5,42.2,-104.4,Red Cloud agency
+min,min.min_lam,Lame Deer’s people,1876.47,45.57,-107.43,Little Bighorn camp
+min,min.min_lam,Lame Deer’s people,1877.35,45.62,-106.62,"Lame Deer fight on Little Muddy Creek, 7 May 1877: a camp of 61 lodges"
+min,min.min_big,Big Foot’s people,1880,44.95,-101.9,Cherry Creek on the Cheyenne River
+min,min.min_big,Big Foot’s people,1890.92,44.95,-101.9,
+min,min.min_big,Big Foot’s people,1890.97,43.6,-102.1,"Flight toward Pine Ridge, Dec. 1890"
+min,min.min_big,Big Foot’s people,1890.99,43.14,-102.36,"Wounded Knee, 29 Dec. 1890"
+hnk,hnk.hnk_sb,Sitting Bull’s people,1870,46.9,-105.6,Yellowstone & Powder country
+hnk,hnk.hnk_sb,Sitting Bull’s people,1876.47,45.57,-107.43,Little Bighorn camp
+hnk,hnk.hnk_sb,Sitting Bull’s people,1877.38,49.3,-106.0,"Into Canada near Wood Mountain, May 1877"
+hnk,hnk.hnk_sb,Sitting Bull’s people,1880.5,49.4,-106.4,
+hnk,hnk.hnk_sb,Sitting Bull’s people,1881.55,48.0,-104.0,"Surrender at Fort Buford, 19 July 1881"
+hnk,hnk.hnk_sb,Sitting Bull’s people,1881.62,46.09,-100.63,"Fort Yates, Aug. 1881"
+hnk,hnk.hnk_sb,Sitting Bull’s people,1881.75,43.06,-98.55,Held at Fort Randall about 20 months
+hnk,hnk.hnk_sb,Sitting Bull’s people,1883.38,46.09,-100.63,"Standing Rock, May 1883"
+sih,sih.sih_wzz,Wazaze,1876.36,45.9,-101.0,"Kill Eagle leaves Standing Rock with about 26 lodges, May 1876; the rest stay under Red Hawk"
+sih,sih.sih_wzz,Wazaze,1876.47,45.57,-107.43,At the Little Bighorn
+sih,sih.sih_wzz,Wazaze,1876.71,45.9,-101.0,"Surrenders at Standing Rock, 15 Sept. 1876"
+sna,sna.sna_spe,Spotted Eagle’s people,1876.47,45.57,-107.43,Little Bighorn camp
+sna,sna.sna_spe,Spotted Eagle’s people,1877.5,49.3,-106.2,In Canada with Sitting Bull
+sna,sna.sna_spe,Spotted Eagle’s people,1880.4,46.38,-105.85,"Surrender at Fort Keogh, 1880"
+yku,yku.yku_pab,Pabaksa (Cutheads),1833,46.9,-98.8,Upper James River & Devils Lake
+yku,yku.yku_pab,Pabaksa (Cutheads),1867.5,47.95,-98.85,"Devils Lake (Fort Totten) reservation, 1867"
+yku,yku.yku_pab,Pabaksa (Cutheads),1905,47.95,-98.85,
+ykl,ykl.ykl_put,Putetemini,1840,45.18,-98.47,Armadale Island camp on the James
+ykl,ykl.ykl_put,Putetemini,1877.5,45.18,-98.47,Armadale Island; rations at Sisseton and Crow Creek
+ykl,ykl.ykl_put,Putetemini,1878.5,44.1,-99.33,"Forced to Crow Creek, 1878"
+mde,mde.mde_kiy,Kiyuksa — Wabasha’s village,1765,44.05,-91.64,"Wabasha’s village (Keoxa), site of Winona"
+mde,mde.mde_kiy,Kiyuksa — Wabasha’s village,1853.3,44.05,-91.64,
+mde,mde.mde_hem,Hemniča — Red Wing’s village,1765,44.565,-92.535,Red Wing’s village
+mde,mde.mde_hem,Hemniča — Red Wing’s village,1853.3,44.565,-92.535,
+mde,mde.mde_kap,Kapoža — Little Crow’s village (Kaposia),1767,44.95,-93.06,"East bank near Wakan Tipi (Carver’s council, c. 1767)"
+mde,mde.mde_kap,Kapoža — Little Crow’s village (Kaposia),1805,44.92,-93.03,"Island at Pig’s Eye (Grand Marais, 1819)"
+mde,mde.mde_kap,Kapoža — Little Crow’s village (Kaposia),1821,44.955,-93.075,"Mouth of Phalen Creek, 1819–23"
+mde,mde.mde_kap,Kapoža — Little Crow’s village (Kaposia),1826.5,44.89,-93.04,West bank after the 1826 flood
+mde,mde.mde_kap,Kapoža — Little Crow’s village (Kaposia),1853.3,44.89,-93.04,
+mde,mde.mde_mag,Maga-yutešni — Black Dog’s village,1765,44.82,-93.19,Black Dog’s village near Mendota
+mde,mde.mde_mag,Maga-yutešni — Black Dog’s village,1853.3,44.82,-93.19,
+mde,mde.mde_hey,Heyata-otonwe — Cloud Man’s village,1829.5,44.94,-93.31,"Bde Maka Ska (Lake Calhoun) farming village, 1829–39"
+mde,mde.mde_hey,Heyata-otonwe — Cloud Man’s village,1839.7,44.84,-93.33,"Moved to Oak Grove on the Minnesota, 1839"
+mde,mde.mde_hey,Heyata-otonwe — Cloud Man’s village,1853.3,44.84,-93.33,
+mde,mde.mde_oya,Oyate-šiča — Good Road’s village,1765,44.87,-93.17,Near the Minnesota mouth
+mde,mde.mde_oya,Oyate-šiča — Good Road’s village,1853.3,44.86,-93.25,
+mde,mde.mde_tin,Tinta-otonwe — Shakopee’s village,1765,44.8,-93.51,"Shakopee’s village, Nicollet’s “village of the prairie”"
+mde,mde.mde_tin,Tinta-otonwe — Shakopee’s village,1853.3,44.8,-93.51,
+wpk,wpk.wpk_ink,Inkpaduta’s people,1850,43.4,-95.6,Little Sioux & Des Moines headwaters
+wpk,wpk.wpk_ink,Inkpaduta’s people,1857.2,43.43,-95.1,"Spirit Lake killings, March 1857"
+wpk,wpk.wpk_ink,Inkpaduta’s people,1858,44.6,-97.5,James River
+wpk,wpk.wpk_ink,Inkpaduta’s people,1863.68,46.17,-98.86,"Whitestone Hill, Sept. 1863"
+wpk,wpk.wpk_ink,Inkpaduta’s people,1864.55,47.43,-102.7,"Killdeer Mountain, July 1864"
+wpk,wpk.wpk_ink,Inkpaduta’s people,1876.47,45.57,-107.43,Little Bighorn camp
+wpk,wpk.wpk_ink,Inkpaduta’s people,1877.5,49.4,-106.0,Into Canada with Sitting Bull
+wpk,wpk.wpk_ink,Inkpaduta’s people,1881,49.6,-100.3,"Dies in Manitoba, 1881"
+wpt,wpt.wpt_iny,Inyan-čeyaka-atonwan,1765,44.66,-93.64,"Little Rapids, near Jordan"
+wpt,wpt.wpt_iny,Inyan-čeyaka-atonwan,1853.4,44.66,-93.64,"Leave for the reservation, summer 1853"
+wpt,wpt.wpt_lqp,Lac qui Parle band,1826,45.024,-95.868,"Lac qui Parle: Renville’s post 1826, mission 1835"
+wpt,wpt.wpt_lqp,Lac qui Parle band,1854,45.024,-95.868,"Missionaries leave for the Upper Sioux Agency, 1854"
+wpt,wpt.wpt_lqp,Lac qui Parle band,1856,44.74,-95.47,Upper Sioux (Yellow Medicine) agency
+sis,sis.sis_stb,Standing Buffalo’s people,1862.8,45.6,-96.7,Big Stone Lake & Lake Traverse
+sis,sis.sis_stb,Standing Buffalo’s people,1863.5,47.8,-99.3,Devils Lake & the Missouri Coteau
+sis,sis.sis_stb,Standing Buffalo’s people,1866,49.4,-101.0,"Souris River, British territory"
+sis,sis.sis_stb,Standing Buffalo’s people,1881,50.8,-103.95,"Standing Buffalo reserve north of the Qu’Appelle lakes, 1881"
+asn,asn.asn_gro,Ground (Strongwood) Assiniboine,1809.5,53.6,-114.5,Strong woods west of Fort Augustus (Edmonton)
+asn,asn.asn_car,Carry-the-Kettle’s people,1877.73,49.57,-109.88,"Adhesion to Treaty 4 at Fort Walsh, 25 Sept. 1877"
+asn,asn.asn_car,Carry-the-Kettle’s people,1882.5,49.6,-109.7,"Cypress Hills reserve, 1879–82"
+asn,asn.asn_car,Carry-the-Kettle’s people,1884,50.37,-103.45,"Assiniboine reserve 76, south of Sintaluta"
+cre,cre.cre_pei,Pe-i-si-e-kan,1856,51.4,-104.2,Touchwood Hills
+cre,cre.cre_pis,Pis-ka-kau-a-kis,1856,51.35,-104.05,Touchwood Hills
+cre,cre.cre_kia,Ki-a-sku-sis,1856,50.65,-103.4,Fourth (Crooked) lake of the Qu’Appelle
+crw,crw.crw_pou,Poundmaker’s people,1879,52.75,-108.5,Reserve west of Battleford
+crw,crw.crw_pou,Poundmaker’s people,1885.35,52.82,-109.0,"Cut Knife Hill, May 1885"
+crw,crw.crw_pou,Poundmaker’s people,1886,52.75,-108.5,
+crs,crs.crs_son,Le Sonnant’s band,1856,49.4,-106.4,Wood Mountain (Montagnes des Bois)
+crs,crs.crs_lan,La Lance’s band,1856,49.6,-109.9,Cypress Hills
+crs,crs.crs_bb,Big Bear’s people,1876.6,53.57,-109.8,Refuses Treaty 6 at Fort Pitt
+crs,crs.crs_bb,Big Bear’s people,1879,49.6,-109.8,"Cypress Hills, following the last herds"
+crs,crs.crs_bb,Big Bear’s people,1882.9,49.6,-109.8,Signs Treaty 6 at Fort Walsh
+crs,crs.crs_bb,Big Bear’s people,1883.6,53.57,-109.8,Back to Fort Pitt
+crs,crs.crs_bb,Big Bear’s people,1885.25,53.83,-110.33,"Frog Lake, 1–2 April 1885"
+crs,crs.crs_bb,Big Bear’s people,1885.42,53.75,-109.65,"Frenchman Butte, May 1885"
+crs,crs.crs_bb,Big Bear’s people,1885.5,52.87,-106.53,"Big Bear surrenders at Fort Carlton, 2 July 1885"
+crs,crs.crs_pia,Piapot’s people,1875,49.7,-108.8,Cypress Hills
+crs,crs.crs_pia,Piapot’s people,1883.3,49.7,-108.8,
+crs,crs.crs_pia,Piapot’s people,1883.6,50.48,-103.6,"Escorted to Indian Head, 1883"
+crs,crs.crs_pia,Piapot’s people,1905,50.48,-103.6,
+ojb,ojb.ojb_pem,Pembina band,1800,48.97,-97.25,Pembina
+ojb,ojb.ojb_pem,Pembina band,1860,48.97,-97.25,
+ojb,ojb.ojb_tm,Little Shell’s band,1850,48.88,-99.8,Turtle Mountain
+ojb,ojb.ojb_tm,Little Shell’s band,1884,48.88,-99.8,"Reservation set aside, 1884"
+pik,pik.pik_hea,Heavy Runner’s camp,1869.8,48.395,-111.655,Wintering on the Marias
+pik,pik.pik_hea,Heavy Runner’s camp,1870.05,48.395,-111.655,"Marias Massacre, 23 Jan. 1870: 173–217 killed"
+chn,chn.ch_two,Two Moons’ people,1877.3,46.38,-105.85,"Surrender to Miles at Fort Keogh, April 1877"
+chn,chn.ch_two,Two Moons’ people,1884.7,46.38,-105.85,
+chn,chn.ch_dul,Dull Knife’s people,1878.7,35.55,-98.0,"Break out of Indian Territory, Sept. 1878"
+chn,chn.ch_dul,Dull Knife’s people,1878.75,38.6,-100.5,Across Kansas
+chn,chn.ch_dul,Dull Knife’s people,1878.79,41.4,-101.3,Split from Little Wolf at a council near the North Platte
+chn,chn.ch_dul,Dull Knife’s people,1878.81,42.82,-103.0,Captured 23 Oct. 1878: 149 people
+chn,chn.ch_dul,Dull Knife’s people,1879.03,42.67,-103.47,"Fort Robinson outbreak, 9 Jan. 1879"
+chn,chn.ch_lwo,Little Wolf’s people,1878.69,35.55,-98.0,"Flight up the North Canadian, 10 Sept. 1878"
+chn,chn.ch_lwo,Little Wolf’s people,1878.75,38.6,-100.4,Across Kansas
+chn,chn.ch_lwo,Little Wolf’s people,1878.79,41.4,-101.3,Council near the North Platte; Dull Knife goes on to Red Cloud Agency
+chn,chn.ch_lwo,Little Wolf’s people,1878.85,42.3,-101.6,"Winter on Wild Chokecherry Creek, Nebraska Sand Hills"
+chn,chn.ch_lwo,Little Wolf’s people,1879.2,45.9,-105.0,Found by Fort Keogh scouts toward the Powder; surrenders to Lt. Clark
+chn,chn.ch_lwo,Little Wolf’s people,1879.4,46.38,-105.85,Fort Keogh
+chs,chs.ch_wut,Wutapiu,1860,38.3,-102.3,Upper Arkansas
+chs,chs.ch_wut,Wutapiu,1864.91,38.54,-102.51,"Sand Creek, 29 Nov. 1864"
+chs,chs.ch_wut,Wutapiu,1866,37.4,-99.8,
+chs,chs.ch_wut,Wutapiu,1868.9,35.62,-99.67,"Washita, 27 Nov. 1868: about 50 lodges, some 250 people"
+chs,chs.ch_hot,Hotamitaniu (Dog Soldiers),1850,39.9,-101.0,Republican & Smoky Hill headwaters
+chs,chs.ch_hot,Hotamitaniu (Dog Soldiers),1864.5,39.6,-101.0,
+chs,chs.ch_hot,Hotamitaniu (Dog Soldiers),1867.28,38.22,-99.8,"Pawnee Fork village burned by Hancock, April 1867"
+chs,chs.ch_hot,Hotamitaniu (Dog Soldiers),1868.71,39.872,-102.186,"Beecher Island, 17–19 Sept. 1868"
+chs,chs.ch_hot,Hotamitaniu (Dog Soldiers),1869.53,40.433,-103.139,"Summit Springs: Tall Bull killed, 11 July 1869; camp of about 450"
+chs,chs.ch_hot,Hotamitaniu (Dog Soldiers),1870,38.5,-99.5,Survivors rejoin the southern bands
+cwm,cwm.cw_aca,A’carahó (Many Lodges),1855,44.8,-106.6,Head of the Powder River (Big Robber’s band)
+cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),1820,43.5,-108.6,Wind River & Bighorn Basin
+cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),1855,43.3,-108.9,"Two-face’s band, Wind River"
+cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),1869,44.6,-108.6,
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),1790,47.35,-101.4,Big Hidatsa village
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),1845,47.35,-101.4,
+hid,hid.hid_awt,Awatixa (Metaharta),1790,47.33,-101.39,Awatixa village (Sakakawea site)
+hid,hid.hid_awt,Awatixa (Metaharta),1845,47.33,-101.39,
+hid,hid.hid_awx,Awaxawi (Amahami),1790,47.3,-101.37,Amahami village at the Knife River mouth
+hid,hid.hid_awx,Awaxawi (Amahami),1834,47.3,-101.37,
+kio,kio.ki_kog,Kogui,1833.25,35.0,-98.95,"A’date’s camp destroyed at the mouth of Rainy Mountain Creek (Cut-Throat Massacre), spring 1833"
+kio,kio.ki_kin,Kinep,1835.6,37.8,-101.2,
+kio,kio.ki_kin,Kinep,1836.5,45.3,-107.6,"Visit to the Crow country, 1836"
+kio,kio.ki_kin,Kinep,1837.3,37.8,-101.2,
+apc,apc.ap_cal,Calchufines,1719.5,38.2,-102.8,"On the Arkansas, SE Colorado (Hodge)"
+jic,jic.ji_lla,Llaneros,1760,36.4,-104.7,Cimarron & upper Canadian
+jic,jic.ji_lla,Llaneros,1885,36.4,-104.7,
+jic,jic.ji_oll,Olleros,1760,36.35,-106.1,Chama & Ojo Caliente
+jic,jic.ji_oll,Olleros,1885,36.35,-106.1,
+lip,lip.li_arr,Lipanes de Arriba,1780,30.3,-102.0,"Upper Rio Grande, Pecos & Big Bend"
+lip,lip.li_arr,Lipanes de Arriba,1850,29.8,-102.0,
+lip,lip.li_aba,Lipanes de Abajo,1780,28.4,-99.6,Lower Rio Grande & Nueces
+lip,lip.li_aba,Lipanes de Abajo,1850,28.4,-99.6,
+lip,lip.li_jen,Lipanjenne,1780,31.0,-104.0,"West, toward the Mescalero"
+lip,lip.li_jen,Lipanjenne,1850,31.0,-104.0,
+wic,wic.wi_tao,Taovaya,1757,33.95,-97.65,Twin villages on the Red River
+wic,wic.wi_tao,Taovaya,1811,33.95,-97.65,
+wic,wic.wi_tao,Taovaya,1834.5,34.84,-99.15,North Fork of the Red
+wic,wic.wi_taw,Tawakoni,1719.6,35.9,-95.6,With the Wichita on the Arkansas (La Harpe)
+wic,wic.wi_taw,Tawakoni,1760,32.6,-95.7,Upper Sabine
+wic,wic.wi_taw,Tawakoni,1772,31.6,-97.2,Brazos near Waco
+wic,wic.wi_taw,Tawakoni,1830,31.9,-96.8,
+wic,wic.wi_taw,Tawakoni,1846,32.6,-97.6,
+wic,wic.wi_taw,Tawakoni,1855,33.13,-98.66,Brazos reserve
+wic,wic.wi_taw,Tawakoni,1859.6,35.07,-98.24,Wichita agency
+wic,wic.wi_isc,Iscani,1720,36.2,-96.0,
+wic,wic.wi_isc,Iscani,1772,31.7,-97.0,
+wic,wic.wi_wac,Waco (Hueco),1800,31.55,-97.15,Village on the Brazos at present Waco
+wic,wic.wi_wac,Waco (Hueco),1837,31.55,-97.15,"Still occupied when the Rangers planned a fort there, 1837"
+wic,wic.wi_wac,Waco (Hueco),1855,33.13,-98.66,Brazos reserve (recalled)
+wic,wic.wi_wac,Waco (Hueco),1859.6,35.07,-98.24,Wichita agency (recalled)
+kaw,kaw.ka_fool,Fool Chief’s village,1830,39.1,-95.77,"North of the Kansas River, Shawnee County"
+kaw,kaw.ka_fool,Fool Chief’s village,1847.5,39.1,-95.77,
+kaw,kaw.ka_fool,Fool Chief’s village,1848.6,38.69,-96.47,Council Grove reserve
+kaw,kaw.ka_fool,Fool Chief’s village,1873,38.69,-96.47,
+kaw,kaw.ka_hard,Hard Chief’s village,1830,39.03,-95.85,"Bluff south of the Kansas River, Shawnee County"
+kaw,kaw.ka_hard,Hard Chief’s village,1847.5,39.03,-95.85,
+kaw,kaw.ka_hard,Hard Chief’s village,1848.6,38.62,-96.52,Council Grove reserve
+kaw,kaw.ka_hard,Hard Chief’s village,1873,38.62,-96.52,
+kaw,kaw.ka_amer,American Chief’s village,1830,39.06,-95.96,Lowlands north of the Kansas River
+kaw,kaw.ka_amer,American Chief’s village,1847.5,39.06,-95.96,
+kaw,kaw.ka_amer,American Chief’s village,1848.6,38.66,-96.44,Council Grove reserve
+kaw,kaw.ka_amer,American Chief’s village,1873,38.66,-96.44,
+osg,osg.os_bdg,Black Dog’s band,1840,37.05,-94.8,Winter grounds near Baxter Springs
+osg,osg.os_bdg,Black Dog’s band,1870,37.05,-94.8,
+osg,osg.os_bdg,Black Dog’s band,1872,36.6,-96.2,Osage reservation
+osa,osa.os_hst,Heart Stays (Claremore’s band),1803,36.3,-95.6,Claremore’s town on the Verdigris
+osa,osa.os_hst,Heart Stays (Claremore’s band),1838,36.3,-95.6,
+osa,osa.os_bdg,Black Dog’s band,1803.8,36.31,-95.55,Pasuga (“Big Cedar”) on a mound near present Claremore
+osa,osa.os_bdg,Black Dog’s band,1838,36.31,-95.55,

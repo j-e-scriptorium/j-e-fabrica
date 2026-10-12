@@ -13,6 +13,7 @@ voyages/                    exhibit: Twenty Voyages (an atlas)
 school/                     exhibit: School (a recreation)
 many-rooms/                 exhibit: Many Rooms (a sonnet-dating game), plus the corpus + pipeline behind it
 heartwood/                  exhibit: Heartwood (a duel of growing trees), plus its manual and headless tests
+campus-magnus/              exhibit: Campus Magnus (the Plains peoples, 1700–1900), plus its data tables, model and review docs
 ```
 
 Each exhibit is self-contained in its own folder (its own `index.html`, plus whatever data/scripts it needs) and gets a small "&larr; the Fabrica" link back to the homepage. Exhibits are otherwise free to have their own look and feel — the shell only wraps the homepage and the catalog/about pages.

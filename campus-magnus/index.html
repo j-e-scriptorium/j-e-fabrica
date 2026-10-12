@@ -1,0 +1,1240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Campus Magnus — the Plains peoples, 1700–1900</title>
+<link rel="icon" type="image/svg+xml" href="../assets/favicon.svg">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Old+Standard+TT:ital,wght@0,400;0,700;1,400&family=Alegreya+Sans:ital,wght@0,400;0,500;0,700;1,400&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: a surveyor's sheet — map plate on the left, a ledger column on the right, the timeline as the plate's scale bar. */
+:root{
+  --bg:#f2f3ee; --plate:#e6e9e1; --sea:#d9e0e0; --land:#eceee6; --lake:#c7d5dc; --river:#7d9ab0;
+  --border:#b9bdb3; --ink:#1d2327; --ink-2:#4f585e; --ink-3:#848c90; --rule:#cfd2c9; --panel:#f8f9f5;
+  --accent:#34477a; --accent-soft:#dfe3ef; --halo:rgba(242,243,238,.85);
+  --s1:#783274; --s2:#627ace; --s3:#10558f; --s4:#833b02; --s5:#bd5b7d; --s6:#a4771c; --s7:#049482; --s8:#176230; --su:#7a8086; --pal:light;
+  --f-display:"Old Standard TT", "Iowan Old Style", Georgia, serif;
+  --f-body:"Alegreya Sans", "Gill Sans", "Segoe UI", system-ui, sans-serif;
+  --f-data:"IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111519; --plate:#161b20; --sea:#0e1216; --land:#1a2026; --lake:#21323e; --river:#5c7f98;
+  --border:#3a4249; --ink:#e5e7e2; --ink-2:#aab1b4; --ink-3:#717a7f; --rule:#2b3339; --panel:#151a1f;
+  --accent:#a3b2e6; --accent-soft:#232c45; --halo:rgba(17,21,25,.85);
+  --s1:#9250a0; --s2:#8686ea; --s3:#2d76a3; --s4:#b04c26; --s5:#d56a8f; --s6:#af8e2a; --s7:#3ca694; --s8:#427138; --su:#8a9196; --pal:dark;
+  color-scheme:dark }}
+:root[data-theme="dark"]{
+  --bg:#111519; --plate:#161b20; --sea:#0e1216; --land:#1a2026; --lake:#21323e; --river:#5c7f98;
+  --border:#3a4249; --ink:#e5e7e2; --ink-2:#aab1b4; --ink-3:#717a7f; --rule:#2b3339; --panel:#151a1f;
+  --accent:#a3b2e6; --accent-soft:#232c45; --halo:rgba(17,21,25,.85);
+  --s1:#9250a0; --s2:#8686ea; --s3:#2d76a3; --s4:#b04c26; --s5:#d56a8f; --s6:#af8e2a; --s7:#3ca694; --s8:#427138; --su:#8a9196; --pal:dark;
+  color-scheme:dark }
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:15px;line-height:1.45;margin:0}
+.wrap{max-width:1360px;margin:0 auto;padding-inline:20px;padding-block:18px 40px}
+header.top{display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:12px 24px;padding-bottom:14px;border-bottom:1px solid var(--rule);margin-bottom:14px}
+h1{font-family:var(--f-display);font-weight:400;font-size:clamp(26px,3.4vw,38px);line-height:1.05;margin:0;letter-spacing:.005em;text-wrap:balance}
+h1 em{font-style:italic;color:var(--ink-2);font-size:.62em;display:block;margin-top:4px}
+.backlink{font:500 11px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);text-decoration:none;display:inline-block;margin-bottom:10px}
+.backlink:hover{color:var(--ink)}
+.byline{font-size:13px;color:var(--ink-3);margin:6px 0 0;font-style:italic}
+.sub{color:var(--ink-2);margin:6px 0 0;max-width:62ch;font-size:15px}
+.seg{display:inline-flex;border:1px solid var(--border);border-radius:999px;padding:3px;background:var(--panel);gap:2px}
+.seg button{font:500 14px var(--f-body);border:0;background:transparent;color:var(--ink-2);padding:7px 14px;border-radius:999px;cursor:pointer}
+.seg button[aria-pressed="true"]{background:var(--accent);color:var(--bg)}
+.seg button:focus-visible,button:focus-visible,select:focus-visible,input:focus-visible,summary:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+.modehint{font-size:13px;color:var(--ink-3);margin-top:6px;text-align:right;max-width:40ch}
+.controls{display:flex;flex-direction:column;align-items:flex-end;gap:6px}
+.seg.grain button{font-size:13px;padding:5px 11px}
+.seg.grain[aria-disabled="true"]{opacity:.45;pointer-events:none}
+.struct{margin-top:10px;border-top:1px solid var(--rule);padding-top:8px}
+.struct p{font-size:13px;margin:4px 0;color:var(--ink-2)}
+.blist{list-style:none;margin:6px 0 0;padding:0;max-height:300px;overflow:auto;display:flex;flex-direction:column}
+.blist li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:0 8px;padding:5px 2px;border-top:1px solid var(--rule);font-size:13px;line-height:1.3}
+.blist li.on{background:var(--accent-soft)}
+.blist button{font:500 13.5px var(--f-body);color:var(--ink);background:none;border:0;padding:0;text-align:left;cursor:pointer}
+.blist .bg{font-weight:400;color:var(--ink-2);font-style:italic}
+.blist .bm{grid-column:1/-1;color:var(--ink-3);font-size:12px}
+.blist .bp{font-family:var(--f-data);font-size:12px;color:var(--ink-2);white-space:nowrap}
+.bcard{background:var(--plate);border-radius:4px;padding:8px 10px;margin-top:8px;font-size:13px}
+.bcard h4{font-family:var(--f-display);font-weight:400;font-size:18px;margin:0}
+.bcard ul{margin:4px 0 0;padding-left:16px}
+.bcard li{margin:2px 0}
+.app{display:grid;grid-template-columns:minmax(0,1fr) 330px;gap:18px;align-items:start}
+@media (max-width:960px){.app{grid-template-columns:minmax(0,1fr)}}
+.plate{position:relative;background:var(--plate);border:1px solid var(--rule);border-radius:4px;overflow:hidden}
+canvas#map{display:block;width:100%;touch-action:manipulation;cursor:crosshair}
+.yearstamp{position:absolute;left:14px;top:8px;pointer-events:none;font-family:var(--f-display);font-size:clamp(34px,6vw,64px);line-height:1;color:var(--ink);opacity:.85;font-variant-numeric:lining-nums tabular-nums}
+.yearstamp small{display:block;font:500 11px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin-top:4px}
+.maplegend{position:absolute;right:10px;bottom:8px;pointer-events:none;font:12px var(--f-body);color:var(--ink-2);background:var(--halo);padding:6px 8px;border-radius:3px;display:flex;flex-direction:column;gap:3px}
+.maplegend .k{display:flex;align-items:center;gap:6px}
+.maplegend svg{flex:none}
+.zoomctl{position:absolute;right:10px;top:10px;display:flex;flex-direction:column;border:1px solid var(--border);border-radius:6px;overflow:hidden;background:var(--panel);box-shadow:0 1px 4px rgba(0,0,0,.08);z-index:4}
+.zoomctl button{width:34px;height:34px;border:0;background:var(--panel);color:var(--ink);font:500 19px/1 var(--f-body);cursor:pointer;display:grid;place-items:center;padding:0}
+.zoomctl button+button{border-top:1px solid var(--border)}
+.zoomctl button:hover{background:var(--accent-soft)}
+.zoomctl button:disabled{color:var(--ink-3);cursor:default;background:var(--panel)}
+.zoomctl svg{width:15px;height:15px}
+.maphelp{font-size:12px;color:var(--ink-3);margin:6px 2px 0;max-width:none}
+.leghead{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:8px;margin-bottom:12px}
+.tsw{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:1px}
+.legnote{font-size:12px;line-height:1.45;color:var(--ink-3);margin:10px 0 0}
+.zoomhint{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);background:var(--halo);color:var(--ink);font:13px var(--f-body);padding:8px 12px;border-radius:4px;pointer-events:none;z-index:4;text-align:center}
+.plate.zoomed canvas#map{touch-action:none;cursor:grab}
+.plate.panning canvas#map{cursor:grabbing}
+.tip{position:absolute;pointer-events:none;z-index:5;max-width:300px;background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:8px 10px;font-size:13px;line-height:1.35;box-shadow:0 4px 18px rgba(0,0,0,.14)}
+.tip b{font-weight:700}
+.tip .meta{color:var(--ink-3);font-size:12px;margin-top:3px}
+.tip .num{font-family:var(--f-data);font-size:12.5px}
+.timeline{display:grid;grid-template-columns:auto minmax(0,1fr) auto;gap:12px;align-items:center;margin-top:12px}
+.play{width:44px;height:44px;border-radius:50%;border:1px solid var(--border);background:var(--panel);color:var(--ink);cursor:pointer;display:grid;place-items:center}
+.play svg{width:16px;height:16px;fill:currentColor}
+.track{position:relative;padding-bottom:26px}
+input[type=range]{width:100%;accent-color:var(--accent);margin:0}
+.ticks{position:absolute;left:0;right:0;top:24px;height:22px;font:11px var(--f-data);color:var(--ink-3)}
+.ticks span{position:absolute;transform:translateX(-50%)}
+.ticks i{position:absolute;top:-6px;width:2px;height:8px;background:var(--ink-2);border-radius:1px;transform:translateX(-50%);opacity:.75}
+.months{display:flex;gap:2px;margin:8px 0 0 56px;flex-wrap:wrap}
+.months[hidden]{display:none}
+.months button{font:500 11px var(--f-body);letter-spacing:.04em;min-width:30px;height:24px;padding:0 4px;border:1px solid var(--border);border-radius:4px;background:var(--panel);color:var(--ink-2);cursor:pointer}
+.months button[aria-pressed="true"]{background:var(--ink);color:var(--plate);border-color:var(--ink)}
+.months .lab{font:12px var(--f-body);color:var(--ink-3);align-self:center;margin-right:6px}
+@media (max-width:700px){.months{margin-left:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr))}.months .lab{display:none}.months button{min-width:0;padding:0;font-size:10px}}
+.speed{font:13px var(--f-body);color:var(--ink-2);display:flex;gap:6px;align-items:center}
+select{font:14px var(--f-body);color:var(--ink);background:var(--panel);border:1px solid var(--border);border-radius:4px;padding:5px 6px}
+aside{display:flex;flex-direction:column;gap:14px;min-width:0}
+.card{background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;min-width:0}
+.eyebrow{font:500 11px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:0 0 6px}
+.big{font-family:var(--f-data);font-size:22px;font-variant-numeric:tabular-nums}
+.small{font-size:13px;color:var(--ink-2)}
+.opts{display:flex;flex-direction:column;gap:7px;font-size:14px}
+.opts label{display:flex;gap:8px;align-items:center;cursor:pointer}
+.opts .row{display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+.legend{display:flex;flex-direction:column;gap:7px}
+.fam{display:grid;grid-template-columns:12px minmax(0,1fr);gap:8px;align-items:start}
+.sw{width:12px;height:12px;border-radius:50%;margin-top:4px}
+.fam .fn{font-size:12px;color:var(--ink-3);letter-spacing:.02em}
+.fam .tr{display:flex;flex-wrap:wrap;gap:2px 8px}
+.fam button{font:14px var(--f-body);color:var(--ink);background:none;border:0;padding:0;cursor:pointer;text-decoration:underline;text-decoration-color:var(--rule);text-underline-offset:3px}
+.fam button:hover{text-decoration-color:var(--ink-2)}
+.detail h3{font-family:var(--f-display);font-weight:400;font-size:22px;margin:0;line-height:1.15}
+.detail .tribe{color:var(--ink-3);font-size:13px;margin-top:2px}
+.detail svg{display:block;width:100%;height:auto;margin:8px 0 4px}
+.evlist{list-style:none;margin:6px 0 0;padding:0;display:flex;flex-direction:column;gap:8px;max-height:340px;overflow:auto}
+.evlist li{font-size:13px;line-height:1.35;border-top:1px solid var(--rule);padding-top:6px}
+.evlist .yr{font-family:var(--f-data);font-size:12px;color:var(--ink);margin-right:6px}
+.evlist .src{display:block;color:var(--ink-3);font-size:12px;margin-top:2px}
+.pill{display:inline-block;font:500 10.5px var(--f-body);letter-spacing:.08em;text-transform:uppercase;border-radius:999px;padding:1px 7px;margin-right:4px;vertical-align:1px;border:1px solid var(--border);color:var(--ink-2)}
+.pill.doc{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
+.pill.ours{border-style:dashed}
+.pill.model{border-color:var(--ink-3);color:var(--ink-2);background:var(--plate)}
+.close{float:right;font:13px var(--f-body);background:none;border:1px solid var(--border);border-radius:3px;color:var(--ink-2);cursor:pointer;padding:2px 8px}
+.empty{color:var(--ink-3);font-size:14px}
+.peoples{margin-top:26px;border-top:1px solid var(--rule);padding-top:14px}
+.peoples h2{font-family:var(--f-display);font-weight:400;font-size:26px;margin:0}
+.peoples .lede{color:var(--ink-2);max-width:72ch;margin:6px 0 4px;font-size:15px}
+.peoples .fhead{font:500 11px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:20px 0 8px;display:flex;align-items:center;gap:8px}
+.peoples .fhead i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.pgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,400px),1fr));gap:14px}
+.pcard{background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:12px 14px;min-width:0;scroll-margin-top:12px}
+.pcard.on{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent)}
+.pcard h3{font-family:var(--f-display);font-weight:400;font-size:22px;margin:0;line-height:1.15;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.pcard h3 i{width:11px;height:11px;border-radius:50%;display:inline-block;flex:none;transform:translateY(-1px)}
+.pcard .self{color:var(--ink-2);font-size:13.5px;margin:3px 0 0;font-style:italic}
+.pcard .meta{color:var(--ink-3);font-size:12.5px;margin:3px 0 0}
+.pcard p{font-size:14.5px;margin:8px 0 0;max-width:70ch}
+.pcard .pops{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-top:8px;font-family:var(--f-data);font-size:12px;color:var(--ink-2)}
+.pcard .pops b{display:block;font:500 12px var(--f-body);letter-spacing:.08em;color:var(--ink-3)}
+.pcard .pops span{white-space:nowrap}
+@media (max-width:480px){.pcard .pops{grid-template-columns:repeat(2,1fr);row-gap:8px}}
+.pcard svg{display:block;width:100%;height:auto;margin-top:6px}
+.pcard .y1900{font-size:13.5px;margin-top:8px;color:var(--ink-2)}
+.pcard .read{font-size:12.5px;color:var(--ink-3);margin:6px 0 0;padding-left:16px}
+.pcard .read li{margin:2px 0}
+.pcard .acts{display:flex;gap:8px;margin-top:10px;flex-wrap:wrap}
+.pcard .acts button,.detail .plink{font:500 12.5px var(--f-body);border:1px solid var(--border);background:var(--panel);color:var(--ink);border-radius:999px;padding:4px 11px;cursor:pointer}
+.pcard .acts button:hover{border-color:var(--accent)}
+.detail .pgist{font-size:13.5px;color:var(--ink-2);margin:8px 0 0}
+.detail .plink{margin-top:6px;font-size:12px;padding:3px 10px}
+details.about{margin-top:22px;border-top:1px solid var(--rule);padding-top:12px}
+details.about summary{font-family:var(--f-display);font-size:20px;cursor:pointer}
+.about .cols{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:8px 32px;margin-top:10px}
+.about p,.about li{max-width:66ch;font-size:14.5px}
+.about h4{font:500 12px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:14px 0 4px}
+.about ul{padding-left:18px;margin:4px 0}
+.mono{font-family:var(--f-data);font-size:.92em}
+.apparatus{margin-top:18px;border-top:1px solid var(--rule);padding-top:4px}
+.apparatus h4{font:500 12px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:16px 0 6px}
+.apparatus p{max-width:72ch;font-size:14.5px}
+.tblwrap{overflow-x:auto;max-width:100%}
+table.reg{border-collapse:collapse;font-size:13.5px;min-width:640px;width:100%}
+table.reg th{font:500 11px var(--f-body);letter-spacing:.08em;text-transform:uppercase;color:var(--ink-3);text-align:left;border-bottom:1px solid var(--border);padding:6px 10px 6px 0;vertical-align:bottom}
+table.reg td{border-bottom:1px solid var(--rule);padding:6px 10px 6px 0;vertical-align:top}
+table.reg td.n{font-family:var(--f-data);font-size:12.5px;white-space:nowrap;font-variant-numeric:tabular-nums}
+ol.bib{list-style:none;padding:0;margin:0;columns:2 340px;column-gap:36px}
+ol.bib li{font-size:13.5px;line-height:1.4;padding-left:1.6em;text-indent:-1.6em;margin:0 0 7px;break-inside:avoid}
+ol.bib .grp{display:block;text-indent:0;padding:0;font:500 11px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);margin:10px 0 4px}
+.valfig{display:grid;grid-template-columns:minmax(0,340px) minmax(0,1fr);gap:8px 24px;align-items:start}
+@media (max-width:720px){.valfig{grid-template-columns:minmax(0,1fr)}}
+.valfig svg{width:100%;height:auto;display:block}
+.cite{font-size:14px;background:var(--panel);border:1px solid var(--rule);border-radius:4px;padding:10px 12px;max-width:80ch}
+.colophon{font-size:12.5px;color:var(--ink-3);margin-top:16px}
+@media (max-width:620px){
+  .timeline{grid-template-columns:auto minmax(0,1fr);grid-template-areas:"play speed" "track track"}
+  .play{grid-area:play}.speed{grid-area:speed;justify-self:end}.track{grid-area:track}
+  .ticks span.minor{display:none}
+  .maplegend{display:none}
+  .modehint{text-align:left}
+  .controls{align-items:flex-start}
+}
+@media (prefers-reduced-motion: reduce){*{scroll-behavior:auto}}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+  <header class="top">
+    <div>
+      <a class="backlink" href="../index.html">&larr; the Fabrica</a>
+      <h1>Campus Magnus <em>the Plains peoples, 1700–1900</em></h1>
+      <p class="sub">Every division, band and village of the Great Plains peoples, year by year from 1700 to 1900, sized by population: documented where a source recorded it, estimated where none did, with the two layers kept apart.</p>
+      <p class="byline">By Michael A. Seeley</p>
+    </div>
+    <div class="controls">
+      <div class="seg" role="group" aria-label="Map mode">
+        <button id="mGuess" aria-pressed="true">Best guess</button>
+        <button id="mEvid" aria-pressed="false">Evidence only</button>
+      </div>
+      <div class="seg grain" role="group" aria-label="Level of detail" id="grain">
+        <button data-l="tribe" aria-pressed="false">Tribes</button>
+        <button data-l="div" aria-pressed="false">Divisions</button>
+        <button data-l="band" aria-pressed="true">Bands &amp; villages</button>
+      </div>
+      <div class="modehint" id="modehint"></div>
+    </div>
+  </header>
+
+  <div class="app">
+    <section>
+      <div class="plate" id="plate">
+        <canvas id="map" aria-label="Map of the Great Plains showing Native divisions and settlements for the selected year"></canvas>
+        <div class="yearstamp"><span id="yr">1805</span><small id="yrsub">best guess</small></div>
+        <div class="maplegend" id="maplegend"></div>
+        <div class="tip" id="tip" hidden></div>
+        <div class="zoomctl" role="group" aria-label="Map zoom">
+          <button type="button" id="zin" aria-label="Zoom in" title="Zoom in (+)">+</button>
+          <button type="button" id="zout" aria-label="Zoom out" title="Zoom out (−)">−</button>
+          <button type="button" id="zreset" aria-label="Show the whole map" title="Whole map (0)"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M2 6V2h4M10 2h4v4M14 10v4h-4M6 14H2v-4" fill="none" stroke="currentColor" stroke-width="1.6"/></svg></button>
+        </div>
+        <div class="zoomhint" id="zoomhint" hidden></div>
+      </div>
+      <p class="maphelp" id="maphelp">Zoom with the + and − buttons, a double-click, two fingers, or <span id="zkey">Ctrl</span> + scroll; drag to move about once zoomed. Shift + double-click zooms out; 0 returns to the whole map.</p>
+      <div class="timeline">
+        <button class="play" id="play" aria-label="Play"><svg viewBox="0 0 16 16" id="playicon"><path d="M3 1.5v13l11-6.5z"/></svg></button>
+        <div class="track">
+          <input type="range" id="slider" min="1700" max="1900" step="1" value="1805" aria-label="Year">
+          <div class="ticks" id="ticks"></div>
+        </div>
+        <label class="speed">Speed
+          <select id="speed"><option value="0.25">¼ yr/s</option><option value="1">1 yr/s</option><option value="3">3 yr/s</option><option value="6" selected>6 yr/s</option><option value="14">14 yr/s</option></select>
+        </label>
+      </div>
+      <div class="months" id="months" hidden role="group" aria-label="Month"><span class="lab">Month</span></div>
+    </section>
+
+    <aside>
+      <div class="card">
+        <p class="eyebrow" id="sumLabel">On the map</p>
+        <div class="big" id="sumBig">–</div>
+        <div class="small" id="sumSmall"></div>
+        <svg id="density" viewBox="0 0 300 56" role="img" aria-label="Documented records per decade"></svg>
+        <div class="small" style="font-size:12px;color:var(--ink-3)">Documented records per decade. The marker is the current year.</div>
+      </div>
+
+      <div class="card detail" id="detail">
+        <p class="eyebrow">Selected division</p>
+        <p class="empty">Select a dot on the map or a tribe below to see its estimate over time, its bands, and every record behind it.</p>
+      </div>
+
+      <div class="card">
+        <p class="eyebrow">Display</p>
+        <div class="opts" id="optsGuess">
+          <label><input type="checkbox" id="oMark"> Ring dots with a record within 2 years</label>
+          <label><input type="checkbox" id="oCamps"> Split large nomadic dots into camp-sized dots</label>
+          <label><input type="checkbox" id="oSeasons"> Seasonal round (month by month; sets speed to ¼ yr/s)</label>
+          <label><input type="checkbox" id="oRounds" disabled> Trace each division’s seasonal round</label>
+          <label><input type="checkbox" id="oUnc"> Show uncertainty</label>
+        </div>
+        <div class="opts" id="optsEvid" hidden>
+          <div class="row">Keep each record visible for
+            <select id="oFade"><option value="5">5 years</option><option value="10" selected>10 years</option><option value="20">20 years</option><option value="40">40 years</option></select>
+          </div>
+          <label><input type="checkbox" id="oHalo" checked> Show location uncertainty</label>
+        </div>
+        <div class="opts" style="margin-top:8px;border-top:1px solid var(--rule);padding-top:8px">
+          <label><input type="checkbox" id="oSettle" checked> Settlements, forts and posts</label>
+          <label><input type="checkbox" id="oBorders" checked> Modern borders</label>
+          <label><input type="checkbox" id="oLabels" checked> Labels</label>
+        </div>
+      </div>
+
+      <div class="card">
+        <div class="leghead"><p class="eyebrow" style="margin:0">Colour by</p>
+          <div class="seg grain" role="group" aria-label="Colour by" id="colorby">
+            <button data-c="family" aria-pressed="true">Language family</button>
+            <button data-c="people" aria-pressed="false">People</button>
+          </div></div>
+        <div class="legend" id="legend"></div>
+        <p class="note legnote" id="legnote"></p>
+      </div>
+    </aside>
+  </div>
+
+  <section class="peoples" id="peoples" aria-labelledby="peoplesh">
+    <h2 id="peoplesh">The peoples</h2>
+    <p class="lede">Thirty peoples, grouped by language family. Each line of figures and each curve is the map’s own best guess for the whole people, summed over its divisions, with its likely range; the prose is drawn from the works listed under each. “Show on the map” selects the people’s largest division in the year on the timeline.</p>
+    <div id="pgrid"></div>
+  </section>
+
+  <details class="about" id="about">
+    <summary>About the data</summary>
+    <div class="cols">
+      <div>
+        <h4>Two layers, kept apart</h4>
+        <p><b>Evidence only</b> draws nothing but documented records: a count, a place, or both, each tied to a named source and year. A record appears in the year it was made and then fades. Filled dots are counts for one division. Rings are whole-tribe totals, and dashed rings are later scholars’ reconstructions. A cross marks a place with no count. The soft halo shows how far off our placement of the described place could be.</p>
+        <p id="countline"></p>
+        <h4>How the best guess is built</h4>
+        <p><b>Population.</b> Each division’s numbers come from a fitted demographic curve rather than from joining dots. The fit uses documented counts, weighted by reliability: about ±10% for reservation-era censuses, ±30% for earlier estimates, ±35% for Clark’s 1805 table and ±45% for later reconstructions. It also uses our own anchor guesses, at ±30%. Whole-tribe totals constrain the sum of their divisions.</p>
+        <p>Between anchors the population grows smoothly, by default at about half a percent a year. On top of that the model applies dated mortality from the epidemic table below. We set the smoothing so that a typical documented count sits within its stated error (median standardized miss 0.6). The shaded band in each division’s chart is the fit’s one-standard-deviation range, widened by a quarter after the hold-out test described under Validation.</p>
+        <p><b>Place.</b> Each track passes through every place a source states, at the date and season the source gives, and through our keyframes between them. There are 658 dated places for the divisions, 108 of them before 1800. They run from the Mdewakanton at Mille Lacs and Ulibarrí at El Cuartelejo in 1706, through Lewis and Clark’s councils, Maximilian’s camps of 1833 and Warren’s ranges of the 1850s, to the battle and treaty grounds of the 1860s and 1870s and the agencies placed year by year in the Indian Office’s annual reports. Where a place and a keyframe fall within a year of each other, the documented place wins. For the nomadic peoples the track is a smooth curve through these points that never overshoots them. A village people’s track holds at each place and moves to the next at the documented date of the relocation, or over two years around the midpoint where no date is known, because villages moved by relocating, not by drifting. A place stated only as a range, such as Warren’s Hunkpapa who “roam from the Big Shyenne up to the Yellowstone,” anchors the track at the range’s centre and keeps at least the range’s radius as its uncertainty. A camp that held only part of a division, such as Crazy Horse’s following in 1876–77 while most Oglala were at the agency, stays off that division’s track; so does a trading visit, such as the Crow tipis at the Mandan villages in 1825 and 1833. The uncertainty halo is fitted to how well the track predicts documented places it was not given (see the list of modelling choices).</p>
+        <p><b>Seasonal round.</b> This is optional. Each nomadic track runs through the centre of the division’s yearly round. With the seasonal round on, the division moves between a winter ground and a summer ground on either side of that centre. It stays on the winter ground until mid-March, reaches the summer ground by early July, leaves it in early August and is back on a winter ground by late October. The distance and direction between the two grounds change slowly over the decades. They are fitted to the division’s own places dated to a season, such as a sun dance, a winter camp or a battle with a month, from within about five years. Where there are none, they come from the literature on each people’s round. Ray and Moodie have the Cree and Assiniboine wintering in the parkland and summering on the grassland. Ewers has the Blackfoot wintering in the river valleys under the mountains, and Hämäläinen the Comanche in sheltered valleys. West puts the Cheyenne and Arapaho at the Big Timbers of the Arkansas in winter, and Tabeau the Yanktonai at their summer fair on the James. Where neither source exists, the division has no seasonal move of its own and only its bands’ scatter moves with the seasons. Every place dated to a season is reproduced exactly at its date.</p>
+        <p>We withheld each of 243 season-dated places in turn and predicted it from the rest. The prediction misses by a median 125 km, against 134 km with no seasonal move. The gain comes where the record is dense, above all the Kiowa and Plains Apache. The calendar of the move is the least certain part. Withheld places can only just tell a plateau-and-ramp calendar from a smooth wave peaking in late July (125 km against 126). Among calendars whose misses lie within 3 km of each other, the one used is the one closest to the ethnographic year of winter camps, spring hunts, summer gathering and autumn hunt. Where there are records to test the literature patterns against, they neither help nor hurt. For the divisions that rely on them, the direction of the seasonal move is sourced but untested. With the seasonal round on, the uncertainty halo also carries the uncertainty of the move, widened so that it holds 68% of the withheld season-dated places.</p>
+        <p><b>Reading the seasonal round.</b> With the seasonal round on, buttons under the timeline set the month. The up and down arrow keys step one month, and the left and right keys step one year at the same month. Select a nomadic division to draw its round: a line from its winter ground (filled dot) to its summer ground (open dot), along which the division travels during the year. “Trace each division’s seasonal round” draws them all at once, dashed. Divisions with no round of their own draw no line. Playback slows to a quarter-year a second, so a year takes four seconds.</p>
+        <p>In camp view, nomadic divisions break into camps of about 25 lodges in winter. Winter camps of that size are the tiyospaye and local-band scale reported across the Plains. In summer they gather into a single circle, as Larocque saw with the Crow in 1805: more than 300 tipis moved together through 47 camps in 75 days.</p>
+        <h4>Three levels of detail</h4>
+        <p><b>Tribes</b> merges each people’s divisions into one dot at their population-weighted centre. <b>Divisions</b> is the unit the population fit and the tracks are built on. <b>Bands &amp; villages</b> splits each division into the units its own ethnographic lists name: Dorsey’s gentes for the Sioux, Grinnell’s bands for the Blackfoot and Cheyenne, Kroeber’s for the Arapaho and Gros Ventre, Lowie’s divisions for the Crow, Mooney’s for the Kiowa, Denig’s for the Assiniboine and Cree, and named villages for the river peoples.</p>
+        <p><b>How many bands, and how big.</b> Every list describes one moment. We fix a typical band size from that moment, the division’s fitted population in the list year divided by the number of bands then named. Before the list year, bands appear in list order as the division grows past multiples of that size, so a small early Oglala has three bands and the 1884 Oglala twenty. Where an earlier population was larger than the list-year one, as with the Blackfoot, Mandan or Arikara, unnamed bands or villages fill the difference. After the list year every named band stays, and they shrink or grow together. Offshoots that a source says split from a parent bud out of the parent’s dot. Bands that a source says merged fold back into their absorber.</p>
+        <p><b>Documented counts and losses.</b> Where a source counts one band, as Denig does for each Assiniboine band in 1854 or Long for Red Wing’s village in 1824, that band’s share is pulled toward the count. The pull fades over about twenty years on either side. Attacks that fell on a single camp, such as Sand Creek or Wounded Knee, and the 1849 cholera that Grinnell says nearly destroyed three Cheyenne bands, cut that band’s share from that date. Their death tolls are recalled ranges. The camp sizes are ours.</p>
+        <p><b>Movement.</b> At the bands level each band wanders, and the specific sites are a seeded random draw: one plausible history, not a record. The scale of the wandering comes from Mooney’s Kiowa calendar, 1833–68, where summer sun-dance grounds moved a median 141 km from one year to the next (26 pairs), winter camps 87 km (13 pairs), and summer grounds lay 158 km from the following winter camp (15 pairs). Part of each year’s shift is shared by the whole division, standing for the herds moving; each band adds about 40 km of its own scatter. With the seasonal round off, bands drift between yearly hunting grounds. With it on, each band winters in its own camp pulled onto the nearest river, hunts outward in spring, joins the division’s summer gathering in July, scatters to an autumn hunt in August and September and settles into a new winter camp by late October, on the same calendar as the division. Where a documented place is near in time, as with the Kiowa after 1833, the shared shift is damped and only the bands’ scatter remains. Roaming shrinks to a quarter over the three years after a division settles at its agency. Divisions and tribes are drawn at their expected positions, without the random draw.</p>
+        <p><b>Village peoples’ hunts.</b> With the seasonal round on, the village peoples leave on their tribal hunts and come back to plant and harvest. The hunting grounds and calendars come from sources read for this build, tribe by tribe, as set out in the table under “Every extrapolation choice”. Examples: the Pawnee summer hunt of July 1872 went south across the Platte and the Republican to the Beaver (Grinnell); the Osage hunted from early June to mid-August beyond the Arkansas toward the Great Saline, and again from October to March (Tixier, 1840); the Omaha left after the second hoeing and returned about 1 September (Dorsey, Fletcher and La Flesche). The eastern Dakota scattered “in different directions” on the deer hunt from October to January (Pond). The Mandan and Hidatsa moved a few kilometres into the timber for winter (Maximilian). Where no source was read (the Ponca, Iowa and Wichita), the pattern is borrowed from a neighbour and says so. Hunting-camp records, such as Massacre Canyon, are shown in the evidence layer but kept out of the division tracks, so a village people’s dot stays at its village.</p>
+        <p><b>Camps, villages and agencies.</b> The marker says how a people lived at that moment, not only where. A rounded square is a fixed village: the earth-lodge towns of the Mandan, Hidatsa, Arikara, Pawnee, Omaha, Ponca, Oto, Kansa, Iowa and Missouria, the grass-house towns of the Wichita, the mat-and-bark lodges of the Osage, and the bark summer houses of the Mdewakanton. These peoples farmed maize, beans and squash in the river bottoms and went out on the tribal bison hunt in summer and again in fall or winter (the Osage and Kansa also scattered in small camps for the winter deer and fur hunt), so with the seasonal round on, their squares turn into circles while they are out on the tribal hunt and back into squares when they come home to plant or harvest. A circle is a camp of tipis that moves with the herds. A circle with a hollow centre is a people settled at its agency or reserve, from a year after the date the agency opened for them. None of these peoples was pastoral in the usual sense; the nomads herded horses, sometimes in great numbers, but lived on bison, not on their herds. The Cheyenne change from squares to circles about 1790, when they left their earth-lodge villages for the tipi.</p>
+        <p><b>Recorded places win.</b> Sixty-six bands and chiefs’ followings carry their own places, and these override the random draw. For 35 the places come from the sources read (Denig’s Cree bands, Henry’s Assiniboine, Mooney’s Kiowa, Dorsey’s and Long’s Red Wing, the Kaw villages, Lac qui Parle, the Wichita towns). For 26 more the dates and places were checked against Wikipedia and other references and are named in each band’s card (Sand Creek, the Washita, the Marias, Ash Hollow, Wounded Knee, the Cheyenne exodus, Sitting Bull, Big Bear, Kaposia, Bde Maka Ska, the Jicarilla Llaneros and Olleros, the Upper and Lower Lipan, the Pembina Saulteurs, the Wahpeton at Little Rapids, Drifting Goose’s people). Five remain recalled and say so. A dark outline marks a chief’s following, a group that existed only for a documented episode.</p>
+        <h4>Epidemic table</h4>
+        <ul id="epilist"></ul>
+      </div>
+      <div>
+        <h4>Sources read for this build</h4>
+        <ul>
+          <li>William Clark, “Estimate of the Eastern Indians,” Fort Mandan, 1804–05, with the 1806 printed remarks (Moulton ed., University of Nebraska online edition).</li>
+          <li>James Mooney, <i>Calendar History of the Kiowa Indians</i> (BAE 17th Annual Report, 1898): 65 dated Kiowa camps and sun-dance grounds, 1833–91, and his compiled Kiowa, Apache and Comanche population series.</li>
+          <li>Annual Reports of the Commissioner of Indian Affairs for 1855, 1863, 1868, 1874, 1878, 1882, 1886 and 1889 (agent census statements).</li>
+          <li>Edwin T. Denig, “Indian Tribes of the Upper Missouri” (c. 1854; BAE 46th Annual Report, 1930).</li>
+          <li>F. V. Hayden, <i>Contributions to the Ethnography and Philology of the Indian Tribes of the Missouri Valley</i> (1862), which quotes Denig, Mackenzie, Morse, Long, Warren, Stevens and the 1858 Indian Office report.</li>
+          <li>F. W. Hodge, ed., <i>Handbook of American Indians North of Mexico</i> (1907–10).</li>
+          <li>François-Antoine Larocque’s 1805 Yellowstone journal (as summarized in its published accounts), for the Crow summer camp.</li>
+          <li>Epidemic mortality: Elizabeth Fenn, <i>Pox Americana</i>; Chardon, Pilcher, Denig and Bradley on 1837; Colin Calloway’s tribal fractions; Brooks and Thornton on 1816; Mooney and Kiowa tradition on 1849.</li>
+          <li>Comanche: Pekka Hämäläinen, <i>The Comanche Empire</i> (2008); David G. Burnet’s late-1840s letter in <i>Texas Indian Papers</i>; Thomas Kavanagh in the <i>Encyclopedia of the Great Plains</i>.</li>
+          <li>J. Owen Dorsey, “Siouan Sociology” (BAE 15th Annual Report, 1897): gentes of every Sioux division, with their offshoots and informants’ dates; and Hayden’s c. 1855–57 table of Teton bands with their chiefs.</li>
+          <li>George Bird Grinnell, <i>Blackfoot Lodge Tales</i> (1892), with the Piegan camp circle of about 1850–55, and <i>The Cheyenne Indians</i> (1923), vol. 1.</li>
+          <li>Clark Wissler, “Social Organization and Ritualistic Ceremonies of the Blackfoot Indians” (1911); A. L. Kroeber, “The Arapaho” (1902) and “Ethnology of the Gros Ventre” (1908); Robert Lowie, “Social Life of the Crow Indians” (1912).</li>
+          <li>Places: Warren’s ranges of the Lakota, Yankton, Yanktonai, Assiniboine and village tribes (1855–57); Grinnell’s <i>Fighting Cheyennes</i> for dated Cheyenne and Arapaho camps, 1837–76; Stanley’s visit to the Piegan camp (Pacific Railroad Reports, vol. 1); Hayden’s Blackfoot ranges; Lewis and Clark’s Yankton and Teton councils (1804); Henry’s Pembina journal; Lewis and Clark’s notes on the abandoned Mandan, Arikara and Cheyenne villages (October 1804); Maximilian’s camps of 1833–34; Osborne Russell on the Shoshone at Bear Lake (1835–36); the Commissioner of Indian Affairs’ 1874 summary of every agency and the agents’ reports of 1868 and 1878; and Wikipedia’s articles on about ninety battle, treaty, mission, agency and village sites, whose coordinates are used as given. Eighteen places that rest partly on recall are marked so in their source.</li>
+          <li>Early travellers read in the original, with page citations: David Thompson’s house-by-house count of the Mandan and Hidatsa villages (1797–98); Pike’s census of the Grand Osage village and his Statistical Abstract (1806); Alexander Henry the younger’s Saskatchewan census of Cree, Assiniboine bands, Blackfoot, Blood, Piegan and Gros Ventre (1809); Say’s Kansa village and the Pawnee figures in James’s account of Long’s expedition (1819–20); Morse’s 1820 figures from O’Fallon, Crooks and Bell (1822); Catlin’s figures for the Cheyenne, Kansa and Osage and the great Comanche camp of 1834.</li>
+          <li>John R. Swanton, <i>The Indian Tribes of North America</i> (BAE Bulletin 145, 1952): population series and Mooney’s 1780 reconstructions, the 1904 Sioux agency counts, Wichita town counts, and Skinner’s later Plains Cree band names. Also Prescott’s 1850 Mdewakanton bands in Schoolcraft, vol. 3.</li>
+          <li>Census towns: Steiner &amp; Heppler, <i>United States Historical City Populations, 1790–2010</i> (Stanford CESTA), places of 2,500 or more. Rivers, lakes and borders: Natural Earth.</li>
+        </ul>
+        <h4>What was checked, and against what</h4>
+        <p>All 129 forts, posts, missions and early towns were checked for dates and position against Wikipedia, North American Forts, FortWiki or the Kansas Historical Society, and about forty were corrected; each one’s hover names its check and any disagreement between references. Fifty-four of the 66 band tracks are sourced or checked (see above). The epidemic fractions marked “assumed” remain our judgment, and so do the band weights and the camp sizes behind the massacre losses.</p>
+        <h4>Persons per lodge</h4>
+        <p>Sources disagree widely on how many people a lodge held. Denig used 4.5 to 6. Hayden counted 5 among the Atsina. Mooney put the Kiowa at 6 to 7, with about 2 warriors to a tipi. Later popular accounts say 8 to 10. We use each source’s own ratio and mark every place where we had to assume one.</p>
+        <h4>What the band lists can and cannot say</h4>
+        <p>Band names are documented; the number of bands before a list was taken, their sizes, and most of their positions are not. A band named in an 1884 list may have had a different name, or not existed, in 1800. Several matchings are ours and are flagged in the band cards: Mdewakanton chiefs’ villages to Dorsey’s gentes, Hayden’s c. 1856 bands to Dorsey’s, Denig’s Crow chiefs to Lowie’s divisions, and Skinner’s Cree bands to our three Cree divisions. The Omaha, Ponca, Oto, Missouria and Iowa were organized in clans inside one village. Clans were not separate camps, so those peoples stay one dot at every level.</p>
+        <h4>Thin spots</h4>
+        <p>Before 1780 there are almost no counts below the tribal level, so the early decades rest on our anchors and the epidemic table. The northern plains before 1790, the Kiowa and Plains Apache before 1830, and the Crow and Shoshone interior before 1830 are the weakest stretches. The Kiowa after 1833 are the best: they have a documented place nearly every season.</p>
+      </div>
+    </div>
+    <div class="apparatus">
+      <h4 id="choices">Every extrapolation choice</h4>
+      <p>Each line below is a decision the record does not make for us. “Effect” says how much the map changes if the choice is pushed to a plausible alternative; the population effects come from refitting the whole model with that one change (table below the list).</p>
+      <div class="tblwrap"><table class="reg">
+        <thead><tr><th>Choice</th><th>What we did</th><th>Why</th><th>Effect if changed</th></tr></thead>
+        <tbody>
+          <tr><td colspan="4" style="font:500 11px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:12px">Population</td></tr>
+          <tr><td>Unit of analysis</td><td>Fifty-five divisions (Brulé, Oglala, Piegan…), not tribes or bands.</td><td>The level at which the sources most often count people.</td><td>Tribes and bands are derived from it; nothing is fitted at those levels.</td></tr>
+          <tr><td>Turning counts into people</td><td>A source’s own persons-per-lodge ratio where it gives one (Denig 4.5–6, Mooney 6–7); otherwise warriors × 4, lodges × 5, earth lodges × 10, each flagged on the record.</td><td>Ratios vary by people and decade; the source’s own is the best evidence of its meaning.</td><td>One more or one fewer person per lodge moves the 1850 total by ±2% and leaves the hold-out error at 1.28–1.29.</td></tr>
+          <tr><td>Clark’s two figures</td><td>The lower of Clark’s two soul counts.</td><td>Clark struck through the higher figures in revision; the lower are his corrected estimate.</td><td>Weighting Clark at ±25% or ±50% instead of ±35% moves the 1805 total by less than 1%.</td></tr>
+          <tr><td>How much each count is trusted</td><td>Reservation censuses ±10%; agents’ estimates ±15%; other contemporary counts ±30%; Clark ±35%; later reconstructions ±45%.</td><td>Ordered by how each kind of count was made; the scale was then checked by the hold-out test.</td><td>Reconstructions at ±30% or ±70% change totals by under 2%.</td></tr>
+          <tr><td>Source families</td><td>Each family of sources (Clark, Morse, Denig, the Indian Office before 1868…) may run high or low as a whole. Its factor is estimated by refitting every division without that family and comparing its counts with the fit wherever other documented counts support it (never against our own anchors), shrunk toward 1 with a ±25% prior; the Indian Office counts from 1868 on are the reference. Each count is divided by its family’s factor before fitting (table below).</td><td>Some sources are known to run one way: Clark counted the camps reported to him, Henry counted men under arms in his trade district, Morse’s 1820 figures are round and high. Before the correction, counts from 1800–39 were the worst predicted (a factor of 1.45).</td><td>Withheld counts are predicted to within a median factor of 1.22, with each withheld count’s own family factor estimated without it; in the one-at-a-time runs below, dropping the correction worsens the miss from 1.21 to 1.23. Without the correction the 1805 total is 1% lower; a ±15% or ±40% prior changes totals by under 1%.</td></tr>
+          <tr><td>Our own anchors</td><td>Keyframe guesses at ±30% where the record is silent, mainly before 1780 and for divisions no one counted separately.</td><td>Without them six divisions have no count at all and cannot be drawn.</td><td>The largest single effect before 1800: removing them drops the 1780 total by 8% (and loses five divisions); ±20% or ±50% moves it by about 1%.</td></tr>
+          <tr><td>Smoothness</td><td>Growth rates change slowly from year to year (second-difference penalty 0.02).</td><td>Populations without shocks change gradually.</td><td>Halving or doubling it changes nothing visible (totals within 0.5%).</td></tr>
+          <tr><td>Background growth</td><td>A weak prior pulling growth toward +0.5% a year, with a spread of ±6% a year.</td><td>Plains populations grew when not struck by epidemics or war; the spread keeps sustained rates near what natural increase allows.</td><td>Loosening it (±12–40%) improves the hold-out error slightly (1.21 → 1.20 at ±12%) but makes 30–45 divisions grow or shrink faster than 3% a year for a decade, which is not demographically plausible. We keep the tighter prior and say so. A 0% or 1% target moves the 1750 total by +4% / −4%.</td></tr>
+          <tr><td>Epidemics</td><td>Dated multiplicative losses (table above), each fraction marked sourced, scaled or assumed.</td><td>The record of the great epidemics is good on dates and poor on fractions.</td><td>The most influential assumption before 1800: scaling every fraction by 0.75 or 1.25 moves the 1780 total from 152,000 to 135,000 or 179,000.</td></tr>
+          <tr><td>Whole-tribe totals</td><td>Shared among member divisions in proportion to the current fit, at 1.6 times the count’s error.</td><td>A tribe-wide count constrains the sum, not the split.</td><td>Only the split between divisions depends on this.</td></tr>
+          <tr><td>Ranges shown</td><td>The fit’s standard deviation widened by 25%.</td><td>The hold-out test found the unwidened ranges too narrow (62% and 90% coverage instead of 68% and 95%).</td><td>After widening, 73% and 95%.</td></tr>
+          <tr><td colspan="4" style="font:500 11px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:12px">Place</td></tr>
+          <tr><td>Tracks (nomadic)</td><td>Through every stated place; our keyframes fill the gaps; a curve that never overshoots its points.</td><td>A documented place should never be overridden by a guess. A statistical smoother tested as an alternative predicted withheld places slightly better (a median miss of 113 km against 115), but it pulled tracks as much as 300 km off precise events, such as the Miniconjou and Sans Arc at the Little Bighorn. It therefore sets only the uncertainty.</td><td>Withheld places (440, with every other place within half a year withheld too) are missed by a median 115 km. Our keyframes earn their place: without them the miss is 128 km.</td></tr>
+          <tr><td>Tracks (villages)</td><td>Hold at each place. Where the date of a relocation is documented (table below), move then, over about five months. Otherwise move over two years centred on the midpoint between the two places.</td><td>Villages stood for years and then relocated; a straight line between two sites puts the village in country it never occupied.</td><td>Withheld village places of the peoples with dated moves (207) are missed by a median 7 km and a mean 42 km; straight-line interpolation misses them by a median 22 km (mean 72 km), and the midpoint rule alone by a median 17 km (mean 73 km). The 82 withheld places within six years of a dated move are missed by a mean 54 km instead of 130 km for the midpoint rule. Where a move is undated its timing is a guess, and the largest misses come from those.</td></tr>
+          <tr><td>Raids, delegations and councils</td><td>A keyframe never places a division where only a war party or a delegation went: San Sabá in 1758, San Antonio in 1785 and 1840, Linnville in 1840, Pecos in 1786. Those events keep their notes and carry no place.</td><td>A war party or a delegation says where some men were for a few days, not where the people lived.</td><td>Without this rule the Penateka dot would visit the Texas coast in 1840.</td></tr>
+          <tr><td>Hunting camps</td><td>Shown as records but kept out of the division tracks.</td><td>A summer-hunt camp says where the village people were for a month, not where their village was.</td><td>Without this rule the Omaha dot would drift to the Loup for years at a time.</td></tr>
+          <tr><td>Position uncertainty</td><td>Nomadic divisions: the spread of a random-walk smoother (Kalman filter and smoother) run through the same places and keyframes, with movement of about 45 km a year in each direction, a within-year scatter of 90 km, a stated range counted at a quarter of its radius and our keyframes at ±150 km, all fitted by predicting each documented place from the others; the halo is that spread scaled to hold 68% of withheld places. Villages: 20 km, plus the distance between the two sites times the fraction of the way to the midpoint, plus 3 km for each year from the nearer place. Where the move is dated, the distance term applies only within a year of it.</td><td>The halo should be narrow where the record is dense or precise and wide where it is thin or only a range. A fixed rule of so many kilometres per year away from the nearest place ignores how precise that place is and how many others are near it.</td><td>For the nomadic peoples the halo holds 68% of withheld places with a median radius of 174 km: 63% where places are dense and 78% where they are sparse. The village halo holds 69%.</td></tr>
+          <tr><td>Ranges and councils</td><td>A stated range is placed at its centre with its own radius; a treaty council, battle or agency counts as a place for every division present in force.</td><td>A range is evidence of where a people were that year, though not of a camp; councils and attacks are the best-dated places in the record.</td><td>Ranges pull tracks toward a centre the people may seldom have occupied; their radius, shown as uncertainty, says so.</td></tr>
+          <tr><td>Agencies</td><td>From the late 1860s a division is placed at its agency in each year an Indian Office report locates it (1868, 1874, 1878). A count from one agency stands for the whole division only if the division had no other agency: the Fort Peck counts of the Assiniboine leave out the Upper Assiniboine at Fort Belknap, so they count as partial.</td><td>Rations bound most people to the agency; the 1874 report describes where every agency stood.</td><td>Divisions still roaming in those years (much of the Hunkpapa, Miniconjou and Sans Arc in 1874) are drawn nearer the agency than most of their camps.</td></tr>
+          <tr><td>Partial camps and trading visits</td><td>A camp that held part of a division (Crazy Horse’s following, Iron Jacket’s band) goes on the following’s or band’s track, not the division’s; a trading visit to a post or village is shown as a record but kept off the track.</td><td>A division’s dot stands for where most of its people were.</td><td>Putting the 1876–77 Oglala at Crazy Horse’s camps would move the whole Oglala dot 400 km from the Red Cloud agency.</td></tr>
+          <tr><td>Kiowa Apache</td><td>Placed at every Kiowa sun-dance ground in Mooney’s calendar.</td><td>Mooney: the Apache “have formed an integral part of the Kiowa tribal circle from the earliest traditionary period,” which met as a whole at each sun dance.</td><td>Without this the Apache track rests on our keyframes alone from 1835 to 1890.</td></tr>
+          <tr><td>Settlement markers</td><td>Rounded square for a fixed village, circle for a moving camp, hollow-centred circle at an agency or reserve; village peoples become circles during the hunt seasons in the table below.</td><td>Whether a location is a town or a camp matters as much as where it is.</td><td>The switch dates are ours: the hunt seasons are sourced for the Pawnee, Omaha and Osage and by analogy elsewhere; agency dates are the year after the agency opened; the Cheyenne switch at 1790 is a round number for a change that took a generation.</td></tr>
+          <tr><td>Seasonal round (divisions)</td><td>Annual centre plus a seasonal offset. The offset is fitted to season-dated places, with weights falling by a factor of e every five years from the year shown. It is shrunk toward the literature pattern in the table below, or toward no offset where there is none (±60 km either way), and capped at 200 km either side.</td><td>Places dated to a season say where the round was in that season; ethnographies say which way the seasonal move ran.</td><td>On 243 withheld season-dated places the median miss is 125 km, against 134 km with no offset. Optional; off by default. Literature patterns that make withheld places worse are left out: winter grounds for the Blood and Piegan at the places Dempsey names; a Kiowa and Plains Apache winter ground on the North Fork of the Red River (Wedel and Frison); and a Teton round of winters in the Missouri timber and hunts west of the river from April to August (DeMallie), which raises the Brule miss from 86 to 121–156 km.</td></tr>
+          <tr><td>Pooling within a people</td><td>Not used: each division’s seasonal move rests on its own places and the literature.</td><td>Divisions of one people might share a round, so their places could inform each other.</td><td>Borrowing the other divisions’ season-dated places leaves the median miss unchanged (125 km) and lowers the mean slightly (150 km against 153), but does not help the Lakota (178 km against 174 on 16 places), whose divisions’ seasonal moves run in different directions.</td></tr>
+          <tr><td>Seasonal calendar</td><td>On the winter ground to mid-March; a smooth move to the summer ground by early July; there until early August; back on a winter ground by late October. Bands follow the same calendar.</td><td>Winter camps were long and settled, the summer gathering short, and the moves between quick (Grinnell; Ewers; the Kiowa calendar’s winter and sun-dance entries). Dempsey’s Blackfoot year in the Handbook fits it closely: winter camps in wooded river bottoms from late October, a spring scatter onto the prairies, tribal summer camps toward the Cypress Hills and the Medicine Lodge in August.</td><td>Withheld places barely tell calendars apart: those tried differ by a few kilometres, and a smooth wave misses by 130 km against 125. The choice among them is ethnographic.</td></tr>
+          <tr><td>Seasonal uncertainty</td><td>The halo adds the uncertainty of the seasonal move at that moment, and is widened by 7%.</td><td>A place in July is less certain than the year’s centre when the direction of the summer move rests on few records or on the literature alone.</td><td>Holds about 68% of withheld season-dated places; the yearly halo alone holds 63%.</td></tr>
+          <tr><td colspan="4" style="font:500 11px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:12px">Bands and villages</td></tr>
+          <tr><td>Which list</td><td>One ethnographic list per division, dated to the year it describes (Dorsey 1878–84, Grinnell c. 1850–70, Denig 1854–56…).</td><td>Names are documented; mixing lists from different decades would double-count.</td><td>Other lists would give other names, not other totals.</td></tr>
+          <tr><td>Band size</td><td>The division’s population in the list year divided by the bands then named (median about 210 people).</td><td>Bands split as they grew (Wissler, Dorsey); a fixed size makes the number of bands follow population.</td><td>Documented band and camp counts have a median of about 350 people (29 counts), but observers counted large and notable camps, so our units may be finer than the camps people actually lived in.</td></tr>
+          <tr><td>When bands appear</td><td>In list order as the division grows; offshoots a source names bud from their parent; unnamed units fill out larger earlier populations; after the list year every named band persists.</td><td>The order of a list usually puts the old bands first, and Dorsey and Grinnell name some offshoots.</td><td>Changes which band dots exist before the list year, not the division total.</td></tr>
+          <tr><td>Documented band counts</td><td>Pull that band’s share toward the count, fading over about 20 years either side.</td><td>A count is evidence about its band for some years around it, not forever.</td><td>A longer fade would keep Denig’s 1854 Assiniboine proportions through the 1870s.</td></tr>
+          <tr><td>Chiefs’ followings</td><td>Temporary units with our weights for documented episodes.</td><td>A following existed only for its episode.</td><td>Weights are ours; the dates and places are sourced or checked for most.</td></tr>
+          <tr><td colspan="4" style="font:500 11px var(--f-body);letter-spacing:.12em;text-transform:uppercase;color:var(--ink-3);padding-top:12px">Movement at the bands level</td></tr>
+          <tr><td>Year-to-year wandering</td><td>Shared division shifts with medians of about 141 km (summer) and 87 km (winter) a year, plus 40 km of band scatter; sites drawn from a fixed random seed.</td><td>The Kiowa calendar is the only long run of dated camps; it sets the scale.</td><td>Every viewer sees the same history. A different seed would draw different sites at the same scale.</td></tr>
+          <tr><td>Near the record</td><td>The shared shift fades to nothing within about a year of a documented place.</td><td>The record should win.</td><td>The Kiowa after 1833 keep only band scatter around their recorded camps.</td></tr>
+          <tr><td>After the agencies</td><td>Roaming shrinks to a quarter over three years after a division settles at its agency.</td><td>Reservation life confined movement, though hunts and visits continued (the Kiowa calendar keeps moving to 1890).</td><td>The late dots cluster around agencies.</td></tr>
+          <tr><td>Winter camps</td><td>Pulled onto the nearest mapped river within 60 km.</td><td>Winter camps sought timber, water and shelter in valleys (Grinnell; Maximilian; Pond).</td><td>Places winter camps on rivers rather than open upland.</td></tr>
+          <tr><td>Bison range</td><td>From 1850, each hunting division’s centre is checked year by year against the range of the herds. The range is traced from Hornaday’s map of the extermination.</td><td>A people living on bison could not stay long where there were none.</td><td>Among the bison-hunting peoples only the Siksika (1879–81) and the Cypress Hills Cree (1879–83) fell outside the range. Both have keyframes that take them into Montana after the last herds and back again, as Dempsey describes. The other division-years outside it belong to peoples no longer living mainly on bison: the Jicarilla, the Lipan, the eastern Dakota and the Turtle Mountain Ojibwe.</td></tr>
+          <tr><td>Village hunts</td><td colspan="3"><span id="hunttable"></span></td></tr>
+          <tr><td>Seasonal grounds (literature)</td><td colspan="3"><span id="seastable"></span></td></tr>
+          <tr><td>Dated village moves</td><td colspan="3"><span id="vmovetable"></span></td></tr>
+        </tbody></table></div>
+      <h4>Sensitivity of the population totals</h4>
+      <div class="tblwrap" id="senstable"></div>
+      <h4>How each family of sources runs</h4>
+      <div class="tblwrap" id="biastable"></div>
+      <h4>Validation</h4>
+      <div class="valfig">
+        <svg id="valfig" viewBox="0 0 340 300" role="img" aria-label="Hold-out test: documented counts against the model's prediction with that count removed"></svg>
+        <div>
+          <p id="valtext"></p>
+          <p>The test is strict in one way and lenient in another. It removes a count and its own weight entirely, but it keeps the whole-tribe totals allocated as in the full fit, so a little of the removed count can leak back through its tribe’s total. The largest misses are the source conflicts listed below. The most informative comparison is with plain interpolation between a division’s neighbouring counts. The model does slightly better while also giving a range and a value for every year, not only between counts.</p>
+        </div>
+      </div>
+      <h4>Where the sources disagree</h4>
+      <div class="tblwrap"><table class="reg">
+        <thead><tr><th>Year</th><th>People or place</th><th>Disagreement</th><th>How it is handled</th></tr></thead>
+        <tbody>
+          <tr><td class="n">1781</td><td>Comanche</td><td>Hämäläinen’s high reckoning (“reached or exceeded forty thousand”) against the usual figure of about 20,000.</td><td>Both kept as reconstructions at ±45%; the fit gives about 22,000 for the four divisions in 1780.</td></tr>
+          <tr><td class="n">1780</td><td>Mandan, Arikara</td><td>Mooney’s 1780 reconstructions (3,600 and 3,000) are far below the village counts implied by Clark’s and the traders’ histories.</td><td>Mooney kept at ±45%; fit about 4,500 Mandan and 8,100 Arikara in 1780. Treat both as soft.</td></tr>
+          <tr><td class="n">1805</td><td>Oglala</td><td>Clark’s 360–600 against Denig’s 300 lodges (1,500) in 1833.</td><td>Clark’s figure counted only the camp near the Missouri; fit about 990 in 1805.</td></tr>
+          <tr><td class="n">1833</td><td>Gros Ventre</td><td>Maximilian’s 200 lodges against Stevens’s 2,520 in 1853 and Mackenzie’s 600 warriors in 1789.</td><td>Fit about 2,500 in 1833; Maximilian probably saw part of the tribe.</td></tr>
+          <tr><td class="n">1838</td><td>Hidatsa</td><td>Hayden’s “reduced to forty lodges” after the smallpox against 365 on the 1878 roll and 454 in 1882.</td><td>Our guess (1,000) and the count pull against each other; fit about 650. Unresolved.</td></tr>
+          <tr><td class="n">1854</td><td>Kiowa</td><td>Agent Whitfield’s 2,800 against Mooney’s compiled 1,500 (1851) and 1,600 (1865).</td><td>Whitfield treated as an overestimate; fit about 1,590.</td></tr>
+          <tr><td class="n">1871–78</td><td>Arikara</td><td>Hodge’s 1,650 (1871) against the Fort Berthold roll of 654 (1878).</td><td>Irreconcilable without an epidemic in between; fit splits the difference (1,150 and 760).</td></tr>
+          <tr><td class="n">1798–1820</td><td>Hidatsa</td><td>Thompson counted the houses in 1797–98 and put the Hidatsa at 1,330 (ten to a house); Clark gives 2,500 plus 200 Awaxawi in 1805; Morse’s informants 3,250 in 1820.</td><td>All kept at their usual weights; fit about 2,240 in 1798 and 1,760 in 1820. Thompson’s ten to a house is probably low for Hidatsa earth lodges, and Morse’s figures as a family run about 43% high against the other sources (table of source families above).</td></tr>
+          <tr><td class="n">1806</td><td>Big Osage</td><td>Pike’s head count of the Grand village (1,695 in 214 lodges) against Clark’s 5,000 for the Big and Arkansas Osage together and Swanton’s 5,200 for the whole nation in 1822.</td><td>The head count is weighted as a census (±15%); fit about 2,140, pulled up by the tribe-wide totals. Pike may have counted while part of the village was away.</td></tr>
+          <tr><td class="n">1809</td><td>Blackfoot</td><td>Henry’s 1809 tents and warriors (Piegan 350 tents, 700 men; Blood 100 tents, 200 men) give about half of Umfreville’s 1789 figures, with no epidemic between.</td><td>Both kept at warriors × 4; fit about 5,300 Piegan and 1,900 Blood in 1809. Henry counts men under arms in his trading district; Umfreville probably counts the whole people.</td></tr>
+          <tr><td class="n">1820</td><td>Arapaho</td><td>Captain Bell of Long’s party, in Morse: “Arrapahays 10,000”, besides “Kaninavisch” 2,000 (a name the Arapaho also bore).</td><td>Not used: three to five times every other figure for the Arapaho before 1840, and probably a count of a mixed camp. Fit about 2,500.</td></tr>
+          <tr><td class="n">1845</td><td>Blackfoot</td><td>Grinnell dates a devastating smallpox to 1845; no other source read here does.</td><td>Not modelled; probably a misdating of the 1837 epidemic, which is modelled.</td></tr>
+          <tr><td class="n">c. 1856</td><td>Sioux bands</td><td>Hayden’s band table gives chiefs but not divisions; one band (“Plenty of Horses”, 75 lodges) appears in no Dorsey list.</td><td>Assigned to the Sihasapa through its chief, Crow Feather; flagged in its card.</td></tr>
+          <tr><td class="n">1817/1822</td><td>Fort Tecumseh</td><td>Wikipedia gives 1817; other references give 1822, when the Columbia Fur Company was organized.</td><td>1822 kept.</td></tr>
+          <tr><td class="n">1752/1754</td><td>Fort La Reine</td><td>Wikipedia 1752; North American Forts 1754.</td><td>1752 kept.</td></tr>
+          <tr><td class="n">1793/1860</td><td>Manchester House</td><td>Wikipedia: operated 1786–93. North American Forts: reopened 1796, closed 1860.</td><td>1786–93 kept.</td></tr>
+          <tr><td class="n">1856/1863</td><td>Fort Hall</td><td>End of Hudson’s Bay trade (1856) against “abandoned by 1863”.</td><td>1856 kept.</td></tr>
+        </tbody></table></div>
+      <h4>Data tables</h4>
+      <p>Every table is in the exhibit’s <a href="data/">data folder</a> as UTF-8 CSV, with the model that builds the map from them in <a href="model/">model</a> and its specification, register of judgment calls, known weaknesses and review protocol in <a href="docs/">docs</a>.</p>
+      <div class="tblwrap"><table class="reg">
+        <thead><tr><th>File</th><th>One row per</th><th>Main fields</th></tr></thead>
+        <tbody>
+          <tr><td class="n">records.csv</td><td>documented record</td><td>year; division(s); persons and the basis of the figure (souls, lodges × k, warriors × 4); the source’s words; whether the place is stated or our placement; lat/lon and radius; source with page; provenance tier; judgment flags; whether it steers the track; fitted and held-out values.</td></tr>
+          <tr><td class="n">sources.csv</td><td>source</td><td>records drawn from it, provenance tier, peoples covered.</td></tr>
+          <tr><td class="n">keyframes_our_guesses.csv</td><td>our keyframe</td><td>division, year, place, population anchor, note. Never presented as data.</td></tr>
+          <tr><td class="n">fitted_population_by_division.csv, …_by_people.csv, …_sd_percent.csv</td><td>year</td><td>the fitted best guess for every division and people, 1700–1905, and its standard deviation.</td></tr>
+          <tr><td class="n">epidemics_and_shocks.csv</td><td>epidemic × division</td><td>dates, mortality applied, source, and whether the fraction is sourced, scaled or assumed.</td></tr>
+          <tr><td class="n">coverage_by_division_and_period.csv</td><td>division × period</td><td>counts, places and keyframes in the period; longest gap between documented places; thin and sparse flags.</td></tr>
+          <tr><td class="n">positions.csv</td><td>division × year</td><td>the drawn annual centre at midyear, the halo radius, the seasonal offset (km east and north), its standard deviation and its basis.</td></tr>
+          <tr><td class="n">validation.csv</td><td>held-out count</td><td>division, year, documented and predicted persons, standardized miss.</td></tr>
+          <tr><td class="n">bands.csv, band_population.csv, band_places_recalled.csv, band_events.csv</td><td>band, village or following</td><td>names, glosses, list source and year, parent or absorber; persons by five-year step; band tracks; band-level losses.</td></tr>
+          <tr><td class="n">settlements.csv</td><td>fort, post, mission or town</td><td>kind, place, years, and the reference it was checked against.</td></tr>
+          <tr><td class="n">seasonal_patterns.csv, village_moves.csv, bison_range.csv</td><td>pattern, relocation, range</td><td>literature-based seasonal rounds; dated village relocations; the bison range by period as well-known-text polygons.</td></tr>
+          <tr><td class="n">review_sample.csv</td><td>sampled record</td><td>a seeded stratified sample of records with blank columns for a reviewer’s verdict against the source.</td></tr>
+        </tbody></table></div>
+      <h4>Bibliography</h4>
+      <ol class="bib">
+        <li class="grp">Contemporary observers and official reports</li>
+        <li>Brackenridge, Henry Marie. <i>Journal of a Voyage up the River Missouri, Performed in Eighteen Hundred and Eleven</i>. Baltimore, 1814. Reprinted in Reuben Gold Thwaites, ed., <i>Early Western Travels, 1748–1846</i>, vol. 6. Cleveland: Arthur H. Clark, 1904.</li>
+        <li>Bradbury, John. <i>Travels in the Interior of America, in the Years 1809, 1810, and 1811</i>. Liverpool, 1817.</li>
+        <li>Catlin, George. <i>Letters and Notes on the Manners, Customs, and Condition of the North American Indians</i>. 2 vols. London, 1841.</li>
+        <li>Clark, William, and Meriwether Lewis. Journal entries, 30 August, 25 September, and October–November 1804. In Moulton, ed., <i>Journals</i>, vol. 3.</li>
+        <li>Clark, William. “Estimate of the Eastern Indians.” Fort Mandan, winter 1804–05. In <i>The Journals of the Lewis and Clark Expedition</i>, edited by Gary E. Moulton, vol. 3. Lincoln: University of Nebraska Press, 1987. University of Nebraska–Lincoln online edition.</li>
+        <li>Denig, Edwin Thompson. “Indian Tribes of the Upper Missouri.” Edited by J. N. B. Hewitt. In <i>Forty-Sixth Annual Report of the Bureau of American Ethnology</i>. Washington, DC: Government Printing Office, 1930.</li>
+        <li>Frémont, John Charles. <i>Report of the Exploring Expedition to the Rocky Mountains in the Year 1842, and to Oregon and North California in the Years 1843–’44</i>. Washington, DC, 1845.</li>
+        <li>Garrard, Lewis H. <i>Wah-to-yah and the Taos Trail</i>. Cincinnati, 1850.</li>
+        <li>Gregg, Josiah. <i>Commerce of the Prairies</i>. New York, 1844. Reprinted in Reuben Gold Thwaites, ed., <i>Early Western Travels, 1748–1846</i>, vols. 19–20. Cleveland: Arthur H. Clark, 1905.</li>
+        <li>Hayden, F. V. “Contributions to the Ethnography and Philology of the Indian Tribes of the Missouri Valley.” <i>Transactions of the American Philosophical Society</i>, n.s., 12 (1862). Quotes Denig, Mackenzie, Morse, Long, Warren, Doty and Stevens.</li>
+        <li>Henry, Alexander, the younger. Journals, 1799–1814. In <i>New Light on the Early History of the Greater Northwest</i>, edited by Elliott Coues. 3 vols. New York: Harper, 1897.</li>
+        <li>Irving, Washington. <i>Astoria; or, Anecdotes of an Enterprise beyond the Rocky Mountains</i>. Philadelphia, 1836.</li>
+        <li>James, Edwin. <i>Account of an Expedition from Pittsburgh to the Rocky Mountains, Performed in the Years 1819 and ’20… under the Command of Major Stephen H. Long</i>. 2 vols. Philadelphia, 1823.</li>
+        <li>Larocque, François-Antoine. Journal of the expedition to the Yellowstone, 1805. Cited from its published summaries.</li>
+        <li>Larpenteur, Charles. <i>Forty Years a Fur Trader on the Upper Missouri</i>. Edited by Milo Milton Quaife. Chicago: Lakeside Press, 1933.</li>
+        <li>Maximilian, Prince of Wied. <i>Travels in the Interior of North America, 1832–1834</i>. Edited by Reuben Gold Thwaites. Early Western Travels, vols. 22–24. Cleveland: Arthur H. Clark, 1906.</li>
+        <li>Mooney, James. “Calendar History of the Kiowa Indians.” In <i>Seventeenth Annual Report of the Bureau of American Ethnology</i>, part 1. Washington, DC: Government Printing Office, 1898.</li>
+        <li>Morse, Jedidiah. <i>A Report to the Secretary of War of the United States, on Indian Affairs</i>. New Haven, 1822.</li>
+        <li>Parkman, Francis. <i>The California and Oregon Trail</i>. New York, 1849.</li>
+        <li>Pike, Zebulon Montgomery. <i>The Expeditions of Zebulon Montgomery Pike</i>. Edited by Elliott Coues. 3 vols. New York: Harper, 1895.</li>
+        <li>Pond, Samuel W. “The Dakotas or Sioux in Minnesota as They Were in 1834.” <i>Collections of the Minnesota Historical Society</i> 12 (1908): 319–501.</li>
+        <li>Prescott, Philander. Report on the Mdewakanton bands, 1850. In Henry R. Schoolcraft, <i>Historical and Statistical Information Respecting the History, Condition and Prospects of the Indian Tribes of the United States</i>, vol. 3. Philadelphia: Lippincott, Grambo, 1853.</li>
+        <li>Raynolds, William F. <i>Report on the Exploration of the Yellowstone River</i>. 40th Cong., 1st sess., Senate Ex. Doc. 77. Washington, DC, 1868.</li>
+        <li>Thompson, David. <i>David Thompson’s Narrative of His Explorations in Western America, 1784–1812</i>. Edited by J. B. Tyrrell. Toronto: Champlain Society, 1916.</li>
+        <li>Tixier, Victor. <i>Tixier’s Travels on the Osage Prairies</i>. Edited by John Francis McDermott. Norman: University of Oklahoma Press, 1940. (Voyage of 1840.)</li>
+        <li>United States Office of Indian Affairs. <i>Annual Report of the Commissioner of Indian Affairs</i> for 1855, 1863, 1868, 1874, 1878, 1882, 1886 and 1889. Washington, DC: Government Printing Office.</li>
+        <li class="grp">Ethnographies and compilations</li>
+        <li>Dorsey, James Owen. “Omaha Sociology.” In <i>Third Annual Report of the Bureau of Ethnology</i>, 205–370. Washington, DC: Government Printing Office, 1884.</li>
+        <li>Dorsey, James Owen. “Siouan Sociology: A Posthumous Paper.” In <i>Fifteenth Annual Report of the Bureau of American Ethnology</i>, 205–44. Washington, DC: Government Printing Office, 1897.</li>
+        <li>Fletcher, Alice C., and Francis La Flesche. “The Omaha Tribe.” In <i>Twenty-Seventh Annual Report of the Bureau of American Ethnology</i>. Washington, DC: Government Printing Office, 1911.</li>
+        <li>Grinnell, George Bird. <i>Blackfoot Lodge Tales: The Story of a Prairie People</i>. New York: Charles Scribner’s Sons, 1892.</li>
+        <li>Grinnell, George Bird. <i>Pawnee Hero Stories and Folk-Tales, with Notes on the Origin, Customs and Character of the Pawnee People</i>. New York: Forest and Stream, 1889.</li>
+        <li>Grinnell, George Bird. <i>The Cheyenne Indians: Their History and Ways of Life</i>. 2 vols. New Haven: Yale University Press, 1923.</li>
+        <li>Grinnell, George Bird. <i>The Fighting Cheyennes</i>. New York: Charles Scribner’s Sons, 1915.</li>
+        <li>Hodge, Frederick Webb, ed. <i>Handbook of American Indians North of Mexico</i>. Bureau of American Ethnology Bulletin 30. 2 vols. Washington, DC: Government Printing Office, 1907–10.</li>
+        <li>Kroeber, A. L. “Ethnology of the Gros Ventre.” <i>Anthropological Papers of the American Museum of Natural History</i> 1, part 4 (1908).</li>
+        <li>Kroeber, A. L. “The Arapaho.” <i>Bulletin of the American Museum of Natural History</i> 18 (1902–7).</li>
+        <li>Lowie, Robert H. “Social Life of the Crow Indians.” <i>Anthropological Papers of the American Museum of Natural History</i> 9, part 2 (1912).</li>
+        <li>Mallery, Garrick. “Pictographs of the North American Indians: A Preliminary Paper.” In <i>Fourth Annual Report of the Bureau of Ethnology, 1882–83</i>. Washington, DC, 1886. The Dakota winter counts, including Corbusier’s counts.</li>
+        <li>Mallery, Garrick. “Picture-Writing of the American Indians.” In <i>Tenth Annual Report of the Bureau of Ethnology, 1888–89</i>. Washington, DC, 1893. Lone Dog’s and Battiste Good’s winter counts.</li>
+        <li>Mooney, James. “The Aboriginal Population of America North of Mexico.” <i>Smithsonian Miscellaneous Collections</i> 80, no. 7 (1928). Cited from Swanton.</li>
+        <li>Morehouse, George P. “The Kansa or Kaw Indians and Their History.” <i>Collections of the Kansas State Historical Society</i> 10 (1908).</li>
+        <li>Russell, Osborne. <i>Journal of a Trapper, or Nine Years in the Rocky Mountains, 1834–1843</i>. Boise, 1914; 2nd ed. 1921.</li>
+        <li>Skinner, Alanson. “Notes on the Plains Cree.” <i>American Anthropologist</i> 16 (1914). Cited from Swanton.</li>
+        <li>Stevens, Isaac I. <i>Report of Explorations for a Route for the Pacific Railroad… from St. Paul to Puget Sound</i>. Reports of Explorations and Surveys, vol. 1. Washington, 1855. Includes J. M. Stanley’s report of his visit to the Piegan camp, 1853.</li>
+        <li>Swanton, John R. <i>The Indian Tribes of North America</i>. Bureau of American Ethnology Bulletin 145. Washington, DC: Government Printing Office, 1952.</li>
+        <li>Warren, G. K. <i>Preliminary Report of Explorations in Nebraska and Dakota, in the Years 1855–’56–’57</i>. Washington: Government Printing Office, 1875 (first printed 1858).</li>
+        <li>Wissler, Clark. <i>Social Organization and Ritualistic Ceremonies of the Blackfoot Indians</i>. Anthropological Papers of the American Museum of Natural History 7. New York, 1911–12.</li>
+        <li class="grp">Modern scholarship read for this build</li>
+        <li>DeMallie, Raymond J., ed. <i>Handbook of North American Indians</i>, vol. 13, <i>Plains</i>. 2 parts. Washington, DC: Smithsonian Institution, 2001. Part 1 read chapter by chapter: Albers, “Plains Ojibwa”; Bailey, “Osage”; Bailey and Young, “Kansa”; Brown, “History of the Canadian Plains Until 1870”; Brown and Irwin, “Ponca”; Darnell, “Plains Cree”; DeMallie and Miller, “Assiniboine”; Dempsey, “Blackfoot”; Lehmer, “Plains Village Tradition: Postcontact”; Liberty, Wood, and Irwin, “Omaha”; Newcomb, “Wichita”; Parks, “Arikara” and “Pawnee”; Schneider, “Three Affiliated Tribes”; Schweitzer, “Otoe and Missouria”; Stewart, “Hidatsa”; Swagerty, “History of the United States Plains Until 1850”; Wedel, “Iowa”; Wood and Irwin, “Mandan”. Part 2 read chapter by chapter: Albers, “Santee”; DeMallie, “Sioux Until 1850”, “Yankton and Yanktonai” and “Teton”; Foster and McCollough, “Plains Apache”; Fowler, “Arapaho”; Fowler and Flannery, “Gros Ventre”; Kavanagh, “Comanche”; Levy, “Kiowa”; Moore, Liberty, and Straus, “Cheyenne” (pp. 864–65 are missing from the copy read, which repeats pp. 860–61 in their place); Opler, “Lipan Apache”; Parks, “Enigmatic Groups”; Voget, “Crow”.</li>
+        <li class="grp">Modern scholarship (recalled, not reread for this build)</li>
+        <li>Anderson, Gary Clayton. <i>Kinsmen of Another Kind: Dakota–White Relations in the Upper Mississippi Valley, 1650–1862</i>. Lincoln: University of Nebraska Press, 1984.</li>
+        <li>Brooks, James F. <i>Captives and Cousins: Slavery, Kinship, and Community in the Southwest Borderlands</i>. Chapel Hill: University of North Carolina Press, 2002.</li>
+        <li>Calloway, Colin G. <i>One Vast Winter Count: The Native American West before Lewis and Clark</i>. Lincoln: University of Nebraska Press, 2003.</li>
+        <li>Dempsey, Hugh A. <i>Big Bear: The End of Freedom</i>. Vancouver: Douglas &amp; McIntyre, 1984.</li>
+        <li>Dempsey, Hugh A. <i>Crowfoot, Chief of the Blackfeet</i>. Norman: University of Oklahoma Press, 1972.</li>
+        <li>Edmunds, R. David. <i>The Otoe-Missouria People</i>. Phoenix: Indian Tribal Series, 1976.</li>
+        <li>Ewers, John C. <i>The Blackfeet: Raiders on the Northwestern Plains</i>. Norman: University of Oklahoma Press, 1958.</li>
+        <li>Ewers, John C. <i>The Horse in Blackfoot Indian Culture</i>. Bureau of American Ethnology Bulletin 159. Washington, DC, 1955.</li>
+        <li>Fenn, Elizabeth A. <i>Pox Americana: The Great Smallpox Epidemic of 1775–82</i>. New York: Hill and Wang, 2001.</li>
+        <li>Flores, Dan. “Bison Ecology and Bison Diplomacy: The Southern Plains from 1800 to 1850.” <i>Journal of American History</i> 78 (1991).</li>
+        <li>Hornaday, William T. “The Extermination of the American Bison.” In <i>Report of the U.S. National Museum for 1887</i>. Washington, DC, 1889.</li>
+        <li>Hoxie, Frederick E. <i>Parading through History: The Making of the Crow Nation in America, 1805–1935</i>. Cambridge: Cambridge University Press, 1995.</li>
+        <li>Hämäläinen, Pekka. <i>The Comanche Empire</i>. New Haven: Yale University Press, 2008.</li>
+        <li>Hämäläinen, Pekka. “The Rise and Fall of Plains Indian Horse Cultures.” <i>Journal of American History</i> 90 (2003).</li>
+        <li>Isenberg, Andrew C. <i>The Destruction of the Bison: An Environmental History, 1750–1920</i>. Cambridge: Cambridge University Press, 2000.</li>
+        <li>Kavanagh, Thomas W. “Comanche.” In <i>Encyclopedia of the Great Plains</i>, edited by David J. Wishart. Lincoln: University of Nebraska Press, 2004.</li>
+        <li>Mathes, Valerie Sherer, and Richard Lowitt. <i>The Standing Bear Controversy</i>. Urbana: University of Illinois Press, 2003.</li>
+        <li>Mathews, John Joseph. <i>The Osages: Children of the Middle Waters</i>. Norman: University of Oklahoma Press, 1961.</li>
+        <li>Meyer, Roy W. <i>The Village Indians of the Upper Missouri</i>. Lincoln: University of Nebraska Press, 1977.</li>
+        <li>Milloy, John S. <i>The Plains Cree: Trade, Diplomacy and War, 1790 to 1870</i>. Winnipeg: University of Manitoba Press, 1988.</li>
+        <li>Moodie, D. W., and Arthur J. Ray. “Buffalo Migrations in the Canadian Plains.” <i>Plains Anthropologist</i> 21 (1976).</li>
+        <li>Moore, John H. <i>The Cheyenne Nation: A Social and Demographic History</i>. Lincoln: University of Nebraska Press, 1987.</li>
+        <li>Ray, Arthur J. <i>Indians in the Fur Trade</i>. Toronto: University of Toronto Press, 1974.</li>
+        <li>Ross, Alexander. <i>The Red River Settlement</i>. London, 1856.</li>
+        <li>Smith, G. Hubert. <i>Like-a-Fishhook Village and Fort Berthold, Garrison Reservoir, North Dakota</i>. Anthropological Papers 2. Washington, DC: National Park Service, 1972.</li>
+        <li>Stamm, Henry E., IV. <i>People of the Wind River: The Eastern Shoshones, 1825–1900</i>. Norman: University of Oklahoma Press, 1999.</li>
+        <li>Tabeau, Pierre-Antoine. <i>Tabeau’s Narrative of Loisel’s Expedition to the Upper Missouri</i>. Edited by Annie Heloise Abel. Norman: University of Oklahoma Press, 1939.</li>
+        <li>Thornton, Russell. <i>American Indian Holocaust and Survival: A Population History since 1492</i>. Norman: University of Oklahoma Press, 1987.</li>
+        <li>Unrau, William E. <i>The Kansa Indians: A History of the Wind People, 1673–1873</i>. Norman: University of Oklahoma Press, 1971.</li>
+        <li>West, Elliott. <i>The Contested Plains: Indians, Goldseekers, and the Rush to Colorado</i>. Lawrence: University Press of Kansas, 1998.</li>
+        <li class="grp">Data and reference works consulted online, October 2026</li>
+        <li>Steiner, Erik, and Jason Heppler. <i>United States Historical City Populations, 1790–2010</i>. Stanford: Center for Spatial and Textual Analysis.</li>
+        <li>Natural Earth. Free vector and raster map data, 1:10m and 1:50m. naturalearthdata.com.</li>
+        <li>North American Forts, 1526–1956 (northamericanforts.com); FortWiki (fortwiki.com); Kansas Historical Society, <i>Kansapedia</i>; Texas State Historical Association, <i>Handbook of Texas Online</i>, “Comanche Indians” and “Comanche Indian Reservation”; Historical Marker Database (hmdb.org), “Camp Holmes Treaty”; TXGenWeb, Throckmorton County, “Camp Cooper”; Wikipedia articles on individual posts, bands and engagements, as named in each record.</li>
+      </ol>
+      <h4>How to cite</h4>
+      <p class="cite" id="citeme"></p>
+      <p class="colophon" id="colophon"></p>
+    </div>
+  </details>
+</div>
+
+<script src="vendor/d3.min.js"></script>
+<script src="geo.js"></script>
+<script src="data.js"></script>
+<script src="peoples.js"></script>
+<script>
+(function(){
+const GEO=window.CM_GEO;
+const D=window.CM_DATA;
+const Y0=D.Y0,Y1=1900;
+const $=id=>document.getElementById(id);
+const canvas=$('map'),ctx=canvas.getContext('2d'),plate=$('plate'),tip=$('tip');
+const G={};D.groups.forEach(g=>G[g.id]=g);
+const FAMS=Object.keys(D.fam).sort((a,b)=>D.fam[a]-D.fam[b]);
+let css={};
+function readCSS(){const s=getComputedStyle(document.documentElement);
+  ['bg','plate','sea','land','lake','river','border','ink','ink-2','ink-3','rule','panel','accent','halo','s1','s2','s3','s4','s5','s6','s7','s8','su','pal'].forEach(k=>css[k]=s.getPropertyValue('--'+k).trim());}
+const famColor=f=>f==='unident'?css.su:css['s'+D.fam[f]];
+const PEOP={"light":{"Arapaho":"#4d420e","Arikara":"#c4577e","Assiniboine":"#60932a","Blackfoot":"#8f410e","Cheyenne":"#3584d5","Comanche":"#ab60b2","Crow":"#996658","Dakota":"#183a8e","Gros Ventre":"#6e165f","Hidatsa":"#7f71d2","Iowa":"#089a5b","Jicarilla":"#37674a","Kansa":"#09495f","Kiowa":"#5948a6","Lakota":"#a37a10","Lipan":"#aa3b51","Mandan":"#502782","Missouria":"#6b5a04","Omaha":"#04510e","Osage":"#2b90a6","Oto":"#1369b7","Pawnee":"#c56226","Plains Apache":"#6f7b4b","Plains Cree":"#33607e","Plains Ojibwe":"#237c29","Ponca":"#4f375d","Shoshone":"#813888","Wichita":"#7d092d","Yankton":"#9076a0","Yanktonai":"#692f0a"},"dark":{"Arapaho":"#95b4f2","Arikara":"#3f8582","Assiniboine":"#aebb89","Blackfoot":"#d398f7","Cheyenne":"#8560bf","Comanche":"#1299de","Crow":"#f78cc4","Dakota":"#378c3a","Gros Ventre":"#7f7c0a","Hidatsa":"#626ccb","Iowa":"#d28a0e","Jicarilla":"#cd735a","Kansa":"#8794e5","Kiowa":"#bc4c60","Lakota":"#d0b32f","Lipan":"#4da284","Mandan":"#b95717","Missouria":"#9c666c","Omaha":"#20c5fc","Osage":"#a5a112","Oto":"#aa5197","Pawnee":"#91c761","Plains Apache":"#f79c49","Plains Cree":"#817dab","Plains Ojibwe":"#dea39f","Ponca":"#a26a07","Shoshone":"#a38c5d","Wichita":"#31d1a2","Yankton":"#1e7fb6","Yanktonai":"#7dc2c9"}};
+const SHADE={"light":{"Dakota":"#5a1457","Yankton":"#712b6d","Yanktonai":"#712b6d","Lakota":"#884183","Assiniboine":"#9f579a","Plains Cree":"#202e7a","Plains Ojibwe":"#304291","Blackfoot":"#4357a8","Cheyenne":"#566dc0","Arapaho":"#6a83d8","Gros Ventre":"#7f99f0","Shoshone":"#064a81","Comanche":"#1e609b","Wichita":"#652c02","Pawnee":"#833b02","Arikara":"#9b5121","Crow":"#a44567","Hidatsa":"#bd5b7d","Mandan":"#d67293","Omaha":"#785509","Ponca":"#785509","Kansa":"#93690d","Osage":"#ac7f27","Iowa":"#c49642","Oto":"#c49642","Missouria":"#c49642","Plains Apache":"#0a7b6c","Jicarilla":"#049482","Lipan":"#34ab99","Kiowa":"#176230"},"dark":{"Dakota":"#7f3e8d","Yankton":"#9654a4","Yanktonai":"#9654a4","Lakota":"#ae6bbc","Assiniboine":"#c681d5","Plains Cree":"#534eac","Plains Ojibwe":"#6664c4","Blackfoot":"#7a7adc","Cheyenne":"#8f90f5","Arapaho":"#a7aaff","Gros Ventre":"#c1c5ff","Shoshone":"#206b97","Comanche":"#3981af","Wichita":"#9c3a10","Pawnee":"#b5502b","Arikara":"#ce6742","Crow":"#bb5379","Hidatsa":"#d56a8f","Mandan":"#ef81a6","Omaha":"#8a6d06","Ponca":"#8a6d06","Kansa":"#a38319","Osage":"#bb9a38","Iowa":"#d3b152","Oto":"#d3b152","Missouria":"#d3b152","Plains Apache":"#1b8f7e","Jicarilla":"#3ca694","Lipan":"#57beab","Kiowa":"#427138"}};
+const tribeColor=t=>{const P=(st.color==='family'?SHADE:PEOP)[css.pal==='dark'?'dark':'light'];return P[t]||css.su;};
+const colorOf=g=>g.fam==='unident'?css.su:tribeColor(g.tribe);
+
+// ---------- state ----------
+const st={year:1805,mode:'guess',level:'band',playing:false,speed:6,sel:null,selBand:null,mark:false,camps:false,seasons:false,rounds:false,unc:false,fade:10,halo:true,settle:true,borders:true,labels:true,color:'family'};
+try{const m=localStorage.getItem('campus.mode');if(m==='evid'||m==='guess')st.mode=m;const l=localStorage.getItem('campus.level');if(['tribe','div','band'].includes(l))st.level=l;const c=localStorage.getItem('campus.colorby');if(c==='people'||c==='family')st.color=c;}catch(e){}
+
+// ---------- projection & basemap ----------
+let W=0,H=0,DPR=1,proj,path,base,scaleK=1;
+// View: zoom factor and the geographic point at the centre of the plate. Every overlay draws through proj, so it follows.
+const ZMAX=10;let VIEW={k:1,c:null},S0=1,T0=[0,0],zoomK=1;
+const extent=d3.geoGraticule().extent([[-115.5,27.6],[-88.5,55.2]]).outline();
+function layout(){
+  W=plate.clientWidth; proj=d3.geoConicEqualArea().parallels([33,52]).rotate([102,0]);
+  proj.fitWidth(W,extent); const b=d3.geoPath(proj).bounds(extent); H=Math.ceil(b[1][1]-b[0][1]);
+  proj.fitExtent([[2,2],[W-2,H-2]],extent);S0=proj.scale();T0=proj.translate();
+  applyView();
+  DPR=Math.min(2,window.devicePixelRatio||1);
+  canvas.width=W*DPR;canvas.height=H*DPR;canvas.style.height=H+'px';
+  scaleK=0.2*Math.max(.75,W/900);
+  drawBase();
+}
+function applyView(){
+  proj.scale(S0*VIEW.k).translate(T0);
+  if(VIEW.k>1&&VIEW.c){const q=proj(VIEW.c),t=proj.translate();proj.translate([t[0]+W/2-q[0],t[1]+H/2-q[1]]);}
+  clampView();zoomK=VIEW.k;syncZoomUI();}
+function clampView(){ // keep the sheet covering the plate
+  const b=d3.geoPath(proj).bounds(extent),t=proj.translate();let dx=0,dy=0;
+  if(b[1][0]-b[0][0]<=W)dx=(W-(b[0][0]+b[1][0]))/2;else if(b[0][0]>0)dx=-b[0][0];else if(b[1][0]<W)dx=W-b[1][0];
+  if(b[1][1]-b[0][1]<=H)dy=(H-(b[0][1]+b[1][1]))/2;else if(b[0][1]>0)dy=-b[0][1];else if(b[1][1]<H)dy=H-b[1][1];
+  proj.translate([t[0]+dx,t[1]+dy]);VIEW.c=VIEW.k>1?proj.invert([W/2,H/2]):null;}
+let zRAF=0;function redrawView(){if(zRAF)return;zRAF=requestAnimationFrame(()=>{zRAF=0;drawBase();frame();});}
+function zoomAt(px,py,f){
+  const k1=Math.max(1,Math.min(ZMAX,VIEW.k*f));if(Math.abs(k1-VIEW.k)<1e-6)return;
+  const g=proj.invert([px,py]);VIEW.k=k1;proj.scale(S0*k1);
+  const q=proj(g),t=proj.translate();proj.translate([t[0]+px-q[0],t[1]+py-q[1]]);
+  clampView();zoomK=VIEW.k;syncZoomUI();tip.hidden=true;redrawView();}
+function panBy(dx,dy){if(VIEW.k<=1)return;const t=proj.translate();proj.translate([t[0]+dx,t[1]+dy]);clampView();redrawView();}
+function zoomTo(lat,lon,k){VIEW.k=Math.max(1,Math.min(ZMAX,k));VIEW.c=[lon,lat];applyView();tip.hidden=true;redrawView();}
+function resetView(){VIEW={k:1,c:null};proj.scale(S0).translate(T0);zoomK=1;syncZoomUI();tip.hidden=true;redrawView();}
+function syncZoomUI(){const zi=$('zin'),zo=$('zout'),zr=$('zreset');if(!zi)return;zi.disabled=VIEW.k>=ZMAX-1e-6;zo.disabled=zr.disabled=VIEW.k<=1+1e-6;
+  plate.classList.toggle('zoomed',VIEW.k>1+1e-6);}
+let hintT=0;function zoomHint(msg){const el=$('zoomhint');el.textContent=msg;el.hidden=false;clearTimeout(hintT);hintT=setTimeout(()=>el.hidden=true,1400);}
+function drawBase(){
+  base=document.createElement('canvas');base.width=W*DPR;base.height=H*DPR;
+  const c=base.getContext('2d');c.setTransform(DPR,0,0,DPR,0,0);
+  const p=d3.geoPath(proj,c);
+  c.fillStyle=css.sea;c.fillRect(0,0,W,H);
+  c.beginPath();p(GEO.land);c.fillStyle=css.land;c.fill();
+  c.beginPath();p(GEO.lakes);c.fillStyle=css.lake;c.fill();
+  if(st.borders){c.beginPath();p(GEO.states);c.setLineDash([3,3]);c.strokeStyle=css.border;c.lineWidth=.7;c.stroke();c.setLineDash([]);}
+  c.lineCap='round';c.lineJoin='round';
+  const rv=GEO.rivers.slice().sort((a,b)=>b.r-a.r);
+  for(const r of rv){c.beginPath();p(r.g);c.strokeStyle=css.river;c.globalAlpha=r.r<=4?.95:r.r<=7?.8:.55;c.lineWidth=r.r<=1?1.8:r.r<=4?1.4:r.r<=7?1.0:.6;c.stroke();}
+  c.globalAlpha=1;
+  // graticule every 5 degrees, labelled inside the neatline
+  const gs=zoomK>=4?1:zoomK>=2?2.5:5;const grat=d3.geoGraticule().extent([[-125,22.5],[-80,60]]).step([gs,gs]);
+  c.beginPath();p(grat());c.strokeStyle=css.border;c.lineWidth=.45;c.globalAlpha=.55;c.setLineDash([1,3]);c.stroke();c.setLineDash([]);c.globalAlpha=1;
+  c.font='9.5px "IBM Plex Mono", ui-monospace, monospace';c.fillStyle=css['ink-3'];
+  // labels where each line meets the left and bottom edges of what is in view
+  const edgeLon=(la,x)=>{let best=null,bd=1e9;for(let lo=-125;lo<=-80;lo+=.1){const q=proj([lo,la]);if(!q)continue;const d=Math.abs(q[0]-x);if(d<bd){bd=d;best=q;}}return bd<3?best:null;};
+  const edgeLat=(lo,y)=>{let best=null,bd=1e9;for(let la=22;la<=60;la+=.05){const q=proj([lo,la]);if(!q)continue;const d=Math.abs(q[1]-y);if(d<bd){bd=d;best=q;}}return bd<3?best:null;};
+  const gstep=zoomK>=4?1:zoomK>=2?2.5:5;
+  for(let la=25;la<=60;la+=gstep){const q=VIEW.k>1?edgeLon(la,4):proj([-114.6,la]);if(q&&q[1]>70&&q[1]<H-40){c.textAlign='left';c.fillText(la+'°N',q[0]+2,q[1]-3);}}
+  for(let lo=-125;lo<=-80;lo+=gstep){const q=VIEW.k>1?edgeLat(lo,H-48):proj([lo,28.6]);if(q&&q[0]>40&&q[0]<W-150){c.textAlign='center';c.fillText(Math.abs(lo)+'°W',q[0],q[1]-4);}}
+  // scale bar at 40°N (equal-area conic: scale varies a few percent across the sheet)
+  {const cc=proj.invert([W/2,H/2]);const per=kmToPx(cc[1],cc[0],1);const unit=[5,10,20,25,50,100,200,250,500].find(u=>u*per>=30)||100;const steps=[0,unit,2*unit,3*unit];const x0=14,y0=H-34,hh=4;
+   c.lineWidth=1;c.strokeStyle=css['ink-2'];
+   for(let i=0;i<3;i++){c.fillStyle=i%2?css.plate:css['ink-2'];c.fillRect(x0+steps[i]*per,y0,unit*per,hh);c.strokeRect(x0+steps[i]*per,y0,unit*per,hh);}
+   c.fillStyle=css['ink-2'];c.textAlign='center';c.font='10px "IBM Plex Mono", ui-monospace, monospace';
+   for(const k of steps)c.fillText(k===3*unit?k+' km':String(k),x0+k*per,y0-3);
+   c.textAlign='left';c.font='italic 10.5px "Old Standard TT", Georgia, serif';c.fillStyle=css['ink-3'];
+   c.fillText('Albers equal-area conic, standard parallels 33° and 52° N · coasts, rivers and borders: Natural Earth',x0,y0+16);}
+  // a few river names, in italic, for orientation
+  const names=[['Missouri',-100.0,46.1,-62],['Platte',-99.2,40.85,-8],['Arkansas',-99.6,38.0,6],['Yellowstone',-106.0,46.6,-20],['Red',-97.2,33.85,-6],['Saskatchewan',-104.8,53.15,-8],['Mississippi',-91.2,40.5,-80],['Kansas',-96.6,39.25,0]];
+  c.font='italic 11px "Old Standard TT", Georgia, serif';c.fillStyle=css.river;c.textAlign='center';
+  for(const [n,lo,la,rot] of names){const q=proj([lo,la]);if(!q)continue;c.save();c.translate(q[0],q[1]);c.rotate(rot*Math.PI/180);c.fillText(n,0,0);c.restore();}
+}
+
+// ---------- interpolation ----------
+function hash(s){let h=2166136261;for(let i=0;i<s.length;i++){h^=s.charCodeAt(i);h=Math.imul(h,16777619);}return (h>>>0)/4294967295;}
+function hermPos(arr,y){ const n=arr.length; if(y<=arr[0][0])return [arr[0][1],arr[0][2]]; if(y>=arr[n-1][0])return [arr[n-1][1],arr[n-1][2]];
+  let i=1;while(arr[i][0]<y)i++; const a=arr[i-1],b=arr[i],h=b[0]-a[0],t=(y-a[0])/h;
+  const tan=(k,c)=>{const s1=k>0?(arr[k][c]-arr[k-1][c])/(arr[k][0]-arr[k-1][0]):null,s2=k<n-1?(arr[k+1][c]-arr[k][c])/(arr[k+1][0]-arr[k][0]):null;
+    if(s1==null)return s2;if(s2==null)return s1;if(s1*s2<=0)return 0;const m=(s1+s2)/2;return Math.sign(m)*Math.min(Math.abs(m),3*Math.min(Math.abs(s1),Math.abs(s2)));};
+  const t2=t*t,t3=t2*t,h00=2*t3-3*t2+1,h10=t3-2*t2+t,h01=-2*t3+3*t2,h11=t3-t2;
+  const f=c=>h00*a[c]+h10*h*tan(i-1,c)+h01*b[c]+h11*h*tan(i,c); return [f(1),f(2)];}
+function annual(arr,y){const k=Math.max(0,Math.min(arr.length-1,y-Y0));const i=Math.floor(k),j=Math.min(arr.length-1,i+1),t=k-i;return [arr[i],arr[j],t];}
+function popAt(tr,y){const [a,b,t]=annual(tr.pa,y);return Math.exp(Math.log(a)+t*(Math.log(b)-Math.log(a)));}
+function sdAt(tr,y){const [a,b,t]=annual(tr.sd,y);return (a+t*(b-a))/100;}
+function spAt(tr,y){const [a,b,t]=annual(tr.sp,y);return a+t*(b-a);}
+function nyAt(tr,y){const [a,b,t]=annual(tr.ny,y);return a+t*(b-a);}
+// Seasonal profile shared with the build: -1 on the winter ground, +1 on the summer ground, smooth ramps between.
+const PROF=D.prof||[.2,.5,.65,.9];const ss=x=>x*x*(3-2*x);
+function seasonOf(y){const f=((y%1)+1)%1,[a,b,c,d]=PROF;if(!D.prof)return Math.cos(2*Math.PI*(f-.55));if(f<a||f>=d)return -1;if(f<b)return -1+2*ss((f-a)/(b-a));if(f<c)return 1;return 1-2*ss((f-c)/(d-c));}
+// Seasonal round: the track is the annual centre; a division stands at centre + season(y)·A(y), where A is half the step from its
+// winter ground to its summer ground (km east, km north), fitted to its season-dated places or taken from the literature.
+function svAt(tr,y){if(!tr.sv)return [0,0];const k=Math.max(0,Math.min(tr.sv.length-1,y-Y0)),i=Math.floor(k),j=Math.min(tr.sv.length-1,i+1),t=k-i;
+  return [tr.sv[i][0]+t*(tr.sv[j][0]-tr.sv[i][0]),tr.sv[i][1]+t*(tr.sv[j][1]-tr.sv[i][1])];}
+function seasonalShift(gid,y){const tr=D.tracks[gid];if(!st.seasons||!tr||!tr.sv)return [0,0];const a=svAt(tr,y),s=seasonOf(y)*roamF(gid,y);return [a[0]*s,a[1]*s];}
+function centre(gid,y){let [lat,lon]=hermPos(D.tracks[gid].pos,y);const [e,nn]=seasonalShift(gid,y);return [lat+nn/111,lon+e/(111*Math.cos(lat*Math.PI/180))];}
+function spSeason(gid,y){const tr=D.tracks[gid];let s=spAt(tr,y);if(st.seasons&&tr.svd){const k=Math.max(0,Math.min(tr.svd.length-1,Math.round(y-Y0))),f=seasonOf(y)*roamF(gid,y);s=Math.sqrt(s*s+Math.pow(1.46*f*tr.svd[k],2))*(D.shalo||1);}return s;}
+function groupState(gid,y){const tr=D.tracks[gid];const [lat,lon]=centre(gid,y);return {lat,lon,pop:popAt(tr,y),sd:sdAt(tr,y),sp:spSeason(gid,y)};}
+const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
+function monthName(y){const f=((y%1)+1)%1;return MONTHS[Math.min(11,Math.floor(f*12))];}
+function kmToPx(lat,lon,km){const a=proj([lon,lat]),b=proj([lon,lat+1]);return Math.hypot(b[0]-a[0],b[1]-a[1])/111*km;}
+const ZG=()=>Math.pow(zoomK,.35);
+const R=p=>Math.max(2.4,scaleK*ZG()*Math.sqrt(p));
+const Rb=p=>Math.max(1.6,scaleK*ZG()*Math.sqrt(p));
+
+// ---------- bands: shares and placement (mirror of the build's band model) ----------
+const BS=D.bands||{};
+const clamp=(v,a=0,b=1)=>v<a?a:v>b?b:v;
+function rng(t,s,e,r){let a=1;if(s!=null)a=Math.min(a,clamp((t-s)/r));if(e!=null)a=Math.min(a,clamp((e-t)/r));return a;}
+function bandActs(sp,t,pop){const K=pop/sp.S,pre=sp.genonly||t<sp.Ly;let used=0,anyon=false;const a=[];
+  for(const u of sp.units){if(u.kind==='following'){a.push(rng(t,u.start,u.end,Math.min(.15,(u.end-u.start)/4)));continue;}
+    let v=rng(t,u.start,u.end,1.5);if(v>0&&pre){const cap=anyon?clamp((K-used)/u.w+.5):1;v=Math.min(v,cap);used+=u.w*v;}if(v>0)anyon=true;a.push(v);}
+  const gs=[];if(pre){const rem=K-used;for(let k=0;k<sp.maxgen;k++){let v=clamp(rem-k);if(k===0&&!anyon)v=1;if(v<=0)break;gs.push(v);}}
+  return [a,gs];}
+function bandMult(u,t){let m=1;if(u.mult){const [a,b,f]=annual(u.mult,t);m=a+f*(b-a);}for(const s of u.shocks)m*=1-s[1]*clamp((t-s[0])/s[2]);return m;}
+function bandShares(gid,t,pop){const sp=BS[gid];const [a,gs]=bandActs(sp,t,pop);const out=[];let tot=0;
+  sp.units.forEach((u,i)=>{if(a[i]>0){const r=u.w*a[i]*bandMult(u,t);tot+=r;out.push({u,i,a:a[i],r});}});
+  gs.forEach((v,j)=>{tot+=v;out.push({u:null,i:sp.units.length+j,j,a:v,r:v});});
+  for(const o of out)o.share=o.r/(tot||1);return out;}
+function trackBlend(tr,y){if(!tr||!tr.length)return null;const t0=tr[0][0],t1=tr[tr.length-1][0],fade=tr.length===1?.75:2;
+  const d=y<t0?t0-y:y>t1?y-t1:0,b=Math.max(0,1-d/fade);if(!b)return null;const p=hermPos(tr,y);return {b,lat:p[0],lon:p[1]};}
+// ---------- movement at band level: one plausible realization ----------
+// Calibrated on Mooney's Kiowa calendar (1833-68): summer sun-dance grounds moved a median 141 km from one
+// year to the next, winter camps 87 km, summer to the following winter 158 km. Shared (whole-division)
+// components use those scales; each band adds its own scatter. Specific sites are invented by a seeded
+// random draw, and winter camps are pulled onto the nearest river (timber, water, shelter).
+const MOV={sS:85,sW:52,band:40,hunt:50,sp:35,ann:30};
+const RES={bru:1878,ogl:1878,min:1877,hnk:1881,sih:1877,sna:1877,twk:1868,ynk:1859,yku:1873,ykl:1863,mde:1853,wpk:1853,wpt:1853,sis:1867,ass:1871,asn:1877,
+  cre:1876,crw:1876,crs:1883,ojb:1882,sik:1880,kai:1880,pik:1880,gv:1878,chn:1877,chs:1875,arn:1878,ars:1870,cwm:1882,cwr:1884,kio:1875,kap:1875,jic:1887,lip:1880,
+  cyy:1875,cyk:1875,cyp:1855,cyn:1875,cyq:1875,sho:1868,apc:1732,cyj:1795,chy:1832,ara:1835};
+// Village peoples' tribal hunts. s: documented summer hunting ground [lat,lon] (or b/d: bearing and distance by analogy);
+// win: winter mode ['toward', fraction of the way to the summer ground] | ['random', km] | ['local', km];
+// ph: [winter-hunt start, winter-hunt end, summer-hunt start, summer-hunt end] as fractions of the year; end: last hunt.
+const FLD='Fletcher & La Flesche, The Omaha Tribe (1911), pp. 99–101, 270–75; Dorsey, Omaha Sociology (1884), §129';
+const HUNT={
+  pwc:{s:[40.05,-99.75],sr:70,win:['toward',.65],ph:[.84,.16,.49,.67],end:1873.6,src:'Lehmer, “Plains Village Tradition: Postcontact”, Handbook 13 (2001), p. 248 (after Murie): in the earthlodges from late February or early March to late June; the summer hunt from the end of June to late August or early September, up the Platte to the upper Republican and the head of the Smoky Hill; harvest in September and October; the winter hunt west from early November. Grinnell, Pawnee Hero Stories (1889), pp. 270–76: the July 1872 hunt went south across the Republican to the Beaver'},
+  pwk:{s:[40.05,-99.75],sr:70,win:['toward',.65],ph:[.84,.16,.49,.67],end:1873.6,src:'as for the Chawi'},
+  pws:{s:[40.05,-99.75],sr:70,win:['toward',.65],ph:[.84,.16,.49,.67],end:1873.6,src:'as for the Chawi'},
+  oma:{s:[41.9,-98.6],sr:60,win:['toward',.5],ph:[.82,.12,.49,.67],end:1876,src:FLD+': the summer hunt left after the second hoeing and returned about 1 September; the fall hunt began in late October; hunting camps of 1840–55 lay on Beaver Creek, Cedar Creek and the Loup'},
+  pon:{s:[42.45,-99.1],sr:60,win:['random',50],ph:[.82,.12,.45,.62],end:1877,src:'Brown and Irwin, “Ponca”, Handbook 13 (2001), pp. 419, 425: gardens planted in spring, the tribal hunt in mid-summer for about two months, begun when the corn was a foot high, and a return to harvest in early fall; in late fall and winter individuals and small groups hunted informally. The 1859 summer hunt was at the headwaters of the Elkhorn'},
+  oto:{s:[40.1,-98.6],sr:60,win:['toward',.5],ph:[.82,.12,.52,.69],end:1876,src:'by analogy: Otoes joined the Pawnee summer hunt to the Republican in 1872 (Grinnell)'},
+  mis:{s:[40.1,-98.6],sr:60,win:['toward',.5],ph:[.82,.12,.52,.69],end:1830,src:'as for the Oto'},
+  iow:{b:250,d:150,sr:60,win:['random',40],ph:[.82,.12,.49,.67],end:1837,src:'Wedel, “Iowa”, Handbook 13 (2001), pp. 435–36: from the Des Moines villages the Iowa hunted west through the headwaters of the Grand and Chariton; winter lodges and tepees stood in protected places; the old summer tribal hunts were dying out before 1812. Season by analogy with the Omaha'},
+  kaw:{s:[38.6,-98.6],sr:60,fh:[.76,.88,.8],win:['random',60],ph:[.88,.27,.41,.63],end:1873.6,src:'Bailey and Young, “Kansa”, Handbook 13 (2001), p. 464: the summer hunt left soon after planting, west along the Smoky Hill (or south to join the Osage on the Arkansas and Salt Fork when Pawnee or Comanche were about) and returned in late summer for the harvest; after it the winter hunt went onto the plains, and at its end the people scattered over the prairie for the winter instead of returning. Morehouse (1908): the hunting trail ran to the forks of Cow Creek. The last hunt was in 1873'},
+  osg:{s:[36.75,-98.2],sr:70,fh:[.69,.95,.85],win:['bearing',135,160],ph:[.15,.29,.44,.62],end:1876,src:'Bailey, “Osage”, Handbook 13 (2001), pp. 479–80 (after Morse 1822 and Tixier): planting in April or May; the summer hunt from June to mid-August to the Cimarron, the Great Salt Plains or the great bend of the Arkansas; the fall hunt from September to December; back in the villages until February or March, then scattered in small camps from the Saint Francis to the Arkansas valley for deer, bear and pelts until April'},
+  osl:{s:[36.75,-98.2],sr:70,fh:[.69,.95,.85],win:['bearing',135,160],ph:[.15,.29,.44,.62],end:1876,src:'as for the Great Osage (Tixier travelled with both)'},
+  osa:{s:[36.4,-98.0],sr:70,fh:[.69,.95,.85],win:['bearing',110,120],ph:[.15,.29,.44,.62],end:1839,src:'as for the Great Osage'},
+  wic:{b:300,d:160,sr:60,win:['toward',.6],ph:[.84,.2],end:1875,src:'Newcomb, “Wichita”, Handbook 13 (2001), pp. 550, 552: the settlements were held through spring and summer and abandoned after the harvest for tepee hunting; La Harpe (1719) was told the Tawakoni left in November for the winter hunt and returned in March. Hunting ground by analogy'},
+  mde:{win:['random',70],ph:[.77,.04],end:1862,src:'Pond, “The Dakotas or Sioux in Minnesota as They Were in 1834” (Minn. Hist. Coll. 12, 1908): the deer hunt began in October, bands “started in different directions”, and returned in January'},
+  wpk:{win:['random',80],ph:[.77,.04],end:1862,src:'as for the Mdewakanton (Pond)'},
+  wpt:{win:['random',80],ph:[.77,.04],end:1862,src:'as for the Mdewakanton (Pond)'},
+  man:{b:270,d:60,sr:40,win:['local',5],ph:[.87,.17,.44,.62],end:1880,src:'Lehmer, “Plains Village Tradition: Postcontact”, Handbook 13 (2001), pp. 248–49: each village hunted on its own from early June, when the corn was knee-high, ranging far west and returning about mid-August; winter villages of small earthlodges in the timbered bottoms, many close to the main village, from mid-November to late February or early March. Maximilian: the Mandan winter village stood “about a league below Fort Clarke”. Wood and Irwin (Handbook 13, p. 349) place the hunting range to the west'},
+  hid:{b:270,d:60,sr:40,win:['local',8],ph:[.87,.17,.53,.62],end:1866,src:'Stewart, “Hidatsa”, Handbook 13 (2001), pp. 332–33 (after Bowers and Wilson): a village buffalo hunt in July–August lasting three or four weeks; winter camps a few miles off in wooded bottoms from mid-November to late February or early March. Direction and distance of the hunt ours'},
+  ari:{b:270,d:50,sr:30,win:['local',6],ph:[.84,.2,.53,.62],end:1866,src:'Parks, “Arikara”, Handbook 13 (2001), pp. 365, 368: winter villages in the Missouri bottomlands from late October or November; 19th-century communal hunts went no more than 40 miles from the villages. Summer season as for the Hidatsa'}};
+function rv(k){const u1=Math.max(1e-9,hash(k+'|a')),u2=hash(k+'|b'),r=Math.sqrt(-2*Math.log(u1));return [r*Math.cos(6.2832*u2),r*Math.sin(6.2832*u2)];}
+const sstep=t=>t*t*(3-2*t);
+const vadd=(...vs)=>vs.reduce((a,v)=>[a[0]+v[0],a[1]+v[1]],[0,0]),vmul=(v,k)=>[v[0]*k,v[1]*k];
+function phaseAt(K,f){let i=1;while(i<K.length-1&&K[i][0]<f)i++;const a=K[i-1],b=K[i],t=b[0]>a[0]?sstep(clamp((f-a[0])/(b[0]-a[0]))):0;return [a[1][0]+(b[1][0]-a[1][0])*t,a[1][1]+(b[1][1]-a[1][1])*t];}
+let RIV=null;
+function rivIndex(){if(RIV)return RIV;RIV={};for(const r of GEO.rivers){if(r.r>8)continue;for(const c of r.g.coordinates){const k=Math.floor(c[1])+','+Math.floor(c[0]);(RIV[k]=RIV[k]||[]).push([c[1],c[0]]);}}return RIV;}
+function snapRiver(lat,lon,maxKm){const I=rivIndex(),kx=111*Math.cos(lat*Math.PI/180);let best=null,bd=maxKm;
+  for(let a=-1;a<=1;a++)for(let b=-1;b<=1;b++){const L=I[(Math.floor(lat)+a)+','+(Math.floor(lon)+b)];if(!L)continue;
+    for(const p of L){const d=Math.hypot((p[0]-lat)*111,(p[1]-lon)*kx);if(d<bd){bd=d;best=p;}}}
+  return best||[lat,lon];}
+const roamF=(gid,t)=>{const r=RES[gid];return r==null||t<r?1:Math.max(.25,1-.75*(t-r)/3);};
+const dampF=(gid,t)=>clamp((nyAt(D.tracks[gid],t)-1)/8.6);
+const cBase=(gid,t)=>centre(gid,t);
+const SNAP=new Map();
+function toKm(c,p){return [(p[1]-c[1])*111*Math.cos(c[0]*Math.PI/180),(p[0]-c[0])*111];}
+function snapOff(gid,key,t,off,maxKm){const k=key+'|'+t;let v=SNAP.get(k);if(v)return v;const c=cBase(gid,t);
+  const lat=c[0]+off[1]/111,lon=c[1]+off[0]/(111*Math.cos(c[0]*Math.PI/180));v=toKm(c,snapRiver(lat,lon,maxKm));SNAP.set(k,v);return v;}
+function nomadOff(gid,id,Y,f,dir,rank){
+  const t0=Y+.1,dm=dampF(gid,t0),ro=roamF(gid,t0),ro1=roamF(gid,Y+1.1),dm1=dampF(gid,Y+1.1);
+  const Wsh=(YY,d,r)=>vmul(rv(gid+'w'+YY),MOV.sW*d*r),Gsh=vmul(rv(gid+'s'+Y),MOV.sS*dm*ro);
+  const ringW=vmul(dir,22*Math.sqrt(rank+.5)),ringS=vmul(dir,2.5*Math.sqrt(rank+.5));
+  if(!st.seasons){const A=YY=>{const d=dampF(gid,YY+.5),r=roamF(gid,YY+.5);return vadd(vmul(vadd(vmul(rv(gid+'w'+YY),MOV.sW*d*r),vmul(rv(gid+'s'+YY),MOV.sS*d*r)),.5),vmul(rv(id+'a'+YY),MOV.ann*r),vmul(dir,15*Math.sqrt(rank+.5)));};
+    const a=A(Y),b=A(Y+1),t=sstep(f);return [a[0]+(b[0]-a[0])*t,a[1]+(b[1]-a[1])*t];}
+  const W0=snapOff(gid,id+'W',Y,vadd(Wsh(Y,dm,ro),vmul(rv(id+'w'+Y),MOV.band*ro),ringW),60);
+  const W1=snapOff(gid,id+'W',Y+1,vadd(Wsh(Y+1,dm1,ro1),vmul(rv(id+'w'+(Y+1)),MOV.band*ro1),ringW),60);
+  const G=vadd(Gsh,ringS),Sp=vadd(vmul(vadd(W0,G),.5),vmul(rv(id+'p'+Y),MOV.sp*ro)),H=vadd(vmul(vadd(Gsh,Wsh(Y+1,dm1,ro1)),.5),vmul(rv(id+'h'+Y),MOV.hunt*ro),vmul(ringW,.5));
+  const [a,b,c,d]=PROF;return phaseAt([[0,W0],[a,W0],[(a+b)/2,Sp],[b,G],[c,G],[(c+d)/2,H],[d,W1],[1,W1]],f);}
+function villageOff(gid,id,Y,f,V){const h=HUNT[gid];if(!h||!st.seasons)return V;
+  const hr=t=>t<h.end?1:Math.max(0,1-(t-h.end)/2);
+  const tgt=YY=>{let o;if(h.s){o=toKm(cBase(gid,YY+.55),h.s);}else if(h.b!=null){o=[Math.sin(h.b*Math.PI/180)*h.d,Math.cos(h.b*Math.PI/180)*h.d];}else return null;
+    return vadd(o,vmul(rv(id+'vs'+YY),h.sr||60));};
+  const Wh=YY=>{const r=hr(YY+.9);if(!r)return V;const m=h.win[0];let o;
+    if(m==='local')o=vadd(V,vmul(rv(id+'vl'+YY),h.win[1]*.7));
+    else if(m==='random'){const a=hash(id+'vr'+YY)*6.2832,k=h.win[1]*(.6+.6*hash(id+'vk'+YY));o=vadd(V,[Math.cos(a)*k*r,Math.sin(a)*k*r]);}
+    else if(m==='bearing'){const B=h.win[1]*Math.PI/180;o=vadd(V,[Math.sin(B)*h.win[2]*r,Math.cos(B)*h.win[2]*r],vmul(rv(id+'vw'+YY),45*r));}
+    else{const T=tgt(YY);o=vadd(V,vmul(T,h.win[1]*r),vmul(rv(id+'vw'+YY),40*r));}
+    return m==='local'?o:snapOff(gid,id+'V',YY,o,40);};
+  const Sh=YY=>{const r=hr(YY+.55);const T=tgt(YY);if(!r||!T||h.ph.length<4)return V;return vadd(V,vmul(T,r));};
+  const p=h.ph,iv=[];
+  if(p[0]>p[1]){iv.push([p[0]-1,p[1],Wh(Y-1)],[p[0],1+p[1],Wh(Y)]);}else iv.push([p[0],p[1],Wh(Y)]);
+  if(p.length>=4)iv.push([p[2],p[3],Sh(Y)]);
+  if(h.fh){const T=tgt(Y),r=hr(Y+h.fh[0]);if(T&&r)iv.push([h.fh[0],h.fh[1],snapOff(gid,id+'F',Y,vadd(V,vmul(T,h.fh[2]*r),vmul(rv(id+'vf'+Y),40*r)),40)]);}
+  iv.sort((u,v)=>u[0]-v[0]);const e=.025;let K=[[-2,V]];
+  iv.forEach((q,i)=>{const pr=iv[i-1],nx=iv[i+1];
+    if(!pr||q[0]-pr[1]>2.4*e)K.push([q[0]-e,V]);K.push([q[0]+e,q[2]],[q[1]-e,q[2]]);
+    if(!nx||nx[0]-q[1]>2.4*e)K.push([q[1]+e,V]);});
+  K.push([3,V]);
+  return phaseAt(K,f);}
+function bandUnits(gid,y,s,sumr){const sp=BS[gid];const sh=bandShares(gid,y,s.pop);
+  const h=hash(gid)*6.283;let rank=0;const own={};const Y=Math.floor(y),f=y-Y;const c=cBase(gid,y);
+  const nomad=!sp.village&&!HUNT[gid];
+  for(const o of sh){const ang=o.i*2.39996+h,dir=[Math.cos(ang),Math.sin(ang)],id=o.u?o.u.id:gid+'#'+(o.j+1);
+    if(nomad)[o.dx,o.dy]=nomadOff(gid,id,Y,f,dir,rank);
+    else{const V=vmul(dir,(sp.village?sp.gap:15)*Math.sqrt(rank+.5));[o.dx,o.dy]=villageOff(gid,id,Y,f,V);}
+    rank+=o.a;if(o.u)own[o.u.id]=[o.dx,o.dy];}
+  const kx=111*Math.cos(c[0]*Math.PI/180);
+  return sh.map(o=>{let dx=o.dx,dy=o.dy;
+    if(o.a<1){const p=o.u&&o.u.into&&own[o.u.into]||[0,0];dx=p[0]+(dx-p[0])*o.a;dy=p[1]+(dy-p[1])*o.a;}
+    let lat=c[0]+dy/111,lon=c[1]+dx/kx;
+    if(o.u){const tb=trackBlend(o.u.track,y);if(tb){lat+=(tb.lat-lat)*tb.b;lon+=(tb.lon-lon)*tb.b;}}
+    return {o,lat,lon,pop:s.pop*o.share,id:o.u?o.u.id:gid+'#'+(o.j+1)};});}
+function unitName(gid,o){return o.u?o.u.name:BS[gid].gen;}
+const KINDTXT={band:'band named in an ethnographic list',village:'village',following:'a chief’s following in a documented episode'};
+function tribeItems(y){const by={};for(const g of D.groups){if(g.fam==='unident'||y<g.start||y>g.end)continue;const s=groupState(g.id,y);
+    const b=by[g.tribe]=by[g.tribe]||{tribe:g.tribe,fam:g.fam,pop:0,la:0,lo:0,sp:0,sd:0,gids:[]};b.pop+=s.pop;b.la+=s.lat*s.pop;b.lo+=s.lon*s.pop;b.sp+=s.sp*s.pop;b.sd+=s.sd*s.pop;b.gids.push(g.id);}
+  return Object.values(by).map(b=>({tribe:b.tribe,fam:b.fam,gids:b.gids,s:{lat:b.la/b.pop,lon:b.lo/b.pop,pop:b.pop,sp:b.sp/b.pop,sd:b.sd/b.pop}}));}
+function fmt(n){if(n==null)return '–';if(n>=1000)return (Math.round(n/100)*100).toLocaleString('en-US');if(n>=100)return (Math.round(n/10)*10).toLocaleString('en-US');return Math.round(n).toString();}
+function yrfmt(y){const yi=Math.floor(y);const f=y-yi;return f>0.01?(yi+(f<.25?' (winter)':f<.5?' (spring)':f<.75?' (summer)':' (autumn)')):String(yi);}
+
+// specific (division-level) observations by group, parts combined
+const specObs={};
+for(const o of D.obs){ if(o.agg)continue; const gid=o.g[0]; (specObs[gid]=specObs[gid]||[]).push(o); }
+const obsByGroupAll={};for(const o of D.obs){for(const gid of o.g)(obsByGroupAll[gid]=obsByGroupAll[gid]||[]).push(o);}
+const bandById={},bandObs={};for(const gid in BS)for(const u of BS[gid].units)bandById[u.id]=u;
+for(const o of D.obs)if(o.band)(bandObs[o.band]=bandObs[o.band]||[]).push(o);
+function combinedSpec(gid){const by={};for(const o of (specObs[gid]||[])){(by[o.y]=by[o.y]||[]).push(o);}
+  return Object.keys(by).map(Number).sort((a,b)=>a-b).map(y=>{const L=by[y];const w=L.filter(o=>o.pop);return {y,pop:w.length?w.reduce((s,o)=>s+o.pop,0):null,kind:L[0].kind};});}
+
+// ---------- drawing ----------
+let hits=[];
+function frame(){
+  const y=st.year;ctx.setTransform(DPR,0,0,DPR,0,0);ctx.clearRect(0,0,W,H);ctx.drawImage(base,0,0,W,H);
+  hits=[];
+  if(st.settle)drawSettle(y);
+  if(st.mode==='guess')drawGuess(y);else drawEvid(y);
+  $('yr').textContent=Math.floor(y);
+  $('yrsub').textContent=(st.mode==='guess'?'best guess':'evidence only')+(st.seasons&&st.mode==='guess'?' · '+monthName(y):'');
+  if(st.sel)updateDetailMarker();
+  syncMonths();
+  updateDensityMarker();
+  updatePeopleMarkers();
+}
+function drawSettle(y){
+  ctx.save();
+  // census towns
+  const di=Math.max(0,Math.min(11,(y-1790)/10));
+  for(const c of D.cities){const v=c[3];let first=v.findIndex(x=>x>0);if(first<0)continue;const fy=1790+first*10;if(y<fy)continue;
+    const i0=Math.floor(di),i1=Math.min(11,i0+1),t=di-i0;let a=v[i0]||0,b=v[i1]||0;if(!a)a=b;if(!b)b=a;const pop=a+(b-a)*t;if(!pop)continue;
+    const q=proj([c[2],c[1]]);if(!q)continue;const r=Math.min(7,1.3+Math.sqrt(pop)/55);
+    ctx.beginPath();ctx.arc(q[0],q[1],r,0,7);ctx.fillStyle=css['ink-3'];ctx.globalAlpha=.42;ctx.fill();ctx.globalAlpha=1;
+    hits.push({x:q[0],y:q[1],r:Math.max(r,4),pri:0,kind:'city',d:c,pop});}
+  for(const s of D.settle){const [name,kind,lat,lon,a,b]=s;if(y<a||y>b)continue;const q=proj([lon,lat]);if(!q)continue;
+    ctx.strokeStyle=css['ink-2'];ctx.fillStyle=css['ink-2'];ctx.lineWidth=1.1;const x=q[0],z=q[1];ctx.beginPath();
+    if(kind==='army'){ctx.rect(x-3,z-3,6,6);ctx.stroke();}
+    else if(kind==='trade'){ctx.moveTo(x,z-3.6);ctx.lineTo(x+3.6,z);ctx.lineTo(x,z+3.6);ctx.lineTo(x-3.6,z);ctx.closePath();ctx.stroke();}
+    else if(kind==='spanish'||kind==='french'){ctx.moveTo(x,z-3.6);ctx.lineTo(x+3.4,z+2.6);ctx.lineTo(x-3.4,z+2.6);ctx.closePath();ctx.fill();}
+    else {ctx.arc(x,z,2.6,0,7);ctx.fill();}
+    hits.push({x,y:z,r:5,pri:0,kind:'settle',d:s});}
+  ctx.restore();
+}
+function circle(x,y,r,fill,alpha,stroke,lw,dash){ctx.beginPath();ctx.arc(x,y,r,0,7);if(fill){ctx.globalAlpha=alpha;ctx.fillStyle=fill;ctx.fill();}
+  if(stroke){ctx.globalAlpha=1;ctx.setLineDash(dash||[]);ctx.strokeStyle=stroke;ctx.lineWidth=lw||1;ctx.stroke();ctx.setLineDash([]);}ctx.globalAlpha=1;}
+// Settlement state of a division at time y: 'v' fixed village, 'c' camp (moving), 'a' settled at an agency or reserve.
+const LIFE_SWITCH={chy:1790};   // Cheyenne leave their earth-lodge villages for the tipi about 1790 (Swanton; Grinnell)
+function settleState(gid,y){const g=G[gid];if(!g)return 'c';const life=g.life||'nomadic';
+  let village=life==='village'||(life.includes('→')&&y<(LIFE_SWITCH[gid]||1790));
+  if(village){const h=HUNT[gid];if(h&&st.seasons&&y<h.end+.5){const f=y-Math.floor(y),p=h.ph;
+      const winter=p[0]>p[1]?(f>=p[0]||f<=p[1]):(f>=p[0]&&f<=p[1]);const summer=p.length>=4&&f>=p[2]&&f<=p[3],fall=h.fh&&f>=h.fh[0]&&f<=h.fh[1];
+      if(winter||summer||fall)return 'c';}
+    return 'v';}
+  const r=RES[gid];if(r!=null&&y>=r+1)return 'a';return 'c';}
+function marker(x,y,r,state,fill,alpha,stroke,lw){
+  if(state==='v'){const h=r*.886,k=h*.35;ctx.beginPath();ctx.moveTo(x-h+k,y-h);ctx.arcTo(x+h,y-h,x+h,y+h,k);ctx.arcTo(x+h,y+h,x-h,y+h,k);ctx.arcTo(x-h,y+h,x-h,y-h,k);ctx.arcTo(x-h,y-h,x+h,y-h,k);ctx.closePath();
+    if(fill){ctx.globalAlpha=alpha;ctx.fillStyle=fill;ctx.fill();}ctx.globalAlpha=1;if(stroke){ctx.strokeStyle=stroke;ctx.lineWidth=lw||1;ctx.stroke();}return;}
+  circle(x,y,r,fill,alpha,stroke,lw);
+  if(state==='a'&&r>=3){ctx.beginPath();ctx.arc(x,y,Math.max(1.3,r*.32),0,7);ctx.fillStyle=css.plate;ctx.globalAlpha=.95;ctx.fill();ctx.globalAlpha=1;}}
+// The seasonal round of each nomadic division: its position sampled through the current year, which runs out
+// from the winter ground (filled dot) to the summer ground (open dot) and back.
+function drawRounds(y,divs){if(!st.seasons||st.level==='tribe')return;const Y=Math.floor(y);ctx.save();
+  for(const d of divs){const g=d.g,tr=D.tracks[g.id],sel=st.sel===g.id;if(!g.life.includes('nomadic')||!tr)continue;if(!sel&&!(st.rounds&&tr.sv))continue;
+    const pts=[];for(let k=0;k<=48;k++){const t=Y+k/48;if(t<g.start||t>g.end+1)continue;const [la,lo]=centre(g.id,Math.min(t,Y+.999));const q=proj([lo,la]);if(q)pts.push(q);}
+    if(pts.length<2)continue;const col=colorOf(g);
+    ctx.beginPath();pts.forEach((q,i)=>i?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]));
+    ctx.strokeStyle=col;ctx.globalAlpha=sel?.95:.45;ctx.lineWidth=sel?1.8:1;ctx.setLineDash(sel?[]:[2,3]);ctx.stroke();ctx.setLineDash([]);
+    const [a,b,c,e]=PROF;
+    for(const [t0,lab,fill] of [[(e+1+a)/2%1,'winter',true],[(b+c)/2,'summer',false]]){const [la,lo]=centre(g.id,Y+t0);const q=proj([lo,la]);if(!q)continue;
+      ctx.globalAlpha=sel?1:.6;ctx.beginPath();ctx.arc(q[0],q[1],sel?3.4:2.2,0,7);if(fill){ctx.fillStyle=col;ctx.fill();}else{ctx.fillStyle=css.plate;ctx.fill();ctx.strokeStyle=col;ctx.lineWidth=1.3;ctx.stroke();}}
+  }
+  ctx.restore();}
+function drawGuess(y){
+  const sv=st.seasons?seasonOf(y):-0.4, sumr=(sv+1)/2; // 0 winter .. 1 summer
+  const items=[],divs=[];
+  if(st.level==='tribe'){for(const T of tribeItems(y)){const q=proj([T.s.lon,T.s.lat]);if(!q)continue;
+      items.push({kind:'tribe',T,gid:null,g:{id:'T:'+T.tribe,tribe:T.tribe,fam:T.fam,life:'nomadic'},s:T.s,x:q[0],y:q[1]});}}
+  else for(const g of D.groups){ if(g.fam==='unident'||y<g.start||y>g.end)continue; const s=groupState(g.id,y); const q=proj([s.lon,s.lat]); if(!q)continue;
+    divs.push({g,s,x:q[0],y:q[1]});
+    if(st.level==='band'&&BS[g.id]){for(const b of bandUnits(g.id,y,s,sumr)){if(b.pop<2)continue;const qb=proj([b.lon,b.lat]);if(!qb)continue;
+        items.push({kind:'band',g,gid:g.id,b,s:{lat:b.lat,lon:b.lon,pop:b.pop,sd:s.sd,sp:s.sp},x:qb[0],y:qb[1]});}}
+    else items.push({kind:'group',g,gid:g.id,s,x:q[0],y:q[1]}); }
+  items.sort((a,b)=>b.s.pop-a.s.pop);
+  const R0=st.level==='band'?Rb:R;
+  drawRounds(y,divs);
+  if(st.unc){const src=st.level==='tribe'?items:divs;for(const it of src){const col=colorOf(it.g);const rr=kmToPx(it.s.lat,it.s.lon,it.s.sp);
+      const gr=ctx.createRadialGradient(it.x,it.y,0,it.x,it.y,rr);gr.addColorStop(0,col);gr.addColorStop(1,'rgba(0,0,0,0)');
+      ctx.globalAlpha=.12;ctx.fillStyle=gr;ctx.beginPath();ctx.arc(it.x,it.y,rr,0,7);ctx.fill();ctx.globalAlpha=1;}}
+  for(const it of items){
+    const col=colorOf(it.g);const isSel=it.kind==='tribe'?(st.sel&&it.T.gids.includes(st.sel)):st.sel===it.gid;
+    const bandSel=it.kind==='band'&&st.selBand===it.b.id;const sel=it.kind==='band'?bandSel:isSel;
+    const r=R0(it.s.pop);
+    const stt=it.kind==='tribe'?settleState(it.T.gids.reduce((a,b)=>popAt(D.tracks[b],y)>popAt(D.tracks[a],y)?b:a),y):settleState(it.gid,y);it.state=stt;
+    if(st.camps&&stt==='c'&&it.s.pop>300){
+      const nW=Math.min(40,Math.max(2,Math.round(it.s.pop/170)));const n=Math.max(1,Math.round(nW*(1-sumr)+sumr));const rc=R0(it.s.pop/n),h=hash(it.g.id+(it.b?it.b.id:''));
+      const spread=rc*(2.2+3*(1-sumr));
+      for(let k=0;k<n;k++){const ang=k*2.39996+h*6.28;const dist=n===1?0:spread*Math.sqrt(k+.5);
+        const cx=it.x+Math.cos(ang)*dist,cy=it.y+Math.sin(ang)*dist;circle(cx,cy,rc,col,.82,css.plate,1);}
+      hits.push({x:it.x,y:it.y,r:spread*Math.sqrt(n)+rc,pri:2,kind:it.kind,d:it});
+    }else{
+      const fol=it.kind==='band'&&it.b.o.u&&it.b.o.u.kind==='following';
+      marker(it.x,it.y,r,stt,col,it.kind==='band'&&!it.b.o.u?.5:.82,sel?css.ink:(fol?css.ink:css.plate),sel?2.2:(fol?1.4:(it.kind==='band'?.8:1.2)));
+      hits.push({x:it.x,y:it.y,r:r+3,pri:it.kind==='band'&&it.b.o.u?3:2,kind:it.kind,d:it});
+    }
+    if(st.unc&&!st.camps&&it.kind!=='band')circle(it.x,it.y,R0(it.s.pop*Math.exp(it.s.sd)),null,1,col,1,[2,3]);
+    if(st.mark){const ev=it.kind==='band'?(bandObs[it.b.id]||[]).some(o=>Math.abs(o.y-y)<=2):(it.kind==='tribe'?it.T.gids:[it.gid]).some(gid=>(obsByGroupAll[gid]||[]).some(o=>Math.abs(o.y-y)<=2));if(ev)circle(it.x,it.y,r+3.5,null,1,css.ink,1.2);}
+    if(sel||(isSel&&it.kind!=='band'))circle(it.x,it.y,r+5,null,1,css.ink,1.5,[3,2]);
+  }
+  if(st.level==='band'&&st.sel){const d=divs.find(d=>d.g.id===st.sel);if(d){ctx.save();ctx.globalAlpha=.6;circle(d.x,d.y,3,null,1,css.ink,1.2);ctx.restore();}}
+  if(st.labels){const boxes=[];const placed={};
+    ctx.font='600 12px "Alegreya Sans", system-ui, sans-serif';ctx.textBaseline='middle';
+    const L=st.level==='band'?divs.map(d=>({g:d.g,x:d.x,y:d.y,s:d.s})).sort((a,b)=>b.s.pop-a.s.pop):items;
+    for(const it of L){const t=it.g.tribe;const pr=placed[t]||[];if(pr.some(p=>Math.hypot(p[0]-it.x,p[1]-it.y)<150))continue;
+      const r=st.level==='band'?8:R0(it.s.pop),w=ctx.measureText(t).width,bx=it.x+r+4,by=it.y-7,bw=w+2,bh=14;
+      if(boxes.some(b=>bx<b[0]+b[2]&&bx+bw>b[0]&&by<b[1]+b[3]&&by+bh>b[1]))continue;
+      if(bx+bw>W-4)continue;boxes.push([bx,by,bw,bh]);(placed[t]=pr).push([it.x,it.y]);
+      ctx.lineWidth=3;ctx.strokeStyle=css.halo;ctx.strokeText(t,bx,it.y);ctx.fillStyle=css.ink;ctx.fillText(t,bx,it.y);}
+    if(st.level==='band'&&st.sel){ctx.font='12px "Alegreya Sans", system-ui, sans-serif';
+      for(const it of items){if(it.kind!=='band'||it.gid!==st.sel||!it.b.o.u)continue;const t=it.b.o.u.name.split(' — ')[0].split(' (')[0];const r=Rb(it.s.pop),w=ctx.measureText(t).width,bx=it.x+r+3,by=it.y-7;
+        if(bx+w>W-4||boxes.some(b=>bx<b[0]+b[2]&&bx+w>b[0]&&by<b[1]+b[3]&&by+14>b[1]))continue;boxes.push([bx,by,w,14]);
+        ctx.lineWidth=3;ctx.strokeStyle=css.halo;ctx.strokeText(t,bx,it.y);ctx.fillStyle=css['ink-2'];ctx.fillText(t,bx,it.y);}}
+  }
+  const tot=items.reduce((s,i)=>s+i.s.pop,0);
+  $('sumLabel').textContent='Estimated people shown';$('sumBig').textContent=fmt(tot);
+  const nb=items.filter(i=>i.kind==='band').length,nn=items.filter(i=>i.kind==='band'&&!i.b.o.u).length;
+  $('sumSmall').textContent=(st.level==='tribe'?items.length+' peoples':st.level==='band'?nb+' bands and villages ('+nn+' unnamed) in '+divs.length+' divisions':items.length+' divisions')+' · guesses informed by '+D.obs.filter(o=>Math.abs(o.y-y)<=5).length+' records within 5 years';
+}
+function drawEvid(y){
+  const vis=D.obs.filter(o=>o.y<=y+0.001&&o.y>y-st.fade).map(o=>({o,a:Math.max(.18,1-(y-o.y)/st.fade)}));
+  vis.sort((a,b)=>(b.o.pop||0)-(a.o.pop||0));
+  if(st.halo){for(const v of vis){const q=proj([v.o.lon,v.o.lat]);if(!q)continue;const q2=proj([v.o.lon,v.o.lat+1]);const pxkm=Math.hypot(q2[0]-q[0],q2[1]-q[1])/111;
+    const rr=v.o.r*pxkm;ctx.beginPath();ctx.arc(q[0],q[1],rr,0,7);ctx.globalAlpha=(.07*v.a+.02)*Math.min(1,(140/Math.max(v.o.r,1))**1.2);ctx.fillStyle=colorOf(G[v.o.g[0]]);ctx.fill();
+    ctx.globalAlpha=.35*v.a;ctx.setLineDash(v.o.loc==='inferred'?[2,3]:[]);ctx.strokeStyle=colorOf(G[v.o.g[0]]);ctx.lineWidth=.8;ctx.stroke();ctx.setLineDash([]);ctx.globalAlpha=1;}}
+  for(const v of vis){const o=v.o;const q=proj([o.lon,o.lat]);if(!q)continue;const col=colorOf(G[o.g[0]]);
+    if(o.pop==null){ctx.globalAlpha=v.a;ctx.strokeStyle=col;ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(q[0]-5,q[1]);ctx.lineTo(q[0]+5,q[1]);ctx.moveTo(q[0],q[1]-5);ctx.lineTo(q[0],q[1]+5);ctx.stroke();ctx.globalAlpha=1;
+      hits.push({x:q[0],y:q[1],r:7,pri:3,kind:'obs',d:o});continue;}
+    const r=R(o.pop);
+    if(o.agg||o.kind==='secondary'){ctx.globalAlpha=v.a;circle(q[0],q[1],r,null,1,col,2,o.kind==='secondary'?[5,4]:[]);ctx.globalAlpha=1;}
+    else circle(q[0],q[1],r,col,.85*v.a,css.plate,1);
+    if(st.sel&&o.g.includes(st.sel))circle(q[0],q[1],r+4,null,1,css.ink,1.5,[3,2]);
+    hits.push({x:q[0],y:q[1],r:r+3,pri:o.agg?1:3,kind:'obs',d:o});}
+  if(st.labels){const boxes=[];ctx.font='12px "Alegreya Sans", system-ui, sans-serif';ctx.textBaseline='middle';
+    for(const v of vis){if(v.a<.45)continue;const o=v.o;const q=proj([o.lon,o.lat]);const gg=G[o.g[0]];const nm=o.band&&bandById[o.band]?bandById[o.band].name.split(' — ')[0].split(' (')[0]:gg.fam==='unident'?gg.name.split(' (')[0]:gg.tribe;const t=(o.agg?nm+' (combined)':nm)+' '+Math.floor(o.y);
+      const r=o.pop?R(o.pop):5;const w=ctx.measureText(t).width;const bx=q[0]+r+3,by=q[1]-7;if(bx+w>W-4)continue;
+      if(boxes.some(b=>bx<b[0]+b[2]&&bx+w>b[0]&&by<b[1]+b[3]&&by+14>b[1]))continue;boxes.push([bx,by,w,14]);
+      ctx.globalAlpha=Math.min(1,v.a+.2);ctx.lineWidth=3;ctx.strokeStyle=css.halo;ctx.strokeText(t,bx,q[1]);ctx.fillStyle=css.ink;ctx.fillText(t,bx,q[1]);ctx.globalAlpha=1;}}
+  $('sumLabel').textContent='Records on the map';$('sumBig').textContent=vis.length;
+  const recent=vis.filter(v=>v.o.y>y-1).length;
+  $('sumSmall').textContent=recent?recent+' recorded this year; others fading over '+st.fade+' years':'none recorded this year; showing the last '+st.fade+' years';
+}
+
+// ---------- hover & select ----------
+const PICK={group:1,obs:1,band:1,tribe:1};
+function pick(mx,my){let best=null,bd=1e9;for(const h of hits){const d=Math.hypot(h.x-mx,h.y-my);if(d<=h.r+2){const score=d-h.pri*4-(PICK[h.kind]?0:-6);if(score<bd){bd=score;best=h;}}}return best;}
+function showTip(h,mx,my){let html='';
+  if(h.kind==='tribe'){const it=h.d;html=`<b>${it.T.tribe}</b><div class="meta">${it.T.gids.length} division${it.T.gids.length>1?'s':''} · best guess</div><div class="num">~${fmt(it.s.pop)} people</div><div class="meta">dot at the population-weighted centre of its divisions</div>`;}
+  else if(h.kind==='band'){const it=h.d,u=it.b.o.u,sp=BS[it.gid];
+    html=`<b>${u?u.name:sp.gen}</b>${u&&u.gloss?`<div class="meta"><i>${u.gloss}</i></div>`:''}<div class="meta">${it.g.name} · ${it.g.tribe}</div><div class="num">~${fmt(it.s.pop)} people</div><div class="meta">${u?(KINDTXT[u.kind]||'')+(u.chief?' · c. 1856 chief: '+u.chief:''):'unnamed: the number of bands follows population'}</div>`;}
+  else if(h.kind==='group'){const it=h.d;html=`<b>${it.g.name}</b><div class="meta">${it.g.tribe} · best guess</div><div class="num">~${fmt(it.s.pop)} people · likely ${fmt(it.s.pop*Math.exp(-it.s.sd))}–${fmt(it.s.pop*Math.exp(it.s.sd))}</div><div class="meta">place good to about ±${Math.round(it.s.sp/10)*10} km</div>`;}
+  else if(h.kind==='obs'){const o=h.d;const gg=G[o.g[0]];const who=o.band&&bandById[o.band]?bandById[o.band].name+' ('+gg.name+')':o.agg?gg.tribe+' (whole tribe)':gg.name;
+    html=`<b>${who}, ${Math.floor(o.y)}</b><div class="num">${o.pop!=null?fmt(o.pop)+' people':'place only'}${o.basis?' · '+o.basis:''}</div><div style="margin-top:4px">${o.raw}</div><div class="meta">${o.src}${o.kind==='secondary'?' · later reconstruction':''}${o.loc==='inferred'?' · place is our placement':''}</div>`;}
+  else if(h.kind==='city'){html=`<b>${h.d[0]}</b><div class="num">${fmt(h.pop)} (US census, interpolated)</div>`;}
+  else {const s=h.d;const k={army:'Military post',trade:'Trading post',spanish:'Spanish settlement',french:'French settlement',town:'Town'}[s[1]];
+    html=`<b>${s[0]}</b><div class="meta">${k} · ${s[4]}–${s[5]>=1905?'':s[5]}</div><div class="meta">${s[6]?'dates and place checked against '+s[6]:'standard date, recalled; not separately checked'}</div>`;}
+  tip.innerHTML=html;tip.hidden=false;const pw=plate.clientWidth;const tw=tip.offsetWidth,th=tip.offsetHeight;
+  let x=mx+14,y=my+14;if(x+tw>pw-6)x=mx-tw-14;if(y+th>H-6)y=my-th-14;tip.style.left=Math.max(4,x)+'px';tip.style.top=Math.max(4,y)+'px';}
+canvas.addEventListener('mousemove',e=>{if(plate.classList.contains('panning'))return;const r=canvas.getBoundingClientRect();const mx=e.clientX-r.left,my=e.clientY-r.top;const h=pick(mx,my);if(h)showTip(h,mx,my);else tip.hidden=true;canvas.style.cursor=h&&PICK[h.kind]?'pointer':(VIEW.k>1?'':'crosshair');});
+canvas.addEventListener('mouseleave',()=>tip.hidden=true);
+// zoom and pan: buttons, ctrl/⌘ + wheel (plain wheel scrolls the page), double-click, drag, two-finger pinch
+$('zin').addEventListener('click',()=>zoomAt(W/2,H/2,1.6));
+$('zout').addEventListener('click',()=>zoomAt(W/2,H/2,1/1.6));
+$('zreset').addEventListener('click',resetView);
+const isMac=/Mac|iPhone|iPad/.test(navigator.platform||'');if(isMac&&$('zkey'))$('zkey').textContent='⌘';
+canvas.addEventListener('wheel',e=>{
+  if(!(e.ctrlKey||e.metaKey)){if(Math.abs(e.deltaY)>4)zoomHint((isMac?'⌘':'Ctrl')+' + scroll to zoom the map');return;}
+  e.preventDefault();const r=canvas.getBoundingClientRect();zoomAt(e.clientX-r.left,e.clientY-r.top,Math.exp(-e.deltaY*(e.deltaMode===1?.05:.0025)));},{passive:false});
+canvas.addEventListener('dblclick',e=>{e.preventDefault();const r=canvas.getBoundingClientRect();zoomAt(e.clientX-r.left,e.clientY-r.top,e.shiftKey?1/2:2);});
+canvas.tabIndex=0;
+canvas.addEventListener('keydown',e=>{const step=60;
+  if(e.key==='+'||e.key==='='){zoomAt(W/2,H/2,1.6);e.preventDefault();}
+  else if(e.key==='-'||e.key==='_'){zoomAt(W/2,H/2,1/1.6);e.preventDefault();}
+  else if(e.key==='0'){resetView();e.preventDefault();}
+  else if(VIEW.k>1&&e.key.startsWith('Arrow')){panBy(e.key==='ArrowLeft'?step:e.key==='ArrowRight'?-step:0,e.key==='ArrowUp'?step:e.key==='ArrowDown'?-step:0);e.preventDefault();}});
+const PTR=new Map();let drag=null,pinch=null,suppressClick=false;
+canvas.addEventListener('pointerdown',e=>{PTR.set(e.pointerId,[e.clientX,e.clientY]);
+  if(PTR.size===2){const [a,b]=[...PTR.values()];pinch={d:Math.hypot(a[0]-b[0],a[1]-b[1]),m:[(a[0]+b[0])/2,(a[1]+b[1])/2]};drag=null;}
+  else if(PTR.size===1){drag={x:e.clientX,y:e.clientY,moved:0};}
+  if(VIEW.k>1||PTR.size===2){try{canvas.setPointerCapture(e.pointerId);}catch(_){}}});
+canvas.addEventListener('pointermove',e=>{if(!PTR.has(e.pointerId))return;const prev=PTR.get(e.pointerId);PTR.set(e.pointerId,[e.clientX,e.clientY]);
+  if(pinch&&PTR.size===2){const [a,b]=[...PTR.values()];const d=Math.hypot(a[0]-b[0],a[1]-b[1]),m=[(a[0]+b[0])/2,(a[1]+b[1])/2];const r=canvas.getBoundingClientRect();
+    if(VIEW.k>1)panBy(m[0]-pinch.m[0],m[1]-pinch.m[1]);zoomAt(m[0]-r.left,m[1]-r.top,d/(pinch.d||d));pinch={d,m};suppressClick=true;return;}
+  if(drag&&VIEW.k>1){const dx=e.clientX-prev[0],dy=e.clientY-prev[1];drag.moved+=Math.abs(dx)+Math.abs(dy);if(drag.moved>4){plate.classList.add('panning');tip.hidden=true;panBy(dx,dy);suppressClick=true;}}});
+const endPtr=e=>{PTR.delete(e.pointerId);if(PTR.size<2)pinch=null;if(PTR.size===0){drag=null;plate.classList.remove('panning');}};
+canvas.addEventListener('pointerup',endPtr);canvas.addEventListener('pointercancel',endPtr);
+canvas.addEventListener('click',e=>{if(suppressClick){suppressClick=false;return;}const r=canvas.getBoundingClientRect();const mx=e.clientX-r.left,my=e.clientY-r.top;const h=pick(mx,my);
+  if(h&&h.kind==='group')select(h.d.g.id);
+  else if(h&&h.kind==='band')select(h.d.gid,h.d.b.o.u?h.d.b.id:null);
+  else if(h&&h.kind==='tribe'){let best=h.d.T.gids[0],bp=-1;for(const gid of h.d.T.gids){const p=popAt(D.tracks[gid],st.year);if(p>bp){bp=p;best=gid;}}select(best);}
+  else if(h&&h.kind==='obs')select(h.d.g[0],h.d.band||null);
+  if(h&&e.pointerType!=='mouse')showTip(h,mx,my);});
+
+// ---------- detail panel ----------
+let detailMarker=null,detailX=null;
+function select(gid,bid){st.sel=gid;st.selBand=bid||null;renderDetail();renderMapLegend();frame();}
+function renderDetail(){
+  const el=$('detail');const gid=st.sel;if(!gid){el.innerHTML='<p class="eyebrow">Selected division</p><p class="empty">Select a dot on the map or a tribe below to see its estimate over time and every record behind it.</p>';return;}
+  const g=G[gid];const tr=D.tracks[gid];const obsAll=(obsByGroupAll[gid]||[]).slice().sort((a,b)=>a.y-b.y);
+  const w=300,h=150,ml=40,mr=8,mt=10,mb=22;
+  const spec=combinedSpec(gid).filter(o=>o.pop);
+  let maxp=1;if(tr){const s0=Math.max(g.start,Y0),e0=Math.min(g.end,Y1);for(let yy=s0;yy<=e0;yy++)maxp=Math.max(maxp,popAt(tr,yy)*Math.exp(sdAt(tr,yy)));}for(const o of spec)maxp=Math.max(maxp,o.pop);
+  const nice=d3.scaleLinear().domain([0,maxp]).nice(4);const yt=nice.ticks(4);const top=nice.domain()[1];
+  const x=v=>ml+(v-Y0)/(Y1-Y0)*(w-ml-mr),yv=v=>mt+(1-Math.min(v,top)/top)*(h-mt-mb);detailX=x;
+  let svg=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Population of ${g.name} over time">`;
+  for(const t of yt){svg+=`<line x1="${ml}" x2="${w-mr}" y1="${yv(t)}" y2="${yv(t)}" stroke="var(--rule)" stroke-width="1"/><text x="${ml-5}" y="${yv(t)+3.5}" text-anchor="end" font-size="10" font-family="IBM Plex Mono, monospace" fill="var(--ink-3)">${t>=1000?(t/1000)+'k':t}</text>`;}
+  for(const t of [1700,1750,1800,1850,1900])svg+=`<text x="${x(t)}" y="${h-6}" text-anchor="middle" font-size="10" font-family="IBM Plex Mono, monospace" fill="var(--ink-3)">${t}</text>`;
+  const myEpi=D.epi.filter(e=>e.m[gid]);
+  for(const e of myEpi){if(e.s<g.start||e.s>g.end)continue;svg+=`<rect x="${x(e.s)}" y="${mt}" width="${Math.max(1.5,x(e.e)-x(e.s))}" height="${h-mt-mb}" fill="var(--ink-3)" opacity=".16"><title>${e.label}: ${Math.round(e.m[gid]*100)}% mortality applied</title></rect>`;}
+  if(tr){const col=colorOf(g);const s0=Math.max(g.start,Y0),e0=Math.min(g.end,Y1);let up='',dn='',d='';
+    for(let yy=s0;yy<=e0;yy+=1){const p=popAt(tr,yy),sd=sdAt(tr,yy);d+=(d?'L':'M')+x(yy).toFixed(1)+','+yv(p).toFixed(1);up+=(up?'L':'M')+x(yy).toFixed(1)+','+yv(p*Math.exp(sd)).toFixed(1);dn=`L${x(yy).toFixed(1)},${yv(p*Math.exp(-sd)).toFixed(1)}`+dn;}
+    svg+=`<path d="${up}${dn.replace(/^L/,'L')}Z" fill="${col}" opacity=".16"/><path d="${d}" fill="none" stroke="${col}" stroke-width="2" stroke-linejoin="round"/>`;
+    for(const a of tr.anc){if(a[2]!=='g')continue;const X=x(a[0]),Yy=yv(a[1]);svg+=`<path d="M${X} ${Yy-4}L${X+4} ${Yy}L${X} ${Yy+4}L${X-4} ${Yy}Z" fill="var(--panel)" stroke="var(--ink-2)" stroke-width="1.2"><title>${Math.floor(a[0])}: our guess ${a[1].toLocaleString('en-US')}</title></path>`;}}
+  for(const o of spec){svg+=`<circle cx="${x(o.y)}" cy="${yv(o.pop)}" r="4" fill="${o.kind==='secondary'?'var(--panel)':'var(--ink)'}" stroke="${o.kind==='secondary'?'var(--ink)':'var(--panel)'}" stroke-width="1.5"><title>${Math.floor(o.y)}: ${o.pop.toLocaleString('en-US')} (documented)</title></circle>`;}
+  svg+=`<line id="dmark" x1="${x(st.year)}" x2="${x(st.year)}" y1="${mt}" y2="${h-mb}" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="2 2"/></svg>`;
+  const items=[];
+  for(const o of obsAll){const bn=o.band&&bandById[o.band]?' · '+bandById[o.band].name:'';items.push({y:o.y,html:`<span class="pill doc">${o.kind==='secondary'?'reconstruction':'record'}</span><span class="yr">${Math.floor(o.y)}</span>${o.pop!=null?'<span class="mono">'+o.pop.toLocaleString('en-US')+'</span> people'+(o.agg?' (whole tribe)':'')+(o.part&&!o.band?' (part)':'')+bn:'place only'+bn}${o.basis&&o.basis!=='souls'?' · '+o.basis:''}<br>${o.raw}<span class="src">${o.src}${o.loc==='inferred'?' · place is our placement':''}</span>`});}
+  for(const e of D.epi.filter(e=>e.m[gid]&&e.s>=g.start&&e.s<=g.end))items.push({y:e.s,html:`<span class="pill model">model</span><span class="yr">${Math.floor(e.s)}</span>${e.label}: ${Math.round(e.m[gid]*100)}% mortality applied<span class="src">${e.src} · ${e.basis}</span>`});
+  if(tr)for(const [yy,n] of tr.notes){const pp=popAt(tr,yy);items.push({y:yy,html:`<span class="pill ours">our guess</span><span class="yr">${Math.floor(yy)}</span><span class="mono">~${fmt(pp)}</span> · ${n}`});}
+  items.sort((a,b)=>a.y-b.y);
+  el.innerHTML=`<button class="close" id="dclose">Clear</button>${g.fam!=='unident'?'<button class="close" id="dzoom" style="margin-right:6px" title="Centre the map on this division and zoom in">Zoom to</button>':''}<p class="eyebrow">Selected division</p><h3>${g.name}</h3><div class="tribe">${g.tribe} · ${D.famname[g.fam]||'unidentified'}${g.fam!=='unident'?' · '+g.start+'–'+(g.end>=1905?'':g.end):''}</div>${(window.CM_PEOPLES||{})[g.tribe]?`<p class="pgist">${esc(window.CM_PEOPLES[g.tribe].gist)}</p><button class="plink" id="dpeople">About the ${esc(g.tribe)} ↓</button>`:''}${tr?svg:''}
+   <div class="small" style="font-size:12px">${tr?'Line and band: best guess with its likely range. Dark dots: documented counts. Hollow dots: later reconstructions. Diamonds: our guesses. Grey bands: epidemics.':'No best-guess track: this people could not be identified.'}</div>
+   ${seasonHTML(gid)}
+   ${structureHTML(gid)}
+   <p class="eyebrow" style="margin-top:12px">Records, model events and our notes</p>
+   <ul class="evlist">${items.map(i=>'<li>'+i.html+'</li>').join('')||'<li>No records for this division; see the tribe-wide totals.</li>'}</ul>`;
+  if($('dpeople'))$('dpeople').onclick=()=>{const c=document.getElementById(slug(g.tribe));if(c){document.querySelectorAll('.pcard.on').forEach(x=>x.classList.remove('on'));c.classList.add('on');c.scrollIntoView({behavior:'smooth',block:'start'});}};
+  $('dclose').onclick=()=>{st.sel=null;st.selBand=null;renderDetail();renderMapLegend();frame();};
+  if($('dzoom'))$('dzoom').onclick=()=>{const s=groupState(gid,st.year);zoomTo(s.lat,s.lon,Math.max(VIEW.k,4));document.getElementById('plate').scrollIntoView({behavior:'smooth',block:'nearest'});};
+  el.querySelectorAll('path[data-sb]').forEach(p=>p.onclick=()=>{st.selBand=p.dataset.sb;if(st.level!=='band')setLevel('band');renderDetail();frame();});
+  el.querySelectorAll('button[data-b]').forEach(b=>b.onclick=()=>{st.selBand=st.selBand===b.dataset.b?null:b.dataset.b;if(st.selBand&&st.level!=='band')setLevel('band');renderDetail();frame();});
+}
+function updateDetailMarker(){for(const id of ['dmark','smark']){const m=document.getElementById(id);if(m&&detailX){const v=detailX(st.year);m.setAttribute('x1',v);m.setAttribute('x2',v);}}}
+function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+const COMPASS=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
+function seasonHTML(gid){const g=G[gid],tr=D.tracks[gid];if(!tr||!g.life.includes('nomadic'))return '';
+  const y=Math.round(Math.min(Math.max(st.year,g.start),g.end)),a=svAt(tr,y),d=2*Math.hypot(a[0],a[1]),c=tr.svs?tr.svs[y-Y0]:'0';
+  let txt;if(!tr.sv||d<20||c==='0')txt='No seasonal pattern of its own in '+y+': no season-dated places near this year and nothing in the literature read; only the bands’ scatter moves with the seasons.';
+  else{const brg=(Math.atan2(a[0],a[1])*180/Math.PI+360)%360,dir=COMPASS[Math.round(brg/22.5)%16];const pr=(D.seaspri[gid]||[]).find(r=>r[0]<=y&&y<=r[1]);
+    txt=`In ${y} the summer ground lies about ${Math.round(d/10)*10} km ${dir} of the winter ground. `+(c==='d'?'Fitted to this division’s own places dated to a season.':'From the literature'+(pr?`: ${esc(pr[3])}.`:'.'));}
+  return `<p class="small" style="font-size:12px;margin-top:8px"><b>Seasonal round.</b> ${txt}</p>`;}
+function structureHTML(gid){const sp=BS[gid],g=G[gid],tr=D.tracks[gid];const sx=D.struct[g.tribe];
+  let html=`<div class="struct"><p class="eyebrow">Internal structure</p>`;
+  if(sx&&sx[0])html+=`<p>${sx[0]} <span style="color:var(--ink-3)">(${sx[1]})</span></p>`;
+  if(!sp||!tr){html+=`<p>No band list for this division in the sources read; at the bands level it is drawn as one dot.</p></div>`;return html;}
+  const s0=Math.max(g.start,Y0),e0=Math.min(g.end,Y1),yrs=[];for(let yy=s0;yy<=e0;yy++)yrs.push(yy);
+  const nU=sp.units.length,M=sp.units.map(()=>new Float64Array(yrs.length)),Ug=new Float64Array(yrs.length);let maxp=1;
+  yrs.forEach((yy,k)=>{const p=popAt(tr,yy);maxp=Math.max(maxp,p);for(const o of bandShares(gid,yy,p)){if(o.u)M[o.i][k]=p*o.share;else Ug[k]+=p*o.share;}});
+  const w=300,h=128,ml=40,mr=8,mt=6,mb=18;const x=v=>ml+(v-Y0)/(Y1-Y0)*(w-ml-mr);
+  const sc=d3.scaleLinear().domain([0,maxp]).nice(3),top=sc.domain()[1],yv=v=>mt+(1-v/top)*(h-mt-mb);
+  let svg=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Band composition of ${esc(g.name)} over time">`;
+  for(const t of sc.ticks(3))svg+=`<line x1="${ml}" x2="${w-mr}" y1="${yv(t)}" y2="${yv(t)}" stroke="var(--rule)"/><text x="${ml-5}" y="${yv(t)+3.5}" text-anchor="end" font-size="10" font-family="IBM Plex Mono, monospace" fill="var(--ink-3)">${t>=1000?(t/1000)+'k':t}</text>`;
+  for(const t of [1700,1750,1800,1850,1900])if(t>=s0-10&&t<=e0+10)svg+=`<text x="${x(t)}" y="${h-5}" text-anchor="middle" font-size="10" font-family="IBM Plex Mono, monospace" fill="var(--ink-3)">${t}</text>`;
+  const base=new Float64Array(yrs.length);const col=colorOf(g);
+  const layer=(vals,fill,op,title,dash,id)=>{let up='',dn='';let any=false;yrs.forEach((yy,k)=>{const b0=base[k],b1=b0+vals[k];if(vals[k]>0)any=true;up+=(up?'L':'M')+x(yy).toFixed(1)+','+yv(b1).toFixed(1);dn='L'+x(yy).toFixed(1)+','+yv(b0).toFixed(1)+dn;base[k]=b1;});
+    if(!any)return '';return `<path d="${up}${dn}Z" fill="${fill}" opacity="${op}" stroke="var(--panel)" stroke-width=".6"${dash?' stroke-dasharray="2 2"':''}${id?` data-sb="${id}" style="cursor:pointer"`:''}><title>${esc(title)}</title></path>`;};
+  sp.units.forEach((u,i)=>{svg+=layer(M[i],col,st.selBand===u.id?.95:(i%2?.34:.58),u.name+(u.gloss?' — '+u.gloss:''),u.kind==='following',u.id);});
+  svg+=layer(Ug,'var(--ink-3)',.3,sp.gen+' (unnamed; count follows population)');
+  svg+=`<line id="smark" x1="${x(st.year)}" x2="${x(st.year)}" y1="${mt}" y2="${h-mb}" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="2 2"/></svg>`;
+  html+=svg+`<div class="small" style="font-size:12px">Stacked: each layer is one named unit, in list order; grey is unnamed bands or villages, whose number follows population before the list year. Click a layer or a name.</div>`;
+  html+=`<p><b>Names:</b> ${esc(sp.src)}${sp.Ly?' — list year '+Math.floor(sp.Ly):''}. ${esc(sp.note)}</p>`;
+  if(st.selBand&&bandById[st.selBand]&&st.selBand.startsWith(gid+'.')){const u=bandById[st.selBand];const i=sp.units.indexOf(u);
+    let pk=0,py=null,fy=null,ly=null;yrs.forEach((yy,k)=>{const v=M[i][k];if(v>1){if(fy==null)fy=yy;ly=yy;}if(v>pk){pk=v;py=yy;}});
+    const now=(bandShares(gid,st.year,popAt(tr,st.year)).find(o=>o.u===u)||{}).share;
+    const recs=(bandObs[u.id]||[]).slice().sort((a,b)=>a.y-b.y);
+    html+=`<div class="bcard"><h4>${esc(u.name)}</h4>${u.gloss?`<div style="color:var(--ink-2)"><i>${esc(u.gloss)}</i></div>`:''}
+      <div class="small">${KINDTXT[u.kind]||''}${fy!=null?' · on the map '+(fy<=s0?'from the start':'from '+fy)+(ly>=e0?'':' to '+ly):''}${pk?' · peak ~'+fmt(pk)+' ('+py+')':''}${now?' · now ~'+fmt(now*popAt(tr,st.year)):''}</div>
+      ${u.chief?`<div class="small">Hayden’s list (c. 1856): chief ${esc(u.chief)}</div>`:''}${u.note?`<p>${esc(u.note)}</p>`:''}
+      ${u.track.length||u.shocks.length||recs.length?'<ul>'+[...recs.map(o=>[o.y,`<span class="pill doc">record</span>${o.pop!=null?'<span class="mono">'+o.pop.toLocaleString('en-US')+'</span> · ':''}${esc(o.raw)} <span style="color:var(--ink-3)">${esc(o.src)}</span>`]),
+        ...u.track.filter(t=>t[3]).map(t=>[t[0],`<span class="pill ${u.tdoc||u.tchk?'doc':'ours'}">${u.tdoc?'place, sourced':u.tchk?'place, checked':'place, recalled'}</span>${esc(t[3])}`]),...u.shocks.map(t=>[t[0],`<span class="pill model">model</span>${Math.round(t[1]*100)}% of the band lost: ${esc(t[3])}`])].sort((a,b)=>a[0]-b[0]).map(([yy,t])=>`<li><span class="mono">${Math.floor(yy)}</span> ${t}</li>`).join('')+'</ul>':''}
+      ${u.track.length?`<div class="small" style="font-size:12px;color:var(--ink-3)">${u.tchk?'Places checked against '+esc(u.tchk)+'.':'Places recalled from standard histories; not checked.'}</div>`:''}</div>`;}
+  html+=`<ol class="blist">${sp.units.map((u,i)=>{let pk=0;for(let k=0;k<yrs.length;k++)pk=Math.max(pk,M[i][k]);
+    return `<li class="${st.selBand===u.id?'on':''}"><button data-b="${u.id}">${esc(u.name)}${u.gloss?' <span class="bg">'+esc(u.gloss)+'</span>':''}</button><span class="bp">${pk?'max ~'+fmt(pk):'–'}</span>
+      <div class="bm">${u.kind==='following'?'chief’s following, '+Math.floor(u.start)+'–'+Math.floor(u.end):u.kind==='village'?'village':'band'}${u.start&&u.kind!=='following'?' · from '+Math.floor(u.start):''}${u.end&&u.kind!=='following'?' · until '+Math.floor(u.end):''}${u.into?' · '+(u.end?'merges into ':'offshoot of ')+esc(bandById[u.into].name):''}${u.chief?' · c. 1856: '+esc(u.chief):''}${u.track.length?' · has places':''}${(bandObs[u.id]||[]).length?' · has records':''}</div></li>`;}).join('')}</ol></div>`;
+  return html;}
+
+
+// ---------- the peoples ----------
+function tribeGroups(t){return D.groups.filter(g=>g.tribe===t&&g.fam!=='unident');}
+function tribePop(t,y){let p=0,v=0;const gs=tribeGroups(t);
+  for(const g of gs){if(y<g.start||y>g.end||!D.tracks[g.id])continue;if(g.end===y&&gs.some(h=>h.start===y&&h!==g))continue;const q=popAt(D.tracks[g.id],y),sd=sdAt(D.tracks[g.id],y);p+=q;v+=Math.pow(q*sd,2);}
+  return p?{p,lo:Math.max(0,p-Math.sqrt(v)),hi:p+Math.sqrt(v)}:null;}
+function slug(t){return 'people-'+t.toLowerCase().replace(/[^a-z]+/g,'-');}
+function pickDiv(t){const c=tribeGroups(t);let best=c.find(g=>st.year>=g.start&&st.year<=g.end)||c[0],bp=-1;
+  for(const g of c){if(st.year>=g.start&&st.year<=g.end&&D.tracks[g.id]){const p=popAt(D.tracks[g.id],st.year);if(p>bp){bp=p;best=g;}}}return best;}
+let PX=null;
+function renderPeoples(){const P=window.CM_PEOPLES||{};const el=$('pgrid');if(!el)return;let html='';
+  const w=360,h=64,ml=4,mr=4,mt=4,mb=14;PX=v=>ml+(v-Y0)/(Y1-Y0)*(w-ml-mr);
+  for(const f of FAMS){const tribes=[...new Set(D.groups.filter(g=>g.fam===f).map(g=>g.tribe))].filter(t=>P[t]);if(!tribes.length)continue;
+    html+=`<div class="fhead"><i style="background:${famColor(f)}"></i>${D.famname[f]}</div><div class="pgrid">`;
+    for(const t of tribes){const e=P[t],gs=tribeGroups(t),col=tribeColor(t);
+      const series=[];let mx=1;for(let y=Y0;y<=Y1;y++){const r=tribePop(t,y);series.push(r);if(r)mx=Math.max(mx,r.hi);}
+      const yv=v=>mt+(1-v/mx)*(h-mt-mb);let line='',up='',dn='';
+      series.forEach((r,k)=>{if(!r)return;const X=PX(Y0+k).toFixed(1);line+=(line?'L':'M')+X+','+yv(r.p).toFixed(1);up+=(up?'L':'M')+X+','+yv(r.hi).toFixed(1);dn='L'+X+','+yv(r.lo).toFixed(1)+dn;});
+      let svg=`<svg viewBox="0 0 ${w} ${h}" role="img" aria-label="Best-guess population of the ${esc(t)}, 1700 to 1900"><path d="${up}${dn}Z" fill="${col}" opacity=".18"/><path d="${line}" fill="none" stroke="${col}" stroke-width="1.8" stroke-linejoin="round"/>`;
+      for(const yy of [1700,1750,1800,1850,1900])svg+=`<text x="${PX(yy)}" y="${h-2}" text-anchor="${yy===1700?'start':yy===1900?'end':'middle'}" font-size="9.5" font-family="IBM Plex Mono, monospace" fill="var(--ink-3)">${yy}</text>`;
+      svg+=`<line class="pmark" x1="${PX(st.year)}" x2="${PX(st.year)}" y1="${mt}" y2="${h-mb}" stroke="var(--accent)" stroke-width="1.2" stroke-dasharray="2 2"/></svg>`;
+      const pops=[1750,1800,1850,1900].map(y=>{const r=tribePop(t,y);return `<span><b>${y}</b>${r?fmt(r.p):'–'}${r?`<br><span style="color:var(--ink-3)">${fmt(r.lo)}–${fmt(r.hi)}</span>`:''}</span>`;}).join('');
+      const nrec=D.obs.filter(o=>o.g.some(g=>gs.some(x=>x.id===g))).length;
+      html+=`<article class="pcard" id="${slug(t)}"><h3><i style="background:${col}"></i>${esc(t)}</h3><p class="self">${esc(e.self)}</p>
+        <p class="meta">${esc(e.lang)} · ${gs.length>1?gs.length+' divisions on the map: '+gs.map(g=>esc(g.name.split(' (')[0])+(g.start>Y0||g.end<1905?' ('+(g.start>Y0?g.start:'')+'–'+(g.end<1905?g.end:'')+')':'')).join(', '):'one division on the map'} · ${nrec} documented records</p>
+        ${svg}<div class="pops">${pops}</div>${e.body.map(b=>`<p>${esc(b)}</p>`).join('')}
+        <p class="y1900"><b>In 1900.</b> ${esc(e.y1900)}</p><ul class="read">${e.read.map(r=>`<li>${esc(r)}</li>`).join('')}</ul>
+        <div class="acts"><button data-pt="${esc(t)}">Show on the map</button></div></article>`;}
+    html+='</div>';}
+  el.innerHTML=html;
+  el.querySelectorAll('button[data-pt]').forEach(b=>b.onclick=()=>{select(pickDiv(b.dataset.pt).id);document.getElementById('plate').scrollIntoView({behavior:'smooth',block:'start'});});}
+function updatePeopleMarkers(){if(!PX)return;const v=PX(Math.min(Y1,st.year));document.querySelectorAll('.pmark').forEach(m=>{m.setAttribute('x1',v);m.setAttribute('x2',v);});}
+
+// ---------- density chart ----------
+function renderDensity(){const svg=$('density');const dec=[];for(let d=1700;d<1900;d+=10)dec.push({d,n:D.obs.filter(o=>o.y>=d&&o.y<d+10).length});
+  const mx=Math.max(...dec.map(d=>d.n));const w=300,h=56,b=14,bw=(w-4)/dec.length;
+  let s='';dec.forEach((d,i)=>{const hh=d.n/mx*(h-b-6);s+=`<rect x="${2+i*bw+1}" y="${h-b-hh}" width="${bw-2}" height="${Math.max(hh,d.n?1.5:0)}" rx="1.5" fill="var(--ink-2)"><title>${d.d}s: ${d.n} records</title></rect>`;});
+  [1700,1750,1800,1850,1900].forEach(t=>{s+=`<text x="${2+(t-1700)/10*bw}" y="${h-2}" font-size="9.5" font-family="IBM Plex Mono, monospace" fill="var(--ink-3)">${t}</text>`;});
+  s+=`<line id="densm" x1="0" x2="0" y1="0" y2="${h-b}" stroke="var(--accent)" stroke-width="1.5"/>`;svg.innerHTML=s;svg._bw=bw;}
+function updateDensityMarker(){const m=document.getElementById('densm');if(!m)return;const v=2+(st.year-1700)/10*$('density')._bw;m.setAttribute('x1',v);m.setAttribute('x2',v);}
+
+// ---------- legend ----------
+const LEGNOTE={"people": "Each people has its own ink, chosen so that peoples who most often camped within 250 km of one another (Lakota and Yanktonai, Mandan and Hidatsa, Kansa and Osage, Pawnee and Ponca, Plains Cree and Assiniboine) differ most, and stay apart under red–green colour blindness. With twenty-nine peoples some distant pairs share near-identical inks; the labels and the detail panel carry identity. Colour marks no polity or emblem: no Plains people flew a flag or bore a single device before the reservation. Unidentified peoples are grey.", "family": "One hue per language family, shaded by language: darker to lighter runs Dakota (Santee-Sisseton), Yankton-Yanktonai, Lakota, Assiniboine; Plains Cree, Plains Ojibwe, Blackfoot, Cheyenne, Arapaho, Gros Ventre; Shoshone, Comanche; Wichita, Pawnee, Arikara; Crow, Hidatsa, Mandan; Omaha-Ponca, Kansa, Osage, Chiwere (Iowa, Oto, Missouria); Plains Apache, Jicarilla, Lipan. Peoples speaking one language or dialect share a shade. Language groupings follow Parks and Rankin and Goddard in Handbook vol. 13; Missouri River Siouan is kept as one family for the map, though Mandan forms its own branch of Siouan. The eight hues are chosen so that families which shared ground most often differ most."};
+function setColorBy(c,save){st.color=c;if(save){try{localStorage.setItem('campus.colorby',c);}catch(e){}}document.querySelectorAll('#colorby button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.c===c));$('legnote').textContent=LEGNOTE[c];renderLegend();if(PX)renderPeoples();renderDetail();frame();}
+function renderLegend(){const L=$('legend');let html='';const fm=st.color==='family';
+  for(const f of FAMS){const tribes=[...new Set(D.groups.filter(g=>g.fam===f).map(g=>g.tribe))];
+    html+=`<div class="fam"><span class="sw" style="background:${fm?famColor(f):'transparent'}"></span><div><div class="fn">${D.famname[f]}</div><div class="tr">${tribes.map(t=>`<button data-t="${t}"><i class="tsw" style="background:${tribeColor(t)}"></i>${t}</button>`).join('')}</div></div></div>`;}
+  html+=`<div class="fam"><span class="sw" style="background:${css.su}"></span><div><div class="fn">Named by Clark, not securely identified (evidence layer only)</div><div class="tr">${D.groups.filter(g=>g.fam==='unident').map(g=>`<button data-g="${g.id}">${g.name.split(' (')[0]}</button>`).join('')}</div></div></div>`;
+  const f=css['ink-3'],sv=(x)=>`<svg width="13" height="13" viewBox="0 0 14 14" style="flex:none">${x}</svg>`;
+  html+=`<div class="fam" style="display:flex;gap:6px 14px;flex-wrap:wrap;margin-top:4px;font-size:12.5px;color:var(--ink-2)"><span style="display:flex;gap:5px;align-items:center">${sv(`<circle cx="7" cy="7" r="5" fill="${f}"/>`)}camp, moving</span><span style="display:flex;gap:5px;align-items:center">${sv(`<rect x="2.6" y="2.6" width="8.8" height="8.8" rx="2.4" fill="${f}"/>`)}village, fixed</span><span style="display:flex;gap:5px;align-items:center">${sv(`<circle cx="7" cy="7" r="5" fill="${f}"/><circle cx="7" cy="7" r="1.7" fill="${css.plate}"/>`)}at agency or reserve</span></div>`;
+  L.innerHTML=html;
+  L.querySelectorAll('button[data-t]').forEach(b=>b.onclick=()=>{const t=b.dataset.t;const c=D.groups.filter(g=>g.tribe===t);
+    let best=c.find(g=>st.year>=g.start&&st.year<=g.end)||c[0];let bp=-1;for(const g of c){if(st.year>=g.start&&st.year<=g.end){const p=popAt(D.tracks[g.id],st.year);if(p>bp){bp=p;best=g;}}}select(best.id);});
+  L.querySelectorAll('button[data-g]').forEach(b=>b.onclick=()=>select(b.dataset.g));}
+function renderMapLegend(){const ml=$('maplegend');const c=css['ink-2'];
+  const k=(svg,t)=>`<div class="k"><svg width="14" height="14" viewBox="0 0 14 14">${svg}</svg>${t}</div>`;
+  let h='';
+  if(st.mode==='evid'){h+=k(`<circle cx="7" cy="7" r="5" fill="${css.s1}"/>`,'Division count')+k(`<circle cx="7" cy="7" r="5" fill="none" stroke="${css.s1}" stroke-width="1.6"/>`,'Whole-tribe total')+k(`<circle cx="7" cy="7" r="5" fill="none" stroke="${css.s1}" stroke-width="1.6" stroke-dasharray="3 2"/>`,'Later reconstruction')+k(`<path d="M2 7h10M7 2v10" stroke="${css.s1}" stroke-width="1.8"/>`,'Place only');}
+  if(st.mode!=='evid'){const f=css['ink-3'];h+=k(`<circle cx="7" cy="7" r="5" fill="${f}"/>`,'Camp, moving')+k(`<rect x="2.6" y="2.6" width="8.8" height="8.8" rx="2.4" fill="${f}"/>`,'Village, fixed')+k(`<circle cx="7" cy="7" r="5" fill="${f}"/><circle cx="7" cy="7" r="1.7" fill="${css.plate}"/>`,'At agency or reserve');}
+  if(st.mode!=='evid'&&st.seasons&&(st.rounds||st.sel)){const f=css['ink-2'];h+=k(`<path d="M3 10L11 4" stroke="${f}" stroke-width="1.4"/><circle cx="3" cy="10" r="2.2" fill="${f}"/>`,'Winter ground')+k(`<path d="M3 10L11 4" stroke="${f}" stroke-width="1.4"/><circle cx="11" cy="4" r="2.2" fill="${css.plate}" stroke="${f}" stroke-width="1.2"/>`,'Summer ground');}
+  if(st.settle){h+=k(`<rect x="3.5" y="3.5" width="7" height="7" fill="none" stroke="${c}" stroke-width="1.2"/>`,'Military post')+k(`<path d="M7 2.5L11.5 7 7 11.5 2.5 7z" fill="none" stroke="${c}" stroke-width="1.2"/>`,'Trading post')+k(`<path d="M7 2.5L11 10.5H3z" fill="${c}"/>`,'Spanish / French')+k(`<circle cx="7" cy="7" r="3.5" fill="${css['ink-3']}" opacity=".7"/>`,'Town');}
+  ml.innerHTML=h;ml.hidden=!h;}
+
+// ---------- timeline ----------
+const EPI=D.epi.map(e=>[e.s,e.label]);
+function renderTicks(){const t=$('ticks');let h='';for(let y=1700;y<=1900;y+=25)h+=`<span class="${y%50?'minor':''}" style="left:${(y-Y0)/(Y1-Y0)*100}%">${y}</span>`;
+  for(const [y,n] of EPI)h+=`<i style="left:${(y-Y0)/(Y1-Y0)*100}%" title="${n}"></i>`;t.innerHTML=h;}
+let last=null;
+function tick(ts){if(!st.playing){last=null;return;}if(last!=null){st.year+=st.speed*(ts-last)/1000;if(st.year>=Y1){st.year=Y1;setPlaying(false);}$('slider').value=Math.floor(st.year);frame();}last=ts;requestAnimationFrame(tick);}
+function setPlaying(p){st.playing=p;$('play').setAttribute('aria-label',p?'Pause':'Play');$('playicon').innerHTML=p?'<path d="M3 2h3.5v12H3zM9.5 2H13v12H9.5z"/>':'<path d="M3 1.5v13l11-6.5z"/>';if(p){if(st.year>=Y1)st.year=Y0;requestAnimationFrame(tick);}}
+$('play').onclick=()=>setPlaying(!st.playing);
+const MSHORT=['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+{const m=$('months');MSHORT.forEach((n,i)=>{const b=document.createElement('button');b.textContent=n;b.dataset.m=i;b.setAttribute('aria-pressed','false');
+  b.onclick=()=>{setPlaying(false);st.year=Math.min(Y1,Math.floor(st.year)+(i+.5)/12);frame();};m.appendChild(b);});}
+function syncMonths(){const m=$('months');m.hidden=!st.seasons||st.mode!=='guess';if(m.hidden)return;const k=Math.min(11,Math.floor((((st.year%1)+1)%1)*12));
+  m.querySelectorAll('button').forEach(b=>b.setAttribute('aria-pressed',String(+b.dataset.m===k)));}
+const frac=()=>st.seasons?(((st.year%1)+1)%1||.55):0;
+$('slider').oninput=e=>{st.year=+e.target.value+frac();frame();};
+$('speed').onchange=e=>st.speed=+e.target.value;
+document.addEventListener('keydown',e=>{if(e.target.tagName==='INPUT'&&e.target.type!=='checkbox'||e.target.tagName==='SELECT')return;
+  if(e.code==='Space'&&e.target.tagName!=='BUTTON'){e.preventDefault();setPlaying(!st.playing);}
+  if(e.key==='ArrowRight'){const f=frac();st.year=Math.min(Y1,Math.floor(st.year)+1+f);$('slider').value=Math.floor(st.year);frame();}
+  if(e.key==='ArrowLeft'){const f=frac();st.year=Math.max(Y0,Math.floor(st.year)-1+f);$('slider').value=Math.floor(st.year);frame();}
+  if(st.seasons&&(e.key==='ArrowUp'||e.key==='ArrowDown')){e.preventDefault();setPlaying(false);const k=Math.floor((((st.year%1)+1)%1)*12)+(e.key==='ArrowUp'?1:-1);st.year=Math.max(Y0,Math.min(Y1,Math.floor(st.year)+(k+.5)/12));$('slider').value=Math.floor(st.year);frame();}});
+
+// ---------- options ----------
+function setMode(m){st.mode=m;try{localStorage.setItem('campus.mode',m);}catch(e){}
+  $('mGuess').setAttribute('aria-pressed',m==='guess');$('mEvid').setAttribute('aria-pressed',m==='evid');
+  $('optsGuess').hidden=m!=='guess';$('optsEvid').hidden=m!=='evid';$('grain').setAttribute('aria-disabled',m!=='guess');
+  $('modehint').textContent=m==='guess'?'Every division, every year. Positions and sizes between records are our estimates.':'Only what a source recorded, in the year it was recorded.';
+  renderMapLegend();frame();}
+$('mGuess').onclick=()=>setMode('guess');$('mEvid').onclick=()=>setMode('evid');
+function setLevel(l){st.level=l;try{localStorage.setItem('campus.level',l);}catch(e){}
+  document.querySelectorAll('#grain button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===l));frame();}
+document.querySelectorAll('#grain button').forEach(b=>b.onclick=()=>setLevel(b.dataset.l));
+$('oMark').onchange=e=>{st.mark=e.target.checked;frame();};
+$('oCamps').onchange=e=>{st.camps=e.target.checked;frame();};
+$('oSeasons').onchange=e=>{st.seasons=e.target.checked;SNAP.clear();$('oRounds').disabled=!st.seasons;if(st.seasons){if(st.speed>.25){st.speed=.25;$('speed').value='0.25';}if((st.year%1)===0)st.year+=.55;}renderMapLegend();frame();};
+document.querySelectorAll('#colorby button').forEach(b=>b.onclick=()=>setColorBy(b.dataset.c,true));
+$('oRounds').onchange=e=>{st.rounds=e.target.checked;renderMapLegend();frame();};
+$('oUnc').onchange=e=>{st.unc=e.target.checked;frame();};
+$('oFade').onchange=e=>{st.fade=+e.target.value;frame();};
+$('oHalo').onchange=e=>{st.halo=e.target.checked;frame();};
+$('oSettle').onchange=e=>{st.settle=e.target.checked;renderMapLegend();frame();};
+$('oBorders').onchange=e=>{st.borders=e.target.checked;drawBase();frame();};
+$('oLabels').onchange=e=>{st.labels=e.target.checked;frame();};
+
+const nPrim=D.obs.filter(o=>o.kind==='primary').length,nSec=D.obs.length-nPrim,nPlace=D.obs.filter(o=>o.pop==null).length,nKey=Object.values(D.tracks).reduce((s,t)=>s+(t.nk||t.pos.length),0);
+document.getElementById('epilist').innerHTML=D.epi.map(e=>`<li><b>${e.label}.</b> ${Object.entries(e.m).sort((a,b)=>b[1]-a[1]).map(([g,f])=>G[g].name.replace(/ \(.*$/,'')+' '+Math.round(f*100)+'%').slice(0,8).join(', ')}${Object.keys(e.m).length>8?', and '+(Object.keys(e.m).length-8)+' more':''}. <span style="color:var(--ink-3)">${e.src}; ${e.basis}.</span></li>`).join('');
+const nUnits=Object.values(BS).reduce((s,sp)=>s+sp.units.length,0),nBRec=D.obs.filter(o=>o.band).length;
+$('countline').textContent=`This build holds ${D.obs.length} documented records (${nPrim} from contemporary observers, ${nSec} later reconstructions; ${nPlace} give a place without a count; ${nBRec} describe a single band or village) and ${nKey} track points across ${D.groups.filter(g=>g.fam!=='unident').length} divisions, which divide into ${nUnits} named bands, villages and chiefs’ followings.`;
+
+function renderValidation(){const V=D.validation;const svg=$('valfig');if(!V||!svg)return;const R0=V.report;
+  const w=340,h=300,ml=46,mr=10,mt=10,mb=38,lo=Math.log10(30),hi=Math.log10(40000);
+  const X=v=>ml+(Math.log10(v)-lo)/(hi-lo)*(w-ml-mr),Y=v=>mt+(1-(Math.log10(v)-lo)/(hi-lo))*(h-mt-mb);
+  let g='';for(const t of [100,1000,10000]){g+=`<line x1="${X(t)}" x2="${X(t)}" y1="${mt}" y2="${h-mb}" stroke="var(--rule)"/><line x1="${ml}" x2="${w-mr}" y1="${Y(t)}" y2="${Y(t)}" stroke="var(--rule)"/>`;
+    g+=`<text x="${X(t)}" y="${h-mb+14}" text-anchor="middle" font-size="10" font-family="IBM Plex Mono, monospace" fill="var(--ink-3)">${t.toLocaleString('en-US')}</text><text x="${ml-5}" y="${Y(t)+3.5}" text-anchor="end" font-size="10" font-family="IBM Plex Mono, monospace" fill="var(--ink-3)">${t>=1000?(t/1000)+'k':t}</text>`;}
+  const a=30,b=40000;g+=`<line x1="${X(a)}" y1="${Y(a)}" x2="${X(b)}" y2="${Y(b)}" stroke="var(--ink-2)" stroke-width="1"/>`;
+  for(const f of [2,.5])g+=`<line x1="${X(a)}" y1="${Y(a*f)}" x2="${X(b)}" y2="${Y(b*f)}" stroke="var(--ink-3)" stroke-dasharray="3 3" stroke-width=".8"/>`;
+  for(const [gid,yr,obs,pred,z] of V.points){const out=Math.abs(z)>2*1.25;
+    g+=`<circle cx="${X(pred)}" cy="${Y(obs)}" r="${out?3.4:2.6}" fill="${out?'var(--accent)':'var(--ink-2)'}" opacity="${out?.95:.55}"><title>${(G[gid]||{}).name||gid}, ${Math.floor(yr)}: documented ${obs.toLocaleString('en-US')}, predicted without it ${pred.toLocaleString('en-US')}</title></circle>`;}
+  g+=`<text x="${(ml+w-mr)/2}" y="${h-6}" text-anchor="middle" font-size="11" fill="var(--ink-2)" font-family="Alegreya Sans, sans-serif">Predicted with the count withheld</text>`;
+  g+=`<text transform="translate(12 ${(mt+h-mb)/2}) rotate(-90)" text-anchor="middle" font-size="11" fill="var(--ink-2)" font-family="Alegreya Sans, sans-serif">Documented count</text>`;
+  svg.innerHTML=g;
+  const nOut=V.points.filter(p=>Math.abs(p[4])>2.5).length;
+  $('valtext').innerHTML=`Each of the ${R0.n} documented division counts was removed in turn, the division refitted, and the count predicted from everything else, after dividing it by its source family’s factor as estimated without it (log scales; solid line, perfect prediction; dashed, a factor of two). The median miss is a factor of ${R0.median_factor}. Before the ranges were widened, ${Math.round(R0.cover1*100)}% of counts fell within one standard deviation and ${Math.round(R0.cover2*100)}% within two, against 68% and 95% for well-calibrated ranges; so every range shown has been widened by a quarter, after which ${Math.round(V.points.filter(p=>Math.abs(p[4])<=1.25).length/V.points.length*100)}% and ${Math.round(V.points.filter(p=>Math.abs(p[4])<=2.5).length/V.points.length*100)}% fall inside. Plain interpolation between neighbouring counts misses by a median factor of ${R0.naive_median_factor} on the same ${R0.naive_n} counts, against ${R0.model_median_factor_same} for the model. By period the median miss is ${Object.entries(R0.by_period).map(([k,v])=>k+': '+v.median_factor+' ('+v.n+')').join('; ')}. Highlighted points miss by more than two widened standard deviations (${nOut}).`;}
+function renderBias(){const el=$('biastable');if(!el||!D.bias)return;
+  let h='<table class="reg"><thead><tr><th>Source family</th><th style="text-align:right">Counts compared</th><th style="text-align:right">Factor</th><th>Reading</th></tr></thead><tbody>';
+  for(const [lab,n,f] of D.bias){const d=Math.round((f-1)*100);h+=`<tr><td>${lab}</td><td class="n" style="text-align:right">${n}</td><td class="n" style="text-align:right">×${f.toFixed(2)}</td><td>${Math.abs(d)<5?'in line with the other sources':(d<0?'runs '+(-d)+'% low':'runs '+d+'% high')}${n<4?' (few comparisons)':''}</td></tr>`;}
+  el.innerHTML=h+'</tbody></table><p class="small" style="font-size:12.5px;margin-top:6px">Factor: the family’s counts divided by what the other documented counts imply for the same divisions and years, shrunk toward 1. Indian Office counts from 1868 on are the reference (×1.00). Families with no well-supported comparison are left at ×1.00 and not listed.</p>';}
+function renderRegister(){renderBias();const el=$('senstable');const R=D.sensitivity;if(el&&R){const base=R[0].totals;const Ys=[1750,1780,1805,1830,1850,1880];
+  let h='<table class="reg"><thead><tr><th>Change (one at a time)</th>'+Ys.map(y=>`<th style="text-align:right">${y}</th>`).join('')+'<th style="text-align:right">Hold-out miss</th><th style="text-align:right">Within 2 sd</th></tr></thead><tbody>';
+  for(const r of R){const t=r.totals;h+=`<tr><td>${r.case}${t.unidentified?' <span style="color:var(--ink-3)">('+t.unidentified+' divisions undrawable)</span>':''}</td>`+Ys.map(y=>{const v=t[y],b=base[y],d=(v-b)/b*100;return `<td class="n" style="text-align:right">${r.case==='baseline'?Math.round(v/100)*100>=0?(Math.round(v/100)*100).toLocaleString('en-US'):'':(Math.round(d)===0?'0%':(d>0?'+':'−')+Math.abs(Math.round(d))+'%')}</td>`;}).join('')+`<td class="n" style="text-align:right">×${r.loo_factor.toFixed(2)}</td><td class="n" style="text-align:right">${Math.round(r.loo_cover2*100)}%</td></tr>`;}
+  h+='</tbody></table>';el.innerHTML=h+'<p class="small" style="font-size:12.5px;margin-top:6px">Baseline row: total people in all divisions. Other rows: change from the baseline. Hold-out miss: median factor by which a withheld count is mispredicted (here with the source-family factors fixed at their full-data values, a small leak; the validation figure removes it); within 2 sd: share of withheld counts inside two (unwidened) standard deviations.</p>';}
+  const stb=$('seastable');if(stb){const nm=g=>(G[g]||{}).name||g;
+    stb.innerHTML='<div class="tblwrap"><table class="reg" style="min-width:560px"><thead><tr><th>Division</th><th>Years</th><th>Pattern</th><th>Source (recalled)</th></tr></thead><tbody>'+
+    Object.entries(D.seaspri).flatMap(([g,L])=>L.map(r=>`<tr><td>${nm(g)}</td><td>${r[0]<=1700?'to':r[0]+'–'}${r[1]}</td><td>${esc(r[2])}</td><td>${esc(r[3])}</td></tr>`)).join('')+'</tbody></table></div>';}
+  const vmt=$('vmovetable');if(vmt){const nm=g=>(G[g]||{}).name||g;const mo=f=>['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][Math.min(11,Math.floor(f*12))];
+    vmt.innerHTML='<div class="tblwrap"><table class="reg" style="min-width:560px"><thead><tr><th>People</th><th>Move</th><th>What</th><th>Source</th></tr></thead><tbody>'+
+    Object.entries(D.vmove).flatMap(([g,L])=>L.map(r=>`<tr><td>${nm(g)}</td><td>${mo(r[0]%1)} ${Math.floor(r[0])}</td><td>${esc(r[1])}</td><td>${esc(r[2])}</td></tr>`)).join('')+'</tbody></table></div>';}
+  const ht=$('hunttable');if(ht){const nm=g=>(G[g]||{}).name||g;const pf=f=>['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'][Math.min(11,Math.floor(f*12))];
+    ht.innerHTML='<div class="tblwrap"><table class="reg" style="min-width:560px"><thead><tr><th>People</th><th>Hunting ground</th><th>Winter</th><th>Summer</th><th>Fall</th><th>Source</th></tr></thead><tbody>'+
+    Object.entries(HUNT).map(([g,h])=>`<tr><td>${nm(g).replace(/ \(.*$/,'')}</td><td>${h.s?h.s[0].toFixed(1)+'°N '+(-h.s[1]).toFixed(1)+'°W':h.b!=null?'bearing '+h.b+'°, '+h.d+' km':'—'}</td><td>${pf(h.ph[0])}–${pf(h.ph[1])}, ${h.win[0]==='toward'?Math.round(h.win[1]*100)+'% of the way':h.win[0]==='random'?'any direction, ~'+h.win[1]+' km':h.win[0]==='bearing'?'bearing '+h.win[1]+'°, ~'+h.win[2]+' km':'local, ~'+h.win[1]+' km'}</td><td>${h.ph.length>=4?pf(h.ph[2])+'–'+pf(h.ph[3]):'—'}</td><td>${h.fh?pf(h.fh[0])+'–'+pf(h.fh[1])+', '+Math.round(h.fh[2]*100)+'% of the way':'—'}</td><td>${h.src}</td></tr>`).join('')+'</tbody></table></div>';}}
+function renderCite(){const nU=Object.values(BS).reduce((s,sp)=>s+sp.units.length,0);
+  $('citeme').innerHTML=`Michael A. Seeley, <i>Campus Magnus: The Plains Peoples, 1700–1900. Divisions, Bands and Villages of the Great Plains, with Documented Records and a Modelled Best Guess</i>. Interactive map and data tables. St. Isidore University Workshop, October 2026.`;
+  $('colophon').textContent=`October 2026. ${D.obs.length} documented records (${D.obs.filter(o=>/ pp?\. /.test(o.src)).length} with page citations); ${D.groups.filter(g=>g.fam!=='unident').length} divisions; ${nU} named bands, villages and followings; ${D.settle.length} posts and towns (${D.settle.filter(s=>s[6]).length} checked). Set in Old Standard TT, Alegreya Sans and IBM Plex Mono. Map drawn with D3 7.8.5.`;}
+function init(){readCSS();renderPeoples();renderValidation();renderRegister();renderCite();layout();renderLegend();renderTicks();renderDensity();document.querySelectorAll('#grain button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.l===st.level));setMode(st.mode);setColorBy(st.color);}
+let rt;window.addEventListener('resize',()=>{clearTimeout(rt);rt=setTimeout(()=>{layout();frame();},120);});
+const mq=window.matchMedia('(prefers-color-scheme: dark)');const retheme=()=>{readCSS();drawBase();renderLegend();renderMapLegend();renderDetail();frame();};
+mq.addEventListener&&mq.addEventListener('change',retheme);
+new MutationObserver(retheme).observe(document.documentElement,{attributes:true,attributeFilter:['data-theme']});
+if(document.fonts&&document.fonts.ready)document.fonts.ready.then(()=>{drawBase();frame();});
+init();
+})();
+</script>
+</body>
+</html>
