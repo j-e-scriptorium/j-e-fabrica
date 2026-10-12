@@ -10,12 +10,12 @@ A judgment call is any step where the record does not decide the matter and we d
 
 | Decision | Reason | Where |
 |---|---|---|
-| Fit 55 divisions, not 31 tribes or ~300 bands | Divisions are the level at which the sources most often count people. | `groups.csv` |
-| Splits dated to a year: Cheyenne 1832, Arapaho 1835; Missouria merge into Oto 1830; Cuartelejo and Paloma Apache end 1732 (absorbed by the Jicarilla, after Gunnerson) | A year is needed for the fit. The splits were gradual over a decade or more. | `groups.csv` start/end |
+| Fit 59 divisions, not 34 peoples or ~300 bands | Divisions are the level at which the sources most often count people. | `groups.csv` |
+| Splits dated to a year: Cheyenne 1832, Arapaho 1835; Missouria merge into Oto 1830; Cuartelejo and Paloma Apache end 1732 (absorbed by the Jicarilla, after Gunnerson); Kitsai end 1894 (merged into the Wichita, after Parks); the Stoney drawn as the Mountain Stoney only | A year is needed for the fit. The splits were gradual over a decade or more. | `groups.csv` start/end |
 | Arkansas Osage (Claremore's band) a separate division, 1802–39 | Pike and Clark count it separately. | `osa` |
 | Two names Clark recorded but which cannot be identified (Castahana, Dotame) kept as evidence only. Two others once kept apart ("Staitan", "Nemousin") folded into the Arapaho. | Parks, "Enigmatic Groups", Handbook 13, pp. 972–73: probable identifications only. | records with group `u_cas`, `u_dot`; Arapaho 1805 |
 
-## 2. Who a record is about (21 records flagged `identification_judged`)
+## 2. Who a record is about (23 records flagged `identification_judged`)
 
 These are the identifications that most affect tracks.
 
@@ -32,8 +32,8 @@ These are the identifications that most affect tracks.
 
 | Decision | Records |
 |---|---|
-| A source's own persons-per-lodge or per-warrior ratio where it states one | 32 (`multiplier_stated_by_source`) |
-| Our ratio otherwise: lodges × 5, warriors × 4, earth lodges × 10 (Thompson's ratio is 8–10) | 75 (`multiplier_ours`) |
+| A source's own persons-per-lodge or per-warrior ratio where it states one | 33 (`multiplier_stated_by_source`) |
+| Our ratio otherwise: lodges × 5, warriors × 4, earth lodges × 10 (Thompson's ratio is 8–10) | 84 (`multiplier_ours`) |
 | Clark 1805: the lower of his two figures | ~40 Clark records |
 | Same-year counts of parts of one division are summed to a division total | see `summed_with_same_year_records` |
 | A range ("1,000–1,500 families") taken at its midpoint | noted in `source_says` |
@@ -44,15 +44,15 @@ These are the identifications that most affect tracks.
 
 | Decision | Records |
 |---|---|
-| A count whose source gives no usable place is placed by us (`place_status = inferred`) and **never steers a track** | 419 |
+| A count whose source gives no usable place is placed by us (`place_status = inferred`) and **never steers a track** | 456 |
 | A stated place is geocoded by us, with a radius `place_radius_km` for its vagueness | all `stated` records |
-| A range ("between the Platte and the Arkansas") is placed at its centre; its radius is kept as uncertainty | 34 (`place_centre_ours`) |
+| A range ("between the Platte and the Arkansas") is placed at its centre; its radius is kept as uncertainty | 42 (`place_centre_ours`) |
 | Wikipedia's coordinates for battle, treaty, agency and site articles are used as given | ~110 records, tier B |
 | A date derived from context (a narrator's age, "mid-18th century", an archaeological span) | 5 (`date_ours`) |
 
 ## 5. Which records steer a division's track
 
-674 records steer a track. Of the rest, 112 are deliberately kept off (`steers_track = no`, `kept_off_track` flag). The reasons follow.
+730 records steer a track. Of the rest, 120 are deliberately kept off (`steers_track = no`, `kept_off_track` flag). The reasons follow.
 
 - **A part of the division.** A band, a chief's following, a camp holding part of the people (Crazy Horse's following, 1876–77; Cocking's Pegogamaw, 1772–73).
 - **A visit, delegation, council attendance or war party.** San Sabá 1758, the Council House Fight 1840, Shoshone at Horse Creek 1851. These say where some men were for days.
@@ -67,36 +67,37 @@ These are the identifications that most affect tracks.
 
 ## 6. Our keyframes (`keyframes_our_guesses.csv`)
 
-- **What they are.** 489 guesses: 400 give both place and persons, 74 persons only, 10 place only, and 5 only mark an event.
+- **What they are.** 519 guesses: 425 give both place and persons, 79 persons only, 10 place only, and 5 only mark an event.
 - **What backs them.**
-  - 247 carry a note, often naming the event or source behind them: "Treaty 6", "Whetstone agency, 1869–71", "1780–81 smallpox".
-  - 242 carry none. Their basis is interpolation between neighbouring documented states, judged by eye against the record.
+  - 269 carry a note, often naming the event or source behind them: "Treaty 6", "Whetstone agency, 1869–71", "1780–81 smallpox".
+  - 250 carry none. Their basis is interpolation between neighbouring documented states, judged by eye against the record.
 - **Weight.** Persons at ±30% (σ 0.3 in log); places at ±150 km.
 - **When they give way.** A keyframe place within a year of a documented place is dropped. Keyframe persons are excluded when estimating source-family factors.
 - **Where they matter most.**
   - Before 1780, where six divisions have no count at all.
   - The northern plains before 1790.
   - The Plains Cree and Plains Ojibwe throughout, where Canadian treaty-era counts were not read.
-- **Effect of removing all of them.** The 1780 total falls by about 8%, the 1850 total by 6%, held-out population error worsens from 1.21 to 1.26, and held-out place error for the drawn nomadic track worsens from 115 to 128 km (the smoother that sets the halo barely moves, 113 → 115 km).
+- **Effect of removing all of them.** The 1780 total falls by about 7%, the 1850 total by 4%, held-out population error worsens from 1.19 to 1.23 (sensitivity runs), and held-out place error for the drawn nomadic track worsens from 107 to 123 km (the smoother that sets the halo barely moves, 109 → 111 km).
 
 ## 7. Epidemics and famines (`epidemics_and_shocks.csv`)
 
-- **What is applied.** 22 events, 212 event × division rows.
+- **What is applied.** 30 events, 230 event × division rows.
 - **What is sourced.** Dates and the existence of each event are sourced. Rates are sourced for some divisions per event and scaled or assumed for the rest; the `rate_basis` field of each event says which.
 - **The assumed rates that matter most.**
   - The 1780–82 smallpox at the edges of its documented range.
   - The 1801–02 smallpox except for the Omaha.
   - The 1839–40 southern smallpox (assumed below Mooney's "third").
   - The 1849 cholera except for the Kiowa and Cheyenne.
-  - The 1848 Comanche smallpox: the event comes from Hämäläinen via a reader's highlight (tier C); the 20% rate is ours.
+  - The Comanche losses of 1848–49 (5% a year, against a contemporary report of 300 deaths), 1850–60 (drought and famine, 35%) and 1871–75 (30%): the events are from Hämäläinen, read in full; the rates are ours, scaled to his series.
+  - The Sarsi and Stoney in 1780–82 and the Stoney in 1837–38, at their neighbours' rates.
 - **Events deliberately not modelled.** Grinnell's 1845 Blackfoot smallpox, which no other source read here gives (probably a misdating of 1837).
-- **If wrong.** This is the most influential assumption before 1800: ±25% on every rate moves the 1780 total between 135,000 and 179,000.
+- **If wrong.** This is the most influential assumption before 1800: ±25% on every rate moves the 1780 total between 138,000 and 183,000.
 
 ## 8. Source-family factors
 
 The factors are estimated by the model, not set by hand, but the grouping of sources into families is ours (`family()` in `build3.py`). Reservation censuses are fixed as the reference; every other family's counts are scaled toward them.
 
-The estimated factors run from 0.60 (Henry 1809, counting men in his trading district) to 1.18 ("other sources"). Morse 1820 comes out about 11% high and Clark about 11% low.
+The estimated factors run from 0.60 (Henry 1809, counting men in his trading district) to 1.19 ("other sources"). The catch-all family holds most counts cited from the Handbook chapters, so it scales down every people whose figures come mainly from there, including the four peoples added from Handbook 13. Morse 1820 comes out about 11% high and Clark about 11% low.
 
 **If wrong:** a family biased in the same direction as the censuses (for example, agents inflating ration rolls before 1880) would go uncorrected. See `KNOWN_ISSUES.md` §5.
 

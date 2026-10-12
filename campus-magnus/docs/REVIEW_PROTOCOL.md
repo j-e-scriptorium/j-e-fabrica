@@ -40,13 +40,13 @@ Read `JUDGMENTS.md`. For each class, decide whether the decision is defensible, 
 
 Specific questions a Plains ethnohistorian is best placed to answer:
 
-1. Is the 55-division scheme right for the 18th century, or should the Teton, Yanktonai and Blackfoot be undivided before their divisions are first attested (`KNOWN_ISSUES.md` §10)?
+1. Is the 59-division scheme right for the 18th century, or should the Teton, Yanktonai and Blackfoot be undivided before their divisions are first attested (`KNOWN_ISSUES.md` §10)?
 2. Are the Padouca of 1717 and 1724 Plains Apache, as assumed here?
 3. Is the low Comanche reading of the 1840s (≈10,000–12,000) more defensible than Hämäläinen's 20,000 (`KNOWN_ISSUES.md` §1)?
 4. Which assumed epidemic rates (`epidemics_and_shocks.csv`, basis "assumed" or "scaled") are most out of line with the literature?
 5. Are the seasonal-round directions in `seasonal_patterns.csv` correct for each people? Their sources were recalled, not reread.
-6. Are any of the 489 keyframes (`keyframes_our_guesses.csv`) clearly wrong? Look especially at the 242 with no note, and at places before 1790.
-7. Is any people or division missing that should be on a map of this scope? Candidates include the Plains Ojibwe before 1780, the Kiowa-Tanoan peoples beyond the Kiowa, the Tonkawa, the Caddo and the Quapaw.
+6. Are any of the 519 keyframes (`keyframes_our_guesses.csv`) clearly wrong? Look especially at the 250 with no note, and at places before 1790.
+7. Is any people or division missing that should be on a map of this scope? Candidates include the Plains Ojibwe before 1780, the Caddo, the Quapaw and the Plains Métis. The Sarsi, Stoney, Tonkawa and Kitsai are now on the map.
 
 ## 3. Does the model reproduce, and do its tests hold?
 
@@ -54,8 +54,8 @@ From `model/src`:
 
 ```
 python3 build3.py . ..        # must reproduce data/fitted_population_by_division.csv exactly
-python3 validate.py . ..      # leave-one-out: expect median factor ≈ 1.22, 2-sd coverage ≈ 0.90
-python3 recheck_seas.py . ..  # expect ≈ 125 km against ≈ 134 km on 243 places
+python3 validate.py . ..      # leave-one-out: expect median factor ≈ 1.20, 2-sd coverage ≈ 0.90
+python3 recheck_seas.py . ..  # expect ≈ 120 km against ≈ 127 km on 264 places
 python3 audit.py ..           # expect the list in docs/audit.txt
 ```
 

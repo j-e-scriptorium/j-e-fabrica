@@ -12,7 +12,7 @@ K0010,bru,Lakota,Brulé (Sičháŋǧu),1865,42.2,-100.5,3800,,yes,place+persons,
 K0011,bru,Lakota,Brulé (Sičháŋǧu),1870.0,43.1,-99.6,4000,"Whetstone agency on the Missouri, 1869–71 (after the August 1868 hunt south of the Platte)",,place+persons,
 K0012,bru,Lakota,Brulé (Sičháŋǧu),1874,42.8,-102.8,4500,Spotted Tail agency,,place+persons,place overridden by a documented place within a year
 K0013,bru,Lakota,Brulé (Sičháŋǧu),1878.9,43.23,-100.85,5000,Rosebud agency,,place+persons,
-K0014,bru,Lakota,Brulé (Sičháŋǧu),1890,43.23,-100.85,5400,,yes,place+persons,
+K0014,bru,Lakota,Brulé (Sičháŋǧu),1890,43.23,-100.85,5400,,yes,place+persons,place overridden by a documented place within a year
 K0015,bru,Lakota,Brulé (Sičháŋǧu),1905,43.23,-100.85,5200,,yes,place+persons,
 K0016,ogl,Lakota,Oglala,1700,45.0,-97.7,800,,yes,place+persons,
 K0017,ogl,Lakota,Oglala,1740,44.6,-98.9,1000,,yes,place+persons,
@@ -29,7 +29,7 @@ K0027,ogl,Lakota,Oglala,1866.5,44.3,-106.4,3500,Powder River country (Red Cloud�
 K0028,ogl,Lakota,Oglala,1871.5,42.2,-104.4,4000,Red Cloud agency on the Platte,,place+persons,
 K0029,ogl,Lakota,Oglala,1873.6,42.68,-103.45,5000,Red Cloud agency on the White River,,place+persons,
 K0030,ogl,Lakota,Oglala,1878.9,43.03,-102.55,6000,Pine Ridge agency,,place+persons,
-K0031,ogl,Lakota,Oglala,1890.98,43.14,-102.36,5000,"Wounded Knee, Dec. 1890",,place+persons,
+K0031,ogl,Lakota,Oglala,1890.98,43.14,-102.36,5000,"Wounded Knee, Dec. 1890",,place+persons,place overridden by a documented place within a year
 K0032,ogl,Lakota,Oglala,1905,43.03,-102.55,6600,,yes,place+persons,
 K0033,min,Lakota,Miniconjou,1700,45.6,-97.8,700,,yes,place+persons,
 K0034,min,Lakota,Miniconjou,1760,45.3,-99.8,900,,yes,place+persons,
@@ -125,7 +125,7 @@ K0123,ass,Assiniboine,Southern (Missouri) Assiniboine,1782,,,4000,1780–81 smal
 K0124,ass,Assiniboine,Southern (Missouri) Assiniboine,1805,48.9,-101.8,3500,Migration toward the Missouri under way (Denig),,place+persons,place overridden by a documented place within a year
 K0125,ass,Assiniboine,Southern (Missouri) Assiniboine,1830,48.5,-103.8,6000,,yes,place+persons,
 K0126,ass,Assiniboine,Southern (Missouri) Assiniboine,1871.5,48.1,-105.2,1800,Fort Peck agency,,place+persons,
-K0127,ass,Assiniboine,Southern (Missouri) Assiniboine,1890,48.3,-106.5,1700,Fort Peck & Fort Belknap,,place+persons,
+K0127,ass,Assiniboine,Southern (Missouri) Assiniboine,1890,48.3,-106.5,1700,Fort Peck & Fort Belknap,,place+persons,place overridden by a documented place within a year
 K0128,ass,Assiniboine,Southern (Missouri) Assiniboine,1905,48.3,-106.5,1250,,yes,place+persons,
 K0129,asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1700,52.6,-104.5,4000,Saskatchewan parkland,,place+persons,
 K0130,asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1740,52.6,-106.5,4500,,yes,place+persons,
@@ -298,10 +298,10 @@ K0296,apc,Plains Apache,Cuartelejo & Paloma Apache,1700,38.48,-100.92,3000,El Cu
 K0297,apc,Plains Apache,Cuartelejo & Paloma Apache,1719.7,38.48,-100.92,2500,Valverde expedition,,place+persons,place overridden by a documented place within a year
 K0298,apc,Plains Apache,Cuartelejo & Paloma Apache,1727,37.4,-103.6,1500,Pressed by Comanche,,place+persons,
 K0299,apc,Plains Apache,Cuartelejo & Paloma Apache,1732,36.8,-105.0,1000,Absorbed into the Jicarilla,,place+persons,
-K0300,jic,Jicarilla,Jicarilla Apache,1700,36.8,-104.7,2500,,yes,place+persons,
-K0301,jic,Jicarilla,Jicarilla Apache,1733,36.5,-105.5,2000,Mission near Taos,,place+persons,
+K0300,jic,Jicarilla,Jicarilla Apache,1700,36.8,-104.7,2500,,yes,place+persons,place overridden by a documented place within a year
+K0301,jic,Jicarilla,Jicarilla Apache,1733,36.5,-105.5,2000,Mission near Taos,,place+persons,place overridden by a documented place within a year
 K0302,jic,Jicarilla,Jicarilla Apache,1780,36.6,-105.4,1500,,yes,place+persons,
-K0303,jic,Jicarilla,Jicarilla Apache,1850,36.4,-105.5,1000,,yes,place+persons,
+K0303,jic,Jicarilla,Jicarilla Apache,1850,36.4,-105.5,1000,,yes,place+persons,place overridden by a documented place within a year
 K0304,jic,Jicarilla,Jicarilla Apache,1887,36.75,-107.0,800,Jicarilla reservation,,place+persons,place overridden by a documented place within a year
 K0305,jic,Jicarilla,Jicarilla Apache,1905,36.75,-107.0,780,,yes,place+persons,
 K0306,lip,Lipan,Lipan Apache,1700,34.8,-102.2,3000,Southern High Plains,,place+persons,
@@ -488,3 +488,33 @@ K0486,iow,Iowa,Iowa (Báxoje),1765,40.8,-92.1,1200,Des Moines River,,place+perso
 K0487,iow,Iowa,Iowa (Báxoje),1824,39.65,-94.74,1000,,yes,place+persons,
 K0488,iow,Iowa,Iowa (Báxoje),1837,40.0,-95.45,800,Great Nemaha reservation,,place+persons,place overridden by a documented place within a year
 K0489,iow,Iowa,Iowa (Báxoje),1905,40.0,-95.45,250,,yes,place+persons,
+K0490,sar,Sarsi,Tsuut’ina (Sarsi),1700,54.6,-113.0,800,"Parkland edge: hunting on the plains, wintering with the Beaver (Dempsey)",,place+persons,
+K0491,sar,Sarsi,Tsuut’ina (Sarsi),1740,53.6,-112.8,900,Cut off from the Beaver by the Cree advance; allied with the Blackfoot,,place+persons,
+K0492,sar,Sarsi,Tsuut’ina (Sarsi),1772.9,52.8,-111.0,800,"Cocking’s “Equestrian Indians”, 1772–73",,place+persons,
+K0493,sar,Sarsi,Tsuut’ina (Sarsi),1782,,,450,1780–82 smallpox,,persons only,
+K0494,sar,Sarsi,Tsuut’ina (Sarsi),1840,51.9,-113.5,370,,yes,place+persons,
+K0495,sar,Sarsi,Tsuut’ina (Sarsi),1866,51.3,-113.3,420,Travelling into Montana with the Blackfoot (Doty; Dempsey),,place+persons,
+K0496,sar,Sarsi,Tsuut’ina (Sarsi),1879,50.95,-114.25,240,"Common reserve on the Bow with the Blood and Blackfoot, then their own",,place+persons,
+K0497,sar,Sarsi,Tsuut’ina (Sarsi),1900,50.95,-114.25,200,Tuberculosis; 160 by 1924,,place+persons,
+K0498,sar,Sarsi,Tsuut’ina (Sarsi),1905,50.95,-114.25,190,,yes,place+persons,
+K0499,sto,Stoney,Mountain Stoney (Nakoda),1700,53.4,-111.0,700,Allied with the Plains Cree; “groups migrating west to the mountains to escape the diseases” (Bearspaw tradition),,place+persons,
+K0500,sto,Stoney,Mountain Stoney (Nakoda),1740,52.8,-113.0,800,,yes,place+persons,
+K0501,sto,Stoney,Mountain Stoney (Nakoda),1782,,,400,1780–82 smallpox (assumed),,persons only,
+K0502,sto,Stoney,Mountain Stoney (Nakoda),1800,52.2,-114.6,550,Foothills from Rocky Mountain House south toward the Bow,,place+persons,
+K0503,sto,Stoney,Mountain Stoney (Nakoda),1837,,,650,,yes,persons only,
+K0504,sto,Stoney,Mountain Stoney (Nakoda),1838,,,500,1837–38 smallpox (assumed),,persons only,
+K0505,sto,Stoney,Mountain Stoney (Nakoda),1860,51.7,-114.9,550,,yes,place+persons,
+K0506,sto,Stoney,Mountain Stoney (Nakoda),1905,51.16,-114.85,580,Morley reserve,,place+persons,
+K0507,tkw,Tonkawa,Tonkawa,1700,34.0,-97.6,900,By 1691 south at least to the Red River (Casañas); in 1601 north-central Oklahoma,,place+persons,
+K0508,tkw,Tonkawa,Tonkawa,1730,33.0,-96.9,850,Entering Texas at the north end of the Blackland Prairie,,place+persons,
+K0509,tkw,Tonkawa,Tonkawa,1760,31.6,-96.9,800,Along the grassland–woodland edge; absorbing the Yojuane after 1759,,place+persons,
+K0510,tkw,Tonkawa,Tonkawa,1790,31.0,-96.8,1000,Not much south of the Brazos–Little River junction until late in the century,,place+persons,
+K0511,tkw,Tonkawa,Tonkawa,1840,30.3,-97.8,800,Pushed west by Anglo settlement after 1836,,place+persons,
+K0512,tkw,Tonkawa,Tonkawa,1874,32.93,-99.23,120,Fort Griffin scouts,,place+persons,
+K0513,kit,Kitsai,Kitsai,1700,33.2,-95.6,500,"Upper Trinity and Red River country (du Rivage, Bienville)",,place+persons,
+K0514,kit,Kitsai,Kitsai,1760,32.3,-96.0,450,,yes,place+persons,
+K0515,kit,Kitsai,Kitsai,1800,,,330,,yes,persons only,
+K0516,kit,Kitsai,Kitsai,1830,31.9,-95.9,200,East of the Trinity until the end of the 1820s,,place+persons,
+K0517,kit,Kitsai,Kitsai,1836,32.8,-97.4,190,North to the upper Trinity and Brazos,,place+persons,
+K0518,kit,Kitsai,Kitsai,1870,35.1,-98.3,120,With the Wichita at the Wichita Agency,,place+persons,
+K0519,kit,Kitsai,Kitsai,1885,35.1,-98.3,70,,yes,place+persons,

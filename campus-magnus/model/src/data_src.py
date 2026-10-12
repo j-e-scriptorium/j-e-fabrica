@@ -244,11 +244,11 @@ OBS = [
  dict(g=['pwc','pwk','pws'],y=1820,pop=10000,raw='Long’s expedition, 1820: Grand Pawnees, Republicans, and Loups, all on the Platte and its branches, “numbered about ten thousand souls”',basis='souls',loc='stated',at=(41.35,-97.6),r=60,src='Long expedition (1823), as given by '+HAYDEN,kind='primary'),
  # ---- Comanche ----
  dict(g=['cyj','cyy','cyk'],y=1700,pop=7000,raw='Mooney estimated “there must have been 7,000 Comanche about 1690”',basis='souls',loc='inferred',at=(39.5,-104.5),r=300,src='Mooney (1928), as given in Swanton, Indian Tribes of North America',kind='secondary'),
- dict(g=['cyj','cyy','cyk','cyp'],y=1750,pop=12500,raw='“Numbering between ten and fifteen thousand at midcentury”',basis='souls',loc='inferred',at=(36.5,-101.5),r=400,src='Hämäläinen, The Comanche Empire (2008)',kind='secondary'),
- dict(g=['cyj','cyy','cyk','cyp'],y=1773,pop=16000,raw='Gaignard learned the Comanches “comprise fully four thousand warriors”; Hämäläinen derives about 16,000',basis='warriors × 4',loc='inferred',at=(35.0,-100.5),r=400,src='Gaignard (1773–74) via Hämäläinen, The Comanche Empire',kind='primary'),
+ dict(g=['cyj','cyy','cyk','cyp'],y=1750,pop=12500,raw='“by 1750 their population seems to have exceeded ten thousand and was probably approaching fifteen thousand”; “numbering between ten and fifteen thousand at midcentury”',basis='souls',loc='inferred',at=(36.5,-101.5),r=400,src='Hämäläinen, The Comanche Empire (2008), pp. 66, 102',kind='secondary'),
+ dict(g=['cyj','cyy','cyk','cyp'],y=1773,pop=16000,raw='Gaignard learned the Comanches “comprise fully four thousand warriors”; Hämäläinen derives about 16,000',basis='warriors × 4',loc='inferred',at=(35.0,-100.5),r=400,src='Gaignard (1773–74) via Hämäläinen, The Comanche Empire (2008), p. 102',kind='primary'),
  dict(g=['cyj','cyy','cyk','cyp'],y=1780,pop=20000,raw='Estimates of Comanche numbers in 1780, when most numerous, “are usually around 20,000”',basis='souls',loc='inferred',at=(34.8,-100.5),r=400,src='Wikipedia, “Comanche history” (summary of the literature)',kind='secondary'),
- dict(g=['cyj','cyy','cyk','cyp'],y=1781,pop=40000,raw='Hämäläinen’s high reckoning: early-1780s population “reached or exceeded forty thousand”',basis='souls',loc='inferred',at=(34.8,-100.5),r=400,src='Hämäläinen, The Comanche Empire (2008)',kind='secondary'),
- dict(g=['cyy','cyk','cyp'],y=1819,pop=11000,raw='“In 1819 the three bands consisted of 10,000 to 12,000 souls… 2000 to 2500 warriors” (Comanche, Yamparack, Tenawa)',basis='souls',loc='inferred',at=(33.0,-99.5),r=400,src='David G. Burnet to the Indian Office, Texas Indian Papers vol. 3',kind='primary'),
+ dict(g=['cyj','cyy','cyk','cyp'],y=1781,pop=40000,raw='Hämäläinen’s high reckoning: a 1785 account gives the eastern Comanches 2,000 fighting men after losing two-thirds to smallpox, so “the total Comanche population in the early 1780s reached or exceeded forty thousand”',basis='souls',loc='inferred',at=(34.8,-100.5),r=400,src='Hämäläinen, The Comanche Empire (2008), pp. 102–3',kind='secondary'),
+ dict(g=['cyy','cyk','cyp'],y=1819,pop=11000,raw='“In 1819 the three bands consisted of 10,000 to 12,000 souls… 2000 to 2500 warriors” (Comanche, Yamparack, Tenawa)',basis='souls',loc='inferred',at=(33.0,-99.5),r=400,src='David G. Burnet to the Indian Office, Texas Indian Papers vol. 3; also in Kavanagh, “Comanche”, Handbook of North American Indians 13 (2001), p. 901 (“about 3,000 warriors out of a total population of 10,000–12,000 (Burnet 1851)”)',kind='primary'),
  dict(g='cyn',y=1847,pop=1750,raw='Nokoni “said to number 1,750, in 250 lodges, evidently a gross exaggeration”',basis='souls',loc='inferred',at=(34.3,-99.9),r=200,src=HODGE+', “Detsanayuka”',kind='primary'),
  dict(g='cyn',y=1869,pop=312,raw='“in 1869 their number was 312”',basis='souls',loc='inferred',at=P['ft_sill'],r=60,src=HODGE+', “Detsanayuka”',kind='primary',whole=False),
  dict(g='cyn',y=1872,pop=250,raw='“in 1872 they were reported at 250”',basis='souls',loc='inferred',at=P['ft_sill'],r=60,src=HODGE+', “Detsanayuka”',kind='primary',whole=False),
@@ -659,8 +659,8 @@ OBS += [
    (1892,241,'Apache 241','souls'),(1896,208,'November 1896: Apache 208','souls')]],
  dict(g=['cyy','cyk','cyp','cyn','cyq'],y=1843,pop=19200,raw='1841–45: the Comanche “estimated at 19,200” (Indian Reports, as noted by Mooney)',basis='souls',loc='inferred',at=(34.5,-100.5),r=400,src=MOONEY+', “Population”',kind='primary'),
  dict(g=['cyy','cyk','cyp','cyn','cyq'],y=1849,pop=20000,raw='Neighbors “estimates the Comanche at 4,000 warriors and 20,000 souls”',basis='souls',loc='inferred',at=(33.5,-99.8),r=400,src=MOONEY+', “Population”',kind='primary'),
- dict(g=['cyy','cyk','cyp','cyn','cyq'],y=1870,pop=3742,raw='About 3,742 Comanches, including possibly 1,000 off-reservation',basis='souls',loc='inferred',at=(34.7,-98.8),r=200,src='Encyclopedia of the Great Plains, “Comanche” (Kavanagh)',kind='secondary'),
- dict(g=['cyy','cyk','cyp','cyn','cyq'],y=1875,pop=1556,raw='1,556 reported on the reservation south of the Washita',basis='souls',loc='inferred',at=(34.7,-98.5),r=60,src='Encyclopedia of the Great Plains, “Comanche” (Kavanagh)',kind='secondary'),
+ dict(g=['cyy','cyk','cyp','cyn','cyq'],y=1870,pop=3742,raw='“In 1870, Agent Lawrie Tatum estimated 3,742 Comanches, including some 1,000 off-reservation Kwahadas (Tatum 1870); the Kwahada figure is probably an exageration”',basis='souls',loc='inferred',at=(34.7,-98.8),r=200,src='DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Kavanagh, “Comanche”, p. 901',kind='primary'),
+ dict(g=['cyy','cyk','cyp','cyn','cyq'],y=1875,pop=1721,raw='“In 1875, 1,556 Comanches were reported on the reservation south of the Washita, and another 165 Penatikas north of the river with the Wichitas”',basis='souls',loc='inferred',at=(34.7,-98.5),r=60,src='DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Kavanagh, “Comanche”, p. 901',kind='primary'),
  dict(g=['cyy','cyk','cyp','cyn','cyq'],y=1878,pop=1475,raw='KCA agency census: Comanches, 1,475; Kiowas, 1,120; Apaches, 344',basis='souls',loc='stated',at=(34.7,-98.45),r=50,src=CIA(1878),kind='primary'),
  dict(g='kio',y=1878,pop=1120,raw='KCA agency census: Kiowas, 1,120',basis='souls',loc='inferred',at=(34.85,-98.6),r=50,src=CIA(1878),kind='primary'),
  dict(g='kap',y=1878,pop=344,raw='KCA agency census: Apaches, 344',basis='souls',loc='inferred',at=(35.0,-98.3),r=50,src=CIA(1878),kind='primary'),
@@ -740,11 +740,11 @@ EPI = [
    {'kio':.25,'kap':.25,**{g:.2 for g in COM},'chs':.15,'ars':.15,'wic':.15,'osg':.1,'osl':.1},
    'Mooney (Kiowa calendar, winter 1839–40; “destroying probably a third”)','assumed below Mooney’s plains-wide third'),
  (1849.4,1849.8,'Cholera, 1849',
-   {'kio':.2,'kap':.2,'chs':.45,'chn':.15,'ars':.3,**{g:.25 for g in COM},'pwc':.25,'pwk':.25,'pws':.25,'ogl':.08,'bru':.08,'wic':.15,'osg':.1,'osl':.1,'kaw':.1,'iow':.1},
+   {'kio':.2,'kap':.2,'chs':.45,'chn':.15,'ars':.3,**{g:.05 for g in COM},'pwc':.25,'pwk':.25,'pws':.25,'ogl':.08,'bru':.08,'wic':.15,'osg':.1,'osl':.1,'kaw':.1,'iow':.1},
    'Levy, “Kiowa”, Handbook 13 (2001), p. 921 (after Mooney’s “hundreds died”, and a Kiowa total never much above 1,200–1,350: “if as many as 200 or 300 died, the losses would have been between 13 and 20 percent”; the Kiowa tradition of losing half is set aside); Grinnell, The Cheyenne Indians (“perhaps half of the whole tribe died”); other tribes on the overland trails assumed; Swagerty, “History of the United States Plains Until 1850”, Handbook 13 (2001), p. 258 (“one-fourth of the remaining Pawnee”, after Powers and Leiker)','sourced for the Kiowa and Cheyenne (the north/south split is ours); assumed elsewhere'),
  (1861.9,1862.4,'Smallpox, 1861–62',
-   {'kio':.15,'kap':.15,**{g:.15 for g in COM},'ari':.15,'man':.1,'hid':.1},
-   'Mooney (Kiowa calendar; the Arikara abandoned their village because of it)','assumed'),
+   {'kio':.15,'kap':.15,**{g:.4 for g in COM},'ari':.15,'man':.1,'hid':.1},
+   'Mooney (Kiowa calendar; the Arikara abandoned their village because of it); for the Comanche, Hämäläinen, The Comanche Empire (2008), pp. 302, 313: smallpox “struck again” in 1862, “the seventeenth year of famine”, and with war on the New Mexico border “as many as four thousand Comanches may have perished during the early 1860s, leaving a total population of only five thousand in 1865”','assumed, except the Comanche (40%: Hämäläinen’s “as many as” four thousand of about nine thousand, smallpox, famine and war together)'),
  (1857.9,1858.3,'Smallpox, 1857–58 (Blackfoot)',
    {'sik':.1,'kai':.1,'pik':.1,'gv':.08},
    'Grinnell, Blackfoot Lodge Tales (1892), “The Blackfeet of To-day”: “small-pox again carried off great numbers, but the mortality was not to be compared with” the earlier epidemic','event sourced; fractions assumed'),
@@ -1083,7 +1083,7 @@ OBS += [
  pl('ojb',1808.6,'Aug. 1808: “I arrived at Panbian river, where I found a number of Saulteurs camped at the fort”',P['pembina'],15,H1+', p. 420'),
  pl('oto',1820.5,'Otoes and Missouris “in one village on the Platte”, 1820',P['oto_vil'],15,MORSE+', pp. 251–52'),
  pl('mis',1820.5,'The Missouris living with the Otoes in their village on the Platte, 1820',P['oto_vil'],15,MORSE+', pp. 251–52'),
- pl('cyj',1787.6,'San Carlos de los Jupes, the settlement Governor Anza had built for the Jupe Comanche on the Arkansas near present Pueblo, 1787'+'',(38.27,-104.6),20,'Hämäläinen, The Comanche Empire (2008), ch. 3'+RECS),
+ pl('cyj',1787.6,'July 1787: at Paruanarimuca’s request Anza sends a master builder and thirty laborers to build adobe houses and corrals for the Jupes “on the upper Arkansas River near the Rocky Mountains” (San Carlos de los Jupes, near present Pueblo; site after Thomas 1929)',(38.27,-104.6),20,'Hämäläinen, The Comanche Empire (2008), pp. 126–27'),
 ]
 CROWWP = WP('Crow people')+' (chronology)'
 OBS += [
@@ -1725,10 +1725,190 @@ OBS += [
 OBS += [
  _cnt(['cyy','cyk','cyp'],1829,11000,'Late 1820s: Ruiz puts the Texas Comanche at 1,000–1,500 families, and Berlandier at 10,000–12,000 “for the same” (Berlandier’s figure is usually read as the whole nation; applied to the three divisions then distinguished)',HBCO('pp. 900–901'),(34.0,-100.0),r=400),
 ]
-# Comanche, late 1840s: Hämäläinen's figure and the 1848 smallpox
+# Comanche, 1785–1904: Hämäläinen, The Comanche Empire (2008), read in full text, with Kavanagh's figures in Handbook 13.
+# Hämäläinen's figures for c. 1849 (“near the twenty-thousand level”, p. 293) and 1870 (“four or five thousand”, p. 339) rest on
+# Neighbors 1849 and Tatum 1870, which are already records; they are not entered again, so those counts are not weighted twice.
+HM='Hämäläinen, The Comanche Empire (2008)'
 OBS += [
- _cnt(COM5,1847,20000,'Hämäläinen: Comanche villages “repeatedly decimated by epidemics of smallpox and cholera in the late 1840s”, the population plunging “from 20,000 to just a few thousand by the 1870s” (the 20,000 taken as the late-1840s level)','Hämäläinen, The Comanche Empire (2008), p. 2 (as quoted in Wikipedia, “Comancheria”; not checked in the book)',(35.0,-100.0),r=400,kind='secondary'),
+ _cnt(COM5[:3]+['cyj'],1785,25000,'Mid-1780s: “according to Spanish observers, the western Comanches alone numbered between sixteen and eighteen thousand, while a 1785 account states that the eastern Comanches had two thousand fighting men, which translates into a total eastern Comanche population of some eight thousand”',HM+', p. 102',(35.0,-101.0),r=400,kind='secondary'),
+ _cnt(['cyy','cyk','cyp'],1830,25000,'“Most estimates in the 1820s and 1830s put it between twenty and thirty thousand”',HM+', p. 179',(34.5,-100.5),r=400,kind='secondary'),
+ _cnt(COM5,1865,5000,'“As many as four thousand Comanches may have perished during the early 1860s, leaving a total population of only five thousand in 1865”',HM+', p. 313',(35.0,-100.5),r=400,kind='secondary'),
+ _cnt(COM5,1900,1499,'“In 1900, there were 1,499 Comanches, but measles in 1901 took 98 lives. The low point of 1,399 was reached in 1904”',HBCO('p. 901'),P['ft_sill'],r=40,basis='census'),
+ _cnt(COM5,1904,1399,'“The low point of 1,399 was reached in 1904”',HBCO('p. 901'),P['ft_sill'],r=40,basis='census'),
 ]
 EPI += [
- (1848.2,1848.8,'Smallpox, 1848 (Comanchería)',{**{g:.2 for g in COM5}},'Hämäläinen, The Comanche Empire (2008): “In 1848, three years into a dry spell, smallpox ravaged Comanchería” (quoted from a reader’s highlight; not checked in the book)','event sourced; rate assumed'),
+ (1848.2,1848.8,'Smallpox, 1848 (Comanchería)',{**{g:.05 for g in COM5}},'Hämäläinen, The Comanche Empire (2008), p. 302: “In 1848, three years into a dry spell, smallpox ravaged Comanchería, and in 1849 a virulent cholera epidemic … carried away uncounted numbers”; Kavanagh, “Comanche”, Handbook 13 (2001), p. 902: “L.H. Williams (1849) and R.S. Neighbors (1849) reported that the 1848–1849 smallpox-cholera epidemic killed 300”','event sourced; the only contemporary count (300 deaths for both years) is taken as a floor, and 5% a year applied for 1848 and 1849 (rate ours)'),
+ (1850.0,1861.0,'Drought and famine, 1850–60 (Comanchería)',{**{g:.35 for g in COM5}},'Hämäläinen, The Comanche Empire (2008), ch. 7, pp. 294–302 and n. 9 (p. 431): a drought from 1845, the collapse of the southern bison herds and malnutrition that lowered fertility, so that “Comanches’ population dropped in the 1850s and 1860s from around 20,000 to below 5,000”','decline sourced; the rate is scaled so that, with the 1848–49 and early-1860s losses, Hämäläinen’s series is reproduced (ours)'),
+ (1871.0,1875.5,'Hunger and war, 1871–75 (Comanchería)',{**{g:.3 for g in COM5}},'Hämäläinen, The Comanche Empire (2008), pp. 339–40: “in their battles with the U.S. Army in the early 1870s, the Comanches suffered only a few hundred casualties, yet their population plummeted from four or five thousand in 1870 to around fifteen hundred in 1875”, through “a systematic assault on the Comanches’ economy”; Kavanagh, Handbook 13 (2001), p. 901, on Tatum’s 1870 count of 3,742: “the Kwahada figure is probably an exageration”','decline sourced; rate ours (30%, allowing for Tatum’s overcount of the Kwahada)'),
+]
+
+# ---------------------------------------------------------------------------------------------
+# U.S. Census Office, Report on Indians Taxed and Indians Not Taxed (1894): the special Indian census of 1 June 1890,
+# read from the page images of each state's table “Indian population of reservations”. Dated 1890.42 (1 June), so a count
+# is never summed with an Indian Office figure for 1890. Figures identical to an 1890 record already present (Crow 2,287;
+# Kansa 198; Otoe and Missouria 358; Iowa 165 + 102 = 267; Southern Cheyenne 2,272) are not entered again. The table's
+# footnote splitting the Cheyenne and Arapaho reservation (“Cheyennes, 1,091; Arapahos, 2,272”, p. 528) reverses the Indian
+# Office figures for the same year (Cheyenne 2,272, Arapaho 1,091) and is not used.
+CEN90=lambda pp: f'U.S. Census Office, Report on Indians Taxed and Indians Not Taxed in the United States … at the Eleventh Census: 1890 (1894), {pp}, “Indian population of reservations”'
+def c90(g,p,raw,pp,at,r=40,**o):
+    return dict(g=g,y=1890.42,pop=p,raw='Census of 1 June 1890: '+raw,basis='census',loc='stated',at=at,r=r,src=CEN90(pp),kind='primary',**o)
+OBS += [
+ # South Dakota, p. 573
+ c90('ogl',5016,'Pine Ridge reservation, “Ogalalla Sioux, 4,488; mixed bloods, 528”','p. 573',P['pine_ridge']),
+ c90('bru',6012,'Rosebud reservation 5,381 (“Brule Sioux No. 1, 1,288; Brule Sioux No. 2, 750; Loafer Sioux, 1,052; Wazhazhah Sioux, 1,184; Two Kettle Sioux, 228; Northern Sioux, 167; mixed bloods, 762”), less the Two Kettle and Northern (Oglala) Sioux, plus Lower Brule reservation 1,026','p. 573',P['rosebud'],r=120),
+ c90(['min','sna','twk','sih'],3622,'Cheyenne River reservation, “Blackfeet Sioux, Sans Arcs Sioux, Minneconjou Sioux, and Two Kettle Sioux”, 2,823; with the Blackfeet Sioux at Standing Rock (571, p. 509) and the Two Kettle at Rosebud (228)','pp. 509, 573',P['chyR_agency'],r=120),
+ c90('ynk',1725,'Yankton reservation, “Yankton Sioux”, 1,725','p. 573',P['yankton_ag']),
+ c90(['wpt','sis'],2084,'Lake Traverse reservation, “Sisseton and Wahpeton Sioux”, 1,522 (p. 573); at Devils Lake, Sisseton 420 and Wahpeton 142 (p. 509)','pp. 509, 573',P['sisseton'],r=120),
+ # North Dakota, p. 509
+ c90('hnk',1739,'Standing Rock reservation, “Uncapapa (Hunkpapa) Sioux”, 1,739','p. 509',P['standing_rock']),
+ c90(['yku','ykl'],4383,'Yanktonai: Standing Rock 1,786 and Crow Creek (“Lower Yanktonnai Sioux”) 1,058 (pp. 509, 573); Fort Peck “Yankton Sioux” (the Upper Yanktonai) 1,121 (p. 356); at Devils Lake, Cuthead 295 and “Yankton” 123 (p. 509)','pp. 356, 509, 573',(46.5,-101.0),r=300),
+ c90('man',251,'Fort Berthold reservation, “Mandan”, 251','p. 509',P['like_fishhook']),
+ c90('hid',690,'Fort Berthold reservation, “Gros Ventre” (Hidatsa) 522, and “Dull Knife’s band of Gros Ventres” 168, “nominally at Fort Berthold, but roaming” (Crow Flies High’s band)','p. 509',P['like_fishhook']),
+ c90('ari',447,'Fort Berthold reservation, “Arickaree”, 447','p. 509',P['like_fishhook']),
+ c90('ojb',1458,'Turtle Mountain reservation, “Chippewas and Crees, 251; Chippewas, Crees, and other mixed bloods, many perhaps belonging in Canada, 1,197”','p. 509',P['turtle_mt']),
+ # Montana, p. 356
+ c90('ass',1673,'Assiniboine: Fort Belknap 952 and Fort Peck 719 (p. 356), and 2 at Devils Lake (p. 509)','pp. 356, 509',(48.3,-106.5),r=150),
+ c90('gv',770,'Fort Belknap reservation, “Gros Ventre”, 770','p. 356',P['ft_belknap']),
+ c90('pik',1811,'Blackfeet reservation, “Piegan”, 1,811 (the South Piegan of Montana only; the North Piegan were on their Alberta reserve)','p. 356',P['blackfeet_ag'],whole=False),
+ c90('chn',1382,'Northern Cheyenne: Tongue River reservation 865 (p. 356) and Pine Ridge reservation 517 (p. 573)','pp. 356, 573',P['lame_deer'],r=150),
+ # Wyoming, p. 627
+ c90('sho',916,'Wind River reservation, “Shoshone, Eastern band”, 916','p. 627',P['wind_res']),
+ c90('arn',885,'Wind River reservation, “Arapaho, Northern”, 885','p. 627',P['wind_res']),
+ # Nebraska, p. 373, and Oklahoma, p. 528
+ c90('oma',1158,'Omaha reservation, “Omaha”, 1,158','p. 373',P['omaha_res']),
+ c90('pon',822,'Ponca reservation, Oklahoma, 605 (p. 528), and “Ponca of Dakota” on the Niobrara, 217 (p. 373)','pp. 373, 528',P['ponca_ok'],r=300),
+ c90(['pwc','pwk','pws'],804,'Pawnee reservation, “Pawnee”, 804','p. 528',P['pawnee_ok']),
+ c90(['osg','osl'],1509,'Osage reservation, “Osage”, 1,509','p. 528',P['pawhuska']),
+ c90('kio',1140,'Kiowa and Comanche reservation, “Kiowa”, 1,140','p. 528',P['ft_sill']),
+ c90(COM5,1598,'Kiowa and Comanche reservation, “Comanche”, 1,598','p. 528',P['ft_sill']),
+ c90('kap',326,'Kiowa and Comanche reservation, “Apache”, 326','p. 528',P['ft_sill']),
+ # New Mexico, p. 396
+ c90('jic',808,'Jicarilla Apache reservation, “Jicarilla (Apache)”, 808','p. 396',(36.93,-107.0)),
+]
+# The Indian Office's 1890 Northern Cheyenne figure counts the Tongue River agency only; 517 more were at Pine Ridge (above).
+for _o in OBS:
+    if _o['g']=='chn' and _o['y']==1890 and _o['pop']==865: _o['whole']=False
+
+# ---------------------------------------------------------------------------------------------
+# Four peoples added from Handbook 13 (2001), read chapter by chapter in the PDF supplied by the project's owner:
+# Dempsey, “Sarcee” (pp. 629–37); Getty and Gooding, “Stoney” (pp. 596–603); Newcomb and Campbell, “Tonkawa” (pp. 953–64);
+# Parks, “Kitsai” (pp. 567–71). Where a chapter gives tents or warriors without a ratio, the multiplier is ours and the basis says so.
+FAM['tonkawan']=9; FAMNAME['tonkawan']='Tonkawa (isolate)'
+GROUPS += [
+ ('sar','Sarsi','Tsuut’ina (Sarsi)','athabaskan',1700,1905,'nomadic'),
+ ('sto','Stoney','Mountain Stoney (Nakoda)','dakotan',1700,1905,'nomadic'),
+ ('tkw','Tonkawa','Tonkawa','tonkawan',1700,1905,'nomadic'),
+ ('kit','Kitsai','Kitsai','caddoan',1700,1894,'village'),
+]
+HBSA=lambda pp: HBC('Sarcee','Dempsey',pp)
+HBST=lambda pp: HBC('Stoney','Getty and Gooding',pp)
+HBTO=lambda pp: HBC2('Tonkawa','Newcomb and Campbell',pp)
+HBKT=lambda pp: HBC('Kitsai','Parks',pp)
+OBS += [
+ # ---- Sarsi
+ pl('sar',1790.5,'Umfreville, 1790: “a small tribe which has separated from the main body, and now harbor in some country about the Stony [Rocky] Mountains” (a range; centre ours)',(52.3,-114.3),200,HBSA('p. 629')),
+ pl('sar',1815.5,'1815: Sarsi hunting grounds “the territory between the Red Deer and Battle rivers, bounded on the east by Beaverhill Lake and on the west by the Rocky Mountains” (HBC 1967; a range, centre ours)',(52.55,-113.6),130,HBSA('p. 629')),
+ pl('sar',1855.5,'By the mid-19th century the Sarsi “normally hunted along the Red Deer and Bow rivers” (a range; centre ours)',(51.4,-113.4),110,HBSA('pp. 629, 635')),
+ pl('sar',1877.72,'Treaty No. 7, Blackfoot Crossing, Sept. 1877: signed for the Sarsi by Bull Head',(50.77,-112.87),10,HBSA('p. 635')),
+ pl('sar',1883.5,'1883: the Sarsi receive their own reserve just west of Calgary, 108 square miles',(50.95,-114.25),10,HBSA('p. 635')),
+ _cnt('sar',1785,650,'1780s: 90 tents, 650 people (Thompson in Glover 1962:240)',HBSA('p. 636, table 2'),(52.5,-113.5),r=200),
+ _cnt('sar',1801,480,'1801: 35 tents, 120 men (Mackenzie 1802)',HBSA('p. 636, table 2'),(52.5,-113.5),r=200,basis='warriors × 4 (ours)'),
+ _cnt('sar',1801.1,500,'1801: 70 tents (Fidler); at Thompson’s 7.2 to a tent from the same table',HBSA('p. 636, table 2'),(52.5,-113.5),r=200,basis='tents × 7.2 (Thompson’s ratio in the same table; ours)'),
+ _cnt('sar',1810,600,'1810: 90 tents, 150 men (Henry in Coues 1897)',HBSA('p. 636, table 2'),(52.5,-113.4),r=200,basis='warriors × 4 (ours)'),
+ _cnt('sar',1824,720,'1824: 100 tents (Franklin 1824)',HBSA('p. 636, table 2'),(52.4,-113.4),r=200,basis='tents × 7.2 (ours)'),
+ _cnt('sar',1841,350,'1841: 50 tents, 100 men, 350 people (Simpson 1841)',HBSA('p. 636, table 2'),(51.8,-113.4),r=200),
+ _cnt('sar',1843,350,'1843: 45 tents, 350 people (Rowand)',HBSA('p. 636, table 2'),(51.8,-113.4),r=200),
+ _cnt('sar',1859,360,'1859: 45 tents, 360 people (Hind 1859)',HBSA('p. 636, table 2'),(51.5,-113.4),r=150),
+ _cnt('sar',1869.5,420,'1870: 40 tents, 420 people (Sully 1870; taken as the count before the epidemic of winter 1869–70)',HBSA('p. 636, table 2'),(51.4,-113.4),r=150),
+ _cnt('sar',1871,86,'1870: 12 tents (Butler 1874:370); “in 1869–1870 another smallpox epidemic reduced the number of Sarcee lodges from 50 to 12”',HBSA('pp. 635–36'),(51.4,-113.4),r=150,basis='tents × 7.2 (ours)'),
+ _cnt('sar',1877.72,255,'Treaty No. 7, 1877: “a total of 255 Sarcee were entered on the Canadian government rolls”',HBSA('p. 635'),(50.77,-112.87),r=20,basis='census'),
+ # ---- Stoney
+ pl('sto',1754.9,'Winter 1754–55: Henday, wintering in central Alberta, “acknowledged the assistance of ‘Assiniboine’ families who were doubtless Stoneys” (place ours)',(52.4,-113.6),150,HBST('p. 596')),
+ pl('sto',1845.5,'1840–48: Rundle travels each summer along the foothills from Rocky Mountain House to the Bow River, preaching to the Stoney (a range; centre ours)',(51.8,-114.8),110,HBST('pp. 596–97')),
+ pl('sto',1873.5,'1873: the McDougalls’ Methodist mission at Morleyville on the Bow, where the Stoney reserve was surveyed in 1879',(51.16,-114.85),10,HBST('p. 597')),
+ pl('sto',1877.72,'Treaty No. 7, Blackfoot Crossing, Sept. 1877: three Stoney chiefs attend (Bearspaw, Chiniki, Wesley)',(50.77,-112.87),10,HBST('p. 596')),
+ pl('sto',1879.5,'1879: the Stoney reserve at Morley, 109 square miles on the Bow about 30 miles from Calgary',(51.16,-114.85),10,HBST('p. 596')),
+ _cnt('sto',1877.72,556,'556 in 1877 (Treaty Paylist 1877); “there are no reliable population statistics from before the reserve period”',HBST('p. 602'),(51.16,-114.85),r=40,basis='census'),
+ _cnt('sto',1885,647,'647 in 1885 (Department of Indian Affairs 1886)',HBST('p. 602'),(51.16,-114.85),r=40,basis='census'),
+ _cnt('sto',1895,570,'570 in 1895 (Department of Indian Affairs 1897)',HBST('p. 602'),(51.16,-114.85),r=40,basis='census'),
+ # ---- Tonkawa
+ pl('tkw',1719.6,'1719: du Rivage, 70 leagues up the Red River near present Paris, Texas, meets warriors of five groups, among them Tonkawa and Yojuane, returning from an attack on Apaches farther west (a war party; kept off the track)',(33.66,-95.55),40,HBTO('p. 954')+'; '+HBKT('p. 567'),whole=False),
+ pl('tkw',1758.2,'March 1758: Tonkawas join the Comanche, Taovaya and others in sacking the San Sabá mission (a raid; kept off the track)',(30.92,-99.79),10,HBTO('p. 955'),whole=False),
+ pl('tkw',1768.5,'1768: Fray Gaspar José de Solís visits encampments of Coco, Mayeye, Tonkawa, Yojuane and others on the Brazos northwest of modern College Station',(30.85,-96.6),40,HBTO('pp. 953–54')),
+ pl('tkw',1828.4,'1828: the Mexican boundary survey visits a Tonkawa village about halfway between the Guadalupe and Colorado rivers, allied with the Lipan (Berlandier)',(29.85,-97.65),40,HBTO('p. 955')),
+ pl('tkw',1855.0,'1854–55: the Tonkawa are moved to the Brazos reservation at the junction of the Clear Fork',(33.1,-98.7),15,HBTO('p. 955')),
+ pl('tkw',1859.6,'1859: escorted with the other Brazos reservation Indians north across the Red River to the Wichita Agency in the Leased District',(35.1,-98.45),20,HBTO('p. 955')),
+ pl('tkw',1867.5,'1867: the Tonkawa gather around newly established Fort Griffin on the Clear Fork of the Brazos, rationed by the army for scouting',(32.93,-99.23),10,HBTO('p. 955')),
+ pl('tkw',1885.3,'Spring 1885: moved from the Iowa reservation to the former Nez Perce reservation on the Chikaskia River in northern Oklahoma',(36.68,-97.31),15,HBTO('pp. 955–56')),
+ _cnt('tkw',1772,600,'1772: “something more than 150 warriors, which included Mayeyes and Yojuanes” (Bolton 1914)',HBTO('p. 956'),(31.2,-96.8),r=150,basis='warriors × 4 (ours)'),
+ _cnt('tkw',1810,1000,'“Apparently Tonkawa population was fairly stable from the late eighteenth century into the third decade of the following century, hovering around 1,000 persons”',HBTO('p. 956'),(30.8,-96.9),r=150,kind='secondary'),
+ _cnt('tkw',1849,650,'1849: estimated at 650, including 130 warriors (Winfrey and Day)',HBTO('p. 956'),(30.5,-97.6),r=150),
+ _cnt('tkw',1859.6,245,'1859: “about 245 Tonkawas” escorted from the Brazos reservation to the Wichita Agency',HBTO('p. 955'),(35.1,-98.45),r=20),
+ _cnt('tkw',1863,165,'1863: about 165, including about 50 warriors (Winfrey and Day)',HBTO('p. 956'),(32.9,-99.0),r=100),
+ _cnt('tkw',1884.5,92,'1884: 92 survivors, “including some Lipan Apaches”, moved to Indian Territory from Fort Griffin',HBTO('p. 955'),(32.93,-99.23),r=20),
+ _cnt('tkw',1891,73,'1891: “the 73 surviving Tonkawa were each allotted approximately 160 acres”',HBTO('p. 956'),(36.68,-97.31),r=15,basis='census'),
+ c90('tkw',76,'Oakland reservation, “Tonkawa and Lipans”, 76','p. 528',(36.68,-97.31),r=15),
+ # ---- Kitsai
+ pl('kit',1718.5,'1718: Bienville lists a Kitsai group living with several Caddo groups in a single village 150 leagues up the Red River (place ours)',(33.4,-94.1),60,HBKT('p. 567')),
+ pl('kit',1745.5,'1745: Ortiz places the Kitsai on the upper Trinity, Brazos and Red rivers (a range; centre ours)',(33.0,-96.9),150,HBKT('p. 568')),
+ pl('kit',1772.3,'1772: De Mézières’ first stop, the Kitsai village on the east side of the Trinity near present Palestine, Texas',(31.78,-95.85),15,HBKT('p. 568')),
+ pl('kit',1778.5,'1778: a small Kitsai village of 20 warriors, separated from the larger one, near present Grand Saline, Texas (part of the people)',(32.67,-95.71),10,HBKT('p. 568'),whole=False),
+ pl('kit',1820.5,'1820 and 1828: still living east of the Trinity, trading at Nacogdoches and Trinidad (a range; centre ours)',(31.8,-95.8),50,HBKT('p. 568')),
+ pl('kit',1841.4,'1841: Texans attack the Kitsai and Waco villages on the West Fork of the Trinity near present Arlington',(32.75,-97.1),10,HBKT('p. 568')),
+ pl('kit',1846.5,'1846: on the Brazos, 100 miles north of Comanche Peak (P.M. Butler; place ours)',(33.4,-98.5),50,HBKT('p. 568')),
+ pl('kit',1851.5,'1851: Stem reports only 38 Kitsai on the Brazos reservation; “two-thirds of the tribe had joined the Wichita and were living in the Wichita Mountains”',(34.8,-98.6),40,HBKT('p. 568')),
+ pl('kit',1859.6,'1859: the remaining Kitsai moved from the Brazos reservation to the Wichita Agency, “located on the site of an old Kitsai village”',(35.1,-98.45),15,HBKT('p. 569')),
+ _cnt('kit',1772.3,320,'1772: the Trinity village “comprised 30 lodges and 80 warriors” (De Mézières)',HBKT('p. 568'),(31.78,-95.85),r=20,basis='warriors × 4 (ours)'),
+ _cnt('kit',1777,360,'1770s: 90 warriors (Merino y Moreno)',HBKT('p. 570'),(31.8,-95.85),r=60,basis='warriors × 4 (ours)'),
+ _cnt('kit',1805,240,'1805: 60 warriors (Sibley 1832)',HBKT('p. 570'),(31.8,-95.85),r=60,basis='warriors × 4 (ours)'),
+ _cnt('kit',1809,220,'1809: 50–60 warriors (Salcedo)',HBKT('p. 570'),(31.8,-95.85),r=60,basis='warriors × 4 (ours)'),
+ _cnt('kit',1849,300,'1849: a total population of 300 (Schoolcraft)',HBKT('p. 570'),(33.5,-98.2),r=200),
+ _cnt('kit',1855,500,'1855: 500 (Whipple, Ewbank and Turner)',HBKT('p. 570'),(34.0,-98.4),r=200),
+ _cnt('kit',1857,300,'1857: 300 (ARCIA 1857)',HBKT('p. 570'),(34.5,-98.5),r=150),
+ _cnt('kit',1893,52,'“By 1893 the population had dropped to 52 individuals” (Mooney 1896)',HBKT('p. 570'),(35.1,-98.3),r=30,basis='census'),
+ c90(['wic','kit'],424,'Wichita reservation: “Wichita and affiliated Towaconie” 150, “Keechie and Wichita” 66, “Waco and Wichita” 34, “Wichita” 174','p. 528',P['anadarko'],r=40),
+]
+EPI += [
+ (1780.6,1782.0,'Smallpox, 1780–82 (Sarsi and Stoney)',{'sar':.5,'sto':.5},'Fenn, Pox Americana, as for the Blackfoot and Assiniboine (no figure for either people)','assumed, at the rate used for their neighbours'),
+ (1837.45,1838.0,'Smallpox, 1837–38 (Sarsi and Stoney)',{'sar':.5,'sto':.25},'Dempsey, “Sarcee”, Handbook 13 (2001), p. 635: “They suffered a major loss during the smallpox epidemic of 1837–1838” (100 tents in 1824, 50 in 1841, p. 636); Stoney: none stated','Sarsi scaled from the tent counts; Stoney assumed, as the Northern Assiniboine'),
+ (1869.7,1870.3,'Smallpox, 1869–70 (Sarsi)',{'sar':.45},'Dempsey, “Sarcee”, Handbook 13 (2001), p. 635: lodges reduced “from 50 to 12”; 420 people in 1870 before it and 255 on the 1877 roll (p. 636)','scaled between the lodge count and the 1877 roll (ours)'),
+ (1862.8,1862.85,'Attack on the Tonkawa near Anadarko, Oct. 1862',{'tkw':.4},'Newcomb and Campbell, “Tonkawa”, Handbook 13 (2001), p. 955: “Some 137 men, women, and children were killed”; about 245 had come north in 1859','sourced (fraction of about 300 to 340)'),
+ (1801.3,1802.3,'Smallpox, 1801–02 (Kitsai)',{'kit':.3},'Morse via Mooney: the Wichita and Caddo suffered “almost as severely” as the prairie tribes, who lost more than half; Kitsai warriors fall from 90 (1770s) to 60 (1805), Parks, “Kitsai”, Handbook 13 (2001), p. 570','assumed'),
+ (1845.5,1846.5,'Smallpox and war, 1845–46 (Kitsai)',{'kit':.2},'Parks, “Kitsai”, Handbook 13 (2001), p. 568: in 1846 the Kitsai had “suffered a loss in population because of smallpox and war with Texans” (P.M. Butler)','event sourced; rate assumed'),
+]
+GUESS['sar']=[g(1700,(54.6,-113.0),800,'Parkland edge: hunting on the plains, wintering with the Beaver (Dempsey)'),g(1740,(53.6,-112.8),900,'Cut off from the Beaver by the Cree advance; allied with the Blackfoot'),
+              g(1772.9,(52.8,-111.0),800,'Cocking’s “Equestrian Indians”, 1772–73'),g(1782,None,450,'1780–82 smallpox'),g(1840,(51.9,-113.5),370,''),g(1866,(51.3,-113.3),420,'Travelling into Montana with the Blackfoot (Doty; Dempsey)'),
+              g(1879,(50.95,-114.25),240,'Common reserve on the Bow with the Blood and Blackfoot, then their own'),g(1900,(50.95,-114.25),200,'Tuberculosis; 160 by 1924'),g(1905,(50.95,-114.25),190,'')]
+GUESS['sto']=[g(1700,(53.4,-111.0),700,'Allied with the Plains Cree; “groups migrating west to the mountains to escape the diseases” (Bearspaw tradition)'),g(1740,(52.8,-113.0),800,''),
+              g(1782,None,400,'1780–82 smallpox (assumed)'),g(1800,(52.2,-114.6),550,'Foothills from Rocky Mountain House south toward the Bow'),g(1837,None,650,''),g(1838,None,500,'1837–38 smallpox (assumed)'),
+              g(1860,(51.7,-114.9),550,''),g(1905,(51.16,-114.85),580,'Morley reserve')]
+GUESS['tkw']=[g(1700,(34.0,-97.6),900,'By 1691 south at least to the Red River (Casañas); in 1601 north-central Oklahoma'),g(1730,(33.0,-96.9),850,'Entering Texas at the north end of the Blackland Prairie'),
+              g(1760,(31.6,-96.9),800,'Along the grassland–woodland edge; absorbing the Yojuane after 1759'),g(1790,(31.0,-96.8),1000,'Not much south of the Brazos–Little River junction until late in the century'),
+              g(1840,(30.3,-97.8),800,'Pushed west by Anglo settlement after 1836'),g(1874,(32.93,-99.23),120,'Fort Griffin scouts')]
+GUESS['kit']=[g(1700,(33.2,-95.6),500,'Upper Trinity and Red River country (du Rivage, Bienville)'),g(1760,(32.3,-96.0),450,''),g(1800,None,330,''),
+              g(1830,(31.9,-95.9),200,'East of the Trinity until the end of the 1820s'),g(1836,(32.8,-97.4),190,'North to the upper Trinity and Brazos'),
+              g(1870,(35.1,-98.3),120,'With the Wichita at the Wichita Agency'),g(1885,(35.1,-98.3),70,'')]
+
+# ---------------------------------------------------------------------------------------------
+# Eastern Shoshone and Jicarilla from their Handbook chapters (read in the PDFs supplied by the project's owner):
+# Shimkin, “Eastern Shoshone”, Handbook of North American Indians, vol. 11, Great Basin (1986), pp. 308–35;
+# Tiller, “Jicarilla Apache”, Handbook of North American Indians, vol. 10, Southwest (1983), pp. 440–61.
+HB11=lambda pp: f'D’Azevedo, ed., Handbook of North American Indians, vol. 11: Great Basin (1986), Shimkin, “Eastern Shoshone”, {pp}'
+HB10=lambda pp: f'Ortiz, ed., Handbook of North American Indians, vol. 10: Southwest (1983), Tiller, “Jicarilla Apache”, {pp}'
+OBS += [
+ # ---- Eastern Shoshone
+ pl('sho',1805.6,'1805: Larocque meets 20 Shoshone lodges visiting the Mandan with a much larger Crow party; they travel together to the Bighorn (a visiting party; kept off the track)',(45.6,-107.6),80,HB11('pp. 308–9'),whole=False),
+ pl('sho',1821.5,'1821: Jacob Fowler sees Shoshones at a large trading rendezvous dominated by Comanches on the upper Arkansas (a trading visit; kept off the track)',(38.3,-104.6),60,HB11('p. 309'),whole=False),
+ pl('sho',1837.5,'1837: O. Russell, travelling with them, gives the Shoshone country as “all the regions drained by the head branches of Green and Bear Rivers and the east and southern head branches of the Snake River” (a range; centre ours)',(42.5,-110.6),150,HB11('p. 309')),
+ _cnt('sho',1837.5,3000,'1837: “the leadership of the Buffalo Eaters Pah-da-hewakunda and Mawoma over 3,000 Shoshones was beginning to break up” (after O. Russell)',HB11('p. 311'),(42.5,-110.6),r=150),
+ _cnt('sho',1840,3000,'The Eastern Shoshone fell “from a population of perhaps 3,000 in 1840 to 800 in 1900”',HB11('p. 308'),(42.5,-109.8),r=200,kind='secondary'),
+ # ---- Jicarilla
+ pl('jic',1700.5,'1700: the name first recorded, when Governor Rodríguez Cubero has a condemned man’s head set on a pole at Taos to warn the “apaches de la xicarilla” (their mountains northeast of Taos; place ours)',(36.6,-105.3),40,HB10('p. 449')),
+ pl('jic',1733.5,'1733: a mission founded for the Jicarilla five leagues north of Taos; the governor soon drives them back into the mountains',(36.62,-105.57),10,HB10('p. 450')),
+ pl('jic',1752.5,'1752: Jicarilla trading at Pecos with the Carlana (a trading visit; kept off the track)',(35.55,-105.68),10,HB10('p. 450'),whole=False),
+ pl('jic',1850.5,'1850: Jicarilla hunting territory “extending from the Arkansas River, south to Mora, New Mexico, and from the Canadian River on the east to Chama, New Mexico, on the west” (a range; centre ours)',(36.8,-105.0),160,HB10('p. 450')),
+ pl('jic',1855.69,'10 Sept. 1855: treaty of peace with the Jicarilla and Ute signed at Abiquiu',(36.21,-106.32),10,HB10('p. 451')),
+ pl('jic',1883.64,'20 Aug. 1883: all the Jicarilla removed to the Mescalero Apache reservation',(33.15,-105.77),20,HB10('p. 452')),
+ _cnt('jic',1846.8,500,'1846: Charles Bent reports “about 100 lodges of 500 Jicarillas throughout New Mexico”',HB10('p. 451'),(36.5,-105.4),r=150),
+ _cnt('jic',1900,815,'1900: 815 (Jicarilla Apache tribal census rolls)',HB10('p. 454, table 1'),(36.93,-107.0),r=30,basis='census'),
 ]

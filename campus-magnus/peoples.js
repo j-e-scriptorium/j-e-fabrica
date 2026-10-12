@@ -216,7 +216,7 @@ window.CM_PEOPLES = {
     "Under American rule they fought the army at Cieneguilla in 1854 and were then issued rations at Abiquiu and Lucien Maxwell’s ranch at Cimarron. After decades of removals proposed and abandoned, the reservation at Dulce in north-central New Mexico was set aside in 1887."
   ],
   y1900: "On the Jicarilla Apache Reservation, New Mexico.",
-  read: ["Veronica E. Velarde Tiller, The Jicarilla Apache Tribe: A History (1983; rev. 1992)", "Morris E. Opler, “Jicarilla Apache,” Handbook of North American Indians 10 (1983)", "Dolores A. Gunnerson, The Jicarilla Apaches (1974)"]
+  read: ["Veronica E. Velarde Tiller, The Jicarilla Apache Tribe: A History (1983; rev. 1992)", "Veronica E. Velarde Tiller, “Jicarilla Apache,” Handbook of North American Indians 10 (1983)", "Dolores A. Gunnerson, The Jicarilla Apaches (1974)"]
 },
 
 "Lipan": {
@@ -361,6 +361,54 @@ window.CM_PEOPLES = {
   ],
   y1900: "On the Great Nemaha reservation (Kansas–Nebraska) and in Oklahoma.",
   read: ["Mildred Mott Wedel, “Iowa,” Handbook of North American Indians 13 (2001)", "Martha Royce Blaine, The Ioway Indians (1979)"]
+},
+
+"Sarsi": {
+  self: "Tsuut’ina (cuu’tma); the Sarcee or Sarsi of the fur trade",
+  lang: "Tsuut’ina (Northern Athabaskan)",
+  gist: "A small Athabaskan people, split from the Beaver of the Subarctic, who became mounted bison hunters on the northwestern plains and lived as independent members of the Blackfoot alliance until Treaty 7.",
+  body: [
+    "The Sarsi began as a part of the woodland Beaver who hunted on the plains and wintered in the forest. When Cree armed by the fur trade pushed west early in the eighteenth century, they cut the Sarsi off from the Beaver, and the Sarsi stayed on the plains. Matthew Cocking knew them in 1772–73 as a distinct tribe of “Equestrian Indians”; in 1815 they hunted between the Red Deer and Battle rivers, and by mid-century along the Bow and Red Deer. They allied with the Blackfoot, camping with the Blood and Siksika and speaking Blackfoot to them, while keeping their own language and a reputation, in Alexander Henry’s words, as “the bravest tribe in all the plains.”",
+    "Smallpox in 1837–38 halved their lodges, and the epidemic of 1869–70 cut them from 50 lodges to 12. They signed Treaty 7 in 1877, when 255 were entered on the rolls, first sharing a reserve with the Blackfoot and Blood on the Bow and then, from 1883, holding their own just west of Calgary. Tuberculosis brought them to 160 by 1924."
+  ],
+  y1900: "On the Sarcee reserve west of Calgary, Alberta.",
+  read: ["Hugh A. Dempsey, “Sarcee,” Handbook of North American Indians 13 (2001)", "Diamond Jenness, The Sarcee Indians of Alberta (1938)"]
+},
+
+"Stoney": {
+  self: "Nakoda, also iyeska; the Mountain Stoney (Bearspaw, Chiniki and Wesley bands) and the Wood Stoney",
+  lang: "Stoney, the northwestern end of the Sioux–Assiniboine–Stoney continuum (Siouan)",
+  gist: "The westernmost Siouan people, kin of the Assiniboine, who lived between the plains and the Rocky Mountain foothills of Alberta and settled at Morley after Treaty 7.",
+  body: [
+    "Closely related to the Assiniboine and often confused with them, the Stoney held the country from the plains to the Rocky Mountain foothills and watersheds, hunting bison on the plains and big game, fish and fur in the mountains and woods; their elders told of groups migrating west to the mountains to escape the epidemics further east. Allied with the Plains Cree and enemies of the Blackfoot and Sarsi, they made peace with the Kootenai and Shuswap across the mountains. Henday wintered with Stoney families in central Alberta in 1754–55, and from the 1770s they traded at Fort Edmonton and Rocky Mountain House.",
+    "Methodist missionaries, beginning with Robert Rundle in the 1840s, travelled with them along the foothills, and the McDougalls founded the mission at Morleyville on the Bow in 1873. The three chiefs of the Mountain Stoney signed Treaty 7 in 1877, and the Morley reserve was surveyed in 1879. No reliable count exists before the reserves: 556 were on the 1877 paylist, 647 in 1885 and 570 in 1895. The map follows the Mountain Stoney; the Wood Stoney west of Edmonton lived mainly by hunting, trapping and fishing in the forest."
+  ],
+  y1900: "On the Morley reserve on the Bow River, Alberta (with the Wood Stoney at Lac Sainte Anne and Lake Wabamun).",
+  read: ["Ian A. L. Getty and Erik D. Gooding, “Stoney,” Handbook of North American Indians 13 (2001)", "John Snow, These Mountains Are Our Sacred Places: The Story of the Stoney Indians (1977)"]
+},
+
+"Kitsai": {
+  self: "Kítsias (Ki’tsash); the Keechi or Keechie of Texan and American records",
+  lang: "Kitsai (Northern Caddoan), between Pawnee and Wichita",
+  gist: "A small Caddoan farming people of the Trinity River in east Texas, allied with the Caddo and Wichita, who were pushed north by Texan settlement and merged into the Wichita in Oklahoma.",
+  body: [
+    "Through the eighteenth century and into the nineteenth the Kitsai lived in villages between the Trinity and Brazos rivers, planting corn, beans and melons in summer and hunting bison and deer through the winter; their language was closer to Pawnee than to Wichita. De Mézières found their village of 30 lodges and 80 warriors on the east bank of the Trinity near present Palestine in 1772, and a smaller offshoot at the salines near Grand Saline in 1778. They traded at Natchitoches and Nacogdoches and joined the Caddo in their wars.",
+    "Texan settlement drove them north in the 1830s to the upper Trinity and Brazos, where Texans attacked their village near present Arlington in 1841. By 1851 two-thirds of them had joined the Wichita in the Wichita Mountains; the rest went with the other Brazos reservation peoples to the Wichita Agency in 1859. Treated as a Wichita band, they numbered 52 in 1893, and the map ends their separate line soon after."
+  ],
+  y1900: "Merged with the Wichita on the Wichita–Caddo reservation, Oklahoma.",
+  read: ["Douglas R. Parks, “Kitsai,” Handbook of North American Indians 13 (2001)", "Herbert E. Bolton, ed., Athanase de Mézières and the Louisiana–Texas Frontier, 1768–1780 (1914)"]
+},
+
+"Tonkawa": {
+  self: "Tonkawa, not a native term; its origin is unknown (a Waco derivation, ‘they all stay together’, is questionable)",
+  lang: "Tonkawa, a language isolate",
+  gist: "A hunting people who moved from north-central Oklahoma into central Texas, absorbed remnant groups to survive, served as scouts for Texas and the army, and were reduced to fewer than a hundred by 1884.",
+  body: [
+    "First recorded in 1601 in north-central Oklahoma, the Tonkawa were pushed south by the mounted Apache and entered Texas along the edge of the Blackland Prairie, where grassland met woodland; in 1768 Solís found them encamped on the Brazos with other peoples of the central Texas refuge area, who shared a sign language. A small people, they survived by absorbing others, the Yojuane above all after the Spanish massacre of 1759, and held at about a thousand from the late eighteenth century into the 1820s. They joined the attack on the San Sabá mission in 1758, and by 1828 were living between the Guadalupe and the Colorado, allied with the Lipan and afraid to hunt bison for fear of the Comanche.",
+    "Anglo-American settlement after 1836 pushed them west. They were placed on the Brazos reservation in 1854, removed to the Wichita Agency in 1859, and in October 1862 lost some 137 people in an attack near Anadarko. The survivors drifted back to Texas and scouted against the Kiowa and Comanche from Fort Griffin. In 1884 the 92 who remained, with some Lipan, were moved to Indian Territory, and in 1891 the 73 survivors were allotted."
+  ],
+  y1900: "On allotments near Tonkawa, Oklahoma.",
+  read: ["W. W. Newcomb, Jr., and Thomas N. Campbell, “Tonkawa,” Handbook of North American Indians 13 (2001)", "Thomas F. Schilz, People of the Cross Timbers: A History of the Tonkawa Indians (1987)"]
 }
 
 };

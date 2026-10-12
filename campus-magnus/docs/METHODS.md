@@ -4,7 +4,7 @@ This file states the model as the code implements it, with every setting and how
 
 ## 1. Units and inputs
 
-- **Unit.** A *division* $g$ (55 in all) with a lifespan $[s_g, e_g]$ and a lifeway (`nomadic` or `village`). A people (tribe) is the sum of its divisions. A division that splits ends in the year its successors begin; for example the Cheyenne end in 1832 and the Northern and Southern Cheyenne begin then.
+- **Unit.** A *division* $g$ (59 in all) with a lifespan $[s_g, e_g]$ and a lifeway (`nomadic` or `village`). A people (tribe) is the sum of its divisions. A division that splits ends in the year its successors begin; for example the Cheyenne end in 1832 and the Northern and Southern Cheyenne begin then.
 - **Documented records** (`OBS` in `data_src.py`) carry the following fields:
   - group(s): one division, or several for a whole-tribe count;
   - year (decimal; a season gives the fraction);
@@ -74,19 +74,19 @@ Every count is then divided by its family's factor and the model refitted (lines
   - a documented place has variance $(0.25 r)^2 + 90^2$;
   - a keyframe has variance $150^2$;
   - the halo radius is $1.46\sqrt{P_t + 90^2}$, capped at 450 km, where 1.46 makes the halo contain 68% of withheld places (`calib_halo.py`).
-- Held-out median miss: 113 km for the smoother (115 km without keyframes) and 115 km for the drawn curve (128 km without keyframes), over 440 places, each withheld with any other place within half a year (`calib_pos.py`, `calib_track.py`, `build/trackcal.json`). The smoother parameters were fitted on an earlier, smaller record set (380 places) and not refitted.
+- Held-out median miss: 109 km for the smoother (111 km without keyframes) and 107 km for the drawn curve (123 km without keyframes), over 476 places, each withheld with any other place within half a year (`calib_pos.py`, `calib_track.py`, `build/trackcal.json`). The smoother parameters were fitted on an earlier, smaller record set (380 places) and not refitted.
 
 **Village divisions.** The track holds at each place.
 - Where `ecology_src.VMOVE` dates a relocation, the move happens over about five months around that date.
 - Otherwise it moves over two years centred on the midpoint between the two places.
 - The halo is a hand-set formula: 20 km + (distance to next site × fraction of the gap elapsed) + 3 km per year from the nearest anchor, capped at 300 km. **This formula is not calibrated.**
-- The held-out median miss for village places is 46 km over 218 places (52 km without keyframes).
+- The held-out median miss for village places is 48 km over 231 places (53 km without keyframes).
 
 **Seasonal offset (optional layer).**
 - The annual offset $A_g(t)$ (summer ground minus annual centre, km east and north) is estimated from season-dated places within about 5 years (exponential weights, τ = 5 yr). It is shrunk toward a literature pattern (`seasonal_patterns.csv`) or toward zero, with prior SD 60 km per axis.
 - Within the year, position = centre + φ(month)·A, with a plateau-and-ramp calendar fitted by hold-out (`calib_prof.py`): winter ground to mid-March, summer ground by early July until early August, back by late October.
 - Season-dated places are reproduced exactly.
-- Hold-out: on 243 withheld season-dated places the median miss is 125 km, against 134 km with no offset.
+- Hold-out: on 264 withheld season-dated places the median miss is 120 km, against 127 km with no offset.
 
 ## 4. Bands and villages (derived layer)
 
@@ -99,9 +99,9 @@ Every count is then divided by its family's factor and the model refitted (lines
 
 | Test | Script | Output | Result |
 |---|---|---|---|
-| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 384 counts; median miss ×1.22 (interpolation ×1.29); 2-sd coverage 0.90 before widening |
-| Held-out places | `calib_pos.py`, `calib_halo.py` | `model/build/poscal.json` | median 113 km nomadic (smoother), 115 km (drawn curve), 46 km village |
-| Withheld season-dated places | `recheck_seas.py` | console | 243 places; 125 against 134 km |
+| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 435 counts; median miss ×1.20 (interpolation ×1.26); 2-sd coverage 0.90 before widening |
+| Held-out places | `calib_pos.py`, `calib_halo.py` | `model/build/poscal.json` | median 109 km nomadic (smoother), 107 km (drawn curve), 48 km village |
+| Withheld season-dated places | `recheck_seas.py` | console | 264 places; 120 against 127 km |
 | Whole-model sensitivity | `sens.py` | `model/build/sensitivity.json` | table under “Sensitivity of the population totals” on the map page |
 | Rebuild from package | — | — | bit-identical populations and tracks |
 

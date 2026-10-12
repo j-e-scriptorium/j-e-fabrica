@@ -543,3 +543,11 @@ STRUCT = {
 
 # maximum number of unnamed units a division may show (default 25): single-village peoples get few
 MAXGEN = {'kaw':1,'osa':0,'osl':2,'osg':1,'hid':1,'pwc':1,'pwk':1,'wic':2,'jic':2,'lip':2,'apc':1,'mde':2,'wpt':2,'cwm':2,'cwr':3,'ojb':2,'man':12,'ari':30,'pws':14}
+
+# Peoples added from Handbook 13 (2001), with no band list read: structure notes only, so each is one dot at the bands level.
+STRUCT.update({
+ 'Sarsi':('Eight named bands of closely related families, each under a leader whose authority rested on popular support; membership was fluid. The bands camped apart in winter and joined in a circle, sometimes with one of the Blackfoot tribes, for the society dances and the Sun Dance.','Dempsey, “Sarcee”, Handbook of North American Indians 13 (2001), p. 630, table 1 (after Curtis 1907–1930, vol. 18)'),
+ 'Stoney':('Local bands of patrilineal extended families, each under a chief; the Mountain Stoney bands took the names of the three chiefs at Treaty 7 (Bearspaw, Chiniki, Wesley).','Getty and Gooding, “Stoney”, Handbook of North American Indians 13 (2001), pp. 596–97'),
+ 'Tonkawa':('A small people that survived by absorbing others (Yojuane, Mayeye and remnants of the central Texas refuge area); clans were recorded in 1884.','Newcomb and Campbell, “Tonkawa”, Handbook of North American Indians 13 (2001), pp. 954–56'),
+ 'Kitsai':('Two groups through most of the period, a southern one allied with the Caddo and a smaller northern one with the Wichita; from the 1850s treated as a Wichita band.','Parks, “Kitsai”, Handbook of North American Indians 13 (2001), p. 567'),
+})

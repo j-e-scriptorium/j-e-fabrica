@@ -7,6 +7,7 @@ source,records,of_which_counts,provenance_tier,peoples
 "Clark, “Estimate of the Eastern Indians,” Fort Mandan, winter 1804–05 (Moulton ed., Journals of the Lewis & Clark Expedition, vol. 3; UNL online edition)",40,40,A2,Arapaho; Arikara; Assiniboine; Cheyenne; Crow; Dakota; Gros Ventre; Hidatsa; Iowa; Kansa; Kiowa; Lakota; Mandan; Missouria; Omaha; Osage; Oto; Pawnee; Plains Apache; Plains Cree; Plains Ojibwe; Ponca; Unidentified; Wichita; Yankton; Yanktonai
 "Annual Report of the Commissioner of Indian Affairs, 1874, Commissioner’s summary of agencies",33,0,A2/B,Arapaho; Arikara; Assiniboine; Comanche; Dakota; Gros Ventre; Hidatsa; Iowa; Kansa; Lakota; Mandan; Omaha; Osage; Oto; Pawnee; Ponca; Shoshone; Wichita; Yankton; Yanktonai
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Fowler, “Arapaho”",27,13,A1,Arapaho; Cheyenne; Kiowa; Plains Apache
+"U.S. Census Office, Report on Indians Taxed and Indians Not Taxed in the United States … at the Eleventh Census: 1890 (1894)",27,27,A1,Arapaho; Arikara; Assiniboine; Blackfoot; Cheyenne; Comanche; Dakota; Gros Ventre; Hidatsa; Jicarilla; Kiowa; Lakota; Mandan; Omaha; Osage; Pawnee; Plains Apache; Plains Ojibwe; Ponca; Shoshone; Tonkawa; Wichita; Yankton; Yanktonai
 "Grinnell, The Fighting Cheyennes (1915)",26,0,A2,Arapaho; Cheyenne; Comanche; Kiowa; Lakota; Plains Apache
 "Mooney, Calendar History of the Kiowa Indians (BAE 17th Annual Report, 1898), “Population”",25,25,A2,Comanche; Kiowa
 "Annual Report of the Commissioner of Indian Affairs, 1868, agent’s report",23,0,A2,Arikara; Dakota; Hidatsa; Iowa; Jicarilla; Kansa; Lakota; Mandan; Omaha; Osage; Oto; Pawnee; Ponca; Shoshone; Wichita; Yankton; Yanktonai
@@ -16,9 +17,12 @@ source,records,of_which_counts,provenance_tier,peoples
 "Mooney, “The Aboriginal Population of America North of Mexico” (1928), as given by Swanton, The Indian Tribes of North America (BAE Bulletin 145, 1952)",18,18,A2,Arapaho; Arikara; Assiniboine; Cheyenne; Crow; Gros Ventre; Hidatsa; Jicarilla; Kansa; Lakota; Mandan; Missouria; Omaha; Osage; Oto; Pawnee; Ponca; Wichita
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Opler, “Lipan Apache”",17,8,A1,Lipan
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Wedel, “Iowa”",17,9,A1,Iowa
+"DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Parks, “Kitsai”",17,8,A1,Kitsai
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Dempsey, “Blackfoot”",17,14,A1,Blackfoot
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Bailey and Young, “Kansa”",16,10,A1,Kansa
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Parks, “Arikara”",16,9,A1,Arikara
+"DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Dempsey, “Sarcee”",16,11,A1,Sarsi
+"DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Newcomb and Campbell, “Tonkawa”",15,7,A1,Tonkawa
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Liberty, Wood, and Irwin, “Omaha”",13,10,A1,Omaha
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Voget, “Crow”",13,2,A1,Crow
 "Warren, Preliminary Report of Explorations in Nebraska and Dakota, in the Years 1855–’56–’57 (1875 reprint)",13,0,A2,Arikara; Assiniboine; Hidatsa; Lakota; Mandan; Yankton; Yanktonai
@@ -28,6 +32,7 @@ source,records,of_which_counts,provenance_tier,peoples
 Annual Report of the Commissioner of Indian Affairs for 1878,12,12,A2,Arapaho; Arikara; Assiniboine; Cheyenne; Comanche; Hidatsa; Kiowa; Mandan; Plains Apache; Ponca; Shoshone; Yanktonai
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Fowler and Flannery, “Gros Ventre”",11,8,A1,Gros Ventre
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Moore, Liberty, and Straus, “Cheyenne”",11,10,A1,Cheyenne
+"DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Kavanagh, “Comanche”",11,8,A1,Comanche
 Annual Report of the Commissioner of Indian Affairs for 1874,11,11,A2,Assiniboine; Crow; Dakota; Lakota; Osage; Ponca; Shoshone; Yanktonai
 "Hayden, Contributions to the Ethnography and Philology of the Indian Tribes of the Missouri Valley (1862)",10,6,A2,Arapaho; Blackfoot; Gros Ventre; Hidatsa
 "Denig, “Indian Tribes of the Upper Missouri” (ms. c. 1854; BAE 46th Annual Report, 1930)",10,10,A2,Assiniboine
@@ -37,23 +42,25 @@ Annual Report of the Commissioner of Indian Affairs for 1874,11,11,A2,Assiniboin
 "Alexander Henry the younger, journal 1809–10, in Coues ed., New Light on the Early History of the Greater Northwest (1897), vol. 2",9,6,A2,Assiniboine; Blackfoot; Gros Ventre; Plains Cree
 "Hayden, Contributions to the Ethnography and Philology of the Indian Tribes of the Missouri Valley (1862) (Denig’s count)",9,9,A2,Lakota; Yankton; Yanktonai
 "Hayden, Contributions to the Ethnography and Philology of the Indian Tribes of the Missouri Valley (1862) (Denig)",9,7,A2,Crow; Plains Cree
+"Ortiz, ed., Handbook of North American Indians, vol. 10: Southwest (1983), Tiller, “Jicarilla Apache”",8,2,A1,Jicarilla
+"DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Getty and Gooding, “Stoney”",8,3,A1,Stoney
 "Wikipedia, “Crow people” (site coordinates and participants) (chronology)",8,0,B,Crow
 "Fletcher & La Flesche, “The Omaha Tribe” (BAE 27th Annual Report, 1911)",8,0,A2,Omaha
 "Frémont, Report of the Exploring Expedition to the Rocky Mountains in the Year 1842, and to Oregon and North California in the Years 1843–’44 (1845)",8,0,A2,Arapaho; Cheyenne; Lakota; Pawnee
-"DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Kavanagh, “Comanche”",7,4,A1,Comanche
 Annual Report of the Commissioner of Indian Affairs for 1882,7,7,A2,Arikara; Crow; Gros Ventre; Hidatsa; Lakota; Mandan; Osage
 "David Thompson’s Narrative of His Explorations in Western America, 1784–1812, ed. Tyrrell (Champlain Society, 1916)",6,2,A2,Assiniboine; Blackfoot; Hidatsa; Mandan; Shoshone
+"Hämäläinen, The Comanche Empire (2008)",6,5,A1,Comanche
 "Annual Report of the Commissioner of Indian Affairs, 1878, agent’s report, Kiowa and Comanche Agency",6,0,A2,Comanche; Kiowa; Plains Apache
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Schneider, “Three Affiliated Tribes”",6,2,A1,Arikara; Hidatsa; Mandan
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Lehmer, “Plains Village Tradition: Postcontact”",5,4,A1,Arikara; Hidatsa; Mandan; Wichita
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Stewart, “Hidatsa”",5,4,A1,Hidatsa
 Larocque (1805),5,0,A2,Crow
+"D’Azevedo, ed., Handbook of North American Indians, vol. 11: Great Basin (1986), Shimkin, “Eastern Shoshone”",5,2,A1,Shoshone
 "Pike, Expeditions, ed. Coues (1895), vol. 2",5,4,A2,Comanche; Kansa; Osage
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Albers, “Santee”",5,4,A1,Dakota
 "Wikipedia, “Treaty of Fort Laramie (1851)” (site coordinates and participants) (Shoshone attendance recalled)",5,0,C,Arapaho; Cheyenne; Lakota; Shoshone
 "Wikipedia, “Medicine Lodge Treaty” (site coordinates and participants) (Comanche divisions recalled)",5,0,C,Arapaho; Comanche; Plains Apache
 "Wikipedia, “Battle of the Little Bighorn” (site coordinates and participants)",5,0,B,Cheyenne; Lakota
-"Hämäläinen, The Comanche Empire (2008)",4,3,C,Comanche
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Wood and Irwin, “Mandan”",4,4,A1,Mandan
 "Clark/Lewis, printed “Statistical View of the Indian Nations,” 1806 (remarks paragraphs in the UNL edition of the Estimate)",4,1,A2,Mandan; Omaha; Osage; Pawnee
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Albers, “Plains Ojibwa”",4,0,A1,Plains Ojibwe
@@ -84,7 +91,6 @@ Annual Report of the Commissioner of Indian Affairs for 1886,4,4,A2,Dakota; Kans
 "Wikipedia, “Battle of Killdeer Mountain” (site coordinates and participants)",3,0,B,Lakota; Yanktonai
 "Wikipedia, “First Battle of Adobe Walls” (site coordinates and participants)",3,0,B,Comanche; Kiowa
 "Wikipedia, “Northern Arapaho” (site coordinates and participants)",3,0,B,Arapaho
-"Encyclopedia of the Great Plains, “Comanche” (Kavanagh)",3,3,B,Comanche
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Arikara”, vol. 1",3,3,A2,Arikara
 "Annual Report of the Commissioner of Indian Affairs, 1878, agent’s report, Pawnee Agency",3,0,A2,Pawnee
 "Annual Report of the Commissioner of Indian Affairs, 1878, agent’s report, Cheyenne River Agency",3,0,A2,Lakota
@@ -143,7 +149,7 @@ Annual Report of the Commissioner of Indian Affairs for 1868,2,2,A2,Kansa; Shosh
 "Denig, “Indian Tribes of the Upper Missouri” (ms. c. 1854; BAE 46th Annual Report, 1930); Hodge’s editor notes the date is far too late",1,1,A2,Assiniboine
 "Wikipedia, “Big Hidatsa Village Site” (site coordinates and participants)",1,0,B,Hidatsa
 Mission San Lorenzo de la Santa Cruz (El Cañón) (recalled; not checked against the text this round),1,0,C,Lipan
-"Gaignard (1773–74) via Hämäläinen, The Comanche Empire",1,1,C,Comanche
+"Gaignard (1773–74) via Hämäläinen, The Comanche Empire (2008)",1,1,A1,Comanche
 "Wikipedia, “Cuerno Verde” (site coordinates and participants)",1,0,B,Comanche
 "Wikipedia, “Comanche history” (summary of the literature)",1,1,B,Comanche
 "Mackenzie, General History of the Fur Trade (1801), quoted in Hayden, Contributions to the Ethnography and Philology of the Indian Tribes of the Missouri Valley (1862)",1,1,A2,Blackfoot
@@ -163,7 +169,7 @@ Mission San Lorenzo de la Santa Cruz (El Cañón) (recalled; not checked against
 "Brooks, Captives & Cousins; Thornton, American Indian Holocaust and Survival",1,1,C,Comanche
 "Wikipedia, “Black Dog (Osage chief)”",1,1,B,Osage
 "Mallery, Picture-Writing of the American Indians (BAE 10th Annual Report, 1893), Battiste Good’s winter count, fig. 375",1,0,A2,Lakota
-"David G. Burnet to the Indian Office, Texas Indian Papers vol. 3",1,1,C,Comanche
+"David G. Burnet to the Indian Office, Texas Indian Papers vol. 3; also in Kavanagh, “Comanche”, Handbook of North American Indians 13 (2001)",1,1,C,Comanche
 "Long expedition (1823), as given by Hayden, Contributions to the Ethnography and Philology of the Indian Tribes of the Missouri Valley (1862)",1,1,A2,Pawnee
 "Wikipedia, “Palmer Site” (site coordinates and participants)",1,0,B,Pawnee
 "James, Account of an Expedition from Pittsburgh to the Rocky Mountains… under Major S. H. Long (1823), vol. 2",1,0,A1,Plains Apache
@@ -227,6 +233,7 @@ Annual Report of the Commissioner of Indian Affairs for 1886 (agent’s retrospe
 Annual Report of the Commissioner of Indian Affairs for 1889,1,1,A2,Shoshone
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Assiniboin”, vol. 1",1,1,A2,Assiniboine
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Teton”",1,1,A2,Lakota
+"Encyclopedia of the Great Plains, “Comanche” (Kavanagh)",1,1,B,Comanche
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Assiniboin”",1,1,A2,Assiniboine
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Comanche”, vol. 1",1,1,A2,Comanche
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Atsina”, vol. 1",1,1,A2,Gros Ventre
