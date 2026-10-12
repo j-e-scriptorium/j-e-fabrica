@@ -2,3 +2,4 @@ build/data.json
 build/bandrows.json
 out/
 __pycache__/
+build/*.pkl
