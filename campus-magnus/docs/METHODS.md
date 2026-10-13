@@ -88,6 +88,21 @@ Every count is then divided by its family's factor and the model refitted (lines
 - Season-dated places are reproduced exactly.
 - Hold-out: on 297 withheld season-dated places the median miss is 120 km with the offset and 120 km without it (mean 139 against 141). Withholding every place within half a year of the test place, 117 against 122 km (mean 149 against 151; `recheck_seas_block.py`). Sourced literature patterns account for most of that gain; season-dated camps of single bands, pooling across a people's divisions and retuning the kernel and shrinkage gained at most 1% and were not adopted.
 
+**Seasonal round: an alternative tested** (`seas_gp.py`).
+- The model: a quasi-periodic Gaussian process for each nomadic division, a smooth long-term track plus a seasonal component (first two annual harmonics) whose shape and strength are learned from the records and drift over about eight years. Places dated to a month carry their phase. Camps with no month (35) carry the season-of-record distribution of the dated places, which peaks in late July, so they are neither credited to nor scored against a season they cannot be shown to belong to. Range and agency statements (183) and our keyframes observe only the annual mean.
+- The test: the 297 season-dated places, each withheld with every place within half a year; settings tuned on half the divisions and scored on the other half, then the reverse. Misses are also measured beyond each record's own stated radius (a median of 25 km), so that a place given only as "on the Arkansas" is not counted as missed when the prediction falls within it.
+
+| | median miss | mean miss | beyond the stated radius, median |
+|---|---|---|---|
+| Drawn track, no seasonal move | 122 km | 151 km | |
+| Drawn track with the seasonal offset above | 117 km | 149 km | |
+| Gaussian process, long-term track only | 115 km | 148 km | 78 km |
+| Gaussian process, track and seasonal component | 112 km | 145 km | 75 km |
+
+- The seasonal component itself is worth about 3%. Most of the process's advantage comes from its smoother long-term track, which averages several years of records instead of passing through each one.
+- Why the seasonal gain is small: the Kiowa calendar, the densest record, puts a summer sun-dance ground a median 155 km from the next winter camp, but winter camps a median 129 km from the winter before and summer grounds 140 km from the summer before, in no fixed direction. Each season's ground moved from year to year almost as far as the seasons were apart, so a seasonal pattern can explain only a small part of where a division was.
+- Not adopted on the map: the process's track does not pass through every documented place, which the map's tracks do by design (`JUDGMENTS.md`). The seasonal offset of the map is kept.
+
 ## 4. Bands and villages (derived layer)
 
 - One ethnographic band list per division, dated to the year it describes (`bands_src.py`). Band names are documented; the weights, budding order and positions are not.
