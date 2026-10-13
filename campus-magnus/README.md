@@ -61,8 +61,8 @@ Each record is tiered by how its text reached the project, not by the quality of
 ## Reliability
 
 1. **Population, held out.** Each of 441 division counts withheld in turn and predicted: median miss a factor of 1.20 (1.27 for plain interpolation); 1.45 for 1700–99, 1.33 for 1800–39, 1.23 for 1840–69, 1.11 for 1870–1905. 90% fall inside the 2-sd range before the 25% widening shown on the map.
-2. **Place, held out.** 476 nomadic places, each withheld together with any other place within half a year: the drawn track misses by a median 107 km (123 km without our keyframes); the smoother that sets the halo, 109 km (111 km). Village divisions: 48 km over 231 places (53 km). (`model/src/calib_track.py`, `calib_pos.py`.)
-3. **Seasonal round.** 264 withheld season-dated places: median miss 120 km, against 127 km with no seasonal move.
+2. **Place, held out.** 485 nomadic places, each withheld together with any other place within half a year: the drawn track misses by a median 108 km (125 km without our keyframes); the smoother that sets the halo, 109 km (112 km). Village divisions: 48 km over 234 places (52 km). (`model/src/calib_track.py`, `calib_pos.py`.)
+3. **Seasonal round.** 272 withheld season-dated places: median miss 120 km with or without the seasonal move, mean 142 km against 144. It helps only where season-dated places are dense (Kiowa 128 against 141 km); elsewhere it is illustration.
 4. **Most influential assumption.** Epidemic mortality: scaling every fraction by 0.75 or 1.25 moves the 1780 total from 155,000 to 137,000 or 188,000.
 5. **Weakest stretches.** The eighteenth century, the northern plains before 1790, Canadian peoples after 1870, and the decline of the Comanche between the 1840s and the 1860s (`docs/KNOWN_ISSUES.md`). The band layer is illustration constrained by division totals, not evidence.
 
