@@ -29,11 +29,12 @@ def season_known(y,raw,r):
     return abs(f-0.5)>0.005 or bool(MONTH.search(raw or ''))
 
 # Prior seasonal patterns. 'vec': bearing (degrees from north) of the summer ground from the winter ground, and half the distance;
-# 'pts': a winter ground and a summer ground, (lat, lon). All recalled from the works named, not checked page by page for this build.
+# 'pts': a winter ground and a summer ground, (lat, lon). Recalled from the works named unless a page or chapter is given; the Southern
+# Cheyenne and Arapaho pattern (West) and the Blackfoot, Plains Cree and Plains Ojibwe (Handbook 13) were read.
 RAY='Ray, Indians in the Fur Trade (1974), ch. 2; Moodie & Ray, “Buffalo Migrations in the Canadian Plains”, Plains Anthropologist 21 (1976)'
 EWERS='Ewers, The Horse in Blackfoot Indian Culture (1955), pp. 123–29; The Blackfeet (1958)'
 HAM='Hämäläinen, The Comanche Empire (2008), ch. 7; “The Rise and Fall of Plains Indian Horse Cultures”, JAH 90 (2003)'
-WEST='West, The Contested Plains (1998), chs. 3–4; Moore, The Cheyenne Nation (1987)'
+WEST='West, The Contested Plains: Indians, Goldseekers, and the Rush to Colorado (1998), ch. 4 (spring by the streams; early summer onto the highlands between the drainages for the hunt and the sun dance; from autumn to March in the timbered river bottoms; 6,000 Indians at the Arkansas big timbers in Nov. 1848) and ch. 11 (1861–64: the reservation bands winter at Point of Rocks on the Arkansas and hunt in summer on the Smoky Hill, Republican and Solomon)'
 MILLOY='Milloy, The Plains Cree (1988), pp. 21–22, via Darnell, “Plains Cree”, Handbook of North American Indians 13 (2001), p. 640: in the 1790s the Plains Cree hunted in the woodlands in the plentiful summer season and moved onto the plains for buffalo in winter'
 OJB1='Albers, “Plains Ojibwa”, Handbook of North American Indians 13 (2001), p. 653: after 1797 the westernmost Ojibwa joined Cree and Assiniboine on winter buffalo drives at parkland oases on the prairies and returned to the parklands and forests to fish in summer'
 OJB2='Albers (2001), p. 654: later, two large annual hunts, in summer and in the fall'

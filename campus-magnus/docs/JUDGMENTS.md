@@ -52,7 +52,7 @@ These are the identifications that most affect tracks.
 
 ## 5. Which records steer a division's track
 
-730 records steer a track. Of the rest, 123 are deliberately kept off (`steers_track = no`, `kept_off_track` flag). The reasons follow.
+742 records steer a track. Of the rest, 130 are deliberately kept off (`steers_track = no`, `kept_off_track` flag). The reasons follow.
 
 - **A part of the division.** A band, a chief's following, a camp holding part of the people (Crazy Horse's following, 1876–77; Cocking's Pegogamaw, 1772–73).
 - **A visit, delegation, council attendance or war party.** San Sabá 1758, the Council House Fight 1840, Shoshone at Horse Creek 1851. These say where some men were for days.
@@ -103,7 +103,9 @@ The estimated factors run from 0.60 (Henry 1809, counting men in his trading dis
 
 ## 9. Seasonal round
 
-- **The literature patterns.** 28 rows in `seasonal_patterns.csv`, all with sources **recalled, not reread for this build**. Examples: Ray and Moodie for the Cree and Assiniboine; Ewers for the Blackfoot; West for the Cheyenne and Arapaho at the Big Timbers.
+- **The literature patterns.** 28 rows in `seasonal_patterns.csv`.
+  - Read: the Southern Cheyenne and Arapaho (West, *The Contested Plains*, ch. 4 on the annual cycle and the winter camps at the Arkansas big timbers, ch. 11 on the reservation bands wintering at Point of Rocks in 1861–64; Wedel and Frison in Handbook 13); the Blackfoot (Dempsey); the Plains Cree of the 1790s (Darnell after Milloy); the Plains Ojibwe (Albers).
+  - **Recalled, not reread for this build:** Ray and Moodie for the Cree and Assiniboine; Ewers for the Blood and Piegan; Hämäläinen for the Comanche; Hoxie for the Crow; Stamm for the Shoshone; Tabeau and Pond for the Dakota.
 - **What they control.** They set the direction of the summer move wherever a division has no season-dated places of its own.
 - **The calendar.** The months of the move were chosen among statistically tied candidates by closeness to the ethnographic year.
 - **Two fitted patterns rejected because they worsened held-out error:**

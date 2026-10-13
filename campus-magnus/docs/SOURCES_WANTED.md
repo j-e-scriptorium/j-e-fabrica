@@ -2,11 +2,11 @@
 
 Works not yet available to the build that would most improve the data, grouped by the weakness each would address (`KNOWN_ISSUES.md` numbers in brackets). A PDF or full-text copy of any of them would let records be added or rechecked at tier A rather than recalled. Bibliographic details are from general knowledge and should be checked against a catalogue.
 
-Already read in full and in the record: *Handbook of North American Indians* vols. 10 (Jicarilla), 11 (Eastern Shoshone) and 13; the 1890 census *Report on Indians Taxed and Indians Not Taxed* (1894); Hämäläinen, *The Comanche Empire* (2008); Kavanagh, *Comanche Political History* (1996); Fenn, *Pox Americana* (2001).
+Already read in full and in the record: *Handbook of North American Indians* vols. 10 (Jicarilla), 11 (Eastern Shoshone) and 13; the 1890 census *Report on Indians Taxed and Indians Not Taxed* (1894); Hämäläinen, *The Comanche Empire* (2008); Kavanagh, *Comanche Political History* (1996); Fenn, *Pox Americana* (2001); West, *The Contested Plains* (1998); Winfrey and Day, eds., *The Indian Papers of Texas and the Southwest*, vol. 1 (1825–43).
 
 ## 1. The Comanche, 1846–1865 [1]
 
-1. Dorman H. Winfrey and James M. Day, eds., *The Indian Papers of Texas and the Southwest, 1825–1916* (1959–66): the Neighbors (1849), Stem (1851) and Hardee (1852) reports in full; also the Tonkawa and Kitsai counts of 1849–63, known here only through the Handbook.
+1. Winfrey and Day, eds., *The Indian Papers of Texas and the Southwest*, vols. 2–4 (1844–1916): the Neighbors (1849), Stem (1851) and Hardee (1852) reports in full; the Brazos reservation rolls; the Tonkawa and Kitsai counts of 1849–63, known here only through the Handbook.
 
 ## 2. Population elsewhere
 
@@ -38,7 +38,7 @@ Already read in full and in the record: *Handbook of North American Indians* vol
 
 19. *Historical Atlas of Canada*, vol. 1, *From the Beginning to 1800* (1987), the plates on the western interior and the fur trade.
 20. Helen Hornbeck Tanner, ed., *Atlas of Great Lakes Indian History* (1987), for the Dakota, Ojibwe and Iowa.
-21. D. W. Moodie and Arthur J. Ray, "Buffalo Migrations in the Canadian Plains," *Plains Anthropologist* 21 (1976); John C. Ewers, *The Horse in Blackfoot Indian Culture* (1955); Elliott West, *The Contested Plains* (1998). All three are behind seasonal patterns that were recalled, not reread.
+21. D. W. Moodie and Arthur J. Ray, "Buffalo Migrations in the Canadian Plains," *Plains Anthropologist* 21 (1976); John C. Ewers, *The Horse in Blackfoot Indian Culture* (1955). Both are behind seasonal patterns that were recalled, not reread.
 
 ## 6. Bands and the new peoples [6]
 

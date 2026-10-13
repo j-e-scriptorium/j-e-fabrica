@@ -6,7 +6,7 @@ These checks are ordered from most to least decisive. A reviewer with library ac
 
 This is the check the package cannot do for itself.
 
-**Sample.** `data/review_sample.csv` holds 80 records drawn at random with a fixed seed, stratified by tier: 25 A1, 30 A2, 15 B, 10 C, about half counts and half places. Add all 27 tier-C records from `records.csv` (`provenance_tier = C`), since those were never read here.
+**Sample.** `data/review_sample.csv` holds 80 records drawn at random with a fixed seed, stratified by tier: 25 A1, 30 A2, 15 B, 10 C, about half counts and half places. Add all 22 tier-C records from `records.csv` (`provenance_tier = C`), since those were never read here.
 
 For each record, find the cited page or entry and fill `reviewer_verdict`:
 - `confirmed`: the source says what `source_says` reports, for the people, year and place given;

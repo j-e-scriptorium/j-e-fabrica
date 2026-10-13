@@ -742,7 +742,7 @@ EPI = [
    'Mooney (Kiowa calendar, winter 1839–40; “destroying probably a third”)','assumed below Mooney’s plains-wide third'),
  (1849.4,1849.8,'Cholera, 1849',
    {'kio':.2,'kap':.2,'chs':.45,'chn':.15,'ars':.3,**{g:.05 for g in COM},'pwc':.25,'pwk':.25,'pws':.25,'ogl':.08,'bru':.08,'wic':.15,'osg':.1,'osl':.1,'kaw':.1,'iow':.1},
-   'Levy, “Kiowa”, Handbook 13 (2001), p. 921 (after Mooney’s “hundreds died”, and a Kiowa total never much above 1,200–1,350: “if as many as 200 or 300 died, the losses would have been between 13 and 20 percent”; the Kiowa tradition of losing half is set aside); Grinnell, The Cheyenne Indians (“perhaps half of the whole tribe died”); other tribes on the overland trails assumed; Swagerty, “History of the United States Plains Until 1850”, Handbook 13 (2001), p. 258 (“one-fourth of the remaining Pawnee”, after Powers and Leiker)','sourced for the Kiowa and Cheyenne (the north/south split is ours); assumed elsewhere'),
+   'Levy, “Kiowa”, Handbook 13 (2001), p. 921 (after Mooney’s “hundreds died”, and a Kiowa total never much above 1,200–1,350: “if as many as 200 or 300 died, the losses would have been between 13 and 20 percent”; the Kiowa tradition of losing half is set aside); Grinnell, The Cheyenne Indians (“perhaps half of the whole tribe died”); other tribes on the overland trails assumed; Swagerty, “History of the United States Plains Until 1850”, Handbook 13 (2001), p. 258 (“one-fourth of the remaining Pawnee”, after Powers and Leiker); West, The Contested Plains: Indians, Goldseekers, and the Rush to Colorado (1998), ch. 4 (the Southern Cheyenne “devastated”, the Flexed Leg band absorbed by others; soldiers on the Platte report “terrible losses” among the Northern Cheyenne and Lakota; the Pawnee agent reports 1,200 dead, “nearly one-fourth of the tribe”) and ch. 8 (cholera killed more than half of the Flexed Leg band, the Dog Soldiers losing only a few)','sourced for the Kiowa and Cheyenne (the north/south split is ours); assumed elsewhere'),
  (1861.9,1862.4,'Smallpox, 1861–62',
    {'kio':.15,'kap':.15,**{g:.4 for g in COM},'ari':.15,'man':.1,'hid':.1},
    'Mooney (Kiowa calendar; the Arikara abandoned their village because of it); for the Comanche, Hämäläinen, The Comanche Empire (2008), pp. 302, 313: smallpox “struck again” in 1862, “the seventeenth year of famine”, and with war on the New Mexico border “as many as four thousand Comanches may have perished during the early 1860s, leaving a total population of only five thousand in 1865”','assumed, except the Comanche (40%: Hämäläinen’s “as many as” four thousand of about nine thousand, smallpox, famine and war together)'),
@@ -976,7 +976,7 @@ OBS += [
  pl('chs',1837.5,'“In 1837… the Cheyennes were camped on the South Platte River”',(40.5,-104.0),120,GRF+', p. 10'),
  *pls(['chs','ars'],1838.4,'The Cheyenne and Arapaho village moves south against the Kiowa and Comanche camp on Wolf Creek, 1838; “the Cheyennes and Arapahoes were camped together in one big circle”',(36.45,-99.55),50,GRF+', ch. V, pp. 42–56'),
  *pls(['chs','ars'],1840.6,'Great peace with the Kiowa and Comanche “at the mouth of the Two Butte Creek… about fifty miles below Bent’s Fort”, 1840',(38.03,-102.2),15,GRF+', pp. 62–66'),
- pl('chs',1857.52,'Sumner’s fight with the Cheyenne on the Solomon Fork, 9 July 1857',(39.35,-99.97),25,WP('Battle of Solomon’s Fork')),
+ pl('chs',1857.575,'Sumner’s fight with the Cheyenne on the Solomon Fork, 29 July 1857 (date: West, The Contested Plains, ch. 1)',(39.35,-99.97),25,WP('Battle of Solomon’s Fork')),
  pl('chs',1864.0,'“A number of Cheyenne villages were camped on Ash Creek near Fort Larned all the winter” of 1863–64',(38.2,-99.25),25,GRF+', p. 120'),
  pl('chs',1864.4,'Summer 1864: the Cheyennes “now come together in one large camp on the Smoky Hill, while the Sioux were camped east of them on the Solomon”',(38.9,-100.2),80,GRF+', p. 138'),
  pl('chs',1865.08,'After Sand Creek: the combined village at the crossing of Lodgepole Creek; raids on the South Platte road around Julesburg, Jan.–Feb. 1865',(41.05,-102.55),40,GRF+', pp. 181–85'),
@@ -1933,4 +1933,37 @@ OBS += [
  _cnt('cyk',1874.2,310,'March 1874 census (Haworth): Kotsoteka bands under Mowway, Kawertzeme, Black Duck and Prairie Fire, 310',CPH('p. 472, table 7.12'),P['ft_sill'],r=60,basis='census'),
  _cnt('cyq',1874.2,649,'March 1874 census (Haworth): Kwahada bands 649, besides those still out',CPH('p. 472, table 7.12'),P['ft_sill'],r=60,basis='census'),
  _cnt('cyp',1874.2,195,'March 1874 census (Haworth): Penateka under Seichinicah and Asatoyet, 195; the bands of Asehabit and Tosaway were at the Wichita agency and not counted',CPH('p. 473, table 7.12'),P['ft_sill'],r=60,basis='census',whole=False),
+]
+
+# ---------------------------------------------------------------------------------------------
+# West, The Contested Plains (1998), read in full in an EPUB-derived PDF supplied by the project's owner; it carries no print
+# page numbers, so it is cited by chapter. Chapter 4 is the Cheyenne history (the annual cycle, the winter camps, 1849);
+# chapters 8 and 10–11 the Dog Soldiers, the 1850s and the war of 1864–69.
+WEST2=lambda ch: f'West, The Contested Plains: Indians, Goldseekers, and the Rush to Colorado (1998), {ch}'
+# Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, vol. 1 (1825–43), read in the PDF supplied by the
+# project's owner. Its counts are of chiefs and escorts at councils, not of peoples; what it adds is places, above all
+# Eldredge's report of his 1843 journey to the Comanche (doc. 211, pp. 251–71), which finds the Wichita, Waco, Tawakoni
+# and Kitsai villages and Pahayuko's Penateka camp, none of them otherwise fixed in the 1840s.
+TIP1=lambda pp: f'Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 1 (1966; repr. 1995), {pp}'
+OBS += [
+ *pls(['chs','ogl','bru'],1848.3,'Spring 1848: Fitzpatrick finds “a string of Lakota and Cheyenne villages with thousands of horses strung out for nearly eighty miles along the South Platte, plus another twenty miles up Lodgepole Creek” (a range; centre ours)',(40.75,-103.0),70,WEST2('ch. 4'),whole=False),
+ *pls(['chs','ars'],1848.87,'Nov. 1848: “an estimated 6,000 Indians” camp at the Arkansas “big timbers” in weather “cruelly, bitterly cold… snowing and freezing” (the timbers ran some sixty miles down from near the mouth of the Purgatoire; centre ours)',(38.08,-102.6),40,WEST2('chs. 4, 9')),
+ pl('chs',1857.47,'Early July 1857: Sumner’s column finds on Beaver Creek, a tributary of the Republican, the great lodge the Cheyennes had built a few weeks earlier for their sun dance (place ours)',(39.85,-101.0),50,WEST2('ch. 1')),
+ pl('chs',1857.58,'End of July 1857: Sumner finds the Cheyenne village abandoned fifteen miles south of the Solomon battlefield; nearly 200 lodges still standing are burned',(39.13,-99.95),10,WEST2('ch. 1')),
+ pl('chs',1858.0,'Winter 1857–58: most Cheyennes flee south of the Arkansas and live and hunt among the Kiowas and Comanches until spring (a range; centre ours)',(36.8,-99.8),200,WEST2('ch. 1')),
+ pl('kio',1859.71,'16 Sept. 1859: William Bent meets Kiowa and Comanche leaders at the great bend of the Arkansas, “more than 2,500 warriors” camped nearby',(38.36,-98.77),30,WEST2('ch. 8')),
+ pl('cyy',1859.71,'16 Sept. 1859: Kiowas and Comanches camped at the great bend of the Arkansas, more than 2,500 warriors (the Comanches there not named; part)',(38.36,-98.77),30,WEST2('ch. 8'),whole=False),
+ pl('chs',1862.95,'Winters of 1861–64: the reservation bands, the minority who signed at Fort Wise, drift back each fall to the agency at Point of Rocks, just upstream from Bent’s Old Fort, and hunt in summer with the militants on the Smoky Hill, Republican and Solomon (place ours; part)',(38.05,-103.3),25,WEST2('ch. 11'),whole=False),
+ pl('chs',1864.69,'Sept. 1864: Wynkoop’s meeting with the Cheyenne leaders “at the big timbers of the Smoky Hill” (placed by Fort Wallace, which West puts near those timbers; centre ours)',(38.9,-101.5),30,WEST2('ch. 11')),
+ pl('kio',1868.54,'July 1868: Satanta’s party of 108 Kiowas, camped “at what had been the heart of the Arkansas big timbers”, approaches Fort Lyon (part)',(38.08,-102.65),20,WEST2('ch. 11'),whole=False),
+ # ---- Texas Indian Papers, vol. 1
+ pl('cyp',1839.12,'15 Feb. 1839: Moore’s rangers and Castro’s Lipans attack a Comanche village “on a small Stream called Spring Creek, in the valley of the San Saba”, found from the Colorado above the mouth of the Llano (centre ours)',(31.2,-98.85),25,TIP1('pp. 57–59, doc. 32')),
+ pl('kit',1843.4,'May 1843: a Keechi hunting party under the principal chief camps within a few miles of José María’s Anadarko village, “on a western branch of the Trinity about eight miles from the main river”; the tribe’s main body is “residing on the Brazos and Trinity” (a range; centre ours)',(32.9,-97.8),60,TIP1('pp. 254, 256, 263')),
+ pl('wic',1843.43,'5–10 June 1843: the Waco village and, four miles from it, the Tawakoni village “on a very high hill”, its hundred acres of corn, beans, melons and pumpkins “in the bottom of one of the branches of the Trinity”; Eldredge dates a letter “Tawakoni Village, Trinity River, June 11, 1843” (reached by the Santa Fe Expedition’s trail north from Comanche Peak; centre ours)',(33.05,-97.75),35,TIP1('pp. 214, 256–57')),
+ pl('wic',1843.61,'11 Aug. 1843: Eldredge crosses Cache Creek “near the mountains” and camps by the Wichita or Tawehash village, most of its warriors away hunting and raiding',(34.7,-98.4),20,TIP1('p. 262')),
+ pl('kit',1843.62,'Aug. 1843: “about four miles distant” from the Wichita village, “a settlement of Keechi, who becoming dissatisfied with the balance of their tribe residing on the Brazos and Trinity seceded, elected a Chief of their own and moved up here to live” (part)',(34.7,-98.35),20,TIP1('p. 263'),whole=False),
+ pl('cyp',1843.6,'4–9 Aug. 1843: Pahayuko’s camp south of the Red River, a few miles from the crossing, “in the open prairie on the bank of a small creek”, covering “about half a mile”; the Penateka chief signs an armistice there on 9 Aug. (centre ours)',(34.0,-98.9),60,TIP1('pp. 229–30, 265–67')),
+]
+EPI += [
+ (1867.6,1868.2,'Cholera, 1867–68 (Wichita)',{'wic':.15},WEST2('ch. 12')+': a Wichita village “contracted cholera from the soldiers escorting them to a reservation on the Washita River. More than 100 died”; it broke out again on the way, and so many died at one camp that it was called Skeleton Creek','event sourced; the rate ours (more than 100 of a confederacy counted at 572 in 1868)'),
 ]

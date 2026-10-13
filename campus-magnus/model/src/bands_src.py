@@ -362,7 +362,7 @@ BANDS = [
  b('chs','ch_hof','Hofnowa','Poor people'),
  b('chs','ch_ohk','Ohktounna','Protruding jaw'),
  b('chs','ch_mas','Masikota','“Crickets”',end=1856,into='ch_hot',note='“Finally absorbed by the soldier organization, Hotamitaniu”; the 1849 cholera “almost put an end” to them.'),
- b('chs','ch_hot','Hotamitaniu (Dog Soldiers)','Dog men',start=1840,w=1.5,note='A soldier society that became a band; recalled dates.',
+ b('chs','ch_hot','Hotamitaniu (Dog Soldiers)','Dog men',start=1840,w=1.5,note='A soldier society that became a band. West (The Contested Plains, 1998, ch. 8): Porcupine Bear’s followers, exiled after a killing in 1837–38, drew others; when cholera killed more than half of the Flexed Leg band in 1849 the survivors joined them; by the 1850s they kept to the upper Republican, Solomon and Smoky Hill and the South Platte, and after 1856 drew no annuities and did not trade on the Arkansas.',
    track=[(1850,(39.9,-101.0),'Republican & Smoky Hill headwaters'),(1864.5,(39.6,-101.0),''),(1867.28,(38.22,-99.8),'Pawnee Fork village burned by Hancock, April 1867'),
           (1868.71,(39.872,-102.186),'Beecher Island, 17–19 Sept. 1868'),(1869.53,(40.433,-103.139),'Summit Springs: Tall Bull killed, 11 July 1869; camp of about 450'),(1870,(38.5,-99.5),'Survivors rejoin the southern bands')],tchk=WP+' for Beecher Island and Summit Springs; earlier places recalled'),
  # ---------- Arapaho ----------

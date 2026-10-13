@@ -12,7 +12,8 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
   - After 1850 the counts are concrete: the Penateka at 2,800 (1846, unreliable), 1,200 (1854) and 384 (1859); the Arkansas River Comanches at 3,200 (Whitfield 1856); the New Mexico Kotsoteka and Kwahada at about 2,000 (Norton 1866); 4,445 in 1869 (including an estimated 1,960 never reported); 3,742 in 1870 (including 1,000 estimated); 2,643 at the census of March 1874; 1,721 in 1875.
 - **Verdict.** The best contemporary whole-nation figure for the 1840s is Butler and Lewis's 12,500–15,600, itself unreliable; the 20,000 figures are round hearsay. The fit, about 11,800 in 1846, sits a little under the Butler and Lewis range. Hämäläinen's 20,000–30,000 for the 1820s–40s is not supported by any count Kavanagh reports and is weighted as a reconstruction.
 - **What remains uncertain.** Whether the decline from the 1840s to the 1860s came mainly in 1848–49 (Hämäläinen: severe; the only contemporary count, 300 deaths) or in the drought of the 1850s. The model puts most of it in the 1850s and early 1860s, with rates of its own scaled to the counts.
-- **Would settle it.** Winfrey and Day, *Indian Papers of Texas*, for the Neighbors, Stem and Hardee reports in full.
+- **An unentered report.** In May 1843 Eldredge heard that smallpox had broken out among Comanches back from Matamoros, "carrying them off by the hundreds", and gave it "but little credence" (Winfrey and Day, *Indian Papers of Texas*, vol. 1, p. 256). No epidemic is applied for 1843.
+- **Would settle it.** Winfrey and Day, *Indian Papers of Texas*, vol. 3 (1846–59), for the Neighbors, Stem and Hardee reports in full. Volume 1 (1825–43) has been read and holds no Comanche count; volume ranges are recalled.
 
 ## 2. Epidemic mortality rates are mostly assumed
 

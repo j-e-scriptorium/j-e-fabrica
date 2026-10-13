@@ -260,11 +260,11 @@ window.CM_PEOPLES = {
   lang: "Wichita (Caddoan)",
   gist: "Descendants of Coronado’s Quivira, grass-house farmers who moved south from Kansas to the Red River and Brazos in the eighteenth century and traded French guns to the Comanche.",
   body: [
-    "The Wichita peoples, whom Coronado knew as Quivira in 1541, lived in grass-house farming towns on the Arkansas in Kansas into the early eighteenth century. Under Osage pressure they moved south, by mid-century to the Red River, where the fortified Taovaya towns repulsed Parrilla’s Spanish army in 1759 and served as the Comanche’s market for French arms; the Tawakoni and Waco moved on to the Brazos.",
-    "Reduced by smallpox and by Osage and Texan war, they were placed on the Brazos reservation and then, from 1859, at the Wichita agency on the Washita in Indian Territory. During the Civil War they took refuge in Kansas, at the site of the town that bears their name, and returned to Anadarko afterward."
+    "The Wichita peoples, whom Coronado knew as Quivira in 1541, lived in grass-house farming towns on the Arkansas in Kansas into the early eighteenth century. Under Osage pressure they moved south, by mid-century to the Red River, where the fortified Taovaya towns repulsed Parrilla’s Spanish army in 1759 and served as the Comanche’s market for French arms; the Tawakoni and Waco moved on to the Brazos and the upper Trinity, where a Texan commissioner found their villages in 1843, while the Wichita proper lived under the Wichita Mountains.",
+    "Reduced by smallpox and by Osage and Texan war, they were placed on the Brazos reservation and then, from 1859, at the Wichita agency on the Washita in Indian Territory. During the Civil War they took refuge in Kansas, at the site of the town that bears their name, and returned to Anadarko in 1867, losing more than a hundred to cholera on the way."
   ],
   y1900: "On the Wichita-Caddo reservation, Oklahoma, allotted in 1901.",
-  read: ["W. W. Newcomb, Jr., “Wichita,” Handbook of North American Indians 13 (2001)", "F. Todd Smith, The Wichita Indians: Traders of Texas and the Southern Plains, 1540–1845 (2000)"]
+  read: ["W. W. Newcomb, Jr., “Wichita,” Handbook of North American Indians 13 (2001)", "F. Todd Smith, The Wichita Indians: Traders of Texas and the Southern Plains, 1540–1845 (2000)", "Dorman H. Winfrey and James M. Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916 (1966)"]
 },
 
 "Pawnee": {

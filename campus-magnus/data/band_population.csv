@@ -9,15 +9,6 @@ bru,bru.bru_iya,Iyakoza,band,1705,283
 bru,bru.bru_cok,Čoka-towela,band,1705,283
 bru,bru.bru_siy,Siyo-tanka,band,1705,283
 bru,bru.bru_hom,Ho-mna,band,1705,134
-bru,bru.bru_sis,Siyo-subula,band,1705,0
-bru,bru.bru_kan,Kangi-yuha,band,1705,0
-bru,bru.bru_pis,Pispiza-wičaša,band,1705,0
-bru,bru.bru_wal,Walega-un-wohan,band,1705,0
-bru,bru.bru_wac,Waceunpa,band,1705,0
-bru,bru.bru_nah,Nahpahpa,band,1705,0
-bru,bru.bru_ape,Apewan-tanka,band,1705,0
-bru,bru.bru_wzz,Wazhazha,band,1705,0
-bru,bru.bru_hun,Hunku-wanica,band,1705,0
 bru,bru.bru_sic,Sičangu proper,band,1710,284
 bru,bru.bru_iya,Iyakoza,band,1710,284
 bru,bru.bru_cok,Čoka-towela,band,1710,284
@@ -27,7 +18,7 @@ bru,bru.bru_sic,Sičangu proper,band,1715,284
 bru,bru.bru_iya,Iyakoza,band,1715,284
 bru,bru.bru_cok,Čoka-towela,band,1715,284
 bru,bru.bru_siy,Siyo-tanka,band,1715,284
-bru,bru.bru_hom,Ho-mna,band,1715,165
+bru,bru.bru_hom,Ho-mna,band,1715,166
 bru,bru.bru_sic,Sičangu proper,band,1720,284
 bru,bru.bru_iya,Iyakoza,band,1720,284
 bru,bru.bru_cok,Čoka-towela,band,1720,284
@@ -126,7 +117,7 @@ bru,bru.bru_sic,Sičangu proper,band,1800,295
 bru,bru.bru_low,Kul wičaša (Lower Brulé),band,1800,886
 bru,bru.bru_iya,Iyakoza,band,1800,295
 bru,bru.bru_cok,Čoka-towela,band,1800,295
-bru,bru.bru_siy,Siyo-tanka,band,1800,246
+bru,bru.bru_siy,Siyo-tanka,band,1800,247
 bru,bru.bru_sic,Sičangu proper,band,1805,290
 bru,bru.bru_low,Kul wičaša (Lower Brulé),band,1805,869
 bru,bru.bru_iya,Iyakoza,band,1805,290
@@ -134,7 +125,7 @@ bru,bru.bru_cok,Čoka-towela,band,1805,146
 bru,bru.bru_sic,Sičangu proper,band,1810,292
 bru,bru.bru_low,Kul wičaša (Lower Brulé),band,1810,875
 bru,bru.bru_iya,Iyakoza,band,1810,292
-bru,bru.bru_cok,Čoka-towela,band,1810,258
+bru,bru.bru_cok,Čoka-towela,band,1810,259
 bru,bru.bru_sic,Sičangu proper,band,1815,294
 bru,bru.bru_low,Kul wičaša (Lower Brulé),band,1815,881
 bru,bru.bru_iya,Iyakoza,band,1815,294
@@ -150,7 +141,7 @@ bru,bru.bru_low,Kul wičaša (Lower Brulé),band,1825,894
 bru,bru.bru_iya,Iyakoza,band,1825,298
 bru,bru.bru_cok,Čoka-towela,band,1825,298
 bru,bru.bru_siy,Siyo-tanka,band,1825,298
-bru,bru.bru_hom,Ho-mna,band,1825,210
+bru,bru.bru_hom,Ho-mna,band,1825,211
 bru,bru.bru_sic,Sičangu proper,band,1830,300
 bru,bru.bru_low,Kul wičaša (Lower Brulé),band,1830,900
 bru,bru.bru_iya,Iyakoza,band,1830,300
@@ -297,7 +288,7 @@ bru,bru.bru_ihk,Ihanktonwan,band,1885,319
 bru,bru.bru_wzz,Wazhazha,band,1885,319
 bru,bru.bru_hun,Hunku-wanica,band,1885,319
 bru,bru.bru_sic,Sičangu proper,band,1890,205
-bru,bru.bru_low,Kul wičaša (Lower Brulé),band,1890,935
+bru,bru.bru_low,Kul wičaša (Lower Brulé),band,1890,936
 bru,bru.bru_iya,Iyakoza,band,1890,312
 bru,bru.bru_cok,Čoka-towela,band,1890,312
 bru,bru.bru_siy,Siyo-tanka,band,1890,312
@@ -429,13 +420,13 @@ ogl,ogl.ogl_itc,Itešiča (Bad Face),band,1770,363
 ogl,ogl.ogl_pay,Payabya,band,1770,273
 ogl,ogl.ogl_kiy,Kiyuksa,band,1770,273
 ogl,ogl.ogl_tap,Tapišleča,band,1770,182
-ogl,ogl.ogl_wzz,Wazhazha,band,1770,126
+ogl,ogl.ogl_wzz,Wazhazha,band,1770,127
 ogl,ogl.ogl_oyu,Oyuhpe,band,1770,45
 ogl,ogl.ogl_itc,Itešiča (Bad Face),band,1775,365
 ogl,ogl.ogl_pay,Payabya,band,1775,274
 ogl,ogl.ogl_kiy,Kiyuksa,band,1775,274
 ogl,ogl.ogl_tap,Tapišleča,band,1775,183
-ogl,ogl.ogl_wzz,Wazhazha,band,1775,182
+ogl,ogl.ogl_wzz,Wazhazha,band,1775,183
 ogl,ogl.ogl_oyu,Oyuhpe,band,1775,46
 ogl,ogl.ogl_itc,Itešiča (Bad Face),band,1780,367
 ogl,ogl.ogl_pay,Payabya,band,1780,275
@@ -470,7 +461,7 @@ ogl,ogl.ogl_oyu,Oyuhpe,band,1800,52
 ogl,ogl.ogl_itc,Itešiča (Bad Face),band,1805,356
 ogl,ogl.ogl_pay,Payabya,band,1805,267
 ogl,ogl.ogl_kiy,Kiyuksa,band,1805,267
-ogl,ogl.ogl_tap,Tapišleča,band,1805,124
+ogl,ogl.ogl_tap,Tapišleča,band,1805,125
 ogl,ogl.ogl_oyu,Oyuhpe,band,1805,45
 ogl,ogl.ogl_itc,Itešiča (Bad Face),band,1810,360
 ogl,ogl.ogl_pay,Payabya,band,1810,270
@@ -503,7 +494,7 @@ ogl,ogl.ogl_tap,Tapišleča,band,1830,192
 ogl,ogl.ogl_wzz,Wazhazha,band,1830,192
 ogl,ogl.ogl_oyu,Oyuhpe,band,1830,289
 ogl,ogl.ogl_wag,Wagluhe,band,1830,95
-ogl,ogl.ogl_itc,Itešiča (Bad Face),band,1835,400
+ogl,ogl.ogl_itc,Itešiča (Bad Face),band,1835,401
 ogl,ogl.ogl_pay,Payabya,band,1835,300
 ogl,ogl.ogl_kiy,Kiyuksa,band,1835,300
 ogl,ogl.ogl_tap,Tapišleča,band,1835,200
@@ -752,9 +743,6 @@ min,min.min_gla,Glaglaheča,band,1700,163
 min,min.min_sun,Šunka-yutešni,band,1700,163
 min,min.min_wak,Wakpokinyan,band,1700,163
 min,min.min_iny,Inyan-ha-oin,band,1700,63
-min,min.min_sik,Siksičela,band,1700,0
-min,min.min_wag,Wagleza-oin,band,1700,0
-min,min.min_wan,Wannawega,band,1700,0
 min,min.min_unk,Unkčeyuta,band,1705,164
 min,min.min_gla,Glaglaheča,band,1705,164
 min,min.min_sun,Šunka-yutešni,band,1705,164
@@ -841,7 +829,7 @@ min,min.min_wak,Wakpokinyan,band,1775,172
 min,min.min_iny,Inyan-ha-oin,band,1775,172
 min,min.min_sik,Siksičela,band,1775,172
 min,min.min_wag,Wagleza-oin,band,1775,172
-min,min.min_wan,Wannawega,band,1775,82
+min,min.min_wan,Wannawega,band,1775,83
 min,min.min_unk,Unkčeyuta,band,1780,174
 min,min.min_gla,Glaglaheča,band,1780,174
 min,min.min_sun,Šunka-yutešni,band,1780,174
@@ -864,7 +852,7 @@ min,min.min_wak,Wakpokinyan,band,1790,172
 min,min.min_iny,Inyan-ha-oin,band,1790,172
 min,min.min_sik,Siksičela,band,1790,172
 min,min.min_wag,Wagleza-oin,band,1790,172
-min,min.min_wan,Wannawega,band,1790,79
+min,min.min_wan,Wannawega,band,1790,80
 min,min.min_unk,Unkčeyuta,band,1795,173
 min,min.min_gla,Glaglaheča,band,1795,173
 min,min.min_sun,Šunka-yutešni,band,1795,173
@@ -873,22 +861,22 @@ min,min.min_iny,Inyan-ha-oin,band,1795,173
 min,min.min_sik,Siksičela,band,1795,173
 min,min.min_wag,Wagleza-oin,band,1795,173
 min,min.min_wan,Wannawega,band,1795,168
-min,min.min_unk,Unkčeyuta,band,1800,185
-min,min.min_gla,Glaglaheča,band,1800,185
-min,min.min_sun,Šunka-yutešni,band,1800,185
-min,min.min_wak,Wakpokinyan,band,1800,185
-min,min.min_iny,Inyan-ha-oin,band,1800,185
-min,min.min_sik,Siksičela,band,1800,185
-min,min.min_wag,Wagleza-oin,band,1800,185
-min,min.min_wan,Wannawega,band,1800,185
-min,min#1,unnamed band,unnamed,1800,2
+min,min.min_unk,Unkčeyuta,band,1800,184
+min,min.min_gla,Glaglaheča,band,1800,184
+min,min.min_sun,Šunka-yutešni,band,1800,184
+min,min.min_wak,Wakpokinyan,band,1800,184
+min,min.min_iny,Inyan-ha-oin,band,1800,184
+min,min.min_sik,Siksičela,band,1800,184
+min,min.min_wag,Wagleza-oin,band,1800,184
+min,min.min_wan,Wannawega,band,1800,184
+min,min#1,unnamed band,unnamed,1800,3
 min,min.min_unk,Unkčeyuta,band,1805,171
 min,min.min_gla,Glaglaheča,band,1805,171
 min,min.min_sun,Šunka-yutešni,band,1805,171
 min,min.min_wak,Wakpokinyan,band,1805,171
 min,min.min_iny,Inyan-ha-oin,band,1805,171
 min,min.min_sik,Siksičela,band,1805,171
-min,min.min_wag,Wagleza-oin,band,1805,161
+min,min.min_wag,Wagleza-oin,band,1805,162
 min,min.min_unk,Unkčeyuta,band,1810,172
 min,min.min_gla,Glaglaheča,band,1810,172
 min,min.min_sun,Šunka-yutešni,band,1810,172
@@ -921,7 +909,7 @@ min,min.min_iny,Inyan-ha-oin,band,1825,184
 min,min.min_sik,Siksičela,band,1825,184
 min,min.min_wag,Wagleza-oin,band,1825,184
 min,min.min_wan,Wannawega,band,1825,184
-min,min#1,unnamed band,unnamed,1825,44
+min,min#1,unnamed band,unnamed,1825,45
 min,min.min_unk,Unkčeyuta,band,1830,185
 min,min.min_gla,Glaglaheča,band,1830,185
 min,min.min_sun,Šunka-yutešni,band,1830,185
@@ -930,7 +918,7 @@ min,min.min_iny,Inyan-ha-oin,band,1830,185
 min,min.min_sik,Siksičela,band,1830,185
 min,min.min_wag,Wagleza-oin,band,1830,185
 min,min.min_wan,Wannawega,band,1830,185
-min,min#1,unnamed band,unnamed,1830,95
+min,min#1,unnamed band,unnamed,1830,96
 min,min.min_unk,Unkčeyuta,band,1835,180
 min,min.min_gla,Glaglaheča,band,1835,180
 min,min.min_sun,Šunka-yutešni,band,1835,180
@@ -957,7 +945,7 @@ min,min.min_iny,Inyan-ha-oin,band,1845,174
 min,min.min_sik,Siksičela,band,1845,174
 min,min.min_wag,Wagleza-oin,band,1845,174
 min,min.min_nig,Nige-tanka,band,1845,174
-min,min.min_wan,Wannawega,band,1845,167
+min,min.min_wan,Wannawega,band,1845,168
 min,min.min_unk,Unkčeyuta,band,1850,181
 min,min.min_gla,Glaglaheča,band,1850,181
 min,min.min_sun,Šunka-yutešni,band,1850,181
@@ -987,28 +975,28 @@ min,min.min_wag,Wagleza-oin,band,1860,184
 min,min.min_nig,Nige-tanka,band,1860,184
 min,min.min_wan,Wannawega,band,1860,184
 min,min#1,unnamed band,unnamed,1860,175
-min,min.min_unk,Unkčeyuta,band,1865,185
-min,min.min_gla,Glaglaheča,band,1865,185
-min,min.min_sun,Šunka-yutešni,band,1865,185
-min,min.min_wak,Wakpokinyan,band,1865,185
-min,min.min_iny,Inyan-ha-oin,band,1865,185
-min,min.min_sik,Siksičela,band,1865,185
-min,min.min_wag,Wagleza-oin,band,1865,185
-min,min.min_nig,Nige-tanka,band,1865,185
-min,min.min_wan,Wannawega,band,1865,185
-min,min#1,unnamed band,unnamed,1865,185
+min,min.min_unk,Unkčeyuta,band,1865,184
+min,min.min_gla,Glaglaheča,band,1865,184
+min,min.min_sun,Šunka-yutešni,band,1865,184
+min,min.min_wak,Wakpokinyan,band,1865,184
+min,min.min_iny,Inyan-ha-oin,band,1865,184
+min,min.min_sik,Siksičela,band,1865,184
+min,min.min_wag,Wagleza-oin,band,1865,184
+min,min.min_nig,Nige-tanka,band,1865,184
+min,min.min_wan,Wannawega,band,1865,184
+min,min#1,unnamed band,unnamed,1865,184
 min,min#2,unnamed band,unnamed,1865,152
-min,min.min_unk,Unkčeyuta,band,1870,185
-min,min.min_gla,Glaglaheča,band,1870,185
-min,min.min_sun,Šunka-yutešni,band,1870,185
-min,min.min_wak,Wakpokinyan,band,1870,185
-min,min.min_iny,Inyan-ha-oin,band,1870,185
-min,min.min_sik,Siksičela,band,1870,185
-min,min.min_wag,Wagleza-oin,band,1870,185
-min,min.min_nig,Nige-tanka,band,1870,185
-min,min.min_wan,Wannawega,band,1870,185
-min,min#1,unnamed band,unnamed,1870,185
-min,min#2,unnamed band,unnamed,1870,185
+min,min.min_unk,Unkčeyuta,band,1870,184
+min,min.min_gla,Glaglaheča,band,1870,184
+min,min.min_sun,Šunka-yutešni,band,1870,184
+min,min.min_wak,Wakpokinyan,band,1870,184
+min,min.min_iny,Inyan-ha-oin,band,1870,184
+min,min.min_sik,Siksičela,band,1870,184
+min,min.min_wag,Wagleza-oin,band,1870,184
+min,min.min_nig,Nige-tanka,band,1870,184
+min,min.min_wan,Wannawega,band,1870,184
+min,min#1,unnamed band,unnamed,1870,184
+min,min#2,unnamed band,unnamed,1870,184
 min,min#3,unnamed band,unnamed,1870,10
 min,min.min_unk,Unkčeyuta,band,1875,184
 min,min.min_gla,Glaglaheča,band,1875,184
@@ -1131,6 +1119,10 @@ hnk,hnk.hnk_ceo,Če-ohba,band,1770,197
 hnk,hnk.hnk_tin,Tinazipe-šiča,band,1770,197
 hnk,hnk.hnk_tal,Talo-napin,band,1770,197
 hnk,hnk.hnk_kig,Kiglaška,band,1770,66
+hnk,hnk.hnk_ceg,Čegnake-okisela,band,1770,0
+hnk,hnk.hnk_sik,Siksičela,band,1770,0
+hnk,hnk.hnk_wak,Wakan,band,1770,0
+hnk,hnk.hnk_hun,Hunska-čantozuha,band,1770,0
 hnk,hnk.hnk_can,Čanka-ohan,band,1775,199
 hnk,hnk.hnk_ceo,Če-ohba,band,1775,199
 hnk,hnk.hnk_tin,Tinazipe-šiča,band,1775,199
@@ -1151,10 +1143,6 @@ hnk,hnk.hnk_ceo,Če-ohba,band,1790,198
 hnk,hnk.hnk_tin,Tinazipe-šiča,band,1790,198
 hnk,hnk.hnk_tal,Talo-napin,band,1790,198
 hnk,hnk.hnk_kig,Kiglaška,band,1790,97
-hnk,hnk.hnk_ceg,Čegnake-okisela,band,1790,0
-hnk,hnk.hnk_sik,Siksičela,band,1790,0
-hnk,hnk.hnk_wak,Wakan,band,1790,0
-hnk,hnk.hnk_hun,Hunska-čantozuha,band,1790,0
 hnk,hnk.hnk_can,Čanka-ohan,band,1795,200
 hnk,hnk.hnk_ceo,Če-ohba,band,1795,200
 hnk,hnk.hnk_tin,Tinazipe-šiča,band,1795,200
@@ -1186,7 +1174,7 @@ hnk,hnk.hnk_ceo,Če-ohba,band,1820,201
 hnk,hnk.hnk_tin,Tinazipe-šiča,band,1820,201
 hnk,hnk.hnk_tal,Talo-napin,band,1820,201
 hnk,hnk.hnk_kig,Kiglaška,band,1820,201
-hnk,hnk.hnk_ceg,Čegnake-okisela,band,1820,36
+hnk,hnk.hnk_ceg,Čegnake-okisela,band,1820,37
 hnk,hnk.hnk_can,Čanka-ohan,band,1825,203
 hnk,hnk.hnk_ceo,Če-ohba,band,1825,203
 hnk,hnk.hnk_tin,Tinazipe-šiča,band,1825,203
@@ -1366,6 +1354,9 @@ sih,sih.sih_kan,Kangi-šun-pegnaka,band,1725,114
 sih,sih.sih_tiz,Ti-zaptan,band,1725,114
 sih,sih.sih_hoh,Hohe,band,1725,114
 sih,sih.sih_wzz,Wazaze,band,1725,4
+sih,sih.sih_wam,Wamnuga-oin,band,1725,0
+sih,sih.sih_gla,Glaglaheča,band,1725,0
+sih,sih.sih_tas,Tašunke-ota,band,1725,0
 sih,sih.sih_hca,Sihasapa hča,band,1730,114
 sih,sih.sih_kan,Kangi-šun-pegnaka,band,1730,114
 sih,sih.sih_tiz,Ti-zaptan,band,1730,114
@@ -1632,8 +1623,6 @@ sna,sna.sna_sin,Šina-luta-oin,band,1700,90
 sna,sna.sna_wol,Woluta-yuta,band,1700,90
 sna,sna.sna_maz,Maz-pegnaka,band,1700,90
 sna,sna.sna_tat,Tatanka-česli,band,1700,35
-sna,sna.sna_sik,Siksičela,band,1700,0
-sna,sna.sna_tiy,Tiyopa-očanunpa,band,1700,0
 sna,sna.sna_hca,Itazipčo hča (Minišala),band,1705,90
 sna,sna.sna_sin,Šina-luta-oin,band,1705,90
 sna,sna.sna_wol,Woluta-yuta,band,1705,90
@@ -1651,6 +1640,8 @@ sna,sna.sna_sin,Šina-luta-oin,band,1715,90
 sna,sna.sna_wol,Woluta-yuta,band,1715,90
 sna,sna.sna_maz,Maz-pegnaka,band,1715,90
 sna,sna.sna_tat,Tatanka-česli,band,1715,42
+sna,sna.sna_sik,Siksičela,band,1715,0
+sna,sna.sna_tiy,Tiyopa-očanunpa,band,1715,0
 sna,sna.sna_hca,Itazipčo hča (Minišala),band,1720,91
 sna,sna.sna_sin,Šina-luta-oin,band,1720,91
 sna,sna.sna_wol,Woluta-yuta,band,1720,91
@@ -1935,13 +1926,13 @@ twk,twk.twk_maw,Ma-wahota,band,1795,110
 twk,twk.twk_ooh,Oohenonpa,band,1800,372
 twk,twk.twk_maw,Ma-wahota,band,1800,130
 twk,twk.twk_ooh,Oohenonpa,band,1805,354
-twk,twk.twk_maw,Ma-wahota,band,1805,40
+twk,twk.twk_maw,Ma-wahota,band,1805,41
 twk,twk.twk_ooh,Oohenonpa,band,1810,357
 twk,twk.twk_maw,Ma-wahota,band,1810,55
 twk,twk.twk_ooh,Oohenonpa,band,1815,361
 twk,twk.twk_maw,Ma-wahota,band,1815,71
 twk,twk.twk_ooh,Oohenonpa,band,1820,365
-twk,twk.twk_maw,Ma-wahota,band,1820,91
+twk,twk.twk_maw,Ma-wahota,band,1820,92
 twk,twk.twk_ooh,Oohenonpa,band,1825,370
 twk,twk.twk_maw,Ma-wahota,band,1825,121
 twk,twk.twk_ooh,Oohenonpa,band,1830,375
@@ -2111,7 +2102,7 @@ ynk,ynk.ynk_ikm,Ikmun,band,1785,238
 ynk,ynk.ynk_wac,Waceunpa,band,1785,238
 ynk,ynk.ynk_can,Čankute,band,1785,238
 ynk,ynk.ynk_oya,Oyate-šiča,band,1785,238
-ynk,ynk.ynk_cag,Čagu,band,1785,218
+ynk,ynk.ynk_cag,Čagu,band,1785,219
 ynk,ynk.ynk_iha,Iha-isdaye,band,1790,239
 ynk,ynk.ynk_wak,Wakmuha-oin,band,1790,239
 ynk,ynk.ynk_ikm,Ikmun,band,1790,239
@@ -2144,7 +2135,7 @@ ynk,ynk.ynk_wak,Wakmuha-oin,band,1810,234
 ynk,ynk.ynk_ikm,Ikmun,band,1810,234
 ynk,ynk.ynk_wac,Waceunpa,band,1810,234
 ynk,ynk.ynk_can,Čankute,band,1810,234
-ynk,ynk.ynk_oya,Oyate-šiča,band,1810,175
+ynk,ynk.ynk_oya,Oyate-šiča,band,1810,176
 ynk,ynk.ynk_iha,Iha-isdaye,band,1815,234
 ynk,ynk.ynk_wak,Wakmuha-oin,band,1815,234
 ynk,ynk.ynk_ikm,Ikmun,band,1815,234
@@ -2157,7 +2148,7 @@ ynk,ynk.ynk_ikm,Ikmun,band,1820,235
 ynk,ynk.ynk_wac,Waceunpa,band,1820,235
 ynk,ynk.ynk_can,Čankute,band,1820,235
 ynk,ynk.ynk_oya,Oyate-šiča,band,1820,235
-ynk,ynk.ynk_cag,Čagu,band,1820,25
+ynk,ynk.ynk_cag,Čagu,band,1820,26
 ynk,ynk.ynk_iha,Iha-isdaye,band,1825,237
 ynk,ynk.ynk_wak,Wakmuha-oin,band,1825,237
 ynk,ynk.ynk_ikm,Ikmun,band,1825,237
@@ -2187,7 +2178,7 @@ ynk,ynk.ynk_wac,Waceunpa,band,1840,256
 ynk,ynk.ynk_can,Čankute,band,1840,256
 ynk,ynk.ynk_oya,Oyate-šiča,band,1840,256
 ynk,ynk.ynk_cag,Čagu,band,1840,256
-ynk,ynk#1,unnamed band,unnamed,1840,6
+ynk,ynk#1,unnamed band,unnamed,1840,7
 ynk,ynk.ynk_iha,Iha-isdaye,band,1845,243
 ynk,ynk.ynk_wak,Wakmuha-oin,band,1845,243
 ynk,ynk.ynk_ikm,Ikmun,band,1845,243
@@ -2204,7 +2195,7 @@ ynk,ynk.ynk_can,Čankute,band,1850,256
 ynk,ynk.ynk_oya,Oyate-šiča,band,1850,256
 ynk,ynk.ynk_cag,Čagu,band,1850,256
 ynk,ynk.ynk_was,Wašičun-činča,band,1850,256
-ynk,ynk#1,unnamed band,unnamed,1850,24
+ynk,ynk#1,unnamed band,unnamed,1850,25
 ynk,ynk.ynk_iha,Iha-isdaye,band,1855,256
 ynk,ynk.ynk_wak,Wakmuha-oin,band,1855,256
 ynk,ynk.ynk_ikm,Ikmun,band,1855,256
@@ -2327,7 +2318,7 @@ yku,yku.yku_tak,Takini,band,1720,223
 yku,yku.yku_sik,Siksičena,band,1720,223
 yku,yku.yku_bak,Bakihon,band,1720,223
 yku,yku.yku_kiy,Kiyuksa,band,1720,223
-yku,yku.yku_pab,Pabaksa (Cutheads),band,1720,402
+yku,yku.yku_pab,Pabaksa (Cutheads),band,1720,403
 yku,yku.yku_can,Čan-ona (Wazikute),band,1725,223
 yku,yku.yku_tak,Takini,band,1725,223
 yku,yku.yku_sik,Siksičena,band,1725,223
@@ -2399,7 +2390,7 @@ yku,yku.yku_tak,Takini,band,1780,272
 yku,yku.yku_sik,Siksičena,band,1780,272
 yku,yku.yku_bak,Bakihon,band,1780,272
 yku,yku.yku_kiy,Kiyuksa,band,1780,272
-yku,yku.yku_pab,Pabaksa (Cutheads),band,1780,873
+yku,yku.yku_pab,Pabaksa (Cutheads),band,1780,874
 yku,yku.yku_can,Čan-ona (Wazikute),band,1785,224
 yku,yku.yku_tak,Takini,band,1785,224
 yku,yku.yku_sik,Siksičena,band,1785,224
@@ -2412,11 +2403,11 @@ yku,yku.yku_sik,Siksičena,band,1790,227
 yku,yku.yku_bak,Bakihon,band,1790,227
 yku,yku.yku_kiy,Kiyuksa,band,1790,227
 yku,yku.yku_pab,Pabaksa (Cutheads),band,1790,763
-yku,yku.yku_can,Čan-ona (Wazikute),band,1795,230
-yku,yku.yku_tak,Takini,band,1795,230
-yku,yku.yku_sik,Siksičena,band,1795,230
-yku,yku.yku_bak,Bakihon,band,1795,230
-yku,yku.yku_kiy,Kiyuksa,band,1795,230
+yku,yku.yku_can,Čan-ona (Wazikute),band,1795,231
+yku,yku.yku_tak,Takini,band,1795,231
+yku,yku.yku_sik,Siksičena,band,1795,231
+yku,yku.yku_bak,Bakihon,band,1795,231
+yku,yku.yku_kiy,Kiyuksa,band,1795,231
 yku,yku.yku_pab,Pabaksa (Cutheads),band,1795,800
 yku,yku.yku_can,Čan-ona (Wazikute),band,1800,233
 yku,yku.yku_tak,Takini,band,1800,233
@@ -2435,7 +2426,7 @@ yku,yku.yku_tak,Takini,band,1810,204
 yku,yku.yku_sik,Siksičena,band,1810,204
 yku,yku.yku_bak,Bakihon,band,1810,204
 yku,yku.yku_kiy,Kiyuksa,band,1810,204
-yku,yku.yku_pab,Pabaksa (Cutheads),band,1810,578
+yku,yku.yku_pab,Pabaksa (Cutheads),band,1810,579
 yku,yku.yku_can,Čan-ona (Wazikute),band,1815,197
 yku,yku.yku_tak,Takini,band,1815,197
 yku,yku.yku_sik,Siksičena,band,1815,197
@@ -2721,7 +2712,7 @@ ykl,ykl.ykl_san,San-ona,band,1815,169
 ykl,ykl.ykl_iha,Iha-ša,band,1815,169
 ykl,ykl.ykl_ite,Ite-gu,band,1815,169
 ykl,ykl.ykl_pte,Pte-yutešni,band,1815,169
-ykl,ykl#1,unnamed band,unnamed,1815,58
+ykl,ykl#1,unnamed band,unnamed,1815,59
 ykl,ykl.ykl_put,Putetemini,band,1820,254
 ykl,ykl.ykl_sun,Šunikčeka,band,1820,169
 ykl,ykl.ykl_tah,Tahuha-yuta,band,1820,169
@@ -2987,7 +2978,7 @@ mde,mde.mde_oya,Oyate-šiča — Good Road’s village,village,1760,247
 mde,mde.mde_tin,Tinta-otonwe — Shakopee’s village,village,1760,247
 mde,mde#1,unnamed village,unnamed,1760,247
 mde,mde#2,unnamed village,unnamed,1760,247
-mde,mde.mde_kiy,Kiyuksa — Wabasha’s village,village,1765,376
+mde,mde.mde_kiy,Kiyuksa — Wabasha’s village,village,1765,377
 mde,mde.mde_hem,Hemniča — Red Wing’s village,village,1765,245
 mde,mde.mde_kap,Kapoža — Little Crow’s village (Kaposia),village,1765,251
 mde,mde.mde_mag,Maga-yutešni — Black Dog’s village,village,1765,251
@@ -3036,7 +3027,7 @@ mde,mde.mde_tin,Tinta-otonwe — Shakopee’s village,village,1790,244
 mde,mde#1,unnamed village,unnamed,1790,244
 mde,mde#2,unnamed village,unnamed,1790,244
 mde,mde.mde_kiy,Kiyuksa — Wabasha’s village,village,1795,369
-mde,mde.mde_hem,Hemniča — Red Wing’s village,village,1795,221
+mde,mde.mde_hem,Hemniča — Red Wing’s village,village,1795,222
 mde,mde.mde_kap,Kapoža — Little Crow’s village (Kaposia),village,1795,246
 mde,mde.mde_mag,Maga-yutešni — Black Dog’s village,village,1795,246
 mde,mde.mde_oya,Oyate-šiča — Good Road’s village,village,1795,246
@@ -3059,7 +3050,7 @@ mde,mde.mde_oya,Oyate-šiča — Good Road’s village,village,1805,246
 mde,mde.mde_tin,Tinta-otonwe — Shakopee’s village,village,1805,246
 mde,mde#1,unnamed village,unnamed,1805,246
 mde,mde#2,unnamed village,unnamed,1805,246
-mde,mde.mde_kiy,Kiyuksa — Wabasha’s village,village,1810,350
+mde,mde.mde_kiy,Kiyuksa — Wabasha’s village,village,1810,351
 mde,mde.mde_hem,Hemniča — Red Wing’s village,village,1810,187
 mde,mde.mde_kap,Kapoža — Little Crow’s village (Kaposia),village,1810,234
 mde,mde.mde_mag,Maga-yutešni — Black Dog’s village,village,1810,234
@@ -3082,7 +3073,7 @@ mde,mde.mde_mag,Maga-yutešni — Black Dog’s village,village,1820,234
 mde,mde.mde_oya,Oyate-šiča — Good Road’s village,village,1820,234
 mde,mde.mde_tin,Tinta-otonwe — Shakopee’s village,village,1820,234
 mde,mde#1,unnamed village,unnamed,1820,234
-mde,mde#2,unnamed village,unnamed,1820,25
+mde,mde#2,unnamed village,unnamed,1820,26
 mde,mde.mde_kiy,Kiyuksa — Wabasha’s village,village,1825,354
 mde,mde.mde_hem,Hemniča — Red Wing’s village,village,1825,153
 mde,mde.mde_kap,Kapoža — Little Crow’s village (Kaposia),village,1825,236
@@ -3269,7 +3260,7 @@ wpk,wpk#2,Wahpekute band,unnamed,1800,250
 wpk,wpk#3,Wahpekute band,unnamed,1800,155
 wpk,wpk#1,Wahpekute band,unnamed,1805,250
 wpk,wpk#2,Wahpekute band,unnamed,1805,250
-wpk,wpk#3,Wahpekute band,unnamed,1805,160
+wpk,wpk#3,Wahpekute band,unnamed,1805,161
 wpk,wpk#1,Wahpekute band,unnamed,1810,250
 wpk,wpk#2,Wahpekute band,unnamed,1810,250
 wpk,wpk#3,Wahpekute band,unnamed,1810,149
@@ -3820,7 +3811,7 @@ sis,sis.sis_oko,Okopeya,band,1730,92
 sis,sis#1,unnamed band,unnamed,1730,92
 sis,sis#2,unnamed band,unnamed,1730,92
 sis,sis#3,unnamed band,unnamed,1730,92
-sis,sis#4,unnamed band,unnamed,1730,71
+sis,sis#4,unnamed band,unnamed,1730,72
 sis,sis.sis_wit,Wita-waziyata-otina,band,1735,92
 sis,sis.sis_bas,Basdeče-šni,band,1735,92
 sis,sis.sis_kah,Kahmi-atonwan,band,1735,92
@@ -4054,7 +4045,7 @@ sis,sis#5,unnamed band,unnamed,1790,92
 sis,sis#6,unnamed band,unnamed,1790,92
 sis,sis#7,unnamed band,unnamed,1790,92
 sis,sis#8,unnamed band,unnamed,1790,92
-sis,sis#9,unnamed band,unnamed,1790,2
+sis,sis#9,unnamed band,unnamed,1790,3
 sis,sis.sis_wit,Wita-waziyata-otina,band,1795,92
 sis,sis.sis_bas,Basdeče-šni,band,1795,92
 sis,sis.sis_kah,Kahmi-atonwan,band,1795,92
@@ -4119,7 +4110,7 @@ sis,sis#6,unnamed band,unnamed,1805,92
 sis,sis#7,unnamed band,unnamed,1805,92
 sis,sis#8,unnamed band,unnamed,1805,92
 sis,sis#9,unnamed band,unnamed,1805,92
-sis,sis#10,unnamed band,unnamed,1805,56
+sis,sis#10,unnamed band,unnamed,1805,57
 sis,sis.sis_wit,Wita-waziyata-otina,band,1810,92
 sis,sis.sis_bas,Basdeče-šni,band,1810,92
 sis,sis.sis_kah,Kahmi-atonwan,band,1810,92
@@ -4141,7 +4132,7 @@ sis,sis#6,unnamed band,unnamed,1810,92
 sis,sis#7,unnamed band,unnamed,1810,92
 sis,sis#8,unnamed band,unnamed,1810,92
 sis,sis#9,unnamed band,unnamed,1810,92
-sis,sis#10,unnamed band,unnamed,1810,74
+sis,sis#10,unnamed band,unnamed,1810,75
 sis,sis.sis_wit,Wita-waziyata-otina,band,1815,92
 sis,sis.sis_bas,Basdeče-šni,band,1815,92
 sis,sis.sis_kah,Kahmi-atonwan,band,1815,92
@@ -4231,7 +4222,7 @@ sis,sis#7,unnamed band,unnamed,1830,92
 sis,sis#8,unnamed band,unnamed,1830,92
 sis,sis#9,unnamed band,unnamed,1830,92
 sis,sis#10,unnamed band,unnamed,1830,92
-sis,sis#11,unnamed band,unnamed,1830,40
+sis,sis#11,unnamed band,unnamed,1830,41
 sis,sis.sis_wit,Wita-waziyata-otina,band,1835,92
 sis,sis.sis_bas,Basdeče-šni,band,1835,92
 sis,sis.sis_kah,Kahmi-atonwan,band,1835,92
@@ -4300,7 +4291,7 @@ sis,sis#7,unnamed band,unnamed,1845,92
 sis,sis#8,unnamed band,unnamed,1845,92
 sis,sis#9,unnamed band,unnamed,1845,92
 sis,sis#10,unnamed band,unnamed,1845,92
-sis,sis#11,unnamed band,unnamed,1845,87
+sis,sis#11,unnamed band,unnamed,1845,88
 sis,sis.sis_wit,Wita-waziyata-otina,band,1850,92
 sis,sis.sis_bas,Basdeče-šni,band,1850,92
 sis,sis.sis_kah,Kahmi-atonwan,band,1850,92
@@ -4663,7 +4654,7 @@ ass,ass#8,unnamed band,unnamed,1755,299
 ass,ass#9,unnamed band,unnamed,1755,299
 ass,ass#10,unnamed band,unnamed,1755,299
 ass,ass#11,unnamed band,unnamed,1755,299
-ass,ass#12,unnamed band,unnamed,1755,98
+ass,ass#12,unnamed band,unnamed,1755,99
 ass,ass.ass_man,Manetopa,band,1760,343
 ass,ass.ass_fil,Gens des Filles (Itscheabine),band,1760,500
 ass,ass.ass_can,Gens des Canots (Watopabine),band,1760,1104
@@ -4697,7 +4688,7 @@ ass,ass#8,unnamed band,unnamed,1765,295
 ass,ass#9,unnamed band,unnamed,1765,295
 ass,ass#10,unnamed band,unnamed,1765,295
 ass,ass#11,unnamed band,unnamed,1765,295
-ass,ass#12,unnamed band,unnamed,1765,272
+ass,ass#12,unnamed band,unnamed,1765,273
 ass,ass.ass_man,Manetopa,band,1770,370
 ass,ass.ass_fil,Gens des Filles (Itscheabine),band,1770,530
 ass,ass.ass_can,Gens des Canots (Watopabine),band,1770,1128
@@ -4715,7 +4706,7 @@ ass,ass#9,unnamed band,unnamed,1770,292
 ass,ass#10,unnamed band,unnamed,1770,292
 ass,ass#11,unnamed band,unnamed,1770,292
 ass,ass#12,unnamed band,unnamed,1770,292
-ass,ass#13,unnamed band,unnamed,1770,67
+ass,ass#13,unnamed band,unnamed,1770,68
 ass,ass.ass_man,Manetopa,band,1775,390
 ass,ass.ass_fil,Gens des Filles (Itscheabine),band,1775,553
 ass,ass.ass_can,Gens des Canots (Watopabine),band,1775,1146
@@ -4735,7 +4726,7 @@ ass,ass#11,unnamed band,unnamed,1775,288
 ass,ass#12,unnamed band,unnamed,1775,288
 ass,ass#13,unnamed band,unnamed,1775,162
 ass,ass.ass_man,Manetopa,band,1780,419
-ass,ass.ass_fil,Gens des Filles (Itscheabine),band,1780,584
+ass,ass.ass_fil,Gens des Filles (Itscheabine),band,1780,583
 ass,ass.ass_can,Gens des Canots (Watopabine),band,1780,1169
 ass,ass.ass_gau,Gens du Gauche,band,1780,447
 ass,ass.ass_roc,Gens des Roches,band,1780,277
@@ -4751,21 +4742,21 @@ ass,ass#9,unnamed band,unnamed,1780,284
 ass,ass#10,unnamed band,unnamed,1780,284
 ass,ass#11,unnamed band,unnamed,1780,284
 ass,ass#12,unnamed band,unnamed,1780,284
-ass,ass#13,unnamed band,unnamed,1780,281
+ass,ass#13,unnamed band,unnamed,1780,282
 ass,ass.ass_man,Manetopa,band,1785,414
 ass,ass.ass_fil,Gens des Filles (Itscheabine),band,1785,565
 ass,ass.ass_can,Gens des Canots (Watopabine),band,1785,1083
 ass,ass.ass_gau,Gens du Gauche,band,1785,394
 ass,ass.ass_roc,Gens des Roches,band,1785,243
 ass,ass#1,unnamed band,unnamed,1785,251
-ass,ass#2,unnamed band,unnamed,1785,107
+ass,ass#2,unnamed band,unnamed,1785,108
 ass,ass.ass_man,Manetopa,band,1790,452
 ass,ass.ass_fil,Gens des Filles (Itscheabine),band,1790,600
 ass,ass.ass_can,Gens des Canots (Watopabine),band,1790,1090
 ass,ass.ass_gau,Gens du Gauche,band,1790,372
 ass,ass.ass_roc,Gens des Roches,band,1790,229
 ass,ass#1,unnamed band,unnamed,1790,238
-ass,ass#2,unnamed band,unnamed,1790,189
+ass,ass#2,unnamed band,unnamed,1790,190
 ass,ass.ass_man,Manetopa,band,1795,505
 ass,ass.ass_fil,Gens des Filles (Itscheabine),band,1795,649
 ass,ass.ass_can,Gens des Canots (Watopabine),band,1795,1096
@@ -4781,7 +4772,7 @@ ass,ass.ass_gau,Gens du Gauche,band,1800,310
 ass,ass.ass_roc,Gens des Roches,band,1800,189
 ass,ass#1,unnamed band,unnamed,1800,202
 ass,ass#2,unnamed band,unnamed,1800,202
-ass,ass#3,unnamed band,unnamed,1800,131
+ass,ass#3,unnamed band,unnamed,1800,132
 ass,ass.ass_man,Manetopa,band,1805,702
 ass,ass.ass_fil,Gens des Filles (Itscheabine),band,1805,776
 ass,ass.ass_can,Gens des Canots (Watopabine),band,1805,1118
@@ -4806,12 +4797,12 @@ ass,ass.ass_fil,Gens des Filles (Itscheabine),band,1815,744
 ass,ass.ass_can,Gens des Canots (Watopabine),band,1815,1275
 ass,ass.ass_gau,Gens du Gauche,band,1815,337
 ass,ass.ass_roc,Gens des Roches,band,1815,199
-ass,ass#1,unnamed band,unnamed,1815,229
-ass,ass#2,unnamed band,unnamed,1815,229
-ass,ass#3,unnamed band,unnamed,1815,229
-ass,ass#4,unnamed band,unnamed,1815,229
-ass,ass#5,unnamed band,unnamed,1815,229
-ass,ass#6,unnamed band,unnamed,1815,229
+ass,ass#1,unnamed band,unnamed,1815,230
+ass,ass#2,unnamed band,unnamed,1815,230
+ass,ass#3,unnamed band,unnamed,1815,230
+ass,ass#4,unnamed band,unnamed,1815,230
+ass,ass#5,unnamed band,unnamed,1815,230
+ass,ass#6,unnamed band,unnamed,1815,230
 ass,ass#7,unnamed band,unnamed,1815,6
 ass,ass.ass_man,Manetopa,band,1820,493
 ass,ass.ass_fil,Gens des Filles (Itscheabine),band,1820,668
@@ -4960,30 +4951,30 @@ ass,ass.ass_roc,Gens des Roches,band,1905,140
 ass,ass.ass_nor,Gens du Nord,band,1905,143
 ass,ass.ass_bas,Bas Rouge,band,1905,134
 asn,asn.asn_mah,Mahtapanarto,band,1700,1452
-asn,asn.asn_hil,Hills Assiniboine,band,1700,362
+asn,asn.asn_hil,Hills Assiniboine,band,1700,363
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1700,362
-asn,asn.asn_nor,Gens du Nord,band,1700,362
-asn,asn#1,Assiniboine band,unnamed,1700,362
-asn,asn#2,Assiniboine band,unnamed,1700,362
-asn,asn#3,Assiniboine band,unnamed,1700,362
+asn,asn.asn_nor,Gens du Nord,band,1700,363
+asn,asn#1,Assiniboine band,unnamed,1700,363
+asn,asn#2,Assiniboine band,unnamed,1700,363
+asn,asn#3,Assiniboine band,unnamed,1700,363
 asn,asn#4,Assiniboine band,unnamed,1700,226
 asn,asn.asn_mah,Mahtapanarto,band,1705,1452
-asn,asn.asn_hil,Hills Assiniboine,band,1705,362
+asn,asn.asn_hil,Hills Assiniboine,band,1705,363
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1705,362
-asn,asn.asn_nor,Gens du Nord,band,1705,362
-asn,asn#1,Assiniboine band,unnamed,1705,362
-asn,asn#2,Assiniboine band,unnamed,1705,362
-asn,asn#3,Assiniboine band,unnamed,1705,362
+asn,asn.asn_nor,Gens du Nord,band,1705,363
+asn,asn#1,Assiniboine band,unnamed,1705,363
+asn,asn#2,Assiniboine band,unnamed,1705,363
+asn,asn#3,Assiniboine band,unnamed,1705,363
 asn,asn#4,Assiniboine band,unnamed,1705,294
-asn,asn.asn_mah,Mahtapanarto,band,1710,1452
-asn,asn.asn_hil,Hills Assiniboine,band,1710,362
+asn,asn.asn_mah,Mahtapanarto,band,1710,1453
+asn,asn.asn_hil,Hills Assiniboine,band,1710,363
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1710,362
-asn,asn.asn_nor,Gens du Nord,band,1710,362
-asn,asn#1,Assiniboine band,unnamed,1710,362
-asn,asn#2,Assiniboine band,unnamed,1710,362
-asn,asn#3,Assiniboine band,unnamed,1710,362
-asn,asn#4,Assiniboine band,unnamed,1710,362
-asn,asn#5,Assiniboine band,unnamed,1710,1
+asn,asn.asn_nor,Gens du Nord,band,1710,363
+asn,asn#1,Assiniboine band,unnamed,1710,363
+asn,asn#2,Assiniboine band,unnamed,1710,363
+asn,asn#3,Assiniboine band,unnamed,1710,363
+asn,asn#4,Assiniboine band,unnamed,1710,363
+asn,asn#5,Assiniboine band,unnamed,1710,0
 asn,asn.asn_mah,Mahtapanarto,band,1715,1453
 asn,asn.asn_hil,Hills Assiniboine,band,1715,362
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1715,362
@@ -5001,8 +4992,8 @@ asn,asn#1,Assiniboine band,unnamed,1720,362
 asn,asn#2,Assiniboine band,unnamed,1720,362
 asn,asn#3,Assiniboine band,unnamed,1720,362
 asn,asn#4,Assiniboine band,unnamed,1720,362
-asn,asn#5,Assiniboine band,unnamed,1720,143
-asn,asn.asn_mah,Mahtapanarto,band,1725,1454
+asn,asn#5,Assiniboine band,unnamed,1720,142
+asn,asn.asn_mah,Mahtapanarto,band,1725,1455
 asn,asn.asn_hil,Hills Assiniboine,band,1725,362
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1725,361
 asn,asn.asn_nor,Gens du Nord,band,1725,362
@@ -5010,7 +5001,7 @@ asn,asn#1,Assiniboine band,unnamed,1725,362
 asn,asn#2,Assiniboine band,unnamed,1725,362
 asn,asn#3,Assiniboine band,unnamed,1725,362
 asn,asn#4,Assiniboine band,unnamed,1725,362
-asn,asn#5,Assiniboine band,unnamed,1725,216
+asn,asn#5,Assiniboine band,unnamed,1725,215
 asn,asn.asn_mah,Mahtapanarto,band,1730,1456
 asn,asn.asn_hil,Hills Assiniboine,band,1730,362
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1730,361
@@ -5019,7 +5010,7 @@ asn,asn#1,Assiniboine band,unnamed,1730,362
 asn,asn#2,Assiniboine band,unnamed,1730,362
 asn,asn#3,Assiniboine band,unnamed,1730,362
 asn,asn#4,Assiniboine band,unnamed,1730,362
-asn,asn#5,Assiniboine band,unnamed,1730,290
+asn,asn#5,Assiniboine band,unnamed,1730,289
 asn,asn.asn_mah,Mahtapanarto,band,1735,1457
 asn,asn.asn_hil,Hills Assiniboine,band,1735,362
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1735,360
@@ -5029,7 +5020,7 @@ asn,asn#2,Assiniboine band,unnamed,1735,362
 asn,asn#3,Assiniboine band,unnamed,1735,362
 asn,asn#4,Assiniboine band,unnamed,1735,362
 asn,asn#5,Assiniboine band,unnamed,1735,362
-asn,asn#6,Assiniboine band,unnamed,1735,2
+asn,asn#6,Assiniboine band,unnamed,1735,1
 asn,asn.asn_mah,Mahtapanarto,band,1740,1459
 asn,asn.asn_hil,Hills Assiniboine,band,1740,362
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1740,359
@@ -5049,17 +5040,17 @@ asn,asn#2,Assiniboine band,unnamed,1745,362
 asn,asn#3,Assiniboine band,unnamed,1745,362
 asn,asn#4,Assiniboine band,unnamed,1745,362
 asn,asn#5,Assiniboine band,unnamed,1745,362
-asn,asn#6,Assiniboine band,unnamed,1745,142
+asn,asn#6,Assiniboine band,unnamed,1745,141
 asn,asn.asn_mah,Mahtapanarto,band,1750,1465
-asn,asn.asn_hil,Hills Assiniboine,band,1750,361
+asn,asn.asn_hil,Hills Assiniboine,band,1750,362
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1750,357
-asn,asn.asn_nor,Gens du Nord,band,1750,361
-asn,asn#1,Assiniboine band,unnamed,1750,361
-asn,asn#2,Assiniboine band,unnamed,1750,361
-asn,asn#3,Assiniboine band,unnamed,1750,361
-asn,asn#4,Assiniboine band,unnamed,1750,361
-asn,asn#5,Assiniboine band,unnamed,1750,361
-asn,asn#6,Assiniboine band,unnamed,1750,207
+asn,asn.asn_nor,Gens du Nord,band,1750,362
+asn,asn#1,Assiniboine band,unnamed,1750,362
+asn,asn#2,Assiniboine band,unnamed,1750,362
+asn,asn#3,Assiniboine band,unnamed,1750,362
+asn,asn#4,Assiniboine band,unnamed,1750,362
+asn,asn#5,Assiniboine band,unnamed,1750,362
+asn,asn#6,Assiniboine band,unnamed,1750,206
 asn,asn.asn_mah,Mahtapanarto,band,1755,1469
 asn,asn.asn_hil,Hills Assiniboine,band,1755,361
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1755,356
@@ -5069,8 +5060,8 @@ asn,asn#2,Assiniboine band,unnamed,1755,361
 asn,asn#3,Assiniboine band,unnamed,1755,361
 asn,asn#4,Assiniboine band,unnamed,1755,361
 asn,asn#5,Assiniboine band,unnamed,1755,361
-asn,asn#6,Assiniboine band,unnamed,1755,272
-asn,asn.asn_mah,Mahtapanarto,band,1760,1474
+asn,asn#6,Assiniboine band,unnamed,1755,271
+asn,asn.asn_mah,Mahtapanarto,band,1760,1475
 asn,asn.asn_hil,Hills Assiniboine,band,1760,361
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1760,354
 asn,asn.asn_nor,Gens du Nord,band,1760,361
@@ -5080,7 +5071,7 @@ asn,asn#3,Assiniboine band,unnamed,1760,361
 asn,asn#4,Assiniboine band,unnamed,1760,361
 asn,asn#5,Assiniboine band,unnamed,1760,361
 asn,asn#6,Assiniboine band,unnamed,1760,337
-asn,asn.asn_mah,Mahtapanarto,band,1765,1481
+asn,asn.asn_mah,Mahtapanarto,band,1765,1482
 asn,asn.asn_hil,Hills Assiniboine,band,1765,360
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1765,351
 asn,asn.asn_nor,Gens du Nord,band,1765,360
@@ -5090,8 +5081,8 @@ asn,asn#3,Assiniboine band,unnamed,1765,360
 asn,asn#4,Assiniboine band,unnamed,1765,360
 asn,asn#5,Assiniboine band,unnamed,1765,360
 asn,asn#6,Assiniboine band,unnamed,1765,360
-asn,asn#7,Assiniboine band,unnamed,1765,44
-asn,asn.asn_mah,Mahtapanarto,band,1770,1490
+asn,asn#7,Assiniboine band,unnamed,1765,43
+asn,asn.asn_mah,Mahtapanarto,band,1770,1491
 asn,asn.asn_hil,Hills Assiniboine,band,1770,360
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1770,348
 asn,asn.asn_nor,Gens du Nord,band,1770,360
@@ -5101,7 +5092,7 @@ asn,asn#3,Assiniboine band,unnamed,1770,360
 asn,asn#4,Assiniboine band,unnamed,1770,360
 asn,asn#5,Assiniboine band,unnamed,1770,360
 asn,asn#6,Assiniboine band,unnamed,1770,360
-asn,asn#7,Assiniboine band,unnamed,1770,112
+asn,asn#7,Assiniboine band,unnamed,1770,111
 asn,asn.asn_mah,Mahtapanarto,band,1775,1502
 asn,asn.asn_hil,Hills Assiniboine,band,1775,359
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1775,344
@@ -5113,7 +5104,7 @@ asn,asn#4,Assiniboine band,unnamed,1775,359
 asn,asn#5,Assiniboine band,unnamed,1775,359
 asn,asn#6,Assiniboine band,unnamed,1775,359
 asn,asn#7,Assiniboine band,unnamed,1775,181
-asn,asn.asn_mah,Mahtapanarto,band,1780,1517
+asn,asn.asn_mah,Mahtapanarto,band,1780,1518
 asn,asn.asn_hil,Hills Assiniboine,band,1780,358
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1780,339
 asn,asn.asn_nor,Gens du Nord,band,1780,358
@@ -5123,7 +5114,7 @@ asn,asn#3,Assiniboine band,unnamed,1780,358
 asn,asn#4,Assiniboine band,unnamed,1780,358
 asn,asn#5,Assiniboine band,unnamed,1780,358
 asn,asn#6,Assiniboine band,unnamed,1780,358
-asn,asn#7,Assiniboine band,unnamed,1780,255
+asn,asn#7,Assiniboine band,unnamed,1780,254
 asn,asn.asn_mah,Mahtapanarto,band,1785,1398
 asn,asn.asn_hil,Hills Assiniboine,band,1785,324
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1785,302
@@ -5141,17 +5132,17 @@ asn,asn.asn_hil,Hills Assiniboine,band,1800,319
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1800,275
 asn,asn.asn_nor,Gens du Nord,band,1800,318
 asn,asn.asn_mah,Mahtapanarto,band,1805,1565
-asn,asn.asn_hil,Hills Assiniboine,band,1805,319
+asn,asn.asn_hil,Hills Assiniboine,band,1805,320
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1805,264
 asn,asn.asn_nor,Gens du Nord,band,1805,319
-asn,asn.asn_mah,Mahtapanarto,band,1810,1599
+asn,asn.asn_mah,Mahtapanarto,band,1810,1600
 asn,asn.asn_hil,Hills Assiniboine,band,1810,342
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1810,270
 asn,asn.asn_nor,Gens du Nord,band,1810,341
 asn,asn.asn_mah,Mahtapanarto,band,1815,1592
 asn,asn.asn_hil,Hills Assiniboine,band,1815,352
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1815,294
-asn,asn.asn_nor,Gens du Nord,band,1815,351
+asn,asn.asn_nor,Gens du Nord,band,1815,352
 asn,asn.asn_mah,Mahtapanarto,band,1820,1579
 asn,asn.asn_hil,Hills Assiniboine,band,1820,359
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1820,311
@@ -5159,27 +5150,27 @@ asn,asn.asn_nor,Gens du Nord,band,1820,358
 asn,asn.asn_mah,Mahtapanarto,band,1825,1568
 asn,asn.asn_hil,Hills Assiniboine,band,1825,364
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1825,326
-asn,asn.asn_nor,Gens du Nord,band,1825,363
+asn,asn.asn_nor,Gens du Nord,band,1825,364
 asn,asn.asn_mah,Mahtapanarto,band,1830,1562
 asn,asn.asn_hil,Hills Assiniboine,band,1830,369
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1830,338
 asn,asn.asn_nor,Gens du Nord,band,1830,368
 asn,asn.asn_mah,Mahtapanarto,band,1835,1558
-asn,asn.asn_hil,Hills Assiniboine,band,1835,372
+asn,asn.asn_hil,Hills Assiniboine,band,1835,373
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1835,348
 asn,asn.asn_nor,Gens du Nord,band,1835,372
 asn,asn.asn_mah,Mahtapanarto,band,1840,1334
 asn,asn.asn_hil,Hills Assiniboine,band,1840,322
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1840,306
 asn,asn.asn_mah,Mahtapanarto,band,1845,1272
-asn,asn.asn_hil,Hills Assiniboine,band,1845,309
+asn,asn.asn_hil,Hills Assiniboine,band,1845,310
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1845,297
 asn,asn.asn_mah,Mahtapanarto,band,1850,1197
 asn,asn.asn_hil,Hills Assiniboine,band,1850,293
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1850,284
 asn,asn.asn_mah,Mahtapanarto,band,1855,1136
 asn,asn.asn_hil,Hills Assiniboine,band,1855,279
-asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1855,272
+asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1855,273
 asn,asn.asn_mah,Mahtapanarto,band,1860,1095
 asn,asn.asn_hil,Hills Assiniboine,band,1860,270
 asn,asn.asn_gro,Ground (Strongwood) Assiniboine,band,1860,265
@@ -5232,7 +5223,7 @@ cre,cre.cre_pei,Pe-i-si-e-kan,band,1710,309
 cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1710,309
 cre,cre.cre_kia,Ki-a-sku-sis,band,1710,309
 cre,cre#1,unnamed band,unnamed,1710,309
-cre,cre#2,unnamed band,unnamed,1710,52
+cre,cre#2,unnamed band,unnamed,1710,53
 cre,cre.cre_cok,Co-kah’s band,band,1715,771
 cre,cre.cre_pei,Pe-i-si-e-kan,band,1715,309
 cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1715,309
@@ -5333,7 +5324,7 @@ cre,cre#4,unnamed band,unnamed,1780,235
 cre,cre.cre_cok,Co-kah’s band,band,1785,681
 cre,cre.cre_pei,Pe-i-si-e-kan,band,1785,280
 cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1785,280
-cre,cre.cre_kia,Ki-a-sku-sis,band,1785,78
+cre,cre.cre_kia,Ki-a-sku-sis,band,1785,79
 cre,cre.cre_cok,Co-kah’s band,band,1790,680
 cre,cre.cre_pei,Pe-i-si-e-kan,band,1790,282
 cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1790,282
@@ -5353,7 +5344,7 @@ cre,cre.cre_kia,Ki-a-sku-sis,band,1805,222
 cre,cre.cre_cok,Co-kah’s band,band,1810,664
 cre,cre.cre_pei,Pe-i-si-e-kan,band,1810,292
 cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1810,292
-cre,cre.cre_kia,Ki-a-sku-sis,band,1810,259
+cre,cre.cre_kia,Ki-a-sku-sis,band,1810,260
 cre,cre.cre_cok,Co-kah’s band,band,1815,655
 cre,cre.cre_pei,Pe-i-si-e-kan,band,1815,297
 cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1815,297
@@ -5432,11 +5423,11 @@ cre,cre.cre_kia,Ki-a-sku-sis,band,1890,227
 cre,cre.cre_rab,Wabuswaianuk,band,1890,227
 cre,cre.cre_giz,Mamakitce-wiiniuk,band,1890,227
 cre,cre.cre_cok,Co-kah’s band,band,1895,492
-cre,cre.cre_pei,Pe-i-si-e-kan,band,1895,225
-cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1895,225
-cre,cre.cre_kia,Ki-a-sku-sis,band,1895,225
-cre,cre.cre_rab,Wabuswaianuk,band,1895,225
-cre,cre.cre_giz,Mamakitce-wiiniuk,band,1895,225
+cre,cre.cre_pei,Pe-i-si-e-kan,band,1895,226
+cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1895,226
+cre,cre.cre_kia,Ki-a-sku-sis,band,1895,226
+cre,cre.cre_rab,Wabuswaianuk,band,1895,226
+cre,cre.cre_giz,Mamakitce-wiiniuk,band,1895,226
 cre,cre.cre_cok,Co-kah’s band,band,1900,506
 cre,cre.cre_pei,Pe-i-si-e-kan,band,1900,225
 cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1900,225
@@ -6025,7 +6016,7 @@ sik,sik.sik_say,Saiyiks,band,1710,328
 sik,sik.sik_ais,Aisikstukiks,band,1710,328
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1710,328
 sik,sik.sik_api,Apikaiyiks,band,1710,328
-sik,sik#1,unnamed band,unnamed,1710,73
+sik,sik#1,unnamed band,unnamed,1710,72
 sik,sik.sik_mot,Motahtosiks,band,1715,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1715,328
 sik,sik.sik_sik,Siksinokaks,band,1715,328
@@ -6034,7 +6025,7 @@ sik,sik.sik_say,Saiyiks,band,1715,328
 sik,sik.sik_ais,Aisikstukiks,band,1715,328
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1715,328
 sik,sik.sik_api,Apikaiyiks,band,1715,328
-sik,sik#1,unnamed band,unnamed,1715,152
+sik,sik#1,unnamed band,unnamed,1715,151
 sik,sik.sik_mot,Motahtosiks,band,1720,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1720,328
 sik,sik.sik_sik,Siksinokaks,band,1720,328
@@ -6043,7 +6034,7 @@ sik,sik.sik_say,Saiyiks,band,1720,328
 sik,sik.sik_ais,Aisikstukiks,band,1720,328
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1720,328
 sik,sik.sik_api,Apikaiyiks,band,1720,328
-sik,sik#1,unnamed band,unnamed,1720,233
+sik,sik#1,unnamed band,unnamed,1720,232
 sik,sik.sik_mot,Motahtosiks,band,1725,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1725,328
 sik,sik.sik_sik,Siksinokaks,band,1725,328
@@ -6052,7 +6043,7 @@ sik,sik.sik_say,Saiyiks,band,1725,328
 sik,sik.sik_ais,Aisikstukiks,band,1725,328
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1725,328
 sik,sik.sik_api,Apikaiyiks,band,1725,328
-sik,sik#1,unnamed band,unnamed,1725,316
+sik,sik#1,unnamed band,unnamed,1725,315
 sik,sik.sik_mot,Motahtosiks,band,1730,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1730,328
 sik,sik.sik_sik,Siksinokaks,band,1730,328
@@ -6062,7 +6053,7 @@ sik,sik.sik_ais,Aisikstukiks,band,1730,328
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1730,328
 sik,sik.sik_api,Apikaiyiks,band,1730,328
 sik,sik#1,unnamed band,unnamed,1730,328
-sik,sik#2,unnamed band,unnamed,1730,74
+sik,sik#2,unnamed band,unnamed,1730,73
 sik,sik.sik_mot,Motahtosiks,band,1735,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1735,328
 sik,sik.sik_sik,Siksinokaks,band,1735,328
@@ -6072,7 +6063,7 @@ sik,sik.sik_ais,Aisikstukiks,band,1735,328
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1735,328
 sik,sik.sik_api,Apikaiyiks,band,1735,328
 sik,sik#1,unnamed band,unnamed,1735,328
-sik,sik#2,unnamed band,unnamed,1735,164
+sik,sik#2,unnamed band,unnamed,1735,163
 sik,sik.sik_mot,Motahtosiks,band,1740,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1740,328
 sik,sik.sik_sik,Siksinokaks,band,1740,328
@@ -6093,7 +6084,7 @@ sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1745,328
 sik,sik.sik_api,Apikaiyiks,band,1745,328
 sik,sik#1,unnamed band,unnamed,1745,328
 sik,sik#2,unnamed band,unnamed,1745,328
-sik,sik#3,unnamed band,unnamed,1745,67
+sik,sik#3,unnamed band,unnamed,1745,66
 sik,sik.sik_mot,Motahtosiks,band,1750,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1750,328
 sik,sik.sik_sik,Siksinokaks,band,1750,328
@@ -6104,7 +6095,7 @@ sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1750,328
 sik,sik.sik_api,Apikaiyiks,band,1750,328
 sik,sik#1,unnamed band,unnamed,1750,328
 sik,sik#2,unnamed band,unnamed,1750,328
-sik,sik#3,unnamed band,unnamed,1750,210
+sik,sik#3,unnamed band,unnamed,1750,209
 sik,sik.sik_mot,Motahtosiks,band,1755,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1755,328
 sik,sik.sik_sik,Siksinokaks,band,1755,328
@@ -6116,7 +6107,7 @@ sik,sik.sik_api,Apikaiyiks,band,1755,328
 sik,sik#1,unnamed band,unnamed,1755,328
 sik,sik#2,unnamed band,unnamed,1755,328
 sik,sik#3,unnamed band,unnamed,1755,328
-sik,sik#4,unnamed band,unnamed,1755,34
+sik,sik#4,unnamed band,unnamed,1755,33
 sik,sik.sik_mot,Motahtosiks,band,1760,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1760,328
 sik,sik.sik_sik,Siksinokaks,band,1760,328
@@ -6128,7 +6119,7 @@ sik,sik.sik_api,Apikaiyiks,band,1760,328
 sik,sik#1,unnamed band,unnamed,1760,328
 sik,sik#2,unnamed band,unnamed,1760,328
 sik,sik#3,unnamed band,unnamed,1760,328
-sik,sik#4,unnamed band,unnamed,1760,193
+sik,sik#4,unnamed band,unnamed,1760,192
 sik,sik.sik_mot,Motahtosiks,band,1765,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1765,328
 sik,sik.sik_sik,Siksinokaks,band,1765,328
@@ -6141,7 +6132,7 @@ sik,sik#1,unnamed band,unnamed,1765,328
 sik,sik#2,unnamed band,unnamed,1765,328
 sik,sik#3,unnamed band,unnamed,1765,328
 sik,sik#4,unnamed band,unnamed,1765,328
-sik,sik#5,unnamed band,unnamed,1765,31
+sik,sik#5,unnamed band,unnamed,1765,30
 sik,sik.sik_mot,Motahtosiks,band,1770,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1770,328
 sik,sik.sik_sik,Siksinokaks,band,1770,328
@@ -6154,7 +6145,7 @@ sik,sik#1,unnamed band,unnamed,1770,328
 sik,sik#2,unnamed band,unnamed,1770,328
 sik,sik#3,unnamed band,unnamed,1770,328
 sik,sik#4,unnamed band,unnamed,1770,328
-sik,sik#5,unnamed band,unnamed,1770,206
+sik,sik#5,unnamed band,unnamed,1770,205
 sik,sik.sik_mot,Motahtosiks,band,1775,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1775,328
 sik,sik.sik_sik,Siksinokaks,band,1775,328
@@ -6168,7 +6159,7 @@ sik,sik#2,unnamed band,unnamed,1775,328
 sik,sik#3,unnamed band,unnamed,1775,328
 sik,sik#4,unnamed band,unnamed,1775,328
 sik,sik#5,unnamed band,unnamed,1775,328
-sik,sik#6,unnamed band,unnamed,1775,71
+sik,sik#6,unnamed band,unnamed,1775,69
 sik,sik.sik_mot,Motahtosiks,band,1780,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1780,328
 sik,sik.sik_sik,Siksinokaks,band,1780,328
@@ -6182,7 +6173,7 @@ sik,sik#2,unnamed band,unnamed,1780,328
 sik,sik#3,unnamed band,unnamed,1780,328
 sik,sik#4,unnamed band,unnamed,1780,328
 sik,sik#5,unnamed band,unnamed,1780,328
-sik,sik#6,unnamed band,unnamed,1780,324
+sik,sik#6,unnamed band,unnamed,1780,323
 sik,sik.sik_mot,Motahtosiks,band,1785,306
 sik,sik.sik_puh,Puhksinahmahyiks,band,1785,306
 sik,sik.sik_sik,Siksinokaks,band,1785,306
@@ -6190,14 +6181,14 @@ sik,sik.sik_emi,Emitahpahksaiyiks,band,1785,306
 sik,sik.sik_say,Saiyiks,band,1785,306
 sik,sik.sik_ais,Aisikstukiks,band,1785,306
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1785,306
-sik,sik.sik_api,Apikaiyiks,band,1785,111
-sik,sik.sik_mot,Motahtosiks,band,1790,307
-sik,sik.sik_puh,Puhksinahmahyiks,band,1790,307
-sik,sik.sik_sik,Siksinokaks,band,1790,307
-sik,sik.sik_emi,Emitahpahksaiyiks,band,1790,307
-sik,sik.sik_say,Saiyiks,band,1790,307
-sik,sik.sik_ais,Aisikstukiks,band,1790,307
-sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1790,307
+sik,sik.sik_api,Apikaiyiks,band,1785,110
+sik,sik.sik_mot,Motahtosiks,band,1790,308
+sik,sik.sik_puh,Puhksinahmahyiks,band,1790,308
+sik,sik.sik_sik,Siksinokaks,band,1790,308
+sik,sik.sik_emi,Emitahpahksaiyiks,band,1790,308
+sik,sik.sik_say,Saiyiks,band,1790,308
+sik,sik.sik_ais,Aisikstukiks,band,1790,308
+sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1790,308
 sik,sik.sik_api,Apikaiyiks,band,1790,302
 sik,sik.sik_mot,Motahtosiks,band,1795,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1795,328
@@ -6207,7 +6198,6 @@ sik,sik.sik_say,Saiyiks,band,1795,328
 sik,sik.sik_ais,Aisikstukiks,band,1795,328
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1795,328
 sik,sik.sik_api,Apikaiyiks,band,1795,328
-sik,sik#1,unnamed band,unnamed,1795,0
 sik,sik.sik_mot,Motahtosiks,band,1800,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1800,328
 sik,sik.sik_sik,Siksinokaks,band,1800,328
@@ -6226,7 +6216,7 @@ sik,sik.sik_ais,Aisikstukiks,band,1805,328
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1805,328
 sik,sik.sik_api,Apikaiyiks,band,1805,328
 sik,sik#1,unnamed band,unnamed,1805,328
-sik,sik#2,unnamed band,unnamed,1805,6
+sik,sik#2,unnamed band,unnamed,1805,5
 sik,sik.sik_mot,Motahtosiks,band,1810,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1810,328
 sik,sik.sik_sik,Siksinokaks,band,1810,328
@@ -6236,7 +6226,7 @@ sik,sik.sik_ais,Aisikstukiks,band,1810,328
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1810,328
 sik,sik.sik_api,Apikaiyiks,band,1810,328
 sik,sik#1,unnamed band,unnamed,1810,328
-sik,sik#2,unnamed band,unnamed,1810,171
+sik,sik#2,unnamed band,unnamed,1810,170
 sik,sik.sik_mot,Motahtosiks,band,1815,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1815,328
 sik,sik.sik_sik,Siksinokaks,band,1815,328
@@ -6247,7 +6237,7 @@ sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1815,328
 sik,sik.sik_api,Apikaiyiks,band,1815,328
 sik,sik#1,unnamed band,unnamed,1815,328
 sik,sik#2,unnamed band,unnamed,1815,328
-sik,sik#3,unnamed band,unnamed,1815,11
+sik,sik#3,unnamed band,unnamed,1815,10
 sik,sik.sik_mot,Motahtosiks,band,1820,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1820,328
 sik,sik.sik_sik,Siksinokaks,band,1820,328
@@ -6270,7 +6260,7 @@ sik,sik.sik_api,Apikaiyiks,band,1825,328
 sik,sik#1,unnamed band,unnamed,1825,328
 sik,sik#2,unnamed band,unnamed,1825,328
 sik,sik#3,unnamed band,unnamed,1825,328
-sik,sik#4,unnamed band,unnamed,1825,185
+sik,sik#4,unnamed band,unnamed,1825,184
 sik,sik.sik_mot,Motahtosiks,band,1830,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1830,328
 sik,sik.sik_sik,Siksinokaks,band,1830,328
@@ -6283,7 +6273,7 @@ sik,sik#1,unnamed band,unnamed,1830,328
 sik,sik#2,unnamed band,unnamed,1830,328
 sik,sik#3,unnamed band,unnamed,1830,328
 sik,sik#4,unnamed band,unnamed,1830,328
-sik,sik#5,unnamed band,unnamed,1830,183
+sik,sik#5,unnamed band,unnamed,1830,182
 sik,sik.sik_mot,Motahtosiks,band,1835,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1835,328
 sik,sik.sik_sik,Siksinokaks,band,1835,328
@@ -6297,19 +6287,19 @@ sik,sik#2,unnamed band,unnamed,1835,328
 sik,sik#3,unnamed band,unnamed,1835,328
 sik,sik#4,unnamed band,unnamed,1835,328
 sik,sik#5,unnamed band,unnamed,1835,328
-sik,sik#6,unnamed band,unnamed,1835,289
+sik,sik#6,unnamed band,unnamed,1835,287
 sik,sik.sik_mot,Motahtosiks,band,1840,299
 sik,sik.sik_puh,Puhksinahmahyiks,band,1840,299
 sik,sik.sik_sik,Siksinokaks,band,1840,299
 sik,sik.sik_emi,Emitahpahksaiyiks,band,1840,299
 sik,sik.sik_say,Saiyiks,band,1840,299
-sik,sik.sik_ais,Aisikstukiks,band,1840,178
-sik,sik.sik_mot,Motahtosiks,band,1845,301
-sik,sik.sik_puh,Puhksinahmahyiks,band,1845,301
-sik,sik.sik_sik,Siksinokaks,band,1845,301
-sik,sik.sik_emi,Emitahpahksaiyiks,band,1845,301
-sik,sik.sik_say,Saiyiks,band,1845,301
-sik,sik.sik_ais,Aisikstukiks,band,1845,301
+sik,sik.sik_ais,Aisikstukiks,band,1840,177
+sik,sik.sik_mot,Motahtosiks,band,1845,302
+sik,sik.sik_puh,Puhksinahmahyiks,band,1845,302
+sik,sik.sik_sik,Siksinokaks,band,1845,302
+sik,sik.sik_emi,Emitahpahksaiyiks,band,1845,302
+sik,sik.sik_say,Saiyiks,band,1845,302
+sik,sik.sik_ais,Aisikstukiks,band,1845,302
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1845,52
 sik,sik.sik_mot,Motahtosiks,band,1850,304
 sik,sik.sik_puh,Puhksinahmahyiks,band,1850,304
@@ -6317,7 +6307,7 @@ sik,sik.sik_sik,Siksinokaks,band,1850,304
 sik,sik.sik_emi,Emitahpahksaiyiks,band,1850,304
 sik,sik.sik_say,Saiyiks,band,1850,304
 sik,sik.sik_ais,Aisikstukiks,band,1850,304
-sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1850,249
+sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1850,248
 sik,sik.sik_mot,Motahtosiks,band,1855,306
 sik,sik.sik_puh,Puhksinahmahyiks,band,1855,306
 sik,sik.sik_sik,Siksinokaks,band,1855,306
@@ -6333,7 +6323,7 @@ sik,sik.sik_emi,Emitahpahksaiyiks,band,1860,307
 sik,sik.sik_say,Saiyiks,band,1860,307
 sik,sik.sik_ais,Aisikstukiks,band,1860,307
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1860,307
-sik,sik.sik_api,Apikaiyiks,band,1860,218
+sik,sik.sik_api,Apikaiyiks,band,1860,217
 sik,sik.sik_mot,Motahtosiks,band,1865,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1865,328
 sik,sik.sik_sik,Siksinokaks,band,1865,328
@@ -6342,7 +6332,7 @@ sik,sik.sik_say,Saiyiks,band,1865,328
 sik,sik.sik_ais,Aisikstukiks,band,1865,328
 sik,sik.sik_tsi,Tsiniktsistsoyiks,band,1865,328
 sik,sik.sik_api,Apikaiyiks,band,1865,328
-sik,sik#1,unnamed band,unnamed,1865,30
+sik,sik#1,unnamed band,unnamed,1865,29
 sik,sik.sik_mot,Motahtosiks,band,1870,328
 sik,sik.sik_puh,Puhksinahmahyiks,band,1870,328
 sik,sik.sik_sik,Siksinokaks,band,1870,328
@@ -6447,10 +6437,6 @@ kai,kai.kai_nit,Nitikskiks,band,1720,169
 kai,kai.kai_sah,Siksahpuniks,band,1720,169
 kai,kai.kai_aka,Ahkaiksumiks,band,1720,169
 kai,kai.kai_isi,Isisokasimiks,band,1720,7
-kai,kai.kai_akk,Akkaipokaks,band,1720,0
-kai,kai.kai_sak,Saksinahmahyiks,band,1720,0
-kai,kai.kai_apk,Apikaiyiks,band,1720,0
-kai,kai.kai_aks,Ahkotashiks,band,1720,0
 kai,kai.kai_sik,Siksinokaks,band,1725,170
 kai,kai.kai_ahk,Ahkwonistsists,band,1725,170
 kai,kai.kai_apu,Aputosi-kainah,band,1725,170
@@ -6612,10 +6598,6 @@ kai,kai.kai_nit,Nitikskiks,band,1795,170
 kai,kai.kai_sah,Siksahpuniks,band,1795,170
 kai,kai.kai_aka,Ahkaiksumiks,band,1795,170
 kai,kai.kai_isi,Isisokasimiks,band,1795,23
-kai,kai.kai_akk,Akkaipokaks,band,1795,0
-kai,kai.kai_sak,Saksinahmahyiks,band,1795,0
-kai,kai.kai_apk,Apikaiyiks,band,1795,0
-kai,kai.kai_aks,Ahkotashiks,band,1795,0
 kai,kai.kai_sik,Siksinokaks,band,1800,171
 kai,kai.kai_ahk,Ahkwonistsists,band,1800,171
 kai,kai.kai_apu,Aputosi-kainah,band,1800,171
@@ -6730,7 +6712,7 @@ kai,kai.kai_ist,Istsikainah,band,1840,169
 kai,kai.kai_inu,Inuhksoyistamiks,band,1840,169
 kai,kai.kai_nit,Nitikskiks,band,1840,169
 kai,kai.kai_sah,Siksahpuniks,band,1840,169
-kai,kai.kai_aka,Ahkaiksumiks,band,1840,161
+kai,kai.kai_aka,Ahkaiksumiks,band,1840,162
 kai,kai.kai_sik,Siksinokaks,band,1845,171
 kai,kai.kai_ahk,Ahkwonistsists,band,1845,171
 kai,kai.kai_apu,Aputosi-kainah,band,1845,171
@@ -6779,7 +6761,7 @@ kai,kai.kai_akk,Akkaipokaks,band,1860,181
 kai,kai.kai_sak,Saksinahmahyiks,band,1860,181
 kai,kai.kai_apk,Apikaiyiks,band,1860,181
 kai,kai.kai_aks,Ahkotashiks,band,1860,181
-kai,kai#1,unnamed band,unnamed,1860,8
+kai,kai#1,unnamed band,unnamed,1860,9
 kai,kai.kai_sik,Siksinokaks,band,1865,181
 kai,kai.kai_ahk,Ahkwonistsists,band,1865,181
 kai,kai.kai_apu,Aputosi-kainah,band,1865,181
@@ -7159,7 +7141,7 @@ pik,pik#12,unnamed band,unnamed,1735,135
 pik,pik#13,unnamed band,unnamed,1735,135
 pik,pik#14,unnamed band,unnamed,1735,135
 pik,pik#15,unnamed band,unnamed,1735,135
-pik,pik#16,unnamed band,unnamed,1735,8
+pik,pik#16,unnamed band,unnamed,1735,9
 pik,pik.pik_ahp,Ahpaitupiks,band,1740,135
 pik,pik.pik_ahk,Ahkaiyikokakiniks,band,1740,135
 pik,pik.pik_kiy,Kiyis,band,1740,135
@@ -8011,7 +7993,7 @@ pik,pik#19,unnamed band,unnamed,1835,135
 pik,pik#20,unnamed band,unnamed,1835,135
 pik,pik#21,unnamed band,unnamed,1835,135
 pik,pik#22,unnamed band,unnamed,1835,135
-pik,pik#23,unnamed band,unnamed,1835,15
+pik,pik#23,unnamed band,unnamed,1835,16
 pik,pik.pik_ahp,Ahpaitupiks,band,1840,131
 pik,pik.pik_ahk,Ahkaiyikokakiniks,band,1840,131
 pik,pik.pik_kiy,Kiyis,band,1840,131
@@ -8029,7 +8011,7 @@ pik,pik.pik_nif,Nitikskiks,band,1840,131
 pik,pik.pik_inu,Inuksiks,band,1840,131
 pik,pik.pik_mik,Miawkinaiyiks,band,1840,131
 pik,pik.pik_esk,Esksinaitupiks,band,1840,131
-pik,pik.pik_ink,Inuksikahkopwaiks,band,1840,105
+pik,pik.pik_ink,Inuksikahkopwaiks,band,1840,106
 pik,pik.pik_ahp,Ahpaitupiks,band,1845,132
 pik,pik.pik_ahk,Ahkaiyikokakiniks,band,1845,132
 pik,pik.pik_kiy,Kiyis,band,1845,132
@@ -8441,7 +8423,7 @@ gv,gv#11,unnamed band,unnamed,1715,124
 gv,gv#12,unnamed band,unnamed,1715,124
 gv,gv#13,unnamed band,unnamed,1715,124
 gv,gv#14,unnamed band,unnamed,1715,124
-gv,gv#15,unnamed band,unnamed,1715,2
+gv,gv#15,unnamed band,unnamed,1715,3
 gv,gv.gv_plu,Frozen (Plumes),band,1720,124
 gv,gv.gv_ten,Tendons,band,1720,124
 gv,gv.gv_opp,Opposite Assiniboine,band,1720,124
@@ -8468,7 +8450,7 @@ gv,gv#11,unnamed band,unnamed,1720,124
 gv,gv#12,unnamed band,unnamed,1720,124
 gv,gv#13,unnamed band,unnamed,1720,124
 gv,gv#14,unnamed band,unnamed,1720,124
-gv,gv#15,unnamed band,unnamed,1720,81
+gv,gv#15,unnamed band,unnamed,1720,82
 gv,gv.gv_plu,Frozen (Plumes),band,1725,124
 gv,gv.gv_ten,Tendons,band,1725,124
 gv,gv.gv_opp,Opposite Assiniboine,band,1725,124
@@ -8583,7 +8565,7 @@ gv,gv#14,unnamed band,unnamed,1740,124
 gv,gv#15,unnamed band,unnamed,1740,124
 gv,gv#16,unnamed band,unnamed,1740,124
 gv,gv#17,unnamed band,unnamed,1740,124
-gv,gv#18,unnamed band,unnamed,1740,47
+gv,gv#18,unnamed band,unnamed,1740,48
 gv,gv.gv_plu,Frozen (Plumes),band,1745,124
 gv,gv.gv_ten,Tendons,band,1745,124
 gv,gv.gv_opp,Opposite Assiniboine,band,1745,124
@@ -8645,7 +8627,7 @@ gv,gv#15,unnamed band,unnamed,1750,124
 gv,gv#16,unnamed band,unnamed,1750,124
 gv,gv#17,unnamed band,unnamed,1750,124
 gv,gv#18,unnamed band,unnamed,1750,124
-gv,gv#19,unnamed band,unnamed,1750,104
+gv,gv#19,unnamed band,unnamed,1750,105
 gv,gv.gv_plu,Frozen (Plumes),band,1755,124
 gv,gv.gv_ten,Tendons,band,1755,124
 gv,gv.gv_opp,Opposite Assiniboine,band,1755,124
@@ -8710,7 +8692,7 @@ gv,gv#17,unnamed band,unnamed,1760,124
 gv,gv#18,unnamed band,unnamed,1760,124
 gv,gv#19,unnamed band,unnamed,1760,124
 gv,gv#20,unnamed band,unnamed,1760,124
-gv,gv#21,unnamed band,unnamed,1760,47
+gv,gv#21,unnamed band,unnamed,1760,48
 gv,gv.gv_plu,Frozen (Plumes),band,1765,124
 gv,gv.gv_ten,Tendons,band,1765,124
 gv,gv.gv_opp,Opposite Assiniboine,band,1765,124
@@ -8744,7 +8726,7 @@ gv,gv#18,unnamed band,unnamed,1765,124
 gv,gv#19,unnamed band,unnamed,1765,124
 gv,gv#20,unnamed band,unnamed,1765,124
 gv,gv#21,unnamed band,unnamed,1765,124
-gv,gv#22,unnamed band,unnamed,1765,22
+gv,gv#22,unnamed band,unnamed,1765,23
 gv,gv.gv_plu,Frozen (Plumes),band,1770,124
 gv,gv.gv_ten,Tendons,band,1770,124
 gv,gv.gv_opp,Opposite Assiniboine,band,1770,124
@@ -8779,7 +8761,7 @@ gv,gv#19,unnamed band,unnamed,1770,124
 gv,gv#20,unnamed band,unnamed,1770,124
 gv,gv#21,unnamed band,unnamed,1770,124
 gv,gv#22,unnamed band,unnamed,1770,124
-gv,gv#23,unnamed band,unnamed,1770,1
+gv,gv#23,unnamed band,unnamed,1770,2
 gv,gv.gv_plu,Frozen (Plumes),band,1775,124
 gv,gv.gv_ten,Tendons,band,1775,124
 gv,gv.gv_opp,Opposite Assiniboine,band,1775,124
@@ -8851,7 +8833,7 @@ gv,gv#21,unnamed band,unnamed,1780,124
 gv,gv#22,unnamed band,unnamed,1780,124
 gv,gv#23,unnamed band,unnamed,1780,124
 gv,gv#24,unnamed band,unnamed,1780,124
-gv,gv#25,unnamed band,unnamed,1780,3
+gv,gv#25,unnamed band,unnamed,1780,4
 gv,gv.gv_plu,Frozen (Plumes),band,1785,124
 gv,gv.gv_ten,Tendons,band,1785,124
 gv,gv.gv_opp,Opposite Assiniboine,band,1785,124
@@ -8887,7 +8869,7 @@ gv,gv#2,unnamed band,unnamed,1790,124
 gv,gv#3,unnamed band,unnamed,1790,124
 gv,gv#4,unnamed band,unnamed,1790,124
 gv,gv#5,unnamed band,unnamed,1790,124
-gv,gv#6,unnamed band,unnamed,1790,114
+gv,gv#6,unnamed band,unnamed,1790,115
 gv,gv.gv_plu,Frozen (Plumes),band,1795,124
 gv,gv.gv_ten,Tendons,band,1795,124
 gv,gv.gv_opp,Opposite Assiniboine,band,1795,124
@@ -8926,7 +8908,7 @@ gv,gv#4,unnamed band,unnamed,1800,124
 gv,gv#5,unnamed band,unnamed,1800,124
 gv,gv#6,unnamed band,unnamed,1800,124
 gv,gv#7,unnamed band,unnamed,1800,124
-gv,gv#8,unnamed band,unnamed,1800,97
+gv,gv#8,unnamed band,unnamed,1800,98
 gv,gv.gv_plu,Frozen (Plumes),band,1805,124
 gv,gv.gv_ten,Tendons,band,1805,124
 gv,gv.gv_opp,Opposite Assiniboine,band,1805,124
@@ -9303,7 +9285,7 @@ chy,chy.ch_wut,Wutapiu,band,1705,203
 chy,chy.ch_mas,Masikota,band,1705,203
 chy,chy.ch_his,Hisiometanio,band,1705,203
 chy,chy.ch_oiv,Oivimana,band,1705,203
-chy,chy.ch_ohk,Ohktounna,band,1705,16
+chy,chy.ch_ohk,Ohktounna,band,1705,17
 chy,chy.ch_omi,Omissis,band,1710,611
 chy,chy.ch_hev,Hevataniu,band,1710,305
 chy,chy.ch_suh,Suhtai,band,1710,305
@@ -9374,7 +9356,7 @@ chy,chy.ch_mas,Masikota,band,1740,212
 chy,chy.ch_his,Hisiometanio,band,1740,212
 chy,chy.ch_oiv,Oivimana,band,1740,212
 chy,chy.ch_ohk,Ohktounna,band,1740,212
-chy,chy#1,unnamed band,unnamed,1740,28
+chy,chy#1,unnamed band,unnamed,1740,29
 chy,chy.ch_omi,Omissis,band,1745,637
 chy,chy.ch_hev,Hevataniu,band,1745,318
 chy,chy.ch_suh,Suhtai,band,1745,318
@@ -9396,7 +9378,7 @@ chy,chy.ch_mas,Masikota,band,1750,212
 chy,chy.ch_his,Hisiometanio,band,1750,212
 chy,chy.ch_oiv,Oivimana,band,1750,212
 chy,chy.ch_ohk,Ohktounna,band,1750,212
-chy,chy#1,unnamed band,unnamed,1750,130
+chy,chy#1,unnamed band,unnamed,1750,131
 chy,chy.ch_omi,Omissis,band,1755,637
 chy,chy.ch_hev,Hevataniu,band,1755,318
 chy,chy.ch_suh,Suhtai,band,1755,318
@@ -9407,7 +9389,7 @@ chy,chy.ch_mas,Masikota,band,1755,212
 chy,chy.ch_his,Hisiometanio,band,1755,212
 chy,chy.ch_oiv,Oivimana,band,1755,212
 chy,chy.ch_ohk,Ohktounna,band,1755,212
-chy,chy#1,unnamed band,unnamed,1755,183
+chy,chy#1,unnamed band,unnamed,1755,184
 chy,chy.ch_omi,Omissis,band,1760,637
 chy,chy.ch_hev,Hevataniu,band,1760,318
 chy,chy.ch_suh,Suhtai,band,1760,318
@@ -9456,7 +9438,7 @@ chy,chy.ch_oiv,Oivimana,band,1775,212
 chy,chy.ch_ohk,Ohktounna,band,1775,212
 chy,chy#1,unnamed band,unnamed,1775,212
 chy,chy#2,unnamed band,unnamed,1775,212
-chy,chy#3,unnamed band,unnamed,1775,93
+chy,chy#3,unnamed band,unnamed,1775,94
 chy,chy.ch_omi,Omissis,band,1780,637
 chy,chy.ch_hev,Hevataniu,band,1780,318
 chy,chy.ch_suh,Suhtai,band,1780,318
@@ -9480,7 +9462,7 @@ chy,chy.ch_mas,Masikota,band,1785,212
 chy,chy.ch_his,Hisiometanio,band,1785,212
 chy,chy.ch_oiv,Oivimana,band,1785,212
 chy,chy.ch_ohk,Ohktounna,band,1785,212
-chy,chy#1,unnamed band,unnamed,1785,28
+chy,chy#1,unnamed band,unnamed,1785,29
 chy,chy.ch_omi,Omissis,band,1790,637
 chy,chy.ch_hev,Hevataniu,band,1790,318
 chy,chy.ch_suh,Suhtai,band,1790,318
@@ -9502,7 +9484,7 @@ chy,chy.ch_mas,Masikota,band,1795,212
 chy,chy.ch_his,Hisiometanio,band,1795,212
 chy,chy.ch_oiv,Oivimana,band,1795,212
 chy,chy.ch_ohk,Ohktounna,band,1795,212
-chy,chy#1,unnamed band,unnamed,1795,121
+chy,chy#1,unnamed band,unnamed,1795,122
 chy,chy.ch_omi,Omissis,band,1800,637
 chy,chy.ch_hev,Hevataniu,band,1800,318
 chy,chy.ch_suh,Suhtai,band,1800,318
@@ -9543,7 +9525,7 @@ chy,chy.ch_mas,Masikota,band,1815,204
 chy,chy.ch_his,Hisiometanio,band,1815,204
 chy,chy.ch_oiv,Oivimana,band,1815,204
 chy,chy.ch_ohk,Ohktounna,band,1815,168
-chy,chy.ch_omi,Omissis,band,1820,636
+chy,chy.ch_omi,Omissis,band,1820,637
 chy,chy.ch_hev,Hevataniu,band,1820,318
 chy,chy.ch_suh,Suhtai,band,1820,318
 chy,chy.ch_ivi,Ivistsinihpah,band,1820,212
@@ -9743,7 +9725,7 @@ ara,ara.ar_hin,Hinanaeina,band,1710,1316
 ara,ara.ar_naw,Nawathinehena,band,1710,658
 ara,ara.ar_baa,Baasawuunena,band,1710,439
 ara,ara.ar_haa,Haanahawuunena,band,1710,425
-ara,ara.ar_hin,Hinanaeina,band,1715,1322
+ara,ara.ar_hin,Hinanaeina,band,1715,1323
 ara,ara.ar_naw,Nawathinehena,band,1715,661
 ara,ara.ar_baa,Baasawuunena,band,1715,441
 ara,ara.ar_haa,Haanahawuunena,band,1715,441
@@ -9752,7 +9734,7 @@ ara,ara.ar_naw,Nawathinehena,band,1720,668
 ara,ara.ar_baa,Baasawuunena,band,1720,445
 ara,ara.ar_haa,Haanahawuunena,band,1720,445
 ara,ara.ar_hin,Hinanaeina,band,1725,1349
-ara,ara.ar_naw,Nawathinehena,band,1725,674
+ara,ara.ar_naw,Nawathinehena,band,1725,675
 ara,ara.ar_baa,Baasawuunena,band,1725,450
 ara,ara.ar_haa,Haanahawuunena,band,1725,450
 ara,ara.ar_hin,Hinanaeina,band,1730,1362
@@ -9771,7 +9753,7 @@ ara,ara.ar_hin,Hinanaeina,band,1745,1404
 ara,ara.ar_naw,Nawathinehena,band,1745,702
 ara,ara.ar_baa,Baasawuunena,band,1745,468
 ara,ara.ar_haa,Haanahawuunena,band,1745,468
-ara,ara.ar_hin,Hinanaeina,band,1750,1419
+ara,ara.ar_hin,Hinanaeina,band,1750,1420
 ara,ara.ar_naw,Nawathinehena,band,1750,710
 ara,ara.ar_baa,Baasawuunena,band,1750,473
 ara,ara.ar_haa,Haanahawuunena,band,1750,473
@@ -9794,7 +9776,7 @@ ara,ara.ar_hin,Hinanaeina,band,1770,1426
 ara,ara.ar_naw,Nawathinehena,band,1770,713
 ara,ara.ar_baa,Baasawuunena,band,1770,475
 ara,ara.ar_haa,Haanahawuunena,band,1770,475
-ara,ara#1,unnamed band,unnamed,1770,169
+ara,ara#1,unnamed band,unnamed,1770,170
 ara,ara.ar_hin,Hinanaeina,band,1775,1426
 ara,ara.ar_naw,Nawathinehena,band,1775,713
 ara,ara.ar_baa,Baasawuunena,band,1775,475
@@ -9805,30 +9787,30 @@ ara,ara.ar_naw,Nawathinehena,band,1780,713
 ara,ara.ar_baa,Baasawuunena,band,1780,475
 ara,ara.ar_haa,Haanahawuunena,band,1780,475
 ara,ara#1,unnamed band,unnamed,1780,274
-ara,ara.ar_hin,Hinanaeina,band,1785,1312
+ara,ara.ar_hin,Hinanaeina,band,1785,1313
 ara,ara.ar_naw,Nawathinehena,band,1785,656
-ara,ara.ar_baa,Baasawuunena,band,1785,437
-ara,ara.ar_haa,Haanahawuunena,band,1785,339
-ara,ara.ar_hin,Hinanaeina,band,1790,1314
+ara,ara.ar_baa,Baasawuunena,band,1785,438
+ara,ara.ar_haa,Haanahawuunena,band,1785,340
+ara,ara.ar_hin,Hinanaeina,band,1790,1315
 ara,ara.ar_naw,Nawathinehena,band,1790,657
 ara,ara.ar_baa,Baasawuunena,band,1790,438
-ara,ara.ar_haa,Haanahawuunena,band,1790,394
+ara,ara.ar_haa,Haanahawuunena,band,1790,395
 ara,ara.ar_hin,Hinanaeina,band,1795,1323
-ara,ara.ar_naw,Nawathinehena,band,1795,661
+ara,ara.ar_naw,Nawathinehena,band,1795,662
 ara,ara.ar_baa,Baasawuunena,band,1795,441
 ara,ara.ar_haa,Haanahawuunena,band,1795,441
 ara,ara.ar_hin,Hinanaeina,band,1800,1352
 ara,ara.ar_naw,Nawathinehena,band,1800,676
 ara,ara.ar_baa,Baasawuunena,band,1800,451
 ara,ara.ar_haa,Haanahawuunena,band,1800,451
-ara,ara.ar_hin,Hinanaeina,band,1805,1297
+ara,ara.ar_hin,Hinanaeina,band,1805,1298
 ara,ara.ar_naw,Nawathinehena,band,1805,649
-ara,ara.ar_baa,Baasawuunena,band,1805,432
-ara,ara.ar_haa,Haanahawuunena,band,1805,20
+ara,ara.ar_baa,Baasawuunena,band,1805,433
+ara,ara.ar_haa,Haanahawuunena,band,1805,21
 ara,ara.ar_hin,Hinanaeina,band,1810,1301
 ara,ara.ar_naw,Nawathinehena,band,1810,650
 ara,ara.ar_baa,Baasawuunena,band,1810,434
-ara,ara.ar_haa,Haanahawuunena,band,1810,81
+ara,ara.ar_haa,Haanahawuunena,band,1810,82
 ara,ara.ar_hin,Hinanaeina,band,1815,1385
 ara,ara.ar_naw,Nawathinehena,band,1815,692
 ara,ara.ar_baa,Baasawuunena,band,1815,462
@@ -9849,7 +9831,7 @@ arn,arn.ar_hin,Nakasinena (Sagebrush men),band,1840,727
 arn,arn.ar_baa2,Baatciinena,band,1840,265
 arn,arn#1,Arapaho band,unnamed,1840,67
 arn,arn.ar_hin,Nakasinena (Sagebrush men),band,1845,747
-arn,arn.ar_baa2,Baatciinena,band,1845,249
+arn,arn.ar_baa2,Baatciinena,band,1845,250
 arn,arn#1,Arapaho band,unnamed,1845,63
 arn,arn.ar_hin,Nakasinena (Sagebrush men),band,1850,772
 arn,arn.ar_baa2,Baatciinena,band,1850,230
@@ -9963,7 +9945,7 @@ cwm,cwm#2,unnamed band,unnamed,1730,415
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1735,1309
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1735,983
 cwm,cwm#1,unnamed band,unnamed,1735,654
-cwm,cwm#2,unnamed band,unnamed,1735,488
+cwm,cwm#2,unnamed band,unnamed,1735,489
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1740,1308
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1740,983
 cwm,cwm#1,unnamed band,unnamed,1740,654
@@ -9971,12 +9953,12 @@ cwm,cwm#2,unnamed band,unnamed,1740,564
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1745,1308
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1745,984
 cwm,cwm#1,unnamed band,unnamed,1745,654
-cwm,cwm#2,unnamed band,unnamed,1745,640
+cwm,cwm#2,unnamed band,unnamed,1745,641
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1750,1332
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1750,1002
 cwm,cwm#1,unnamed band,unnamed,1750,666
 cwm,cwm#2,unnamed band,unnamed,1750,666
-cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1755,1360
+cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1755,1361
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1755,1025
 cwm,cwm#1,unnamed band,unnamed,1755,680
 cwm,cwm#2,unnamed band,unnamed,1755,680
@@ -9989,14 +9971,14 @@ cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1765,1072
 cwm,cwm#1,unnamed band,unnamed,1765,710
 cwm,cwm#2,unnamed band,unnamed,1765,710
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1770,1451
-cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1770,1097
+cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1770,1098
 cwm,cwm#1,unnamed band,unnamed,1770,725
 cwm,cwm#2,unnamed band,unnamed,1770,725
-cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1775,1483
+cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1775,1484
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1775,1125
 cwm,cwm#1,unnamed band,unnamed,1775,742
 cwm,cwm#2,unnamed band,unnamed,1775,742
-cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1780,1525
+cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1780,1526
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1780,1161
 cwm,cwm#1,unnamed band,unnamed,1780,763
 cwm,cwm#2,unnamed band,unnamed,1780,763
@@ -10005,7 +9987,7 @@ cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1785,993
 cwm,cwm#1,unnamed band,unnamed,1785,217
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1790,1298
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1790,997
-cwm,cwm#1,unnamed band,unnamed,1790,345
+cwm,cwm#1,unnamed band,unnamed,1790,346
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1795,1295
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1795,1001
 cwm,cwm#1,unnamed band,unnamed,1795,482
@@ -10017,17 +9999,17 @@ cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1805,1011
 cwm,cwm#1,unnamed band,unnamed,1805,147
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1810,1276
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1810,1021
-cwm,cwm#1,unnamed band,unnamed,1810,215
+cwm,cwm#1,unnamed band,unnamed,1810,216
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1815,1268
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1815,1033
-cwm,cwm#1,unnamed band,unnamed,1815,279
+cwm,cwm#1,unnamed band,unnamed,1815,280
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1820,1257
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1820,1048
 cwm,cwm#1,unnamed band,unnamed,1820,357
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1825,1245
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1825,1070
 cwm,cwm#1,unnamed band,unnamed,1825,479
-cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1830,1230
+cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1830,1231
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1830,1099
 cwm,cwm#1,unnamed band,unnamed,1830,599
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1835,1210
@@ -10058,9 +10040,9 @@ cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1890,1288
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1890,1074
 cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1895,1235
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1895,1006
-cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1900,1186
+cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1900,1187
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1900,949
-cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1905,1145
+cwm,cwm.cw_aca,A’carahó (Many Lodges),band,1905,1146
 cwm,cwm.cw_era,Erarapí’o (Kicked-in-their-Bellies),band,1905,903
 cwr,cwr.cw_min,Minésepere (River Crow),band,1700,1411
 cwr,cwr#1,River Crow camp,unnamed,1700,242
@@ -10078,23 +10060,23 @@ cwr,cwr.cw_min,Minésepere (River Crow),band,1730,1411
 cwr,cwr#1,River Crow camp,unnamed,1730,706
 cwr,cwr#2,River Crow camp,unnamed,1730,41
 cwr,cwr.cw_min,Minésepere (River Crow),band,1735,1411
-cwr,cwr#1,River Crow camp,unnamed,1735,705
+cwr,cwr#1,River Crow camp,unnamed,1735,706
 cwr,cwr#2,River Crow camp,unnamed,1735,139
 cwr,cwr.cw_min,Minésepere (River Crow),band,1740,1411
 cwr,cwr#1,River Crow camp,unnamed,1740,706
-cwr,cwr#2,River Crow camp,unnamed,1740,241
+cwr,cwr#2,River Crow camp,unnamed,1740,242
 cwr,cwr.cw_min,Minésepere (River Crow),band,1745,1411
 cwr,cwr#1,River Crow camp,unnamed,1745,706
-cwr,cwr#2,River Crow camp,unnamed,1745,348
+cwr,cwr#2,River Crow camp,unnamed,1745,349
 cwr,cwr.cw_min,Minésepere (River Crow),band,1750,1411
 cwr,cwr#1,River Crow camp,unnamed,1750,706
-cwr,cwr#2,River Crow camp,unnamed,1750,460
+cwr,cwr#2,River Crow camp,unnamed,1750,461
 cwr,cwr.cw_min,Minésepere (River Crow),band,1755,1411
 cwr,cwr#1,River Crow camp,unnamed,1755,706
-cwr,cwr#2,River Crow camp,unnamed,1755,577
+cwr,cwr#2,River Crow camp,unnamed,1755,578
 cwr,cwr.cw_min,Minésepere (River Crow),band,1760,1411
 cwr,cwr#1,River Crow camp,unnamed,1760,706
-cwr,cwr#2,River Crow camp,unnamed,1760,699
+cwr,cwr#2,River Crow camp,unnamed,1760,700
 cwr,cwr.cw_min,Minésepere (River Crow),band,1765,1411
 cwr,cwr#1,River Crow camp,unnamed,1765,706
 cwr,cwr#2,River Crow camp,unnamed,1765,706
@@ -10102,7 +10084,7 @@ cwr,cwr#3,River Crow camp,unnamed,1765,122
 cwr,cwr.cw_min,Minésepere (River Crow),band,1770,1411
 cwr,cwr#1,River Crow camp,unnamed,1770,706
 cwr,cwr#2,River Crow camp,unnamed,1770,706
-cwr,cwr#3,River Crow camp,unnamed,1770,256
+cwr,cwr#3,River Crow camp,unnamed,1770,257
 cwr,cwr.cw_min,Minésepere (River Crow),band,1775,1411
 cwr,cwr#1,River Crow camp,unnamed,1775,706
 cwr,cwr#2,River Crow camp,unnamed,1775,706
@@ -10110,7 +10092,7 @@ cwr,cwr#3,River Crow camp,unnamed,1775,399
 cwr,cwr.cw_min,Minésepere (River Crow),band,1780,1411
 cwr,cwr#1,River Crow camp,unnamed,1780,706
 cwr,cwr#2,River Crow camp,unnamed,1780,706
-cwr,cwr#3,River Crow camp,unnamed,1780,560
+cwr,cwr#3,River Crow camp,unnamed,1780,561
 cwr,cwr.cw_min,Minésepere (River Crow),band,1785,1411
 cwr,cwr#1,River Crow camp,unnamed,1785,635
 cwr,cwr.cw_min,Minésepere (River Crow),band,1790,1411
@@ -10127,16 +10109,16 @@ cwr,cwr#1,River Crow camp,unnamed,1805,648
 cwr,cwr.cw_min,Minésepere (River Crow),band,1810,1411
 cwr,cwr#1,River Crow camp,unnamed,1810,649
 cwr,cwr.cw_min,Minésepere (River Crow),band,1815,1411
-cwr,cwr#1,River Crow camp,unnamed,1815,624
+cwr,cwr#1,River Crow camp,unnamed,1815,625
 cwr,cwr.cw_min,Minésepere (River Crow),band,1820,1411
-cwr,cwr#1,River Crow camp,unnamed,1820,606
+cwr,cwr#1,River Crow camp,unnamed,1820,607
 cwr,cwr.cw_min,Minésepere (River Crow),band,1825,1411
 cwr,cwr#1,River Crow camp,unnamed,1825,623
 cwr,cwr.cw_min,Minésepere (River Crow),band,1830,1411
 cwr,cwr#1,River Crow camp,unnamed,1830,646
 cwr,cwr.cw_min,Minésepere (River Crow),band,1835,1411
 cwr,cwr#1,River Crow camp,unnamed,1835,655
-cwr,cwr.cw_min,Minésepere (River Crow),band,1840,1399
+cwr,cwr.cw_min,Minésepere (River Crow),band,1840,1400
 cwr,cwr.cw_min,Minésepere (River Crow),band,1845,1411
 cwr,cwr#1,River Crow camp,unnamed,1845,5
 cwr,cwr.cw_min,Minésepere (River Crow),band,1850,1411
@@ -10162,7 +10144,7 @@ man,man#2,unnamed village,unnamed,1705,1001
 man,man#3,unnamed village,unnamed,1705,1001
 man,man#4,unnamed village,unnamed,1705,1001
 man,man#5,unnamed village,unnamed,1705,1001
-man,man#6,unnamed village,unnamed,1705,569
+man,man#6,unnamed village,unnamed,1705,570
 man,man.man_mit,Mitutanka,village,1710,993
 man,man.man_rup,Ruptare,village,1710,1001
 man,man#1,unnamed village,unnamed,1710,1001
@@ -10178,7 +10160,7 @@ man,man#2,unnamed village,unnamed,1715,1001
 man,man#3,unnamed village,unnamed,1715,1001
 man,man#4,unnamed village,unnamed,1715,1001
 man,man#5,unnamed village,unnamed,1715,1001
-man,man#6,unnamed village,unnamed,1715,485
+man,man#6,unnamed village,unnamed,1715,486
 man,man.man_mit,Mitutanka,village,1720,989
 man,man.man_rup,Ruptare,village,1720,1002
 man,man#1,unnamed village,unnamed,1720,1002
@@ -10202,7 +10184,7 @@ man,man#2,unnamed village,unnamed,1730,1003
 man,man#3,unnamed village,unnamed,1730,1003
 man,man#4,unnamed village,unnamed,1730,1003
 man,man#5,unnamed village,unnamed,1730,1003
-man,man#6,unnamed village,unnamed,1730,457
+man,man#6,unnamed village,unnamed,1730,458
 man,man.man_mit,Mitutanka,village,1735,977
 man,man.man_rup,Ruptare,village,1735,1004
 man,man#1,unnamed village,unnamed,1735,1004
@@ -10210,7 +10192,7 @@ man,man#2,unnamed village,unnamed,1735,1004
 man,man#3,unnamed village,unnamed,1735,1004
 man,man#4,unnamed village,unnamed,1735,1004
 man,man#5,unnamed village,unnamed,1735,1004
-man,man#6,unnamed village,unnamed,1735,431
+man,man#6,unnamed village,unnamed,1735,432
 man,man.man_mit,Mitutanka,village,1740,971
 man,man.man_rup,Ruptare,village,1740,1005
 man,man#1,unnamed village,unnamed,1740,1005
@@ -10218,7 +10200,7 @@ man,man#2,unnamed village,unnamed,1740,1005
 man,man#3,unnamed village,unnamed,1740,1005
 man,man#4,unnamed village,unnamed,1740,1005
 man,man#5,unnamed village,unnamed,1740,1005
-man,man#6,unnamed village,unnamed,1740,322
+man,man#6,unnamed village,unnamed,1740,323
 man,man.man_mit,Mitutanka,village,1745,963
 man,man.man_rup,Ruptare,village,1745,1006
 man,man#1,unnamed village,unnamed,1745,1006
@@ -10226,7 +10208,7 @@ man,man#2,unnamed village,unnamed,1745,1006
 man,man#3,unnamed village,unnamed,1745,1006
 man,man#4,unnamed village,unnamed,1745,1006
 man,man#5,unnamed village,unnamed,1745,1006
-man,man#6,unnamed village,unnamed,1745,70
+man,man#6,unnamed village,unnamed,1745,71
 man,man.man_mit,Mitutanka,village,1750,953
 man,man.man_rup,Ruptare,village,1750,1008
 man,man#1,unnamed village,unnamed,1750,1008
@@ -10240,14 +10222,14 @@ man,man#1,unnamed village,unnamed,1755,1011
 man,man#2,unnamed village,unnamed,1755,1011
 man,man#3,unnamed village,unnamed,1755,1011
 man,man#4,unnamed village,unnamed,1755,1011
-man,man#5,unnamed village,unnamed,1755,448
+man,man#5,unnamed village,unnamed,1755,449
 man,man.man_mit,Mitutanka,village,1760,924
 man,man.man_rup,Ruptare,village,1760,1015
 man,man#1,unnamed village,unnamed,1760,1015
 man,man#2,unnamed village,unnamed,1760,1015
 man,man#3,unnamed village,unnamed,1760,1015
 man,man#4,unnamed village,unnamed,1760,1015
-man,man#5,unnamed village,unnamed,1760,114
+man,man#5,unnamed village,unnamed,1760,115
 man,man.man_mit,Mitutanka,village,1765,905
 man,man.man_rup,Ruptare,village,1765,1020
 man,man#1,unnamed village,unnamed,1765,1020
@@ -10259,23 +10241,23 @@ man,man.man_rup,Ruptare,village,1770,1027
 man,man#1,unnamed village,unnamed,1770,1027
 man,man#2,unnamed village,unnamed,1770,1027
 man,man#3,unnamed village,unnamed,1770,1027
-man,man#4,unnamed village,unnamed,1770,514
+man,man#4,unnamed village,unnamed,1770,515
 man,man.man_mit,Mitutanka,village,1775,850
 man,man.man_rup,Ruptare,village,1775,1035
 man,man#1,unnamed village,unnamed,1775,1035
 man,man#2,unnamed village,unnamed,1775,1035
 man,man#3,unnamed village,unnamed,1775,1035
-man,man#4,unnamed village,unnamed,1775,247
+man,man#4,unnamed village,unnamed,1775,248
 man,man.man_mit,Mitutanka,village,1780,812
 man,man.man_rup,Ruptare,village,1780,1046
 man,man#1,unnamed village,unnamed,1780,1046
 man,man#2,unnamed village,unnamed,1780,1046
 man,man#3,unnamed village,unnamed,1780,1046
-man,man#4,unnamed village,unnamed,1780,84
+man,man#4,unnamed village,unnamed,1780,85
 man,man.man_mit,Mitutanka,village,1785,689
 man,man.man_rup,Ruptare,village,1785,954
 man,man.man_mit,Mitutanka,village,1790,673
-man,man.man_rup,Ruptare,village,1790,1022
+man,man.man_rup,Ruptare,village,1790,1023
 man,man.man_mit,Mitutanka,village,1795,648
 man,man.man_rup,Ruptare,village,1795,1107
 man,man.man_mit,Mitutanka,village,1800,605
@@ -10285,7 +10267,7 @@ man,man.man_rup,Ruptare,village,1805,985
 man,man.man_mit,Mitutanka,village,1810,483
 man,man.man_rup,Ruptare,village,1810,952
 man,man.man_mit,Mitutanka,village,1815,548
-man,man.man_rup,Ruptare,village,1815,928
+man,man.man_rup,Ruptare,village,1815,929
 man,man.man_mit,Mitutanka,village,1820,611
 man,man.man_rup,Ruptare,village,1820,923
 man,man.man_mit,Mitutanka,village,1825,692
@@ -10326,7 +10308,7 @@ hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1700,2040
 hid,hid.hid_awt,Awatixa (Metaharta),village,1700,816
 hid,hid.hid_awx,Awaxawi (Amahami),village,1700,813
 hid,hid#1,unnamed village,unnamed,1700,816
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1705,2138
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1705,2139
 hid,hid.hid_awt,Awatixa (Metaharta),village,1705,855
 hid,hid.hid_awx,Awaxawi (Amahami),village,1705,851
 hid,hid#1,unnamed village,unnamed,1705,855
@@ -10334,7 +10316,7 @@ hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1710,2235
 hid,hid.hid_awt,Awatixa (Metaharta),village,1710,894
 hid,hid.hid_awx,Awaxawi (Amahami),village,1710,888
 hid,hid#1,unnamed village,unnamed,1710,894
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1715,2303
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1715,2304
 hid,hid.hid_awt,Awatixa (Metaharta),village,1715,921
 hid,hid.hid_awx,Awaxawi (Amahami),village,1715,913
 hid,hid#1,unnamed village,unnamed,1715,921
@@ -10342,7 +10324,7 @@ hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1720,2347
 hid,hid.hid_awt,Awatixa (Metaharta),village,1720,939
 hid,hid.hid_awx,Awaxawi (Amahami),village,1720,928
 hid,hid#1,unnamed village,unnamed,1720,939
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1725,2386
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1725,2387
 hid,hid.hid_awt,Awatixa (Metaharta),village,1725,955
 hid,hid.hid_awx,Awaxawi (Amahami),village,1725,941
 hid,hid#1,unnamed village,unnamed,1725,955
@@ -10354,27 +10336,27 @@ hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1735,2466
 hid,hid.hid_awt,Awatixa (Metaharta),village,1735,986
 hid,hid.hid_awx,Awaxawi (Amahami),village,1735,963
 hid,hid#1,unnamed village,unnamed,1735,986
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1740,2507
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1740,2508
 hid,hid.hid_awt,Awatixa (Metaharta),village,1740,1003
 hid,hid.hid_awx,Awaxawi (Amahami),village,1740,973
 hid,hid#1,unnamed village,unnamed,1740,1003
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1745,2550
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1745,2551
 hid,hid.hid_awt,Awatixa (Metaharta),village,1745,1020
 hid,hid.hid_awx,Awaxawi (Amahami),village,1745,981
 hid,hid#1,unnamed village,unnamed,1745,1020
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1750,2595
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1750,2596
 hid,hid.hid_awt,Awatixa (Metaharta),village,1750,1038
 hid,hid.hid_awx,Awaxawi (Amahami),village,1750,987
 hid,hid#1,unnamed village,unnamed,1750,1038
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1755,2642
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1755,2643
 hid,hid.hid_awt,Awatixa (Metaharta),village,1755,1057
-hid,hid.hid_awx,Awaxawi (Amahami),village,1755,990
+hid,hid.hid_awx,Awaxawi (Amahami),village,1755,991
 hid,hid#1,unnamed village,unnamed,1755,1057
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1760,2692
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1760,2693
 hid,hid.hid_awt,Awatixa (Metaharta),village,1760,1077
 hid,hid.hid_awx,Awaxawi (Amahami),village,1760,991
 hid,hid#1,unnamed village,unnamed,1760,1077
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1765,2745
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1765,2746
 hid,hid.hid_awt,Awatixa (Metaharta),village,1765,1098
 hid,hid.hid_awx,Awaxawi (Amahami),village,1765,987
 hid,hid#1,unnamed village,unnamed,1765,1098
@@ -10382,17 +10364,17 @@ hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1770,2802
 hid,hid.hid_awt,Awatixa (Metaharta),village,1770,1121
 hid,hid.hid_awx,Awaxawi (Amahami),village,1770,977
 hid,hid#1,unnamed village,unnamed,1770,1121
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1775,2863
-hid,hid.hid_awt,Awatixa (Metaharta),village,1775,1145
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1775,2864
+hid,hid.hid_awt,Awatixa (Metaharta),village,1775,1146
 hid,hid.hid_awx,Awaxawi (Amahami),village,1775,960
-hid,hid#1,unnamed village,unnamed,1775,1145
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1780,2930
+hid,hid#1,unnamed village,unnamed,1775,1146
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1780,2931
 hid,hid.hid_awt,Awatixa (Metaharta),village,1780,1172
 hid,hid.hid_awx,Awaxawi (Amahami),village,1780,934
 hid,hid#1,unnamed village,unnamed,1780,1172
 hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1785,1015
 hid,hid.hid_awt,Awatixa (Metaharta),village,1785,406
-hid,hid.hid_awx,Awaxawi (Amahami),village,1785,303
+hid,hid.hid_awx,Awaxawi (Amahami),village,1785,304
 hid,hid#1,unnamed village,unnamed,1785,297
 hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1790,1026
 hid,hid.hid_awt,Awatixa (Metaharta),village,1790,410
@@ -10406,10 +10388,10 @@ hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1800,1098
 hid,hid.hid_awt,Awatixa (Metaharta),village,1800,439
 hid,hid.hid_awx,Awaxawi (Amahami),village,1800,237
 hid,hid#1,unnamed village,unnamed,1800,439
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1805,1109
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1805,1110
 hid,hid.hid_awt,Awatixa (Metaharta),village,1805,444
 hid,hid.hid_awx,Awaxawi (Amahami),village,1805,201
-hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1810,1105
+hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1810,1106
 hid,hid.hid_awt,Awatixa (Metaharta),village,1810,442
 hid,hid.hid_awx,Awaxawi (Amahami),village,1810,239
 hid,hid.hid_hid,Hidatsa (Big Hidatsa),village,1815,1084
@@ -10522,7 +10504,7 @@ kio,kio.ki_kog,Kogui,band,1750,287
 kio,kio.ki_kai,Kaigwu,band,1750,172
 kio,kio.ki_kin,Kinep,band,1750,287
 kio,kio.ki_kon,Kontalyui,band,1750,172
-kio,kio.ki_kua,Kuato,band,1750,209
+kio,kio.ki_kua,Kuato,band,1750,210
 kio,kio.ki_kat,Kata,band,1755,574
 kio,kio.ki_kog,Kogui,band,1755,287
 kio,kio.ki_kai,Kaigwu,band,1755,172
@@ -10573,7 +10555,7 @@ kio,kio.ki_kat,Kata,band,1795,590
 kio,kio.ki_kog,Kogui,band,1795,295
 kio,kio.ki_kai,Kaigwu,band,1795,177
 kio,kio.ki_kin,Kinep,band,1795,295
-kio,kio.ki_kon,Kontalyui,band,1795,163
+kio,kio.ki_kon,Kontalyui,band,1795,164
 kio,kio.ki_kat,Kata,band,1800,605
 kio,kio.ki_kog,Kogui,band,1800,302
 kio,kio.ki_kai,Kaigwu,band,1800,181
@@ -10587,7 +10569,7 @@ kio,kio.ki_kat,Kata,band,1810,587
 kio,kio.ki_kog,Kogui,band,1810,293
 kio,kio.ki_kai,Kaigwu,band,1810,176
 kio,kio.ki_kin,Kinep,band,1810,293
-kio,kio.ki_kon,Kontalyui,band,1810,45
+kio,kio.ki_kon,Kontalyui,band,1810,46
 kio,kio.ki_kat,Kata,band,1815,589
 kio,kio.ki_kog,Kogui,band,1815,294
 kio,kio.ki_kai,Kaigwu,band,1815,177
@@ -10722,7 +10704,7 @@ kap,kap#3,Apache band,unnamed,1760,246
 kap,kap#1,Apache band,unnamed,1765,250
 kap,kap#2,Apache band,unnamed,1765,250
 kap,kap#3,Apache band,unnamed,1765,250
-kap,kap#4,Apache band,unnamed,1765,29
+kap,kap#4,Apache band,unnamed,1765,30
 kap,kap#1,Apache band,unnamed,1770,250
 kap,kap#2,Apache band,unnamed,1770,250
 kap,kap#3,Apache band,unnamed,1770,250
@@ -10743,10 +10725,10 @@ kap,kap#2,Apache band,unnamed,1790,250
 kap,kap#3,Apache band,unnamed,1790,197
 kap,kap#1,Apache band,unnamed,1795,250
 kap,kap#2,Apache band,unnamed,1795,250
-kap,kap#3,Apache band,unnamed,1795,160
+kap,kap#3,Apache band,unnamed,1795,161
 kap,kap#1,Apache band,unnamed,1800,250
 kap,kap#2,Apache band,unnamed,1800,250
-kap,kap#3,Apache band,unnamed,1800,126
+kap,kap#3,Apache band,unnamed,1800,127
 kap,kap#1,Apache band,unnamed,1805,250
 kap,kap#2,Apache band,unnamed,1805,237
 kap,kap#1,Apache band,unnamed,1810,250
@@ -10882,38 +10864,38 @@ jic,jic.ji_lla,Llaneros,band,1780,506
 jic,jic.ji_oll,Olleros,band,1780,337
 jic,jic#1,unnamed band,unnamed,1780,337
 jic,jic#2,unnamed band,unnamed,1780,337
-jic,jic.ji_lla,Llaneros,band,1785,442
+jic,jic.ji_lla,Llaneros,band,1785,443
 jic,jic.ji_oll,Olleros,band,1785,295
 jic,jic#1,unnamed band,unnamed,1785,295
-jic,jic#2,unnamed band,unnamed,1785,6
-jic,jic.ji_lla,Llaneros,band,1790,442
+jic,jic#2,unnamed band,unnamed,1785,5
+jic,jic.ji_lla,Llaneros,band,1790,443
 jic,jic.ji_oll,Olleros,band,1790,295
 jic,jic#1,unnamed band,unnamed,1790,278
-jic,jic.ji_lla,Llaneros,band,1795,442
+jic,jic.ji_lla,Llaneros,band,1795,443
 jic,jic.ji_oll,Olleros,band,1795,295
 jic,jic#1,unnamed band,unnamed,1795,256
 jic,jic.ji_lla,Llaneros,band,1800,443
 jic,jic.ji_oll,Olleros,band,1800,295
 jic,jic#1,unnamed band,unnamed,1800,235
-jic,jic.ji_lla,Llaneros,band,1805,442
+jic,jic.ji_lla,Llaneros,band,1805,443
 jic,jic.ji_oll,Olleros,band,1805,295
 jic,jic#1,unnamed band,unnamed,1805,214
-jic,jic.ji_lla,Llaneros,band,1810,442
+jic,jic.ji_lla,Llaneros,band,1810,443
 jic,jic.ji_oll,Olleros,band,1810,295
 jic,jic#1,unnamed band,unnamed,1810,193
-jic,jic.ji_lla,Llaneros,band,1815,442
+jic,jic.ji_lla,Llaneros,band,1815,443
 jic,jic.ji_oll,Olleros,band,1815,295
 jic,jic#1,unnamed band,unnamed,1815,173
-jic,jic.ji_lla,Llaneros,band,1820,442
+jic,jic.ji_lla,Llaneros,band,1820,443
 jic,jic.ji_oll,Olleros,band,1820,295
-jic,jic#1,unnamed band,unnamed,1820,65
-jic,jic.ji_lla,Llaneros,band,1825,442
+jic,jic#1,unnamed band,unnamed,1820,64
+jic,jic.ji_lla,Llaneros,band,1825,443
 jic,jic.ji_oll,Olleros,band,1825,295
 jic,jic#1,unnamed band,unnamed,1825,47
-jic,jic.ji_lla,Llaneros,band,1830,442
+jic,jic.ji_lla,Llaneros,band,1830,443
 jic,jic.ji_oll,Olleros,band,1830,295
 jic,jic#1,unnamed band,unnamed,1830,30
-jic,jic.ji_lla,Llaneros,band,1835,442
+jic,jic.ji_lla,Llaneros,band,1835,443
 jic,jic.ji_oll,Olleros,band,1835,295
 jic,jic#1,unnamed band,unnamed,1835,14
 jic,jic.ji_lla,Llaneros,band,1840,442
@@ -10928,7 +10910,7 @@ jic,jic.ji_lla,Llaneros,band,1860,455
 jic,jic.ji_oll,Olleros,band,1860,303
 jic,jic.ji_lla,Llaneros,band,1865,459
 jic,jic.ji_oll,Olleros,band,1865,306
-jic,jic.ji_lla,Llaneros,band,1870,463
+jic,jic.ji_lla,Llaneros,band,1870,464
 jic,jic.ji_oll,Olleros,band,1870,309
 jic,jic.ji_lla,Llaneros,band,1875,468
 jic,jic.ji_oll,Olleros,band,1875,312
@@ -10943,10 +10925,10 @@ jic,jic.ji_oll,Olleros,band,1895,321
 jic,jic.ji_lla,Llaneros,band,1900,482
 jic,jic.ji_oll,Olleros,band,1900,321
 jic,jic.ji_lla,Llaneros,band,1905,479
-jic,jic.ji_oll,Olleros,band,1905,319
+jic,jic.ji_oll,Olleros,band,1905,320
 lip,lip.li_arr,Lipanes de Arriba,band,1700,1235
 lip,lip.li_aba,Lipanes de Abajo,band,1700,1060
-lip,lip.li_jen,Lipanjenne,band,1700,353
+lip,lip.li_jen,Lipanjenne,band,1700,354
 lip,lip#1,unnamed band,unnamed,1700,351
 lip,lip#2,unnamed band,unnamed,1700,351
 lip,lip.li_arr,Lipanes de Arriba,band,1705,1246
@@ -10974,7 +10956,7 @@ lip,lip.li_aba,Lipanes de Abajo,band,1725,1109
 lip,lip.li_jen,Lipanjenne,band,1725,370
 lip,lip#1,unnamed band,unnamed,1725,361
 lip,lip#2,unnamed band,unnamed,1725,361
-lip,lip.li_arr,Lipanes de Arriba,band,1730,1299
+lip,lip.li_arr,Lipanes de Arriba,band,1730,1300
 lip,lip.li_aba,Lipanes de Abajo,band,1730,1118
 lip,lip.li_jen,Lipanjenne,band,1730,374
 lip,lip#1,unnamed band,unnamed,1730,361
@@ -11032,7 +11014,7 @@ lip,lip#2,unnamed band,unnamed,1780,147
 lip,lip.li_arr,Lipanes de Arriba,band,1785,1029
 lip,lip.li_aba,Lipanes de Abajo,band,1785,936
 lip,lip.li_jen,Lipanjenne,band,1785,326
-lip,lip#1,unnamed band,unnamed,1785,112
+lip,lip#1,unnamed band,unnamed,1785,113
 lip,lip.li_arr,Lipanes de Arriba,band,1790,1041
 lip,lip.li_aba,Lipanes de Abajo,band,1790,963
 lip,lip.li_jen,Lipanjenne,band,1790,340
@@ -11178,7 +11160,7 @@ cyj,cyj#5,local band,unnamed,1740,250
 cyj,cyj#6,local band,unnamed,1740,250
 cyj,cyj#7,local band,unnamed,1740,250
 cyj,cyj#8,local band,unnamed,1740,250
-cyj,cyj#9,local band,unnamed,1740,3
+cyj,cyj#9,local band,unnamed,1740,4
 cyj,cyj#1,local band,unnamed,1745,250
 cyj,cyj#2,local band,unnamed,1745,250
 cyj,cyj#3,local band,unnamed,1745,250
@@ -11291,7 +11273,7 @@ cyy,cyy#6,local band,unnamed,1700,250
 cyy,cyy#7,local band,unnamed,1700,250
 cyy,cyy#8,local band,unnamed,1700,250
 cyy,cyy#9,local band,unnamed,1700,250
-cyy,cyy#10,local band,unnamed,1700,79
+cyy,cyy#10,local band,unnamed,1700,80
 cyy,cyy#1,local band,unnamed,1705,250
 cyy,cyy#2,local band,unnamed,1705,250
 cyy,cyy#3,local band,unnamed,1705,250
@@ -11640,7 +11622,7 @@ cyy,cyy#15,local band,unnamed,1805,250
 cyy,cyy#16,local band,unnamed,1805,250
 cyy,cyy#17,local band,unnamed,1805,250
 cyy,cyy#18,local band,unnamed,1805,250
-cyy,cyy#19,local band,unnamed,1805,164
+cyy,cyy#19,local band,unnamed,1805,165
 cyy,cyy#1,local band,unnamed,1810,250
 cyy,cyy#2,local band,unnamed,1810,250
 cyy,cyy#3,local band,unnamed,1810,250
@@ -11699,7 +11681,7 @@ cyy,cyy#11,local band,unnamed,1820,250
 cyy,cyy#12,local band,unnamed,1820,250
 cyy,cyy#13,local band,unnamed,1820,250
 cyy,cyy#14,local band,unnamed,1820,250
-cyy,cyy#15,local band,unnamed,1820,143
+cyy,cyy#15,local band,unnamed,1820,144
 cyy,cyy#1,local band,unnamed,1825,250
 cyy,cyy#2,local band,unnamed,1825,250
 cyy,cyy#3,local band,unnamed,1825,250
@@ -11752,7 +11734,7 @@ cyy,cyy#15,local band,unnamed,1835,250
 cyy,cyy#16,local band,unnamed,1835,250
 cyy,cyy#17,local band,unnamed,1835,250
 cyy,cyy#18,local band,unnamed,1835,250
-cyy,cyy#19,local band,unnamed,1835,120
+cyy,cyy#19,local band,unnamed,1835,121
 cyy,cyy#1,local band,unnamed,1840,250
 cyy,cyy#2,local band,unnamed,1840,250
 cyy,cyy#3,local band,unnamed,1840,250
@@ -11771,7 +11753,7 @@ cyy,cyy#15,local band,unnamed,1840,250
 cyy,cyy#16,local band,unnamed,1840,250
 cyy,cyy#17,local band,unnamed,1840,250
 cyy,cyy#18,local band,unnamed,1840,250
-cyy,cyy#19,local band,unnamed,1840,116
+cyy,cyy#19,local band,unnamed,1840,117
 cyy,cyy#1,local band,unnamed,1845,250
 cyy,cyy#2,local band,unnamed,1845,250
 cyy,cyy#3,local band,unnamed,1845,250
@@ -11802,7 +11784,7 @@ cyy,cyy#11,local band,unnamed,1850,250
 cyy,cyy#12,local band,unnamed,1850,250
 cyy,cyy#13,local band,unnamed,1850,250
 cyy,cyy#14,local band,unnamed,1850,250
-cyy,cyy#15,local band,unnamed,1850,72
+cyy,cyy#15,local band,unnamed,1850,73
 cyy,cyy#1,local band,unnamed,1855,250
 cyy,cyy#2,local band,unnamed,1855,250
 cyy,cyy#3,local band,unnamed,1855,250
@@ -11861,7 +11843,7 @@ cyk,cyk#4,local band,unnamed,1700,250
 cyk,cyk#5,local band,unnamed,1700,250
 cyk,cyk#6,local band,unnamed,1700,250
 cyk,cyk#7,local band,unnamed,1700,250
-cyk,cyk#8,local band,unnamed,1700,138
+cyk,cyk#8,local band,unnamed,1700,139
 cyk,cyk#1,local band,unnamed,1705,250
 cyk,cyk#2,local band,unnamed,1705,250
 cyk,cyk#3,local band,unnamed,1705,250
@@ -12255,7 +12237,7 @@ cyk,cyk#8,local band,unnamed,1820,250
 cyk,cyk#9,local band,unnamed,1820,250
 cyk,cyk#10,local band,unnamed,1820,250
 cyk,cyk#11,local band,unnamed,1820,250
-cyk,cyk#12,local band,unnamed,1820,27
+cyk,cyk#12,local band,unnamed,1820,28
 cyk,cyk#1,local band,unnamed,1825,250
 cyk,cyk#2,local band,unnamed,1825,250
 cyk,cyk#3,local band,unnamed,1825,250
@@ -12330,7 +12312,7 @@ cyk,cyk#3,local band,unnamed,1855,250
 cyk,cyk#4,local band,unnamed,1855,250
 cyk,cyk#5,local band,unnamed,1855,250
 cyk,cyk#6,local band,unnamed,1855,250
-cyk,cyk#7,local band,unnamed,1855,57
+cyk,cyk#7,local band,unnamed,1855,58
 cyk,cyk#1,local band,unnamed,1860,250
 cyk,cyk#2,local band,unnamed,1860,250
 cyk,cyk#3,local band,unnamed,1860,250
@@ -12648,7 +12630,7 @@ cyp,cyp#1,local band,unnamed,1865,250
 cyp,cyp#2,local band,unnamed,1865,90
 cyp,cyp#1,local band,unnamed,1870,250
 cyp,cyp#2,local band,unnamed,1870,70
-cyp,cyp#1,local band,unnamed,1875,215
+cyp,cyp#1,local band,unnamed,1875,216
 cyp,cyp#1,local band,unnamed,1880,176
 cyp,cyp#1,local band,unnamed,1885,183
 cyp,cyp#1,local band,unnamed,1890,191
@@ -12672,7 +12654,7 @@ cyn,cyn#5,local band,unnamed,1835,250
 cyn,cyn#6,local band,unnamed,1835,250
 cyn,cyn#7,local band,unnamed,1835,250
 cyn,cyn#8,local band,unnamed,1835,250
-cyn,cyn#9,local band,unnamed,1835,81
+cyn,cyn#9,local band,unnamed,1835,82
 cyn,cyn#1,local band,unnamed,1840,250
 cyn,cyn#2,local band,unnamed,1840,250
 cyn,cyn#3,local band,unnamed,1840,250
@@ -12767,7 +12749,7 @@ cyq,cyq#2,local band,unnamed,1860,250
 cyq,cyq#3,local band,unnamed,1860,250
 cyq,cyq#4,local band,unnamed,1860,250
 cyq,cyq#5,local band,unnamed,1860,250
-cyq,cyq#6,local band,unnamed,1860,144
+cyq,cyq#6,local band,unnamed,1860,145
 cyq,cyq#1,local band,unnamed,1865,250
 cyq,cyq#2,local band,unnamed,1865,250
 cyq,cyq#3,local band,unnamed,1865,250
@@ -13162,7 +13144,7 @@ sho,sho#21,Shoshone band,unnamed,1770,250
 sho,sho#22,Shoshone band,unnamed,1770,250
 sho,sho#23,Shoshone band,unnamed,1770,250
 sho,sho#24,Shoshone band,unnamed,1770,250
-sho,sho#25,Shoshone band,unnamed,1770,144
+sho,sho#25,Shoshone band,unnamed,1770,145
 sho,sho#1,Shoshone band,unnamed,1775,250
 sho,sho#2,Shoshone band,unnamed,1775,250
 sho,sho#3,Shoshone band,unnamed,1775,250
@@ -13212,7 +13194,7 @@ sho,sho#21,Shoshone band,unnamed,1780,250
 sho,sho#22,Shoshone band,unnamed,1780,250
 sho,sho#23,Shoshone band,unnamed,1780,250
 sho,sho#24,Shoshone band,unnamed,1780,250
-sho,sho#25,Shoshone band,unnamed,1780,99
+sho,sho#25,Shoshone band,unnamed,1780,100
 sho,sho#1,Shoshone band,unnamed,1785,250
 sho,sho#2,Shoshone band,unnamed,1785,250
 sho,sho#3,Shoshone band,unnamed,1785,250
@@ -13278,7 +13260,7 @@ sho,sho#7,Shoshone band,unnamed,1810,250
 sho,sho#8,Shoshone band,unnamed,1810,250
 sho,sho#9,Shoshone band,unnamed,1810,250
 sho,sho#10,Shoshone band,unnamed,1810,250
-sho,sho#11,Shoshone band,unnamed,1810,121
+sho,sho#11,Shoshone band,unnamed,1810,122
 sho,sho#1,Shoshone band,unnamed,1815,250
 sho,sho#2,Shoshone band,unnamed,1815,250
 sho,sho#3,Shoshone band,unnamed,1815,250
@@ -13300,7 +13282,7 @@ sho,sho#7,Shoshone band,unnamed,1820,250
 sho,sho#8,Shoshone band,unnamed,1820,250
 sho,sho#9,Shoshone band,unnamed,1820,250
 sho,sho#10,Shoshone band,unnamed,1820,250
-sho,sho#11,Shoshone band,unnamed,1820,15
+sho,sho#11,Shoshone band,unnamed,1820,16
 sho,sho#1,Shoshone band,unnamed,1825,250
 sho,sho#2,Shoshone band,unnamed,1825,250
 sho,sho#3,Shoshone band,unnamed,1825,250
@@ -13453,163 +13435,163 @@ wic,wic.wi_isc,Iscani,village,1725,696
 wic,wic#1,unnamed village,unnamed,1725,696
 wic,wic#2,unnamed village,unnamed,1725,696
 wic,wic.wi_tao,Taovaya,village,1730,1531
-wic,wic.wi_wic,Wichita proper,village,1730,992
+wic,wic.wi_wic,Wichita proper,village,1730,993
 wic,wic.wi_taw,Tawakoni,village,1730,1043
 wic,wic.wi_isc,Iscani,village,1730,662
 wic,wic#1,unnamed village,unnamed,1730,662
 wic,wic#2,unnamed village,unnamed,1730,662
-wic,wic.wi_tao,Taovaya,village,1735,1510
+wic,wic.wi_tao,Taovaya,village,1735,1511
 wic,wic.wi_wic,Wichita proper,village,1735,939
 wic,wic.wi_taw,Tawakoni,village,1735,1002
 wic,wic.wi_isc,Iscani,village,1735,626
 wic,wic#1,unnamed village,unnamed,1735,626
 wic,wic#2,unnamed village,unnamed,1735,626
-wic,wic.wi_tao,Taovaya,village,1740,1544
-wic,wic.wi_wic,Wichita proper,village,1740,910
-wic,wic.wi_taw,Tawakoni,village,1740,989
-wic,wic.wi_isc,Iscani,village,1740,607
-wic,wic#1,unnamed village,unnamed,1740,607
-wic,wic#2,unnamed village,unnamed,1740,458
-wic,wic.wi_tao,Taovaya,village,1745,1604
-wic,wic.wi_wic,Wichita proper,village,1745,883
-wic,wic.wi_taw,Tawakoni,village,1745,982
-wic,wic.wi_isc,Iscani,village,1745,589
-wic,wic#1,unnamed village,unnamed,1745,589
-wic,wic#2,unnamed village,unnamed,1745,256
-wic,wic.wi_tao,Taovaya,village,1750,1680
-wic,wic.wi_wic,Wichita proper,village,1750,847
+wic,wic.wi_tao,Taovaya,village,1740,1546
+wic,wic.wi_wic,Wichita proper,village,1740,911
+wic,wic.wi_taw,Tawakoni,village,1740,990
+wic,wic.wi_isc,Iscani,village,1740,608
+wic,wic#1,unnamed village,unnamed,1740,608
+wic,wic#2,unnamed village,unnamed,1740,453
+wic,wic.wi_tao,Taovaya,village,1745,1606
+wic,wic.wi_wic,Wichita proper,village,1745,884
+wic,wic.wi_taw,Tawakoni,village,1745,983
+wic,wic.wi_isc,Iscani,village,1745,590
+wic,wic#1,unnamed village,unnamed,1745,590
+wic,wic#2,unnamed village,unnamed,1745,251
+wic,wic.wi_tao,Taovaya,village,1750,1682
+wic,wic.wi_wic,Wichita proper,village,1750,848
 wic,wic.wi_taw,Tawakoni,village,1750,971
 wic,wic.wi_isc,Iscani,village,1750,565
 wic,wic#1,unnamed village,unnamed,1750,565
-wic,wic#2,unnamed village,unnamed,1750,63
-wic,wic.wi_tao,Taovaya,village,1755,1774
-wic,wic.wi_wic,Wichita proper,village,1755,799
+wic,wic#2,unnamed village,unnamed,1750,59
+wic,wic.wi_tao,Taovaya,village,1755,1776
+wic,wic.wi_wic,Wichita proper,village,1755,800
 wic,wic.wi_taw,Tawakoni,village,1755,952
 wic,wic.wi_isc,Iscani,village,1755,533
-wic,wic#1,unnamed village,unnamed,1755,422
-wic,wic.wi_tao,Taovaya,village,1760,1888
-wic,wic.wi_wic,Wichita proper,village,1760,736
-wic,wic.wi_taw,Tawakoni,village,1760,921
+wic,wic#1,unnamed village,unnamed,1755,419
+wic,wic.wi_tao,Taovaya,village,1760,1890
+wic,wic.wi_wic,Wichita proper,village,1760,737
+wic,wic.wi_taw,Tawakoni,village,1760,922
 wic,wic.wi_isc,Iscani,village,1760,491
-wic,wic#1,unnamed village,unnamed,1760,226
-wic,wic.wi_tao,Taovaya,village,1765,2020
-wic,wic.wi_wic,Wichita proper,village,1765,654
-wic,wic.wi_taw,Tawakoni,village,1765,872
+wic,wic#1,unnamed village,unnamed,1760,223
+wic,wic.wi_tao,Taovaya,village,1765,2022
+wic,wic.wi_wic,Wichita proper,village,1765,655
+wic,wic.wi_taw,Tawakoni,village,1765,873
 wic,wic.wi_isc,Iscani,village,1765,436
-wic,wic#1,unnamed village,unnamed,1765,50
-wic,wic.wi_tao,Taovaya,village,1770,2143
-wic,wic.wi_wic,Wichita proper,village,1770,546
+wic,wic#1,unnamed village,unnamed,1765,48
+wic,wic.wi_tao,Taovaya,village,1770,2145
+wic,wic.wi_wic,Wichita proper,village,1770,547
 wic,wic.wi_taw,Tawakoni,village,1770,791
-wic,wic.wi_isc,Iscani,village,1770,364
-wic,wic.wi_tao,Taovaya,village,1775,2367
-wic,wic.wi_wic,Wichita proper,village,1775,444
+wic,wic.wi_isc,Iscani,village,1770,365
+wic,wic.wi_tao,Taovaya,village,1775,2370
+wic,wic.wi_wic,Wichita proper,village,1775,445
 wic,wic.wi_taw,Tawakoni,village,1775,720
-wic,wic.wi_isc,Iscani,village,1775,296
-wic,wic.wi_tao,Taovaya,village,1780,2417
+wic,wic.wi_isc,Iscani,village,1775,297
+wic,wic.wi_tao,Taovaya,village,1780,2420
 wic,wic.wi_wic,Wichita proper,village,1780,423
 wic,wic.wi_taw,Tawakoni,village,1780,836
 wic,wic.wi_isc,Iscani,village,1780,282
-wic,wic.wi_tao,Taovaya,village,1785,1606
-wic,wic.wi_wic,Wichita proper,village,1785,387
+wic,wic.wi_tao,Taovaya,village,1785,1609
+wic,wic.wi_wic,Wichita proper,village,1785,388
 wic,wic.wi_taw,Tawakoni,village,1785,656
-wic,wic.wi_isc,Iscani,village,1785,258
-wic,wic.wi_tao,Taovaya,village,1790,1547
-wic,wic.wi_wic,Wichita proper,village,1790,480
+wic,wic.wi_isc,Iscani,village,1785,259
+wic,wic.wi_tao,Taovaya,village,1790,1550
+wic,wic.wi_wic,Wichita proper,village,1790,481
 wic,wic.wi_taw,Tawakoni,village,1790,719
 wic,wic.wi_isc,Iscani,village,1790,320
-wic,wic.wi_tao,Taovaya,village,1795,1334
-wic,wic.wi_wic,Wichita proper,village,1795,503
-wic,wic.wi_taw,Tawakoni,village,1795,684
-wic,wic.wi_isc,Iscani,village,1795,335
-wic,wic.wi_wac,Waco (Hueco),village,1795,378
-wic,wic.wi_tao,Taovaya,village,1800,1460
-wic,wic.wi_wic,Wichita proper,village,1800,641
-wic,wic.wi_taw,Tawakoni,village,1800,808
+wic,wic.wi_tao,Taovaya,village,1795,1338
+wic,wic.wi_wic,Wichita proper,village,1795,504
+wic,wic.wi_taw,Tawakoni,village,1795,685
+wic,wic.wi_isc,Iscani,village,1795,336
+wic,wic.wi_wac,Waco (Hueco),village,1795,377
+wic,wic.wi_tao,Taovaya,village,1800,1466
+wic,wic.wi_wic,Wichita proper,village,1800,643
+wic,wic.wi_taw,Tawakoni,village,1800,809
 wic,wic.wi_wac,Waco (Hueco),village,1800,498
-wic,wic.wi_tao,Taovaya,village,1805,791
-wic,wic.wi_wic,Wichita proper,village,1805,391
-wic,wic.wi_taw,Tawakoni,village,1805,464
+wic,wic.wi_tao,Taovaya,village,1805,795
+wic,wic.wi_wic,Wichita proper,village,1805,393
+wic,wic.wi_taw,Tawakoni,village,1805,465
 wic,wic.wi_wac,Waco (Hueco),village,1805,317
-wic,wic.wi_tao,Taovaya,village,1810,772
-wic,wic.wi_wic,Wichita proper,village,1810,418
-wic,wic.wi_taw,Tawakoni,village,1810,473
+wic,wic.wi_tao,Taovaya,village,1810,777
+wic,wic.wi_wic,Wichita proper,village,1810,421
+wic,wic.wi_taw,Tawakoni,village,1810,474
 wic,wic.wi_wac,Waco (Hueco),village,1810,359
-wic,wic.wi_tao,Taovaya,village,1815,750
-wic,wic.wi_wic,Wichita proper,village,1815,437
-wic,wic.wi_taw,Tawakoni,village,1815,475
-wic,wic.wi_wac,Waco (Hueco),village,1815,403
-wic,wic.wi_tao,Taovaya,village,1820,578
-wic,wic.wi_wic,Wichita proper,village,1820,356
-wic,wic.wi_taw,Tawakoni,village,1820,378
-wic,wic.wi_wac,Waco (Hueco),village,1820,360
-wic,wic.wi_tao,Taovaya,village,1825,551
-wic,wic.wi_wic,Wichita proper,village,1825,354
-wic,wic.wi_taw,Tawakoni,village,1825,376
-wic,wic.wi_wac,Waco (Hueco),village,1825,381
-wic,wic.wi_tao,Taovaya,village,1830,547
-wic,wic.wi_wic,Wichita proper,village,1830,364
-wic,wic.wi_taw,Tawakoni,village,1830,384
+wic,wic.wi_tao,Taovaya,village,1815,756
+wic,wic.wi_wic,Wichita proper,village,1815,440
+wic,wic.wi_taw,Tawakoni,village,1815,477
+wic,wic.wi_wac,Waco (Hueco),village,1815,402
+wic,wic.wi_tao,Taovaya,village,1820,584
+wic,wic.wi_wic,Wichita proper,village,1820,360
+wic,wic.wi_taw,Tawakoni,village,1820,380
+wic,wic.wi_wac,Waco (Hueco),village,1820,359
+wic,wic.wi_tao,Taovaya,village,1825,558
+wic,wic.wi_wic,Wichita proper,village,1825,359
+wic,wic.wi_taw,Tawakoni,village,1825,378
+wic,wic.wi_wac,Waco (Hueco),village,1825,380
+wic,wic.wi_tao,Taovaya,village,1830,556
+wic,wic.wi_wic,Wichita proper,village,1830,370
+wic,wic.wi_taw,Tawakoni,village,1830,386
 wic,wic.wi_wac,Waco (Hueco),village,1830,343
-wic,wic.wi_tao,Taovaya,village,1835,539
-wic,wic.wi_wic,Wichita proper,village,1835,368
-wic,wic.wi_taw,Tawakoni,village,1835,385
-wic,wic.wi_wac,Waco (Hueco),village,1835,313
-wic,wic.wi_tao,Taovaya,village,1840,504
-wic,wic.wi_wic,Wichita proper,village,1840,351
-wic,wic.wi_taw,Tawakoni,village,1840,362
-wic,wic.wi_wac,Waco (Hueco),village,1840,277
-wic,wic.wi_tao,Taovaya,village,1845,426
-wic,wic.wi_wic,Wichita proper,village,1845,302
-wic,wic.wi_taw,Tawakoni,village,1845,306
-wic,wic.wi_wac,Waco (Hueco),village,1845,235
-wic,wic.wi_tao,Taovaya,village,1850,342
-wic,wic.wi_wic,Wichita proper,village,1850,245
+wic,wic.wi_tao,Taovaya,village,1835,550
+wic,wic.wi_wic,Wichita proper,village,1835,376
+wic,wic.wi_taw,Tawakoni,village,1835,386
+wic,wic.wi_wac,Waco (Hueco),village,1835,314
+wic,wic.wi_tao,Taovaya,village,1840,517
+wic,wic.wi_wic,Wichita proper,village,1840,361
+wic,wic.wi_taw,Tawakoni,village,1840,363
+wic,wic.wi_wac,Waco (Hueco),village,1840,279
+wic,wic.wi_tao,Taovaya,village,1845,441
+wic,wic.wi_wic,Wichita proper,village,1845,312
+wic,wic.wi_taw,Tawakoni,village,1845,307
+wic,wic.wi_wac,Waco (Hueco),village,1845,238
+wic,wic.wi_tao,Taovaya,village,1850,358
+wic,wic.wi_wic,Wichita proper,village,1850,257
 wic,wic.wi_taw,Tawakoni,village,1850,245
-wic,wic.wi_wac,Waco (Hueco),village,1850,194
-wic,wic.wi_tao,Taovaya,village,1855,315
-wic,wic.wi_wic,Wichita proper,village,1855,228
-wic,wic.wi_taw,Tawakoni,village,1855,224
-wic,wic.wi_wac,Waco (Hueco),village,1855,183
-wic,wic.wi_tao,Taovaya,village,1860,283
-wic,wic.wi_wic,Wichita proper,village,1860,207
-wic,wic.wi_taw,Tawakoni,village,1860,200
-wic,wic.wi_wac,Waco (Hueco),village,1860,167
-wic,wic.wi_tao,Taovaya,village,1865,245
-wic,wic.wi_wic,Wichita proper,village,1865,180
-wic,wic.wi_taw,Tawakoni,village,1865,175
-wic,wic.wi_wac,Waco (Hueco),village,1865,139
-wic,wic.wi_tao,Taovaya,village,1870,211
-wic,wic.wi_wic,Wichita proper,village,1870,156
-wic,wic.wi_taw,Tawakoni,village,1870,153
-wic,wic.wi_wac,Waco (Hueco),village,1870,117
-wic,wic.wi_tao,Taovaya,village,1875,190
-wic,wic.wi_wic,Wichita proper,village,1875,140
-wic,wic.wi_taw,Tawakoni,village,1875,138
-wic,wic.wi_wac,Waco (Hueco),village,1875,102
-wic,wic.wi_tao,Taovaya,village,1880,172
-wic,wic.wi_wic,Wichita proper,village,1880,127
-wic,wic.wi_taw,Tawakoni,village,1880,126
-wic,wic.wi_wac,Waco (Hueco),village,1880,91
-wic,wic.wi_tao,Taovaya,village,1885,156
-wic,wic.wi_wic,Wichita proper,village,1885,116
-wic,wic.wi_taw,Tawakoni,village,1885,115
-wic,wic.wi_wac,Waco (Hueco),village,1885,82
-wic,wic.wi_tao,Taovaya,village,1890,143
-wic,wic.wi_wic,Wichita proper,village,1890,107
-wic,wic.wi_taw,Tawakoni,village,1890,106
-wic,wic.wi_wac,Waco (Hueco),village,1890,74
+wic,wic.wi_wac,Waco (Hueco),village,1850,195
+wic,wic.wi_tao,Taovaya,village,1855,335
+wic,wic.wi_wic,Wichita proper,village,1855,243
+wic,wic.wi_taw,Tawakoni,village,1855,225
+wic,wic.wi_wac,Waco (Hueco),village,1855,184
+wic,wic.wi_tao,Taovaya,village,1860,307
+wic,wic.wi_wic,Wichita proper,village,1860,224
+wic,wic.wi_taw,Tawakoni,village,1860,202
+wic,wic.wi_wac,Waco (Hueco),village,1860,169
+wic,wic.wi_tao,Taovaya,village,1865,269
+wic,wic.wi_wic,Wichita proper,village,1865,198
+wic,wic.wi_taw,Tawakoni,village,1865,183
+wic,wic.wi_wac,Waco (Hueco),village,1865,145
+wic,wic.wi_tao,Taovaya,village,1870,201
+wic,wic.wi_wic,Wichita proper,village,1870,148
+wic,wic.wi_taw,Tawakoni,village,1870,139
+wic,wic.wi_wac,Waco (Hueco),village,1870,106
+wic,wic.wi_tao,Taovaya,village,1875,182
+wic,wic.wi_wic,Wichita proper,village,1875,135
+wic,wic.wi_taw,Tawakoni,village,1875,129
+wic,wic.wi_wac,Waco (Hueco),village,1875,95
+wic,wic.wi_tao,Taovaya,village,1880,167
+wic,wic.wi_wic,Wichita proper,village,1880,124
+wic,wic.wi_taw,Tawakoni,village,1880,119
+wic,wic.wi_wac,Waco (Hueco),village,1880,86
+wic,wic.wi_tao,Taovaya,village,1885,153
+wic,wic.wi_wic,Wichita proper,village,1885,114
+wic,wic.wi_taw,Tawakoni,village,1885,110
+wic,wic.wi_wac,Waco (Hueco),village,1885,78
+wic,wic.wi_tao,Taovaya,village,1890,142
+wic,wic.wi_wic,Wichita proper,village,1890,106
+wic,wic.wi_taw,Tawakoni,village,1890,103
+wic,wic.wi_wac,Waco (Hueco),village,1890,72
 wic,wic.wi_tao,Taovaya,village,1895,136
-wic,wic.wi_wic,Wichita proper,village,1895,102
-wic,wic.wi_taw,Tawakoni,village,1895,101
-wic,wic.wi_wac,Waco (Hueco),village,1895,70
+wic,wic.wi_wic,Wichita proper,village,1895,101
+wic,wic.wi_taw,Tawakoni,village,1895,99
+wic,wic.wi_wac,Waco (Hueco),village,1895,69
 wic,wic.wi_tao,Taovaya,village,1900,137
 wic,wic.wi_wic,Wichita proper,village,1900,102
-wic,wic.wi_taw,Tawakoni,village,1900,102
-wic,wic.wi_wac,Waco (Hueco),village,1900,70
+wic,wic.wi_taw,Tawakoni,village,1900,101
+wic,wic.wi_wac,Waco (Hueco),village,1900,69
 wic,wic.wi_tao,Taovaya,village,1905,141
-wic,wic.wi_wic,Wichita proper,village,1905,106
-wic,wic.wi_taw,Tawakoni,village,1905,105
-wic,wic.wi_wac,Waco (Hueco),village,1905,72
+wic,wic.wi_wic,Wichita proper,village,1905,105
+wic,wic.wi_taw,Tawakoni,village,1905,104
+wic,wic.wi_wac,Waco (Hueco),village,1905,71
 pwc,pwc.pw_cha,Chawi,village,1700,1732
 pwc,pwc.pw_pit,Pitahawirata,village,1700,866
 pwc,pwc#1,unnamed village,unnamed,1700,866
@@ -13628,10 +13610,10 @@ pwc,pwc#1,unnamed village,unnamed,1720,851
 pwc,pwc.pw_cha,Chawi,village,1725,1696
 pwc,pwc.pw_pit,Pitahawirata,village,1725,848
 pwc,pwc#1,unnamed village,unnamed,1725,848
-pwc,pwc.pw_cha,Chawi,village,1730,1688
+pwc,pwc.pw_cha,Chawi,village,1730,1689
 pwc,pwc.pw_pit,Pitahawirata,village,1730,844
 pwc,pwc#1,unnamed village,unnamed,1730,844
-pwc,pwc.pw_cha,Chawi,village,1735,1681
+pwc,pwc.pw_cha,Chawi,village,1735,1682
 pwc,pwc.pw_pit,Pitahawirata,village,1735,841
 pwc,pwc#1,unnamed village,unnamed,1735,841
 pwc,pwc.pw_cha,Chawi,village,1740,1674
@@ -13652,13 +13634,13 @@ pwc,pwc#1,unnamed village,unnamed,1760,823
 pwc,pwc.pw_cha,Chawi,village,1765,1639
 pwc,pwc.pw_pit,Pitahawirata,village,1765,820
 pwc,pwc#1,unnamed village,unnamed,1765,820
-pwc,pwc.pw_cha,Chawi,village,1770,1632
+pwc,pwc.pw_cha,Chawi,village,1770,1633
 pwc,pwc.pw_pit,Pitahawirata,village,1770,816
 pwc,pwc#1,unnamed village,unnamed,1770,816
 pwc,pwc.pw_cha,Chawi,village,1775,1627
 pwc,pwc.pw_pit,Pitahawirata,village,1775,813
 pwc,pwc#1,unnamed village,unnamed,1775,813
-pwc,pwc.pw_cha,Chawi,village,1780,1624
+pwc,pwc.pw_cha,Chawi,village,1780,1625
 pwc,pwc.pw_pit,Pitahawirata,village,1780,812
 pwc,pwc#1,unnamed village,unnamed,1780,812
 pwc,pwc.pw_cha,Chawi,village,1785,1154
@@ -13679,13 +13661,13 @@ pwc,pwc#1,unnamed village,unnamed,1800,604
 pwc,pwc.pw_cha,Chawi,village,1805,1025
 pwc,pwc.pw_pit,Pitahawirata,village,1805,512
 pwc,pwc.pw_kaw,Kawarakis,village,1805,358
-pwc,pwc.pw_cha,Chawi,village,1810,1081
+pwc,pwc.pw_cha,Chawi,village,1810,1082
 pwc,pwc.pw_pit,Pitahawirata,village,1810,541
 pwc,pwc.pw_kaw,Kawarakis,village,1810,541
 pwc,pwc.pw_cha,Chawi,village,1815,1185
 pwc,pwc.pw_pit,Pitahawirata,village,1815,592
 pwc,pwc.pw_kaw,Kawarakis,village,1815,592
-pwc,pwc#1,unnamed village,unnamed,1815,81
+pwc,pwc#1,unnamed village,unnamed,1815,82
 pwc,pwc.pw_cha,Chawi,village,1820,1185
 pwc,pwc.pw_pit,Pitahawirata,village,1820,592
 pwc,pwc.pw_kaw,Kawarakis,village,1820,592
@@ -13703,12 +13685,12 @@ pwc,pwc.pw_pit,Pitahawirata,village,1835,626
 pwc,pwc.pw_kaw,Kawarakis,village,1835,626
 pwc,pwc#1,unnamed village,unnamed,1835,626
 pwc,pwc.pw_cha,Chawi,village,1840,1185
-pwc,pwc.pw_pit,Pitahawirata,village,1840,592
-pwc,pwc.pw_kaw,Kawarakis,village,1840,592
+pwc,pwc.pw_pit,Pitahawirata,village,1840,593
+pwc,pwc.pw_kaw,Kawarakis,village,1840,593
 pwc,pwc.pw_cha,Chawi,village,1845,1139
 pwc,pwc.pw_pit,Pitahawirata,village,1845,569
 pwc,pwc.pw_kaw,Kawarakis,village,1845,569
-pwc,pwc.pw_cha,Chawi,village,1850,800
+pwc,pwc.pw_cha,Chawi,village,1850,801
 pwc,pwc.pw_pit,Pitahawirata,village,1850,400
 pwc,pwc.pw_kaw,Kawarakis,village,1850,400
 pwc,pwc.pw_cha,Chawi,village,1855,740
@@ -13766,13 +13748,13 @@ pwk,pwk.pw_kit,Kitkahahki proper,village,1745,1364
 pwk,pwk#1,unnamed village,unnamed,1745,682
 pwk,pwk.pw_kit,Kitkahahki proper,village,1750,1378
 pwk,pwk#1,unnamed village,unnamed,1750,689
-pwk,pwk.pw_kit,Kitkahahki proper,village,1755,1392
+pwk,pwk.pw_kit,Kitkahahki proper,village,1755,1393
 pwk,pwk#1,unnamed village,unnamed,1755,696
 pwk,pwk.pw_kit,Kitkahahki proper,village,1760,1407
-pwk,pwk#1,unnamed village,unnamed,1760,703
+pwk,pwk#1,unnamed village,unnamed,1760,704
 pwk,pwk.pw_kit,Kitkahahki proper,village,1765,1422
 pwk,pwk#1,unnamed village,unnamed,1765,711
-pwk,pwk.pw_kit,Kitkahahki proper,village,1770,1436
+pwk,pwk.pw_kit,Kitkahahki proper,village,1770,1437
 pwk,pwk#1,unnamed village,unnamed,1770,718
 pwk,pwk.pw_kit,Kitkahahki proper,village,1775,1451
 pwk,pwk#1,unnamed village,unnamed,1775,726
@@ -13789,7 +13771,7 @@ pwk,pwk#1,unnamed village,unnamed,1795,228
 pwk,pwk.pw_kit,Kitkahahki proper,village,1800,1136
 pwk,pwk.pw_lki,Little Kitkahahki,village,1800,568
 pwk,pwk#1,unnamed village,unnamed,1800,513
-pwk,pwk.pw_kit,Kitkahahki proper,village,1805,945
+pwk,pwk.pw_kit,Kitkahahki proper,village,1805,946
 pwk,pwk.pw_lki,Little Kitkahahki,village,1805,463
 pwk,pwk.pw_kit,Kitkahahki proper,village,1810,1032
 pwk,pwk.pw_lki,Little Kitkahahki,village,1810,516
@@ -13854,7 +13836,7 @@ pws,pws#6,Skiri village,unnamed,1705,350
 pws,pws#7,Skiri village,unnamed,1705,350
 pws,pws#8,Skiri village,unnamed,1705,350
 pws,pws#9,Skiri village,unnamed,1705,350
-pws,pws#10,Skiri village,unnamed,1705,25
+pws,pws#10,Skiri village,unnamed,1705,26
 pws,pws#1,Skiri village,unnamed,1710,350
 pws,pws#2,Skiri village,unnamed,1710,350
 pws,pws#3,Skiri village,unnamed,1710,350
@@ -13908,7 +13890,7 @@ pws,pws#5,Skiri village,unnamed,1735,350
 pws,pws#6,Skiri village,unnamed,1735,350
 pws,pws#7,Skiri village,unnamed,1735,350
 pws,pws#8,Skiri village,unnamed,1735,350
-pws,pws#9,Skiri village,unnamed,1735,50
+pws,pws#9,Skiri village,unnamed,1735,51
 pws,pws#1,Skiri village,unnamed,1740,350
 pws,pws#2,Skiri village,unnamed,1740,350
 pws,pws#3,Skiri village,unnamed,1740,350
@@ -13974,7 +13956,7 @@ pws,pws#5,Skiri village,unnamed,1775,350
 pws,pws#6,Skiri village,unnamed,1775,350
 pws,pws#7,Skiri village,unnamed,1775,350
 pws,pws#8,Skiri village,unnamed,1775,350
-pws,pws#9,Skiri village,unnamed,1775,118
+pws,pws#9,Skiri village,unnamed,1775,119
 pws,pws#1,Skiri village,unnamed,1780,350
 pws,pws#2,Skiri village,unnamed,1780,350
 pws,pws#3,Skiri village,unnamed,1780,350
@@ -14012,7 +13994,7 @@ pws,pws#4,Skiri village,unnamed,1800,350
 pws,pws#5,Skiri village,unnamed,1800,350
 pws,pws#6,Skiri village,unnamed,1800,350
 pws,pws#7,Skiri village,unnamed,1800,350
-pws,pws#8,Skiri village,unnamed,1800,130
+pws,pws#8,Skiri village,unnamed,1800,131
 pws,pws#1,Skiri village,unnamed,1805,350
 pws,pws#2,Skiri village,unnamed,1805,350
 pws,pws#3,Skiri village,unnamed,1805,350
@@ -14035,7 +14017,7 @@ pws,pws#3,Skiri village,unnamed,1820,350
 pws,pws#4,Skiri village,unnamed,1820,350
 pws,pws#5,Skiri village,unnamed,1820,350
 pws,pws#6,Skiri village,unnamed,1820,350
-pws,pws#7,Skiri village,unnamed,1820,51
+pws,pws#7,Skiri village,unnamed,1820,52
 pws,pws#1,Skiri village,unnamed,1825,350
 pws,pws#2,Skiri village,unnamed,1825,350
 pws,pws#3,Skiri village,unnamed,1825,350
@@ -14141,7 +14123,7 @@ ari,ari#8,unnamed village,unnamed,1710,650
 ari,ari#9,unnamed village,unnamed,1710,650
 ari,ari#10,unnamed village,unnamed,1710,650
 ari,ari#11,unnamed village,unnamed,1710,650
-ari,ari#12,unnamed village,unnamed,1710,155
+ari,ari#12,unnamed village,unnamed,1710,156
 ari,ari.ari_isl,Island village,village,1715,650
 ari,ari.ari_low,Lower mainland village,village,1715,650
 ari,ari.ari_upp,Upper mainland village,village,1715,845
@@ -14156,7 +14138,7 @@ ari,ari#8,unnamed village,unnamed,1715,650
 ari,ari#9,unnamed village,unnamed,1715,650
 ari,ari#10,unnamed village,unnamed,1715,650
 ari,ari#11,unnamed village,unnamed,1715,650
-ari,ari#12,unnamed village,unnamed,1715,98
+ari,ari#12,unnamed village,unnamed,1715,99
 ari,ari.ari_isl,Island village,village,1720,650
 ari,ari.ari_low,Lower mainland village,village,1720,650
 ari,ari.ari_upp,Upper mainland village,village,1720,845
@@ -14186,7 +14168,7 @@ ari,ari#8,unnamed village,unnamed,1725,650
 ari,ari#9,unnamed village,unnamed,1725,650
 ari,ari#10,unnamed village,unnamed,1725,650
 ari,ari#11,unnamed village,unnamed,1725,650
-ari,ari#12,unnamed village,unnamed,1725,122
+ari,ari#12,unnamed village,unnamed,1725,123
 ari,ari.ari_isl,Island village,village,1730,650
 ari,ari.ari_low,Lower mainland village,village,1730,650
 ari,ari.ari_upp,Upper mainland village,village,1730,845
@@ -14216,7 +14198,7 @@ ari,ari#8,unnamed village,unnamed,1735,650
 ari,ari#9,unnamed village,unnamed,1735,650
 ari,ari#10,unnamed village,unnamed,1735,650
 ari,ari#11,unnamed village,unnamed,1735,650
-ari,ari#12,unnamed village,unnamed,1735,165
+ari,ari#12,unnamed village,unnamed,1735,166
 ari,ari.ari_isl,Island village,village,1740,649
 ari,ari.ari_low,Lower mainland village,village,1740,650
 ari,ari.ari_upp,Upper mainland village,village,1740,845
@@ -14231,7 +14213,7 @@ ari,ari#8,unnamed village,unnamed,1740,650
 ari,ari#9,unnamed village,unnamed,1740,650
 ari,ari#10,unnamed village,unnamed,1740,650
 ari,ari#11,unnamed village,unnamed,1740,650
-ari,ari#12,unnamed village,unnamed,1740,187
+ari,ari#12,unnamed village,unnamed,1740,188
 ari,ari.ari_isl,Island village,village,1745,649
 ari,ari.ari_low,Lower mainland village,village,1745,650
 ari,ari.ari_upp,Upper mainland village,village,1745,845
@@ -14246,7 +14228,7 @@ ari,ari#8,unnamed village,unnamed,1745,650
 ari,ari#9,unnamed village,unnamed,1745,650
 ari,ari#10,unnamed village,unnamed,1745,650
 ari,ari#11,unnamed village,unnamed,1745,650
-ari,ari#12,unnamed village,unnamed,1745,209
+ari,ari#12,unnamed village,unnamed,1745,210
 ari,ari.ari_isl,Island village,village,1750,649
 ari,ari.ari_low,Lower mainland village,village,1750,650
 ari,ari.ari_upp,Upper mainland village,village,1750,845
@@ -14261,7 +14243,7 @@ ari,ari#8,unnamed village,unnamed,1750,650
 ari,ari#9,unnamed village,unnamed,1750,650
 ari,ari#10,unnamed village,unnamed,1750,650
 ari,ari#11,unnamed village,unnamed,1750,650
-ari,ari#12,unnamed village,unnamed,1750,230
+ari,ari#12,unnamed village,unnamed,1750,231
 ari,ari.ari_isl,Island village,village,1755,648
 ari,ari.ari_low,Lower mainland village,village,1755,650
 ari,ari.ari_upp,Upper mainland village,village,1755,845
@@ -14276,7 +14258,7 @@ ari,ari#8,unnamed village,unnamed,1755,650
 ari,ari#9,unnamed village,unnamed,1755,650
 ari,ari#10,unnamed village,unnamed,1755,650
 ari,ari#11,unnamed village,unnamed,1755,650
-ari,ari#12,unnamed village,unnamed,1755,247
+ari,ari#12,unnamed village,unnamed,1755,248
 ari,ari.ari_isl,Island village,village,1760,648
 ari,ari.ari_low,Lower mainland village,village,1760,650
 ari,ari.ari_upp,Upper mainland village,village,1760,845
@@ -14291,7 +14273,7 @@ ari,ari#8,unnamed village,unnamed,1760,650
 ari,ari#9,unnamed village,unnamed,1760,650
 ari,ari#10,unnamed village,unnamed,1760,650
 ari,ari#11,unnamed village,unnamed,1760,650
-ari,ari#12,unnamed village,unnamed,1760,245
+ari,ari#12,unnamed village,unnamed,1760,246
 ari,ari.ari_isl,Island village,village,1765,647
 ari,ari.ari_low,Lower mainland village,village,1765,650
 ari,ari.ari_upp,Upper mainland village,village,1765,845
@@ -14306,7 +14288,7 @@ ari,ari#8,unnamed village,unnamed,1765,650
 ari,ari#9,unnamed village,unnamed,1765,650
 ari,ari#10,unnamed village,unnamed,1765,650
 ari,ari#11,unnamed village,unnamed,1765,650
-ari,ari#12,unnamed village,unnamed,1765,185
+ari,ari#12,unnamed village,unnamed,1765,187
 ari,ari.ari_isl,Island village,village,1770,647
 ari,ari.ari_low,Lower mainland village,village,1770,650
 ari,ari.ari_upp,Upper mainland village,village,1770,845
@@ -14321,7 +14303,7 @@ ari,ari#8,unnamed village,unnamed,1770,650
 ari,ari#9,unnamed village,unnamed,1770,650
 ari,ari#10,unnamed village,unnamed,1770,650
 ari,ari#11,unnamed village,unnamed,1770,650
-ari,ari#12,unnamed village,unnamed,1770,52
+ari,ari#12,unnamed village,unnamed,1770,53
 ari,ari.ari_isl,Island village,village,1775,646
 ari,ari.ari_low,Lower mainland village,village,1775,650
 ari,ari.ari_upp,Upper mainland village,village,1775,845
@@ -14335,7 +14317,7 @@ ari,ari#7,unnamed village,unnamed,1775,650
 ari,ari#8,unnamed village,unnamed,1775,650
 ari,ari#9,unnamed village,unnamed,1775,650
 ari,ari#10,unnamed village,unnamed,1775,650
-ari,ari#11,unnamed village,unnamed,1775,433
+ari,ari#11,unnamed village,unnamed,1775,434
 ari,ari.ari_isl,Island village,village,1780,644
 ari,ari.ari_low,Lower mainland village,village,1780,650
 ari,ari.ari_upp,Upper mainland village,village,1780,846
@@ -14349,12 +14331,12 @@ ari,ari#7,unnamed village,unnamed,1780,650
 ari,ari#8,unnamed village,unnamed,1780,650
 ari,ari#9,unnamed village,unnamed,1780,650
 ari,ari#10,unnamed village,unnamed,1780,650
-ari,ari#11,unnamed village,unnamed,1780,272
+ari,ari#11,unnamed village,unnamed,1780,274
 ari,ari.ari_isl,Island village,village,1785,644
 ari,ari.ari_low,Lower mainland village,village,1785,652
 ari,ari.ari_upp,Upper mainland village,village,1785,847
 ari,ari#1,unnamed village,unnamed,1785,652
-ari,ari#2,unnamed village,unnamed,1785,144
+ari,ari#2,unnamed village,unnamed,1785,145
 ari,ari.ari_isl,Island village,village,1790,642
 ari,ari.ari_low,Lower mainland village,village,1790,652
 ari,ari.ari_upp,Upper mainland village,village,1790,848
@@ -14364,8 +14346,8 @@ ari,ari.ari_isl,Island village,village,1795,640
 ari,ari.ari_low,Lower mainland village,village,1795,653
 ari,ari.ari_upp,Upper mainland village,village,1795,848
 ari,ari#1,unnamed village,unnamed,1795,653
-ari,ari#2,unnamed village,unnamed,1795,463
-ari,ari.ari_isl,Island village,village,1800,637
+ari,ari#2,unnamed village,unnamed,1795,464
+ari,ari.ari_isl,Island village,village,1800,636
 ari,ari.ari_low,Lower mainland village,village,1800,653
 ari,ari.ari_upp,Upper mainland village,village,1800,849
 ari,ari#1,unnamed village,unnamed,1800,653
@@ -14373,16 +14355,16 @@ ari,ari#2,unnamed village,unnamed,1800,653
 ari,ari#3,unnamed village,unnamed,1800,24
 ari,ari.ari_isl,Island village,village,1805,602
 ari,ari.ari_low,Lower mainland village,village,1805,622
-ari,ari.ari_upp,Upper mainland village,village,1805,808
+ari,ari.ari_upp,Upper mainland village,village,1805,809
 ari,ari.ari_isl,Island village,village,1810,639
 ari,ari.ari_low,Lower mainland village,village,1810,655
 ari,ari.ari_upp,Upper mainland village,village,1810,852
 ari,ari.ari_isl,Island village,village,1815,674
-ari,ari.ari_low,Lower mainland village,village,1815,687
+ari,ari.ari_low,Lower mainland village,village,1815,688
 ari,ari.ari_upp,Upper mainland village,village,1815,894
 ari,ari.ari_isl,Island village,village,1820,703
 ari,ari.ari_low,Lower mainland village,village,1820,713
-ari,ari.ari_upp,Upper mainland village,village,1820,927
+ari,ari.ari_upp,Upper mainland village,village,1820,928
 ari,ari.ari_isl,Island village,village,1825,708
 ari,ari.ari_low,Lower mainland village,village,1825,716
 ari,ari.ari_upp,Upper mainland village,village,1825,931
@@ -14441,17 +14423,17 @@ kaw,kaw#1,Kansa village,unnamed,1715,1675
 kaw,kaw#1,Kansa village,unnamed,1720,1712
 kaw,kaw#1,Kansa village,unnamed,1725,1751
 kaw,kaw#1,Kansa village,unnamed,1730,1790
-kaw,kaw#1,Kansa village,unnamed,1735,1828
+kaw,kaw#1,Kansa village,unnamed,1735,1829
 kaw,kaw#1,Kansa village,unnamed,1740,1868
 kaw,kaw#1,Kansa village,unnamed,1745,1909
 kaw,kaw#1,Kansa village,unnamed,1750,1950
 kaw,kaw#1,Kansa village,unnamed,1755,1992
-kaw,kaw#1,Kansa village,unnamed,1760,2035
-kaw,kaw#1,Kansa village,unnamed,1765,2079
+kaw,kaw#1,Kansa village,unnamed,1760,2036
+kaw,kaw#1,Kansa village,unnamed,1765,2080
 kaw,kaw#1,Kansa village,unnamed,1770,2125
 kaw,kaw#1,Kansa village,unnamed,1775,2172
 kaw,kaw#1,Kansa village,unnamed,1780,2226
-kaw,kaw#1,Kansa village,unnamed,1785,1836
+kaw,kaw#1,Kansa village,unnamed,1785,1837
 kaw,kaw#1,Kansa village,unnamed,1790,1899
 kaw,kaw#1,Kansa village,unnamed,1795,1964
 kaw,kaw#1,Kansa village,unnamed,1800,2030
@@ -14459,11 +14441,11 @@ kaw,kaw#1,Kansa village,unnamed,1805,1465
 kaw,kaw#1,Kansa village,unnamed,1810,1497
 kaw,kaw#1,Kansa village,unnamed,1815,1522
 kaw,kaw#1,Kansa village,unnamed,1820,1550
-kaw,kaw#1,Kansa village,unnamed,1825,1565
+kaw,kaw#1,Kansa village,unnamed,1825,1566
 kaw,kaw.ka_fool,Fool Chief’s village,village,1830,555
 kaw,kaw.ka_hard,Hard Chief’s village,village,1830,570
 kaw,kaw.ka_amer,American Chief’s village,village,1830,238
-kaw,kaw#1,Kansa village,unnamed,1830,223
+kaw,kaw#1,Kansa village,unnamed,1830,224
 kaw,kaw.ka_fool,Fool Chief’s village,village,1835,514
 kaw,kaw.ka_hard,Hard Chief’s village,village,1835,586
 kaw,kaw.ka_amer,American Chief’s village,village,1835,220
@@ -14517,9 +14499,9 @@ osg,osg.os_upl,Upland Forest (Pahatsi),village,1710,2960
 osg,osg#1,unnamed village,unnamed,1710,1480
 osg,osg.os_upl,Upland Forest (Pahatsi),village,1715,2886
 osg,osg#1,unnamed village,unnamed,1715,1443
-osg,osg.os_upl,Upland Forest (Pahatsi),village,1720,2814
+osg,osg.os_upl,Upland Forest (Pahatsi),village,1720,2815
 osg,osg#1,unnamed village,unnamed,1720,1407
-osg,osg.os_upl,Upland Forest (Pahatsi),village,1725,2744
+osg,osg.os_upl,Upland Forest (Pahatsi),village,1725,2745
 osg,osg#1,unnamed village,unnamed,1725,1372
 osg,osg.os_upl,Upland Forest (Pahatsi),village,1730,2676
 osg,osg#1,unnamed village,unnamed,1730,1338
@@ -14531,19 +14513,19 @@ osg,osg.os_upl,Upland Forest (Pahatsi),village,1745,2483
 osg,osg#1,unnamed village,unnamed,1745,1241
 osg,osg.os_upl,Upland Forest (Pahatsi),village,1750,2426
 osg,osg#1,unnamed village,unnamed,1750,1213
-osg,osg.os_upl,Upland Forest (Pahatsi),village,1755,2389
+osg,osg.os_upl,Upland Forest (Pahatsi),village,1755,2390
 osg,osg#1,unnamed village,unnamed,1755,1195
 osg,osg.os_upl,Upland Forest (Pahatsi),village,1760,2389
-osg,osg#1,unnamed village,unnamed,1760,1194
+osg,osg#1,unnamed village,unnamed,1760,1195
 osg,osg.os_upl,Upland Forest (Pahatsi),village,1765,2399
 osg,osg#1,unnamed village,unnamed,1765,1199
 osg,osg.os_upl,Upland Forest (Pahatsi),village,1770,2410
 osg,osg#1,unnamed village,unnamed,1770,1205
-osg,osg.os_upl,Upland Forest (Pahatsi),village,1775,2420
+osg,osg.os_upl,Upland Forest (Pahatsi),village,1775,2421
 osg,osg#1,unnamed village,unnamed,1775,1210
 osg,osg.os_upl,Upland Forest (Pahatsi),village,1780,2424
 osg,osg#1,unnamed village,unnamed,1780,1212
-osg,osg.os_upl,Upland Forest (Pahatsi),village,1785,1927
+osg,osg.os_upl,Upland Forest (Pahatsi),village,1785,1928
 osg,osg#1,unnamed village,unnamed,1785,964
 osg,osg.os_upl,Upland Forest (Pahatsi),village,1790,1910
 osg,osg#1,unnamed village,unnamed,1790,955
@@ -14635,8 +14617,8 @@ osl,osl#1,Little Osage village,unnamed,1700,647
 osl,osl#2,Little Osage village,unnamed,1700,647
 osl,osl#1,Little Osage village,unnamed,1705,644
 osl,osl#2,Little Osage village,unnamed,1705,644
-osl,osl#1,Little Osage village,unnamed,1710,641
-osl,osl#2,Little Osage village,unnamed,1710,641
+osl,osl#1,Little Osage village,unnamed,1710,642
+osl,osl#2,Little Osage village,unnamed,1710,642
 osl,osl#1,Little Osage village,unnamed,1715,639
 osl,osl#2,Little Osage village,unnamed,1715,639
 osl,osl#1,Little Osage village,unnamed,1720,636
@@ -14666,17 +14648,17 @@ osl,osl#2,Little Osage village,unnamed,1775,688
 osl,osl#1,Little Osage village,unnamed,1780,709
 osl,osl#2,Little Osage village,unnamed,1780,709
 osl,osl#1,Little Osage village,unnamed,1785,600
-osl,osl#2,Little Osage village,unnamed,1785,565
+osl,osl#2,Little Osage village,unnamed,1785,566
 osl,osl#1,Little Osage village,unnamed,1790,600
 osl,osl#2,Little Osage village,unnamed,1790,595
-osl,osl#1,Little Osage village,unnamed,1795,612
-osl,osl#2,Little Osage village,unnamed,1795,612
+osl,osl#1,Little Osage village,unnamed,1795,613
+osl,osl#2,Little Osage village,unnamed,1795,613
 osl,osl#1,Little Osage village,unnamed,1800,627
 osl,osl#2,Little Osage village,unnamed,1800,627
 osl,osl#1,Little Osage village,unnamed,1805,600
 osl,osl#2,Little Osage village,unnamed,1805,421
 osl,osl#1,Little Osage village,unnamed,1810,600
-osl,osl#2,Little Osage village,unnamed,1810,428
+osl,osl#2,Little Osage village,unnamed,1810,429
 osl,osl#1,Little Osage village,unnamed,1815,600
 osl,osl#2,Little Osage village,unnamed,1815,439
 osl,osl#1,Little Osage village,unnamed,1820,600
@@ -14714,7 +14696,7 @@ osa,osa.os_hst,Heart Stays (Claremore’s band),village,1805,1188
 osa,osa.os_bdg,Black Dog’s band,village,1805,516
 osa,osa.os_hst,Heart Stays (Claremore’s band),village,1810,1235
 osa,osa.os_bdg,Black Dog’s band,village,1810,515
-osa,osa.os_hst,Heart Stays (Claremore’s band),village,1815,1285
+osa,osa.os_hst,Heart Stays (Claremore’s band),village,1815,1286
 osa,osa.os_bdg,Black Dog’s band,village,1815,509
 osa,osa.os_hst,Heart Stays (Claremore’s band),village,1820,1312
 osa,osa.os_bdg,Black Dog’s band,village,1820,516

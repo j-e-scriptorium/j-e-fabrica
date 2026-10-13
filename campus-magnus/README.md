@@ -32,7 +32,7 @@ The page loads its data with plain `<script>` tags, so it runs from `file://`; o
 
 | File | One row per |
 |---|---|
-| `records.csv` (1,306) | Documented record: a count, a place, or both, with the source's words, the source and locator, a provenance tier, judgment flags, whether it steers the track, and the fitted and held-out values at that point. |
+| `records.csv` (1,325) | Documented record: a count, a place, or both, with the source's words, the source and locator, a provenance tier, judgment flags, whether it steers the track, and the fitted and held-out values at that point. |
 | `sources.csv` | Source, with records drawn from it, tier and peoples covered. |
 | `keyframes_our_guesses.csv` (519) | Our own guess. **Never data.** 250 carry no note; their basis is interpolation between neighbouring documented states. |
 | `epidemics_and_shocks.csv` | Epidemic or famine × division: dates, mortality applied, whether the fraction is sourced, scaled or assumed. |
@@ -51,12 +51,12 @@ Each record is tiered by how its text reached the project, not by the quality of
 
 | Tier | Meaning | Records |
 |---|---|---|
-| A1 | A work read in a PDF or EPUB supplied by the project's owner, page-cited: *Handbook of North American Indians* vols. 10, 11 and 13; the 1890 census *Report on Indians Taxed and Indians Not Taxed* (1894), its tables read from the page images; Hämäläinen, *The Comanche Empire* (2008); Kavanagh, *Comanche Political History* (1996); Fenn, *Pox Americana* (2001, cited by chapter). | 525 |
+| A1 | A work read in a PDF or EPUB supplied by the project's owner, page-cited: *Handbook of North American Indians* vols. 10, 11 and 13; the 1890 census *Report on Indians Taxed and Indians Not Taxed* (1894), its tables read from the page images; Hämäläinen, *The Comanche Empire* (2008); Kavanagh, *Comanche Political History* (1996); Fenn, *Pox Americana* (2001) and West, *The Contested Plains* (1998), both cited by chapter; Winfrey and Day, eds., *The Indian Papers of Texas and the Southwest*, vol. 1 (1966; repr. 1995). | 544 |
 | A2 | A standard printed source read in full text (BAE series, Indian Office reports, the Lewis and Clark journals, travellers' narratives). | 624 |
 | B | A reference article read online (mostly Wikipedia, for battle, treaty, agency and site coordinates; Handbook of Texas; Encyclopedia of the Great Plains). | 135 |
 | C | Second-hand or recalled: the work itself was not read. A lead to verify. | 22 |
 
-933 records (71%) carry a page, table, entry or document number.
+950 records (72%) carry a page, table, entry or document number.
 
 ## Reliability
 
