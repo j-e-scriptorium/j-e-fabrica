@@ -45,7 +45,7 @@ def family(o):
     if o.get('basis')=='census' or (y>=1868 and any(k in s for k in ('Annual Report','Commissioner','Indian Office','ARCIA'))): return 'census'
     for key,f in (('Clark','clark'),('Morse','morse'),('Aboriginal Population','mooney1928'),('Mooney (1928)','mooney1928'),('Pike','pike'),
                   ('Henry','henry'),('Thompson','thompson'),('Umfreville','umfreville'),('Mackenzie','umfreville'),('Maximilian','maximilian'),
-                  ('Catlin','catlin'),('Denig','denig'),('Hayden','hayden'),('Stevens','stevens'),('Doty','stevens'),
+                  ('Catlin','catlin'),('Mézières','demezieres'),('Henday','hbcjournals'),('Cocking','hbcjournals'),('Vérendrye','verendrye'),('Denig','denig'),('Hayden','hayden'),('Stevens','stevens'),('Doty','stevens'),
                   ('Annual Report','agents'),('Commissioner','agents'),('Indian Office','agents'),('ARCIA','agents'),('Calendar History','mooney_kiowa'),
                   ('Swanton','swanton'),('Hodge','hodge'),('Grinnell','grinnell'),('Hämäläinen','reconstruction'),('Brooks','reconstruction')):
         if key in s: return f
@@ -56,6 +56,8 @@ def sig_obs(o):
     if o['y']>=1868: return 0.1 if any(k in o['raw'].lower() for k in ('census','roll','enrollment','numbered','number ')) else 0.15
     if 'Clark' in o['src']: return float(__import__('os').environ.get('SC','0.35'))
     return 0.3
+PARTSK={}
+_NOTCAMP=_re.compile(r'council|treaty|visit|delegat|war ?party|warriors|trading|trade|traffick|surrender|battle|fight|attack|killed|massacre|raid|party of|expedition|captive|prisoner|express|runner|hunting party',_re.I)
 for gid in gids:
     g=G[gid]
     spec=[o for o in obs if not o['agg'] and o['g'][0]==gid]
@@ -89,6 +91,10 @@ for gid in gids:
     DOCP[gid]=[(o['y'],o['lat'],o['lon'],o['r'] or 25) for o in _dl]
     DOCSK[gid]=[_SE.season_known(o['y'],o['raw'],o['r']) for o in _dl]
     GSP[gid]=[(p[0],p[1],p[2]) for p in P if p[3]=='g']
+    # season-dated camps of part of the division (a band's winter camp, a village of one band): they stay off the track but can
+    # inform the seasonal offset. Councils, visits, trading trips, war parties and fights say where some men were, not where the people lived.
+    PARTSK[gid]=[(o['y'],o['lat'],o['lon'],o['r'] or 25) for o in spec if o['loc']=='stated' and not o['whole'] and not o['seasonal']
+                 and (o['r'] or 25)<=150 and _SE.season_known(o['y'],o['raw'],o['r']) and not _NOTCAMP.search(o['raw'] or '')]
     places=[o for o in spec if o['loc']=='stated' and not o['seasonal'] and (not o['part'] or all(x['loc']=='stated' for x in spec if x['y']==o['y'] and x['pop'] and x['whole']))]
     NY[gid]=[round(min(99,min([abs(t-o['y']) for o in places]+[99])),2) for t in range(Y0,Y1+1)]
 
