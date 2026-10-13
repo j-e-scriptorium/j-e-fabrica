@@ -64,7 +64,7 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
   - Prescott's 1850 Mdewakanton count via Schoolcraft;
   - the treaty-council attendance lists for Fort Laramie (1851) and Medicine Lodge (1867), taken from Wikipedia;
   - several Texas and Oklahoma sites recalled (El Cañón mission, Van Dorn's fight, the Wichita refugee camp of 1865).
-- **Other recalled material.** The seasonal literature patterns, the original 129 settlement dates (since checked against references, each naming its check), and the band places.
+- **Other recalled material.** The seasonal literature patterns not yet read (Ray and Moodie for the nineteenth-century Cree and Assiniboine, Hämäläinen's general description for the Comanche before 1840, Hoxie, Stamm, Tabeau and Pond), the original 129 settlement dates (since checked against references, each naming its check), and the band places.
 - The header of `data_src.py` describes the documented records as read for this build. The tier-C records are the exceptions, and each is marked in its source field.
 
 **Would settle it.** The `review_sample.csv` check (`REVIEW_PROTOCOL.md` §1), with all tier-C records added.
@@ -92,3 +92,16 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 - A keyframe that is wrong where no record lies near enough to contradict it.
 
 `REVIEW_PROTOCOL.md` §1–3 are the only defences against the first two. For the third, the keyframe-removal sensitivity run gives a bound, not a test.
+
+## 12. Conflicts the primary texts raise
+
+Reading the primary sources behind figures the record had cited second-hand turned up disagreements that are not resolved here.
+
+- **Blood and North Blackfoot, 1858–60.** Hayden gives the Blood 300 lodges and 2,400 people and the North Blackfoot 150 and 1,200 in 1858; Agent Vaughan's 1860 table, as Ewers prints it (p. 21), has them the other way round. Both are kept; one is a transposition. ARCIA 1858 (p. 432) and 1860 (p. 308) would settle it.
+- **Henday's route and the 1754 camp.** Burpee takes Henday down the Red Deer and the South Saskatchewan and builds his canoes on the Red Deer above Tail Creek; later reconstructions send him down the North Saskatchewan. The great Archithinue camp of October 1754 is placed after Burpee, near Knee Hills Creek. Burpee reads the Archithinue as Blackfoot, Ewers (following Wissler) as probably Gros Ventre; the record keeps them with the Siksika.
+- **Denig's Sioux, Crow and Cree counts.** The figures cited through Hayden as Denig's are not in the BAE 46 text of "Indian Tribes of the Upper Missouri"; they probably come from his *Five Indian Tribes of the Upper Missouri* (ed. Ewers, 1961), not read. The Assiniboine, Mandan and Arikara figures are in BAE 46 and are cited there.
+- **The Indian Office tables.** The Upper Platte agency's Cheyenne and Arapaho swap labels between 1862 and 1863 (the 1863 reading, Cheyenne 1,800 and Arapaho 720, agrees with every other source and is the one used; the 1862 and 1864 tables, which print the other, are left out); the Kiowa and Comanche are 2,800 in the 1867 table and 4,000 in the 1868 table, both marked as from the report of 1867; the Wind River Shoshone are 1,041 in the 1874 table the record uses and 1,800 in the 1874 figure Ewers prints. Figures carried forward unchanged from year to year are common and were left out.
+- **Sarsi, 1877–81.** The Treaty 7 roll of 1877 has 255; the pay-sheets Jenness quotes have 672 (1879, swollen by people of other tribes, he says), 396 (1880) and 470 (1881), and his own estimate for 1880 is 400–450. The 1880 and 1881 pay-sheets are used; the fit runs between them and the 1877 roll.
+- **The Wichita confederacy.** De Mézières calls both of the Red River villages of 1778 Taovaya; the Handbook calls the north-bank town Wichita proper. The "Panis-mahas" who joined the Taovaya in the 1770s may have been Skiri Pawnee; they are left out of the Wichita counts.
+- **La Vérendrye's peoples of 1742–43.** The Gens des Chevaux, Gens de l'Arc, Beaux Hommes, Petits Renards, Pioya and Gens de la Belle Rivière cannot be securely identified; they are not in the record.
+

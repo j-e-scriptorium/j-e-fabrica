@@ -96,7 +96,7 @@ window.CM_PEOPLES = {
     "Their power was broken by epidemics (smallpox in 1781, 1837 and 1869–70), the whiskey trade of the 1860s and the end of the bison. The Lame Bull treaty of 1855 set their country in the United States; the Marias Massacre of January 1870, in which the army killed some 170 to 200 of Heavy Runner’s Piegan, was followed by the North-West Mounted Police in 1874, Treaty 7 in 1877 and the Starvation Winter of 1883–84 on the Montana reservation."
   ],
   y1900: "On the Siksika, Blood and Piikani reserves (Alberta) and the Blackfeet Reservation (Montana).",
-  read: ["Hugh A. Dempsey, “Blackfoot,” Handbook of North American Indians 13 (2001)", "John C. Ewers, The Blackfeet: Raiders on the Northwestern Plains (1958)", "Theodore Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001)"]
+  read: ["Hugh A. Dempsey, “Blackfoot,” Handbook of North American Indians 13 (2001)", "John C. Ewers, The Blackfeet: Raiders on the Northwestern Plains (1958) and The Horse in Blackfoot Indian Culture (1955)", "Theodore Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001)"]
 },
 
 "Gros Ventre": {
@@ -264,7 +264,7 @@ window.CM_PEOPLES = {
     "Reduced by smallpox and by Osage and Texan war, they were placed on the Brazos reservation and then, from 1859, at the Wichita agency on the Washita in Indian Territory. During the Civil War they took refuge in Kansas, at the site of the town that bears their name, and returned to Anadarko in 1867, losing more than a hundred to cholera on the way."
   ],
   y1900: "On the Wichita-Caddo reservation, Oklahoma, allotted in 1901.",
-  read: ["W. W. Newcomb, Jr., “Wichita,” Handbook of North American Indians 13 (2001)", "F. Todd Smith, The Wichita Indians: Traders of Texas and the Southern Plains, 1540–1845 (2000)", "Dorman H. Winfrey and James M. Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916 (1966)"]
+  read: ["W. W. Newcomb, Jr., “Wichita,” Handbook of North American Indians 13 (2001)", "F. Todd Smith, The Wichita Indians: Traders of Texas and the Southern Plains, 1540–1845 (2000)", "Herbert E. Bolton, ed., Athanase de Mézières and the Louisiana–Texas Frontier, 1768–1780 (1914)", "Dorman H. Winfrey and James M. Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916 (1966)"]
 },
 
 "Pawnee": {
@@ -408,7 +408,7 @@ window.CM_PEOPLES = {
     "Anglo-American settlement after 1836 pushed them west. They were placed on the Brazos reservation in 1854, removed to the Wichita Agency in 1859, and in October 1862 lost some 137 people in an attack near Anadarko. The survivors drifted back to Texas and scouted against the Kiowa and Comanche from Fort Griffin. In 1884 the 92 who remained, with some Lipan, were moved to Indian Territory, and in 1891 the 73 survivors were allotted."
   ],
   y1900: "On allotments near Tonkawa, Oklahoma.",
-  read: ["W. W. Newcomb, Jr., and Thomas N. Campbell, “Tonkawa,” Handbook of North American Indians 13 (2001)", "Thomas F. Schilz, People of the Cross Timbers: A History of the Tonkawa Indians (1987)"]
+  read: ["W. W. Newcomb, Jr., and Thomas N. Campbell, “Tonkawa,” Handbook of North American Indians 13 (2001)", "Thomas F. Schilz, People of the Cross Timbers: A History of the Tonkawa Indians (1987)", "Herbert E. Bolton, ed., Athanase de Mézières and the Louisiana–Texas Frontier, 1768–1780 (1914)"]
 }
 
 };
