@@ -28,7 +28,7 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 ## 3. The eighteenth century rests on few records
 
 - **Thin coverage.** Of 345 division × period cells, 33 have neither a count nor a place (`coverage_by_division_and_period.csv`, flag `thin`). Fourteen of them are 1700–49, mostly the northern plains (Blackfoot divisions, Gros Ventre, both Crow divisions, Shoshone, Northern Assiniboine, Cree) and the Osage and Ponca.
-- **What fills the gap.** The map draws these years from keyframes and smoothing. Their held-out error (×1.45 for population, 1700–99) is the worst of any period.
+- **What fills the gap.** The map draws these years from keyframes and smoothing. Their held-out error (×1.38 for population, 1700–99) is the worst of any period.
 - **Would settle it.** Russell, *Eighteenth-Century Western Cree and Their Neighbours* (1991); Burpee's editions of Henday (1907), Cocking (1908) and La Vérendrye (1927); A. B. Thomas, *After Coronado* (1935) and *Forgotten Frontiers* (1932) for the Spanish documents; Bolton's *Athanase de Mézières* (1914) for the Wichita, Kitsai and Tonkawa; Nasatir, *Before Lewis and Clark* (1952) for Truteau and Mackay.
 
 ## 4. Canadian peoples after 1870 and before 1790
@@ -52,7 +52,7 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 ## 7. Uncalibrated village halos
 
 - **The gap.** Village divisions' position uncertainty is a hand-set formula (`METHODS.md` §3), not fitted to held-out places.
-- **Measured miss.** The held-out median miss is 48 km.
+- **Measured miss.** The held-out median miss is 45 km.
 - **Whether the halo is the right size.** Untested: it may be too wide near well-dated sites and too narrow across long undocumented gaps.
 
 ## 8. Second-hand and recalled material in the record

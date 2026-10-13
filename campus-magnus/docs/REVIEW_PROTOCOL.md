@@ -54,8 +54,9 @@ From `model/src`:
 
 ```
 python3 build3.py . ..        # must reproduce data/fitted_population_by_division.csv exactly
-python3 validate.py . ..      # leave-one-out: expect median factor ≈ 1.20, 2-sd coverage ≈ 0.90
-python3 recheck_seas.py . ..  # expect a median of ≈ 120 km both ways (mean ≈ 142 against ≈ 144) on 272 places
+python3 validate.py . ..      # leave-one-out: expect median factor ≈ 1.11, 2-sd coverage ≈ 0.92
+python3 recheck_seas.py . ..  # expect a median of ≈ 120 km both ways (mean ≈ 139 against ≈ 141) on 297 places
+python3 recheck_seas_block.py . .. # expect ≈ 117 against ≈ 122 km
 python3 audit.py ..           # expect the list in docs/audit.txt
 ```
 

@@ -48,6 +48,9 @@ rep=dict(n=n,median_abs_log_err=round(stt.median(ae),3),median_factor=round(math
  by_period={})
 for a,b in [(1700,1800),(1800,1840),(1840,1870),(1870,1906)]:
     sub=[r for r in rows if a<=r['y']<b]
-    if sub: rep['by_period'][f'{a}–{b-1 if b<1906 else 1905}']=dict(n=len(sub),median_factor=round(math.exp(stt.median([abs(r['err']) for r in sub])),2),cover2=round(sum(abs(r['z'])<=2 for r in sub)/len(sub),2))
+    if sub:
+        nsub=[abs(r['naive_err']) for r in sub if r['naive_err'] is not None]
+        rep['by_period'][f'{a}–{b-1 if b<1906 else 1905}']=dict(n=len(sub),median_factor=round(math.exp(stt.median([abs(r['err']) for r in sub])),2),cover2=round(sum(abs(r['z'])<=2 for r in sub)/len(sub),2),
+            naive_median_factor=round(math.exp(stt.median(nsub)),2) if nsub else None)
 print(json.dumps(rep,indent=1))
 json.dump(dict(report=rep,points=[[r['g'],round(r['y'],2),r['obs'],r['pred'],round(r['z'],2)] for r in rows]),open(f'{S}/build/validation.json','w'),ensure_ascii=False)

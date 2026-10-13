@@ -74,19 +74,19 @@ Every count is then divided by its family's factor and the model refitted (lines
   - a documented place has variance $(0.25 r)^2 + 90^2$;
   - a keyframe has variance $150^2$;
   - the halo radius is $1.46\sqrt{P_t + 90^2}$, capped at 450 km, where 1.46 makes the halo contain 68% of withheld places (`calib_halo.py`).
-- Held-out median miss: 109 km for the smoother (112 km without keyframes) and 108 km for the drawn curve (125 km without keyframes), over 485 places, each withheld with any other place within half a year (`calib_pos.py`, `calib_track.py`, `build/trackcal.json`). The smoother parameters were fitted on an earlier, smaller record set (380 places) and not refitted.
+- Held-out median miss: 107 km for the smoother (110 km without keyframes) and 108 km for the drawn curve (123 km without keyframes), over 518 places, each withheld with any other place within half a year (`calib_pos.py`, `calib_track.py`, `build/trackcal.json`). The smoother parameters were fitted on an earlier, smaller record set (380 places) and not refitted.
 
 **Village divisions.** The track holds at each place.
 - Where `ecology_src.VMOVE` dates a relocation, the move happens over about five months around that date.
 - Otherwise it moves over two years centred on the midpoint between the two places.
 - The halo is a hand-set formula: 20 km + (distance to next site × fraction of the gap elapsed) + 3 km per year from the nearest anchor, capped at 300 km. **This formula is not calibrated.**
-- The held-out median miss for village places is 48 km over 234 places (52 km without keyframes).
+- The held-out median miss for village places is 45 km over 245 places (52 km without keyframes).
 
 **Seasonal offset (optional layer).**
 - The annual offset $A_g(t)$ (summer ground minus annual centre, km east and north) is estimated from season-dated places within about 5 years (exponential weights, τ = 5 yr). It is shrunk toward a literature pattern (`seasonal_patterns.csv`) or toward zero, with prior SD 60 km per axis.
 - Within the year, position = centre + φ(month)·A, with a plateau-and-ramp calendar fitted by hold-out (`calib_prof.py`): winter ground to mid-March, summer ground by early July until early August, back by late October.
 - Season-dated places are reproduced exactly.
-- Hold-out: on 272 withheld season-dated places the median miss is 120 km with the offset and 120 km without it; the mean is 142 against 144 km. The gain is concentrated in the Kiowa (median 128 against 141 km) and Plains Apache (115 against 122).
+- Hold-out: on 297 withheld season-dated places the median miss is 120 km with the offset and 120 km without it (mean 139 against 141). Withholding every place within half a year of the test place, 117 against 122 km (mean 149 against 151; `recheck_seas_block.py`). Sourced literature patterns account for most of that gain; season-dated camps of single bands, pooling across a people's divisions and retuning the kernel and shrinkage gained at most 1% and were not adopted.
 
 ## 4. Bands and villages (derived layer)
 
@@ -99,9 +99,9 @@ Every count is then divided by its family's factor and the model refitted (lines
 
 | Test | Script | Output | Result |
 |---|---|---|---|
-| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 441 counts; median miss ×1.20 (interpolation ×1.27); 2-sd coverage 0.90 before widening |
-| Held-out places | `calib_pos.py`, `calib_halo.py` | `model/build/poscal.json` | median 109 km nomadic (smoother), 108 km (drawn curve), 48 km village |
-| Withheld season-dated places | `recheck_seas.py` | console | 272 places; median 120 against 120 km, mean 142 against 144 |
+| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,071 counts; median miss ×1.11 (interpolation ×1.08; before 1840 the model is better, after it interpolation); 2-sd coverage 0.92 before widening |
+| Held-out places | `calib_pos.py`, `calib_halo.py` | `model/build/poscal.json` | median 107 km nomadic (smoother), 108 km (drawn curve), 45 km village |
+| Withheld season-dated places | `recheck_seas.py` | console | 297 places; median 120 against 120 km, mean 139 against 141; block hold-out (`recheck_seas_block.py`) 117 against 122 |
 | Whole-model sensitivity | `sens.py` | `model/build/sensitivity.json` | table under “Sensitivity of the population totals” on the map page |
 | Rebuild from package | — | — | bit-identical populations and tracks |
 

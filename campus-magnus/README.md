@@ -32,7 +32,7 @@ The page loads its data with plain `<script>` tags, so it runs from `file://`; o
 
 | File | One row per |
 |---|---|
-| `records.csv` (1,325) | Documented record: a count, a place, or both, with the source's words, the source and locator, a provenance tier, judgment flags, whether it steers the track, and the fitted and held-out values at that point. |
+| `records.csv` (2,325) | Documented record: a count, a place, or both, with the source's words, the source and locator, a provenance tier, judgment flags, whether it steers the track, and the fitted and held-out values at that point. |
 | `sources.csv` | Source, with records drawn from it, tier and peoples covered. |
 | `keyframes_our_guesses.csv` (519) | Our own guess. **Never data.** 250 carry no note; their basis is interpolation between neighbouring documented states. |
 | `epidemics_and_shocks.csv` | Epidemic or famine × division: dates, mortality applied, whether the fraction is sourced, scaled or assumed. |
@@ -51,19 +51,19 @@ Each record is tiered by how its text reached the project, not by the quality of
 
 | Tier | Meaning | Records |
 |---|---|---|
-| A1 | A work read in a PDF or EPUB supplied by the project's owner, page-cited: *Handbook of North American Indians* vols. 10, 11 and 13; the 1890 census *Report on Indians Taxed and Indians Not Taxed* (1894), its tables read from the page images; Hämäläinen, *The Comanche Empire* (2008); Kavanagh, *Comanche Political History* (1996); Fenn, *Pox Americana* (2001) and West, *The Contested Plains* (1998), both cited by chapter; Winfrey and Day, eds., *The Indian Papers of Texas and the Southwest*, vol. 1 (1966; repr. 1995). | 544 |
-| A2 | A standard printed source read in full text (BAE series, Indian Office reports, the Lewis and Clark journals, travellers' narratives). | 624 |
-| B | A reference article read online (mostly Wikipedia, for battle, treaty, agency and site coordinates; Handbook of Texas; Encyclopedia of the Great Plains). | 135 |
+| A1 | A work read in a PDF or EPUB supplied by the project's owner, page-cited: *Handbook of North American Indians* vols. 10, 11 and 13; the 1890 census *Report on Indians Taxed and Indians Not Taxed* (1894) and the Indian Office population tables of 1854–99, both read from the page images; Hämäläinen, *The Comanche Empire* (2008); Kavanagh, *Comanche Political History* (1996); Fenn, *Pox Americana* (2001) and West, *The Contested Plains* (1998), both cited by chapter; Winfrey and Day, eds., *The Indian Papers of Texas and the Southwest*, vols. 1–5; Bolton's De Mézières papers (1914); Henday, Cocking and La Vérendrye in Burpee's editions; Ewers (1955); Denig (BAE 46); Jenness (1938). | 1,546 |
+| A2 | A standard printed source read in full text (BAE series, Indian Office reports, the Lewis and Clark journals, travellers' narratives). | 623 |
+| B | A reference article read online (mostly Wikipedia, for battle, treaty, agency and site coordinates; Handbook of Texas; Encyclopedia of the Great Plains). | 134 |
 | C | Second-hand or recalled: the work itself was not read. A lead to verify. | 22 |
 
-950 records (72%) carry a page, table, entry or document number.
+1,854 records (80%) carry a page, table, entry or document number.
 
 ## Reliability
 
-1. **Population, held out.** Each of 441 division counts withheld in turn and predicted: median miss a factor of 1.20 (1.27 for plain interpolation); 1.45 for 1700–99, 1.33 for 1800–39, 1.23 for 1840–69, 1.11 for 1870–1905. 90% fall inside the 2-sd range before the 25% widening shown on the map.
-2. **Place, held out.** 485 nomadic places, each withheld together with any other place within half a year: the drawn track misses by a median 108 km (125 km without our keyframes); the smoother that sets the halo, 109 km (112 km). Village divisions: 48 km over 234 places (52 km). (`model/src/calib_track.py`, `calib_pos.py`.)
-3. **Seasonal round.** 272 withheld season-dated places: median miss 120 km with or without the seasonal move, mean 142 km against 144. It helps only where season-dated places are dense (Kiowa 128 against 141 km); elsewhere it is illustration.
-4. **Most influential assumption.** Epidemic mortality: scaling every fraction by 0.75 or 1.25 moves the 1780 total from 155,000 to 137,000 or 188,000.
+1. **Population, held out.** Each of 1,071 division counts withheld in turn and predicted: median miss a factor of 1.11 (1.08 for plain interpolation between the neighbouring counts). By period: 1.38 for 1700–99 (interpolation 1.64), 1.34 for 1800–39 (1.38), 1.18 for 1840–69 (1.14), 1.06 for 1870–1905 (1.04). The model earns its keep where counts are sparse; once the Indian Office counts come year by year, interpolating between them does as well or slightly better. 92% fall inside the 2-sd range before the 25% widening shown on the map.
+2. **Place, held out.** 518 nomadic places, each withheld together with any other place within half a year: the drawn track misses by a median 108 km (123 km without our keyframes); the smoother that sets the halo, 107 km (110 km). Village divisions: 45 km over 245 places (52 km). (`model/src/calib_track.py`, `calib_pos.py`.)
+3. **Seasonal round.** 297 season-dated places. Withheld one at a time, the median miss is 120 km with or without the seasonal move (mean 139 against 141). Withheld together with every other place within half a year, which is the case the map faces in a season with no record nearby, 117 km against 122 (mean 149 against 151) (`recheck_seas.py`, `recheck_seas_block.py`). The gain is modest and comes from dense records (the Kiowa) and the literature patterns read in the sources.
+4. **Most influential assumption.** Epidemic mortality: scaling every fraction by 0.75 or 1.25 moves the 1780 total from 156,000 to 137,000 or 188,000.
 5. **Weakest stretches.** The eighteenth century, the northern plains before 1790, Canadian peoples after 1870, and the decline of the Comanche between the 1840s and the 1860s (`docs/KNOWN_ISSUES.md`). The band layer is illustration constrained by division totals, not evidence.
 
 ## Rebuilding
@@ -79,6 +79,7 @@ python3 package.py . .. ../..     # regenerate ../../data/ from the build and ..
 python3 validate.py . ..          # leave-one-out population test (a few minutes)
 python3 calib_track.py            # held-out miss of the drawn nomadic track
 python3 recheck_seas.py . ..      # withheld season-dated places (a few minutes)
+python3 recheck_seas_block.py . .. # the same, withholding every place within half a year
 python3 sens.py . ..              # whole-model sensitivity runs (≈8 min)
 python3 audit.py ..               # mechanical audit of tracks and populations (cf. docs/audit.txt)
 ```

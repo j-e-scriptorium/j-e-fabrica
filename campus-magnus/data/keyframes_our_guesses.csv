@@ -261,7 +261,7 @@ K0259,man,Mandan,Mandan,1780,,,7000,,yes,persons only,
 K0260,man,Mandan,Mandan,1782,,,2500,1780–81 smallpox,,persons only,
 K0261,man,Mandan,Mandan,1795,47.27,-101.2,1800,Removal up to the Knife River,,place+persons,
 K0262,man,Mandan,Mandan,1837.5,,,1600,,yes,persons only,
-K0263,man,Mandan,Mandan,1838,47.25,-101.27,150,1837 smallpox,,place+persons,
+K0263,man,Mandan,Mandan,1838,47.25,-101.27,150,1837 smallpox,,place+persons,place overridden by a documented place within a year
 K0264,man,Mandan,Mandan,1845.6,47.58,-101.85,200,Like-a-Fishhook village,,place+persons,
 K0265,man,Mandan,Mandan,1905,47.45,-102.1,250,Charging Eagle and Red Butte,,place+persons,
 K0266,hid,Hidatsa,Hidatsa,1700,47.33,-101.39,4000,,yes,place+persons,place overridden by a documented place within a year
@@ -356,7 +356,7 @@ K0354,cyp,Comanche,Penateka (Eastern Comanche),1840.2,,,,"Council House Fight, S
 K0355,cyp,Comanche,Penateka (Eastern Comanche),1840.6,,,,"Great Raid to Linnville, Aug. 1840: a war party (not a place for the division)",,marker only (defers to records),
 K0356,cyp,Comanche,Penateka (Eastern Comanche),1841,31.5,-99.0,,,yes,place only,place overridden by a documented place within a year
 K0357,cyp,Comanche,Penateka (Eastern Comanche),1849.5,,,,1849 cholera,,marker only (defers to records),
-K0358,cyp,Comanche,Penateka (Eastern Comanche),1855,33.0,-99.0,500,Clear Fork (Brazos) reserve,,place+persons,
+K0358,cyp,Comanche,Penateka (Eastern Comanche),1855,33.0,-99.0,500,Clear Fork (Brazos) reserve,,place+persons,place overridden by a documented place within a year
 K0359,cyp,Comanche,Penateka (Eastern Comanche),1859.6,35.07,-98.24,400,Removed to the Wichita agency,,place+persons,place overridden by a documented place within a year
 K0360,cyp,Comanche,Penateka (Eastern Comanche),1869,34.68,-98.45,350,,yes,place+persons,
 K0361,cyp,Comanche,Penateka (Eastern Comanche),1905,34.68,-98.45,250,,yes,place+persons,
