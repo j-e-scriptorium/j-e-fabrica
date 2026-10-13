@@ -29,36 +29,47 @@ def season_known(y,raw,r):
     return abs(f-0.5)>0.005 or bool(MONTH.search(raw or ''))
 
 # Prior seasonal patterns. 'vec': bearing (degrees from north) of the summer ground from the winter ground, and half the distance;
-# 'pts': a winter ground and a summer ground, (lat, lon). Recalled from the works named unless a page or chapter is given; the Southern
-# Cheyenne and Arapaho pattern (West) and the Blackfoot, Plains Cree and Plains Ojibwe (Handbook 13) were read.
+# 'pts': a winter ground and a summer ground, (lat, lon). Read in the works named where a page or chapter is given: the Southern
+# Cheyenne and Arapaho (West), the Piegan (Ewers), the eighteenth-century Blackfoot, Gros Ventre, Assiniboine and Cree (Henday, Cocking),
+# the Sarsi (Jenness), the Comanche after 1840 (Texas Indian Papers) and the Blackfoot, Plains Cree and Plains Ojibwe (Handbook 13).
+# The rest (Ray, Hämäläinen's general description, Hoxie, Stamm, Tabeau, Pond) are recalled, not checked page by page.
 RAY='Ray, Indians in the Fur Trade (1974), ch. 2; Moodie & Ray, “Buffalo Migrations in the Canadian Plains”, Plains Anthropologist 21 (1976)'
-EWERS='Ewers, The Horse in Blackfoot Indian Culture (1955), pp. 123–29; The Blackfeet (1958)'
 HAM='Hämäläinen, The Comanche Empire (2008), ch. 7; “The Rise and Fall of Plains Indian Horse Cultures”, JAH 90 (2003)'
 WEST='West, The Contested Plains: Indians, Goldseekers, and the Rush to Colorado (1998), ch. 4 (spring by the streams; early summer onto the highlands between the drainages for the hunt and the sun dance; from autumn to March in the timbered river bottoms; 6,000 Indians at the Arkansas big timbers in Nov. 1848) and ch. 11 (1861–64: the reservation bands winter at Point of Rocks on the Arkansas and hunt in summer on the Smoky Hill, Republican and Solomon)'
 MILLOY='Milloy, The Plains Cree (1988), pp. 21–22, via Darnell, “Plains Cree”, Handbook of North American Indians 13 (2001), p. 640: in the 1790s the Plains Cree hunted in the woodlands in the plentiful summer season and moved onto the plains for buffalo in winter'
 OJB1='Albers, “Plains Ojibwa”, Handbook of North American Indians 13 (2001), p. 653: after 1797 the westernmost Ojibwa joined Cree and Assiniboine on winter buffalo drives at parkland oases on the prairies and returned to the parklands and forests to fish in summer'
 OJB2='Albers (2001), p. 654: later, two large annual hunts, in summer and in the fall'
 DEMP='Dempsey, “Blackfoot”, Handbook of North American Indians 13 (2001), p. 609 (from Doty 1855 and Crooked Meat Strings): from late October the bands wintered along wooded river bottoms; in spring they scattered onto the prairies; in early summer they gathered in tribal camps on the eastern range, particularly near the Cypress Hills, and held the Medicine Lodge in August.'
+EW='Ewers, The Horse in Blackfoot Indian Culture (BAE Bulletin 159, 1955)'
+HEN='Henday’s journal, 1754–55, in Burpee, ed., “York Factory to the Blackfeet Country” (1907), pp. 337–51'
+COC='Cocking’s journal, 1772–73, in Burpee, ed., “An Adventurer from Hudson Bay” (1908)'
+TIPS='Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916 (1966; repr. 1995)'
+ARCH=('pts',(51.4,-113.3),(52.0,-106.8))
+ARCHSRC=HEN+': in Oct. 1754 the Archithinue camp near Knee Hills Creek moved west for the winter, its leader saying they would come down “in the Spring… after the Buffalo”; in May 1755 they were on the lower South Saskatchewan trading with the Cree canoe brigades; '+COC+', p. 110: the Equestrian Indians “live… to the S.W. Westerly: draw towards the N.E. in March to meet our Natives”. Which Blackfoot division, or the Gros Ventre, Henday met is not certain'
+TRADERS=COC+', pp. 101–17: the families wait at the Saskatchewan rendezvous in August, move southwest into the plains to winter, trapping wolves and pounding buffalo, and build canoes in spring to go down to the Bay; '+HEN+' (the same round, wintering farther west)'
+NCOM=TIPS+', vol. 5 (Neighbors, July 1855: “All the Northern Comanches bands, are now north near the Arkansas river with their families”; Ford, Feb. 1859: the main camps on the head-waters of the Red and Arkansas, feeding their horses on cottonwood)'
 SEASPRI={
  'ass':[(1700,1880,('vec',200,90),RAY+': wintered in the parkland and wooded valleys, summered on the open grassland to the south and west')],
- 'asn':[(1700,1880,('vec',200,90),RAY)],
+ 'asn':[(1700,1800,('pts',(52.3,-108.3),(53.2,-104.8)),TRADERS),(1800,1880,('vec',200,90),RAY)],
  'cre':[(1750,1810,('vec',20,90),MILLOY),(1810,1880,('vec',200,90),RAY)],
- 'crw':[(1750,1810,('vec',20,90),MILLOY),(1810,1880,('vec',190,90),RAY+'; Milloy, The Plains Cree (1988)')],
+ 'crw':[(1750,1805,('pts',(52.3,-108.3),(53.2,-104.8)),TRADERS+'; '+MILLOY),(1805,1880,('vec',190,90),RAY+'; Milloy, The Plains Cree (1988)')],
  'crs':[(1790,1880,('vec',190,80),'Milloy, The Plains Cree (1988): the Cypress Hills as a wooded winter refuge with summer hunts onto the grassland')],
  'ojb':[(1780,1820,('vec',45,80),OJB1),(1820,1880,('vec',225,90),'Ross, The Red River Settlement (1856): the summer hunts went southwest from Pembina onto the Coteau; winters in the Pembina and Turtle Mountain timber; '+OJB2)],
- 'sik':[(1700,1800,('vec',90,70),EWERS),(1800,1880,('pts',(50.73,-112.95),(49.62,-110.0)),DEMP+' The Blackfoot chose their reserve at the Blackfoot Crossing of the Bow, a favorite wintering place.')],
- 'kai':[(1700,1880,('vec',90,70),EWERS+'. Dempsey (Handbook 13, p. 609) names the Belly–St. Mary confluence as a wintering ground and the Cypress Hills as the summer range, but a pattern built on those two places predicts the Blood’s dated places worse than this one.')],
- 'pik':[(1700,1880,('vec',90,70),EWERS+'. A pattern built on Dempsey’s wintering grounds (Marias and Milk valleys) and the Cypress Hills predicts the Piegan’s dated places worse than this one; their dated summer camps lie on the Missouri and the Marias.')],
+ 'sik':[(1700,1790,ARCH,ARCHSRC),(1800,1880,('pts',(50.73,-112.95),(49.62,-110.0)),DEMP+' The Blackfoot chose their reserve at the Blackfoot Crossing of the Bow, a favorite wintering place.')],
+ 'kai':[(1700,1790,ARCH,ARCHSRC)],   # after 1790 no sourced summer ground: Ewers (p. 126) gives only winters “on the Marias or on Belly River”
+ 'pik':[(1700,1790,ARCH,ARCHSRC),(1800,1847,('pts',(47.6,-111.9),(48.9,-111.5)),EW+', p. 126: about 1833 the Piegan wintered on the Sun and Teton rivers (Culbertson via Bradley); the summer ground is taken from the later period (the Sweetgrass Hills, p. 128), a pairing that is ours'),(1848,1880,('pts',(48.38,-111.75),(48.92,-111.5)),EW+', pp. 41, 125, 128: from about 1848 to 1880 the Piegan bands wintered in the Marias valley from the Cut Bank–Two Medicine junction to the big bend; the Sweetgrass Hills were a favourite Sun Dance ground, in August')],
+ 'gv':[(1750,1800,('pts',(51.9,-109.0),(53.0,-105.5)),COC+', pp. 109–11: 28 tents of Water-fall Indians at a buffalo pound southwest of the Eagle Hills in December 1772, the Equestrian Indians drawing “towards the N.E. in March” to trade')],
+ 'sar':[(1800,1880,('vec',135,50),'Jenness, The Sarcee Indians of Alberta (1938), pp. 11–12: in winter family groups camped “along the edge of the woods”; in early spring out onto the prairies; the tribe united in August. No places are named: the direction (summer southeast of the winter ground) and the distance are ours')],
  'cwr':[(1700,1880,('vec',45,100),'Hoxie, Parading through History (1995): River Crow wintered on the Yellowstone and Musselshell, traded at the Missouri villages in summer')],
  'cwm':[(1700,1880,('vec',30,70),'Hoxie (1995): Mountain Crow wintered in the Wind River, Bighorn and upper Yellowstone valleys, hunted out onto the plains in summer')],
  'sho':[(1820,1845,('pts',(43.0,-108.8),(42.9,-110.1)),'Stamm, People of the Wind River (1999): winters in the Wind River valley; summers in the Green River valley, where the rendezvous of 1825–40 were held')],
  'chs':[(1832,1870,('pts',(38.05,-102.6),(39.3,-101.8)),WEST+': winter at the Big Timbers of the Arkansas, summer hunts between the Arkansas and the Smoky Hill; '+'Wedel and Frison, “Environment and Subsistence”, Handbook of North American Indians 13 (2001), p. 56 (after Wedel 1963): the Big Timbers of the Arkansas a regular wintering ground of the Cheyenne, Arapaho and Kiowa')],
  'ars':[(1835,1870,('pts',(38.05,-102.6),(39.3,-101.8)),WEST+'; '+'Wedel and Frison, “Environment and Subsistence”, Handbook of North American Indians 13 (2001), p. 56 (after Wedel 1963): the Big Timbers of the Arkansas a regular wintering ground of the Cheyenne, Arapaho and Kiowa')],
- 'cyy':[(1750,1875,('vec',340,70),HAM+': winter in sheltered, wooded river valleys; summer hunting and trading out on the high plains')],
- 'cyk':[(1750,1875,('vec',340,70),HAM)],
- 'cyp':[(1750,1875,('vec',340,70),HAM)],
- 'cyn':[(1830,1875,('vec',340,70),HAM)],
- 'cyq':[(1835,1875,('vec',340,70),HAM)],
+ 'cyy':[(1750,1849,('vec',340,70),HAM),(1850,1870,('pts',(35.3,-101.0),(37.5,-99.5)),NCOM)],
+ 'cyk':[(1750,1849,('vec',340,70),HAM),(1850,1870,('pts',(35.3,-101.0),(37.5,-99.5)),NCOM)],
+ 'cyp':[(1750,1839,('vec',340,70),HAM),(1840,1859,('pts',(32.9,-99.4),(35.0,-98.9)),TIPS+', vol. 3, doc. 87 (Neighbors, 1849: in winter they “seek shelter… in the upper cross timbers of Texas, between the head waters of the Colorado River and the Wichita Mountains”) and doc. 125 (Marcy and Neighbors, 1854: “their old wintering grounds upon the Clear Fork of the Brazos”); the summer ground from the dated camps toward the Red River and the Salt Plains, 1843–45 (ours)')],
+ 'cyn':[(1830,1849,('vec',340,70),HAM),(1850,1870,('pts',(35.3,-101.0),(37.5,-99.5)),NCOM)],
+ 'cyq':[(1835,1849,('vec',340,70),HAM),(1850,1870,('pts',(35.3,-101.0),(37.5,-99.5)),NCOM)],
  'ynk':[(1750,1860,('vec',90,80),'Tabeau’s Narrative (ed. Abel, 1939); Lewis & Clark: summer trade fair on the James River (the “Dakota rendezvous”), winters in the Missouri timber')],
  'yku':[(1750,1870,('vec',90,80),'as for the Yankton (Tabeau)')],
  'ykl':[(1750,1870,('vec',90,80),'as for the Yankton (Tabeau)')],
