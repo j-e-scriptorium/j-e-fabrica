@@ -32,7 +32,7 @@ The page loads its data with plain `<script>` tags, so it runs from `file://`; o
 
 | File | One row per |
 |---|---|
-| `records.csv` (2,336) | Documented record: a count, a place, or both, with the source's words, the source and locator, a provenance tier, judgment flags, whether it steers the track, and the fitted and held-out values at that point. |
+| `records.csv` (2,341) | Documented record: a count, a place, or both, with the source's words, the source and locator, a provenance tier, judgment flags, whether it steers the track, and the fitted and held-out values at that point. |
 | `sources.csv` | Source, with records drawn from it, tier and peoples covered. |
 | `keyframes_our_guesses.csv` (519) | Our own guess. **Never data.** 250 carry no note; their basis is interpolation between neighbouring documented states. |
 | `epidemics_and_shocks.csv` | Epidemic or famine × division: dates, mortality applied, whether the fraction is sourced, scaled or assumed. |
@@ -60,7 +60,7 @@ Each record is tiered by how its text reached the project, not by the quality of
 
 ## Reliability
 
-1. **Population, held out.** Each of 1,076 division counts withheld in turn and predicted: median miss a factor of 1.11 (1.08 for plain interpolation between the neighbouring counts). By period: 1.39 for 1700–99 (interpolation 1.64), 1.34 for 1800–39 (1.38), 1.18 for 1840–69 (1.14), 1.06 for 1870–1905 (1.04). The model earns its keep where counts are sparse; once the Indian Office counts come year by year, interpolating between them does as well or slightly better. 91% fall inside the 2-sd range before the 25% widening shown on the map.
+1. **Population, held out.** Each of 1,077 division counts withheld in turn and predicted: median miss a factor of 1.11 (1.08 for plain interpolation between the neighbouring counts). By period: 1.39 for 1700–99 (interpolation 1.64), 1.35 for 1800–39 (1.38), 1.18 for 1840–69 (1.14), 1.06 for 1870–1905 (1.04). The model earns its keep where counts are sparse; once the Indian Office counts come year by year, interpolating between them does as well or slightly better. 91% fall inside the 2-sd range before the 25% widening shown on the map.
 2. **Place, held out.** 514 nomadic places, each withheld together with every other place within half a year, settings tuned on half the divisions and scored on the other half: the estimated centre misses by a median 107 km and a mean 137 (111 and 143 without our keyframes), against 114 and 146 for a track drawn through every record. Season-dated places are scored against the prediction for their date, ranges and agencies against the year's centre. The range halo holds 68% of withheld places in each season. Village divisions with dated moves: a median 7 km and a mean 42 km over 207 places (`model/src/calib_gp.py`, `calib_vmove.py`).
 3. **Seasonal round.** On the 297 season-dated places among them, the seasonal component lowers the median miss from 109 to 106 km (mean 144 to 139). The gain is small because each season's ground moved from year to year almost as far as the seasons were apart: the Kiowa summer ground lies a median 155 km from the next winter camp but 140 km from the summer before (`METHODS.md` §3).
 4. **Most influential assumption.** Epidemic mortality: scaling every fraction by 0.75 or 1.25 moves the 1780 total from 156,000 to 137,000 or 188,000.

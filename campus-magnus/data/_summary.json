@@ -2,10 +2,10 @@
  "tiers": {
   "A2": 622,
   "B": 134,
-  "A1": 1562,
+  "A1": 1564,
   "C": 21
  },
- "records": 2339,
+ "records": 2341,
  "keyframes": 519,
  "epidemic_rows": 236,
  "keyframes_without_note": 250,
@@ -16,8 +16,8 @@
   "marker only (defers to records)": 5
  },
  "counts": 1469,
- "places_only": 870,
- "steer": 795,
+ "places_only": 872,
+ "steer": 797,
  "with_locator": 1864,
  "flags": {
   "place_placed_by_us": 1262,
