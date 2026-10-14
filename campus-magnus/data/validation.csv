@@ -1,0 +1,1072 @@
+division_id,division,year,documented_persons,predicted_without_it,standardized_miss_before_widening
+bru,Brulé (Sičháŋǧu),1805,1022.367550997917,1769,-1.41
+bru,Brulé (Sičháŋǧu),1833,2700.5347768211727,2699,0.0
+bru,Brulé (Sičháŋǧu),1874,7000.0,4917,2.34
+bru,Brulé (Sičháŋǧu),1904,5223.713222556574,5924,-0.54
+bru,Brulé (Sičháŋǧu),1820,1312.0065559909194,2291,-1.65
+bru,Brulé (Sičháŋǧu),1856,3335.3592571624663,3652,-0.27
+bru,Brulé (Sičháŋǧu),1890.42,6012.0,5766,0.22
+ogl,Oglala,1805,399.0748599980273,1327,-3.08
+ogl,Oglala,1833,1610.0446059733438,1845,-0.4
+ogl,Oglala,1904,6454.274064026864,6080,0.29
+ogl,Oglala,1856,2504.6653556491465,2597,-0.11
+ogl,Oglala,1890.42,5016.0,5120,-0.13
+ogl,Oglala,1866,2041.0704536106134,3755,-1.96
+ogl,Oglala,1867,2922.1940200683994,3837,-0.88
+ogl,Oglala,1868,3000.0,4325,-2.15
+ogl,Oglala,1871,6000.0,4505,1.71
+ogl,Oglala,1873,6320.0,5061,1.33
+ogl,Oglala,1878,6035.0,6378,-0.34
+ogl,Oglala,1880,7200.0,6469,0.66
+ogl,Oglala,1881,7758.0,6452,1.15
+ogl,Oglala,1882,8117.0,6375,1.51
+ogl,Oglala,1883,7800.0,6264,1.38
+ogl,Oglala,1884,7800.0,6033,1.62
+ogl,Oglala,1885,7155.0,5807,1.31
+ogl,Oglala,1886,4159.0,5896,-2.19
+ogl,Oglala,1887,4197.0,5627,-1.84
+ogl,Oglala,1888,4549.0,5380,-1.05
+ogl,Oglala,1889,4552.0,5261,-0.9
+ogl,Oglala,1892,4493.0,5257,-0.95
+ogl,Oglala,1896,5470.0,5456,0.02
+ogl,Oglala,1899,6452.0,5562,0.84
+min,Miniconjou,1805,857.3019807085027,1284,-1.03
+min,Miniconjou,1833,1394.342785158962,1607,-0.4
+min,Miniconjou,1850,2064.526435724888,1446,1.06
+min,Miniconjou,1856,1526.6590396899974,1648,-0.23
+min,Miniconjou,1863,1212.648263371355,1880,-1.39
+min,Miniconjou,1868,3060.0,1629,3.53
+min,Miniconjou,1861,1246.535335781194,1803,-1.16
+min,Miniconjou,1862,1246.3958463141448,1836,-1.22
+min,Miniconjou,1864,2169.373472565774,1821,0.56
+min,Miniconjou,1867,2937.2161957961216,1891,1.41
+min,Miniconjou,1874,1655.0,1749,-0.31
+min,Miniconjou,1881,1290.0,1451,-0.72
+min,Miniconjou,1882,1399.0,1394,0.02
+min,Miniconjou,1883,1423.0,1361,0.28
+min,Miniconjou,1884,1382.0,1341,0.19
+min,Miniconjou,1885,1221.0,1345,-0.6
+min,Miniconjou,1886,1221.0,1332,-0.53
+min,Miniconjou,1887,1212.0,1328,-0.55
+hnk,Hunkpapa,1833,764.4594011579792,1580,-2.12
+hnk,Hunkpapa,1850,2464.4358277710207,1712,1.09
+hnk,Hunkpapa,1855,2810.074234424525,2014,1.02
+hnk,Hunkpapa,1868,3000.0,2203,1.81
+hnk,Hunkpapa,1890.42,1739.0,1683,0.2
+hnk,Hunkpapa,1861,2620.507678768662,2358,0.33
+hnk,Hunkpapa,1862,2620.381091686595,2392,0.29
+hnk,Hunkpapa,1863,2620.278756376123,2417,0.26
+hnk,Hunkpapa,1866,3526.943598261653,2372,1.28
+hnk,Hunkpapa,1867,2935.4717123157675,2376,0.68
+hnk,Hunkpapa,1871,1700.0,2297,-1.81
+hnk,Hunkpapa,1873,1502.0,2211,-2.35
+hnk,Hunkpapa,1874,2976.0,1885,2.78
+hnk,Hunkpapa,1875,2100.0,1965,0.4
+hnk,Hunkpapa,1881,1224.0,1851,-2.55
+hnk,Hunkpapa,1882,1519.0,1770,-0.95
+hnk,Hunkpapa,1883,1829.0,1726,0.36
+hnk,Hunkpapa,1884,1976.0,1715,0.89
+hnk,Hunkpapa,1885,1805.0,1740,0.23
+hnk,Hunkpapa,1886,1905.0,1727,0.62
+hnk,Hunkpapa,1887,1736.0,1741,-0.02
+hnk,Hunkpapa,1888,1808.0,1720,0.31
+hnk,Hunkpapa,1889,1738.0,1713,0.09
+hnk,Hunkpapa,1892,1496.0,1721,-0.82
+sih,Sihasapa (Blackfeet Lakota),1833,1210.0922887457987,970,0.61
+sih,Sihasapa (Blackfeet Lakota),1856,1112.6347187978215,1246,-0.35
+sih,Sihasapa (Blackfeet Lakota),1868,1200.0,1227,-0.13
+sih,Sihasapa (Blackfeet Lakota),1861,1219.4480741281154,1298,-0.2
+sih,Sihasapa (Blackfeet Lakota),1862,2039.2233164233362,1226,1.6
+sih,Sihasapa (Blackfeet Lakota),1863,2039.2441166245562,1229,1.6
+sih,Sihasapa (Blackfeet Lakota),1867,1172.0363911568509,1243,-0.19
+sih,Sihasapa (Blackfeet Lakota),1871,1150.0,1169,-0.1
+sih,Sihasapa (Blackfeet Lakota),1873,847.0,1187,-2.07
+sih,Sihasapa (Blackfeet Lakota),1874,1571.0,1041,2.54
+sih,Sihasapa (Blackfeet Lakota),1875,1749.0,995,3.49
+sih,Sihasapa (Blackfeet Lakota),1877,562.0,1095,-4.14
+sih,Sihasapa (Blackfeet Lakota),1878,813.0,1002,-1.3
+sih,Sihasapa (Blackfeet Lakota),1880,959.0,933,0.17
+sih,Sihasapa (Blackfeet Lakota),1881,1094.0,896,1.26
+sih,Sihasapa (Blackfeet Lakota),1882,928.0,888,0.28
+sih,Sihasapa (Blackfeet Lakota),1883,936.0,856,0.56
+sih,Sihasapa (Blackfeet Lakota),1884,878.0,829,0.36
+sih,Sihasapa (Blackfeet Lakota),1885,872.0,792,0.6
+sih,Sihasapa (Blackfeet Lakota),1886,812.0,761,0.41
+sih,Sihasapa (Blackfeet Lakota),1887,783.0,727,0.46
+sih,Sihasapa (Blackfeet Lakota),1888,542.0,730,-1.86
+sih,Sihasapa (Blackfeet Lakota),1889,545.0,704,-1.59
+sih,Sihasapa (Blackfeet Lakota),1891,602.0,664,-0.59
+sih,Sihasapa (Blackfeet Lakota),1892,609.0,656,-0.44
+sna,Itazipčho (Sans Arc),1833,537.3305737788912,653,-0.54
+sna,Itazipčho (Sans Arc),1856,1187.2444431215647,715,1.52
+sna,Itazipčho (Sans Arc),1868,720.0,848,-0.89
+sna,Itazipčho (Sans Arc),1867,731.9017116583288,810,-0.32
+sna,Itazipčho (Sans Arc),1871,1100.0,706,2.5
+sna,Itazipčho (Sans Arc),1877,512.0,833,-2.86
+sna,Itazipčho (Sans Arc),1881,870.0,738,1.01
+sna,Itazipčho (Sans Arc),1882,776.0,756,0.16
+sna,Itazipčho (Sans Arc),1883,771.0,757,0.11
+sna,Itazipčho (Sans Arc),1884,788.0,754,0.27
+sna,Itazipčho (Sans Arc),1885,736.0,760,-0.2
+sna,Itazipčho (Sans Arc),1886,735.0,758,-0.19
+sna,Itazipčho (Sans Arc),1887,730.0,758,-0.23
+twk,Oohenunpa (Two Kettle),1833,540.1250867552714,571,-0.15
+twk,Oohenunpa (Two Kettle),1856,695.68896910642,737,-0.18
+twk,Oohenunpa (Two Kettle),1868,750.0,855,-0.73
+twk,Oohenunpa (Two Kettle),1861,939.0445017321917,769,0.63
+twk,Oohenunpa (Two Kettle),1862,938.970974945288,779,0.59
+twk,Oohenunpa (Two Kettle),1863,938.8983086233694,787,0.56
+twk,Oohenunpa (Two Kettle),1864,761.7376406195289,808,-0.19
+twk,Oohenunpa (Two Kettle),1867,732.0202418005617,824,-0.38
+twk,Oohenunpa (Two Kettle),1874,1100.0,787,1.92
+twk,Oohenunpa (Two Kettle),1878,917.0,799,0.83
+twk,Oohenunpa (Two Kettle),1880,680.0,809,-1.07
+twk,Oohenunpa (Two Kettle),1881,759.0,777,-0.14
+twk,Oohenunpa (Two Kettle),1882,774.0,760,0.12
+twk,Oohenunpa (Two Kettle),1883,783.0,744,0.32
+twk,Oohenunpa (Two Kettle),1884,750.0,735,0.13
+twk,Oohenunpa (Two Kettle),1885,740.0,723,0.14
+twk,Oohenunpa (Two Kettle),1886,647.0,728,-0.73
+twk,Oohenunpa (Two Kettle),1887,642.0,723,-0.72
+ynk,Yankton,1805,800.8843960425731,1483,-1.58
+ynk,Yankton,1833,1608.927442573028,1785,-0.3
+ynk,Yankton,1904,1634.7984101277943,1761,-0.37
+ynk,Yankton,1820,876.1724449042779,1633,-1.81
+ynk,Yankton,1823,1743.2750196578688,1417,0.6
+ynk,Yankton,1849,2791.320375042894,1861,1.19
+ynk,Yankton,1856,2509.412689158446,2080,0.58
+ynk,Yankton,1868,2500.0,2120,0.99
+ynk,Yankton,1859.55,1738.1117921155771,2225,-0.77
+ynk,Yankton,1890.42,1725.0,1771,-0.16
+ynk,Yankton,1862,2053.204572526167,2199,-0.22
+ynk,Yankton,1864,2472.1506153460664,2179,0.4
+ynk,Yankton,1867,2442.9172095071235,2185,0.36
+ynk,Yankton,1869,2500.0,2104,1.05
+ynk,Yankton,1870,1886.0,2180,-0.89
+ynk,Yankton,1871,1947.0,2135,-0.57
+ynk,Yankton,1873,1947.0,2086,-0.43
+ynk,Yankton,1874,2000.0,2062,-0.19
+ynk,Yankton,1875,2000.0,2051,-0.16
+ynk,Yankton,1876,1992.0,2043,-0.16
+ynk,Yankton,1877,2182.0,2009,0.52
+ynk,Yankton,1878,2112.0,2006,0.32
+ynk,Yankton,1880,2019.0,1980,0.12
+ynk,Yankton,1881,1998.0,1959,0.12
+ynk,Yankton,1882,1977.0,1935,0.14
+ynk,Yankton,1883,1950.0,1908,0.14
+ynk,Yankton,1884,1950.0,1878,0.24
+ynk,Yankton,1885,1726.0,1877,-0.53
+ynk,Yankton,1886,1776.0,1843,-0.23
+ynk,Yankton,1887,1777.0,1820,-0.15
+ynk,Yankton,1888,1837.0,1793,0.15
+ynk,Yankton,1889,1760.0,1786,-0.09
+ynk,Yankton,1892,1715.0,1756,-0.15
+ynk,Yankton,1894,1738.0,1739,-0.0
+ynk,Yankton,1895,1735.0,1734,0.0
+ynk,Yankton,1896,1757.0,1725,0.11
+ynk,Yankton,1897,1728.0,1725,0.01
+ynk,Yankton,1899,1701.0,1723,-0.08
+yku,Upper Yanktonai & Cuthead,1833,1316.7174831037105,2127,-1.33
+yku,Upper Yanktonai & Cuthead,1868,2400.0,2181,0.47
+ykl,Hunkpatina (Lower Yanktonai),1866,2008.5059993793884,1866,0.23
+ykl,Hunkpatina (Lower Yanktonai),1905,957.2886157511624,1036,-0.47
+ykl,Hunkpatina (Lower Yanktonai),1886,939.0,1366,-2.26
+ykl,Hunkpatina (Lower Yanktonai),1904,985.34306716787,996,-0.06
+ykl,Hunkpatina (Lower Yanktonai),1868,2250.0,1518,1.89
+mde,Mdewakanton,1805,3954.375590672864,1640,2.14
+mde,Mdewakanton,1820,1491.7514662672602,1790,-0.52
+mde,Mdewakanton,1823,1303.5009698242966,1841,-0.98
+mde,Mdewakanton,1810,1739.513817459681,1987,-0.27
+mde,Mdewakanton,1850,1962.9764888148668,1543,0.71
+wpk,Wahpekute,1805,1003.7373016686822,559,1.4
+wpk,Wahpekute,1823,696.737557243421,569,0.54
+wpk,Wahpekute,1849,697.5754438592327,424,1.45
+wpk,Wahpekute,1810,521.8121026440831,679,-0.53
+wpt,Wahpeton,1805,2092.537512756915,962,1.86
+wpt,Wahpeton,1823,781.6516340711692,1223,-1.19
+wpt,Wahpeton,1849,1306.7655522681891,936,0.98
+wpt,Wahpeton,1810,1305.0342720270726,1143,0.27
+sis,Sisseton,1805,3495.822923558705,1750,1.77
+sis,Sisseton,1820,1740.9301463501074,2120,-0.57
+sis,Sisseton,1823,2177.1788321980594,2008,0.23
+sis,Sisseton,1849,3321.6150380693553,1853,1.72
+sis,Sisseton,1810,2175.40605719976,1999,0.18
+ass,Southern (Missouri) Assiniboine,1805,1803.602154225885,4037,-2.05
+ass,Southern (Missouri) Assiniboine,1837,7228.64817051164,6104,0.51
+ass,Southern (Missouri) Assiniboine,1839,2607.0142716562486,2578,0.03
+ass,Southern (Missouri) Assiniboine,1854,2661.6551652098437,2902,-0.27
+ass,Southern (Missouri) Assiniboine,1873.45,4539.0,2524,3.5
+ass,Southern (Missouri) Assiniboine,1885,2372.0,1905,1.37
+ass,Southern (Missouri) Assiniboine,1895,1479.0,1472,0.03
+ass,Southern (Missouri) Assiniboine,1905,1262.0,1362,-0.39
+ass,Southern (Missouri) Assiniboine,1890.42,1673.0,1631,0.16
+ass,Southern (Missouri) Assiniboine,1855,3284.84644303739,2813,0.48
+ass,Southern (Missouri) Assiniboine,1861,2812.2018913414104,2917,-0.12
+ass,Southern (Missouri) Assiniboine,1862,3205.449162511577,2877,0.34
+ass,Southern (Missouri) Assiniboine,1863,3205.3682991360306,2875,0.35
+ass,Southern (Missouri) Assiniboine,1864,3205.289126465265,2869,0.35
+ass,Southern (Missouri) Assiniboine,1866,2575.8505822022344,2902,-0.38
+ass,Southern (Missouri) Assiniboine,1867,2575.730388897485,2895,-0.38
+ass,Southern (Missouri) Assiniboine,1868,2640.0,2957,-0.65
+ass,Southern (Missouri) Assiniboine,1875,3500.0,2590,1.82
+ass,Southern (Missouri) Assiniboine,1877,1719.0,2742,-2.85
+ass,Southern (Missouri) Assiniboine,1878,2499.0,2455,0.11
+ass,Southern (Missouri) Assiniboine,1880,2365.0,2302,0.17
+ass,Southern (Missouri) Assiniboine,1882,2150.0,2173,-0.07
+ass,Southern (Missouri) Assiniboine,1883,2125.0,2097,0.08
+ass,Southern (Missouri) Assiniboine,1884,2195.0,2007,0.56
+ass,Southern (Missouri) Assiniboine,1886,1688.0,1909,-0.77
+ass,Southern (Missouri) Assiniboine,1887,1643.0,1836,-0.7
+ass,Southern (Missouri) Assiniboine,1888,1543.0,1783,-0.9
+ass,Southern (Missouri) Assiniboine,1892,1560.0,1575,-0.06
+ass,Southern (Missouri) Assiniboine,1894,1492.0,1505,-0.05
+ass,Southern (Missouri) Assiniboine,1896,1386.0,1455,-0.3
+ass,Southern (Missouri) Assiniboine,1897,1413.0,1423,-0.04
+ass,Southern (Missouri) Assiniboine,1898,1376.0,1406,-0.13
+ass,Southern (Missouri) Assiniboine,1899,1323.0,1398,-0.33
+asn,Northern (Saskatchewan) Assiniboine,1805,1868.6990684255647,2517,-0.75
+asn,Northern (Saskatchewan) Assiniboine,1854,1313.4014937848322,1906,-1.06
+cre,Qu’Appelle–Touchwood Cree,1805,1161.0051037287894,1618,-0.8
+crw,Fort des Prairies Cree,1856,583.8233548257456,1070,-1.57
+crs,Cypress Hills–Wood Mountain Cree,1856,2811.0013380498863,1996,0.95
+ojb,Pembina–Turtle Mountain,1805,406.3517863050763,613,-0.96
+ojb,Pembina–Turtle Mountain,1890.42,1458.0,1531,-0.18
+sik,Siksika,1789,3015.512180722119,2230,0.84
+sik,Siksika,1853,2452.443004194554,2184,0.34
+sik,Siksika,1858,1611.0202525097245,2658,-1.54
+sik,Siksika,1809.5,4617.750708699487,3063,1.19
+sik,Siksika,1823,3653.4639653712834,3751,-0.08
+sik,Siksika,1859,2087.606172244749,2362,-0.38
+sik,Siksika,1872,3135.028618236418,2039,2.55
+sik,Siksika,1885,2086.9343403615476,1966,0.28
+sik,Siksika,1864,2390.5161324081046,2802,-0.5
+sik,Siksika,1866,4803.400622543393,2678,1.87
+sik,Siksika,1867,2389.2919492139117,2933,-0.66
+sik,Siksika,1868,2980.0,2967,0.03
+sik,Siksika,1873,3000.0,2054,2.24
+sik,Siksika,1874,1500.0,2475,-2.93
+kai,Kainai (Blood),1789,747.2237656789368,1506,-1.8
+kai,Kainai (Blood),1853,3631.370716491849,1923,1.89
+kai,Kainai (Blood),1858,3519.311523425209,2276,1.35
+kai,Kainai (Blood),1809.5,1495.6139036532636,2196,-1.11
+kai,Kainai (Blood),1823,2439.530929909227,2024,0.53
+kai,Kainai (Blood),1859,1737.812430736247,2306,-0.88
+kai,Kainai (Blood),1872,2196.561257962901,1714,1.47
+kai,Kainai (Blood),1885,2444.9943305823826,1782,1.44
+kai,Kainai (Blood),1861,2344.7316759277805,2309,0.05
+kai,Kainai (Blood),1864,2097.861203744568,2480,-0.53
+kai,Kainai (Blood),1866,4216.349845291331,2293,1.95
+kai,Kainai (Blood),1867,2097.520567997624,2460,-0.51
+kai,Kainai (Blood),1868,2380.0,2495,-0.27
+kai,Kainai (Blood),1873,1750.0,1838,-0.29
+kai,Kainai (Blood),1874,1500.0,1952,-1.54
+pik,Piikani (Piegan),1789,5278.367387376578,4141,0.62
+pik,Piikani (Piegan),1853,3619.356404005804,2977,0.58
+pik,Piikani (Piegan),1858,5462.455268224905,3101,1.75
+pik,Piikani (Piegan),1883.7,1378.9796502937752,2977,-5.29
+pik,Piikani (Piegan),1809.5,5828.895054256848,5593,0.12
+pik,Piikani (Piegan),1823,3650.663514083468,4891,-0.84
+pik,Piikani (Piegan),1859,2257.9860613242963,3211,-1.1
+pik,Piikani (Piegan),1872,3674.1039351312415,2511,2.27
+pik,Piikani (Piegan),1885,2715.4941670764315,2048,1.61
+pik,Piikani (Piegan),1861,3614.749710374925,3122,0.46
+pik,Piikani (Piegan),1864,1817.1455860215701,3559,-2.14
+pik,Piikani (Piegan),1866,3651.539060025669,3327,0.3
+pik,Piikani (Piegan),1867,1835.969428827582,3599,-2.17
+pik,Piikani (Piegan),1868,4200.0,3351,1.31
+pik,Piikani (Piegan),1873,2750.0,2725,0.05
+pik,Piikani (Piegan),1874,2450.0,2836,-0.87
+gv,"A’aninin (Gros Ventre, Fall Indians)",1805,5731.055607814384,2111,2.57
+gv,"A’aninin (Gros Ventre, Fall Indians)",1789,2301.3297380103995,2173,0.16
+gv,"A’aninin (Gros Ventre, Fall Indians)",1833,1318.732678571352,3080,-2.48
+gv,"A’aninin (Gros Ventre, Fall Indians)",1853,3658.969271387095,2290,1.42
+gv,"A’aninin (Gros Ventre, Fall Indians)",1904,504.72741872722696,616,-1.14
+gv,"A’aninin (Gros Ventre, Fall Indians)",1882,950.0,964,-0.13
+gv,"A’aninin (Gros Ventre, Fall Indians)",1780,3135.7979837367825,4883,-0.88
+gv,"A’aninin (Gros Ventre, Fall Indians)",1809.5,1800.3842828224194,2937,-1.4
+gv,"A’aninin (Gros Ventre, Fall Indians)",1823,3669.7717953326423,2328,1.3
+gv,"A’aninin (Gros Ventre, Fall Indians)",1835,3933.9371084030104,2252,1.63
+gv,"A’aninin (Gros Ventre, Fall Indians)",1855,2585.418676761749,2404,0.16
+gv,"A’aninin (Gros Ventre, Fall Indians)",1860,2100.0,2099,0.0
+gv,"A’aninin (Gros Ventre, Fall Indians)",1879,1135.0,960,1.05
+gv,"A’aninin (Gros Ventre, Fall Indians)",1895,624.0,657,-0.32
+gv,"A’aninin (Gros Ventre, Fall Indians)",1890.42,770.0,774,-0.03
+gv,"A’aninin (Gros Ventre, Fall Indians)",1861,2050.0370754643077,2074,-0.04
+gv,"A’aninin (Gros Ventre, Fall Indians)",1864,1755.5410717139546,2008,-0.43
+gv,"A’aninin (Gros Ventre, Fall Indians)",1866,1461.3226795945368,1963,-0.95
+gv,"A’aninin (Gros Ventre, Fall Indians)",1867,1461.5237191906483,1920,-0.88
+gv,"A’aninin (Gros Ventre, Fall Indians)",1868,3000.0,1571,3.75
+gv,"A’aninin (Gros Ventre, Fall Indians)",1873,1100.0,1124,-0.13
+gv,"A’aninin (Gros Ventre, Fall Indians)",1874,1000.0,1090,-0.53
+gv,"A’aninin (Gros Ventre, Fall Indians)",1875,950.0,1055,-0.64
+gv,"A’aninin (Gros Ventre, Fall Indians)",1877,600.0,1071,-3.6
+gv,"A’aninin (Gros Ventre, Fall Indians)",1878,1000.0,981,0.12
+gv,"A’aninin (Gros Ventre, Fall Indians)",1880,1148.0,954,1.15
+gv,"A’aninin (Gros Ventre, Fall Indians)",1884,1150.0,908,1.48
+gv,"A’aninin (Gros Ventre, Fall Indians)",1885,852.0,924,-0.51
+gv,"A’aninin (Gros Ventre, Fall Indians)",1886,856.0,899,-0.31
+gv,"A’aninin (Gros Ventre, Fall Indians)",1887,904.0,866,0.27
+gv,"A’aninin (Gros Ventre, Fall Indians)",1888,964.0,827,0.95
+gv,"A’aninin (Gros Ventre, Fall Indians)",1892,718.0,729,-0.09
+gv,"A’aninin (Gros Ventre, Fall Indians)",1894,645.0,679,-0.32
+gv,"A’aninin (Gros Ventre, Fall Indians)",1896,596.0,639,-0.43
+gv,"A’aninin (Gros Ventre, Fall Indians)",1897,594.0,620,-0.26
+gv,"A’aninin (Gros Ventre, Fall Indians)",1898,574.0,607,-0.35
+gv,"A’aninin (Gros Ventre, Fall Indians)",1899,619.0,585,0.35
+chy,Cheyenne (before division),1805,1368.3643443583787,2684,-1.75
+chy,Cheyenne (before division),1822,3029.6960654287145,2781,0.25
+chy,Cheyenne (before division),1780,3772.685076822353,3352,0.24
+chy,Cheyenne (before division),1832.5,2694.9801505055457,3152,-0.45
+chn,Northern Cheyenne,1904,1341.3602960226185,1440,-0.36
+chn,Northern Cheyenne,1875,1727.0,1229,2.06
+chn,Northern Cheyenne,1900,1379.0,1397,-0.08
+chn,Northern Cheyenne,1890.42,1382.0,1305,0.36
+chn,Northern Cheyenne,1863,1759.71546045505,1549,0.4
+chn,Northern Cheyenne,1866,1759.682746815158,1553,0.4
+chn,Northern Cheyenne,1867,1759.7173651653363,1542,0.42
+chn,Northern Cheyenne,1868,1800.0,1445,1.24
+chn,Northern Cheyenne,1874,1202.0,1371,-0.79
+chn,Northern Cheyenne,1877,937.0,1307,-2.04
+chn,Northern Cheyenne,1886,1064.0,1269,-1.08
+chn,Northern Cheyenne,1887,1142.0,1272,-0.67
+chn,Northern Cheyenne,1888,1401.0,1255,0.69
+chn,Northern Cheyenne,1889,1424.0,1273,0.7
+chn,Northern Cheyenne,1892,1320.0,1337,-0.08
+chn,Northern Cheyenne,1894,1301.0,1365,-0.3
+chn,Northern Cheyenne,1895,1359.0,1368,-0.04
+chn,Northern Cheyenne,1896,1468.0,1363,0.46
+chn,Northern Cheyenne,1897,1379.0,1383,-0.02
+chn,Northern Cheyenne,1898,1405.0,1385,0.09
+chn,Northern Cheyenne,1899,1424.0,1386,0.17
+chs,Southern Cheyenne,1904,1804.7252314259983,2110,-0.77
+chs,Southern Cheyenne,1863,1564.4878060519795,1740,-0.34
+chs,Southern Cheyenne,1875,2055.0,2245,-0.54
+chs,Southern Cheyenne,1890,2272.0,2197,0.21
+chs,Southern Cheyenne,1900,2037.0,2014,0.07
+chs,Southern Cheyenne,1862,1560.8202229499575,1707,-0.28
+chs,Southern Cheyenne,1869,1950.0,1940,0.03
+chs,Southern Cheyenne,1873,2200.0,2109,0.26
+chs,Southern Cheyenne,1874,2250.0,2154,0.27
+chs,Southern Cheyenne,1877,2299.0,2316,-0.04
+chs,Southern Cheyenne,1884,3905.0,2307,3.26
+chs,Southern Cheyenne,1885,2282.0,2462,-0.47
+chs,Southern Cheyenne,1886,2217.0,2408,-0.52
+chs,Southern Cheyenne,1887,2058.0,2368,-0.88
+chs,Southern Cheyenne,1888,2096.0,2306,-0.6
+chs,Southern Cheyenne,1889,2229.0,2242,-0.04
+chs,Southern Cheyenne,1891,2132.0,2179,-0.14
+chs,Southern Cheyenne,1892,2119.0,2150,-0.09
+chs,Southern Cheyenne,1894,2056.0,2110,-0.16
+chs,Southern Cheyenne,1895,2046.0,2091,-0.14
+chs,Southern Cheyenne,1896,2063.0,2072,-0.03
+chs,Southern Cheyenne,1897,2089.0,2052,0.11
+chs,Southern Cheyenne,1898,2069.0,2040,0.09
+ara,Arapaho (before division),1805,2314.386941878711,2471,-0.15
+ara,Arapaho (before division),1780,3233.730065847731,3467,-0.13
+ara,Arapaho (before division),1835,3131.6744103049236,2740,0.36
+arn,Northern Arapaho,1860,1322.9419008548944,812,1.51
+arn,Northern Arapaho,1904,819.3721405084364,845,-0.15
+arn,Northern Arapaho,1878,938.0,1063,-0.77
+arn,Northern Arapaho,1861,563.9664248879576,907,-1.48
+arn,Northern Arapaho,1874,1092.0,1063,0.16
+arn,Northern Arapaho,1887,988.0,934,0.35
+arn,Northern Arapaho,1892,829.0,886,-0.41
+arn,Northern Arapaho,1872,1171.9611059985948,999,0.96
+arn,Northern Arapaho,1890.42,885.0,900,-0.1
+arn,Northern Arapaho,1863,702.0387299009911,880,-0.71
+arn,Northern Arapaho,1866,731.195315036459,900,-0.67
+arn,Northern Arapaho,1867,731.0703568430237,915,-0.72
+arn,Northern Arapaho,1868,750.0,986,-1.58
+arn,Northern Arapaho,1875,1565.0,1005,2.72
+arn,Northern Arapaho,1877,1198.0,1039,0.88
+arn,Northern Arapaho,1880,913.0,1028,-0.73
+arn,Northern Arapaho,1882,940.0,993,-0.34
+arn,Northern Arapaho,1883,952.0,979,-0.17
+arn,Northern Arapaho,1884,965.0,967,-0.01
+arn,Northern Arapaho,1885,971.0,957,0.09
+arn,Northern Arapaho,1886,950.0,950,-0.0
+arn,Northern Arapaho,1888,1008.0,918,0.58
+arn,Northern Arapaho,1894,838.0,861,-0.17
+arn,Northern Arapaho,1895,837.0,852,-0.11
+arn,Northern Arapaho,1896,856.0,842,0.11
+arn,Northern Arapaho,1897,815.0,842,-0.2
+arn,Northern Arapaho,1898,829.0,836,-0.05
+arn,Northern Arapaho,1899,806.0,839,-0.24
+ars,Southern Arapaho,1860,1412.80416209104,1252,0.38
+ars,Southern Arapaho,1904,841.7851473549183,1050,-1.01
+ars,Southern Arapaho,1861,1304.5510401644694,1264,0.1
+ars,Southern Arapaho,1869,946.4404135555156,1452,-2.6
+ars,Southern Arapaho,1872,1500.0,1493,0.03
+ars,Southern Arapaho,1874,1644.0,1604,0.16
+ars,Southern Arapaho,1887,1072.0,1419,-1.76
+ars,Southern Arapaho,1892,1091.0,1125,-0.19
+ars,Southern Arapaho,1862,1466.4455811860737,1254,0.5
+ars,Southern Arapaho,1873,1650.0,1537,0.44
+ars,Southern Arapaho,1875,1664.0,1666,-0.01
+ars,Southern Arapaho,1876,1703.0,1723,-0.07
+ars,Southern Arapaho,1877,1766.0,1773,-0.02
+ars,Southern Arapaho,1880,2132.0,1827,0.96
+ars,Southern Arapaho,1881,2258.0,1805,1.39
+ars,Southern Arapaho,1882,2314.0,1761,1.71
+ars,Southern Arapaho,1883,2310.0,1691,1.95
+ars,Southern Arapaho,1884,2366.0,1590,2.49
+ars,Southern Arapaho,1885,1327.0,1593,-1.15
+ars,Southern Arapaho,1886,1217.0,1496,-1.29
+ars,Southern Arapaho,1888,1106.0,1331,-1.16
+ars,Southern Arapaho,1889,1272.0,1239,0.16
+ars,Southern Arapaho,1891,1137.0,1157,-0.11
+ars,Southern Arapaho,1894,1020.0,1074,-0.32
+ars,Southern Arapaho,1895,1032.0,1048,-0.09
+ars,Southern Arapaho,1896,1005.0,1033,-0.16
+ars,Southern Arapaho,1898,1011.0,995,0.09
+cwm,Mountain Crow,1805,2707.293146991989,2439,0.27
+cwm,Mountain Crow,1855,1483.8491161125526,2277,-1.3
+cwm,Mountain Crow,1871,2605.8745864138405,2462,0.49
+cwm,Mountain Crow,1874,3000.0,2379,2.04
+cwm,Mountain Crow,1868,2500.0,2372,0.32
+cwm,Mountain Crow,1869,2000.0,2504,-1.39
+cwm,Mountain Crow,1870,2330.0,2477,-0.38
+cwm,Mountain Crow,1873,3000.0,2473,1.22
+cwm,Mountain Crow,1875,3000.0,2412,1.38
+cwm,Mountain Crow,1876,1500.0,2571,-3.38
+cwm,Mountain Crow,1877,2200.0,2410,-0.57
+cwm,Mountain Crow,1878,2100.0,2404,-0.84
+cwr,River Crow,1805,4177.717501691491,1808,2.12
+cwr,River Crow,1871,1317.000769274661,1623,-1.25
+cwr,River Crow,1874,1200.0,1419,-1.04
+cwr,River Crow,1868,2500.0,1473,3.01
+cwr,River Crow,1873,2440.0,1323,3.76
+cwr,River Crow,1875,1200.0,1345,-0.71
+cwr,River Crow,1876,1000.0,1320,-1.72
+cwr,River Crow,1877,1100.0,1253,-0.8
+cwr,River Crow,1878,1200.0,1198,0.01
+man,Mandan,1805,1451.4041104671853,1479,-0.05
+man,Mandan,1837,1509.9652115115916,2763,-1.86
+man,Mandan,1878,273.0,295,-0.68
+man,Mandan,1882,226.0,280,-1.34
+man,Mandan,1780,3768.905558093917,5452,-0.76
+man,Mandan,1850,143.39708296699322,272,-1.97
+man,Mandan,1852,371.62004329143497,251,1.21
+man,Mandan,1871,436.9357657996556,357,1.22
+man,Mandan,1885,402.68113969044566,266,2.61
+man,Mandan,1905,239.04554150929286,264,-0.48
+man,Mandan,1798.0,2830.418880089151,1851,1.23
+man,Mandan,1820.5,1092.0443084353203,2028,-1.74
+man,Mandan,1750,7829.186025762308,6593,0.34
+man,Mandan,1778,3826.209898737813,5512,-0.75
+man,Mandan,1782,1086.5600301581778,1775,-1.01
+man,Mandan,1838,130.11189110925687,191,-1.19
+man,Mandan,1712,6959.276467344274,7719,-0.2
+man,Mandan,1890.42,251.0,265,-0.33
+man,Mandan,1837.4,2841.0986848362218,733,4.17
+man,Mandan,1855,243.6914386771458,308,-0.72
+man,Mandan,1866,390.8891346655092,341,0.44
+man,Mandan,1867,390.82685921319603,352,0.34
+man,Mandan,1868,400.0,349,0.78
+man,Mandan,1873,479.0,340,2.11
+man,Mandan,1874,420.0,336,1.39
+man,Mandan,1875,420.0,320,1.69
+man,Mandan,1876,241.0,326,-1.9
+man,Mandan,1877,257.0,307,-1.12
+man,Mandan,1880,228.0,282,-1.34
+man,Mandan,1881,223.0,280,-1.43
+man,Mandan,1883,308.0,272,0.79
+man,Mandan,1884,311.0,273,0.81
+man,Mandan,1886,283.0,276,0.17
+man,Mandan,1887,286.0,272,0.31
+man,Mandan,1888,253.0,272,-0.46
+man,Mandan,1889,246.0,270,-0.57
+man,Mandan,1892,245.0,262,-0.42
+man,Mandan,1894,253.0,259,-0.15
+man,Mandan,1895,265.0,257,0.19
+man,Mandan,1896,262.0,257,0.12
+man,Mandan,1897,267.0,256,0.27
+man,Mandan,1898,253.0,258,-0.11
+hid,Hidatsa,1805,3220.5071209590446,1495,1.92
+hid,Hidatsa,1837,793.2847354773393,1453,-1.86
+hid,Hidatsa,1838,255.95088873532495,774,-3.4
+hid,Hidatsa,1878,365.0,480,-2.39
+hid,Hidatsa,1882,454.0,431,0.33
+hid,Hidatsa,1780,7082.69245957539,6126,0.29
+hid,Hidatsa,1905,452.55642097730345,488,-0.35
+hid,Hidatsa,1798.0,1613.1782288816269,2545,-1.24
+hid,Hidatsa,1820.5,3192.963161567774,1409,2.3
+hid,Hidatsa,1782,1739.7227104157064,2101,-0.37
+hid,Hidatsa,1837.4,1832.2659278153235,963,1.38
+hid,Hidatsa,1838.5,609.4901283573944,665,-0.19
+hid,Hidatsa,1712,7220.249334869684,4280,0.97
+hid,Hidatsa,1890.42,690.0,473,2.36
+hid,Hidatsa,1833.5,1305.9588361060676,1399,-0.15
+hid,Hidatsa,1861,783.3546670521043,528,1.21
+hid,Hidatsa,1866,390.0651589621053,501,-0.8
+hid,Hidatsa,1867,390.02636234092927,500,-0.79
+hid,Hidatsa,1868,400.0,531,-1.62
+hid,Hidatsa,1871,600.0,486,1.27
+hid,Hidatsa,1873,528.0,500,0.33
+hid,Hidatsa,1874,620.0,483,1.55
+hid,Hidatsa,1875,600.0,476,1.45
+hid,Hidatsa,1876,514.0,472,0.54
+hid,Hidatsa,1877,466.0,462,0.06
+hid,Hidatsa,1880,450.0,434,0.22
+hid,Hidatsa,1881,445.0,432,0.19
+hid,Hidatsa,1883,347.0,448,-1.6
+hid,Hidatsa,1884,347.0,455,-1.7
+hid,Hidatsa,1885,435.0,453,-0.26
+hid,Hidatsa,1886,522.0,456,0.85
+hid,Hidatsa,1887,502.0,470,0.41
+hid,Hidatsa,1888,540.0,476,0.78
+hid,Hidatsa,1889,495.0,490,0.06
+hid,Hidatsa,1892,453.0,501,-0.62
+hid,Hidatsa,1894,468.0,490,-0.29
+hid,Hidatsa,1895,481.0,484,-0.04
+hid,Hidatsa,1896,456.0,486,-0.38
+hid,Hidatsa,1897,469.0,480,-0.14
+kio,Kiowa,1805,799.4627939802092,1424,-1.53
+kio,Kiowa,1814,876.7182157053718,1620,-1.86
+kio,Kiowa,1820,976.0342945490745,986,-0.03
+kio,Kiowa,1828,926.3296720415626,1272,-0.97
+kio,Kiowa,1829,975.1910127674854,1308,-0.9
+kio,Kiowa,1836,1758.414363081061,1600,0.29
+kio,Kiowa,1846,1955.3155616742292,1664,0.5
+kio,Kiowa,1849,1464.0391422935372,1933,-0.86
+kio,Kiowa,1851,1465.2982335469774,1606,-0.29
+kio,Kiowa,1854,2743.1678601224276,1624,1.64
+kio,Kiowa,1865,1562.3408057455345,1662,-0.2
+kio,Kiowa,1867,1640.6606679676677,1670,-0.06
+kio,Kiowa,1869,1896.0,1613,0.97
+kio,Kiowa,1871,1776.0,1600,0.64
+kio,Kiowa,1874,1700.0,1467,0.92
+kio,Kiowa,1875,2070.0,1366,2.62
+kio,Kiowa,1880,1139.0,1205,-0.36
+kio,Kiowa,1885,1169.0,1148,0.11
+kio,Kiowa,1889,1142.0,1131,0.08
+kio,Kiowa,1892,1014.0,1151,-0.78
+kio,Kiowa,1896,1065.0,1171,-0.58
+kio,Kiowa,1878,1120.0,1301,-1.31
+kio,Kiowa,1890.42,1140.0,1129,0.06
+kio,Kiowa,1855,2742.9965737524863,1664,1.56
+kio,Kiowa,1862,1757.9490984102542,1891,-0.23
+kio,Kiowa,1864,1759.182592324783,1634,0.24
+kio,Kiowa,1873,2000.0,1492,1.83
+kio,Kiowa,1876,1090.0,1397,-1.57
+kio,Kiowa,1877,1090.0,1330,-1.26
+kio,Kiowa,1881,1145.0,1185,-0.22
+kio,Kiowa,1882,1176.0,1168,0.04
+kio,Kiowa,1883,1167.0,1160,0.04
+kio,Kiowa,1884,1152.0,1155,-0.02
+kio,Kiowa,1886,1164.0,1144,0.11
+kio,Kiowa,1887,1179.0,1137,0.23
+kio,Kiowa,1888,1121.0,1140,-0.1
+kio,Kiowa,1895,1037.0,1178,-0.78
+kio,Kiowa,1897,1105.0,985,0.68
+kio,Kiowa,1898,1126.0,991,0.74
+kap,Plains (Kiowa) Apache,1805,337.22081697752037,524,-1.15
+kap,Plains (Kiowa) Apache,1850,316.7822849583661,341,-0.23
+kap,Plains (Kiowa) Apache,1854,311.835556841254,363,-0.47
+kap,Plains (Kiowa) Apache,1865,174.77316722276552,379,-2.5
+kap,Plains (Kiowa) Apache,1867,410.2768798610692,368,0.35
+kap,Plains (Kiowa) Apache,1869,300.0,392,-1.63
+kap,Plains (Kiowa) Apache,1871,378.0,378,0.0
+kap,Plains (Kiowa) Apache,1875,344.0,376,-0.56
+kap,Plains (Kiowa) Apache,1879,315.0,350,-0.67
+kap,Plains (Kiowa) Apache,1892,241.0,279,-0.89
+kap,Plains (Kiowa) Apache,1896,208.0,240,-0.87
+kap,Plains (Kiowa) Apache,1878,344.0,355,-0.28
+kap,Plains (Kiowa) Apache,1785,1217.873381785248,478,2.32
+kap,Plains (Kiowa) Apache,1820,325.994639805618,382,-0.46
+kap,Plains (Kiowa) Apache,1835,1048.3975817724006,404,2.79
+kap,Plains (Kiowa) Apache,1861,415.0,398,0.23
+kap,Plains (Kiowa) Apache,1867.8,516.0,346,2.4
+kap,Plains (Kiowa) Apache,1874,602.0,351,3.35
+kap,Plains (Kiowa) Apache,1880,332.0,343,-0.21
+kap,Plains (Kiowa) Apache,1900,173.0,194,-0.66
+kap,Plains (Kiowa) Apache,1890.42,326.0,284,0.86
+kap,Plains (Kiowa) Apache,1855,311.8215428883764,369,-0.52
+kap,Plains (Kiowa) Apache,1862,488.6035520216388,398,0.66
+kap,Plains (Kiowa) Apache,1864,489.0803212991561,350,1.08
+kap,Plains (Kiowa) Apache,1876,373.0,365,0.14
+kap,Plains (Kiowa) Apache,1877,343.0,361,-0.32
+kap,Plains (Kiowa) Apache,1881,337.0,338,-0.02
+kap,Plains (Kiowa) Apache,1882,340.0,334,0.11
+kap,Plains (Kiowa) Apache,1883,337.0,331,0.11
+kap,Plains (Kiowa) Apache,1884,308.0,331,-0.45
+kap,Plains (Kiowa) Apache,1885,319.0,326,-0.14
+kap,Plains (Kiowa) Apache,1886,332.0,320,0.22
+kap,Plains (Kiowa) Apache,1887,332.0,315,0.32
+kap,Plains (Kiowa) Apache,1888,348.0,306,0.8
+kap,Plains (Kiowa) Apache,1889,349.0,297,1.0
+kap,Plains (Kiowa) Apache,1895,226.0,248,-0.58
+kap,Plains (Kiowa) Apache,1897,197.0,198,-0.02
+kap,Plains (Kiowa) Apache,1898,193.0,194,-0.03
+jic,Jicarilla Apache,1905,762.9504619616774,843,-0.49
+jic,Jicarilla Apache,1845,885.1755898677197,748,0.35
+jic,Jicarilla Apache,1890.42,808.0,808,0.0
+jic,Jicarilla Apache,1846.8,433.614462008091,918,-2.17
+jic,Jicarilla Apache,1900,815.0,826,-0.08
+jic,Jicarilla Apache,1861,781.1860046076463,849,-0.26
+jic,Jicarilla Apache,1862,938.4740097744868,832,0.38
+jic,Jicarilla Apache,1867,1021.9394783663184,849,0.6
+jic,Jicarilla Apache,1868,878.0,853,0.17
+jic,Jicarilla Apache,1869,788.0,873,-0.61
+jic,Jicarilla Apache,1870,900.0,844,0.39
+jic,Jicarilla Apache,1873,960.0,809,1.06
+jic,Jicarilla Apache,1874,960.0,793,1.19
+jic,Jicarilla Apache,1875,950.0,773,1.28
+jic,Jicarilla Apache,1876,746.0,777,-0.25
+jic,Jicarilla Apache,1877,442.0,815,-3.82
+jic,Jicarilla Apache,1878,769.0,742,0.22
+jic,Jicarilla Apache,1880,752.0,737,0.12
+jic,Jicarilla Apache,1881,705.0,746,-0.35
+jic,Jicarilla Apache,1882,717.0,749,-0.27
+jic,Jicarilla Apache,1883,700.0,758,-0.5
+jic,Jicarilla Apache,1884,890.0,743,1.13
+jic,Jicarilla Apache,1885,721.0,773,-0.44
+jic,Jicarilla Apache,1886,785.0,773,0.09
+jic,Jicarilla Apache,1887,785.0,782,0.02
+jic,Jicarilla Apache,1889,801.0,798,0.03
+jic,Jicarilla Apache,1892,842.0,813,0.22
+jic,Jicarilla Apache,1895,845.0,826,0.14
+jic,Jicarilla Apache,1896,853.0,826,0.2
+jic,Jicarilla Apache,1897,841.0,828,0.1
+jic,Jicarilla Apache,1898,840.0,826,0.1
+lip,Lipan Apache,1805,2870.209113043243,1939,1.05
+lip,Lipan Apache,1700,5219.457350508206,2950,1.12
+lip,Lipan Apache,1736,6959.276467344274,3052,1.67
+lip,Lipan Apache,1762,3044.68345446312,3156,-0.08
+lip,Lipan Apache,1820,3044.68345446312,1349,2.31
+lip,Lipan Apache,1830,1739.8191168360686,1220,1.04
+lip,Lipan Apache,1847,782.9186025762309,635,0.62
+lip,Lipan Apache,1849,434.95477920901715,661,-1.25
+lip,Lipan Apache,1855.55,260.97286752541027,491,-1.32
+cyy,Yamparika,1874.2,1228.0,869,2.1
+cyk,Kotsoteka,1786.3,7338.357979832483,4408,1.48
+cyk,Kotsoteka,1874.2,310.0,357,-0.86
+cyp,Penateka (Eastern Comanche),1846,2435.746763570496,1405,1.65
+cyp,Penateka (Eastern Comanche),1854.6,1043.891470101641,886,0.51
+cyn,Nokoni,1847,1678.0337141482235,1695,-0.03
+cyn,Nokoni,1874.2,322.0,323,-0.01
+cyq,Kwahadi,1874.2,649.0,599,0.49
+sho,Eastern (Plains) Shoshone,1874,1041.0,1358,-2.22
+sho,Eastern (Plains) Shoshone,1878,1250.0,1098,1.09
+sho,Eastern (Plains) Shoshone,1868,1800.0,1436,1.28
+sho,Eastern (Plains) Shoshone,1889,930.0,892,0.36
+sho,Eastern (Plains) Shoshone,1890.42,916.0,897,0.13
+sho,Eastern (Plains) Shoshone,1837.5,2615.931848439197,2208,0.48
+sho,Eastern (Plains) Shoshone,1840,2613.7370397739824,2215,0.34
+sho,Eastern (Plains) Shoshone,1869,1600.0,1447,0.59
+sho,Eastern (Plains) Shoshone,1873,1024.0,1338,-1.65
+sho,Eastern (Plains) Shoshone,1875,1800.0,1160,2.73
+sho,Eastern (Plains) Shoshone,1880,1150.0,1055,0.54
+sho,Eastern (Plains) Shoshone,1882,842.0,1020,-1.19
+sho,Eastern (Plains) Shoshone,1883,928.0,972,-0.29
+sho,Eastern (Plains) Shoshone,1884,890.0,951,-0.41
+sho,Eastern (Plains) Shoshone,1885,870.0,933,-0.44
+sho,Eastern (Plains) Shoshone,1886,850.0,922,-0.51
+sho,Eastern (Plains) Shoshone,1887,876.0,911,-0.24
+sho,Eastern (Plains) Shoshone,1888,877.0,906,-0.21
+sho,Eastern (Plains) Shoshone,1892,890.0,899,-0.06
+sho,Eastern (Plains) Shoshone,1894,927.0,891,0.25
+sho,Eastern (Plains) Shoshone,1895,911.0,891,0.14
+sho,Eastern (Plains) Shoshone,1896,890.0,892,-0.02
+sho,Eastern (Plains) Shoshone,1897,872.0,895,-0.15
+sho,Eastern (Plains) Shoshone,1898,842.0,905,-0.42
+wic,Wichita (Taovaya & allies),1805,2346.299142305034,1911,0.51
+wic,Wichita (Taovaya & allies),1780,3405.033363944474,4206,-0.44
+wic,Wichita (Taovaya & allies),1868,546.3381547243778,710,-1.54
+wic,Wichita (Taovaya & allies),1719.7,5219.457350508206,6147,-0.34
+wic,Wichita (Taovaya & allies),1806,2264.2134614702973,1971,0.28
+wic,Wichita (Taovaya & allies),1896,365.0,364,0.01
+wic,Wichita (Taovaya & allies),1719,13048.643376270515,5323,1.85
+wic,Wichita (Taovaya & allies),1774.13,4184.575388766003,4020,0.12
+wic,Wichita (Taovaya & allies),1778.01,3260.3561536019492,4291,-0.81
+wic,Wichita (Taovaya & allies),1772.36,3166.7249053300716,4303,-0.91
+wic,Wichita (Taovaya & allies),1855,928.5384922251229,991,-0.2
+wic,Wichita (Taovaya & allies),1866,661.5031499204483,805,-0.63
+wic,Wichita (Taovaya & allies),1867,615.3654991194034,787,-0.79
+wic,Wichita (Taovaya & allies),1870,1016.0,539,3.81
+wic,Wichita (Taovaya & allies),1873,565.0,521,0.5
+wic,Wichita (Taovaya & allies),1874,565.0,491,0.88
+wic,Wichita (Taovaya & allies),1875,396.0,488,-1.3
+wic,Wichita (Taovaya & allies),1876,317.0,478,-2.56
+wic,Wichita (Taovaya & allies),1877,409.0,443,-0.5
+wic,Wichita (Taovaya & allies),1878,431.0,427,0.05
+wic,Wichita (Taovaya & allies),1880,391.0,416,-0.39
+wic,Wichita (Taovaya & allies),1881,406.0,408,-0.03
+wic,Wichita (Taovaya & allies),1882,415.0,402,0.21
+wic,Wichita (Taovaya & allies),1883,429.0,395,0.52
+wic,Wichita (Taovaya & allies),1884,412.0,391,0.33
+wic,Wichita (Taovaya & allies),1885,390.0,387,0.05
+wic,Wichita (Taovaya & allies),1886,400.0,379,0.34
+wic,Wichita (Taovaya & allies),1887,386.0,374,0.2
+wic,Wichita (Taovaya & allies),1888,338.0,374,-0.63
+wic,Wichita (Taovaya & allies),1889,338.0,369,-0.54
+wic,Wichita (Taovaya & allies),1891,360.0,359,0.01
+wic,Wichita (Taovaya & allies),1892,325.0,367,-0.72
+pwc,Chawi & Pitahawirata (Grand Pawnee),1805,1850.818809384098,1924,-0.1
+pwc,Chawi & Pitahawirata (Grand Pawnee),1820.5,4682.296802620981,2568,1.26
+pwc,Chawi & Pitahawirata (Grand Pawnee),1785.0,1386.498359186468,3229,-2.21
+pwc,Chawi & Pitahawirata (Grand Pawnee),1804.0,1736.9291404463622,1893,-0.26
+pwc,Chawi & Pitahawirata (Grand Pawnee),1840.0,2515.0,2308,0.39
+pwc,Chawi & Pitahawirata (Grand Pawnee),1861,1430.3326562390266,1333,0.22
+pwc,Chawi & Pitahawirata (Grand Pawnee),1862,1430.5625523019069,1296,0.31
+pwk,Kitkahahki (Republican Pawnee),1805,1645.8929311260504,1393,0.45
+pwk,Kitkahahki (Republican Pawnee),1820.5,1122.0557200097337,1812,-1.02
+pwk,Kitkahahki (Republican Pawnee),1785.0,762.0076174114606,2097,-2.86
+pwk,Kitkahahki (Republican Pawnee),1804.0,1041.6244109197548,1454,-1.02
+pwk,Kitkahahki (Republican Pawnee),1840.0,1823.0,1566,0.71
+pwk,Kitkahahki (Republican Pawnee),1861,764.6628371091789,906,-0.53
+pwk,Kitkahahki (Republican Pawnee),1862,764.7726177994041,877,-0.43
+pws,Skiri (Loup Pawnee),1805,1144.9257300518343,1632,-0.94
+pws,Skiri (Loup Pawnee),1820.5,3506.9750646691264,2023,1.15
+pws,Skiri (Loup Pawnee),1758.0,2087.782940203282,3300,-1.13
+pws,Skiri (Loup Pawnee),1785.0,1214.29916557715,2584,-2.15
+pws,Skiri (Loup Pawnee),1804.0,1390.6056676261771,1555,-0.33
+pws,Skiri (Loup Pawnee),1840.0,1906.0,1821,0.2
+pws,Skiri (Loup Pawnee),1861,1139.559531940794,1071,0.2
+pws,Skiri (Loup Pawnee),1862,1139.7470441180412,1044,0.28
+ari,Arikara,1805,2326.9555728727787,1997,0.38
+ari,Arikara,1871,1678.8956889834033,1018,4.11
+ari,Arikara,1888,476.5198688283074,491,-0.18
+ari,Arikara,1904,359.02344005868366,436,-1.06
+ari,Arikara,1878,654.0,762,-1.34
+ari,Arikara,1882,672.0,608,0.63
+ari,Arikara,1780,2887.259861390786,11301,-2.75
+ari,Arikara,1820.5,3288.593162960468,2220,1.16
+ari,Arikara,1770,13942.285377540044,8630,0.96
+ari,Arikara,1834,1909.6004603531312,2594,-0.95
+ari,Arikara,1842,1169.5254650409208,1341,-0.42
+ari,Arikara,1850,1304.4557865742217,1331,-0.06
+ari,Arikara,1855,816.2896846029195,1494,-1.86
+ari,Arikara,1866,1305.3650461791203,1227,0.2
+ari,Arikara,1875,900.0,899,0.01
+ari,Arikara,1885,529.0,545,-0.19
+ari,Arikara,1895,420.0,426,-0.09
+ari,Arikara,1712,7655.204114078701,10235,-0.55
+ari,Arikara,1890.42,447.0,460,-0.18
+ari,Arikara,1838.5,2249.8606208716124,1202,1.94
+ari,Arikara,1861,953.7256234031423,1339,-1.07
+ari,Arikara,1862,1051.722619176744,1335,-0.76
+ari,Arikara,1863,1052.6877283063213,1165,-0.32
+ari,Arikara,1867,1465.3882154524827,1234,0.56
+ari,Arikara,1868,1500.0,1194,1.36
+ari,Arikara,1873,1096.0,1035,0.35
+ari,Arikara,1874,975.0,969,0.04
+ari,Arikara,1876,692.0,854,-1.33
+ari,Arikara,1877,670.0,794,-1.07
+ari,Arikara,1880,724.0,662,0.56
+ari,Arikara,1881,678.0,636,0.4
+ari,Arikara,1883,591.0,589,0.02
+ari,Arikara,1884,544.0,568,-0.27
+ari,Arikara,1886,517.0,524,-0.09
+ari,Arikara,1887,501.0,506,-0.06
+ari,Arikara,1889,454.0,478,-0.32
+ari,Arikara,1892,416.0,448,-0.46
+ari,Arikara,1894,426.0,431,-0.08
+ari,Arikara,1896,422.0,420,0.03
+ari,Arikara,1897,424.0,414,0.14
+ari,Arikara,1898,426.0,408,0.26
+oma,Omaha,1805,688.489434662943,930,-0.8
+oma,Omaha,1795,3303.0340205434395,1883,1.49
+oma,Omaha,1780,3054.9287161529733,2674,0.28
+oma,Omaha,1829,1833.7613807848759,1446,0.7
+oma,Omaha,1848,1544.6492337576228,1238,0.69
+oma,Omaha,1851,1299.7545028566992,1272,0.07
+oma,Omaha,1857,1158.1493842743248,956,0.61
+oma,Omaha,1880,1160.0863349005037,1094,0.51
+oma,Omaha,1820.5,2157.5994967708325,1175,1.79
+oma,Omaha,1758,2783.7105869377096,2818,-0.03
+oma,Omaha,1796,951.6753300991998,2376,-2.77
+oma,Omaha,1798,2084.9617644546233,2033,0.08
+oma,Omaha,1812,693.4638751235726,1155,-1.54
+oma,Omaha,1834,1367.3353475930287,1242,0.28
+oma,Omaha,1849,1268.7483331943454,1275,-0.02
+oma,Omaha,1855,779.7004426275539,985,-0.74
+oma,Omaha,1871,984.0,1019,-0.22
+oma,Omaha,1883,1064.168107104076,1142,-0.44
+oma,Omaha,1891,998.8476986371804,1163,-0.95
+oma,Omaha,1890.42,1158.0,1139,0.1
+oma,Omaha,1854,779.7079869241101,982,-0.73
+oma,Omaha,1861,926.9836588718003,1002,-0.25
+oma,Omaha,1862,929.9456284858142,1008,-0.26
+oma,Omaha,1864,976.1666187760992,1016,-0.13
+oma,Omaha,1866,1956.2338656047589,981,2.23
+oma,Omaha,1867,971.2986158022655,1022,-0.17
+oma,Omaha,1868,1002.0,1022,-0.12
+oma,Omaha,1869,1020.0,1015,0.03
+oma,Omaha,1870,984.0,1020,-0.22
+oma,Omaha,1873,1001.0,1023,-0.14
+oma,Omaha,1874,951.0,1038,-0.55
+oma,Omaha,1875,1005.0,1042,-0.23
+oma,Omaha,1876,1027.0,1053,-0.16
+oma,Omaha,1877,1061.0,1065,-0.03
+oma,Omaha,1878,1100.0,1078,0.13
+oma,Omaha,1881,1121.0,1119,0.01
+oma,Omaha,1882,1193.0,1120,0.4
+oma,Omaha,1884,1167.0,1135,0.18
+oma,Omaha,1885,1188.0,1135,0.29
+oma,Omaha,1886,1160.0,1140,0.11
+oma,Omaha,1888,1135.0,1142,-0.04
+oma,Omaha,1889,1137.0,1141,-0.02
+oma,Omaha,1892,1186.0,1140,0.24
+oma,Omaha,1894,1170.0,1154,0.09
+oma,Omaha,1895,1182.0,1158,0.13
+oma,Omaha,1896,1158.0,1168,-0.05
+oma,Omaha,1897,1170.0,1172,-0.01
+oma,Omaha,1898,1202.0,1171,0.16
+oma,Omaha,1899,1157.0,1188,-0.16
+pon,Ponca,1805,226.49244600570051,363,-1.19
+pon,Ponca,1874,730.0,729,0.01
+pon,Ponca,1878,631.0,714,-1.08
+pon,Ponca,1780,862.328017559395,884,-0.05
+pon,Ponca,1829,576.0343371705718,660,-0.41
+pon,Ponca,1842,767.9903709946876,878,-0.41
+pon,Ponca,1871,715.9829282171547,780,-0.54
+pon,Ponca,1820.5,699.59520766175,478,1.1
+pon,Ponca,1836,783.6711722603094,751,0.13
+pon,Ponca,1846,1748.8127753223564,818,2.34
+pon,Ponca,1847,1397.0844095167813,857,1.51
+pon,Ponca,1852,695.3752830152437,939,-0.93
+pon,Ponca,1862,1030.2400214096588,874,0.52
+pon,Ponca,1880,718.168887705507,693,0.22
+pon,Ponca,1892,671.3925708652863,784,-0.96
+pon,Ponca,1890.42,822.0,751,0.56
+pon,Ponca,1855,682.0603705143993,927,-0.95
+pon,Ponca,1861,950.4806748547741,883,0.23
+pon,Ponca,1863,843.4489318546576,886,-0.16
+pon,Ponca,1864,1075.7192177934069,863,0.71
+pon,Ponca,1866,957.7934187584381,851,0.38
+pon,Ponca,1867,957.9073566365557,837,0.44
+pon,Ponca,1868,979.0,799,1.24
+pon,Ponca,1869,768.0,816,-0.37
+pon,Ponca,1870,747.0,797,-0.4
+pon,Ponca,1873,738.0,743,-0.04
+pon,Ponca,1875,734.0,716,0.16
+pon,Ponca,1876,730.0,705,0.22
+pon,Ponca,1877,717.0,698,0.17
+pon,Ponca,1881,690.0,702,-0.1
+pon,Ponca,1882,710.0,706,0.04
+pon,Ponca,1883,707.0,714,-0.06
+pon,Ponca,1884,734.0,719,0.13
+pon,Ponca,1885,752.0,725,0.23
+pon,Ponca,1886,753.0,732,0.18
+pon,Ponca,1887,731.0,742,-0.09
+pon,Ponca,1888,737.0,748,-0.09
+pon,Ponca,1889,757.0,752,0.05
+pon,Ponca,1894,793.0,780,0.1
+pon,Ponca,1895,798.0,788,0.08
+pon,Ponca,1896,810.0,794,0.13
+pon,Ponca,1897,816.0,799,0.13
+pon,Ponca,1898,835.0,799,0.26
+oto,Oto,1805,581.0049079119174,604,-0.1
+oto,Oto,1780,1009.234122816395,789,0.51
+oto,Oto,1843,896.7583491083383,871,0.09
+oto,Oto,1849,866.6927893984946,842,0.09
+oto,Oto,1862,683.755160148126,526,0.84
+oto,Oto,1867,913.242403902443,484,2.06
+oto,Oto,1877,440.70542675366244,414,0.4
+oto,Oto,1886,320.29650274634105,338,-0.34
+oto,Oto,1758,347.9638233672137,947,-2.58
+oto,Oto,1777,346.4379238630523,988,-3.0
+oto,Oto,1829,1045.148273032324,870,0.55
+oto,Oto,1835,838.4383042228517,918,-0.28
+oto,Oto,1855,521.5681363095782,555,-0.19
+oto,Oto,1866,445.7504506930261,513,-0.45
+oto,Oto,1878,399.1300179539845,407,-0.12
+oto,Oto,1881,412.71012398258995,366,0.76
+oto,Oto,1890,309.7706102163855,342,-0.87
+oto,Oto,1861,692.4084421871146,528,0.86
+oto,Oto,1863,458.4221430690351,539,-0.52
+oto,Oto,1864,692.6363807100163,514,0.96
+oto,Oto,1868,471.0,494,-0.28
+oto,Oto,1869,440.0,488,-0.63
+oto,Oto,1870,434.0,479,-0.6
+oto,Oto,1873,447.0,451,-0.05
+oto,Oto,1874,453.0,442,0.16
+oto,Oto,1875,457.0,432,0.34
+oto,Oto,1876,454.0,423,0.44
+oto,Oto,1880,438.0,376,0.96
+oto,Oto,1882,274.0,373,-1.93
+oto,Oto,1883,262.0,364,-2.07
+oto,Oto,1884,514.0,329,2.81
+oto,Oto,1885,266.0,350,-1.73
+oto,Oto,1887,355.0,332,0.43
+oto,Oto,1888,316.0,335,-0.37
+oto,Oto,1889,320.0,335,-0.29
+oto,Oto,1891,377.0,333,0.78
+oto,Oto,1892,362.0,337,0.44
+oto,Oto,1894,340.0,346,-0.11
+oto,Oto,1895,348.0,348,-0.0
+oto,Oto,1896,354.0,350,0.07
+oto,Oto,1897,350.0,354,-0.07
+oto,Oto,1898,360.0,355,0.08
+mis,Missouria,1805,353.0976342009189,238,1.0
+mis,Missouria,1780,1132.286346773938,746,0.87
+mis,Missouria,1829,76.0398362044202,290,-3.7
+mis,Missouria,1758,521.9457350508205,1145,-2.16
+mis,Missouria,1777,696.4821782185484,832,-0.51
+kaw,Kansa (Kaw),1805,1508.9009242184504,1462,0.08
+kaw,Kansa (Kaw),1886,203.0,235,-1.28
+kaw,Kansa (Kaw),1868,620.0,630,-0.13
+kaw,Kansa (Kaw),1847,1467.5884357767416,1260,0.47
+kaw,Kansa (Kaw),1780,3329.8410814223116,2085,0.95
+kaw,Kansa (Kaw),1815,1442.9705299950379,1540,-0.19
+kaw,Kansa (Kaw),1822,1782.7062105961704,1512,0.5
+kaw,Kansa (Kaw),1829,1150.7505518712367,1671,-1.14
+kaw,Kansa (Kaw),1843,1531.141114554958,1304,0.5
+kaw,Kansa (Kaw),1806.7,1644.5890405240893,1454,0.37
+kaw,Kansa (Kaw),1832.5,1492.7570807531438,1278,0.48
+kaw,Kansa (Kaw),1724.52,1304.8643376270516,1861,-0.72
+kaw,Kansa (Kaw),1702,1304.8643376270516,1802,-0.86
+kaw,Kansa (Kaw),1837,1438.0973592954647,1318,0.27
+kaw,Kansa (Kaw),1841,1571.193610956084,1308,0.57
+kaw,Kansa (Kaw),1853,1346.3652067636845,996,0.94
+kaw,Kansa (Kaw),1860,784.4257499633984,829,-0.18
+kaw,Kansa (Kaw),1870,574.0,588,-0.15
+kaw,Kansa (Kaw),1880,350.0,336,0.26
+kaw,Kansa (Kaw),1887,193.0,221,-0.87
+kaw,Kansa (Kaw),1890,198.0,207,-0.28
+kaw,Kansa (Kaw),1900,217.0,212,0.12
+kaw,Kansa (Kaw),1855,1346.7337751306895,937,1.13
+kaw,Kansa (Kaw),1861,784.5362883108437,796,-0.05
+kaw,Kansa (Kaw),1863,723.7868215407398,742,-0.08
+kaw,Kansa (Kaw),1864,615.7517937675653,723,-0.52
+kaw,Kansa (Kaw),1866,654.2847927079072,670,-0.08
+kaw,Kansa (Kaw),1867,642.593749767578,648,-0.03
+kaw,Kansa (Kaw),1871,627.0,556,0.75
+kaw,Kansa (Kaw),1873,533.0,518,0.18
+kaw,Kansa (Kaw),1874,523.0,491,0.39
+kaw,Kansa (Kaw),1875,516.0,463,0.67
+kaw,Kansa (Kaw),1876,443.0,443,0.0
+kaw,Kansa (Kaw),1877,424.0,415,0.14
+kaw,Kansa (Kaw),1878,424.0,384,0.61
+kaw,Kansa (Kaw),1881,305.0,315,-0.2
+kaw,Kansa (Kaw),1882,285.0,293,-0.17
+kaw,Kansa (Kaw),1883,292.0,270,0.5
+kaw,Kansa (Kaw),1884,245.0,255,-0.26
+kaw,Kansa (Kaw),1885,225.0,241,-0.44
+kaw,Kansa (Kaw),1888,196.0,214,-0.56
+kaw,Kansa (Kaw),1889,200.0,209,-0.29
+kaw,Kansa (Kaw),1891,196.0,206,-0.32
+kaw,Kansa (Kaw),1892,209.0,204,0.14
+kaw,Kansa (Kaw),1894,218.0,205,0.39
+kaw,Kansa (Kaw),1895,208.0,207,0.02
+kaw,Kansa (Kaw),1896,207.0,209,-0.05
+kaw,Kansa (Kaw),1897,208.0,210,-0.06
+kaw,Kansa (Kaw),1898,211.0,211,-0.0
+osg,Great Osage,1806.65,1695.0,2710,-2.18
+osg,Great Osage,1777.7,3507.0402608994173,3569,-0.05
+osl,Little Osage,1805,1530.8665320204786,943,1.22
+osl,Little Osage,1806.65,681.8648884479866,1149,-1.46
+osa,Arkansas Osage (Claremore’s band),1806.65,1524.71532345759,1765,-0.43
+iow,Iowa (Báxoje),1805,926.5129938099382,969,-0.11
+iow,Iowa (Báxoje),1760,1059.005635959286,1161,-0.25
+iow,Iowa (Báxoje),1777,962.7323963266236,1186,-0.56
+iow,Iowa (Báxoje),1829,964.7553178501693,893,0.24
+iow,Iowa (Báxoje),1832,1355.699973005697,802,1.62
+iow,Iowa (Báxoje),1836,957.8880754778456,765,0.7
+iow,Iowa (Báxoje),1843,450.74751119494914,687,-1.29
+iow,Iowa (Báxoje),1885,217.0997884008648,227,-0.29
+iow,Iowa (Báxoje),1837.6,695.5639501875492,762,-0.28
+iow,Iowa (Báxoje),1814,1220.187444147338,903,0.86
+iow,Iowa (Báxoje),1848,581.9588897790912,574,0.04
+iow,Iowa (Báxoje),1858,486.8735598608184,362,0.93
+iow,Iowa (Báxoje),1861,297.3661563700814,352,-0.53
+iow,Iowa (Báxoje),1875,219.0,238,-0.53
+iow,Iowa (Báxoje),1880,222.0,217,0.16
+iow,Iowa (Báxoje),1890,267.0,246,0.5
+iow,Iowa (Báxoje),1899,318.0,272,0.91
+iow,Iowa (Báxoje),1854,422.7191439139341,409,0.1
+iow,Iowa (Báxoje),1855,422.775766813552,399,0.18
+iow,Iowa (Báxoje),1862,290.53342446501455,343,-0.53
+iow,Iowa (Báxoje),1863,283.69997593663345,335,-0.54
+iow,Iowa (Báxoje),1864,286.68330863327776,328,-0.43
+iow,Iowa (Báxoje),1866,295.6123287835073,314,-0.2
+iow,Iowa (Báxoje),1867,247.53528902747283,311,-0.74
+iow,Iowa (Báxoje),1868,246.0,316,-1.5
+iow,Iowa (Báxoje),1869,546.0,261,4.5
+iow,Iowa (Báxoje),1870,294.0,284,0.22
+iow,Iowa (Báxoje),1873,221.0,258,-0.97
+iow,Iowa (Báxoje),1874,226.0,246,-0.54
+iow,Iowa (Báxoje),1876,224.0,230,-0.18
+iow,Iowa (Báxoje),1877,217.0,226,-0.25
+iow,Iowa (Báxoje),1878,213.0,222,-0.27
+iow,Iowa (Báxoje),1881,176.0,223,-1.48
+iow,Iowa (Báxoje),1882,217.0,218,-0.03
+iow,Iowa (Báxoje),1883,220.0,220,-0.0
+iow,Iowa (Báxoje),1884,231.0,222,0.25
+iow,Iowa (Báxoje),1886,227.0,231,-0.1
+iow,Iowa (Báxoje),1887,234.0,235,-0.02
+iow,Iowa (Báxoje),1888,231.0,240,-0.25
+iow,Iowa (Báxoje),1891,264.0,252,0.29
+iow,Iowa (Báxoje),1892,260.0,257,0.06
+iow,Iowa (Báxoje),1894,266.0,265,0.02
+iow,Iowa (Báxoje),1895,262.0,270,-0.19
+iow,Iowa (Báxoje),1896,271.0,273,-0.04
+iow,Iowa (Báxoje),1897,262.0,279,-0.38
+iow,Iowa (Báxoje),1898,289.0,277,0.25
+sar,Tsuut’ina (Sarsi),1785,565.4412129717223,420,0.82
+sar,Tsuut’ina (Sarsi),1801,417.5565880406565,495,-0.49
+sar,Tsuut’ina (Sarsi),1801.1,434.95477920901715,489,-0.34
+sar,Tsuut’ina (Sarsi),1810,521.9457350508205,505,0.1
+sar,Tsuut’ina (Sarsi),1824,626.3348820609847,545,0.39
+sar,Tsuut’ina (Sarsi),1841,304.468345446312,299,0.06
+sar,Tsuut’ina (Sarsi),1843,304.468345446312,297,0.08
+sar,Tsuut’ina (Sarsi),1859,312.4236754813568,262,0.53
+sar,Tsuut’ina (Sarsi),1869.5,363.277639338686,217,3.0
+sar,Tsuut’ina (Sarsi),1871,72.79700422450729,241,-8.65
+sar,Tsuut’ina (Sarsi),1877.72,255.0,225,0.74
+sar,Tsuut’ina (Sarsi),1880.5,396.0,252,2.58
+sar,Tsuut’ina (Sarsi),1881.5,470.0,246,3.63
+sto,Mountain Stoney (Nakoda),1877.72,556.0,596,-0.32
+sto,Mountain Stoney (Nakoda),1885,647.0,563,0.69
+sto,Mountain Stoney (Nakoda),1895,570.0,627,-0.42
+tkw,Tonkawa,1772,521.2554734930676,862,-1.45
+tkw,Tonkawa,1810,871.1176121691511,689,0.46
+tkw,Tonkawa,1849,567.0686629028154,403,1.03
+tkw,Tonkawa,1859.6,212.90406547668923,298,-1.03
+tkw,Tonkawa,1863,143.53246356835257,152,-0.17
+tkw,Tonkawa,1884.5,79.94664786040957,85,-0.33
+tkw,Tonkawa,1891,73.0,68,0.4
+tkw,Tonkawa,1890.42,76.0,70,0.55
+tkw,Tonkawa,1778.24,1420.1349680503624,694,2.11
+tkw,Tonkawa,1779.69,650.37664416385,850,-0.79
+tkw,Tonkawa,1847.6,523.1775216858546,433,0.57
+tkw,Tonkawa,1867.24,108.63633892457815,137,-0.71
+tkw,Tonkawa,1855,390.91543829181643,331,0.51
+tkw,Tonkawa,1888,79.0,75,0.29
+tkw,Tonkawa,1889,76.0,73,0.22
+tkw,Tonkawa,1892,66.0,67,-0.07
+tkw,Tonkawa,1894,57.0,63,-0.64
+tkw,Tonkawa,1895,56.0,61,-0.57
+tkw,Tonkawa,1896,55.0,60,-0.55
+tkw,Tonkawa,1897,53.0,60,-0.72
+tkw,Tonkawa,1898,57.0,58,-0.11
+kit,Kitsai,1772.3,278.3377548411664,382,-0.89
+kit,Kitsai,1778.01,395.14942606465127,329,0.51
+kit,Kitsai,1805,208.855595894066,221,-0.16
+kit,Kitsai,1809,191.39843648111872,225,-0.46
+kit,Kitsai,1849,261.8439559070916,193,0.9
+kit,Kitsai,1855,437.8214578066498,171,2.85
+kit,Kitsai,1857,262.0291025563065,181,1.12
+kit,Kitsai,1893,52.0,106,-4.29
+kit,Kitsai,1866,140.56883169836314,139,0.03
+kit,Kitsai,1867,123.90208533367296,135,-0.28
+kit,Kitsai,1868,123.0,132,-0.4
+kit,Kitsai,1873,106.0,111,-0.26
+kit,Kitsai,1874,106.0,106,-0.02
+kit,Kitsai,1875,90.0,105,-0.96
+kit,Kitsai,1876,155.0,93,3.17
+kit,Kitsai,1877,90.0,96,-0.42
+kit,Kitsai,1878,87.0,92,-0.37
+kit,Kitsai,1880,75.0,86,-0.85
+kit,Kitsai,1881,77.0,82,-0.42
+kit,Kitsai,1882,78.0,79,-0.11
+kit,Kitsai,1883,77.0,77,-0.02
+kit,Kitsai,1884,79.0,75,0.32
+kit,Kitsai,1885,74.0,74,-0.01
+kit,Kitsai,1887,72.0,73,-0.07
+kit,Kitsai,1888,61.0,75,-1.28
+kit,Kitsai,1889,62.0,76,-1.29
+kit,Kitsai,1891,66.0,83,-1.41
+kit,Kitsai,1892,54.0,94,-3.35
+kit,Kitsai,1895,453.0,59,11.29

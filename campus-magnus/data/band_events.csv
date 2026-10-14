@@ -1,0 +1,11 @@
+division_id,unit_id,name,year,fraction_of_band_lost,note
+bru,bru.bru_sic,Sičangu proper,1855.67,0.344,Ash Hollow (Blue Water Creek): 86–86 killed in a camp of about 250 (recalled; camp size ours)
+min,min.min_big,Big Foot’s people,1890.99,0.786,Wounded Knee: 250–300 killed in a camp of about 350 (recalled; camp size ours)
+pik,pik.pik_hea,Heavy Runner’s camp,1870.05,0.65,Marias Massacre: 173–217 killed in a camp of about 300 (recalled; camp size ours)
+chn,chn.ch_dul,Dull Knife’s people,1879.04,0.416,Fort Robinson outbreak: 60–64 killed in a camp of about 149 (recalled; camp size ours)
+chs,chs.ch_wut,Wutapiu,1864.91,0.292,"Sand Creek (camp of about 600, Robert Bent): 150–200 killed in a camp of about 600 (recalled; camp size ours)"
+chs,chs.ch_wut,Wutapiu,1868.9,0.18,Washita (Cheyenne estimates; Custer claimed 103): 30–60 killed in a camp of about 250 (recalled; camp size ours)
+chs,chs.ch_hof,Hofnowa,1849.6000000000001,0.455,"Grinnell, The Cheyenne Indians (1923), vol. 1, “Social Organization”: cholera “almost put an end to the group Masihkota”; Ohktounna and Hofnowa “nearly exterminated” (fractions ours)"
+chs,chs.ch_ohk,Ohktounna,1849.6000000000001,0.455,"Grinnell, The Cheyenne Indians (1923), vol. 1, “Social Organization”: cholera “almost put an end to the group Masihkota”; Ohktounna and Hofnowa “nearly exterminated” (fractions ours)"
+chs,chs.ch_mas,Masikota,1849.6000000000001,0.636,"Grinnell, The Cheyenne Indians (1923), vol. 1, “Social Organization”: cholera “almost put an end to the group Masihkota”; Ohktounna and Hofnowa “nearly exterminated” (fractions ours)"
+chs,chs.ch_hot,Hotamitaniu (Dog Soldiers),1869.53,0.097,Summit Springs (Grinnell and Berthrong 35; Carr 52): 35–52 killed in a camp of about 450 (recalled; camp size ours)
