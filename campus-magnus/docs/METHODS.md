@@ -62,46 +62,47 @@ Every count is then divided by its family's factor and the model refitted (lines
 
 ## 3. Position
 
-**Anchors.**
-- Documented places with `loc = stated`, `whole = true`, not `seasonal`. A same-year group is averaged, weighted by persons.
-- Keyframe places, dropped if a documented place lies within one year (lines 63–76).
-- Ranges ("roam from the Big Shyenne up to the Yellowstone") are placed at the range's centre.
+**Records used.**
+- Documented places with `loc = stated`, `whole = true`, not `seasonal`.
+- Keyframe places, dropped if a documented place lies within one year.
+- Ranges ("roam from the Big Shyenne up to the Yellowstone") are placed at the range's centre with the range's radius.
 
-**Nomadic divisions.**
-- *The drawn centre* is a monotone cubic (Hermite) curve through every anchor in order, which never overshoots.
-- *Its uncertainty* comes from a random-walk Kalman filter and RTS smoother run through the same anchors in local km coordinates (`possmooth.py`). The settings are as follows; the first three were fitted by holding out documented places (`calib_pos.py`, `build/poscal.json`):
-  - process variance $q$ = 2,000 km² a year per axis;
-  - a documented place has variance $(0.25 r)^2 + 90^2$;
-  - a keyframe has variance $150^2$;
-  - the halo radius is $1.46\sqrt{P_t + 90^2}$, capped at 450 km, where 1.46 makes the halo contain 68% of withheld places (`calib_halo.py`).
-- Held-out median miss: 107 km for the smoother (110 km without keyframes) and 108 km for the drawn curve (123 km without keyframes), over 518 places, each withheld with any other place within half a year (`calib_pos.py`, `calib_track.py`, `build/trackcal.json`). The smoother parameters were fitted on an earlier, smaller record set (380 places) and not refitted.
+**Nomadic divisions** (`possgp.py`, settings in `build/gpcal.json` from `calib_gp.py`). Position is a quasi-periodic Gaussian process in local km coordinates, per axis:
+
+$$x(t) = T(t) + S(t) + \lambda\,\phi(t)\,A_{\text{lit}}(t), \qquad x_i = x(t_i) + \varepsilon_i .$$
+
+- *The centre* $T$ is the sum of a smooth squared-exponential component (scale 200 km, length 45 years) and a short one (75 km, 4 years) that follows records a few years apart where they agree.
+- *The seasonal component* $S$ is the first two annual harmonics, $\cos/\sin 2\pi t$ and $\cos/\sin 4\pi t$ with weights 1 and 0.5, whose amplitudes drift with a squared-exponential kernel (45 km, 8 years).
+- *The literature pattern* $A_{\text{lit}}$ (`seasonal_patterns.csv`) enters as a prior mean, timed by the calendar φ and weighted λ = 0.5; half the stated distance did better than the whole.
+- *Each record* is a noisy sighting: $\varepsilon_i$ has variance $(0.5\,r_i)^2 + (60\,\rho_g(t_i))^2$ km², where $r_i$ is the stated radius and $\rho_g$ falls from 1 to 0.25 over three years after the division settles on a reservation (`possgp.RES`). A keyframe has variance $150^2$.
+- *Which part of the process a record sees.* A place dated to a season sees $T + S$ at its date. A camp with no month sees $T$ plus $S$ averaged over the season-of-record distribution of the dated places (its circular moments, which peak in late July), so it is neither credited to nor scored against a season it cannot be shown to belong to. Ranges, agencies, statements of where a people lived, places dated only to a year, radii over 150 km and keyframes see $T$ alone.
+- *The halo* is $1.51\sqrt{\sigma_T^2(t) + R(t)^2}$ per axis, capped at 450 km, where $\sigma_T^2$ is the posterior variance of the centre and $R$ is the spread of camps round it: 85 km in winter, 65 km between, 71 km in summer (interpolated by season), each set so that the halo holds 68% of withheld places of that season (70%, 67%, 68%). With the seasonal round off, $R$ also includes the year's seasonal swing. After a reservation $R$ is scaled by $\rho_g$.
+- *The map* receives the yearly centre and, for each year, the eight harmonic coefficients of $S$ plus the literature term, evaluated at the fraction of the year.
+
+**Test** (`calib_gp.py`). Each documented place is withheld with every place of its division within half a year and predicted from the rest. Settings are chosen on a grid by hold-out over half the divisions and scored on the other half, then the reverse. Season-dated places are scored at their date, the others against the year's centre. Misses are also measured beyond each record's stated radius, so that a place given only as "on the Arkansas" is not counted as missed when the prediction falls within it.
+
+| | places | median miss | mean miss | beyond the stated radius, median |
+|---|---|---|---|---|
+| Track through every record (monotone cubic) | 514 | 114 km | 146 km | |
+| Centre only | 514 | 109 km | 141 km | 61 km |
+| Centre and seasonal component | 514 | 107 km | 137 km | 53 km |
+| Season-dated places: track through every record | 297 | 122 km | 151 km | |
+| Season-dated places: centre only | 297 | 109 km | 144 km | 70 km |
+| Season-dated places: centre and seasonal component | 297 | 106 km | 139 km | 67 km |
+| Ranges and agencies: centre and seasonal component | 182 | 100 km | 124 km | 16 km |
+
+- Without our keyframes the miss is 111 km (mean 143).
+- The seasonal component is worth a few percent; most of the gain over a track through every record comes from averaging several years of records. The Kiowa calendar, the densest record, shows why: a summer sun-dance ground lies a median 155 km from the next winter camp, but winter camps a median 129 km from the winter before and summer grounds 140 km from the summer before, in no fixed direction.
+- Range and agency statements alone were better served by a track through every record (a median 92 km); tuning on all places together, with the short component and the reservation term, brought them to 100 km and a lower mean (124 against 129).
+- The cost falls on precise events in years of mixed records: in 1876 the Miniconjou annual centre lies between the Cheyenne River agency and the summer camps, about 420 km from the Little Bighorn.
 
 **Village divisions.** The track holds at each place.
 - Where `ecology_src.VMOVE` dates a relocation, the move happens over about five months around that date.
 - Otherwise it moves over two years centred on the midpoint between the two places.
 - The halo is a hand-set formula: 20 km + (distance to next site × fraction of the gap elapsed) + 3 km per year from the nearest anchor, capped at 300 km. **This formula is not calibrated.**
-- The held-out median miss for village places is 45 km over 245 places (52 km without keyframes).
+- Held out (`calib_vmove.py`), the 207 village places of the peoples with dated moves are missed by a median 7 km and a mean 42 km.
 
-**Seasonal offset (optional layer).**
-- The annual offset $A_g(t)$ (summer ground minus annual centre, km east and north) is estimated from season-dated places within about 5 years (exponential weights, τ = 5 yr). It is shrunk toward a literature pattern (`seasonal_patterns.csv`) or toward zero, with prior SD 60 km per axis.
-- Within the year, position = centre + φ(month)·A, with a plateau-and-ramp calendar fitted by hold-out (`calib_prof.py`): winter ground to mid-March, summer ground by early July until early August, back by late October.
-- Season-dated places are reproduced exactly.
-- Hold-out: on 297 withheld season-dated places the median miss is 120 km with the offset and 120 km without it (mean 139 against 141). Withholding every place within half a year of the test place, 117 against 122 km (mean 149 against 151; `recheck_seas_block.py`). Sourced literature patterns account for most of that gain; season-dated camps of single bands, pooling across a people's divisions and retuning the kernel and shrinkage gained at most 1% and were not adopted.
-
-**Seasonal round: an alternative tested** (`seas_gp.py`).
-- The model: a quasi-periodic Gaussian process for each nomadic division, a smooth long-term track plus a seasonal component (first two annual harmonics) whose shape and strength are learned from the records and drift over about eight years. Places dated to a month carry their phase. Camps with no month (35) carry the season-of-record distribution of the dated places, which peaks in late July, so they are neither credited to nor scored against a season they cannot be shown to belong to. Range and agency statements (183) and our keyframes observe only the annual mean.
-- The test: the 297 season-dated places, each withheld with every place within half a year; settings tuned on half the divisions and scored on the other half, then the reverse. Misses are also measured beyond each record's own stated radius (a median of 25 km), so that a place given only as "on the Arkansas" is not counted as missed when the prediction falls within it.
-
-| | median miss | mean miss | beyond the stated radius, median |
-|---|---|---|---|
-| Drawn track, no seasonal move | 122 km | 151 km | |
-| Drawn track with the seasonal offset above | 117 km | 149 km | |
-| Gaussian process, long-term track only | 115 km | 148 km | 78 km |
-| Gaussian process, track and seasonal component | 112 km | 145 km | 75 km |
-
-- The seasonal component itself is worth about 3%. Most of the process's advantage comes from its smoother long-term track, which averages several years of records instead of passing through each one.
-- Why the seasonal gain is small: the Kiowa calendar, the densest record, puts a summer sun-dance ground a median 155 km from the next winter camp, but winter camps a median 129 km from the winter before and summer grounds 140 km from the summer before, in no fixed direction. Each season's ground moved from year to year almost as far as the seasons were apart, so a seasonal pattern can explain only a small part of where a division was.
-- Not adopted on the map: the process's track does not pass through every documented place, which the map's tracks do by design (`JUDGMENTS.md`). The seasonal offset of the map is kept.
+**Seasonal round (optional layer).** With it on, the map adds $S$ and the literature term to the centre. Where a division has neither season-dated places within about eight years nor a literature pattern, $S$ is zero and only the bands' scatter moves with the seasons. The calendar φ (winter ground to mid-March, summer ground by early July until early August, back by late October; `build/profcal.json`) times the literature patterns and the bands; the learned component keeps its own timing.
 
 ## 4. Bands and villages (derived layer)
 
@@ -115,8 +116,8 @@ Every count is then divided by its family's factor and the model refitted (lines
 | Test | Script | Output | Result |
 |---|---|---|---|
 | Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,071 counts; median miss ×1.11 (interpolation ×1.08; before 1840 the model is better, after it interpolation); 2-sd coverage 0.92 before widening |
-| Held-out places | `calib_pos.py`, `calib_halo.py` | `model/build/poscal.json` | median 107 km nomadic (smoother), 108 km (drawn curve), 45 km village |
-| Withheld season-dated places | `recheck_seas.py` | console | 297 places; median 120 against 120 km, mean 139 against 141; block hold-out (`recheck_seas_block.py`) 117 against 122 |
+| Held-out nomadic places | `calib_gp.py` | `model/build/gpcal.json` | 514 places; median 107 km, mean 137 (track through every record 114, 146); season-dated 106 against 109 without the seasonal component; halo 68% in each season |
+| Held-out village places | `calib_vmove.py` | console | 207 places; median 7 km, mean 42 |
 | Whole-model sensitivity | `sens.py` | `model/build/sensitivity.json` | table under “Sensitivity of the population totals” on the map page |
 | Rebuild from package | — | — | bit-identical populations and tracks |
 

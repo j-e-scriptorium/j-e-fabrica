@@ -52,7 +52,7 @@ These are the identifications that most affect tracks.
 
 ## 5. Which records steer a division's track
 
-795 records steer a track. Another 282 places are drawn but kept off (`steers_track = no`): camps, councils and visits of part of a division. The reasons follow.
+795 records inform a track, each as a noisy sighting of the division's centre rather than a point it must pass through (`METHODS.md` §3). Another 282 places are drawn but kept off (`steers_track = no`): camps, councils and visits of part of a division. The reasons follow.
 
 - **A part of the division.** A band, a chief's following, a camp holding part of the people (Crazy Horse's following, 1876–77; Cocking's Pegogamaw, 1772–73).
 - **A visit, delegation, council attendance or war party.** San Sabá 1758, the Council House Fight 1840, Shoshone at Horse Creek 1851. These say where some men were for days.
@@ -77,7 +77,7 @@ These are the identifications that most affect tracks.
   - Before 1780, where six divisions have no count at all.
   - The northern plains before 1790.
   - The Plains Cree and Plains Ojibwe throughout, where Canadian treaty-era counts were not read.
-- **Effect of removing all of them.** The 1780 total falls by about 2%, the 1850 total by 2%, held-out population error worsens from 1.103 to 1.105 (sensitivity runs), and held-out place error for the drawn nomadic track worsens from 107 to 123 km (the smoother that sets the halo barely moves, 109 → 111 km).
+- **Effect of removing all of them.** The 1780 total falls by about 2%, the 1850 total by 2%, held-out population error worsens from 1.103 to 1.105 (sensitivity runs), and held-out place error for the nomadic centre worsens from 108 to 111 km.
 
 ## 7. Epidemics and famines (`epidemics_and_shocks.csv`)
 
@@ -107,9 +107,11 @@ The estimated factors run from 0.60 (Henry 1809, counting men in his trading dis
   - Read: the Southern Cheyenne and Arapaho (West, *The Contested Plains*, chs. 4 and 11; Wedel and Frison in Handbook 13); the Piegan (Ewers, *The Horse in Blackfoot Indian Culture*, pp. 41, 125–28: winters on the Sun and Teton about 1833, on the Marias from about 1848, summer gatherings at the Sweetgrass Hills); the eighteenth-century Blackfoot or Gros Ventre ("Archithinue"), Saskatchewan Assiniboine and Fort des Prairies Cree (Henday 1754–55, Cocking 1772–73); the Sarsi (Jenness, pp. 11–12, direction and distance ours); the Comanche after 1840 (Texas Indian Papers: the Penateka winter grounds on the Clear Fork and in the upper Cross Timbers, the northern bands summering by the Arkansas); the Siksika, Plains Cree of the 1790s and Plains Ojibwe (Handbook 13).
   - Ewers gives no distance or bearing for the Blackfoot summer move, only the places above. The Blood, for whom no summer ground is sourced after 1790, have no pattern.
   - **Recalled, not reread for this build:** Ray and Moodie for the nineteenth-century Cree and Assiniboine; Hämäläinen's general description for the Comanche before 1840; Hoxie for the Crow; Stamm for the Shoshone; Tabeau and Pond for the Dakota.
-- **What was tried and not adopted.** Season-dated camps of single bands as evidence for the division's move (no gain in either hold-out); pooling the move across the divisions of a people; retuning the time kernel and the shrinkage. Each changed the block hold-out by 1% or less.
+- **Weight.** Each pattern enters at half its stated distance, as a starting point the division's season-dated places correct; the whole distance did worse out of sample.
 - **What they control.** They set the direction of the summer move wherever a division has no season-dated places of its own.
-- **The calendar.** The months of the move were chosen among statistically tied candidates by closeness to the ethnographic year.
+- **The calendar.** The months of the move were chosen among statistically tied candidates by closeness to the ethnographic year. It times the literature patterns and the bands' scatter, not the pattern learned from the records.
+- **Undated camps.** A camp with no month is weighted by the seasons of the dated records, not assigned a season.
+- **Not adopted.** Pooling the seasonal move across the divisions of a people: the Lakota divisions' moves ran in different directions.
 - **Two fitted patterns rejected because they worsened held-out error:**
   - a Kiowa and Plains Apache winter ground on the North Fork of the Red;
   - a Teton round along the Missouri.

@@ -55,8 +55,7 @@ From `model/src`:
 ```
 python3 build3.py . ..        # must reproduce data/fitted_population_by_division.csv exactly
 python3 validate.py . ..      # leave-one-out: expect median factor ≈ 1.11, 2-sd coverage ≈ 0.92
-python3 recheck_seas.py . ..  # expect a median of ≈ 120 km both ways (mean ≈ 139 against ≈ 141) on 297 places
-python3 recheck_seas_block.py . .. # expect ≈ 117 against ≈ 122 km
+python3 calib_gp.py . ..      # expect out of sample a median ≈ 107 km, mean ≈ 137 on 514 places; halo coverage ≈ 0.68 per season
 python3 audit.py ..           # expect the list in docs/audit.txt
 ```
 
@@ -92,7 +91,7 @@ Open `index.html` (served over http). With "Best guess" and "Divisions" selected
 - After the 25% widening, about 68% of |z| should be ≤ 1.25 and 95% ≤ 2.5.
 - Check this by period and by people. If one people's misses all run one way, its fit is biased, not merely noisy.
 
-**Place.** The nomadic halo is calibrated to contain 68% of withheld places. The village halo is not calibrated (`KNOWN_ISSUES.md` §7).
+**Place.** The nomadic halo is calibrated to contain 68% of withheld places in each season. The village halo is not calibrated (`KNOWN_ISSUES.md` §7).
 
 **Coverage.** Cross `coverage_by_division_and_period.csv` with the halo and SD columns. Uncertainty should be largest where the flag is `thin`. If it is not, the model is overconfident there.
 

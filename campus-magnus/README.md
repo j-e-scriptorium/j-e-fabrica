@@ -25,7 +25,7 @@ The page loads its data with plain `<script>` tags, so it runs from `file://`; o
 
 - **Peoples.** 34 peoples in 9 language families, fitted as 59 divisions, from the Saskatchewan to the Rio Grande and from the Rockies to the Mississippi (`data/groups.csv`). Two names recorded by Clark that cannot be securely identified (Castahana, Dotame) are kept as evidence only. Not on the map: the Plains Métis, who were not an Indian band in the sense of the rest, though their hunts are part of the Plains Ojibwe and Cree story.
 - **Period.** 1700–1900 on the page; the fit runs to 1905 so that its end is not distorted by the edge.
-- **Quantities.** For each division and year: population, position (centre of the year's range), an uncertainty for each, and an optional seasonal offset. Bands and villages are a derived, weaker layer.
+- **Quantities.** For each division and year: population, position (the estimated centre of where its people were, with the range they would be found in), an uncertainty for each, and an optional seasonal round. Bands and villages are a derived, weaker layer.
 - **Not claimed.** Territorial boundaries; anything below the band; populations living off the plains; Native-language sources not available in translation.
 
 ## Data tables (`data/`)
@@ -38,7 +38,7 @@ The page loads its data with plain `<script>` tags, so it runs from `file://`; o
 | `epidemics_and_shocks.csv` | Epidemic or famine × division: dates, mortality applied, whether the fraction is sourced, scaled or assumed. |
 | `coverage_by_division_and_period.csv` | Division × period: counts, places, keyframes, longest gap, `thin` and `sparse` flags. |
 | `fitted_population_by_division.csv`, `…_by_people.csv`, `…_sd_percent.csv` | Year: the best-guess series and its standard deviation. |
-| `positions.csv` | Division × year: track centre, halo radius, seasonal offset and its basis. |
+| `positions.csv` | Division × year: estimated centre and its uncertainty, winter and summer offsets, seasonal harmonics and their basis. |
 | `validation.csv` | Division count: documented value, prediction with that count withheld, standardized miss. |
 | `seasonal_patterns.csv`, `village_moves.csv`, `bison_range.csv` | Literature-based seasonal rounds; dated village relocations; the bison range by period. |
 | `settlements.csv` | Forts, posts, missions and towns, each with what it was checked against. |
@@ -61,8 +61,8 @@ Each record is tiered by how its text reached the project, not by the quality of
 ## Reliability
 
 1. **Population, held out.** Each of 1,071 division counts withheld in turn and predicted: median miss a factor of 1.11 (1.08 for plain interpolation between the neighbouring counts). By period: 1.38 for 1700–99 (interpolation 1.64), 1.34 for 1800–39 (1.38), 1.18 for 1840–69 (1.14), 1.06 for 1870–1905 (1.04). The model earns its keep where counts are sparse; once the Indian Office counts come year by year, interpolating between them does as well or slightly better. 92% fall inside the 2-sd range before the 25% widening shown on the map.
-2. **Place, held out.** 518 nomadic places, each withheld together with any other place within half a year: the drawn track misses by a median 108 km (123 km without our keyframes); the smoother that sets the halo, 107 km (110 km). Village divisions: 45 km over 245 places (52 km). (`model/src/calib_track.py`, `calib_pos.py`.)
-3. **Seasonal round.** 297 season-dated places. Withheld one at a time, the median miss is 120 km with or without the seasonal move (mean 139 against 141). Withheld together with every other place within half a year, which is the case the map faces in a season with no record nearby, 117 km against 122 (mean 149 against 151) (`recheck_seas.py`, `recheck_seas_block.py`). The gain is modest and comes from dense records (the Kiowa) and the literature patterns read in the sources. A Gaussian-process alternative with a learned seasonal component, tested out of sample (`seas_gp.py`), does a little better (112 km) but mainly through a smoother track; the records themselves show each season's ground moving from year to year almost as far as the seasons were apart (`METHODS.md` §3).
+2. **Place, held out.** 514 nomadic places, each withheld together with every other place within half a year, settings tuned on half the divisions and scored on the other half: the estimated centre misses by a median 107 km and a mean 137 (111 and 143 without our keyframes), against 114 and 146 for a track drawn through every record. Season-dated places are scored against the prediction for their date, ranges and agencies against the year's centre. The range halo holds 68% of withheld places in each season. Village divisions with dated moves: a median 7 km and a mean 42 km over 207 places (`model/src/calib_gp.py`, `calib_vmove.py`).
+3. **Seasonal round.** On the 297 season-dated places among them, the seasonal component lowers the median miss from 109 to 106 km (mean 144 to 139). The gain is small because each season's ground moved from year to year almost as far as the seasons were apart: the Kiowa summer ground lies a median 155 km from the next winter camp but 140 km from the summer before (`METHODS.md` §3).
 4. **Most influential assumption.** Epidemic mortality: scaling every fraction by 0.75 or 1.25 moves the 1780 total from 156,000 to 137,000 or 188,000.
 5. **Weakest stretches.** The eighteenth century, the northern plains before 1790, Canadian peoples after 1870, and the decline of the Comanche between the 1840s and the 1860s (`docs/KNOWN_ISSUES.md`). The band layer is illustration constrained by division totals, not evidence.
 
@@ -77,9 +77,8 @@ python3 assemble.py ..            # → ../../data.js, ../../geo.js
 python3 export.py . ..            # → ../out/*.csv (mkdir ../out first)
 python3 package.py . .. ../..     # regenerate ../../data/ from the build and ../out
 python3 validate.py . ..          # leave-one-out population test (a few minutes)
-python3 calib_track.py            # held-out miss of the drawn nomadic track
-python3 recheck_seas.py . ..      # withheld season-dated places (a few minutes)
-python3 recheck_seas_block.py . .. # the same, withholding every place within half a year
+python3 calib_gp.py . ..          # tune and test the nomadic position model → ../build/gpcal.json (≈20 min); rebuild after
+python3 calib_vmove.py            # withheld village places
 python3 sens.py . ..              # whole-model sensitivity runs (≈8 min)
 python3 audit.py ..               # mechanical audit of tracks and populations (cf. docs/audit.txt)
 ```
