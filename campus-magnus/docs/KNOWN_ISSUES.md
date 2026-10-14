@@ -8,12 +8,12 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
   - Burnet's 10,000–12,000 "in 1819" was written in 1847 "from the recollection of near thirty years" (p. 354), and is weighted as a reconstruction.
   - Bonnell's 20,000 (1838) is hearsay from one village, in a polemical letter (p. 228).
   - Butler and Lewis's 1846 report gives every division in lodges at seven to a lodge, 15,600 in all. Butler's own letter four months earlier had 12,500 at five to a lodge. Kavanagh calls the list confused and its figures unreliable (pp. 297–300, 332).
-  - Neighbors's 20,000 of 1849 and the "19,200" of 1841–45 are round figures from Texas, which Kavanagh notes describe only the Comanches known to Anglo-Texans (p. 354).
+  - Neighbors's 20,000 of 1849 (4,000 warriors, "made from the best information that could be obtained from the Indians by frequent inquiry") and the "19,200" of 1841–45 are round figures from Texas, which Kavanagh notes describe only the Comanches known to Anglo-Texans (p. 354). Schoolcraft's table of Texas estimates gives Butler and Davis's 1846 figure as 14,300 and a "consolidated" 15,000 for 1850; Parker's census of 1854 gives 10,000 "men, women, and children" (Winfrey and Day, *Indian Papers of Texas*, vol. 3, docs. 87, 100, 131). The consolidated figure is a compilation of the others and is not entered.
   - After 1850 the counts are concrete: the Penateka at 2,800 (1846, unreliable), 1,200 (1854) and 384 (1859); the Arkansas River Comanches at 3,200 (Whitfield 1856); the New Mexico Kotsoteka and Kwahada at about 2,000 (Norton 1866); 4,445 in 1869 (including an estimated 1,960 never reported); 3,742 in 1870 (including 1,000 estimated); 2,643 at the census of March 1874; 1,721 in 1875.
-- **Verdict.** The best contemporary whole-nation figure for the 1840s is Butler and Lewis's 12,500–15,600, itself unreliable; the 20,000 figures are round hearsay. The fit, about 11,800 in 1846, sits a little under the Butler and Lewis range. Hämäläinen's 20,000–30,000 for the 1820s–40s is not supported by any count Kavanagh reports and is weighted as a reconstruction.
+- **Verdict.** The best contemporary whole-nation figure for the 1840s is Butler and Lewis's 12,500–15,600, itself unreliable; the 20,000 figures are round hearsay. The fit, about 11,400 in 1846, sits under the Butler and Lewis range; Parker's 10,000 of 1854, the first figure after the epidemic of 1849, is above the fit's 8,500. Hämäläinen's 20,000–30,000 for the 1820s–40s is not supported by any count Kavanagh reports and is weighted as a reconstruction.
 - **What remains uncertain.** Whether the decline from the 1840s to the 1860s came mainly in 1848–49 (Hämäläinen: severe; the only contemporary count, 300 deaths) or in the drought of the 1850s. The model puts most of it in the 1850s and early 1860s, with rates of its own scaled to the counts.
 - **An unentered report.** In May 1843 Eldredge heard that smallpox had broken out among Comanches back from Matamoros, "carrying them off by the hundreds", and gave it "but little credence" (Winfrey and Day, *Indian Papers of Texas*, vol. 1, p. 256). No epidemic is applied for 1843.
-- **Would settle it.** Winfrey and Day, *Indian Papers of Texas*, vol. 3 (1846–59), for the Neighbors, Stem and Hardee reports in full. Volume 1 (1825–43) has been read and holds no Comanche count; volume ranges are recalled.
+- **Would settle it.** The Stem (1851) and Hardee (1852) reports and the Brazos and Clear Fork reservation rolls of 1855–59, none of which Winfrey and Day print.
 
 ## 2. Epidemic mortality rates are mostly assumed
 
@@ -28,7 +28,7 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 ## 3. The eighteenth century rests on few records
 
 - **Thin coverage.** Of 345 division × period cells, 33 have neither a count nor a place (`coverage_by_division_and_period.csv`, flag `thin`). Fourteen of them are 1700–49, mostly the northern plains (Blackfoot divisions, Gros Ventre, both Crow divisions, Shoshone, Northern Assiniboine, Cree) and the Osage and Ponca.
-- **What fills the gap.** The map draws these years from keyframes and smoothing. Their held-out error (×1.38 for population, 1700–99) is the worst of any period.
+- **What fills the gap.** The map draws these years from keyframes and smoothing. Their held-out error (×1.39 for population, 1700–99) is the worst of any period.
 - **Would settle it.** Russell, *Eighteenth-Century Western Cree and Their Neighbours* (1991); Burpee's editions of Henday (1907), Cocking (1908) and La Vérendrye (1927); A. B. Thomas, *After Coronado* (1935) and *Forgotten Frontiers* (1932) for the Spanish documents; Bolton's *Athanase de Mézières* (1914) for the Wichita, Kitsai and Tonkawa; Nasatir, *Before Lewis and Clark* (1952) for Truteau and Mackay.
 
 ## 4. Canadian peoples after 1870 and before 1790

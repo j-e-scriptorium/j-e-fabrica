@@ -21,10 +21,10 @@ source,records,of_which_counts,provenance_tier,peoples
 "Annual Report of the Commissioner of Indian Affairs, 1882, population table",26,26,A1,Arapaho; Assiniboine; Cheyenne; Comanche; Dakota; Iowa; Jicarilla; Kansa; Kiowa; Kitsai; Lakota; Omaha; Oto; Pawnee; Plains Apache; Ponca; Shoshone; Wichita; Yankton
 "Annual Report of the Commissioner of Indian Affairs, 1885, population table",26,26,A1,Arapaho; Cheyenne; Comanche; Dakota; Gros Ventre; Hidatsa; Jicarilla; Kansa; Kitsai; Lakota; Omaha; Osage; Oto; Pawnee; Plains Apache; Ponca; Shoshone; Wichita; Yankton
 "Ewers, The Horse in Blackfoot Indian Culture (BAE Bulletin 159, 1955)",25,3,A1,Assiniboine; Blackfoot; Cheyenne; Comanche; Crow; Hidatsa; Kiowa; Lakota; Osage; Yankton; Yanktonai
-"Mooney, Calendar History of the Kiowa Indians (BAE 17th Annual Report, 1898), “Population”",25,25,A2,Comanche; Kiowa
 "Annual Report of the Commissioner of Indian Affairs, 1874, population table",25,25,A1,Arikara; Blackfoot; Cheyenne; Comanche; Dakota; Gros Ventre; Hidatsa; Iowa; Jicarilla; Kansa; Kitsai; Lakota; Mandan; Omaha; Oto; Pawnee; Wichita; Yankton
 "Annual Report of the Commissioner of Indian Affairs, 1892, population table",25,25,A1,Arikara; Assiniboine; Cheyenne; Comanche; Crow; Dakota; Gros Ventre; Hidatsa; Iowa; Jicarilla; Kansa; Kitsai; Lakota; Mandan; Omaha; Osage; Oto; Shoshone; Tonkawa; Wichita; Yankton
 "Annual Report of the Commissioner of Indian Affairs, 1897, population table",25,25,A1,Arapaho; Arikara; Assiniboine; Cheyenne; Comanche; Crow; Dakota; Gros Ventre; Hidatsa; Iowa; Jicarilla; Kansa; Kiowa; Mandan; Omaha; Osage; Oto; Pawnee; Plains Apache; Ponca; Shoshone; Tonkawa; Yankton
+"Mooney, Calendar History of the Kiowa Indians (BAE 17th Annual Report, 1898), “Population”",24,24,A2,Comanche; Kiowa
 "Annual Report of the Commissioner of Indian Affairs, 1889, population table",24,24,A1,Arapaho; Arikara; Cheyenne; Comanche; Crow; Dakota; Hidatsa; Jicarilla; Kansa; Kitsai; Lakota; Mandan; Omaha; Oto; Pawnee; Plains Apache; Ponca; Tonkawa; Wichita; Yankton
 "Annual Report of the Commissioner of Indian Affairs, 1895, population table",24,24,A1,Arapaho; Cheyenne; Comanche; Crow; Dakota; Hidatsa; Iowa; Jicarilla; Kansa; Kiowa; Kitsai; Mandan; Omaha; Osage; Oto; Pawnee; Plains Apache; Ponca; Shoshone; Tonkawa; Yankton
 "Annual Report of the Commissioner of Indian Affairs, 1896, population table",24,24,A1,Arapaho; Arikara; Assiniboine; Cheyenne; Crow; Dakota; Gros Ventre; Hidatsa; Iowa; Jicarilla; Kansa; Lakota; Mandan; Omaha; Osage; Oto; Pawnee; Ponca; Shoshone; Tonkawa; Yankton
@@ -91,10 +91,12 @@ Annual Report of the Commissioner of Indian Affairs for 1874,11,11,A2,Assiniboin
 "Wikipedia, “Crow people” (site coordinates and participants) (chronology)",8,0,B,Crow
 "Fletcher & La Flesche, “The Omaha Tribe” (BAE 27th Annual Report, 1911)",8,0,A2,Omaha
 "Frémont, Report of the Exploring Expedition to the Rocky Mountains in the Year 1842, and to Oregon and North California in the Years 1843–’44 (1845)",8,0,A2,Arapaho; Cheyenne; Lakota; Pawnee
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 87",7,6,A1,Comanche; Kiowa; Kitsai; Lipan; Tonkawa; Wichita
 Annual Report of the Commissioner of Indian Affairs for 1882,7,7,A2,Arikara; Crow; Gros Ventre; Hidatsa; Lakota; Mandan; Osage
 "David Thompson’s Narrative of His Explorations in Western America, 1784–1812, ed. Tyrrell (Champlain Society, 1916)",6,2,A2,Assiniboine; Blackfoot; Hidatsa; Mandan; Shoshone
 "Hämäläinen, The Comanche Empire (2008)",6,5,A1,Comanche
 "Jenness, The Sarcee Indians of Alberta (1938)",6,2,A1,Sarsi
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 78",6,2,A1,Comanche; Kitsai; Tonkawa; Wichita
 "Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 1 (1966; repr. 1995)",6,0,A1,Comanche; Kitsai; Wichita
 "Annual Report of the Commissioner of Indian Affairs, 1878, agent’s report, Kiowa and Comanche Agency",6,0,A2,Comanche; Kiowa; Plains Apache
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Schneider, “Three Affiliated Tribes”",6,2,A1,Arikara; Hidatsa; Mandan
@@ -114,7 +116,8 @@ Larocque (1805),5,0,A2,Crow
 "Wikipedia, “Pedro Vial” (site coordinates and participants)",4,0,B,Comanche; Kansa; Wichita
 "Wikipedia, “Comanche–Spanish peace treaties”",4,0,B,Comanche
 "Alexander Henry the younger, journal 1809–10, in Coues ed., New Light… (1897), vol. 2",4,4,A2,Assiniboine
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 99, doc. No. 125",4,0,A1,Comanche; Lipan; Wichita
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 111",4,0,A1,Lipan; Tonkawa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 125",4,0,A1,Comanche; Lipan; Wichita
 "Wikipedia, “Lower Sioux Agency” (site coordinates and participants)",4,0,B,Dakota
 "Wikipedia, “Upper Sioux Agency” (site coordinates and participants)",4,0,B,Dakota
 "Raynolds, Report on the Exploration of the Yellowstone River (1868)",4,0,A2,Arapaho; Blackfoot; Crow
@@ -130,14 +133,16 @@ Annual Report of the Commissioner of Indian Affairs for 1886,4,4,A2,Dakota; Kans
 "Bradbury, Travels in the Interior of America (1817); Brackenridge, Journal of a Voyage up the River Missouri (1814), in Thwaites ed., Early Western Travels, vol. 6 (1904)",3,0,A2,Lakota; Yanktonai
 "Maximilian, Travels in the Interior of North America, 1832–1834, in Thwaites ed., Early Western Travels, vol. 23",3,0,A2,Blackfoot; Gros Ventre
 "Larpenteur, Forty Years a Fur Trader on the Upper Missouri, ed. Quaife (1933)",3,0,A2,Crow; Plains Cree
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 75, doc. No. 111",3,0,A1,Lipan; Tonkawa
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 62, doc. No. 77",3,0,A1,Comanche; Wichita
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 15, doc. No. 21",3,0,A1,Lipan
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 9",3,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 77",3,0,A1,Comanche; Wichita
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 124",3,1,A1,Comanche; Lipan; Tonkawa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 21",3,0,A1,Lipan
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Detsanayuka”, vol. 1",3,3,A2,Comanche
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Miniconjou”, vol. 1",3,3,A2,Lakota
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 70, doc. No. 94",3,0,A1,Comanche; Lipan
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 94",3,0,A1,Comanche; Lipan
 "Doty in Stevens, Pacific Railroad Reports vol. 1, as given by Hayden, Contributions to the Ethnography and Philology of the Indian Tribes of the Missouri Valley (1862)",3,3,A2,Blackfoot
 "Wikipedia, “Fort Atkinson (Kansas)” (site coordinates and participants) (treaty of 27 July 1853 with the Apache, Comanche and Kiowa)",3,0,B,Comanche; Plains Apache
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 131",3,3,A1,Comanche; Kitsai; Wichita
 "Report of the Commissioner of Indian Affairs, 1858, as given by Hayden, Contributions to the Ethnography and Philology of the Indian Tribes of the Missouri Valley (1862)",3,3,A2,Blackfoot
 "Wikipedia, “Battle of Killdeer Mountain” (site coordinates and participants)",3,0,B,Lakota; Yanktonai
 "Wikipedia, “First Battle of Adobe Walls” (site coordinates and participants)",3,0,B,Comanche; Kiowa
@@ -157,29 +162,29 @@ Annual Report of the Commissioner of Indian Affairs for 1886,4,4,A2,Dakota; Kans
 "Lewis & Clark journals, Oct.–Nov. 1804 (Moulton ed., UNL online edition)",2,2,A2,Arikara; Mandan
 "Clark, “Estimate of the Eastern Indians,” Fort Mandan, winter 1804–05 (Moulton ed., Journals of the Lewis & Clark Expedition, vol. 3; UNL online edition); identification Fowler, “Arapaho”, Handbook 13 (2001)",2,0,A2,Arapaho
 "James, Account of an Expedition from Pittsburgh to the Rocky Mountains… under Major S. H. Long (1823), vol. 1",2,1,A2,Kansa; Pawnee
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 52, doc. No. 78",2,0,A1,Comanche
 "Maximilian, Travels in the Interior of North America, 1832–1834, in Thwaites ed., Early Western Travels, vol. 22",2,0,A2,Crow; Yanktonai
 "Wikipedia, “Bent’s Old Fort National Historic Site” (site coordinates and participants)",2,0,B,Arapaho; Cheyenne
 "Osborne Russell, Journal of a Trapper, 1834–1843 (1914; 1921 ed.)",2,0,A2,Shoshone
 "Historical Marker Database, “Camp Holmes Treaty” (Lexington, Okla.)",2,0,B,Comanche
 "Gregg, Commerce of the Prairies (1844), in Thwaites ed., Early Western Travels, vol. 20 (1905)",2,0,A2,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 11, doc. No. 9",2,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 72, doc. No. 103",2,0,A1,Comanche; Wichita
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 83, doc. No. 124",2,1,A1,Comanche; Tonkawa
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 132, doc. No. 238",2,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 201, doc. No. 386",2,0,A1,Lipan; Tonkawa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 50",2,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 103",2,0,A1,Comanche; Wichita
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 238",2,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 262",2,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 386",2,0,A1,Lipan; Tonkawa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 100",2,2,A1,Comanche; Wichita
 "Parkman, The Oregon Trail (1849)",2,0,A2,Lakota
 "Garrard, Wah-to-yah and the Taos Trail (1850)",2,0,A2,Cheyenne
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 23, doc. No. 27",2,0,A1,Comanche; Wichita
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. No. 27",2,0,A1,Comanche; Wichita
 "West, The Contested Plains: Indians, Goldseekers, and the Rush to Colorado (1998), chs. 4, 9",2,0,A1,Arapaho; Cheyenne
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 99, doc. No. 128",2,0,A1,Lipan
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 110, doc. No. 130",2,0,A1,Wichita
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. No. 128",2,0,A1,Lipan
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 130",2,0,A1,Wichita
 "Kappler, Indian Affairs: Laws and Treaties, vol. 2 (Treaty with the Blackfeet, 17 Oct. 1855) (recalled; not checked against the text this round)",2,0,C,Blackfoot; Gros Ventre
 "Hayden, Contributions to the Ethnography and Philology of the Indian Tribes of the Missouri Valley (1862), “Names of Dakota bands, with their principal chiefs”",2,2,A2,Lakota
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 139, doc. No. 176",2,0,A1,Comanche; Kitsai
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 148, doc. No. 190",2,1,A1,Comanche; Kiowa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. No. 176",2,0,A1,Comanche; Kitsai
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. No. 190",2,1,A1,Comanche; Kiowa
 "Van Dorn’s Wichita Village fight, 1 Oct. 1858 (recalled; not checked against the text this round)",2,0,C,Comanche; Wichita
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 23, doc. No. 22",2,0,A1,Comanche; Wichita
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 22",2,0,A1,Comanche; Wichita
 "Wikipedia, “Battle of Wood Lake” (site coordinates and participants)",2,0,B,Dakota
 "Wikipedia, “Camp Release State Monument” (site coordinates and participants)",2,0,B,Dakota
 "Wikipedia, “Eastern Shoshone” (site coordinates and participants)",2,0,B,Shoshone
@@ -233,8 +238,7 @@ Mission San Lorenzo de la Santa Cruz (El Cañón) (recalled; not checked against
 "Brooks, Captives & Cousins; Thornton, American Indian Holocaust and Survival",1,1,C,Comanche
 "Wikipedia, “Black Dog (Osage chief)”",1,1,B,Osage
 "Mallery, Picture-Writing of the American Indians (BAE 10th Annual Report, 1893), Battiste Good’s winter count, fig. 375",1,0,A2,Lakota
-"David G. Burnet to the Indian Office, Texas Indian Papers vol. 3; also in Kavanagh, “Comanche”, Handbook of North American Indians 13 (2001)",1,1,C,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 55, doc. No. 78",1,0,A1,Kitsai
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 78 (Burnet to Schoolcraft, 1847); also Kavanagh, “Comanche”, Handbook of North American Indians 13 (2001)",1,1,A1,Comanche
 "Long expedition (1823), as given by Hayden, Contributions to the Ethnography and Philology of the Indian Tribes of the Missouri Valley (1862)",1,1,A2,Pawnee
 "Wikipedia, “Palmer Site” (site coordinates and participants)",1,0,B,Pawnee
 "James, Account of an Expedition from Pittsburgh to the Rocky Mountains… under Major S. H. Long (1823), vol. 2",1,0,A1,Plains Apache
@@ -253,81 +257,71 @@ Mission San Lorenzo de la Santa Cruz (El Cañón) (recalled; not checked against
 "Kansas Historical Society, Kansapedia, “Hard Chief’s Village”",1,1,B,Kansa
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Grail” (citing Schoolcraft), vol. 1",1,1,A2,Dakota
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Mandan”, vol. 1",1,1,A2,Mandan
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 1 (1966; repr. 1995), pdf 27, doc. No. 14",1,1,A1,Wichita
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 1 (1966; repr. 1995), doc. No. 14",1,1,A1,Wichita
 "Wikipedia, “Lac qui Parle Mission” (site coordinates and participants)",1,0,B,Dakota
 "Wikipedia, “Council House Fight” (site coordinates and participants)",1,0,B,Comanche
 "Tixier, Travels on the Osage Prairies (1840; ed. McDermott, 1940)",1,0,A2,Osage
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 36, doc. No. 35",1,0,A1,Kitsai
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 12, doc. No. 9",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 19-20, doc. No. 21",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 20, doc. No. 22",1,1,A1,Wichita
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 28, doc. No. 28",1,0,A1,Kiowa
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 78, doc. No. 114",1,1,A1,Wichita
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 34, doc. No. 31",1,0,A1,Wichita
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 45, doc. No. 50",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 44, doc. No. 50",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 55, doc. No. 74",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 59-60, doc. Nos. 75-76",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 75-76, doc. No. 111",1,0,A1,Tonkawa
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 86, doc. No. 129",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 105, doc. No. 169",1,0,A1,Lipan
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 114, doc. No. 195",1,0,A1,Tonkawa
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 118, doc. Nos. 204",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 82, doc. No. 124",1,0,A1,Lipan
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 131, doc. No. 237",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 138, doc. No. 262",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 144, doc. No. 262",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 178, doc. No. 300",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 190, doc. No. 364",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 195, doc. Nos. 367-371",1,0,A1,Wichita
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), pdf 196-197, doc. No. 376",1,1,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 36, doc. Nos. 59-60",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 50, doc. No. 76",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 35",1,0,A1,Kitsai
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 21",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 22",1,1,A1,Wichita
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 28",1,0,A1,Kiowa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 114",1,1,A1,Wichita
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 31",1,0,A1,Wichita
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 74",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. Nos. 75-76",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 129",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 169",1,0,A1,Lipan
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 195",1,0,A1,Tonkawa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. Nos. 204",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 237",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 300",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 364",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. Nos. 367-371",1,0,A1,Wichita
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 2 (1966; repr. 1995), doc. No. 376",1,1,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. Nos. 59-60",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 76",1,0,A1,Comanche
 Annual Report of the Commissioner of Indian Affairs for 1868 (retrospect),1,1,A2,Kansa
 "Wikipedia, “Meusebach–Comanche Treaty” (site coordinates and participants)",1,0,B,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 56, doc. No. 78",1,1,A1,Tonkawa
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 56-57, doc. No. 78",1,1,A1,Wichita
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 57, doc. No. 78",1,0,A1,Wichita
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 63, doc. No. 87",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 78 (Burnet to Schoolcraft, 1847)",1,1,A1,Lipan
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Hunkpapa”",1,1,A2,Lakota
 "Prescott (1850) in Schoolcraft, Historical and Statistical Information… of the Indian Tribes, vol. 3",1,1,C,Dakota
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10)",1,1,A2,Osage
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 73, doc. No. 98",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 78-79, doc. Nos. 101-105",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 98",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. Nos. 101-105",1,0,A1,Comanche
 "Stevens, Report of Explorations for a Route for the Pacific Railroad… from St. Paul to Puget Sound (Pacific Railroad Reports, vol. 1, 1855)",1,0,A2,Blackfoot
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 94-95, doc. No. 120",1,1,A1,Lipan
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. No. 120",1,1,A1,Lipan
 "Wikipedia, “Battle of Cieneguilla” (site coordinates and participants)",1,0,B,Jicarilla
 "Wikipedia, “Grattan massacre” (site coordinates and participants)",1,0,B,Lakota
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 100, doc. No. 126",1,1,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 126",1,1,A1,Comanche
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Hunkpapa”, vol. 1",1,1,A2,Lakota
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), pdf 120, doc. No. 140",1,1,A1,Lipan
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 114, doc. No. 142",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 3 (1966; repr. 1995), doc. No. 140",1,1,A1,Lipan
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. No. 142",1,0,A1,Comanche
 "Texas State Historical Association, Handbook of Texas Online, “Comanche Indian Reservation”",1,1,B,Comanche
 "Wikipedia, “Battle of Solomon’s Fork” (site coordinates and participants)",1,0,B,Cheyenne
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 127, doc. No. 162",1,1,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 128, doc. No. 164",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 133, doc. No. 169",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. No. 162",1,1,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. No. 164",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. No. 169",1,0,A1,Comanche
 "Wikipedia, “Battle of Little Robe Creek” (site coordinates and participants); Wikipedia, “Iron Jacket” (site coordinates and participants)",1,0,B,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 137, doc. No. 172",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 173, doc. No. 222",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 199-206, doc. Nos. 264",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), pdf 205; vol. 3, pdf 171, doc. Nos. 264",1,0,A1,Tonkawa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. No. 172",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. No. 222",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. Nos. 264",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 5 (1966; repr. 1995), doc. No. 267; vol. 3, doc. No. 224",1,0,A1,Tonkawa
 "Texas State Historical Association, Handbook of Texas Online, “Comanche Indian Reservation” and “Comanche Indians”",1,0,B,Comanche
 "Wikipedia, “Battle of Pease River” (site coordinates and participants)",1,0,B,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 37, doc. No. 46",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 64, doc. No. 80",1,0,A1,Tonkawa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 46",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 80",1,0,A1,Tonkawa
 "Wikipedia, “Battle of Whitestone Hill” (site coordinates and participants)",1,0,B,Yanktonai
 Wichita refugee camp on the Little Arkansas (recalled; not checked against the text this round),1,0,C,Wichita
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 111, doc. No. 150",1,1,A1,Lipan
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 66, doc. No. 81",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 71, doc. No. 90",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 76, doc. No. 96 (enclosed letter)",1,1,A1,Lipan
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 150",1,1,A1,Lipan
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 81",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 90",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 96 (enclosed letter)",1,1,A1,Lipan
 Annual Report of the Commissioner of Indian Affairs for 1886 (agent’s retrospect),1,1,A2,Dakota
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 86, doc. No. 116",1,0,A1,Lipan
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 96, doc. No. 130",1,1,A1,Tonkawa
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 105, doc. No. 144",1,0,A1,Tonkawa
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 103, doc. No. 140",1,0,A1,Comanche
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 138, doc. No. 189",1,0,A1,Lipan
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 116",1,0,A1,Lipan
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 130",1,1,A1,Tonkawa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 144",1,0,A1,Tonkawa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 140",1,0,A1,Comanche
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 189",1,0,A1,Lipan
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Ditsakana”, vol. 1",1,1,A2,Comanche
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Crows”",1,1,A2,Crow
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Crows”, vol. 1",1,1,A2,Crow
@@ -336,7 +330,7 @@ Annual Report of the Commissioner of Indian Affairs for 1886 (agent’s retrospe
 "Grinnell, Pawnee Hero Stories and Folk-Tales (1889), “A Summer Hunt”",1,1,A2,Pawnee
 "Wikipedia, “Battle of the North Fork of the Red River” (site coordinates and participants)",1,0,B,Comanche
 "Wikipedia, “Massacre Canyon”",1,0,B,Pawnee
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 167, doc. Nos. 224-226",1,0,A1,Kiowa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. Nos. 224-226",1,0,A1,Kiowa
 "Wikipedia, “Bates Battlefield” (site coordinates and participants)",1,0,B,Arapaho
 "Annual Report of the Commissioner of Indian Affairs, 1874, agent’s report, Cimarron Indian Agency",1,0,A2,Jicarilla
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Levy, “Kiowa”",1,1,A1,Kiowa
@@ -348,7 +342,7 @@ Annual Report of the Commissioner of Indian Affairs for 1886 (agent’s retrospe
 "Annual Report of the Commissioner of Indian Affairs, 1878, agent’s report, Fort Peck Agency",1,0,A2,Assiniboine
 "Annual Report of the Commissioner of Indian Affairs, 1878, agent’s report, Yankton Agency",1,0,A2,Yankton
 "Annual Report of the Commissioner of Indian Affairs, 1878, agent’s report, Wichita Agency",1,0,A2,Wichita
-"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), pdf 186, doc. No. 247",1,1,A1,Kiowa
+"Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 247",1,1,A1,Kiowa
 "Dorsey, “Siouan Sociology” (BAE 15th Annual Report, 1897) (band); place recalled from standard histories (not checked for this build)",1,0,C,Yanktonai
 "Grinnell, Blackfoot Lodge Tales (1892), “The Blackfeet of To-day”",1,1,A2,Blackfoot
 "Jicarilla reservation, executive order of 1887 (recalled; not checked against the text this round)",1,0,C,Jicarilla

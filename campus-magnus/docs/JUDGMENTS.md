@@ -131,8 +131,8 @@ The estimated factors run from 0.60 (Henry 1809, counting men in his trading dis
 
 The full list is in the “About the data” section of the map page, "Where the sources disagree". These are the calls a reviewer is most likely to challenge.
 
-- **Comanche, 1819–49.** Burnet's 10,000–12,000 (written from memory in 1847), Butler and Lewis's 12,500–15,600 (1846), and round figures of 19,200–20,000 (1838–49) from Texas.
-  - **Resolution.** The fit gives about 11,800 in 1846. Burnet is weighted as a reconstruction, Butler and Lewis and the round figures as contemporary estimates.
+- **Comanche, 1819–54.** Burnet's 10,000–12,000 (written from memory in 1847), Butler and Lewis's 12,500–15,600 and Butler and Davis's 14,300 (1846), round figures of 19,200–20,000 (1838–49) from Texas, and Parker's 10,000 (1854).
+  - **Resolution.** The fit gives about 11,400 in 1846 and 8,500 in 1854. Burnet is weighted as a reconstruction, Butler and Lewis and the round figures as contemporary estimates.
   - **Reason.** Kavanagh's *Comanche Political History* shows how each figure was made: Butler and Lewis divide the nation into six divisions in lodges, but Kavanagh calls the list unreliable; the 20,000 figures are hearsay or describe only the Comanches known to Texans.
   - **Status.** Hämäläinen (2008) accepts 20,000; nothing in the counts supports it. Closed unless new counts appear.
 - **Mandan and Arikara, 1780.** Mooney's reconstructions are far below the village counts; kept as soft constraints.
