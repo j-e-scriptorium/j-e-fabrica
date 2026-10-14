@@ -31,14 +31,20 @@ W('plains_band_events.csv',['division_id','unit_id','name','year','fraction_of_b
 print('ok',len(rows))
 # positions: annual centre and seasonal offset
 import seasonal as SE, ecology_src as EC
-SRCN={'d':'fitted to season-dated places','p':'literature pattern','0':'none'}
+SRCN={'d':'learned from season-dated places (literature at half weight)','p':'literature pattern at half weight','0':'none'}
+import math as _m
+def _disp(c,f):
+    q=[_m.cos(2*_m.pi*f),_m.sin(2*_m.pi*f),_m.cos(4*_m.pi*f),_m.sin(4*_m.pi*f)]
+    return [round(sum(c[i]*q[i] for i in range(4))),round(sum(c[4+i]*q[i] for i in range(4)))]
+P_=d['prof'] or [.2,.5,.6,.8]
 rowsP=[]
 for g in gids:
     tr=d['tracks'][g]
     for y in range(max(1700,G[g]['start']),min(1905,G[g]['end'])+1):
-        la,lo=SE.herm(tr['pos'],y+0.5); sv=tr.get('sv'); a=sv[y-1700] if sv else [0,0]
-        rowsP.append([g,G[g]['name'],y,round(la,3),round(lo,3),tr['sp'][y-1700],a[0],a[1],(tr['svd'][y-1700] if 'svd' in tr else ''),SRCN[tr['svs'][y-1700]] if 'svs' in tr else 'none'])
-W('plains_positions.csv',['division_id','division','year','centre_lat_midyear','centre_lon_midyear','halo_km','summer_offset_east_km','summer_offset_north_km','offset_sd_km_per_axis','offset_basis'],rowsP)
+        la,lo=SE.herm(tr['pos'],y+0.5); sh=tr.get('sh'); c=sh[y-1700] if sh else [0]*8
+        w=_disp(c,((P_[3]+1+P_[0])/2)%1); s_=_disp(c,(P_[1]+P_[2])/2)
+        rowsP.append([g,G[g]['name'],y,round(la,3),round(lo,3),tr['sp'][y-1700],w[0],w[1],s_[0],s_[1],' '.join(str(v) for v in c),SRCN[tr['svs'][y-1700]] if 'svs' in tr else 'none'])
+W('plains_positions.csv',['division_id','division','year','centre_lat_midyear','centre_lon_midyear','centre_uncertainty_km_68pct','winter_offset_east_km','winter_offset_north_km','summer_offset_east_km','summer_offset_north_km','seasonal_harmonics_km','seasonal_basis'],rowsP)
 W('plains_seasonal_patterns.csv',['division_id','division','from','to','pattern','source_recalled'],[[g,G[g]['name'],r[0],r[1],r[2],r[3]] for g,L in d['seaspri'].items() for r in L])
 W('plains_village_moves.csv',['division_id','division','year','what','source_recalled'],[[g,G[g]['name'],m,t,s] for g,L in EC.VMOVE.items() for (m,t,s) in L])
 W('plains_bison_range.csv',['from_year','outline_wkt','source'],[[y,'MULTIPOLYGON('+','.join('(('+','.join(f'{x} {yy}' for x,yy in poly+[poly[0]])+'))' for poly in P)+')' if P else 'EMPTY',EC.HORNADAY] for (y,P) in EC.BISON])

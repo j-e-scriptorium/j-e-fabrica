@@ -266,7 +266,8 @@ ol.bib .grp{display:block;text-indent:0;padding:0;font:500 11px var(--f-body);le
           <label><input type="checkbox" id="oCamps"> Split large nomadic dots into camp-sized dots</label>
           <label><input type="checkbox" id="oSeasons"> Seasonal round (month by month; sets speed to ¼ yr/s)</label>
           <label><input type="checkbox" id="oRounds" disabled> Trace each division’s seasonal round</label>
-          <label><input type="checkbox" id="oUnc"> Show uncertainty</label>
+          <label><input type="checkbox" id="oRange" checked> Show range (where the people would be found)</label>
+          <label><input type="checkbox" id="oUnc"> Show population uncertainty</label>
         </div>
         <div class="opts" id="optsEvid" hidden>
           <div class="row">Keep each record visible for
@@ -602,7 +603,7 @@ const tribeColor=t=>{const P=(st.color==='family'?SHADE:PEOP)[css.pal==='dark'?'
 const colorOf=g=>g.fam==='unident'?css.su:tribeColor(g.tribe);
 
 // ---------- state ----------
-const st={year:1805,mode:'guess',level:'band',playing:false,speed:6,sel:null,selBand:null,mark:false,camps:false,seasons:false,rounds:false,unc:false,fade:10,halo:true,settle:true,borders:true,labels:true,color:'family'};
+const st={year:1805,mode:'guess',level:'band',playing:false,speed:6,sel:null,selBand:null,mark:false,camps:false,seasons:false,rounds:false,unc:false,range:true,fade:10,halo:true,settle:true,borders:true,labels:true,color:'family'};
 try{const m=localStorage.getItem('campus.mode');if(m==='evid'||m==='guess')st.mode=m;const l=localStorage.getItem('campus.level');if(['tribe','div','band'].includes(l))st.level=l;const c=localStorage.getItem('campus.colorby');if(c==='people'||c==='family')st.color=c;}catch(e){}
 
 // ---------- projection & basemap ----------
@@ -693,13 +694,24 @@ function nyAt(tr,y){const [a,b,t]=annual(tr.ny,y);return a+t*(b-a);}
 // Seasonal profile shared with the build: -1 on the winter ground, +1 on the summer ground, smooth ramps between.
 const PROF=D.prof||[.2,.5,.65,.9];const ss=x=>x*x*(3-2*x);
 function seasonOf(y){const f=((y%1)+1)%1,[a,b,c,d]=PROF;if(!D.prof)return Math.cos(2*Math.PI*(f-.55));if(f<a||f>=d)return -1;if(f<b)return -1+2*ss((f-a)/(b-a));if(f<c)return 1;return 1-2*ss((f-c)/(d-c));}
-// Seasonal round: the track is the annual centre; a division stands at centre + season(y)·A(y), where A is half the step from its
-// winter ground to its summer ground (km east, km north), fitted to its season-dated places or taken from the literature.
-function svAt(tr,y){if(!tr.sv)return [0,0];const k=Math.max(0,Math.min(tr.sv.length-1,y-Y0)),i=Math.floor(k),j=Math.min(tr.sv.length-1,i+1),t=k-i;
-  return [tr.sv[i][0]+t*(tr.sv[j][0]-tr.sv[i][0]),tr.sv[i][1]+t*(tr.sv[j][1]-tr.sv[i][1])];}
-function seasonalShift(gid,y){const tr=D.tracks[gid];if(!st.seasons||!tr||!tr.sv)return [0,0];const a=svAt(tr,y),s=seasonOf(y)*roamF(gid,y);return [a[0]*s,a[1]*s];}
+// Seasonal round: the track is the division's annual centre; with the seasonal round on, it stands at centre + S(y), the seasonal
+// displacement learned from its records (and, at half weight, the literature), stored per year as the coefficients of
+// cos/sin 2πf and 4πf (f = fraction of the year), km east then km north.
+function shAt(tr,y){if(!tr.sh)return null;const k=Math.max(0,Math.min(tr.sh.length-1,y-Y0)),i=Math.floor(k),j=Math.min(tr.sh.length-1,i+1),t=k-i;
+  return tr.sh[i].map((v,n)=>v+t*(tr.sh[j][n]-v));}
+function seasDisp(tr,y){const c=shAt(tr,y);if(!c)return [0,0];const f=((y%1)+1)%1,a=2*Math.PI*f,b=4*Math.PI*f,q=[Math.cos(a),Math.sin(a),Math.cos(b),Math.sin(b)];
+  return [c[0]*q[0]+c[1]*q[1]+c[2]*q[2]+c[3]*q[3],c[4]*q[0]+c[5]*q[1]+c[6]*q[2]+c[7]*q[3]];}
+function seasonalShift(gid,y){const tr=D.tracks[gid];if(!st.seasons||!tr||!tr.sh)return [0,0];const d=seasDisp(tr,y),r=roamF(gid,y);return [d[0]*r,d[1]*r];}
 function centre(gid,y){let [lat,lon]=hermPos(D.tracks[gid].pos,y);const [e,nn]=seasonalShift(gid,y);return [lat+nn/111,lon+e/(111*Math.cos(lat*Math.PI/180))];}
-function spSeason(gid,y){const tr=D.tracks[gid];let s=spAt(tr,y);if(st.seasons&&tr.svd){const k=Math.max(0,Math.min(tr.svd.length-1,Math.round(y-Y0))),f=seasonOf(y)*roamF(gid,y);s=Math.sqrt(s*s+Math.pow(1.46*f*tr.svd[k],2))*(D.shalo||1);}return s;}
+// The halo: the area a nomadic division's people would be found in, 68% of the time. It combines the model's own uncertainty
+// about the centre (sp) with how far the division's camps spread around it, which the records show to be widest in winter, when
+// the bands scattered to their sheltered valleys, and least in spring, summer and autumn; it shrinks after the reservation.
+const ROAM=D.roam||{winter:85,between:65,summer:71};
+function roamAt(gid,y){const tr=D.tracks[gid];let R;
+  if(st.seasons){const s=seasonOf(y);R=s<0?ROAM.between+(ROAM.winter-ROAM.between)*(-s):ROAM.between+(ROAM.summer-ROAM.between)*s;}
+  else{const c=shAt(tr,y)||[0,0,0,0,0,0,0,0],rms=Math.sqrt(c.reduce((a,v)=>a+v*v,0)/2);R=Math.hypot((ROAM.winter+ROAM.between+ROAM.summer)/3,rms);}
+  return R*roamF(gid,y);}
+function spSeason(gid,y){const tr=D.tracks[gid];let s=spAt(tr,y);if(G[gid]&&G[gid].life.includes('nomadic'))s=Math.hypot(s,1.51*roamAt(gid,y));return s;}
 function groupState(gid,y){const tr=D.tracks[gid];const [lat,lon]=centre(gid,y);return {lat,lon,pop:popAt(tr,y),sd:sdAt(tr,y),sp:spSeason(gid,y)};}
 const MONTHS=['January','February','March','April','May','June','July','August','September','October','November','December'];
 function monthName(y){const f=((y%1)+1)%1;return MONTHS[Math.min(11,Math.floor(f*12))];}
@@ -730,7 +742,7 @@ function trackBlend(tr,y){if(!tr||!tr.length)return null;const t0=tr[0][0],t1=tr
 // components use those scales; each band adds its own scatter. Specific sites are invented by a seeded
 // random draw, and winter camps are pulled onto the nearest river (timber, water, shelter).
 const MOV={sS:85,sW:52,band:40,hunt:50,sp:35,ann:30};
-const RES={bru:1878,ogl:1878,min:1877,hnk:1881,sih:1877,sna:1877,twk:1868,ynk:1859,yku:1873,ykl:1863,mde:1853,wpk:1853,wpt:1853,sis:1867,ass:1871,asn:1877,
+const RES=D.res||{bru:1878,ogl:1878,min:1877,hnk:1881,sih:1877,sna:1877,twk:1868,ynk:1859,yku:1873,ykl:1863,mde:1853,wpk:1853,wpt:1853,sis:1867,ass:1871,asn:1877,
   cre:1876,crw:1876,crs:1883,ojb:1882,sik:1880,kai:1880,pik:1880,gv:1878,chn:1877,chs:1875,arn:1878,ars:1870,cwm:1882,cwr:1884,kio:1875,kap:1875,jic:1887,lip:1880,
   cyy:1875,cyk:1875,cyp:1855,cyn:1875,cyq:1875,sho:1868,apc:1732,cyj:1795,chy:1832,ara:1835};
 // Village peoples' tribal hunts. s: documented summer hunting ground [lat,lon] (or b/d: bearing and distance by analogy);
@@ -886,7 +898,7 @@ function marker(x,y,r,state,fill,alpha,stroke,lw){
 // The seasonal round of each nomadic division: its position sampled through the current year, which runs out
 // from the winter ground (filled dot) to the summer ground (open dot) and back.
 function drawRounds(y,divs){if(!st.seasons||st.level==='tribe')return;const Y=Math.floor(y);ctx.save();
-  for(const d of divs){const g=d.g,tr=D.tracks[g.id],sel=st.sel===g.id;if(!g.life.includes('nomadic')||!tr)continue;if(!sel&&!(st.rounds&&tr.sv))continue;
+  for(const d of divs){const g=d.g,tr=D.tracks[g.id],sel=st.sel===g.id;if(!g.life.includes('nomadic')||!tr)continue;if(!sel&&!(st.rounds&&tr.sh))continue;
     const pts=[];for(let k=0;k<=48;k++){const t=Y+k/48;if(t<g.start||t>g.end+1)continue;const [la,lo]=centre(g.id,Math.min(t,Y+.999));const q=proj([lo,la]);if(q)pts.push(q);}
     if(pts.length<2)continue;const col=colorOf(g);
     ctx.beginPath();pts.forEach((q,i)=>i?ctx.lineTo(q[0],q[1]):ctx.moveTo(q[0],q[1]));
@@ -909,7 +921,7 @@ function drawGuess(y){
   items.sort((a,b)=>b.s.pop-a.s.pop);
   const R0=st.level==='band'?Rb:R;
   drawRounds(y,divs);
-  if(st.unc){const src=st.level==='tribe'?items:divs;for(const it of src){const col=colorOf(it.g);const rr=kmToPx(it.s.lat,it.s.lon,it.s.sp);
+  if(st.range){const src=st.level==='tribe'?items:divs;for(const it of src){const col=colorOf(it.g);const rr=kmToPx(it.s.lat,it.s.lon,it.s.sp);
       const gr=ctx.createRadialGradient(it.x,it.y,0,it.x,it.y,rr);gr.addColorStop(0,col);gr.addColorStop(1,'rgba(0,0,0,0)');
       ctx.globalAlpha=.12;ctx.fillStyle=gr;ctx.beginPath();ctx.arc(it.x,it.y,rr,0,7);ctx.fill();ctx.globalAlpha=1;}}
   for(const it of items){
@@ -1068,10 +1080,11 @@ function updateDetailMarker(){for(const id of ['dmark','smark']){const m=documen
 function esc(t){return String(t).replace(/&/g,'&amp;').replace(/</g,'&lt;');}
 const COMPASS=['N','NNE','NE','ENE','E','ESE','SE','SSE','S','SSW','SW','WSW','W','WNW','NW','NNW'];
 function seasonHTML(gid){const g=G[gid],tr=D.tracks[gid];if(!tr||!g.life.includes('nomadic'))return '';
-  const y=Math.round(Math.min(Math.max(st.year,g.start),g.end)),a=svAt(tr,y),d=2*Math.hypot(a[0],a[1]),c=tr.svs?tr.svs[y-Y0]:'0';
-  let txt;if(!tr.sv||d<20||c==='0')txt='No seasonal pattern of its own in '+y+': no season-dated places near this year and nothing in the literature read; only the bands’ scatter moves with the seasons.';
-  else{const brg=(Math.atan2(a[0],a[1])*180/Math.PI+360)%360,dir=COMPASS[Math.round(brg/22.5)%16];const pr=(D.seaspri[gid]||[]).find(r=>r[0]<=y&&y<=r[1]);
-    txt=`In ${y} the summer ground lies about ${Math.round(d/10)*10} km ${dir} of the winter ground. `+(c==='d'?'Fitted to this division’s own places dated to a season.':'From the literature'+(pr?`: ${esc(pr[3])}.`:'.'));}
+  const y=Math.round(Math.min(Math.max(st.year,g.start),g.end)),c=tr.svs?tr.svs[y-Y0]:'0',[a0,b0,c0,e0]=PROF;
+  const w=seasDisp(tr,y+((e0+1+a0)/2%1)),su=seasDisp(tr,y+(b0+c0)/2),dv=[su[0]-w[0],su[1]-w[1]],d=Math.hypot(dv[0],dv[1]);
+  let txt;if(!tr.sh||d<20||c==='0')txt='No seasonal pattern of its own in '+y+': no season-dated places near this year and nothing in the literature read; only the bands’ scatter moves with the seasons.';
+  else{const brg=(Math.atan2(dv[0],dv[1])*180/Math.PI+360)%360,dir=COMPASS[Math.round(brg/22.5)%16];const pr=(D.seaspri[gid]||[]).find(r=>r[0]<=y&&y<=r[1]);
+    txt=`In ${y} the summer ground lies about ${Math.round(d/10)*10} km ${dir} of the winter ground. `+(c==='d'?'Learned from this division’s own places dated to a season'+(pr?`, with the literature at half weight: ${esc(pr[3])}.`:'.'):'From the literature, at half weight'+(pr?`: ${esc(pr[3])}.`:'.'));}
   return `<p class="small" style="font-size:12px;margin-top:8px"><b>Seasonal round.</b> ${txt}</p>`;}
 function structureHTML(gid){const sp=BS[gid],g=G[gid],tr=D.tracks[gid];const sx=D.struct[g.tribe];
   let html=`<div class="struct"><p class="eyebrow">Internal structure</p>`;
@@ -1209,6 +1222,7 @@ $('oSeasons').onchange=e=>{st.seasons=e.target.checked;SNAP.clear();$('oRounds')
 document.querySelectorAll('#colorby button').forEach(b=>b.onclick=()=>setColorBy(b.dataset.c,true));
 $('oRounds').onchange=e=>{st.rounds=e.target.checked;renderMapLegend();frame();};
 $('oUnc').onchange=e=>{st.unc=e.target.checked;frame();};
+$('oRange').onchange=e=>{st.range=e.target.checked;frame();};
 $('oFade').onchange=e=>{st.fade=+e.target.value;frame();};
 $('oHalo').onchange=e=>{st.halo=e.target.checked;frame();};
 $('oSettle').onchange=e=>{st.settle=e.target.checked;renderMapLegend();frame();};

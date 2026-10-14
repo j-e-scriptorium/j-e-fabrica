@@ -56,6 +56,7 @@ def sig_obs(o):
     if o['y']>=1868: return 0.1 if any(k in o['raw'].lower() for k in ('census','roll','enrollment','numbered','number ')) else 0.15
     if 'Clark' in o['src']: return float(__import__('os').environ.get('SC','0.35'))
     return 0.3
+DOCO={}
 for gid in gids:
     g=G[gid]
     spec=[o for o in obs if not o['agg'] and o['g'][0]==gid]
@@ -87,6 +88,7 @@ for gid in gids:
     POS[gid]=P; NOTES[gid]=notes
     _dl=[o for o in spec if o['loc']=='stated' and o['whole'] and not o['seasonal'] and (not o['part'] or all(x['loc']=='stated' for x in spec if x['y']==o['y'] and x['pop'] and x['whole']))]
     DOCP[gid]=[(o['y'],o['lat'],o['lon'],o['r'] or 25) for o in _dl]
+    DOCO[gid]=_dl
     DOCSK[gid]=[_SE.season_known(o['y'],o['raw'],o['r']) for o in _dl]
     GSP[gid]=[(p[0],p[1],p[2]) for p in P if p[3]=='g']
     places=[o for o in spec if o['loc']=='stated' and not o['seasonal'] and (not o['part'] or all(x['loc']=='stated' for x in spec if x['y']==o['y'] and x['pop'] and x['whole']))]
@@ -179,12 +181,14 @@ FIT={g:((v[0],v[1]) if not math.isnan(v[0][0]) else (np.zeros(n),np.full(n,.9)))
 # quarter of its radius, keyframes ±150 km; the smoother's spread, scaled by 1.46, holds 68% of held-out places (calib_halo.py).
 # Village divisions: hold at each place and move over two years at the midpoint to the next (villages move by relocation, not drift).
 import possmooth as _PS
-POSP=dict(q=float(__import__('os').environ.get('PQ','2000')),s0=90.0,k=0.25,sg=150.0,c68=1.46)   # c68: radius scale giving 68% coverage of held-out places by the drawn track (calib_halo.py)
 import ecology_src as _EC
 DENSE={}; SV={}; SVS={}; SVD={}; MOVES={}
 _PC=f'{S}/build/profcal.json'
-_SE.PROF=tuple(json.load(open(_PC))['best']) if __import__('os').path.exists(_PC) else None   # seasonal profile fitted by hold-out (calib_prof.py)
-SEAS=dict(tau=5.0,sigA=60.0,sigN=60.0)   # fitted by hold-out (calib_seas.py)
+_SE.PROF=tuple(json.load(open(_PC))['best']) if __import__('os').path.exists(_PC) else None   # seasonal calendar, used for the bands' scatter and the village hunts
+import possgp as _GP
+GPTH,GPCAL=_GP.load_cal(f'{S}/build/gpcal.json')   # settings fitted by hold-out (calib_gp.py)
+SH={}
+GPM=_GP.moments([p for g_ in gids if G[g_][6]!='village' for p in (_GP.prepare(g_,DOCO[g_],GSP[g_]) or {'pts':[]})['pts']])   # season-of-record distribution
 def _km(a,b):
     la=math.radians((a[0]+b[0])/2); return math.hypot((a[0]-b[0])*111,(a[1]-b[1])*111*math.cos(la))
 for gid in gids:
@@ -219,29 +223,18 @@ for gid in gids:
             sp.append(round(min(300,v)))
         SP[gid]=sp
     else:
-        allp=[(y,la,lo) for (y,la,lo,r) in docs]+list(gs)
-        lat0=sum(p[1] for p in allp)/len(allp); lon0=sum(p[2] for p in allp)/len(allp)
-        ob=[(y,)+_PS.local(lat0,lon0,la,lo)+((POSP['k']*r)**2+POSP['s0']**2,) for (y,la,lo,r) in docs]
-        ob+=[(y,)+_PS.local(lat0,lon0,la,lo)+(POSP['sg']**2,) for (y,la,lo) in gs]
-        T_,ms,Ps=_PS.smooth(y0,y1,ob,POSP['q'])
-        # seasonal round: places dated to a season are moved to the annual centre (place − phi·A) before the track is drawn through them
-        dsk=[(y,)+_PS.local(lat0,lon0,la,lo)+(r,sk) for (y,la,lo,r),sk in zip(docs,DOCSK[gid])]
-        gsl=[(y,)+_PS.local(lat0,lon0,la,lo) for (y,la,lo) in gs]
-        yrs,A_,W_=_SE.fit_A(dsk,gsl,y0,y1,POSP,SEAS['tau'],SEAS['sigA'],SEAS['sigN'],gid,lat0,lon0)
-        Vv=_SE.estimate.var.copy(); SVD[gid]=[int(round(math.sqrt(float(np.interp(t,yrs,Vv))))) for t in range(Y0,Y1+1)]
-        Af=_SE.Afun_of(yrs,A_); skyrs={y for (y,la,lo,r),sk in zip(docs,DOCSK[gid]) if sk}
+        # nomadic: the Gaussian-process position (possgp.py), a smooth annual centre plus a learned seasonal component
+        div=_GP.prepare(gid,DOCO[gid],gs)
+        f=_GP.Fit(div,GPTH,GPM); lat0,lon0=div['lat0'],div['lon0']
+        yrs=list(range(int(math.floor(y0)),int(math.ceil(y1))+1))
         dp=[]
-        for p in POS[gid]:
-            if p[3]=='o' and p[0] in skyrs:
-                a=Af(p[0]); ph=_SE.phi(p[0]); x,y_=_PS.local(lat0,lon0,p[1],p[2]); la,lo=_PS.unlocal(lat0,lon0,x-ph*a[0],y_-ph*a[1]); p=[p[0],la,lo,'o']
-            dp.append(p)
-        DENSE[gid]=[[round(p[0],3),round(p[1],4),round(p[2],4),p[3]] for p in dp]   # through every documented place, at its season
-        SV[gid]=[[int(round(float(Af(t)[0]))),int(round(float(Af(t)[1])))] for t in range(Y0,Y1+1)]
-        SVS[gid]=''.join(('d' if float(np.interp(t,yrs,W_))*SEAS['sigN']**2>1 else ('p' if _SE.prior_A(gid,t,lat0,lon0)[1] else '0')) for t in range(Y0,Y1+1))
-        sp=[]
-        for t in range(Y0,Y1+1):
-            k=min(len(T_)-1,max(0,int(round((t-y0)/_PS.H)))); sp.append(round(min(450,POSP['c68']*math.sqrt(float(Ps[k])+POSP['s0']**2))))
-        SP[gid]=sp
+        for t in yrs:
+            m,v=f.trend(t); la,lo=_PS.unlocal(lat0,lon0,float(m[0]),float(m[1])); dp.append([t,round(la,4),round(lo,4),'f'])
+        DENSE[gid]=dp
+        dt_=[p['t'] for p in div['pts'] if p['s']=='dated']
+        SH[gid]=[[int(round(c)) for c in f.harmonics(t)] for t in range(Y0,Y1+1)]
+        SVS[gid]=''.join(('d' if any(abs(t-u)<=GPTH['lS'] for u in dt_) else ('p' if _SE.prior_A(gid,t,lat0,lon0)[1] else '0')) for t in range(Y0,Y1+1))
+        SP[gid]=[round(min(450,1.51*math.sqrt(f.trend(min(max(t,y0),y1))[1]))) for t in range(Y0,Y1+1)]
 ZS=[]
 for gid in gids:
     lp,sd=FIT[gid]
@@ -251,7 +244,7 @@ for gid in gids:
     if bad and __import__('os').environ.get('V'): print('misfit',gid,bad)
     tracks[gid]=dict(pos=DENSE[gid],nk=len(POS[gid]),
         pa=[max(5,int(round(math.exp(v)))) for v in lp],sd=[round(min(.9,v*SD_INFL)*100) for v in sd],
-        anc=[[y,p,src] for (y,p,sg,src) in PA[gid]],notes=NOTES[gid],sp=SP[gid],ny=NY[gid],**({'sv':SV[gid],'svs':SVS[gid],'svd':SVD[gid]} if gid in SV and any(v!=[0,0] for v in SV[gid]) else {}))
+        anc=[[y,p,src] for (y,p,sg,src) in PA[gid]],notes=NOTES[gid],sp=SP[gid],ny=NY[gid],**({'sh':SH[gid],'svs':SVS[gid]} if gid in SH and any(any(c) for c in SH[gid]) else {}))
 import statistics as _st
 print('SS',SIG_SMOOTH,'SR',SIG_R,'median|z|',round(_st.median(ZS),2),'>2:',sum(z>2 for z in ZS),'of',len(ZS))
 d=pd.read_csv(f'{S}/geo/cities.csv',encoding='latin-1')
@@ -381,8 +374,7 @@ for g,L in SEASOUT.items():
     for r_,(a,b_,spec,src) in zip(L,_SE.SEASPRI[g]):
         if spec[0]=='vec': r_[2]=f'summer ground about {2*spec[2]} km {["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"][int((spec[1]+11.25)%360//22.5)]} of the winter ground'
 VMOUT={g:[[m,t_,s_] for (m,t_,s_) in L] for g,L in _EC.VMOVE.items()}
-SEASCAL=json.load(open(f'{S}/build/seascal.json')) if __import__('os').path.exists(f'{S}/build/seascal.json') else None
-out=dict(prof=list(_SE.PROF) if _SE.PROF else None,shalo=(json.load(open(_PC)).get('halo_factor_season',1.0) if __import__('os').path.exists(_PC) else 1.0),bias=BIASOUT,seaspri=SEASOUT,vmove=VMOUT,seascal=SEASCAL,STEP=1,fam=D.FAM,famname=D.FAMNAME,groups=groups,obs=obs,tracks=tracks,cities=cities,settle=[list(s) for s in D.SETTLE],epi=epi,Y0=Y0,bands=BSPEC,struct=B.STRUCT,sensitivity=(json.load(open(f'{S}/build/sensitivity.json')) if __import__('os').path.exists(f'{S}/build/sensitivity.json') else None),validation=(json.load(open(f'{S}/build/validation.json')) if __import__('os').path.exists(f'{S}/build/validation.json') else None))
+out=dict(roam=GPCAL.get('roam',{'winter':85,'between':65,'summer':71}),res=_GP.RES,prof=list(_SE.PROF) if _SE.PROF else None,bias=BIASOUT,seaspri=SEASOUT,vmove=VMOUT,STEP=1,fam=D.FAM,famname=D.FAMNAME,groups=groups,obs=obs,tracks=tracks,cities=cities,settle=[list(s) for s in D.SETTLE],epi=epi,Y0=Y0,bands=BSPEC,struct=B.STRUCT,sensitivity=(json.load(open(f'{S}/build/sensitivity.json')) if __import__('os').path.exists(f'{S}/build/sensitivity.json') else None),validation=(json.load(open(f'{S}/build/validation.json')) if __import__('os').path.exists(f'{S}/build/validation.json') else None))
 if not __import__('os').environ.get('SENS'): json.dump(out,open(f'{S}/build/data.json','w'),ensure_ascii=False,separators=(',',':'))
 if not __import__('os').environ.get('SENS'): json.dump(BANDROWS,open(f'{S}/build/bandrows.json','w'),ensure_ascii=False)
 print('obs',len(obs),'primary',sum(o['kind']=='primary' for o in obs),'placeonly',sum(o['pop'] is None for o in obs),'bytes',len(json.dumps(out,ensure_ascii=False,separators=(',',':'))))

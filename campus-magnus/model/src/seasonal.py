@@ -1,14 +1,14 @@
-# Seasonal round of the nomadic divisions.
-# A division's place at time t = annual centre c(t) + phi(t) * A(t), where phi = +1 at midsummer (20 July), -1 at midwinter
-# (18 January) and A(t) is a slowly varying vector (km east, km north): half the step from the winter ground to the summer ground.
-# A is estimated from places dated to a season, shrunk toward a prior taken from the ethnographic literature (SEASPRI);
-# where neither exists A is zero and the division has no seasonal swing of its own.
+# Seasonal helpers shared by the position model (possgp.py), the bands and the village hunts:
+#   the calendar of the year (phi: -1 on the winter ground, +1 on the summer ground, smooth ramps between);
+#   which records are dated to a season (season_known);
+#   the literature patterns (SEASPRI), each the step from a winter ground to a summer ground, used by possgp.py at half weight
+#   as a prior mean for the seasonal component the records then correct.
 import math, re
 import numpy as np
 import possmooth as PS
 
-# Seasonal profile: -1 on the winter ground, +1 on the summer ground. PROF gives, as fractions of the year, when the division
-# leaves the winter ground, reaches the summer ground, leaves it, and is back on a winter ground; between them it moves on a
+# Calendar: PROF gives, as fractions of the year, when the people leave the winter ground, reach the summer ground, leave it,
+# and are back on a winter ground (build/profcal.json: mid-March, early July, early August, late October); between them a
 # smooth ramp. None means a plain cosine peaking on 20 July.
 PROF=None
 def _ss(x): return x*x*(3-2*x)
@@ -110,42 +110,3 @@ def herm(arr,y):
     t2=t*t;t3=t2*t;h00=2*t3-3*t2+1;h10=t3-2*t2+t;h01=-2*t3+3*t2;h11=t3-t2
     f=lambda c: h00*a[c]+h10*h*tan(i-1,c)+h01*b[c]+h11*h*tan(i,c)
     return f(1),f(2)
-
-def residuals(docs,gs,y0,y1,P,Afun=None,skip=None):
-    """Leave-one-out residuals of the season-dated places from the smoothed track of everything else (deseasonalized by Afun)."""
-    R=[]
-    for j,d in enumerate(docs):
-        if not d[4] or j==skip: continue
-        ob=[]
-        for i,(t,x,y,r,s) in enumerate(docs):
-            if i==j or i==skip: continue
-            if s and Afun is not None: a=Afun(t); p=phi(t); x,y=x-p*a[0],y-p*a[1]
-            ob.append((t,x,y,(P['k']*r)**2+P['s0']**2))
-        ob+=[(t,x,y,P['sg']**2) for (t,x,y) in gs]
-        if not ob: continue
-        T,ms,Ps=PS.smooth(y0,y1,ob,P['q']); m,v=PS.predict_at(T,ms,Ps,d[0])
-        t,x,y,r,_=d; R.append((t,phi(t),x-m[0],y-m[1],v+(P['k']*r)**2+P['s0']**2))
-    return R
-def estimate(R,years,tau,sigA,sigN,gid,lat0,lon0,Rs=(),lam=0.0):
-    """Rs: residuals from sibling divisions of the same people, counted at weight lam (partial pooling)."""
-    R=list(R)+[(t,p,rx,ry,v/lam) for (t,p,rx,ry,v) in Rs] if lam>0 else R
-    A=np.zeros((len(years),2)); W=np.zeros(len(years)); V=np.zeros(len(years))
-    for k,ty in enumerate(years):
-        a0,has=prior_A(gid,ty,lat0,lon0); s2=(sigA if has else sigN)**2
-        num=np.array(a0)/s2; den=1/s2
-        for (t,_p,rx,ry,v) in R:
-            p=phi(t); w=math.exp(-abs(ty-t)/tau)/v; num=num+w*p*np.array([rx,ry]); den+=w*p*p; W[k]+=w*p*p
-        a=num/den; V[k]=1/den; nrm=math.hypot(*a)
-        if nrm>200: a=a*200/nrm
-        A[k]=a
-    estimate.var=V
-    return A,W
-def Afun_of(years,A):
-    def f(t):   # linear between whole years, as on the page
-        u=min(len(years)-1.0,max(0.0,t-years[0])); i=int(u); j=min(len(years)-1,i+1); w=u-i; return A[i]*(1-w)+A[j]*w
-    return f
-def fit_A(docs,gs,y0,y1,P,tau,sigA,sigN,gid,lat0,lon0,iters=2,skip=None):
-    years=np.arange(int(math.floor(y0)),int(math.ceil(y1))+1); Af=None
-    for it in range(iters):
-        R=residuals(docs,gs,y0,y1,P,Af,skip); A,W=estimate(R,years,tau,sigA,sigN,gid,lat0,lon0); Af=Afun_of(years,A)
-    return years,A,W

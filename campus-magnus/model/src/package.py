@@ -101,8 +101,8 @@ for g in d['groups']:
         if lo > hi: continue
         cnt = [r for r in rec if gid in r[2].split(';') and r[5] != '' and r[13] == 'yes' and lo <= r[1] <= hi + .999]
         cnt1 = [r for r in cnt if r[2] == gid]
-        pl = [p for p in pos if p[3] == 'o' and lo <= p[0] <= hi + .999]
-        kfp = [p for p in pos if p[3] == 'g' and lo <= p[0] <= hi + .999]
+        pl = [(r[1],) for r in rec if r[2] == gid and r[14] == 'yes' and lo <= r[1] <= hi + .999]   # documented places informing the track
+        kfp = [k for k in D.GUESS.get(gid, []) if k[1] and lo <= k[0] <= hi + .999 and not any(abs(k[0] - q[0]) < 1 for q in pl)]
         ys = sorted([lo] + [p[0] for p in pl] + [hi + 1])
         gap = max(b_ - a_ for a_, b_ in zip(ys, ys[1:]))
         sd = d['tracks'][gid]['sd'][lo - 1700:hi - 1700 + 1]

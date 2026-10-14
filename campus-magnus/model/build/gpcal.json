@@ -1,0 +1,116 @@
+{
+ "th": {
+  "sT": 200,
+  "lT": 45,
+  "sL": 75,
+  "lL": 4,
+  "sS": 45,
+  "lS": 8,
+  "w": [
+   1,
+   0.5
+  ],
+  "k": 0.5,
+  "s0": 60,
+  "sg": 150
+ },
+ "litw": 0.5,
+ "out_of_sample": {
+  "track only": {
+   "all": {
+    "n": 514,
+    "median": 109,
+    "mean": 141,
+    "beyond_radius_median": 61
+   },
+   "dated": {
+    "n": 297,
+    "median": 109,
+    "mean": 144,
+    "beyond_radius_median": 70
+   },
+   "annual": {
+    "n": 182,
+    "median": 100,
+    "mean": 126,
+    "beyond_radius_median": 18
+   }
+  },
+  "track and seasonal component": {
+   "all": {
+    "n": 514,
+    "median": 107,
+    "mean": 137,
+    "beyond_radius_median": 53
+   },
+   "dated": {
+    "n": 297,
+    "median": 106,
+    "mean": 139,
+    "beyond_radius_median": 67
+   },
+   "annual": {
+    "n": 182,
+    "median": 100,
+    "mean": 124,
+    "beyond_radius_median": 16
+   }
+  }
+ },
+ "season_dated": {
+  "n": 297,
+  "median": 107,
+  "mean": 139,
+  "beyond_radius_median": 67
+ },
+ "places": {
+  "all": {
+   "n": 514,
+   "median": 108,
+   "mean": 137,
+   "beyond_radius_median": 54
+  },
+  "without_keyframes": {
+   "n": 512,
+   "median": 111,
+   "mean": 143,
+   "beyond_radius_median": 57
+  }
+ },
+ "roam": {
+  "winter": 85,
+  "between": 65,
+  "summer": 71,
+  "annual": 35
+ },
+ "roam_coverage": {
+  "winter": 0.7,
+  "between": 0.67,
+  "summer": 0.68
+ },
+ "by_season": {
+  "winter": {
+   "n": 89,
+   "median": 116,
+   "mean": 151,
+   "beyond_radius_median": 60
+  },
+  "between": {
+   "n": 79,
+   "median": 103,
+   "mean": 131,
+   "beyond_radius_median": 65
+  },
+  "summer": {
+   "n": 129,
+   "median": 104,
+   "mean": 135,
+   "beyond_radius_median": 68
+  }
+ },
+ "kiowa": {
+  "summer_to_winter": 155,
+  "winter_to_winter": 129,
+  "summer_to_summer": 140
+ }
+}
