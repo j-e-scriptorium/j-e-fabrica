@@ -32,6 +32,8 @@ where:
 
 The objective is a linear least-squares solve; the posterior SD comes from the inverse normal matrix (lines 103–117).
 
+**Splits and mergers.** Where a division splits from another that goes on, the parent loses the new division's share in the year of the split; where a division ends by merging into another, the survivor gains its people (`data_src.SHIFTS`, `data/division_transfers.csv`). Each fraction is the new division's population in its first year over the parent's in the year before, or the ending division's last-year population over the survivor's, iterated against the fit until each people's total is continuous across the change. The transfers enter $S_g(t)$ as steps completed by the year of the change; they are not scaled in the sensitivity runs. The one remaining step is the Cheyenne in 1832: the counts after the division (about 3,500 for the two halves) run above those before it (about 3,100), a tension in the evidence that a transfer cannot remove.
+
 **Whole-tribe counts.** A count covering several divisions is allocated to its members in proportion to the current fit and enters each member at $1.6\,\sigma$. Fitting and allocation alternate for four iterations (lines 118–132).
 
 **Source-family factors.** Each source family is assigned by substring of the source (`family()`, lines 43–52). For each family $f$ other than reservation censuses:
@@ -116,7 +118,7 @@ $$x(t) = T(t) + S(t) + \lambda\,\phi(t)\,A_{\text{lit}}(t), \qquad x_i = x(t_i) 
 
 | Test | Script | Output | Result |
 |---|---|---|---|
-| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,134 counts; median miss ×1.12 (interpolation ×1.09; before 1840 the model is better, after it interpolation); 2-sd coverage 0.91 before widening |
+| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,133 counts; median miss ×1.12 (interpolation ×1.09; before 1840 the model is better, after it interpolation); 2-sd coverage 0.91 before widening |
 | Held-out nomadic places | `calib_gp.py` | `model/build/gpcal.json` | 533 places; median 110 km, mean 139 (track through every record 115, 147); season-dated 105 against 117 without the seasonal component; halo 68% in each season |
 | Held-out village places | `calib_vmove.py` | console | 207 places; median 7 km, mean 42 |
 | Whole-model sensitivity | `sens.py` | `model/build/sensitivity.json` | table under “Sensitivity of the population totals” on the map page |

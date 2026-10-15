@@ -85,6 +85,12 @@ for i, (s_, e, lab, M, srcs, basis) in enumerate(D.EPI, 1):
 W('epidemics_and_shocks.csv', ['event_id', 'start', 'end', 'event', 'group_id', 'division', 'mortality_fraction',
                                'rate_basis', 'provenance_tier', 'source'], ep)
 
+# ---------- transfers between divisions ----------
+import data_src as _DS
+_names={g['id']:g['name'] for g in d['groups']}
+W('division_transfers.csv', ['year', 'group_id', 'division', 'fraction', 'event', 'basis'],
+  [[y, g, _names.get(g, g), f, lab, src] for (y, g, f, lab, src) in sorted(getattr(_DS, 'SHIFTS', []))])
+
 # ---------- groups ----------
 W('groups.csv', ['group_id', 'tribe', 'division', 'language_family', 'start', 'end', 'lifeway'],
   [[g['id'], g['tribe'], g['name'], g['fam'], g['start'], g['end'], g.get('life', '')] for g in d['groups']])

@@ -28,6 +28,8 @@ def surv(gid,t):
     for s,e,lab,M,src,basis in D.EPI:
         f=M.get(gid)
         if f: v*=1-min(.97,f*float(__import__('os').environ.get('EPS','1')))*smooth((t-s)/(e-s))
+    for y,g,f,lab,src in getattr(D,'SHIFTS',[]):
+        if g==gid: v*=1-f*smooth((t-y+.5)/.5)
     return v
 import seasonal as _SE
 tracks={}; diag=[]; DOCP={}; DOCSK={}; GSP={}; FAMS={}; PA={}; POS={}; NOTES={}; SP={}; NY={}

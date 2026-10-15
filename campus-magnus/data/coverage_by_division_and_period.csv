@@ -144,7 +144,7 @@ gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1875–1905,20,0,4,1,13.
 chy,Cheyenne,Cheyenne (before division),1700–1749,0,0,1,1,35.0,35,153,sparse
 chy,Cheyenne,Cheyenne (before division),1750–1799,1,0,2,1,30.0,24,122,sparse
 chy,Cheyenne,Cheyenne (before division),1800–1824,2,0,4,0,10.4,19,103,
-chy,Cheyenne,Cheyenne (before division),1825–1832,1,0,0,2,8,18,122,
+chy,Cheyenne,Cheyenne (before division),1825–1832,1,0,0,2,8,17,122,
 chn,Cheyenne,Northern Cheyenne,1832–1849,0,1,0,2,18,21,137,
 chn,Cheyenne,Northern Cheyenne,1850–1874,5,2,3,1,13.5,13,98,
 chn,Cheyenne,Northern Cheyenne,1875–1905,16,5,4,4,15.6,8,120,
@@ -213,8 +213,8 @@ lip,Lipan,Lipan Apache,1875–1905,0,0,1,2,29.5,24,127,sparse
 cyj,Comanche,Jupe,1700–1749,0,1,0,2,50,29,190,sparse
 cyj,Comanche,Jupe,1750–1795,1,6,4,1,29.7,23,140,sparse
 cyy,Comanche,Yamparika,1700–1749,0,1,0,2,50,27,181,sparse
-cyy,Comanche,Yamparika,1750–1799,0,6,2,2,35.8,21,140,sparse
-cyy,Comanche,Yamparika,1800–1824,0,3,1,1,19.5,22,139,
+cyy,Comanche,Yamparika,1750–1799,0,6,2,2,35.8,22,140,sparse
+cyy,Comanche,Yamparika,1800–1824,0,3,1,1,19.5,23,139,
 cyy,Comanche,Yamparika,1825–1849,0,7,3,1,14.4,20,113,
 cyy,Comanche,Yamparika,1850–1874,2,9,6,1,10.4,13,81,
 cyy,Comanche,Yamparika,1875–1905,0,24,1,2,27.4,9,127,sparse

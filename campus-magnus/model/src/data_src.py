@@ -383,7 +383,7 @@ GUESS = {
  'cyj':[g(1700,(39.6,-103.8),1500,''),g(1740,(38.5,-104.2),2000,''),g(1780,(38.6,-104.6),2400,'North of the Arkansas along the Front Range (Anza 1786, in Kavanagh pp. 123–25)'),
         g(1786.15,None,None,'Anza’s peace, signed at Pecos 1786 by a delegation (not a place for the division)'),g(1795,(38.4,-103.6),1600,'Merging with the Yamparika: the Jupe and Yamparika leadership reverses by 1794; the name lingers to the 1820s (Kavanagh, pp. 190, 482–83)')],
  'cyy':[g(1700,(40.6,-106.6),2000,'Yampa & North Park'),g(1730,(39.3,-104.8),3000,''),g(1760,(38.3,-102.0),4000,''),g(1780,(38.7,-103.6),3500,'North of the Arkansas (Kavanagh, pp. 123–25, 482)'),
-        g(1796,None,7100,'With the Jupe, merged after 1794 (Kavanagh, pp. 190, 482–83)'),g(1800,(38.3,-102.6),7300,'Mostly north of the Arkansas until about 1805 (Kavanagh, p. 190); includes the former Jupe'),g(1825,(37.4,-101.2),None,'South of the Arkansas by the end of the 1820s (Kavanagh, pp. 482–83)'),g(1840,(36.6,-100.1),None,''),g(1849.5,None,None,'1849 cholera'),g(1860,(36.4,-99.6),2000,''),g(1867.8,P['medicine_lodge'],1800,''),
+        g(1800,(38.3,-102.6),5000,'Mostly north of the Arkansas until about 1805 (Kavanagh, p. 190)'),g(1825,(37.4,-101.2),None,'South of the Arkansas by the end of the 1820s (Kavanagh, pp. 482–83)'),g(1840,(36.6,-100.1),None,''),g(1849.5,None,None,'1849 cholera'),g(1860,(36.4,-99.6),2000,''),g(1867.8,P['medicine_lodge'],1800,''),
         g(1869,None,1200,'Agency count covers only part of the division'),g(1875.4,(34.7,-98.5),400,''),g(1905,(34.7,-98.55),350,'')],
  'cyk':[g(1700,(38.7,-104.8),1500,''),g(1730,(37.5,-103.0),2500,''),g(1750,(36.0,-102.4),4000,''),g(1780,(35.4,-103.0),6000,'Between the Canadian and the Pecos (Ortiz 1786, in Kavanagh pp. 113–14)'),
         g(1800,(35.3,-102.6),4500,'Quegüe’s Kotsoteka on the Canadian, 1808–10 (Kavanagh, pp. 154–55)'),g(1840,(35.3,-101.5),5000,'Bald Head’s “Buffalo eaters” near Bent’s Canadian post, 1845 (Kavanagh, p. 311); includes the Llano Estacado bands later drawn into the Kwahadi'),g(1855,None,3000,'Before the Kwahadi faction formed (Hämäläinen, pp. 311, 315)'),g(1849.5,None,None,''),
@@ -3153,7 +3153,7 @@ OBS += [
  dict(g='kap',y=1895,pop=226,raw='Apache 226 (Kiowa Agency, Oklahoma)',basis='census',loc='inferred',at=(35.08, -98.48),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1895, population table, p. 572 (read from the page images of the 1884–99 tables, pdf 211)',kind='primary'),
  dict(g='kaw',y=1895,pop=208,raw='Kaw 208 (Osage Agency, Oklahoma)',basis='census',loc='inferred',at=(36.75, -96.85),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1895, population table, p. 574 (read from the page images of the 1884–99 tables, pdf 213)',kind='primary'),
  dict(g='kio',y=1895,pop=1037,raw='Kiowa 1,037 (Kiowa Agency, Oklahoma)',basis='census',loc='inferred',at=(34.99, -98.77),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1895, population table, p. 572 (read from the page images of the 1884–99 tables, pdf 211)',kind='primary'),
- dict(g='kit',y=1895,pop=453,raw='Keechie / Delaware / Towaconie / Waco / Wichita 453 (Kiowa Agency, Oklahoma)',basis='census',loc='inferred',at=(35.1, -98.3),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1895, population table, p. 572 (read from the page images of the 1884–99 tables, pdf 211)',kind='primary'),
+ dict(g='wic',y=1895,pop=453,raw='Keechie / Delaware / Towaconie / Waco / Wichita 453 (Kiowa Agency, Oklahoma; the Delaware included, so not a count of the Wichita and Kitsai alone)',basis='census',loc='inferred',at=(35.1, -98.3),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1895, population table, p. 572 (read from the page images of the 1884–99 tables, pdf 211)',kind='primary',whole=False),
  dict(g='man',y=1895,pop=265,raw='Mandan 265 (Fort Berthold Agency, North Dakota)',basis='census',loc='inferred',at=(47.58, -101.85),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1895, population table, p. 572 (read from the page images of the 1884–99 tables, pdf 211)',kind='primary'),
  dict(g=['mde', 'wpk'],y=1895,pop=1288,raw='Santee Sioux 980 (Santee Agency, Nebraska); Santee Sioux of Flandreau 308 (Santee Agency, Nebraska)',basis='census',loc='inferred',at=(42.83, -97.85),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1895, population table, p. 570 (read from the page images of the 1884–99 tables, pdf 209)',kind='primary'),
  dict(g='oma',y=1895,pop=1182,raw='Omaha 1,182 (Omaha and Winnebago Agency, Nebraska)',basis='census',loc='inferred',at=(42.12, -96.36),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1895, population table, p. 570 (read from the page images of the 1884–99 tables, pdf 209)',kind='primary'),
@@ -3329,3 +3329,28 @@ OBS += [
  _cnt('asn',1893.4,486,f'{_W93}: Assiniboine of Pheasant Rump 75, Striped Blanket 69 and Carry-the-Kettle 210, and the Battleford Stony band of Mosquito, Bear’s Head and Lean Man, 132',DIA(1893,'whereabouts table, Treaties 4 and 6'),(50.7,-105.5),r=250,basis='census'),
  _cnt(['cre','crw','crs'],1893.4,5059,f'{_W93}: the Plains Cree treaty bands, 3,448, the mixed bands, 1,431, and the Cree stragglers at Swift Current, Maple Creek and Medicine Hat, 180 (the Woods Cree bands left out)',DIA(1893,'whereabouts table'),(52.3,-107.5),r=350,basis='census'),
 ]
+
+# ---- Transfers between divisions when one splits from or merges into another: (year, division, fraction, label, basis).
+#      A positive fraction is the share of the division that leaves to form the new one; a negative fraction is the gain
+#      from a division that ends. The fractions are the new division's population at its first year (or the ending
+#      division's at its last) over the population it leaves or joins, taken from the fit; ours. They keep each people's
+#      total continuous across the change. Unlike the epidemics they are not scaled in the sensitivity runs.
+SHIFTS = [
+ (1745.0,'cyk',0.48,'The eastern Comanche break away from the Kotsoteka','Hämäläinen, The Comanche Empire (2008), pp. 55, 105; Kavanagh, Comanche Political History (1996), p. 480'),
+ (1790.0,'cre',0.346,'The Cypress Hills and Wood Mountain Cree form from the Qu’Appelle and Fort des Prairies Cree','ours'),
+ (1790.0,'crw',0.346,'The Cypress Hills and Wood Mountain Cree form from the Qu’Appelle and Fort des Prairies Cree','ours'),
+ (1795.5,'cyy',-0.416,'The Jupe merge into the Yamparika','Kavanagh (1996), pp. 190, 482–83; Hämäläinen (2008), p. 282'),
+ (1802.0,'osg',0.326,'Claremore’s band leaves for the Arkansas','ours'),
+ (1802.0,'osl',0.326,'Claremore’s band leaves for the Arkansas','ours'),
+ (1830.0,'cyy',0.377,'The Tenewa form from the Yamparika on the middle Red','Kavanagh (1996), p. 483; Hämäläinen (2008), pp. 151, 282'),
+ (1830.5,'oto',-0.233,'The Missouria join the Oto','ours'),
+ (1839.5,'osg',-0.577,'The Arkansas Osage rejoin the Osage on the reserve','ours'),
+ (1839.5,'osl',-0.577,'The Arkansas Osage rejoin the Osage on the reserve','ours'),
+ (1858.0,'cyk',0.528,'The Kwahadi faction forms, largely from the Kotsoteka of the Llano Estacado','Hämäläinen (2008), pp. 311, 315; Kavanagh (1996), pp. 372, 481'),
+ (1732.5,'jic',-0.598,'Half the Cuartelejo and Paloma Apache join the Jicarilla','Hämäläinen (2008), pp. 36, 48 (some went to Pecos and the Jicarilla, others to the Lipan)'),
+ (1732.5,'lip',-0.273,'Half the Cuartelejo and Paloma Apache join the Lipan','Hämäläinen (2008), p. 48'),
+ (1894.5,'wic',-0.173,'The Kitsai merge into the Wichita','Parks, “Kitsai”, Handbook of North American Indians 13 (2001), p. 570'),
+ (1885.0,'cwm',-0.647,'The River and Mountain Crow are counted together at the Crow agency','ours'),
+]
+GUESS['chy'].append(g(1831.9,None,3500,'Continuity with the divided Cheyenne (Handbook 13: 3,500 in 1780, 3,200 in 1837)'))
+GUESS['chy'].sort(key=lambda k:k[0])
