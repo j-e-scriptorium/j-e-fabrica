@@ -1,38 +1,33 @@
 group_id,tribe,division,period,counts_for_division,counts_shared_with_other_divisions,documented_places_on_track,keyframe_places_on_track,longest_gap_without_documented_place_years,mean_population_sd_percent,mean_halo_km,flag
-bru,Lakota,Brulé (Sičháŋǧu),1700–1749,0,2,0,2,50,27,188,sparse
-bru,Lakota,Brulé (Sičháŋǧu),1750–1799,0,1,0,1,50,25,167,sparse
+tet,Lakota,Teton (before division),1700–1749,0,2,0,2,50,27,187,sparse
+tet,Lakota,Teton (before division),1750–1785,0,1,0,3,36,26,156,sparse
+bru,Lakota,Brulé (Sičháŋǧu),1785–1799,0,0,0,1,15,24,151,thin
 bru,Lakota,Brulé (Sičháŋǧu),1800–1824,2,3,5,1,7.5,18,98,
 bru,Lakota,Brulé (Sičháŋǧu),1825–1849,4,1,2,1,15.0,17,110,
 bru,Lakota,Brulé (Sičháŋǧu),1850–1874,4,1,5,2,12.1,13,96,
 bru,Lakota,Brulé (Sičháŋǧu),1875–1905,3,2,1,2,15.6,13,120,
-ogl,Lakota,Oglala,1700–1749,0,2,0,2,50,27,186,sparse
-ogl,Lakota,Oglala,1750–1799,0,1,0,2,50,23,158,sparse
+ogl,Lakota,Oglala,1785–1799,0,0,0,1,15,24,158,thin
 ogl,Lakota,Oglala,1800–1824,1,3,2,0,20,19,129,
-ogl,Lakota,Oglala,1825–1849,4,1,3,2,18.5,17,113,
+ogl,Lakota,Oglala,1825–1849,4,1,3,2,18.5,17,114,
 ogl,Lakota,Oglala,1850–1874,8,1,5,4,8.7,12,90,
 ogl,Lakota,Oglala,1875–1905,17,2,1,2,15.6,8,117,
-min,Lakota,Miniconjou,1700–1749,0,2,0,1,50,30,215,sparse
-min,Lakota,Miniconjou,1750–1799,0,1,0,1,50,27,180,sparse
-min,Lakota,Miniconjou,1800–1824,1,3,3,1,13.6,20,115,
-min,Lakota,Miniconjou,1825–1849,2,3,0,0,25,19,143,
+min,Lakota,Miniconjou,1785–1799,0,0,0,1,15,24,155,thin
+min,Lakota,Miniconjou,1800–1824,1,3,3,1,13.6,19,114,
+min,Lakota,Miniconjou,1825–1849,2,3,0,0,25,19,144,
 min,Lakota,Miniconjou,1850–1874,11,0,4,1,10.5,12,104,
 min,Lakota,Miniconjou,1875–1905,8,4,2,3,27.4,12,124,sparse
-hnk,Lakota,Hunkpapa,1700–1749,0,2,0,1,50,30,214,sparse
-hnk,Lakota,Hunkpapa,1750–1799,0,1,0,2,50,25,178,sparse
-hnk,Lakota,Hunkpapa,1800–1824,0,5,0,1,25,20,170,
-hnk,Lakota,Hunkpapa,1825–1849,4,1,0,0,25,17,157,
+sao,Lakota,"Saone (northern Teton, before division)",1785–1799,0,0,0,2,15,26,144,thin
+sao,Lakota,"Saone (northern Teton, before division)",1800–1806,1,2,1,0,5,22,124,
+hnk,Lakota,Hunkpapa,1806–1824,0,2,0,1,19,23,188,
+hnk,Lakota,Hunkpapa,1825–1849,4,1,0,0,25,18,160,
 hnk,Lakota,Hunkpapa,1850–1874,13,0,6,1,8.1,12,94,
 hnk,Lakota,Hunkpapa,1875–1905,13,2,3,2,15.6,10,111,
-sih,Lakota,Sihasapa (Blackfeet Lakota),1700–1749,0,2,0,1,50,30,215,sparse
-sih,Lakota,Sihasapa (Blackfeet Lakota),1750–1799,0,1,0,1,50,27,201,sparse
-sih,Lakota,Sihasapa (Blackfeet Lakota),1800–1824,0,5,0,1,25,21,190,
-sih,Lakota,Sihasapa (Blackfeet Lakota),1825–1849,4,1,0,0,25,19,180,
+sih,Lakota,Sihasapa (Blackfeet Lakota),1806–1824,0,2,0,1,19,24,195,
+sih,Lakota,Sihasapa (Blackfeet Lakota),1825–1849,4,1,0,0,25,19,179,
 sih,Lakota,Sihasapa (Blackfeet Lakota),1850–1874,11,0,3,1,10.1,12,116,
 sih,Lakota,Sihasapa (Blackfeet Lakota),1875–1905,16,3,1,2,29.5,10,147,sparse
-sna,Lakota,Itazipčho (Sans Arc),1700–1749,0,2,0,1,50,30,215,sparse
-sna,Lakota,Itazipčho (Sans Arc),1750–1799,0,1,0,1,50,27,201,sparse
-sna,Lakota,Itazipčho (Sans Arc),1800–1824,0,5,0,1,25,21,191,
-sna,Lakota,Itazipčho (Sans Arc),1825–1849,4,1,0,0,25,19,184,
+sna,Lakota,Itazipčho (Sans Arc),1806–1824,0,2,0,1,19,24,196,
+sna,Lakota,Itazipčho (Sans Arc),1825–1849,4,1,0,0,25,20,184,
 sna,Lakota,Itazipčho (Sans Arc),1850–1874,6,0,2,1,18.2,13,130,
 sna,Lakota,Itazipčho (Sans Arc),1875–1905,9,4,2,1,27.4,12,138,sparse
 twk,Lakota,Oohenunpa (Two Kettle),1833–1849,2,2,0,1,17,20,163,

@@ -29,12 +29,14 @@ FAMNAME = {'dakotan':'Dakotan Siouan','algonquian':'Algonquian','numic':'Numic (
 
 # id, tribe label, division label, family, start, end, lifeway ('nomadic'|'village')
 GROUPS = [
- ('bru','Lakota','Brulé (Sičháŋǧu)','dakotan',1700,1905,'nomadic'),
- ('ogl','Lakota','Oglala','dakotan',1700,1905,'nomadic'),
- ('min','Lakota','Miniconjou','dakotan',1700,1905,'nomadic'),
- ('hnk','Lakota','Hunkpapa','dakotan',1700,1905,'nomadic'),
- ('sih','Lakota','Sihasapa (Blackfeet Lakota)','dakotan',1700,1905,'nomadic'),
- ('sna','Lakota','Itazipčho (Sans Arc)','dakotan',1700,1905,'nomadic'),
+ ('tet','Lakota','Teton (before division)','dakotan',1700,1785,'nomadic'),
+ ('bru','Lakota','Brulé (Sičháŋǧu)','dakotan',1785,1905,'nomadic'),
+ ('ogl','Lakota','Oglala','dakotan',1785,1905,'nomadic'),
+ ('min','Lakota','Miniconjou','dakotan',1785,1905,'nomadic'),
+ ('sao','Lakota','Saone (northern Teton, before division)','dakotan',1785,1806,'nomadic'),
+ ('hnk','Lakota','Hunkpapa','dakotan',1806,1905,'nomadic'),
+ ('sih','Lakota','Sihasapa (Blackfeet Lakota)','dakotan',1806,1905,'nomadic'),
+ ('sna','Lakota','Itazipčho (Sans Arc)','dakotan',1806,1905,'nomadic'),
  ('twk','Lakota','Oohenunpa (Two Kettle)','dakotan',1833,1905,'nomadic'),
  ('ynk','Yankton','Yankton','dakotan',1700,1905,'nomadic'),
  ('yku','Yanktonai','Upper Yanktonai & Cuthead','dakotan',1700,1905,'nomadic'),
@@ -160,7 +162,7 @@ OBS = [
  dict(g='bru',y=1805,pop=900,raw='Teton Bois Brulé: 120 lodges; 300 warriors; souls 1,400 → 900; E. side of the Missouri, White R. to Teton (Bad) R.',basis='souls',loc='stated',at=(44.0,-99.7),r=80,src=CLARK,kind='primary'),
  dict(g='ogl',y=1805,pop=360,raw='Teton Okandandas: 50 lodges; 120 warriors; souls 600 [or] 360; Missouri from Teton R. to Cheyenne R.',basis='souls',loc='stated',at=(44.6,-100.6),r=60,src=CLARK,kind='primary'),
  dict(g='min',y=1805,pop=750,raw='Teton Minnakenozzo: 100 lodges; 250 warriors; souls 1,200 [or] 750; Cheyenne R. up to the Arikara',basis='souls',loc='stated',at=(45.2,-100.7),r=60,src=CLARK,kind='primary'),
- dict(g=['hnk','sih','sna','twk'],y=1805,pop=900,raw='Teton Saone: 120 lodges; 300 warriors; souls 1,400 [or] 900; Missouri from the Arikara to Beaver Cr. (Hodge: probably includes the Hunkpapa)',basis='souls',loc='stated',at=(45.95,-100.6),r=70,src=CLARK,kind='primary'),
+ dict(g='sao',y=1805,pop=900,raw='Teton Saone: 120 lodges; 300 warriors; souls 1,400 [or] 900; Missouri from the Arikara to Beaver Cr. (Hodge: probably includes the Hunkpapa)',basis='souls',loc='stated',at=(45.95,-100.6),r=70,src=CLARK,kind='primary'),
  dict(g='chy',y=1805,pop=1200,raw='Shar-ha (Cheyenne): 110 lodges; 300 warriors; souls 1,700 [or] 1,200; heads of the Cheyenne R. in the Black Hills',basis='souls',loc='stated',at=(44.2,-103.9),r=100,src=CLARK,kind='primary'),
  dict(g='kio',y=1805,pop=700,raw='Kiowa with Wetapahato: 70 lodges; 200 warriors; souls 1,000 [or] 700; Paduca (N.) fork of the Platte & Loup, SW of the Black Hills',basis='souls',loc='stated',at=(42.4,-103.2),r=150,src=CLARK,kind='primary'),
  dict(g='ara',y=1805,pop=2000,raw='Clark’s three Arapaho groups: Kanenavich, 150 lodges, 400 warriors, 1,500 souls (heads of the N. Platte & S. fork of the Cheyenne); Staetan (“Kites”), 25 lodges, 75 warriors, 300 souls (head of the Cheyenne, often with the Kanenavich); Nemousin (“Allebome”), 15 lodges, 50 warriors, 200 souls (head of the N. fork of the Cheyenne). The Staetan are Tabeau’s Squihitanes, of the same language as the Arapaho, and the Nemousin his Nimoussines, the Nawathinehena (Fowler, “Arapaho”, Handbook 13 (2001), pp. 860–61)',basis='souls',loc='stated',at=(43.3,-104.4),r=150,src=CLARK,kind='primary'),
@@ -277,26 +279,31 @@ OBS = [
 def g(*a): return a
 GUESS = {
  # ---------------- Lakota ----------------
- 'bru':[g(1700,(44.7,-96.9),1200,'Prairie Coteau east of the Missouri'),g(1740,(44.3,-98.5),1500,''),g(1765,(44.0,-99.4),1800,'Reaching the Missouri'),
-        g(1780,None,2000,''),g(1782,None,1500,'1780–81 smallpox'),g(1805,None,1400,'Clark’s undeducted figure (1,400) used'),g(1820,(43.6,-100.4),2300,''),
+ # The Teton are one division to 1785 and the northern Teton (Saone) one to 1806; the places and persons of these keyframes are the
+ # sums and population-weighted centres of the later divisions' guesses, so that each people runs on unbroken across the splits.
+ 'tet':[g(1700,(45.02,-98.91),4170,'Prairie Coteau and the James east of the Missouri'),g(1740,(44.99,-99.39),4810,''),g(1765,(44.96,-99.81),6250,'Reaching the Missouri'),
+        g(1776,(44.94,-100.06),None,'Winter counts date the Lakota discovery of the Black Hills to about 1775–76'),g(1782,None,6150,'1780–81 smallpox'),
+        g(1784.9,(44.91,-100.17),7273,'Continuity with the Brulé, Oglala, Miniconjou and Saone of 1785')],
+ 'sao':[g(1785,(45.83,-100.51),1859,'The northern Teton, distinct by 1785 (Bray, “Teton Sioux Population History”, pp. 173, 177–78); Truteau’s “Chaony”, 1795–96'),g(1795,(45.84,-100.73),None,''),
+        g(1805.9,(45.86,-100.97),2714,'Continuity with the Hunkpapa, Sihasapa and Sans Arc of 1806')],
+ 'bru':[g(1785,(44.13,-99.5),1556,'Distinct from the Oglala by 1785 (Bray, “Teton Sioux Population History”, pp. 173, 177–78)'),g(1805,None,1400,'Clark’s undeducted figure (1,400) used'),g(1820,(43.6,-100.4),2300,''),
         g(1845,(42.2,-101.2),3500,'Part of the Brulé shifting toward the Platte'),g(1855.7,(41.9,-101.6),3200,'Ash Hollow (Blue Water), Sept. 1855: Little Thunder’s band (see bands)'),
         g(1865,(42.2,-100.5),3800,''),g(1870.0,(43.1,-99.6),4000,'Whetstone agency on the Missouri, 1869–71 (after the August 1868 hunt south of the Platte)'),g(1874,(42.8,-102.8),4500,'Spotted Tail agency'),
         g(1878.9,P['rosebud'],5000,'Rosebud agency'),g(1890,P['rosebud'],5400,''),g(1905,P['rosebud'],5200,'')],
- 'ogl':[g(1700,(45.0,-97.7),800,''),g(1740,(44.6,-98.9),1000,''),g(1765,(44.5,-100.2),1200,''),g(1776,(44.1,-102.6),1300,'Winter counts date the Lakota discovery of the Black Hills to about 1775–76'),
-        g(1780,None,1400,''),g(1782,None,1000,'1780–81 smallpox'),g(1805,None,1200,'Clark’s 360–600 judged an undercount'),g(1825.5,P['badR_mouth'],1500,'Treaty at the Bad River, 1825'),
+ 'ogl':[g(1785,(44.35,-100.88),1012,'Distinct from the Brulé by 1785 (Bray, “Teton Sioux Population History”, pp. 173, 177–78)'),g(1805,None,1200,'Clark’s 360–600 judged an undercount'),g(1825.5,P['badR_mouth'],1500,'Treaty at the Bad River, 1825'),
         g(1835,P['laramie'],1700,'Move to the Platte with Fort William trade'),g(1850,(41.8,-102.7),2500,''),g(1860,(42.4,-104.0),3000,''),
         g(1866.5,(44.3,-106.4),3500,'Powder River country (Red Cloud’s war)'),g(1871.5,(42.2,-104.4),4000,'Red Cloud agency on the Platte'),
         g(1873.6,(42.68,-103.45),5000,'Red Cloud agency on the White River'),g(1878.9,P['pine_ridge'],6000,'Pine Ridge agency'),g(1890.98,(43.14,-102.36),5000,'Wounded Knee, Dec. 1890'),g(1905,P['pine_ridge'],6600,'')],
- 'min':[g(1700,(45.6,-97.8),700,''),g(1760,(45.3,-99.8),900,''),g(1782,None,800,'1780–81 smallpox'),g(1805,None,1200,'Clark’s undeducted figure'),
+ 'min':[g(1785,(44.92,-100.01),1081,'Emerging by 1785 (Bray, “Teton Sioux Population History”, pp. 173, 177–78)'),g(1805,None,1200,'Clark’s undeducted figure'),
         g(1820,(44.9,-101.6),1500,''),g(1870,P['chyR_agency'],1700,'Cheyenne River agency'),g(1876.47,P['lbh'],1500,'Little Bighorn camp, June 1876'),
         g(1877.5,P['chyR_agency'],1600,''),g(1890.95,(44.95,-101.9),1500,'Cherry Creek / Big Foot’s band'),g(1905,P['chyR_agency'],1400,'')],
- 'hnk':[g(1700,(46.1,-98.2),500,''),g(1760,(45.9,-99.6),700,''),g(1790,(45.9,-100.4),800,''),g(1805,(45.95,-100.6),900,'Share of Clark’s “Saone” (our split)'),g(1833,None,1500,'Denig’s 150 lodges looks low beside the 1850s counts'),
+ 'hnk':[g(1806,(45.91,-100.94),692,'From the Saone; named by Tabeau, 1803–04 (our share)'),g(1833,None,1500,'Denig’s 150 lodges looks low beside the 1850s counts'),
         g(1866,(46.6,-104.4),3000,'Yellowstone & Powder country'),g(1876.47,P['lbh'],2000,'Little Bighorn camp, June 1876'),
         g(1877.5,(46.0,-101.3),1800,'Most Hunkpapa at the Grand River agency; Sitting Bull’s following in Canada (see bands)'),
         g(1882,P['standing_rock'],1700,'Standing Rock'),g(1905,P['standing_rock'],1600,'')],
- 'sih':[g(1700,(46.0,-98.4),400,''),g(1760,(45.8,-99.7),600,''),g(1805,(45.9,-100.5),700,'Share of Clark’s “Saone”'),g(1855,(45.5,-101.5),1500,''),
+ 'sih':[g(1806,(45.94,-100.89),552,'From the Saone (our share)'),g(1855,(45.5,-101.5),1500,''),
         g(1876,(45.5,-101.0),1200,''),g(1880,(45.6,-100.8),1100,'Standing Rock & Cheyenne River'),g(1905,(45.6,-100.8),1000,'')],
- 'sna':[g(1700,(45.8,-98.5),400,''),g(1760,(45.6,-99.9),500,''),g(1805,(45.9,-100.7),500,'Share of Clark’s “Saone”'),g(1855,(45.0,-102.4),1000,''),
+ 'sna':[g(1806,(45.68,-101.13),404,'From the Saone; named by Tabeau, 1803–04 (our share)'),g(1855,(45.0,-102.4),1000,''),
         g(1876.47,P['lbh'],800,'Little Bighorn camp, June 1876'),g(1878,P['chyR_agency'],800,''),g(1905,P['chyR_agency'],700,'')],
  'twk':[g(1833,(44.6,-100.5),500,'Budded from the Miniconjou (Bray, “Teton Sioux Population History”, pp. 178, 182); first counted as a division by Denig, for 1833'),g(1855,(44.6,-100.6),900,''),
         g(1870,P['chyR_agency'],800,''),g(1905,P['chyR_agency'],700,'')],
@@ -740,7 +747,7 @@ OBS += [
 # Epidemics and famines: (start, end, label, {group: mortality fraction}, source, basis)
 # basis: 'sourced' = fraction given by a cited source; 'scaled' = from a regional figure; 'assumed' = our judgment.
 _ALL=lambda *gs: {g:None for g in gs}
-LAKOTA=['bru','ogl','min','hnk','sih','sna','twk']
+LAKOTA=['tet','bru','ogl','min','sao','hnk','sih','sna','twk']
 COM=['cyj','cyy','cyk','cyp','cyn','cyq']
 EPI = [
  (1780.6,1782.0,'Smallpox, 1780–82',
@@ -789,7 +796,7 @@ SW = 'Swanton, The Indian Tribes of North America (BAE Bulletin 145, 1952)'
 MOO28 = 'Mooney, “The Aboriginal Population of America North of Mexico” (1928), as given by '+SW
 def sw(g,y,pop,raw,at,r=80,basis='souls',kind='primary',src=None,**o):
     return dict(g=g,y=y,pop=pop,raw=raw,basis=basis,loc='inferred',at=at,r=r,src=src or SW,kind=kind,**o)
-LAK=['bru','ogl','min','hnk','sih','sna','twk']; SIOUX=LAK+['ynk','yku','ykl','mde','wpk','wpt','sis']
+LAK=['tet','bru','ogl','min','sao','hnk','sih','sna','twk']; SIOUX=LAK+['ynk','yku','ykl','mde','wpk','wpt','sis']
 OBS += [
  # Mooney's 1780 reconstructions (secondary)
  sw(SIOUX,1780,25000,'“25,000 Dakota of all divisions, exclusive of the Assiniboin” in 1780',(45.0,-98.5),400,kind='secondary',src=MOO28),
@@ -1536,7 +1543,7 @@ def HBC2(ch,au,pp): return f'{HB13}, {au}, “{ch}”, {pp}'
 HBSU=lambda pp: HBC2('Sioux Until 1850','DeMallie',pp)
 HBYK=lambda pp: HBC2('Yankton and Yanktonai','DeMallie',pp)
 HBTE=lambda pp: HBC2('Teton','DeMallie',pp)
-TETON7=['bru','ogl','min','hnk','sih','sna','twk']
+TETON7=['tet','bru','ogl','min','sao','hnk','sih','sna','twk']
 SIOUX14=TETON7+['ynk','yku','ykl','mde','wpk','wpt','sis']
 def _t6(g,y,p,who,basis='souls',**o):
     return dict(g=g,y=y,pop=p,raw=f'{who}: {p:,}',basis=basis,loc='inferred',at=(44.8,-98.0),r=400,src=HBSU('p. 748, table 6')+f', citing {who}',kind='primary',**o)
@@ -3300,7 +3307,7 @@ BRAYT={1825:dict(bru=3000,ogl=1500,mintwk=2200,sna=900,sih=900,hnk=1500),
        1881:dict(bru=5700,ogl=4800,min=1290,twk=740,sna=870,sih=1090,hnk=1620)}
 _BRAYBASIS={1825:'Atkinson',1839:'Nicollet and Riggs',1849:'Culbertson',1865:'Collins',1870:'the Indian Office reports',1881:'the agency counts, the Lower Brulé taken at 1,200 against an anomalous 1,509, the Upper Brulé at 4,500 from the 1890 Rosebud count, the Oglala at 4,800 from the military census of 4,873, and the Hunkpapa with Sitting Bull’s 187 and about 210 still in Canada'}
 _BRAYAT={'bru':(43.6,-100.5),'ogl':(43.0,-102.5),'min':(44.8,-101.5),'twk':(44.4,-100.5),'sna':(45.0,-101.5),'sih':(45.5,-101.0),'hnk':(45.8,-101.0)}
-OBS += [_cnt(['ogl','bru','min','twk','sna','sih','hnk'],1805.3,8500,'Bray’s reconstructed Teton total for 1805, 8,500 including the Sihasapa: Pike’s lodge and warrior figures corrected, Clark’s 2,910 “a gross underestimate”',BRAY('p. 173 and table 3, p. 174'),(44.5,-100.8),r=250,kind='secondary')]
+OBS += [_cnt(['ogl','bru','min','sao','twk','sna','sih','hnk'],1805.3,8500,'Bray’s reconstructed Teton total for 1805, 8,500 including the Sihasapa: Pike’s lodge and warrior figures corrected, Clark’s 2,910 “a gross underestimate”',BRAY('p. 173 and table 3, p. 174'),(44.5,-100.8),r=250,kind='secondary')]
 for _y,_d in BRAYT.items():
     for _k,_v in _d.items():
         _g=['min','twk'] if _k=='mintwk' else [_k]
@@ -3395,3 +3402,7 @@ for _g,_d in _DIAC.items():
         OBS.append(_cnt(['cre','crw','crs'] if _g=='cre' else _g,_y,_v,f'{_DIALAB[_g]}, {_v:,}',_dx(_y),_AT[_g],r=350 if _g=='cre' else (250 if _g=='asn' else 40),basis='census'))
 for _y,_v in _DIAPIK.items():
     OBS.append(_cnt('pik',_y,_v,f'Canadian Piegan (North Axe, Crow Eagle), Old Man’s River, {_v:,} (the Montana Piegan not included)',_dx(_y),(49.6,-113.8),r=40,basis='census',whole=False))
+
+# Each epidemic applies only to the divisions alive while it ran.
+_LIFE={_g[0]:(_g[4],_g[5]) for _g in GROUPS}
+EPI=[(s,e,lab,{g:f for g,f in M.items() if g not in _LIFE or (_LIFE[g][0]<=e and _LIFE[g][1]>=s)},src,basis) for (s,e,lab,M,src,basis) in EPI]

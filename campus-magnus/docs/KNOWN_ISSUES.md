@@ -27,8 +27,8 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 
 ## 3. The eighteenth century rests on few records
 
-- **Thin coverage.** Of 341 division × period cells, 28 have neither a count nor a place (`coverage_by_division_and_period.csv`, flag `thin`). Sixteen of them are 1700–49: the northern plains (the Blackfoot divisions, Gros Ventre, Sarsi, Stoney, both Crow divisions, Shoshone, Northern Assiniboine and Cree), the Arapaho, the Osage, the Ponca and the Tonkawa.
-- **What fills the gap.** The map draws these years from keyframes and smoothing. Their held-out error (×1.38 for population, 1700–99) is the worst of any period.
+- **Thin coverage.** Of 336 division × period cells, 32 have neither a count nor a place (`coverage_by_division_and_period.csv`, flag `thin`). Four are the Teton divisions of 1785–99, which no source counts or places before Lewis and Clark. Sixteen are 1700–49: the northern plains (the Blackfoot divisions, Gros Ventre, Sarsi, Stoney, both Crow divisions, Shoshone, Northern Assiniboine and Cree), the Arapaho, the Osage, the Ponca and the Tonkawa.
+- **What fills the gap.** The map draws these years from keyframes and smoothing. Their held-out error (×1.37 for population, 1700–99) is the worst of any period.
 - **Would settle it.** Russell, *Eighteenth-Century Western Cree and Their Neighbours* (1991); the Hudson's Bay Company post journals of the Saskatchewan, 1770–1800; A. B. Thomas, *After Coronado* (1935), *Forgotten Frontiers* (1932) and *The Plains Indians and New Mexico* (1940) for the Spanish documents; John, *Storms Brewed in Other Men's Worlds* (1975); Nasatir, *Before Lewis and Clark* (1952) for Truteau and Mackay.
 
 ## 4. Canadian peoples after 1870 and before 1790
@@ -79,15 +79,15 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 
 ## 10. Divisions as fixed entities
 
-- **The simplification.** Divisions split, merged and re-formed over two centuries, and the model fixes a single date for each split (JUDGMENTS §1). Six of the seven Teton divisions are drawn from 1700 (the Two Kettle from 1833), though most are not named in any source until much later.
+- **The simplification.** Divisions split, merged and re-formed over two centuries, and the model fixes a single date for each split (JUDGMENTS §1). The Teton are one division to 1785, when the Brulé, Oglala, Miniconjou and the Saone begin; the Saone divide into the Hunkpapa, Sihasapa and Sans Arc in 1806; the Two Kettle bud from the Miniconjou in 1833. The Yanktonai and Blackfoot divisions are still drawn from 1700.
 - **First recorded names**, from the synonymy in DeMallie, "Sioux Until 1850", Handbook 13, pp. 755–58:
   - Oglala ("Occononas") and Saone ("Chaony"), 1795–96 (Truteau). Saone was an umbrella for the northern Teton (Miniconjou, Sans Arc, Hunkpapa and others).
   - Brulé, Miniconjou, Hunkpapa and Sans Arc, 1803–04 (Tabeau).
   - Sihasapa and Two Kettle in their Sioux forms, 1833 (Denig). Tabeau's 1803–04 list has a Two Kettle band name.
 - **The Two Kettle** begin in 1833, budded from the Miniconjou (Bray, "Teton Sioux Population History", pp. 178, 182); Denig is the first to count them as a division, and Nicollet in 1839 still lists them as a camp of a Miniconjou band.
-- **Consequence.** The other divisions' tracks before those dates are projections of their later identities backward. Tabeau also reports two Oglala bands trying to farm with the Arikara before the Teton crossed the Missouri ("Sioux Until 1850", p. 731).
+- **What remains ours.** The dates 1785 and 1806 are round: Bray dates the Brulé and Oglala as distinct, and the Miniconjou and Saone as emerging, by 1785 (pp. 173, 177–78); Tabeau names the Hunkpapa and Sans Arc in 1803–04. Bray counts the Sihasapa as a band with the Yankton in 1805; the model keeps them with the Saone. The successors' shares at each split are ours, set from their later counts. Tabeau also reports two Oglala bands trying to farm with the Arikara before the Teton crossed the Missouri ("Sioux Until 1850", p. 731).
 - **The Comanche divisions.** Kavanagh treats them as processual: the eastern Kotsoteka became the Hois and then the Penateka; a splinter of Yamparikas became the Tenewa about 1810; the Jupe merged into the Yamparika between 1794 and the 1820s; the Kwahadi drew on several divisions in the 1860s (*Comanche Political History*, pp. 479–86). The model's dates follow him where it can: the Kwahadi from 1858, the Jupe to 1795, the Tenewa and Nokoni as one division from 1830. The Tenewa of 1810–30 are carried within the Yamparika. The Texas habit of calling any distant Comanche "Yamparika" (p. 124) makes the Texas Yamparika records of 1780–1812 uncertain, and they are not entered.
-- **Would settle it.** Not more reading but a modelling choice: an undivided Teton before 1795, splitting into Oglala, Brulé and Saone, and the Saone into its later divisions by 1804. Bray dates the Brulé and Oglala as distinct by 1785, the Miniconjou and Saone emerging then, and the Sihasapa a band counted with the Yankton in 1805 (pp. 173, 177–78). The transfers between divisions (`division_transfers.csv`) would carry the people across each split. This is the next structural change to make.
+- **Would settle it.** For the Teton, a band-level source for 1785–1805 (Truteau's and Tabeau's narratives in full; Nasatir, *Before Lewis and Clark*). For the Yanktonai and Blackfoot, the same modelling choice made for the Teton: undivided until their divisions are first attested.
 
 ## 11. Things the tests cannot see
 

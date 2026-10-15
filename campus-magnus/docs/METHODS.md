@@ -4,7 +4,7 @@ This file states the model as the code implements it, with every setting and how
 
 ## 1. Units and inputs
 
-- **Unit.** A *division* $g$ (64 in all) with a lifespan $[s_g, e_g]$ and a lifeway (`nomadic` or `village`). A people (tribe) is the sum of its divisions. A division that splits ends in the year its successors begin; for example the Cheyenne end in 1832 and the Northern and Southern Cheyenne begin then.
+- **Unit.** A *division* $g$ (66 in all) with a lifespan $[s_g, e_g]$ and a lifeway (`nomadic` or `village`). A people (tribe) is the sum of its divisions. A division that splits ends in the year its successors begin; for example the Cheyenne end in 1832 and the Northern and Southern Cheyenne begin then, and the Teton end in 1785 and the Brulé, Oglala, Miniconjou and Saone begin then. The parent's last keyframe and the successors' first are set so that the fitted totals meet.
 - **Documented records** (`OBS` in `data_src.py`) carry the following fields:
   - group(s): one division, or several for a whole-tribe count;
   - year (decimal; a season gives the fraction);
@@ -92,11 +92,11 @@ $$x(t) = T(t) + S(t) + \lambda\,\phi(t)\,A_{\text{lit}}(t), \qquad x_i = x(t_i) 
 | Season-dated places: centre only | 321 | 118 km | 146 km | 72 km |
 | Season-dated places: centre and seasonal component | 321 | 107 km | 141 km | 66 km |
 | Ranges and agencies: track through every record | 182 | 92 km | 128 km | |
-| Ranges and agencies: centre and seasonal component | 182 | 100 km | 125 km | 17 km |
+| Ranges and agencies: centre and seasonal component | 182 | 100 km | 124 km | 17 km |
 
-- Without our keyframes the miss is 115 km (mean 145), against 108 km (mean 138) with them, both scored with the production settings.
+- Without our keyframes the miss is 115 km (mean 145), against 109 km (mean 138) with them, both scored with the production settings.
 - The seasonal component is worth about a tenth on season-dated places (118 to 107 km); the rest of the gain over a track through every record comes from averaging several years of records. The Kiowa calendar, the densest record, shows why: a summer sun-dance ground lies a median 155 km from the next winter camp, but winter camps a median 129 km from the winter before and summer grounds 140 km from the summer before, in no fixed direction.
-- Range and agency statements alone are better served on the median by a track through every record (92 km against 100), though not on the mean (128 against 125).
+- Range and agency statements alone are better served on the median by a track through every record (92 km against 100), though not on the mean (128 against 124).
 - The cost falls on precise events in years of mixed records: in 1876 the Miniconjou annual centre lies between the Cheyenne River agency and the summer camps, about 420 km from the Little Bighorn (about 315 km in late June with the seasonal component).
 
 **Village divisions.** The track holds at each place.
@@ -118,7 +118,7 @@ $$x(t) = T(t) + S(t) + \lambda\,\phi(t)\,A_{\text{lit}}(t), \qquad x_i = x(t_i) 
 
 | Test | Script | Output | Result |
 |---|---|---|---|
-| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,172 counts; median miss ×1.11 (interpolation ×1.08; before 1840 the model is better, after it interpolation); 2-sd coverage 0.92 before widening, 0.96 after |
+| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,173 counts; median miss ×1.11 (interpolation ×1.08; before 1840 the model is better, after it interpolation); 2-sd coverage 0.92 before widening, 0.96 after |
 | Held-out nomadic places | `calib_gp.py` | `model/build/gpcal.json` | 538 places; median 110 km, mean 139 (track through every record 116, 147); season-dated 107 against 118 without the seasonal component; halo 67% in each season |
 | Held-out village places | `calib_vmove.py` | console | 222 places; median 8 km, mean 43 |
 | Village halo coverage | `calib_vhalo.py` | console | 243 places; median miss 11 km; 68% inside |

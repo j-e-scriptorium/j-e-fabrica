@@ -1,1240 +1,775 @@
 division_id,division,year,centre_lat_midyear,centre_lon_midyear,centre_uncertainty_km_68pct,winter_offset_east_km,winter_offset_north_km,summer_offset_east_km,summer_offset_north_km,seasonal_harmonics_km,seasonal_basis
-bru,Brulé (Sičháŋǧu),1700,44.243,-98.146,176,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1701,44.241,-98.157,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1702,44.232,-98.186,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1703,44.219,-98.226,184,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1704,44.205,-98.269,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1705,44.192,-98.311,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1706,44.181,-98.347,197,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1707,44.172,-98.375,200,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1708,44.167,-98.396,201,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1709,44.164,-98.41,202,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1710,44.163,-98.42,203,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1711,44.162,-98.427,203,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1712,44.163,-98.432,202,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1713,44.164,-98.436,202,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1714,44.165,-98.44,201,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1715,44.166,-98.444,201,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1716,44.167,-98.449,200,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1717,44.168,-98.454,200,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1718,44.169,-98.46,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1719,44.169,-98.466,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1720,44.17,-98.473,198,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1721,44.171,-98.48,198,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1722,44.171,-98.487,197,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1723,44.171,-98.495,197,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1724,44.172,-98.503,196,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1725,44.172,-98.512,196,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1726,44.173,-98.521,196,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1727,44.173,-98.53,195,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1728,44.174,-98.539,195,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1729,44.174,-98.548,194,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1730,44.175,-98.557,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1731,44.177,-98.566,192,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1732,44.179,-98.574,190,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1733,44.182,-98.581,188,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1734,44.185,-98.588,184,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1735,44.189,-98.594,180,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1736,44.194,-98.6,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1737,44.198,-98.606,170,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1738,44.201,-98.614,165,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1739,44.204,-98.623,161,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1740,44.205,-98.634,159,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1741,44.204,-98.648,160,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1742,44.203,-98.663,163,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1743,44.201,-98.679,168,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1744,44.198,-98.695,173,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1745,44.196,-98.711,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1746,44.195,-98.727,181,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1747,44.194,-98.742,183,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1748,44.194,-98.756,185,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1749,44.194,-98.77,186,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1750,44.195,-98.783,187,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1751,44.196,-98.796,187,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1752,44.198,-98.81,187,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1753,44.199,-98.823,187,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1754,44.2,-98.838,186,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1755,44.2,-98.853,185,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1756,44.2,-98.871,184,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1757,44.198,-98.89,183,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1758,44.196,-98.912,180,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1759,44.192,-98.936,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1760,44.187,-98.963,173,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1761,44.181,-98.99,168,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1762,44.176,-99.017,163,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1763,44.172,-99.042,158,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1764,44.17,-99.064,154,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1765,44.17,-99.081,153,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1766,44.173,-99.094,153,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1767,44.177,-99.103,156,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1768,44.183,-99.111,160,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1769,44.188,-99.118,164,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1770,44.193,-99.127,168,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1771,44.196,-99.138,171,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1772,44.199,-99.152,173,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1773,44.199,-99.169,174,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1774,44.198,-99.188,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1775,44.196,-99.21,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1776,44.192,-99.234,174,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1777,44.188,-99.259,174,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1778,44.184,-99.285,173,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1779,44.178,-99.313,172,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1780,44.172,-99.342,171,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1781,44.165,-99.371,170,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1782,44.158,-99.402,169,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1783,44.15,-99.434,168,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1784,44.141,-99.466,167,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1785,44.132,-99.5,166,0,0,0,0,0 0 0 0 0 0 0 0,none
-bru,Brulé (Sičháŋǧu),1786,44.122,-99.535,165,0,0,0,0,0 0 0 0 0 -1 0 0,none
-bru,Brulé (Sičháŋǧu),1787,44.111,-99.57,164,1,0,-1,0,1 0 0 0 0 -1 0 0,none
-bru,Brulé (Sičháŋǧu),1788,44.099,-99.607,163,1,0,-2,0,1 0 0 -1 0 -1 0 0,none
-bru,Brulé (Sičháŋǧu),1789,44.087,-99.645,162,2,-1,-1,0,1 0 1 -1 0 -1 -1 0,none
-bru,Brulé (Sičháŋǧu),1790,44.074,-99.684,161,2,-1,-1,0,1 0 1 -1 0 -2 -1 0,none
-bru,Brulé (Sičháŋǧu),1791,44.061,-99.723,160,2,-1,-1,0,1 1 1 -1 0 -2 -1 0,none
-bru,Brulé (Sičháŋǧu),1792,44.047,-99.763,158,2,-1,-2,0,1 1 1 -2 0 -2 -1 0,none
-bru,Brulé (Sičháŋǧu),1793,44.034,-99.802,157,4,-1,-2,0,2 1 2 -2 0 -3 -1 0,none
-bru,Brulé (Sičháŋǧu),1794,44.022,-99.841,155,4,-1,-2,0,2 1 2 -2 0 -3 -1 0,none
-bru,Brulé (Sičháŋǧu),1795,44.011,-99.878,153,4,-2,-2,0,2 1 2 -3 0 -4 -2 0,none
-bru,Brulé (Sičháŋǧu),1796,44.003,-99.911,151,5,-3,-2,1,2 2 3 -3 -1 -4 -2 0,none
-bru,Brulé (Sičháŋǧu),1797,44.0,-99.939,148,5,-3,-2,1,2 2 3 -4 -1 -5 -2 0,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1798,44.0,-99.96,143,5,-3,-2,1,2 2 3 -4 -1 -5 -2 0,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1799,44.006,-99.973,136,6,-3,-3,1,2 3 4 -5 -1 -6 -2 0,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1800,44.015,-99.979,128,6,-4,-3,0,2 3 4 -5 -1 -6 -3 0,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1801,44.025,-99.98,117,5,-4,-2,0,1 4 4 -6 -1 -6 -3 0,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1802,44.033,-99.977,104,6,-5,-2,1,1 4 5 -7 -2 -6 -3 -1,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1803,44.035,-99.974,91,5,-5,-2,1,0 5 5 -7 -2 -7 -3 -1,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1804,44.028,-99.975,81,5,-5,-2,1,0 5 5 -7 -2 -6 -3 -1,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1805,44.011,-99.98,75,4,-5,-2,1,-1 6 5 -8 -2 -6 -3 -1,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1806,43.983,-99.992,77,3,-6,-1,2,-2 6 5 -8 -3 -6 -3 -1,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1807,43.947,-100.011,82,2,-5,0,3,-3 6 5 -8 -3 -6 -2 -1,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1808,43.903,-100.04,88,1,-5,1,2,-4 7 5 -8 -3 -5 -2 -1,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1809,43.854,-100.08,93,1,-5,1,2,-4 7 5 -8 -3 -5 -2 -1,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1810,43.8,-100.135,96,0,-5,2,1,-5 7 5 -8 -3 -4 -2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1811,43.742,-100.205,98,-1,-4,3,2,-6 7 5 -8 -3 -4 -1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1812,43.678,-100.291,101,-2,-4,3,2,-6 7 4 -7 -3 -3 -1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1813,43.611,-100.388,103,-3,-4,4,1,-7 7 4 -7 -3 -2 -1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1814,43.542,-100.492,105,-4,-3,4,1,-7 6 3 -6 -2 -2 -1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1815,43.474,-100.595,104,-5,-2,5,1,-8 6 3 -6 -2 -2 0 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1816,43.411,-100.693,101,-6,-2,4,1,-8 6 2 -5 -2 -1 0 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1817,43.357,-100.783,97,-6,-1,5,0,-8 6 2 -4 -1 -1 0 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1818,43.313,-100.865,92,-8,-1,6,0,-9 5 1 -3 -1 -1 0 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1819,43.28,-100.941,90,-9,1,5,0,-9 5 0 -3 0 -1 1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1820,43.258,-101.015,92,-9,2,6,-1,-9 5 0 -2 1 -1 1 -2,none
-bru,Brulé (Sičháŋǧu),1821,43.244,-101.091,98,-11,2,7,-1,-10 5 -1 -1 1 -1 1 -2,none
-bru,Brulé (Sičháŋǧu),1822,43.235,-101.174,106,-12,3,6,-2,-10 5 -2 0 2 -1 1 -2,none
-bru,Brulé (Sičháŋǧu),1823,43.23,-101.266,113,-13,5,8,-2,-11 5 -2 1 3 -1 2 -2,none
-bru,Brulé (Sičháŋǧu),1824,43.225,-101.369,119,-14,5,7,-2,-11 5 -3 1 3 -1 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1825,43.222,-101.486,123,-16,6,8,-3,-12 5 -4 2 4 -1 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1826,43.22,-101.616,125,-17,6,9,-3,-13 5 -4 3 4 -1 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1827,43.218,-101.756,123,-18,7,9,-4,-13 5 -5 3 5 -2 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1828,43.215,-101.9,119,-19,7,9,-4,-14 5 -5 3 5 -2 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1829,43.208,-102.038,114,-20,8,9,-5,-14 5 -6 4 6 -2 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1830,43.196,-102.16,106,-20,9,9,-4,-14 5 -6 4 6 -2 3 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1831,43.175,-102.255,99,-20,9,9,-4,-14 5 -6 4 6 -2 3 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1832,43.145,-102.317,92,-20,9,9,-4,-14 5 -6 4 6 -2 3 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1833,43.105,-102.332,88,-19,8,8,-5,-13 5 -6 4 6 -2 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1834,43.057,-102.322,87,-18,8,7,-5,-12 5 -6 3 6 -2 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1835,43.004,-102.275,90,-17,8,6,-5,-11 6 -6 3 6 -1 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1836,42.949,-102.21,95,-15,8,5,-5,-10 6 -5 3 6 -1 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1837,42.893,-102.135,103,-13,8,3,-5,-8 6 -5 2 6 -1 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1838,42.84,-102.06,110,-12,8,1,-5,-7 6 -5 1 6 0 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1839,42.789,-101.992,116,-9,6,0,-5,-5 7 -4 1 5 0 1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1840,42.74,-101.936,120,-6,6,-3,-5,-2 7 -4 0 5 0 1 -2,none
-bru,Brulé (Sičháŋǧu),1841,42.693,-101.897,121,-4,6,-6,-5,0 8 -4 -1 5 1 1 -2,none
-bru,Brulé (Sičháŋǧu),1842,42.647,-101.884,121,-1,5,-8,-6,2 9 -3 -2 5 1 0 -2,none
-bru,Brulé (Sičháŋǧu),1843,42.603,-101.892,119,1,5,-11,-7,4 10 -3 -3 5 2 0 -2,none
-bru,Brulé (Sičháŋǧu),1844,42.559,-101.939,117,4,5,-15,-7,7 11 -3 -4 5 3 0 -2,none
-bru,Brulé (Sičháŋǧu),1845,42.515,-102.022,115,6,6,-18,-8,9 12 -3 -5 6 3 0 -2,none
-bru,Brulé (Sičháŋǧu),1846,42.472,-102.142,114,8,6,-21,-8,11 14 -3 -6 6 4 0 -2,none
-bru,Brulé (Sičháŋǧu),1847,42.431,-102.292,112,10,5,-24,-9,13 15 -3 -7 6 4 -1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1848,42.395,-102.46,110,13,5,-26,-9,15 16 -2 -8 6 5 -1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1849,42.367,-102.624,107,15,6,-29,-10,17 18 -2 -9 7 5 -1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1850,42.352,-102.763,102,17,6,-31,-10,19 19 -2 -10 7 5 -1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1851,42.354,-102.856,96,18,6,-33,-11,20 20 -2 -10 7 6 -1 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1852,42.375,-102.873,90,19,6,-34,-11,21 20 -2 -11 7 6 -1 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1853,42.413,-102.834,86,19,6,-35,-11,21 21 -2 -11 7 6 -1 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1854,42.462,-102.722,83,19,6,-35,-11,21 21 -2 -11 7 6 -1 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1855,42.514,-102.565,83,19,6,-34,-11,21 20 -2 -11 7 6 -1 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1856,42.557,-102.383,86,18,6,-33,-11,20 20 -2 -11 7 6 -1 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1857,42.585,-102.2,91,17,5,-31,-10,19 19 -2 -10 6 6 -1 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1858,42.59,-102.033,98,17,5,-29,-9,18 18 -1 -10 6 5 -1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1859,42.572,-101.889,106,16,4,-28,-8,17 17 -1 -9 5 5 -1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1860,42.528,-101.768,111,14,4,-24,-8,15 15 -1 -8 5 4 -1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1861,42.463,-101.662,114,13,3,-23,-7,14 14 -1 -8 4 4 -1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1862,42.38,-101.563,115,11,4,-20,-6,12 12 -1 -7 4 4 0 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1863,42.287,-101.466,112,10,3,-18,-4,11 11 -1 -6 3 3 0 -1,none
-bru,Brulé (Sičháŋǧu),1864,42.192,-101.371,108,8,3,-15,-4,9 9 -1 -5 3 3 0 -1,none
-bru,Brulé (Sičháŋǧu),1865,42.107,-101.285,103,8,2,-12,-3,8 8 0 -4 2 2 0 -1,none
-bru,Brulé (Sičháŋǧu),1866,42.045,-101.22,97,6,2,-10,-3,6 7 0 -4 2 2 0 -1,none
-bru,Brulé (Sičháŋǧu),1867,42.022,-101.194,92,5,1,-8,-2,5 5 0 -3 1 2 0 -1,none
-bru,Brulé (Sičháŋǧu),1868,42.032,-101.206,88,4,1,-6,-2,4 4 0 -2 1 1 0 -1,none
-bru,Brulé (Sičháŋǧu),1869,42.092,-101.277,86,3,1,-5,-2,3 4 0 -2 1 1 0 -1,none
-bru,Brulé (Sičháŋǧu),1870,42.185,-101.39,87,2,0,-4,0,2 3 0 -2 0 1 0 0,none
-bru,Brulé (Sičháŋǧu),1871,42.301,-101.531,88,2,0,-3,0,2 2 0 -1 0 1 0 0,none
-bru,Brulé (Sičháŋǧu),1872,42.426,-101.677,89,1,0,-2,0,1 2 0 -1 0 1 0 0,none
-bru,Brulé (Sičháŋǧu),1873,42.543,-101.8,89,1,0,-2,0,1 1 0 -1 0 1 0 0,none
-bru,Brulé (Sičháŋǧu),1874,42.644,-101.881,90,0,-1,-1,0,0 1 0 -1 -1 1 0 -1,none
-bru,Brulé (Sičháŋǧu),1875,42.721,-101.897,91,0,-1,-1,0,0 1 0 -1 -1 1 0 -1,none
-bru,Brulé (Sičháŋǧu),1876,42.775,-101.87,94,0,-1,-1,0,0 1 0 -1 -1 1 0 -1,none
-bru,Brulé (Sičháŋǧu),1877,42.808,-101.792,98,-1,-1,0,2,-1 1 0 -1 -2 1 1 -1,none
-bru,Brulé (Sičháŋǧu),1878,42.824,-101.69,103,-1,-1,0,2,-1 1 0 -1 -2 1 1 -1,none
-bru,Brulé (Sičháŋǧu),1879,42.829,-101.582,109,-1,-2,0,2,-1 1 0 -1 -3 2 1 -1,none
-bru,Brulé (Sičháŋǧu),1880,42.829,-101.482,114,-1,-2,2,2,-2 1 1 -1 -3 2 1 -1,none
-bru,Brulé (Sičháŋǧu),1881,42.829,-101.399,119,-1,-3,2,3,-2 1 1 -1 -4 2 1 -2,none
-bru,Brulé (Sičháŋǧu),1882,42.833,-101.331,123,-1,-3,2,3,-2 1 1 -1 -4 2 1 -2,none
-bru,Brulé (Sičháŋǧu),1883,42.846,-101.277,126,-2,-4,2,3,-3 2 1 -1 -5 3 1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1884,42.867,-101.229,126,-2,-3,2,4,-3 2 1 -1 -5 3 2 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1885,42.898,-101.183,123,-2,-4,2,5,-3 2 1 -1 -6 3 2 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1886,42.937,-101.136,117,-2,-4,2,5,-3 2 1 -2 -6 3 2 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1887,42.978,-101.089,109,-3,-4,3,4,-4 2 1 -2 -6 4 2 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1888,43.019,-101.043,100,-3,-5,3,5,-4 2 1 -2 -7 4 2 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1889,43.053,-101.001,91,-3,-5,3,5,-4 2 1 -2 -7 4 2 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1890,43.078,-100.967,86,-3,-5,3,5,-4 2 1 -2 -7 4 2 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1891,43.093,-100.942,87,-3,-5,3,5,-4 2 1 -2 -7 4 2 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1892,43.095,-100.924,95,-3,-5,3,5,-4 2 1 -2 -7 4 2 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1893,43.093,-100.913,106,-3,-4,3,5,-4 2 1 -2 -6 3 2 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1894,43.086,-100.905,118,-2,-4,2,5,-3 2 1 -2 -6 3 2 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1895,43.08,-100.898,129,-2,-4,2,5,-3 2 1 -2 -6 3 2 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1896,43.076,-100.89,137,-2,-3,2,4,-3 2 1 -1 -5 3 2 -3,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1897,43.078,-100.878,144,-2,-4,3,4,-3 1 1 -1 -5 2 1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1898,43.085,-100.865,148,-1,-3,2,3,-2 1 1 -1 -4 2 1 -2,learned from season-dated places (literature at half weight)
-bru,Brulé (Sičháŋǧu),1899,43.097,-100.849,150,-1,-3,2,3,-2 1 1 -1 -4 2 1 -2,none
-bru,Brulé (Sičháŋǧu),1900,43.113,-100.831,150,-1,-2,2,2,-2 1 1 -1 -3 2 1 -2,none
-bru,Brulé (Sičháŋǧu),1901,43.131,-100.812,148,-1,-2,0,3,-1 1 0 -1 -3 1 1 -1,none
-bru,Brulé (Sičháŋǧu),1902,43.15,-100.792,146,-1,-1,0,2,-1 1 0 -1 -2 1 1 -1,none
-bru,Brulé (Sičháŋǧu),1903,43.171,-100.772,145,-1,-1,0,2,-1 1 0 -1 -2 1 1 -1,none
-bru,Brulé (Sičháŋǧu),1904,43.191,-100.751,144,-1,-1,1,0,-1 0 0 0 -1 1 0 -1,none
-bru,Brulé (Sičháŋǧu),1905,43.2,-100.74,145,-1,-1,1,0,-1 0 0 0 -1 1 0 -1,none
-ogl,Oglala,1700,44.446,-99.161,176,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1701,44.446,-99.168,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1702,44.436,-99.2,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1703,44.423,-99.243,184,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1704,44.408,-99.291,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1705,44.394,-99.337,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1706,44.382,-99.377,197,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1707,44.374,-99.409,200,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1708,44.369,-99.432,201,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1709,44.368,-99.448,202,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1710,44.369,-99.459,203,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1711,44.371,-99.467,203,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1712,44.374,-99.473,202,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1713,44.378,-99.479,202,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1714,44.382,-99.485,201,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1715,44.386,-99.493,201,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1716,44.389,-99.501,200,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1717,44.393,-99.51,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1718,44.397,-99.52,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1719,44.4,-99.531,198,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1720,44.404,-99.543,198,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1721,44.407,-99.556,197,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1722,44.411,-99.57,197,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1723,44.414,-99.585,196,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1724,44.418,-99.6,196,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1725,44.421,-99.617,195,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1726,44.425,-99.634,194,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1727,44.428,-99.651,194,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1728,44.432,-99.667,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1729,44.436,-99.683,192,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1730,44.44,-99.697,191,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1731,44.445,-99.708,190,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1732,44.45,-99.715,188,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1733,44.456,-99.717,185,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1734,44.463,-99.714,182,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1735,44.47,-99.707,178,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1736,44.477,-99.698,172,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1737,44.485,-99.692,167,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1738,44.491,-99.692,162,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1739,44.496,-99.702,158,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1740,44.5,-99.725,156,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1741,44.503,-99.76,157,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1742,44.504,-99.805,159,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1743,44.504,-99.856,163,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1744,44.504,-99.91,168,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1745,44.504,-99.962,172,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1746,44.505,-100.009,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1747,44.506,-100.051,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1748,44.508,-100.087,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1749,44.51,-100.118,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1750,44.513,-100.146,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1751,44.516,-100.171,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1752,44.518,-100.194,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1753,44.521,-100.216,178,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1754,44.524,-100.236,178,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1755,44.526,-100.256,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1756,44.528,-100.274,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1757,44.529,-100.291,174,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1758,44.53,-100.307,171,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1759,44.531,-100.32,168,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1760,44.531,-100.333,164,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1761,44.53,-100.345,160,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1762,44.529,-100.358,155,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1763,44.528,-100.373,150,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1764,44.526,-100.392,146,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1765,44.524,-100.417,144,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1766,44.52,-100.45,145,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1767,44.515,-100.492,147,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1768,44.507,-100.544,149,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1769,44.497,-100.607,152,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1770,44.485,-100.68,153,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1771,44.47,-100.76,152,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1772,44.453,-100.843,151,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1773,44.436,-100.92,148,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1774,44.421,-100.984,144,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1775,44.408,-101.028,142,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1776,44.4,-101.048,140,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1777,44.395,-101.045,141,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1778,44.392,-101.023,144,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1779,44.392,-100.989,148,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1780,44.391,-100.952,151,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1781,44.388,-100.918,155,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1782,44.383,-100.893,158,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1783,44.376,-100.878,160,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1784,44.365,-100.876,161,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1785,44.351,-100.882,161,0,0,0,0,0 0 0 0 0 0 0 0,none
-ogl,Oglala,1786,44.335,-100.897,162,0,1,0,-1,0 0 0 0 1 0 0 0,none
-ogl,Oglala,1787,44.318,-100.916,162,0,1,0,-1,0 0 0 0 1 0 0 0,none
-ogl,Oglala,1788,44.299,-100.94,161,1,1,-1,-1,1 0 0 0 1 -1 0 -1,none
-ogl,Oglala,1789,44.279,-100.966,161,1,1,-1,-1,1 -1 0 0 1 -1 0 -1,none
-ogl,Oglala,1790,44.257,-100.993,161,1,1,-1,-1,1 -1 0 -1 1 -1 0 -1,none
-ogl,Oglala,1791,44.236,-101.021,160,1,2,-1,-2,1 -1 0 -1 2 -1 0 -1,none
-ogl,Oglala,1792,44.214,-101.05,160,2,2,-2,-2,2 -1 0 -1 2 -2 0 -1,none
-ogl,Oglala,1793,44.194,-101.077,159,2,3,-2,-3,2 -1 0 -1 3 -2 0 -2,none
-ogl,Oglala,1794,44.176,-101.102,158,2,4,-2,-3,2 -2 0 -1 3 -2 1 -2,none
-ogl,Oglala,1795,44.162,-101.121,157,2,5,-2,-3,2 -2 0 -2 4 -3 1 -2,none
-ogl,Oglala,1796,44.155,-101.134,155,4,5,-3,-3,3 -2 1 -2 4 -3 1 -2,none
-ogl,Oglala,1797,44.157,-101.135,153,4,6,-3,-5,3 -2 1 -2 5 -3 1 -3,learned from season-dated places (literature at half weight)
-ogl,Oglala,1798,44.17,-101.125,148,5,6,-3,-4,4 -3 1 -2 5 -4 1 -3,learned from season-dated places (literature at half weight)
-ogl,Oglala,1799,44.194,-101.102,143,5,7,-3,-5,4 -3 1 -2 6 -4 1 -3,learned from season-dated places (literature at half weight)
-ogl,Oglala,1800,44.226,-101.071,135,5,7,-4,-6,4 -3 1 -3 6 -4 1 -4,learned from season-dated places (literature at half weight)
-ogl,Oglala,1801,44.26,-101.037,125,5,7,-4,-6,4 -3 1 -3 6 -5 1 -4,learned from season-dated places (literature at half weight)
-ogl,Oglala,1802,44.289,-101.008,114,6,8,-5,-7,5 -3 1 -3 7 -5 1 -4,learned from season-dated places (literature at half weight)
-ogl,Oglala,1803,44.302,-101.002,103,6,8,-5,-7,5 -3 1 -3 7 -5 1 -4,learned from season-dated places (literature at half weight)
-ogl,Oglala,1804,44.297,-101.013,94,6,8,-4,-7,5 -4 1 -3 7 -5 1 -4,learned from season-dated places (literature at half weight)
-ogl,Oglala,1805,44.261,-101.062,91,6,8,-5,-7,5 -3 1 -3 7 -5 1 -4,learned from season-dated places (literature at half weight)
-ogl,Oglala,1806,44.201,-101.14,94,6,8,-5,-7,5 -3 1 -3 7 -5 1 -4,learned from season-dated places (literature at half weight)
-ogl,Oglala,1807,44.119,-101.244,102,6,8,-5,-7,5 -3 1 -3 7 -5 1 -4,learned from season-dated places (literature at half weight)
-ogl,Oglala,1808,44.023,-101.363,113,5,7,-4,-6,4 -3 1 -3 6 -5 1 -4,learned from season-dated places (literature at half weight)
-ogl,Oglala,1809,43.924,-101.489,123,5,7,-3,-5,4 -3 1 -2 6 -4 1 -3,learned from season-dated places (literature at half weight)
-ogl,Oglala,1810,43.828,-101.611,132,5,6,-3,-4,4 -3 1 -2 5 -4 1 -3,learned from season-dated places (literature at half weight)
-ogl,Oglala,1811,43.741,-101.723,139,4,6,-3,-4,3 -2 1 -2 5 -4 1 -3,learned from season-dated places (literature at half weight)
-ogl,Oglala,1812,43.666,-101.822,144,4,5,-3,-4,3 -2 1 -2 4 -3 1 -3,learned from season-dated places (literature at half weight)
-ogl,Oglala,1813,43.603,-101.907,147,4,5,-3,-3,3 -2 1 -2 4 -3 1 -2,none
-ogl,Oglala,1814,43.552,-101.979,149,2,4,-2,-3,2 -2 0 -1 3 -2 1 -2,none
-ogl,Oglala,1815,43.51,-102.039,149,2,4,-2,-3,2 -1 0 -1 3 -2 1 -2,none
-ogl,Oglala,1816,43.477,-102.087,149,2,2,-2,-2,2 -1 0 -1 2 -2 0 -1,none
-ogl,Oglala,1817,43.452,-102.123,149,1,2,-1,-2,1 -1 0 -1 2 -1 0 -1,none
-ogl,Oglala,1818,43.435,-102.146,148,1,2,-1,-2,1 -1 0 -1 2 -1 0 -1,none
-ogl,Oglala,1819,43.426,-102.155,146,1,2,-1,-2,1 -1 0 0 2 -1 0 -1,none
-ogl,Oglala,1820,43.424,-102.154,143,1,2,-1,-2,1 -1 0 0 2 -1 0 -1,none
-ogl,Oglala,1821,43.426,-102.146,140,1,2,-1,-2,1 0 0 0 2 -1 0 -1,none
-ogl,Oglala,1822,43.428,-102.139,136,0,2,0,-2,0 0 0 0 2 0 0 0,none
-ogl,Oglala,1823,43.426,-102.141,132,0,1,0,-3,0 0 0 0 2 0 -1 0,none
-ogl,Oglala,1824,43.412,-102.167,128,0,1,0,-3,0 0 0 0 2 0 -1 0,none
-ogl,Oglala,1825,43.384,-102.221,126,0,2,0,-4,0 0 0 0 3 0 -1 0,none
-ogl,Oglala,1826,43.34,-102.308,125,0,1,0,-4,0 0 0 0 3 0 -2 0,none
-ogl,Oglala,1827,43.279,-102.426,126,1,2,-1,-5,1 0 0 0 4 0 -2 0,none
-ogl,Oglala,1828,43.206,-102.571,128,1,2,-1,-8,1 0 0 0 5 0 -3 -1,none
-ogl,Oglala,1829,43.124,-102.732,129,1,4,-1,-10,1 0 0 0 7 0 -3 -1,none
-ogl,Oglala,1830,43.039,-102.899,130,0,4,-2,-11,1 0 -1 0 8 0 -4 -1,none
-ogl,Oglala,1831,42.956,-103.06,129,0,5,-2,-14,1 0 -1 0 10 0 -5 -1,none
-ogl,Oglala,1832,42.876,-103.206,127,1,6,-3,-17,2 0 -1 0 12 0 -6 -1,none
-ogl,Oglala,1833,42.799,-103.331,125,1,7,-3,-20,2 0 -1 0 14 0 -7 -1,none
-ogl,Oglala,1834,42.724,-103.43,122,2,8,-4,-23,3 0 -1 -1 16 1 -8 -1,none
-ogl,Oglala,1835,42.645,-103.503,121,1,9,-5,-25,3 1 -2 -1 18 1 -9 -1,none
-ogl,Oglala,1836,42.558,-103.553,121,2,10,-6,-28,4 1 -2 -1 20 1 -10 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1837,42.46,-103.588,121,2,11,-6,-31,4 1 -2 -1 22 1 -11 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1838,42.35,-103.615,121,2,12,-8,-33,5 1 -3 -1 24 1 -12 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1839,42.234,-103.643,120,3,12,-9,-35,6 1 -3 -1 25 2 -13 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1840,42.123,-103.677,117,3,14,-11,-37,7 1 -4 -1 27 2 -13 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1841,42.031,-103.72,112,3,14,-11,-39,7 1 -4 -1 28 2 -14 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1842,41.969,-103.77,106,4,14,-12,-39,8 1 -4 -1 28 2 -14 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1843,41.956,-103.822,100,3,14,-13,-39,8 1 -5 -1 28 3 -14 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1844,41.971,-103.868,95,3,14,-13,-39,8 1 -5 -1 28 3 -14 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1845,42.026,-103.901,90,3,14,-13,-38,8 1 -5 -1 27 3 -13 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1846,42.095,-103.916,87,3,13,-13,-37,8 1 -5 -1 26 3 -13 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1847,42.166,-103.915,86,3,13,-13,-35,8 1 -5 -1 25 4 -12 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1848,42.224,-103.904,86,2,13,-12,-34,7 1 -5 -1 24 4 -11 -1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1849,42.265,-103.891,87,1,13,-11,-31,6 1 -5 -1 23 4 -10 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1850,42.289,-103.886,87,0,13,-9,-30,5 0 -5 -1 22 5 -9 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1851,42.299,-103.89,88,-2,13,-7,-28,3 0 -5 -1 21 5 -8 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1852,42.304,-103.911,89,-4,13,-5,-27,1 -1 -5 -1 20 6 -7 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1853,42.31,-103.943,89,-6,15,-3,-25,-1 -1 -5 0 20 6 -5 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1854,42.323,-103.983,90,-8,16,-1,-24,-3 -2 -5 0 20 7 -4 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1855,42.349,-104.03,90,-11,17,2,-24,-6 -2 -5 0 20 8 -3 0,none
-ogl,Oglala,1856,42.394,-104.083,89,-14,18,5,-23,-9 -3 -5 0 20 8 -2 0,none
-ogl,Oglala,1857,42.462,-104.147,90,-17,20,7,-24,-11 -4 -6 0 21 9 -1 0,none
-ogl,Oglala,1858,42.559,-104.231,92,-20,23,10,-25,-14 -4 -6 1 23 10 0 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1859,42.688,-104.342,95,-23,25,13,-25,-17 -5 -6 1 24 10 1 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1860,42.846,-104.487,97,-26,27,16,-26,-20 -5 -6 1 25 11 2 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1861,43.027,-104.662,99,-29,29,18,-27,-22 -6 -7 1 27 11 2 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1862,43.216,-104.855,98,-32,31,21,-28,-25 -6 -7 1 28 11 3 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1863,43.391,-105.045,95,-34,33,22,-28,-27 -6 -7 1 29 12 4 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1864,43.53,-105.204,91,-36,34,23,-29,-28 -6 -8 1 30 12 4 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1865,43.615,-105.305,87,-37,36,24,-29,-29 -6 -8 2 31 11 5 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1866,43.626,-105.32,85,-38,36,25,-29,-30 -6 -8 2 31 11 5 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1867,43.571,-105.253,85,-38,36,24,-29,-30 -5 -8 1 31 11 5 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1868,43.457,-105.1,87,-37,35,23,-28,-29 -5 -8 1 30 10 5 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1869,43.305,-104.882,90,-37,34,23,-26,-29 -5 -8 1 29 9 5 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1870,43.142,-104.627,91,-34,32,22,-24,-27 -4 -7 1 27 9 5 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1871,42.992,-104.363,90,-33,31,21,-23,-26 -4 -7 1 26 8 5 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1872,42.874,-104.115,87,-30,29,19,-21,-24 -3 -6 1 24 7 5 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1873,42.796,-103.901,84,-28,25,17,-19,-22 -2 -6 0 21 6 4 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1874,42.759,-103.731,83,-26,23,17,-16,-21 -2 -5 0 19 5 4 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1875,42.758,-103.606,84,-23,21,15,-14,-19 -1 -4 0 17 4 4 0,none
-ogl,Oglala,1876,42.78,-103.522,88,-21,18,13,-13,-17 0 -4 0 15 4 3 0,none
-ogl,Oglala,1877,42.815,-103.473,94,-19,16,12,-11,-16 0 -3 -1 13 3 3 0,none
-ogl,Oglala,1878,42.854,-103.449,101,-16,13,11,-9,-14 1 -2 -1 11 2 2 0,none
-ogl,Oglala,1879,42.891,-103.442,107,-14,11,10,-8,-13 2 -1 -2 9 2 2 0,none
-ogl,Oglala,1880,42.922,-103.442,113,-12,9,9,-5,-12 3 0 -2 7 1 2 0,none
-ogl,Oglala,1881,42.947,-103.44,118,-12,7,9,-5,-12 3 0 -3 6 1 1 0,none
-ogl,Oglala,1882,42.966,-103.426,122,-11,6,9,-4,-12 4 1 -3 5 0 1 0,none
-ogl,Oglala,1883,42.98,-103.395,124,-11,5,9,-3,-12 4 1 -4 4 0 1 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1884,42.991,-103.342,124,-10,3,9,-3,-12 5 2 -4 3 0 0 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1885,43.0,-103.269,121,-10,3,9,-3,-12 5 2 -5 3 0 0 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1886,43.009,-103.179,115,-9,2,9,-2,-12 6 3 -5 2 0 0 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1887,43.018,-103.082,106,-9,2,9,-2,-12 6 3 -5 2 0 0 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1888,43.028,-102.988,95,-9,2,8,-2,-12 6 3 -6 2 0 0 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1889,43.039,-102.911,85,-9,2,10,-1,-13 7 4 -6 2 -1 0 1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1890,43.053,-102.856,80,-8,1,9,0,-12 7 4 -6 1 -1 0 1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1891,43.068,-102.829,81,-8,1,9,0,-12 7 4 -6 1 -1 0 1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1892,43.084,-102.827,90,-9,1,8,0,-12 6 3 -6 1 -1 0 1,learned from season-dated places (literature at half weight)
-ogl,Oglala,1893,43.102,-102.842,102,-8,1,8,-1,-11 6 3 -6 1 -1 0 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1894,43.119,-102.866,115,-8,1,8,-1,-11 6 3 -5 1 0 0 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1895,43.135,-102.889,126,-7,1,7,-1,-10 5 3 -5 1 0 0 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1896,43.149,-102.904,135,-6,1,7,-1,-9 5 3 -5 1 0 0 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1897,43.161,-102.905,142,-6,1,6,-1,-8 4 2 -4 1 0 0 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1898,43.171,-102.894,146,-5,1,5,-1,-7 4 2 -4 1 0 0 0,learned from season-dated places (literature at half weight)
-ogl,Oglala,1899,43.178,-102.871,148,-4,1,5,-1,-6 3 2 -3 1 0 0 0,none
-ogl,Oglala,1900,43.184,-102.839,148,-4,0,5,0,-6 3 2 -3 0 0 0 0,none
-ogl,Oglala,1901,43.188,-102.799,147,-4,0,4,0,-5 2 1 -2 0 0 0 0,none
-ogl,Oglala,1902,43.191,-102.757,145,-3,0,3,0,-4 2 1 -2 0 0 0 0,none
-ogl,Oglala,1903,43.195,-102.713,144,-2,0,2,0,-3 2 1 -2 0 0 0 0,none
-ogl,Oglala,1904,43.201,-102.67,143,-2,0,3,0,-3 1 1 -1 0 0 0 0,none
-ogl,Oglala,1905,43.205,-102.649,144,-1,0,2,0,-2 1 1 -1 0 0 0 0,none
-min,Miniconjou,1700,45.352,-99.04,182,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1701,45.351,-99.053,183,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1702,45.347,-99.083,187,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1703,45.341,-99.124,192,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1704,45.334,-99.168,198,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1705,45.328,-99.211,203,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1706,45.322,-99.248,208,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1707,45.318,-99.278,211,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1708,45.316,-99.3,214,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1709,45.315,-99.315,216,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1710,45.314,-99.326,217,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1711,45.315,-99.334,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1712,45.315,-99.34,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1713,45.316,-99.345,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1714,45.316,-99.35,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1715,45.317,-99.356,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1716,45.317,-99.361,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1717,45.317,-99.368,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1718,45.317,-99.374,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1719,45.317,-99.381,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1720,45.317,-99.389,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1721,45.317,-99.396,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1722,45.316,-99.404,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1723,45.315,-99.412,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1724,45.314,-99.421,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1725,45.313,-99.43,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1726,45.311,-99.439,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1727,45.31,-99.448,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1728,45.308,-99.457,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1729,45.306,-99.466,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1730,45.304,-99.476,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1731,45.302,-99.485,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1732,45.3,-99.495,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1733,45.297,-99.505,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1734,45.295,-99.514,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1735,45.292,-99.524,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1736,45.289,-99.533,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1737,45.285,-99.542,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1738,45.282,-99.552,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1739,45.279,-99.561,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1740,45.275,-99.57,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1741,45.271,-99.579,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1742,45.267,-99.588,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1743,45.263,-99.596,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1744,45.258,-99.605,217,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1745,45.254,-99.613,217,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1746,45.249,-99.621,216,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1747,45.244,-99.629,215,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1748,45.239,-99.637,215,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1749,45.235,-99.645,214,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1750,45.23,-99.653,212,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1751,45.225,-99.661,211,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1752,45.221,-99.669,208,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1753,45.218,-99.678,205,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1754,45.215,-99.687,201,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1755,45.212,-99.696,195,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1756,45.21,-99.705,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1757,45.207,-99.714,183,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1758,45.203,-99.723,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1759,45.197,-99.731,173,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1760,45.19,-99.737,170,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1761,45.181,-99.743,171,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1762,45.17,-99.748,173,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1763,45.159,-99.753,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1764,45.147,-99.758,182,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1765,45.135,-99.763,186,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1766,45.123,-99.769,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1767,45.112,-99.775,192,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1768,45.102,-99.783,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1769,45.091,-99.79,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1770,45.082,-99.799,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1771,45.072,-99.808,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1772,45.062,-99.818,192,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1773,45.052,-99.829,191,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1774,45.042,-99.84,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1775,45.032,-99.852,188,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1776,45.022,-99.864,187,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1777,45.012,-99.877,186,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1778,45.001,-99.891,184,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1779,44.991,-99.906,183,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1780,44.98,-99.922,182,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1781,44.969,-99.938,180,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1782,44.958,-99.956,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1783,44.946,-99.974,178,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1784,44.935,-99.993,176,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1785,44.924,-100.014,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1786,44.912,-100.035,174,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1787,44.9,-100.058,172,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1788,44.888,-100.081,171,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1789,44.877,-100.106,170,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1790,44.865,-100.132,169,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1791,44.853,-100.159,167,0,0,0,1,0 0 0 0 0 0 0 1,none
-min,Miniconjou,1792,44.842,-100.188,166,-1,0,1,1,-1 0 0 0 0 0 0 1,none
-min,Miniconjou,1793,44.831,-100.218,165,-1,0,0,1,-1 1 0 -1 0 0 0 1,none
-min,Miniconjou,1794,44.822,-100.25,163,-1,0,0,1,-1 1 0 -1 0 0 0 1,none
-min,Miniconjou,1795,44.815,-100.284,161,-1,-1,2,0,-2 1 1 -1 0 0 -1 1,none
-min,Miniconjou,1796,44.811,-100.32,159,-1,-1,2,0,-2 1 1 -1 0 0 -1 2,none
-min,Miniconjou,1797,44.812,-100.359,155,-2,0,2,-1,-3 2 1 -1 1 0 -1 2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1798,44.817,-100.4,151,-2,0,2,-1,-3 2 1 -2 1 0 -1 2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1799,44.827,-100.443,145,-3,0,3,0,-4 3 1 -2 1 -1 -1 2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1800,44.84,-100.485,136,-4,1,3,-1,-5 3 1 -3 2 -1 -1 3,learned from season-dated places (literature at half weight)
-min,Miniconjou,1801,44.851,-100.524,126,-4,1,4,-1,-6 4 2 -3 2 -1 -1 3,learned from season-dated places (literature at half weight)
-min,Miniconjou,1802,44.856,-100.555,115,-4,1,4,-2,-6 4 2 -4 3 -2 -2 4,learned from season-dated places (literature at half weight)
-min,Miniconjou,1803,44.852,-100.575,103,-5,1,4,-2,-7 5 2 -4 3 -2 -2 4,learned from season-dated places (literature at half weight)
-min,Miniconjou,1804,44.83,-100.578,93,-6,2,5,-2,-8 5 2 -5 4 -2 -2 4,learned from season-dated places (literature at half weight)
-min,Miniconjou,1805,44.789,-100.564,88,-6,3,6,-3,-9 6 3 -5 5 -3 -2 5,learned from season-dated places (literature at half weight)
-min,Miniconjou,1806,44.731,-100.534,88,-7,3,6,-3,-10 7 3 -6 5 -3 -2 5,learned from season-dated places (literature at half weight)
-min,Miniconjou,1807,44.659,-100.494,91,-8,4,7,-3,-11 7 3 -6 6 -4 -2 5,learned from season-dated places (literature at half weight)
-min,Miniconjou,1808,44.582,-100.454,96,-9,4,8,-3,-12 7 3 -6 6 -4 -2 5,learned from season-dated places (literature at half weight)
-min,Miniconjou,1809,44.51,-100.426,100,-9,4,7,-4,-12 8 3 -7 7 -4 -3 6,learned from season-dated places (literature at half weight)
-min,Miniconjou,1810,44.451,-100.423,102,-9,4,7,-4,-12 8 3 -7 7 -4 -3 6,learned from season-dated places (literature at half weight)
-min,Miniconjou,1811,44.412,-100.453,105,-9,4,7,-4,-12 8 3 -7 7 -5 -3 6,learned from season-dated places (literature at half weight)
-min,Miniconjou,1812,44.399,-100.519,109,-9,5,7,-4,-12 8 3 -7 7 -5 -2 5,learned from season-dated places (literature at half weight)
-min,Miniconjou,1813,44.404,-100.618,114,-9,5,7,-4,-12 8 3 -7 7 -5 -2 5,learned from season-dated places (literature at half weight)
-min,Miniconjou,1814,44.429,-100.741,119,-9,5,8,-4,-12 7 3 -6 7 -4 -2 5,learned from season-dated places (literature at half weight)
-min,Miniconjou,1815,44.464,-100.877,123,-8,5,7,-4,-11 7 3 -6 7 -4 -2 5,learned from season-dated places (literature at half weight)
-min,Miniconjou,1816,44.501,-101.015,126,-7,5,7,-5,-10 6 3 -6 7 -4 -2 4,learned from season-dated places (literature at half weight)
-min,Miniconjou,1817,44.535,-101.144,127,-7,4,5,-4,-9 6 2 -5 6 -4 -2 4,learned from season-dated places (literature at half weight)
-min,Miniconjou,1818,44.562,-101.258,127,-7,4,6,-4,-9 5 2 -5 6 -3 -2 4,learned from season-dated places (literature at half weight)
-min,Miniconjou,1819,44.578,-101.357,127,-6,4,5,-3,-8 5 2 -4 5 -3 -1 3,learned from season-dated places (literature at half weight)
-min,Miniconjou,1820,44.581,-101.44,127,-5,3,5,-2,-7 4 2 -4 4 -3 -1 3,none
-min,Miniconjou,1821,44.578,-101.51,129,-5,3,4,-3,-6 3 1 -3 4 -2 -1 2,none
-min,Miniconjou,1822,44.566,-101.57,132,-4,2,3,-2,-5 3 1 -3 3 -2 -1 2,none
-min,Miniconjou,1823,44.549,-101.623,136,-3,2,3,-2,-4 2 1 -2 3 -2 -1 2,none
-min,Miniconjou,1824,44.531,-101.674,140,-2,1,2,-2,-3 2 1 -2 2 -1 -1 1,none
-min,Miniconjou,1825,44.513,-101.722,143,-2,2,2,-1,-3 2 1 -2 2 -1 0 1,none
-min,Miniconjou,1826,44.497,-101.771,146,-2,1,1,0,-2 1 0 -1 1 -1 0 1,none
-min,Miniconjou,1827,44.483,-101.821,148,-2,1,1,0,-2 1 0 -1 1 -1 0 1,none
-min,Miniconjou,1828,44.471,-101.871,149,-1,1,0,0,-1 1 0 -1 1 -1 0 1,none
-min,Miniconjou,1829,44.462,-101.921,150,-1,1,0,-1,-1 1 0 -1 1 0 0 0,none
-min,Miniconjou,1830,44.454,-101.972,151,-1,1,1,-1,-1 0 0 0 1 0 0 0,none
-min,Miniconjou,1831,44.448,-102.023,151,-1,0,1,0,-1 0 0 0 0 0 0 0,none
-min,Miniconjou,1832,44.442,-102.073,151,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1833,44.438,-102.123,151,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1834,44.434,-102.171,151,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1835,44.431,-102.219,151,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1836,44.428,-102.265,151,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1837,44.426,-102.31,151,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1838,44.426,-102.353,150,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1839,44.426,-102.393,150,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1840,44.43,-102.431,149,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1841,44.437,-102.466,148,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1842,44.448,-102.496,146,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1843,44.464,-102.523,144,-1,0,1,0,-1 0 0 0 0 0 0 0,none
-min,Miniconjou,1844,44.484,-102.545,141,-1,0,1,0,-1 0 0 0 0 0 0 0,none
-min,Miniconjou,1845,44.506,-102.564,136,-2,0,0,0,-1 0 -1 0 0 0 0 0,none
-min,Miniconjou,1846,44.525,-102.582,129,-3,0,1,0,-2 0 -1 0 0 0 0 0,none
-min,Miniconjou,1847,44.536,-102.602,122,-3,0,2,0,-2 0 -1 1 0 0 0 0,none
-min,Miniconjou,1848,44.534,-102.627,114,-5,0,2,0,-3 1 -2 1 0 0 0 0,none
-min,Miniconjou,1849,44.51,-102.661,108,-6,0,2,0,-4 1 -2 1 0 0 0 0,none
-min,Miniconjou,1850,44.464,-102.703,104,-8,1,3,-1,-5 1 -3 1 1 0 0 0,none
-min,Miniconjou,1851,44.395,-102.755,103,-11,1,4,-1,-7 1 -4 2 1 0 0 0,none
-min,Miniconjou,1852,44.312,-102.814,103,-13,2,4,0,-8 2 -5 2 1 0 1 0,none
-min,Miniconjou,1853,44.223,-102.876,104,-16,2,6,0,-10 2 -6 3 1 0 1 0,none
-min,Miniconjou,1854,44.142,-102.936,104,-19,2,7,0,-12 2 -7 3 1 0 1 0,none
-min,Miniconjou,1855,44.082,-102.993,103,-24,2,8,0,-15 3 -9 4 1 0 1 0,none
-min,Miniconjou,1856,44.054,-103.046,103,-28,2,9,-1,-17 3 -11 5 1 0 1 -1,none
-min,Miniconjou,1857,44.058,-103.102,105,-32,4,10,-1,-19 4 -13 6 2 0 2 -1,none
-min,Miniconjou,1858,44.096,-103.169,109,-37,4,9,-1,-21 4 -16 6 2 0 2 -1,none
-min,Miniconjou,1859,44.16,-103.258,114,-41,4,10,-1,-23 5 -18 7 2 0 2 -1,learned from season-dated places (literature at half weight)
-min,Miniconjou,1860,44.24,-103.377,119,-45,4,9,1,-24 5 -21 8 1 0 3 -1,learned from season-dated places (literature at half weight)
-min,Miniconjou,1861,44.325,-103.525,121,-48,4,7,1,-24 5 -24 9 1 0 3 -1,learned from season-dated places (literature at half weight)
-min,Miniconjou,1862,44.408,-103.692,122,-51,5,5,2,-24 5 -27 10 1 0 4 -1,learned from season-dated places (literature at half weight)
-min,Miniconjou,1863,44.481,-103.855,120,-52,4,1,3,-22 5 -30 10 0 0 4 -1,learned from season-dated places (literature at half weight)
-min,Miniconjou,1864,44.541,-103.984,115,-54,4,-4,4,-20 5 -34 11 -1 0 5 -1,learned from season-dated places (literature at half weight)
-min,Miniconjou,1865,44.586,-104.037,110,-53,4,-9,6,-16 4 -37 12 -2 0 6 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1866,44.618,-104.015,104,-52,3,-15,7,-12 4 -40 12 -3 0 6 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1867,44.638,-103.883,99,-48,3,-22,8,-6 3 -42 13 -4 0 7 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1868,44.65,-103.675,97,-44,2,-30,9,1 2 -45 13 -5 1 7 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1869,44.659,-103.421,96,-39,1,-38,12,8 1 -47 13 -7 1 8 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1870,44.67,-103.159,96,-33,0,-47,13,16 0 -49 14 -8 1 8 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1871,44.684,-102.924,95,-27,0,-54,14,23 -1 -50 14 -9 1 9 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1872,44.701,-102.73,92,-20,-2,-62,16,31 -2 -51 14 -11 1 9 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1873,44.72,-102.575,87,-13,-3,-68,17,38 -3 -51 14 -12 1 9 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1874,44.736,-102.44,81,-6,-4,-75,18,45 -4 -51 14 -13 2 9 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1875,44.742,-102.303,73,0,-5,-78,19,50 -5 -50 14 -14 2 9 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1876,44.74,-102.151,66,5,-5,-82,19,54 -5 -49 13 -14 2 9 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1877,44.725,-101.986,61,10,-5,-83,19,57 -6 -47 13 -14 2 9 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1878,44.703,-101.828,61,14,-5,-82,19,58 -6 -44 12 -14 2 9 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1879,44.679,-101.701,67,16,-6,-80,18,58 -6 -42 12 -14 2 8 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1880,44.657,-101.624,78,19,-6,-77,18,57 -6 -38 11 -14 2 8 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1881,44.643,-101.614,91,19,-6,-72,17,54 -6 -35 10 -13 1 7 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1882,44.639,-101.652,105,19,-5,-68,16,51 -5 -32 9 -12 1 7 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1883,44.642,-101.729,116,19,-5,-61,14,47 -5 -28 8 -11 1 6 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1884,44.654,-101.818,125,18,-5,-55,12,43 -4 -25 8 -10 1 5 -2,learned from season-dated places (literature at half weight)
-min,Miniconjou,1885,44.67,-101.9,130,17,-5,-48,11,38 -4 -21 7 -9 1 4 -1,none
-min,Miniconjou,1886,44.689,-101.961,132,15,-3,-41,9,33 -3 -18 6 -7 1 4 -1,none
-min,Miniconjou,1887,44.708,-101.997,133,13,-3,-35,7,28 -3 -15 5 -6 1 3 -1,none
-min,Miniconjou,1888,44.726,-102.003,132,11,-2,-30,6,24 -2 -13 4 -5 1 3 -1,none
-min,Miniconjou,1889,44.741,-101.995,130,10,-2,-25,5,20 -2 -10 3 -4 0 2 -1,none
-min,Miniconjou,1890,44.752,-101.969,129,8,-2,-19,5,16 -2 -8 3 -4 0 2 -1,none
-min,Miniconjou,1891,44.76,-101.936,130,6,-2,-17,4,13 -1 -7 2 -3 0 1 0,none
-min,Miniconjou,1892,44.764,-101.897,133,5,-1,-12,3,10 -1 -5 2 -2 0 1 0,none
-min,Miniconjou,1893,44.765,-101.856,137,4,-1,-10,3,8 -1 -4 1 -2 0 1 0,none
-min,Miniconjou,1894,44.764,-101.812,142,3,0,-7,2,6 -1 -3 1 -1 0 1 0,none
-min,Miniconjou,1895,44.762,-101.767,147,3,-1,-6,1,5 0 -2 1 -1 0 0 0,none
-min,Miniconjou,1896,44.76,-101.719,151,1,-1,-4,1,3 0 -2 1 -1 0 0 0,none
-min,Miniconjou,1897,44.757,-101.668,155,1,-1,-3,1,2 0 -1 0 -1 0 0 0,none
-min,Miniconjou,1898,44.755,-101.614,157,1,0,-3,0,2 0 -1 0 0 0 0 0,none
-min,Miniconjou,1899,44.752,-101.557,157,0,0,-2,0,1 0 -1 0 0 0 0 0,none
-min,Miniconjou,1900,44.75,-101.497,157,1,0,-1,0,1 0 0 0 0 0 0 0,none
-min,Miniconjou,1901,44.748,-101.436,155,1,0,-1,0,1 0 0 0 0 0 0 0,none
-min,Miniconjou,1902,44.747,-101.378,153,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1903,44.747,-101.323,151,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1904,44.749,-101.277,150,0,0,0,0,0 0 0 0 0 0 0 0,none
-min,Miniconjou,1905,44.751,-101.256,151,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1700,46.11,-99.398,182,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1701,46.108,-99.403,183,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1702,46.107,-99.427,187,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1703,46.106,-99.461,192,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1704,46.105,-99.498,198,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1705,46.103,-99.534,203,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1706,46.102,-99.564,208,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1707,46.1,-99.587,211,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1708,46.099,-99.603,214,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1709,46.097,-99.612,216,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1710,46.096,-99.617,217,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1711,46.094,-99.62,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1712,46.092,-99.621,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1713,46.09,-99.621,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1714,46.089,-99.621,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1715,46.087,-99.622,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1716,46.085,-99.623,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1717,46.083,-99.625,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1718,46.081,-99.627,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1719,46.079,-99.63,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1720,46.077,-99.634,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1721,46.075,-99.638,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1722,46.073,-99.642,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1723,46.071,-99.648,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1724,46.069,-99.653,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1725,46.067,-99.66,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1726,46.065,-99.666,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1727,46.063,-99.673,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1728,46.061,-99.681,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1729,46.059,-99.689,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1730,46.057,-99.697,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1731,46.055,-99.706,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1732,46.053,-99.715,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1733,46.05,-99.724,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1734,46.048,-99.734,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1735,46.046,-99.744,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1736,46.044,-99.754,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1737,46.041,-99.764,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1738,46.039,-99.775,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1739,46.037,-99.786,217,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1740,46.035,-99.797,217,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1741,46.032,-99.808,216,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1742,46.03,-99.82,216,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1743,46.027,-99.831,215,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1744,46.025,-99.843,214,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1745,46.023,-99.854,214,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1746,46.02,-99.866,213,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1747,46.018,-99.878,212,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1748,46.015,-99.889,211,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1749,46.012,-99.9,210,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1750,46.009,-99.91,208,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1751,46.006,-99.918,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1752,46.002,-99.925,204,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1753,45.998,-99.929,201,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1754,45.993,-99.931,196,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1755,45.988,-99.931,191,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1756,45.983,-99.93,185,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1757,45.978,-99.931,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1758,45.973,-99.934,173,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1759,45.969,-99.942,169,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1760,45.967,-99.955,166,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1761,45.965,-99.973,167,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1762,45.964,-99.996,169,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1763,45.963,-100.021,173,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1764,45.963,-100.047,178,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1765,45.963,-100.073,182,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1766,45.962,-100.097,185,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1767,45.961,-100.119,187,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1768,45.959,-100.139,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1769,45.957,-100.157,190,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1770,45.955,-100.174,190,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1771,45.952,-100.19,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1772,45.949,-100.206,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1773,45.947,-100.221,188,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1774,45.944,-100.237,188,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1775,45.941,-100.253,187,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1776,45.939,-100.269,186,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1777,45.936,-100.285,186,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1778,45.933,-100.301,185,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1779,45.931,-100.318,184,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1780,45.928,-100.335,183,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1781,45.925,-100.352,182,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1782,45.923,-100.369,180,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1783,45.92,-100.386,178,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1784,45.918,-100.402,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1785,45.915,-100.418,171,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1786,45.913,-100.435,166,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1787,45.911,-100.453,161,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1788,45.909,-100.472,156,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1789,45.907,-100.493,153,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1790,45.905,-100.516,152,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1791,45.903,-100.541,153,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1792,45.902,-100.568,156,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1793,45.901,-100.596,160,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1794,45.9,-100.625,164,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1795,45.899,-100.654,168,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1796,45.899,-100.681,171,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1797,45.899,-100.707,173,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1798,45.899,-100.73,173,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1799,45.9,-100.753,171,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1800,45.901,-100.773,168,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1801,45.903,-100.794,165,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1802,45.905,-100.816,160,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1803,45.906,-100.841,156,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1804,45.907,-100.87,153,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1805,45.908,-100.905,152,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1806,45.908,-100.944,153,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1807,45.908,-100.988,156,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1808,45.908,-101.034,160,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1809,45.907,-101.082,165,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1810,45.908,-101.13,169,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1811,45.908,-101.177,173,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1812,45.91,-101.223,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1813,45.911,-101.267,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1814,45.913,-101.311,178,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1815,45.916,-101.353,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1816,45.919,-101.396,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1817,45.922,-101.438,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1818,45.926,-101.481,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1819,45.93,-101.523,178,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1820,45.934,-101.566,178,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1821,45.938,-101.609,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1822,45.943,-101.653,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1823,45.948,-101.696,176,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1824,45.953,-101.74,176,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1825,45.958,-101.784,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1826,45.963,-101.827,174,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1827,45.969,-101.871,174,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1828,45.975,-101.914,173,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1829,45.981,-101.958,172,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1830,45.987,-102.001,171,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1831,45.994,-102.044,170,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1832,46.001,-102.086,169,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1833,46.007,-102.128,168,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1834,46.015,-102.169,167,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1835,46.021,-102.209,166,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1836,46.029,-102.249,165,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1837,46.035,-102.286,164,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1838,46.042,-102.32,163,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1839,46.048,-102.349,161,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1840,46.052,-102.37,159,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1841,46.053,-102.381,157,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1842,46.052,-102.379,155,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1843,46.046,-102.361,152,0,0,0,0,0 0 0 0 0 0 0 0,none
-hnk,Hunkpapa,1844,46.036,-102.326,147,0,-1,0,1,0 0 0 0 -1 0 0 0,none
-hnk,Hunkpapa,1845,46.021,-102.277,141,-1,-1,1,1,-1 0 0 0 -1 0 0 0,none
-hnk,Hunkpapa,1846,46.001,-102.222,134,-1,-1,1,2,-1 0 0 0 -1 -1 0 1,none
-hnk,Hunkpapa,1847,45.978,-102.169,125,-1,-1,1,4,-1 0 0 0 -2 -1 1 1,none
-hnk,Hunkpapa,1848,45.952,-102.128,117,-1,-1,2,4,-1 0 0 1 -2 -1 1 1,none
-hnk,Hunkpapa,1849,45.927,-102.116,108,-2,-2,2,5,-2 0 0 1 -3 -1 1 1,none
-hnk,Hunkpapa,1850,45.902,-102.124,102,-2,-2,2,5,-2 0 0 1 -3 -2 1 1,none
-hnk,Hunkpapa,1851,45.882,-102.169,98,-4,-3,3,6,-3 0 -1 1 -4 -2 1 2,none
-hnk,Hunkpapa,1852,45.869,-102.238,95,-5,-3,4,8,-4 1 -1 2 -5 -3 2 2,none
-hnk,Hunkpapa,1853,45.867,-102.324,93,-5,-3,4,9,-4 1 -1 2 -5 -3 2 3,none
-hnk,Hunkpapa,1854,45.879,-102.417,91,-7,-4,5,10,-5 1 -2 3 -6 -4 2 3,none
-hnk,Hunkpapa,1855,45.908,-102.508,89,-9,-5,6,12,-7 2 -2 3 -7 -5 2 3,none
-hnk,Hunkpapa,1856,45.959,-102.591,90,-11,-5,7,14,-8 2 -3 4 -8 -5 3 4,none
-hnk,Hunkpapa,1857,46.03,-102.664,94,-12,-6,8,15,-9 3 -3 5 -9 -6 3 4,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1858,46.121,-102.727,99,-14,-6,9,16,-10 4 -4 6 -9 -7 3 4,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1859,46.226,-102.786,105,-16,-7,9,17,-11 5 -5 7 -10 -8 3 5,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1860,46.337,-102.849,108,-18,-7,9,18,-12 6 -6 8 -10 -10 3 5,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1861,46.445,-102.924,108,-21,-7,9,18,-13 8 -8 10 -10 -11 3 5,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1862,46.538,-103.017,105,-22,-6,9,18,-13 9 -9 11 -9 -12 3 5,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1863,46.608,-103.131,100,-24,-6,8,16,-13 11 -11 13 -8 -14 2 5,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1864,46.65,-103.262,95,-25,-6,7,14,-13 13 -12 14 -7 -15 1 4,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1865,46.657,-103.397,91,-26,-5,5,12,-12 16 -14 16 -5 -16 0 4,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1866,46.637,-103.52,89,-25,-5,2,10,-10 18 -15 17 -4 -18 -1 3,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1867,46.594,-103.614,89,-25,-3,-1,7,-8 21 -17 19 -1 -19 -2 3,learned from season-dated places (literature at half weight)
+tet,Teton (before division),1700,45.003,-99.153,176,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1701,45.003,-99.158,177,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1702,45.003,-99.167,180,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1703,45.002,-99.178,184,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1704,45.001,-99.19,189,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1705,45.0,-99.202,193,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1706,45.0,-99.212,197,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1707,44.999,-99.222,200,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1708,44.999,-99.23,202,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1709,44.998,-99.237,203,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1710,44.998,-99.244,203,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1711,44.997,-99.25,203,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1712,44.997,-99.256,203,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1713,44.997,-99.262,202,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1714,44.996,-99.268,202,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1715,44.996,-99.275,201,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1716,44.995,-99.281,201,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1717,44.995,-99.288,200,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1718,44.994,-99.296,200,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1719,44.994,-99.304,199,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1720,44.993,-99.312,199,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1721,44.993,-99.32,198,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1722,44.992,-99.328,198,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1723,44.992,-99.337,197,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1724,44.991,-99.346,197,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1725,44.99,-99.356,196,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1726,44.99,-99.365,196,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1727,44.989,-99.375,195,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1728,44.988,-99.385,194,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1729,44.987,-99.395,193,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1730,44.987,-99.405,192,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1731,44.986,-99.415,191,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1732,44.985,-99.424,189,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1733,44.985,-99.433,186,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1734,44.984,-99.441,183,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1735,44.984,-99.449,178,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1736,44.983,-99.457,173,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1737,44.983,-99.465,167,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1738,44.982,-99.474,162,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1739,44.981,-99.485,158,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1740,44.98,-99.497,156,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1741,44.979,-99.511,157,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1742,44.978,-99.526,159,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1743,44.977,-99.542,163,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1744,44.975,-99.558,167,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1745,44.974,-99.574,171,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1746,44.973,-99.589,174,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1747,44.971,-99.604,176,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1748,44.97,-99.618,177,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1749,44.969,-99.632,178,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1750,44.968,-99.645,178,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1751,44.967,-99.658,178,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1752,44.966,-99.67,177,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1753,44.965,-99.683,176,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1754,44.964,-99.695,175,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1755,44.963,-99.707,174,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1756,44.962,-99.719,173,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1757,44.961,-99.73,171,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1758,44.96,-99.742,169,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1759,44.96,-99.753,166,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1760,44.959,-99.765,162,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1761,44.958,-99.776,157,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1762,44.957,-99.787,152,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1763,44.956,-99.797,148,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1764,44.955,-99.808,144,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1765,44.955,-99.819,143,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1766,44.954,-99.83,143,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1767,44.952,-99.842,145,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1768,44.951,-99.853,148,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1769,44.95,-99.866,151,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1770,44.949,-99.878,153,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1771,44.948,-99.892,153,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1772,44.947,-99.905,152,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1773,44.946,-99.918,149,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1774,44.945,-99.93,146,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1775,44.944,-99.94,144,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1776,44.943,-99.949,143,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1777,44.942,-99.958,144,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1778,44.941,-99.965,146,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1779,44.939,-99.973,148,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1780,44.938,-99.98,150,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1781,44.937,-99.988,151,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1782,44.936,-99.996,151,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1783,44.934,-100.003,150,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1784,44.934,-100.008,150,0,0,0,0,0 0 0 0 0 0 0 0,none
+tet,Teton (before division),1785,44.933,-100.01,152,0,0,0,0,0 0 0 0 0 0 0 0,none
+bru,Brulé (Sičháŋǧu),1785,44.09,-99.619,149,0,0,0,0,0 0 0 0 0 0 0 0,none
+bru,Brulé (Sičháŋǧu),1786,44.084,-99.642,148,0,0,0,0,0 0 0 0 0 -1 0 0,none
+bru,Brulé (Sičháŋǧu),1787,44.077,-99.669,149,1,0,-1,0,1 0 0 0 0 -1 0 0,none
+bru,Brulé (Sičháŋǧu),1788,44.069,-99.697,151,2,0,-1,0,1 0 1 -1 0 -1 0 0,none
+bru,Brulé (Sičháŋǧu),1789,44.059,-99.728,153,2,-1,-1,0,1 0 1 -1 0 -1 -1 0,none
+bru,Brulé (Sičháŋǧu),1790,44.049,-99.76,156,2,-1,-1,0,1 0 1 -1 0 -2 -1 0,none
+bru,Brulé (Sičháŋǧu),1791,44.038,-99.792,157,2,-1,-1,0,1 1 1 -1 0 -2 -1 0,none
+bru,Brulé (Sičháŋǧu),1792,44.027,-99.826,157,2,-1,-2,0,1 1 1 -2 0 -2 -1 0,none
+bru,Brulé (Sičháŋǧu),1793,44.017,-99.858,157,4,-1,-2,0,2 1 2 -2 0 -3 -1 0,none
+bru,Brulé (Sičháŋǧu),1794,44.007,-99.89,156,4,-1,-2,0,2 1 2 -2 0 -3 -1 0,none
+bru,Brulé (Sičháŋǧu),1795,43.998,-99.92,154,4,-2,-2,0,2 1 2 -3 0 -4 -2 0,none
+bru,Brulé (Sičháŋǧu),1796,43.993,-99.947,152,5,-3,-2,1,2 2 3 -3 -1 -4 -2 0,none
+bru,Brulé (Sičháŋǧu),1797,43.992,-99.968,148,5,-3,-2,1,2 2 3 -4 -1 -5 -2 0,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1798,43.994,-99.984,143,5,-3,-2,1,2 2 3 -4 -1 -5 -2 0,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1799,44.002,-99.992,136,6,-3,-3,1,2 3 4 -5 -1 -6 -2 0,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1800,44.012,-99.993,128,6,-4,-3,0,2 3 4 -5 -1 -6 -3 0,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1801,44.024,-99.99,117,5,-4,-2,0,1 4 4 -6 -1 -6 -3 0,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1802,44.033,-99.983,104,6,-5,-2,1,1 4 5 -7 -2 -6 -3 0,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1803,44.035,-99.977,91,5,-5,-2,1,0 5 5 -7 -2 -6 -3 -1,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1804,44.029,-99.976,80,5,-5,-2,1,0 5 5 -7 -2 -6 -3 -1,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1805,44.012,-99.977,75,4,-5,-1,1,-1 5 5 -8 -2 -6 -3 -1,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1806,43.985,-99.988,76,3,-6,-1,2,-2 6 5 -8 -3 -6 -3 -1,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1807,43.95,-100.005,82,2,-5,0,3,-3 6 5 -8 -3 -6 -2 -1,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1808,43.907,-100.033,88,2,-5,0,2,-3 6 5 -8 -3 -5 -2 -1,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1809,43.858,-100.072,93,1,-5,1,2,-4 7 5 -8 -3 -5 -2 -1,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1810,43.805,-100.126,96,0,-5,2,2,-5 7 5 -8 -3 -4 -2 -1,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1811,43.746,-100.196,98,-1,-4,3,2,-6 7 5 -8 -3 -4 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1812,43.683,-100.281,100,-2,-4,3,2,-6 7 4 -7 -3 -3 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1813,43.616,-100.378,102,-3,-4,4,1,-7 7 4 -7 -3 -2 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1814,43.547,-100.482,104,-4,-3,4,1,-7 6 3 -6 -2 -2 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1815,43.479,-100.585,104,-5,-2,5,1,-8 6 3 -6 -2 -2 0 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1816,43.416,-100.684,101,-6,-2,4,1,-8 6 2 -5 -2 -1 0 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1817,43.361,-100.774,96,-6,-1,5,0,-8 6 2 -4 -1 -1 0 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1818,43.317,-100.856,92,-8,-1,6,0,-9 5 1 -3 -1 -1 0 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1819,43.284,-100.932,90,-9,1,6,0,-9 5 0 -2 0 -1 1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1820,43.262,-101.006,92,-9,2,6,-1,-9 5 0 -2 1 -1 1 -2,none
+bru,Brulé (Sičháŋǧu),1821,43.248,-101.082,98,-11,2,7,-1,-10 5 -1 -1 1 -1 1 -2,none
+bru,Brulé (Sičháŋǧu),1822,43.239,-101.165,106,-12,3,6,-2,-10 5 -2 0 2 -1 1 -2,none
+bru,Brulé (Sičháŋǧu),1823,43.233,-101.256,113,-13,5,8,-2,-11 5 -2 1 3 -1 2 -2,none
+bru,Brulé (Sičháŋǧu),1824,43.229,-101.36,119,-14,5,7,-2,-11 5 -3 1 3 -1 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1825,43.226,-101.477,123,-16,6,8,-3,-12 5 -4 2 4 -1 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1826,43.223,-101.607,125,-17,6,9,-3,-13 5 -4 3 4 -1 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1827,43.221,-101.748,123,-18,7,9,-4,-13 5 -5 3 5 -2 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1828,43.217,-101.893,120,-19,7,9,-4,-14 5 -5 3 5 -2 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1829,43.21,-102.032,114,-20,8,9,-5,-14 5 -6 4 6 -2 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1830,43.198,-102.156,107,-20,9,9,-4,-14 5 -6 4 6 -2 3 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1831,43.176,-102.252,99,-20,9,9,-4,-14 5 -6 4 6 -2 3 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1832,43.146,-102.314,92,-20,9,9,-4,-14 5 -6 4 6 -2 3 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1833,43.105,-102.331,88,-19,8,8,-5,-13 5 -6 4 6 -2 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1834,43.057,-102.321,87,-18,8,7,-5,-12 5 -6 3 6 -2 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1835,43.003,-102.275,90,-17,8,6,-5,-11 6 -6 3 6 -1 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1836,42.948,-102.211,95,-15,8,5,-5,-10 6 -5 3 6 -1 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1837,42.892,-102.137,103,-13,8,3,-5,-8 6 -5 2 6 -1 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1838,42.839,-102.063,110,-12,8,1,-5,-7 6 -5 1 6 0 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1839,42.787,-101.995,116,-9,6,0,-5,-5 7 -4 1 5 0 1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1840,42.738,-101.94,120,-7,6,-3,-5,-3 7 -4 0 5 0 1 -2,none
+bru,Brulé (Sičháŋǧu),1841,42.691,-101.901,122,-4,6,-6,-5,0 8 -4 -1 5 1 1 -1,none
+bru,Brulé (Sičháŋǧu),1842,42.645,-101.889,121,-2,5,-9,-6,2 9 -4 -2 5 1 0 -2,none
+bru,Brulé (Sičháŋǧu),1843,42.6,-101.897,119,1,5,-11,-7,4 10 -3 -3 5 2 0 -2,none
+bru,Brulé (Sičháŋǧu),1844,42.556,-101.945,117,4,5,-15,-7,7 11 -3 -4 5 2 0 -2,none
+bru,Brulé (Sičháŋǧu),1845,42.512,-102.028,115,6,6,-18,-8,9 12 -3 -5 6 3 0 -2,none
+bru,Brulé (Sičháŋǧu),1846,42.469,-102.148,114,8,6,-21,-8,11 14 -3 -6 6 4 0 -2,none
+bru,Brulé (Sičháŋǧu),1847,42.428,-102.298,112,10,5,-24,-9,13 15 -3 -7 6 4 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1848,42.392,-102.466,110,13,5,-26,-9,15 16 -2 -8 6 5 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1849,42.364,-102.63,107,15,6,-29,-10,17 18 -2 -9 7 5 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1850,42.349,-102.768,102,17,6,-31,-10,19 19 -2 -10 7 5 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1851,42.351,-102.861,96,18,6,-33,-11,20 20 -2 -10 7 6 -1 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1852,42.373,-102.878,90,18,6,-33,-11,20 20 -2 -11 7 6 -1 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1853,42.411,-102.839,86,19,6,-35,-11,21 21 -2 -11 7 6 -1 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1854,42.46,-102.727,83,19,6,-35,-11,21 21 -2 -11 7 6 -1 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1855,42.511,-102.57,83,19,6,-34,-11,21 20 -2 -11 7 6 -1 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1856,42.555,-102.389,86,18,5,-33,-10,20 20 -2 -11 6 6 -1 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1857,42.583,-102.206,91,18,5,-31,-10,19 19 -1 -10 6 6 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1858,42.587,-102.04,98,17,5,-29,-9,18 18 -1 -10 6 5 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1859,42.568,-101.897,106,16,4,-28,-8,17 17 -1 -9 5 5 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1860,42.525,-101.776,111,14,4,-24,-8,15 15 -1 -8 5 4 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1861,42.459,-101.671,114,13,3,-23,-7,14 14 -1 -8 4 4 -1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1862,42.377,-101.572,115,11,4,-20,-6,12 12 -1 -7 4 4 0 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1863,42.283,-101.474,112,10,3,-18,-4,11 11 -1 -6 3 3 0 -1,none
+bru,Brulé (Sičháŋǧu),1864,42.189,-101.379,108,8,3,-15,-4,9 9 -1 -5 3 3 0 -1,none
+bru,Brulé (Sičháŋǧu),1865,42.104,-101.292,103,8,2,-12,-3,8 8 0 -4 2 2 0 -1,none
+bru,Brulé (Sičháŋǧu),1866,42.042,-101.226,97,6,2,-10,-3,6 7 0 -4 2 2 0 -1,none
+bru,Brulé (Sičháŋǧu),1867,42.019,-101.2,92,5,1,-8,-2,5 5 0 -3 1 2 0 -1,none
+bru,Brulé (Sičháŋǧu),1868,42.03,-101.212,88,4,1,-6,-2,4 4 0 -2 1 1 0 -1,none
+bru,Brulé (Sičháŋǧu),1869,42.09,-101.282,86,3,1,-5,-2,3 4 0 -2 1 1 0 -1,none
+bru,Brulé (Sičháŋǧu),1870,42.183,-101.395,87,2,0,-4,-1,2 3 0 -2 0 1 0 -1,none
+bru,Brulé (Sičháŋǧu),1871,42.299,-101.536,88,2,0,-3,0,2 2 0 -1 0 1 0 0,none
+bru,Brulé (Sičháŋǧu),1872,42.423,-101.682,89,1,0,-2,0,1 2 0 -1 0 1 0 0,none
+bru,Brulé (Sičháŋǧu),1873,42.541,-101.805,89,1,0,-2,0,1 1 0 -1 0 1 0 0,none
+bru,Brulé (Sičháŋǧu),1874,42.641,-101.887,90,0,-1,-1,0,0 1 0 -1 -1 1 0 -1,none
+bru,Brulé (Sičháŋǧu),1875,42.719,-101.903,91,0,-1,-1,0,0 1 0 -1 -1 1 0 -1,none
+bru,Brulé (Sičháŋǧu),1876,42.772,-101.877,94,0,-1,-1,0,0 1 0 -1 -1 1 0 -1,none
+bru,Brulé (Sičháŋǧu),1877,42.805,-101.8,98,-1,-1,0,2,-1 1 0 -1 -2 1 1 -1,none
+bru,Brulé (Sičháŋǧu),1878,42.82,-101.699,103,-1,-1,0,2,-1 1 0 -1 -2 1 1 -1,none
+bru,Brulé (Sičháŋǧu),1879,42.825,-101.592,109,-1,-2,2,2,-2 1 1 -1 -3 2 1 -1,none
+bru,Brulé (Sičháŋǧu),1880,42.825,-101.493,114,-1,-2,2,2,-2 1 1 -1 -3 2 1 -1,none
+bru,Brulé (Sičháŋǧu),1881,42.824,-101.411,119,-1,-3,2,3,-2 1 1 -1 -4 2 1 -2,none
+bru,Brulé (Sičháŋǧu),1882,42.829,-101.344,123,-2,-3,2,3,-3 2 1 -1 -4 2 1 -2,none
+bru,Brulé (Sičháŋǧu),1883,42.841,-101.289,126,-2,-3,2,4,-3 2 1 -1 -5 3 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1884,42.863,-101.242,126,-2,-3,2,4,-3 2 1 -1 -5 3 2 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1885,42.894,-101.195,123,-2,-4,2,5,-3 2 1 -2 -6 3 2 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1886,42.932,-101.147,117,-3,-4,3,5,-4 2 1 -2 -6 3 2 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1887,42.975,-101.099,109,-3,-4,3,4,-4 2 1 -2 -6 4 2 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1888,43.015,-101.053,100,-3,-5,3,5,-4 2 1 -2 -7 4 2 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1889,43.05,-101.011,91,-3,-5,3,5,-4 2 1 -2 -7 4 2 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1890,43.074,-100.978,86,-3,-5,3,5,-4 2 1 -2 -7 4 2 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1891,43.088,-100.954,87,-3,-5,3,5,-4 2 1 -2 -7 4 2 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1892,43.09,-100.94,95,-3,-5,3,5,-4 2 1 -2 -7 4 2 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1893,43.086,-100.932,106,-3,-4,3,4,-4 2 1 -2 -6 4 2 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1894,43.078,-100.927,118,-3,-4,3,5,-4 2 1 -2 -6 3 2 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1895,43.07,-100.924,129,-2,-4,2,5,-3 2 1 -2 -6 3 2 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1896,43.065,-100.918,137,-2,-3,2,4,-3 2 1 -2 -5 3 2 -3,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1897,43.066,-100.91,144,-2,-4,2,3,-3 2 1 -1 -5 3 1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1898,43.072,-100.898,148,-2,-3,3,3,-3 1 1 -1 -4 2 1 -2,learned from season-dated places (literature at half weight)
+bru,Brulé (Sičháŋǧu),1899,43.084,-100.884,149,-1,-3,2,3,-2 1 1 -1 -4 2 1 -2,none
+bru,Brulé (Sičháŋǧu),1900,43.099,-100.867,150,-1,-2,2,2,-2 1 1 -1 -3 2 1 -2,none
+bru,Brulé (Sičháŋǧu),1901,43.117,-100.849,148,-2,-2,1,3,-2 1 0 -1 -3 1 1 -1,none
+bru,Brulé (Sičháŋǧu),1902,43.136,-100.831,146,-1,-1,0,2,-1 1 0 -1 -2 1 1 -1,none
+bru,Brulé (Sičháŋǧu),1903,43.156,-100.811,144,-1,-1,0,2,-1 1 0 -1 -2 1 1 -1,none
+bru,Brulé (Sičháŋǧu),1904,43.175,-100.792,144,-1,-2,1,1,-1 0 0 0 -2 1 0 -1,none
+bru,Brulé (Sičháŋǧu),1905,43.184,-100.782,145,-1,-1,1,0,-1 0 0 0 -1 1 0 -1,none
+ogl,Oglala,1785,44.337,-100.897,153,0,0,0,0,0 0 0 0 0 0 0 0,none
+ogl,Oglala,1786,44.325,-100.899,152,0,1,0,-1,0 0 0 0 1 0 0 0,none
+ogl,Oglala,1787,44.312,-100.905,154,0,1,0,-1,0 0 0 0 1 0 0 0,none
+ogl,Oglala,1788,44.297,-100.912,157,0,1,0,-1,0 0 0 0 1 -1 0 -1,none
+ogl,Oglala,1789,44.281,-100.922,160,1,1,-1,-1,1 0 0 0 1 -1 0 -1,none
+ogl,Oglala,1790,44.264,-100.933,162,1,1,-1,-1,1 -1 0 0 1 -1 0 -1,none
+ogl,Oglala,1791,44.246,-100.947,164,1,2,-1,-2,1 -1 0 -1 2 -1 0 -1,none
+ogl,Oglala,1792,44.228,-100.961,165,1,2,-1,-2,1 -1 0 -1 2 -2 0 -1,none
+ogl,Oglala,1793,44.211,-100.976,165,1,3,-1,-3,1 -1 0 -1 3 -2 0 -2,none
+ogl,Oglala,1794,44.195,-100.99,165,2,4,-2,-3,2 -1 0 -1 3 -2 1 -2,none
+ogl,Oglala,1795,44.184,-101.002,163,2,4,-2,-3,2 -1 0 -1 3 -2 1 -2,none
+ogl,Oglala,1796,44.179,-101.009,161,2,5,-2,-3,2 -2 0 -1 4 -3 1 -2,none
+ogl,Oglala,1797,44.181,-101.008,157,3,6,-3,-5,3 -2 0 -2 5 -3 1 -3,learned from season-dated places (literature at half weight)
+ogl,Oglala,1798,44.194,-100.999,153,4,6,-3,-4,3 -2 1 -2 5 -4 1 -3,learned from season-dated places (literature at half weight)
+ogl,Oglala,1799,44.217,-100.982,146,4,6,-3,-4,3 -2 1 -2 5 -4 1 -3,learned from season-dated places (literature at half weight)
+ogl,Oglala,1800,44.248,-100.959,137,4,7,-3,-6,3 -2 1 -2 6 -4 1 -4,learned from season-dated places (literature at half weight)
+ogl,Oglala,1801,44.281,-100.934,127,5,7,-3,-6,4 -3 1 -2 6 -5 1 -4,learned from season-dated places (literature at half weight)
+ogl,Oglala,1802,44.308,-100.916,115,5,8,-3,-7,4 -3 1 -2 7 -5 1 -4,learned from season-dated places (literature at half weight)
+ogl,Oglala,1803,44.319,-100.914,104,5,8,-3,-7,4 -3 1 -2 7 -5 1 -4,learned from season-dated places (literature at half weight)
+ogl,Oglala,1804,44.314,-100.933,95,5,8,-3,-7,4 -3 1 -2 7 -5 1 -4,learned from season-dated places (literature at half weight)
+ogl,Oglala,1805,44.279,-100.978,91,5,8,-3,-7,4 -3 1 -2 7 -5 1 -4,learned from season-dated places (literature at half weight)
+ogl,Oglala,1806,44.219,-101.05,94,5,8,-3,-7,4 -3 1 -2 7 -5 1 -4,learned from season-dated places (literature at half weight)
+ogl,Oglala,1807,44.139,-101.142,102,5,7,-3,-6,4 -3 1 -2 6 -5 1 -4,learned from season-dated places (literature at half weight)
+ogl,Oglala,1808,44.046,-101.249,113,4,7,-2,-6,3 -3 1 -2 6 -4 1 -4,learned from season-dated places (literature at half weight)
+ogl,Oglala,1809,43.949,-101.361,123,4,7,-3,-5,3 -2 1 -2 6 -4 1 -3,learned from season-dated places (literature at half weight)
+ogl,Oglala,1810,43.855,-101.472,132,4,6,-3,-4,3 -2 1 -2 5 -4 1 -3,learned from season-dated places (literature at half weight)
+ogl,Oglala,1811,43.77,-101.575,138,4,6,-3,-5,3 -2 1 -2 5 -3 1 -3,learned from season-dated places (literature at half weight)
+ogl,Oglala,1812,43.697,-101.668,143,2,5,-2,-3,2 -2 0 -1 4 -3 1 -2,learned from season-dated places (literature at half weight)
+ogl,Oglala,1813,43.634,-101.75,146,2,5,-2,-3,2 -2 0 -1 4 -3 1 -2,none
+ogl,Oglala,1814,43.582,-101.822,148,2,4,-2,-3,2 -1 0 -1 3 -2 1 -2,none
+ogl,Oglala,1815,43.54,-101.884,149,2,4,-2,-3,2 -1 0 -1 3 -2 1 -2,none
+ogl,Oglala,1816,43.506,-101.936,149,1,2,-1,-2,1 -1 0 -1 2 -2 0 -1,none
+ogl,Oglala,1817,43.48,-101.977,148,1,2,-1,-2,1 -1 0 -1 2 -1 0 -1,none
+ogl,Oglala,1818,43.461,-102.007,147,1,2,-1,-2,1 -1 0 0 2 -1 0 -1,none
+ogl,Oglala,1819,43.451,-102.024,145,1,2,-1,-2,1 -1 0 0 2 -1 0 -1,none
+ogl,Oglala,1820,43.447,-102.031,143,1,1,-1,-1,1 0 0 0 1 -1 0 -1,none
+ogl,Oglala,1821,43.447,-102.032,139,0,1,0,-1,0 0 0 0 1 -1 0 0,none
+ogl,Oglala,1822,43.447,-102.033,136,0,2,0,-2,0 0 0 0 2 0 0 0,none
+ogl,Oglala,1823,43.443,-102.046,132,0,1,0,-3,0 0 0 0 2 0 -1 0,none
+ogl,Oglala,1824,43.427,-102.079,128,0,1,0,-3,0 0 0 0 2 0 -1 0,none
+ogl,Oglala,1825,43.398,-102.14,126,0,2,0,-4,0 0 0 0 3 0 -1 0,none
+ogl,Oglala,1826,43.352,-102.233,125,0,1,0,-4,0 0 0 0 3 0 -2 0,none
+ogl,Oglala,1827,43.29,-102.357,126,0,2,0,-5,0 0 0 0 4 0 -2 0,none
+ogl,Oglala,1828,43.216,-102.506,128,1,2,-1,-8,1 0 0 0 5 0 -3 -1,none
+ogl,Oglala,1829,43.133,-102.672,129,1,4,-1,-10,1 0 0 0 7 0 -3 -1,none
+ogl,Oglala,1830,43.048,-102.843,130,0,4,-2,-11,1 0 -1 0 8 0 -4 -1,none
+ogl,Oglala,1831,42.963,-103.009,129,0,5,-2,-14,1 0 -1 0 10 0 -5 -1,none
+ogl,Oglala,1832,42.882,-103.16,127,1,6,-3,-17,2 0 -1 0 12 0 -6 -1,none
+ogl,Oglala,1833,42.804,-103.29,125,1,7,-3,-20,2 0 -1 0 14 0 -7 -1,none
+ogl,Oglala,1834,42.728,-103.394,123,2,8,-4,-23,3 0 -1 -1 16 1 -8 -1,none
+ogl,Oglala,1835,42.648,-103.472,121,1,9,-5,-25,3 1 -2 -1 18 1 -9 -1,none
+ogl,Oglala,1836,42.56,-103.527,121,2,10,-6,-28,4 1 -2 -1 20 1 -10 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1837,42.461,-103.566,121,2,11,-6,-31,4 1 -2 -1 22 1 -11 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1838,42.351,-103.597,121,2,12,-8,-33,5 1 -3 -1 24 1 -12 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1839,42.234,-103.628,120,3,12,-9,-35,6 1 -3 -1 25 2 -13 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1840,42.122,-103.666,117,3,14,-11,-37,7 1 -4 -1 27 2 -13 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1841,42.03,-103.712,113,3,14,-11,-39,7 1 -4 -1 28 2 -14 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1842,41.967,-103.765,107,4,14,-12,-39,8 1 -4 -1 28 2 -14 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1843,41.955,-103.82,100,3,14,-13,-39,8 1 -5 -1 28 3 -14 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1844,41.969,-103.868,95,3,14,-13,-39,8 1 -5 -1 28 3 -14 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1845,42.023,-103.902,90,3,14,-13,-38,8 1 -5 -1 27 3 -13 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1846,42.093,-103.919,88,3,13,-13,-37,8 1 -5 -1 26 3 -13 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1847,42.163,-103.92,86,3,13,-13,-35,8 1 -5 -1 25 4 -12 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1848,42.222,-103.91,86,2,13,-12,-34,7 1 -5 -1 24 4 -11 -1,learned from season-dated places (literature at half weight)
+ogl,Oglala,1849,42.262,-103.898,87,1,13,-11,-31,6 1 -5 -1 23 4 -10 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1850,42.286,-103.894,87,0,13,-9,-30,5 0 -5 -1 22 5 -9 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1851,42.296,-103.899,88,-2,13,-7,-28,3 0 -5 -1 21 5 -8 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1852,42.3,-103.921,89,-4,13,-5,-27,1 -1 -5 -1 20 6 -7 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1853,42.306,-103.954,89,-6,15,-3,-25,-1 -1 -5 0 20 6 -5 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1854,42.319,-103.995,90,-8,16,-1,-24,-3 -2 -5 0 20 7 -4 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1855,42.345,-104.042,90,-11,17,2,-24,-6 -2 -5 0 20 8 -3 0,none
+ogl,Oglala,1856,42.39,-104.096,89,-13,18,4,-23,-8 -3 -5 0 20 8 -2 0,none
+ogl,Oglala,1857,42.458,-104.161,90,-17,20,7,-24,-11 -3 -6 0 21 9 -1 0,none
+ogl,Oglala,1858,42.555,-104.246,92,-20,23,10,-25,-14 -4 -6 1 23 10 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1859,42.683,-104.358,95,-23,25,13,-25,-17 -5 -6 1 24 10 1 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1860,42.842,-104.503,97,-26,27,16,-26,-20 -5 -6 1 25 11 2 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1861,43.023,-104.678,99,-29,29,17,-27,-22 -5 -7 1 27 11 2 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1862,43.211,-104.871,98,-32,31,21,-28,-25 -6 -7 1 28 12 3 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1863,43.387,-105.06,95,-33,33,22,-28,-26 -6 -7 1 29 12 4 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1864,43.526,-105.218,91,-36,34,23,-29,-28 -6 -8 1 30 12 4 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1865,43.611,-105.319,87,-37,36,24,-29,-29 -6 -8 2 31 12 5 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1866,43.622,-105.333,85,-38,36,25,-29,-30 -6 -8 2 31 11 5 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1867,43.568,-105.266,85,-38,36,25,-29,-30 -5 -8 2 31 11 5 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1868,43.454,-105.112,87,-37,35,23,-28,-29 -5 -8 1 30 10 5 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1869,43.302,-104.895,90,-36,34,22,-26,-28 -5 -8 1 29 9 5 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1870,43.139,-104.639,91,-34,33,22,-25,-27 -4 -7 1 28 9 5 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1871,42.989,-104.375,90,-33,31,21,-23,-26 -3 -7 1 26 8 5 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1872,42.871,-104.127,87,-30,29,19,-21,-24 -3 -6 1 24 7 5 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1873,42.793,-103.913,84,-28,26,17,-18,-22 -2 -6 0 21 6 5 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1874,42.756,-103.743,83,-25,23,15,-16,-20 -1 -5 0 19 5 4 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1875,42.754,-103.618,84,-23,21,15,-14,-19 -1 -4 0 17 4 4 0,none
+ogl,Oglala,1876,42.775,-103.535,88,-20,18,13,-13,-17 0 -3 -1 15 4 3 0,none
+ogl,Oglala,1877,42.81,-103.487,94,-19,16,12,-11,-16 1 -3 -1 13 3 3 0,none
+ogl,Oglala,1878,42.849,-103.465,101,-16,13,11,-9,-14 1 -2 -1 11 2 2 0,none
+ogl,Oglala,1879,42.885,-103.461,107,-14,11,10,-8,-13 2 -1 -2 9 2 2 0,none
+ogl,Oglala,1880,42.915,-103.461,113,-13,9,10,-5,-13 3 0 -2 7 1 2 0,none
+ogl,Oglala,1881,42.94,-103.46,118,-12,7,9,-5,-12 3 0 -3 6 1 1 0,none
+ogl,Oglala,1882,42.958,-103.447,122,-11,6,9,-4,-12 4 1 -3 5 1 1 0,none
+ogl,Oglala,1883,42.972,-103.416,124,-10,5,9,-3,-12 5 2 -4 4 0 1 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1884,42.983,-103.362,124,-10,4,9,-2,-12 5 2 -4 3 0 1 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1885,42.993,-103.287,121,-9,3,9,-3,-12 6 3 -5 3 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1886,43.002,-103.195,115,-10,2,10,-2,-13 6 3 -5 2 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1887,43.012,-103.096,106,-10,2,9,-2,-13 7 3 -6 2 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1888,43.022,-103.002,95,-9,1,10,-1,-13 7 4 -6 1 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1889,43.034,-102.923,85,-9,1,10,-1,-13 7 4 -6 1 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1890,43.047,-102.87,80,-9,1,10,-1,-13 7 4 -6 1 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1891,43.06,-102.845,81,-9,1,10,-1,-13 7 4 -6 1 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1892,43.075,-102.846,90,-8,1,9,-1,-12 7 4 -6 1 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1893,43.09,-102.865,102,-8,1,9,-1,-12 6 4 -6 1 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1894,43.105,-102.894,115,-8,1,8,-1,-11 6 3 -6 1 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1895,43.118,-102.922,126,-7,1,7,-1,-10 6 3 -5 1 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1896,43.131,-102.941,135,-7,1,7,-1,-10 5 3 -5 1 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1897,43.141,-102.945,142,-6,1,7,-1,-9 5 3 -4 1 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1898,43.149,-102.939,146,-6,0,6,0,-8 4 2 -4 0 0 0 0,learned from season-dated places (literature at half weight)
+ogl,Oglala,1899,43.156,-102.917,148,-5,0,5,0,-7 4 2 -3 0 0 0 0,none
+ogl,Oglala,1900,43.16,-102.886,148,-4,0,5,0,-6 3 2 -3 0 0 0 0,none
+ogl,Oglala,1901,43.163,-102.848,147,-4,0,3,0,-5 3 1 -3 0 0 0 0,none
+ogl,Oglala,1902,43.166,-102.807,145,-3,0,3,0,-4 2 1 -2 0 0 0 0,none
+ogl,Oglala,1903,43.169,-102.765,144,-2,0,2,0,-3 2 1 -2 0 0 0 0,none
+ogl,Oglala,1904,43.174,-102.725,143,-2,0,3,0,-3 1 1 -1 0 0 0 0,none
+ogl,Oglala,1905,43.177,-102.706,144,-1,0,2,0,-2 1 1 -1 0 0 0 0,none
+min,Miniconjou,1785,44.838,-100.175,151,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1786,44.831,-100.184,150,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1787,44.822,-100.197,151,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1788,44.813,-100.213,153,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1789,44.803,-100.231,156,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1790,44.794,-100.251,158,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1791,44.785,-100.272,160,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1792,44.776,-100.293,161,-1,0,1,1,-1 0 0 0 0 0 0 1,none
+min,Miniconjou,1793,44.769,-100.315,161,-1,0,0,1,-1 1 0 -1 0 0 0 1,none
+min,Miniconjou,1794,44.764,-100.339,160,-1,0,0,1,-1 1 0 -1 0 0 0 1,none
+min,Miniconjou,1795,44.761,-100.364,158,-1,-1,2,0,-2 1 1 -1 0 0 -1 1,none
+min,Miniconjou,1796,44.762,-100.392,156,-1,-1,2,0,-2 1 1 -1 0 0 -1 1,none
+min,Miniconjou,1797,44.767,-100.422,153,-1,0,1,-1,-2 2 1 -2 1 0 -1 2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1798,44.777,-100.455,148,-2,0,2,0,-3 2 1 -2 1 -1 -1 2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1799,44.792,-100.489,142,-3,0,3,0,-4 3 1 -2 1 -1 -1 2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1800,44.81,-100.523,134,-4,1,3,-1,-5 3 1 -3 2 -1 -1 3,learned from season-dated places (literature at half weight)
+min,Miniconjou,1801,44.827,-100.554,124,-3,1,3,-1,-5 4 2 -3 2 -1 -1 3,learned from season-dated places (literature at half weight)
+min,Miniconjou,1802,44.837,-100.578,113,-4,1,4,-2,-6 4 2 -4 3 -2 -2 4,learned from season-dated places (literature at half weight)
+min,Miniconjou,1803,44.837,-100.591,101,-5,1,4,-2,-7 5 2 -4 3 -2 -2 4,learned from season-dated places (literature at half weight)
+min,Miniconjou,1804,44.819,-100.589,92,-6,2,5,-2,-8 5 2 -5 4 -3 -2 4,learned from season-dated places (literature at half weight)
+min,Miniconjou,1805,44.781,-100.57,87,-6,3,6,-3,-9 6 3 -5 5 -3 -2 5,learned from season-dated places (literature at half weight)
+min,Miniconjou,1806,44.725,-100.537,87,-7,3,7,-3,-10 6 3 -6 5 -3 -2 5,learned from season-dated places (literature at half weight)
+min,Miniconjou,1807,44.655,-100.494,90,-8,4,7,-3,-11 7 3 -6 6 -4 -2 5,learned from season-dated places (literature at half weight)
+min,Miniconjou,1808,44.579,-100.452,95,-8,4,7,-3,-11 7 3 -6 6 -4 -2 5,learned from season-dated places (literature at half weight)
+min,Miniconjou,1809,44.507,-100.422,99,-9,4,7,-5,-12 8 3 -7 7 -4 -3 5,learned from season-dated places (literature at half weight)
+min,Miniconjou,1810,44.449,-100.418,101,-9,4,7,-4,-12 8 3 -7 7 -4 -3 6,learned from season-dated places (literature at half weight)
+min,Miniconjou,1811,44.41,-100.446,104,-9,5,7,-4,-12 8 3 -7 7 -5 -2 5,learned from season-dated places (literature at half weight)
+min,Miniconjou,1812,44.399,-100.511,108,-9,6,7,-5,-12 8 3 -7 8 -5 -2 5,learned from season-dated places (literature at half weight)
+min,Miniconjou,1813,44.404,-100.609,113,-9,5,7,-4,-12 8 3 -7 7 -5 -2 5,learned from season-dated places (literature at half weight)
+min,Miniconjou,1814,44.43,-100.73,118,-9,5,8,-4,-12 7 3 -6 7 -4 -2 5,learned from season-dated places (literature at half weight)
+min,Miniconjou,1815,44.466,-100.865,123,-8,5,7,-4,-11 7 3 -6 7 -4 -2 5,learned from season-dated places (literature at half weight)
+min,Miniconjou,1816,44.504,-101.001,125,-7,5,7,-5,-10 6 3 -6 7 -4 -2 4,learned from season-dated places (literature at half weight)
+min,Miniconjou,1817,44.539,-101.129,127,-7,4,5,-4,-9 6 2 -5 6 -4 -2 4,learned from season-dated places (literature at half weight)
+min,Miniconjou,1818,44.566,-101.244,126,-6,4,5,-4,-8 5 2 -5 6 -3 -2 4,learned from season-dated places (literature at half weight)
+min,Miniconjou,1819,44.583,-101.341,126,-6,4,5,-3,-8 5 2 -4 5 -3 -1 3,learned from season-dated places (literature at half weight)
+min,Miniconjou,1820,44.588,-101.423,127,-5,3,5,-2,-7 4 2 -4 4 -3 -1 3,none
+min,Miniconjou,1821,44.585,-101.492,129,-5,3,4,-3,-6 3 1 -3 4 -2 -1 2,none
+min,Miniconjou,1822,44.574,-101.552,132,-4,2,3,-2,-5 3 1 -3 3 -2 -1 2,none
+min,Miniconjou,1823,44.559,-101.604,136,-3,2,3,-2,-4 2 1 -2 3 -2 -1 2,none
+min,Miniconjou,1824,44.542,-101.654,140,-2,1,2,-2,-3 2 1 -2 2 -1 -1 1,none
+min,Miniconjou,1825,44.524,-101.702,143,-2,2,2,-1,-3 2 1 -2 2 -1 0 1,none
+min,Miniconjou,1826,44.509,-101.751,146,-2,1,1,0,-2 1 0 -1 1 -1 0 1,none
+min,Miniconjou,1827,44.495,-101.8,148,-2,1,1,0,-2 1 0 -1 1 -1 0 1,none
+min,Miniconjou,1828,44.484,-101.85,150,-1,1,0,0,-1 1 0 -1 1 -1 0 1,none
+min,Miniconjou,1829,44.475,-101.901,151,-1,1,0,-1,-1 1 0 -1 1 0 0 0,none
+min,Miniconjou,1830,44.467,-101.953,151,-1,1,1,-1,-1 0 0 0 1 0 0 0,none
+min,Miniconjou,1831,44.461,-102.004,151,-1,0,1,0,-1 0 0 0 0 0 0 0,none
+min,Miniconjou,1832,44.456,-102.055,152,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1833,44.451,-102.105,152,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1834,44.447,-102.154,152,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1835,44.444,-102.203,152,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1836,44.441,-102.25,151,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1837,44.439,-102.295,151,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1838,44.438,-102.339,151,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1839,44.439,-102.381,150,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1840,44.442,-102.42,150,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1841,44.449,-102.455,149,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1842,44.46,-102.487,147,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1843,44.475,-102.514,144,-1,0,1,0,-1 0 0 0 0 0 0 0,none
+min,Miniconjou,1844,44.494,-102.538,141,-1,0,1,0,-1 0 0 0 0 0 0 0,none
+min,Miniconjou,1845,44.515,-102.558,136,-2,0,0,0,-1 0 -1 0 0 0 0 0,none
+min,Miniconjou,1846,44.533,-102.577,130,-3,0,1,0,-2 0 -1 0 0 0 0 0,none
+min,Miniconjou,1847,44.543,-102.598,122,-3,0,2,0,-2 0 -1 1 0 0 0 0,none
+min,Miniconjou,1848,44.54,-102.624,115,-5,0,2,0,-3 1 -2 1 0 0 0 0,none
+min,Miniconjou,1849,44.515,-102.658,108,-6,0,2,0,-4 1 -2 1 0 0 0 0,none
+min,Miniconjou,1850,44.468,-102.701,104,-8,1,3,-1,-5 1 -3 1 1 0 0 0,none
+min,Miniconjou,1851,44.4,-102.754,103,-11,1,4,-1,-7 1 -4 2 1 0 0 0,none
+min,Miniconjou,1852,44.315,-102.813,103,-13,2,4,0,-8 2 -5 2 1 0 1 0,none
+min,Miniconjou,1853,44.226,-102.876,104,-16,2,6,0,-10 2 -6 3 1 0 1 0,none
+min,Miniconjou,1854,44.145,-102.937,104,-19,2,7,0,-12 2 -7 3 1 0 1 0,none
+min,Miniconjou,1855,44.085,-102.994,103,-24,2,8,0,-15 3 -9 4 1 0 1 0,none
+min,Miniconjou,1856,44.056,-103.048,103,-28,2,9,-1,-17 3 -11 5 1 0 1 -1,none
+min,Miniconjou,1857,44.06,-103.104,105,-32,4,10,-1,-19 4 -13 6 2 0 2 -1,none
+min,Miniconjou,1858,44.098,-103.172,109,-37,4,9,-1,-21 4 -16 6 2 0 2 -1,none
+min,Miniconjou,1859,44.162,-103.261,114,-41,4,10,-1,-23 5 -18 7 2 0 2 -1,learned from season-dated places (literature at half weight)
+min,Miniconjou,1860,44.242,-103.38,119,-45,4,9,1,-24 5 -21 8 1 0 3 -1,learned from season-dated places (literature at half weight)
+min,Miniconjou,1861,44.327,-103.529,121,-48,4,7,1,-24 5 -24 9 1 0 3 -1,learned from season-dated places (literature at half weight)
+min,Miniconjou,1862,44.409,-103.696,122,-51,5,5,2,-24 5 -27 10 1 0 4 -1,learned from season-dated places (literature at half weight)
+min,Miniconjou,1863,44.482,-103.86,120,-52,4,1,3,-22 5 -30 10 0 0 4 -1,learned from season-dated places (literature at half weight)
+min,Miniconjou,1864,44.542,-103.988,115,-54,4,-4,4,-20 5 -34 11 -1 0 5 -1,learned from season-dated places (literature at half weight)
+min,Miniconjou,1865,44.587,-104.042,110,-53,4,-9,6,-16 4 -37 12 -2 0 6 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1866,44.618,-104.019,104,-52,3,-15,7,-12 4 -40 12 -3 0 6 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1867,44.637,-103.887,99,-48,3,-22,8,-6 3 -42 13 -4 0 7 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1868,44.649,-103.68,97,-44,2,-30,9,1 2 -45 13 -5 1 7 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1869,44.658,-103.426,96,-39,1,-38,12,8 1 -47 13 -7 1 8 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1870,44.669,-103.164,96,-33,0,-47,13,16 0 -49 14 -8 1 8 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1871,44.683,-102.928,95,-27,0,-54,14,23 -1 -50 14 -9 1 9 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1872,44.7,-102.735,92,-20,-2,-62,16,31 -2 -51 14 -11 1 9 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1873,44.719,-102.579,87,-13,-3,-68,17,38 -3 -51 14 -12 1 9 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1874,44.735,-102.443,81,-6,-3,-75,19,45 -4 -51 14 -13 2 10 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1875,44.742,-102.306,73,0,-4,-78,20,50 -5 -50 14 -14 2 10 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1876,44.739,-102.153,66,5,-5,-82,19,54 -5 -49 13 -14 2 9 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1877,44.724,-101.99,61,10,-5,-83,19,57 -6 -47 13 -14 2 9 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1878,44.702,-101.832,61,14,-5,-82,19,58 -6 -44 12 -14 2 9 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1879,44.677,-101.707,67,16,-6,-80,18,58 -6 -42 12 -14 2 8 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1880,44.654,-101.632,78,18,-6,-77,18,57 -6 -39 11 -14 2 8 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1881,44.639,-101.624,91,19,-6,-72,17,54 -6 -35 10 -13 1 7 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1882,44.634,-101.665,105,19,-5,-68,16,51 -5 -32 9 -12 1 7 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1883,44.636,-101.744,116,19,-5,-61,14,47 -5 -28 8 -11 1 6 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1884,44.647,-101.835,125,18,-5,-55,12,43 -4 -25 8 -10 1 5 -2,learned from season-dated places (literature at half weight)
+min,Miniconjou,1885,44.663,-101.919,130,17,-5,-48,11,38 -4 -21 7 -9 1 4 -1,none
+min,Miniconjou,1886,44.682,-101.981,133,15,-3,-41,9,33 -3 -18 6 -7 1 4 -1,none
+min,Miniconjou,1887,44.7,-102.017,133,13,-3,-35,7,28 -3 -15 5 -6 1 3 -1,none
+min,Miniconjou,1888,44.718,-102.024,132,11,-2,-30,6,24 -2 -13 4 -5 1 3 -1,none
+min,Miniconjou,1889,44.732,-102.017,130,10,-2,-25,5,20 -2 -10 3 -4 0 2 -1,none
+min,Miniconjou,1890,44.743,-101.992,129,8,-2,-19,5,16 -2 -8 3 -4 0 2 -1,none
+min,Miniconjou,1891,44.75,-101.96,130,6,-2,-17,4,13 -1 -7 2 -3 0 1 0,none
+min,Miniconjou,1892,44.754,-101.923,133,5,-1,-12,3,10 -1 -5 2 -2 0 1 0,none
+min,Miniconjou,1893,44.754,-101.883,137,4,-1,-10,3,8 -1 -4 1 -2 0 1 0,none
+min,Miniconjou,1894,44.753,-101.842,142,3,0,-7,2,6 -1 -3 1 -1 0 1 0,none
+min,Miniconjou,1895,44.75,-101.799,147,3,-1,-6,1,5 0 -2 1 -1 0 0 0,none
+min,Miniconjou,1896,44.747,-101.753,151,1,-1,-4,1,3 0 -2 1 -1 0 0 0,none
+min,Miniconjou,1897,44.744,-101.704,155,1,-1,-3,1,2 0 -1 0 -1 0 0 0,none
+min,Miniconjou,1898,44.741,-101.651,157,1,0,-3,0,2 0 -1 0 0 0 0 0,none
+min,Miniconjou,1899,44.739,-101.595,157,0,0,-2,0,1 0 -1 0 0 0 0 0,none
+min,Miniconjou,1900,44.736,-101.535,157,1,0,-1,0,1 0 0 0 0 0 0 0,none
+min,Miniconjou,1901,44.734,-101.475,155,1,0,-1,0,1 0 0 0 0 0 0 0,none
+min,Miniconjou,1902,44.733,-101.417,153,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1903,44.733,-101.364,151,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1904,44.735,-101.318,150,0,0,0,0,0 0 0 0 0 0 0 0,none
+min,Miniconjou,1905,44.736,-101.298,151,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1785,45.868,-100.588,149,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1786,45.869,-100.591,148,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1787,45.87,-100.595,148,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1788,45.872,-100.6,149,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1789,45.873,-100.607,150,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1790,45.874,-100.613,150,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1791,45.875,-100.62,148,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1792,45.876,-100.625,146,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1793,45.876,-100.63,142,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1794,45.878,-100.632,140,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1795,45.879,-100.633,138,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1796,45.882,-100.632,138,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1797,45.886,-100.63,139,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1798,45.89,-100.626,140,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1799,45.895,-100.622,139,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1800,45.901,-100.619,137,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1801,45.906,-100.615,133,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1802,45.911,-100.612,127,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1803,45.915,-100.61,121,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1804,45.918,-100.609,116,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1805,45.919,-100.609,115,0,0,0,0,0 0 0 0 0 0 0 0,none
+sao,"Saone (northern Teton, before division)",1806,45.919,-100.609,119,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1806,45.924,-101.513,174,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1807,45.924,-101.535,174,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1808,45.924,-101.565,176,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1809,45.924,-101.601,180,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1810,45.925,-101.639,184,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1811,45.926,-101.677,188,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1812,45.927,-101.714,191,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1813,45.928,-101.747,194,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1814,45.93,-101.778,195,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1815,45.931,-101.806,195,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1816,45.933,-101.833,195,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1817,45.936,-101.859,194,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1818,45.938,-101.885,193,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1819,45.941,-101.911,192,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1820,45.944,-101.937,190,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1821,45.947,-101.964,189,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1822,45.951,-101.992,188,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1823,45.955,-102.02,186,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1824,45.959,-102.048,185,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1825,45.963,-102.077,183,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1826,45.968,-102.107,182,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1827,45.973,-102.137,181,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1828,45.978,-102.167,179,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1829,45.984,-102.197,178,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1830,45.989,-102.228,176,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1831,45.995,-102.258,175,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1832,46.001,-102.289,174,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1833,46.008,-102.319,172,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1834,46.014,-102.349,171,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1835,46.021,-102.379,169,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1836,46.027,-102.408,168,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1837,46.034,-102.435,166,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1838,46.04,-102.459,165,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1839,46.046,-102.478,163,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1840,46.05,-102.491,161,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1841,46.051,-102.492,159,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1842,46.05,-102.48,156,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1843,46.044,-102.452,153,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1844,46.034,-102.408,148,0,-1,0,1,0 0 0 0 -1 0 0 0,none
+hnk,Hunkpapa,1845,46.019,-102.349,142,-1,-1,1,1,-1 0 0 0 -1 0 0 0,none
+hnk,Hunkpapa,1846,45.999,-102.284,135,-1,-1,1,2,-1 0 0 0 -1 -1 0 1,none
+hnk,Hunkpapa,1847,45.976,-102.221,126,-1,-1,1,4,-1 0 0 0 -2 -1 1 1,none
+hnk,Hunkpapa,1848,45.95,-102.173,117,-1,-1,2,4,-1 0 0 1 -2 -1 1 1,none
+hnk,Hunkpapa,1849,45.925,-102.149,109,-2,-2,2,5,-2 0 0 1 -3 -1 1 1,none
+hnk,Hunkpapa,1850,45.901,-102.154,102,-2,-2,2,5,-2 0 0 1 -3 -2 1 1,none
+hnk,Hunkpapa,1851,45.881,-102.192,98,-4,-3,3,6,-3 0 -1 1 -4 -2 1 2,none
+hnk,Hunkpapa,1852,45.868,-102.256,95,-5,-3,4,8,-4 1 -1 2 -5 -3 2 2,none
+hnk,Hunkpapa,1853,45.866,-102.339,93,-5,-3,4,9,-4 1 -1 2 -5 -3 2 3,none
+hnk,Hunkpapa,1854,45.877,-102.43,91,-7,-4,5,10,-5 1 -2 3 -6 -4 2 3,none
+hnk,Hunkpapa,1855,45.907,-102.519,89,-9,-4,6,12,-7 2 -2 3 -7 -5 3 3,none
+hnk,Hunkpapa,1856,45.957,-102.601,90,-11,-5,7,14,-8 2 -3 4 -8 -5 3 4,none
+hnk,Hunkpapa,1857,46.029,-102.673,94,-12,-6,8,15,-9 3 -3 5 -9 -6 3 4,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1858,46.12,-102.735,99,-14,-6,9,16,-10 4 -4 6 -9 -7 3 4,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1859,46.225,-102.794,105,-16,-7,9,17,-11 5 -5 7 -10 -8 3 5,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1860,46.336,-102.856,108,-18,-7,9,18,-12 6 -6 8 -10 -10 3 5,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1861,46.443,-102.93,108,-21,-7,9,18,-13 8 -8 10 -10 -11 3 5,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1862,46.537,-103.022,105,-22,-6,9,18,-13 9 -9 11 -9 -12 3 5,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1863,46.608,-103.135,100,-24,-6,8,16,-13 11 -11 13 -8 -14 2 5,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1864,46.649,-103.264,95,-25,-6,7,14,-13 13 -12 14 -7 -15 1 4,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1865,46.656,-103.399,91,-26,-5,5,12,-12 16 -14 16 -5 -16 0 4,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1866,46.637,-103.521,89,-25,-5,2,10,-10 18 -15 17 -4 -18 -1 3,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1867,46.593,-103.614,89,-25,-3,-1,7,-8 21 -17 19 -1 -19 -2 3,learned from season-dated places (literature at half weight)
 hnk,Hunkpapa,1868,46.536,-103.667,90,-24,-2,-4,4,-6 23 -18 20 1 -21 -3 2,learned from season-dated places (literature at half weight)
 hnk,Hunkpapa,1869,46.474,-103.675,91,-22,-2,-8,0,-3 26 -19 21 3 -22 -5 1,learned from season-dated places (literature at half weight)
 hnk,Hunkpapa,1870,46.416,-103.664,91,-19,0,-13,-3,1 28 -20 22 6 -23 -6 0,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1871,46.37,-103.659,90,-17,0,-17,-7,4 30 -21 23 8 -24 -8 0,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1871,46.37,-103.658,90,-17,0,-17,-7,4 30 -21 23 8 -24 -8 0,learned from season-dated places (literature at half weight)
 hnk,Hunkpapa,1872,46.339,-103.679,87,-13,2,-21,-11,8 32 -21 23 11 -25 -9 -1,learned from season-dated places (literature at half weight)
 hnk,Hunkpapa,1873,46.324,-103.751,83,-10,2,-24,-14,11 34 -21 23 13 -26 -11 -2,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1874,46.324,-103.858,77,-7,3,-28,-17,14 35 -21 23 15 -26 -12 -2,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1875,46.333,-103.97,73,-4,4,-29,-19,16 36 -20 23 16 -26 -12 -3,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1876,46.345,-104.035,71,-1,4,-31,-20,18 36 -19 22 17 -26 -13 -3,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1877,46.356,-104.021,75,0,5,-31,-22,18 36 -18 20 18 -25 -13 -3,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1878,46.357,-103.885,81,2,5,-30,-22,18 36 -16 19 18 -24 -13 -3,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1879,46.352,-103.643,90,4,5,-30,-22,18 36 -14 17 18 -23 -13 -3,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1880,46.337,-103.32,97,4,5,-27,-23,16 35 -12 15 18 -22 -13 -3,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1881,46.318,-102.96,103,4,5,-25,-21,14 34 -10 12 17 -21 -12 -3,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1882,46.297,-102.603,108,3,5,-21,-19,11 32 -8 10 16 -19 -11 -2,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1883,46.276,-102.28,111,1,4,-17,-19,7 31 -6 7 15 -17 -11 -2,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1884,46.259,-102.0,112,0,4,-13,-18,4 29 -4 5 14 -15 -10 -2,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1885,46.244,-101.764,112,-2,4,-9,-16,0 28 -2 2 13 -14 -9 -1,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1886,46.231,-101.565,108,-4,4,-4,-15,-4 26 0 0 12 -12 -8 -1,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1887,46.221,-101.399,101,-6,3,-1,-12,-7 25 1 -2 10 -11 -7 0,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1888,46.214,-101.268,93,-8,3,2,-11,-10 23 2 -4 9 -9 -6 0,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1889,46.209,-101.178,84,-10,3,4,-9,-13 22 3 -6 8 -8 -5 0,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1890,46.208,-101.139,79,-11,3,7,-8,-15 20 4 -7 7 -7 -4 0,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1891,46.211,-101.148,81,-11,3,9,-6,-16 18 5 -8 6 -6 -3 1,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1892,46.218,-101.207,89,-12,2,10,-5,-17 17 5 -8 5 -5 -3 1,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1893,46.226,-101.296,101,-13,3,11,-5,-18 15 5 -9 5 -4 -2 1,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1894,46.235,-101.399,114,-12,2,11,-4,-17 14 5 -9 4 -3 -2 1,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1895,46.244,-101.496,126,-12,1,12,-3,-17 12 5 -8 3 -3 -2 1,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1896,46.25,-101.572,135,-11,2,11,-2,-16 11 5 -8 3 -2 -1 1,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1897,46.253,-101.621,141,-11,2,10,-2,-15 10 4 -7 3 -2 -1 1,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1898,46.253,-101.632,145,-9,1,9,-2,-13 8 4 -7 2 -1 -1 1,learned from season-dated places (literature at half weight)
-hnk,Hunkpapa,1899,46.25,-101.623,147,-9,1,8,-2,-12 7 3 -6 2 -1 -1 1,none
-hnk,Hunkpapa,1900,46.245,-101.586,148,-7,0,7,-1,-10 6 3 -5 1 -1 -1 1,none
-hnk,Hunkpapa,1901,46.238,-101.535,147,-6,1,7,0,-9 5 3 -5 1 -1 0 1,none
-hnk,Hunkpapa,1902,46.23,-101.477,145,-5,1,5,-1,-7 4 2 -4 1 -1 0 0,none
-hnk,Hunkpapa,1903,46.223,-101.42,143,-4,1,5,-1,-6 3 2 -3 1 0 0 0,none
-hnk,Hunkpapa,1904,46.218,-101.37,142,-4,1,3,-1,-5 3 1 -3 1 0 0 0,none
-hnk,Hunkpapa,1905,46.215,-101.347,143,-3,1,3,-1,-4 2 1 -2 1 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1700,45.962,-99.356,182,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1701,45.96,-99.361,183,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1702,45.958,-99.381,187,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1703,45.955,-99.409,192,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1704,45.953,-99.44,198,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1705,45.95,-99.47,203,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1706,45.947,-99.495,208,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1707,45.945,-99.514,211,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1708,45.943,-99.528,214,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1709,45.941,-99.537,216,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1710,45.939,-99.543,217,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1711,45.938,-99.546,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1712,45.936,-99.548,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1713,45.934,-99.55,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1714,45.932,-99.552,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1715,45.931,-99.554,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1716,45.929,-99.557,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1717,45.927,-99.56,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1718,45.925,-99.564,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1719,45.923,-99.568,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1720,45.921,-99.573,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1721,45.919,-99.578,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1722,45.917,-99.584,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1723,45.915,-99.59,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1724,45.913,-99.597,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1725,45.911,-99.604,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1726,45.909,-99.612,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1727,45.907,-99.62,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1728,45.904,-99.629,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1729,45.902,-99.637,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1730,45.9,-99.647,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1731,45.898,-99.656,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1732,45.896,-99.666,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1733,45.894,-99.677,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1734,45.892,-99.687,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1735,45.889,-99.698,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1736,45.887,-99.71,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1737,45.885,-99.721,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1738,45.883,-99.733,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1739,45.881,-99.745,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1740,45.879,-99.757,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1741,45.877,-99.77,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1742,45.875,-99.782,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1743,45.873,-99.795,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1744,45.871,-99.808,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1745,45.869,-99.821,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1746,45.867,-99.835,217,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1747,45.865,-99.848,217,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1748,45.863,-99.861,216,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1749,45.861,-99.874,215,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1750,45.859,-99.886,214,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1751,45.857,-99.897,213,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1752,45.855,-99.907,211,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1753,45.853,-99.915,208,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1754,45.85,-99.922,203,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1755,45.847,-99.927,198,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1756,45.845,-99.932,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1757,45.842,-99.938,186,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1758,45.84,-99.945,181,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1759,45.839,-99.956,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1760,45.838,-99.972,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1761,45.837,-99.991,176,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1762,45.838,-100.014,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1763,45.838,-100.039,184,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1764,45.839,-100.064,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1765,45.84,-100.089,194,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1766,45.841,-100.113,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1767,45.842,-100.136,202,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1768,45.843,-100.156,204,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1769,45.843,-100.176,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1770,45.844,-100.194,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1771,45.844,-100.212,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1772,45.845,-100.23,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1773,45.845,-100.247,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1774,45.846,-100.264,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1775,45.847,-100.282,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1776,45.848,-100.3,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1777,45.849,-100.318,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1778,45.85,-100.336,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1779,45.852,-100.354,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1780,45.854,-100.373,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1781,45.855,-100.392,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1782,45.857,-100.411,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1783,45.859,-100.431,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1784,45.862,-100.451,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1785,45.864,-100.471,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1786,45.866,-100.491,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1787,45.869,-100.512,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1788,45.872,-100.533,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1789,45.875,-100.555,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1790,45.878,-100.576,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1791,45.882,-100.598,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1792,45.885,-100.62,205,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1793,45.888,-100.642,205,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1794,45.892,-100.664,205,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1795,45.896,-100.685,204,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1796,45.9,-100.706,203,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1797,45.903,-100.724,202,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1798,45.907,-100.74,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1799,45.91,-100.755,196,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1800,45.914,-100.768,191,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1801,45.917,-100.781,186,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1802,45.921,-100.795,180,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1803,45.925,-100.812,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1804,45.93,-100.834,171,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1805,45.935,-100.861,170,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1806,45.941,-100.894,171,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1807,45.947,-100.931,174,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1808,45.954,-100.972,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1809,45.96,-101.013,184,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1810,45.967,-101.054,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1811,45.974,-101.094,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1812,45.98,-101.132,196,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1813,45.987,-101.167,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1814,45.993,-101.201,200,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1815,45.999,-101.234,200,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1816,46.005,-101.266,200,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1817,46.011,-101.297,200,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1818,46.017,-101.328,200,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1819,46.023,-101.359,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1820,46.029,-101.39,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1821,46.034,-101.421,198,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1822,46.04,-101.453,197,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1823,46.046,-101.484,196,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1824,46.052,-101.515,196,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1825,46.057,-101.546,195,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1826,46.063,-101.577,194,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1827,46.068,-101.608,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1828,46.073,-101.639,192,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1829,46.079,-101.67,191,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1830,46.084,-101.701,190,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1831,46.089,-101.731,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1832,46.093,-101.761,188,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1833,46.098,-101.791,186,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1834,46.102,-101.821,185,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1835,46.107,-101.85,184,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1836,46.111,-101.879,182,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1837,46.115,-101.907,181,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1838,46.118,-101.935,180,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1839,46.122,-101.963,178,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1840,46.125,-101.99,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1841,46.127,-102.016,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1842,46.129,-102.041,174,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1843,46.131,-102.065,172,0,-1,0,1,0 0 0 0 -1 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1844,46.13,-102.088,171,0,-1,0,1,0 0 0 0 -1 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1845,46.128,-102.108,169,0,-1,0,1,0 0 0 0 -1 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1846,46.122,-102.125,167,0,-1,0,2,0 0 0 0 -1 -1 0 1,none
-sih,Sihasapa (Blackfeet Lakota),1847,46.111,-102.14,164,0,-1,0,4,0 0 0 0 -2 -1 1 1,none
-sih,Sihasapa (Blackfeet Lakota),1848,46.095,-102.152,160,0,-1,0,4,0 0 0 0 -2 -1 1 1,none
-sih,Sihasapa (Blackfeet Lakota),1849,46.072,-102.161,156,1,-2,-1,5,1 0 0 0 -3 -1 1 1,none
-sih,Sihasapa (Blackfeet Lakota),1850,46.044,-102.17,150,1,-3,-1,6,1 0 0 0 -4 -2 1 2,none
-sih,Sihasapa (Blackfeet Lakota),1851,46.012,-102.18,143,1,-3,-1,6,1 0 0 0 -4 -2 1 2,none
-sih,Sihasapa (Blackfeet Lakota),1852,45.98,-102.193,135,0,-3,-2,8,1 0 -1 0 -5 -2 2 2,none
-sih,Sihasapa (Blackfeet Lakota),1853,45.954,-102.211,125,1,-4,-3,10,2 0 -1 0 -6 -3 2 3,none
-sih,Sihasapa (Blackfeet Lakota),1854,45.94,-102.236,116,1,-5,-3,11,2 0 -1 0 -7 -3 2 3,none
-sih,Sihasapa (Blackfeet Lakota),1855,45.943,-102.266,109,2,-5,-4,14,3 0 -1 0 -8 -4 3 4,none
-sih,Sihasapa (Blackfeet Lakota),1856,45.969,-102.301,106,2,-7,-5,16,4 0 -2 0 -10 -5 3 4,none
-sih,Sihasapa (Blackfeet Lakota),1857,46.019,-102.337,106,3,-7,-6,18,5 0 -2 0 -11 -5 4 5,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1858,46.092,-102.373,108,4,-8,-9,20,7 0 -3 0 -12 -6 4 6,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1859,46.182,-102.406,112,4,-9,-11,21,8 0 -4 0 -13 -6 4 6,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1860,46.281,-102.434,115,5,-8,-14,22,10 0 -5 0 -13 -7 5 6,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1861,46.378,-102.456,115,7,-9,-17,24,13 -1 -6 0 -14 -7 5 7,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1862,46.461,-102.47,114,9,-9,-21,24,16 -1 -7 0 -14 -8 5 7,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1863,46.52,-102.472,111,10,-9,-24,24,19 -2 -9 1 -14 -8 5 7,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1864,46.546,-102.465,110,11,-9,-29,24,22 -2 -11 1 -14 -8 5 7,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1865,46.542,-102.444,110,13,-9,-34,22,26 -3 -13 1 -13 -8 4 7,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1866,46.505,-102.41,113,15,-8,-39,21,30 -3 -15 2 -12 -8 4 7,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1867,46.447,-102.368,117,18,-8,-45,19,35 -4 -17 2 -11 -8 3 7,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1868,46.374,-102.327,120,21,-7,-50,18,40 -4 -19 3 -10 -8 3 6,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1869,46.296,-102.3,122,23,-6,-55,15,44 -5 -21 4 -8 -7 2 6,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1870,46.22,-102.302,121,24,-5,-61,14,48 -6 -24 4 -7 -7 2 6,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1871,46.148,-102.349,116,26,-4,-66,10,52 -6 -26 5 -5 -6 1 5,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1872,46.083,-102.443,109,29,-3,-69,8,56 -7 -27 6 -3 -6 0 5,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1873,46.024,-102.578,101,30,-2,-74,6,59 -7 -29 6 -2 -5 0 4,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1874,45.972,-102.732,93,31,-1,-76,3,61 -7 -30 7 0 -5 -1 4,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1875,45.927,-102.874,87,32,0,-77,1,62 -7 -30 7 1 -4 -1 3,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1876,45.892,-102.973,86,32,0,-79,-1,63 -7 -31 7 2 -4 -2 3,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1877,45.869,-102.993,89,32,1,-76,-2,62 -7 -30 8 3 -3 -2 3,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1878,45.857,-102.955,95,31,2,-74,-3,60 -7 -29 8 4 -3 -2 2,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1879,45.857,-102.846,103,30,2,-71,-4,58 -7 -28 8 4 -2 -2 2,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1880,45.865,-102.704,111,28,3,-68,-5,55 -6 -27 7 5 -2 -2 2,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1881,45.88,-102.556,120,26,3,-63,-5,51 -6 -25 7 5 -2 -2 2,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1882,45.897,-102.426,128,24,2,-58,-5,47 -5 -23 7 4 -1 -2 1,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1883,45.914,-102.329,136,21,2,-52,-5,42 -5 -21 6 4 -1 -2 1,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1884,45.927,-102.267,143,20,2,-46,-5,38 -4 -18 6 4 -1 -2 1,learned from season-dated places (literature at half weight)
-sih,Sihasapa (Blackfeet Lakota),1885,45.937,-102.233,148,17,2,-40,-5,33 -3 -16 5 4 -1 -2 1,none
-sih,Sihasapa (Blackfeet Lakota),1886,45.942,-102.217,153,14,1,-35,-4,28 -3 -14 4 3 -1 -2 1,none
-sih,Sihasapa (Blackfeet Lakota),1887,45.943,-102.211,156,12,2,-30,-3,24 -2 -12 4 3 0 -1 1,none
-sih,Sihasapa (Blackfeet Lakota),1888,45.941,-102.206,159,10,1,-25,-3,20 -2 -10 3 2 0 -1 0,none
-sih,Sihasapa (Blackfeet Lakota),1889,45.937,-102.199,161,9,1,-20,-3,17 -2 -8 3 2 0 -1 0,none
-sih,Sihasapa (Blackfeet Lakota),1890,45.93,-102.189,163,7,1,-16,-3,13 -1 -6 2 2 0 -1 0,none
-sih,Sihasapa (Blackfeet Lakota),1891,45.923,-102.175,165,6,0,-13,-2,11 -1 -5 2 1 0 -1 0,none
-sih,Sihasapa (Blackfeet Lakota),1892,45.915,-102.157,167,4,1,-10,-1,8 -1 -4 1 1 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1893,45.907,-102.137,169,3,1,-7,-1,6 -1 -3 1 1 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1894,45.898,-102.114,170,3,1,-6,-1,5 0 -2 1 1 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1895,45.888,-102.087,172,2,0,-5,0,4 0 -2 1 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1896,45.878,-102.056,173,2,0,-3,0,3 0 -1 1 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1897,45.867,-102.02,173,1,0,-3,0,2 0 -1 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1898,45.854,-101.977,173,0,0,-2,0,1 0 -1 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1899,45.841,-101.929,172,1,0,-1,0,1 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1900,45.827,-101.875,170,1,0,-1,0,1 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1901,45.813,-101.82,167,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1902,45.799,-101.766,164,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1903,45.787,-101.719,161,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1904,45.777,-101.684,160,0,0,0,0,0 0 0 0 0 0 0 0,none
-sih,Sihasapa (Blackfeet Lakota),1905,45.773,-101.67,161,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1700,45.619,-99.427,182,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1701,45.618,-99.433,183,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1702,45.614,-99.453,187,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1703,45.609,-99.481,192,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1704,45.603,-99.512,198,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1705,45.597,-99.542,203,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1706,45.593,-99.567,208,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1707,45.589,-99.587,211,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1708,45.586,-99.601,214,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1709,45.585,-99.611,216,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1710,45.584,-99.617,217,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1711,45.584,-99.621,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1712,45.584,-99.624,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1713,45.584,-99.627,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1714,45.584,-99.63,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1715,45.584,-99.633,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1716,45.584,-99.637,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1717,45.584,-99.641,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1718,45.584,-99.645,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1719,45.583,-99.651,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1720,45.583,-99.656,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1721,45.583,-99.663,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1722,45.583,-99.67,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1723,45.583,-99.677,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1724,45.583,-99.685,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1725,45.582,-99.693,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1726,45.582,-99.702,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1727,45.582,-99.711,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1728,45.582,-99.72,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1729,45.582,-99.73,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1730,45.582,-99.741,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1731,45.581,-99.752,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1732,45.581,-99.763,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1733,45.581,-99.774,221,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1734,45.581,-99.786,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1735,45.581,-99.798,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1736,45.581,-99.811,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1737,45.582,-99.824,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1738,45.582,-99.837,220,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1739,45.582,-99.85,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1740,45.582,-99.864,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1741,45.583,-99.878,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1742,45.583,-99.892,219,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1743,45.584,-99.907,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1744,45.584,-99.921,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1745,45.585,-99.936,218,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1746,45.586,-99.951,217,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1747,45.586,-99.966,217,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1748,45.587,-99.982,216,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1749,45.588,-99.996,215,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1750,45.589,-100.011,214,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1751,45.59,-100.024,213,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1752,45.591,-100.037,211,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1753,45.593,-100.048,208,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1754,45.594,-100.058,203,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1755,45.595,-100.067,198,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1756,45.597,-100.076,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1757,45.598,-100.086,186,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1758,45.6,-100.097,181,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1759,45.601,-100.111,177,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1760,45.603,-100.129,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1761,45.605,-100.15,176,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1762,45.607,-100.174,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1763,45.609,-100.2,184,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1764,45.61,-100.227,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1765,45.613,-100.253,195,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1766,45.615,-100.279,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1767,45.617,-100.303,202,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1768,45.619,-100.326,204,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1769,45.621,-100.348,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1770,45.623,-100.369,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1771,45.625,-100.389,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1772,45.627,-100.41,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1773,45.629,-100.43,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1774,45.631,-100.451,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1775,45.633,-100.471,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1776,45.635,-100.492,207,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1777,45.637,-100.513,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1778,45.639,-100.535,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1779,45.64,-100.556,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1780,45.642,-100.578,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1781,45.644,-100.6,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1782,45.645,-100.622,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1783,45.646,-100.645,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1784,45.648,-100.667,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1785,45.649,-100.69,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1786,45.65,-100.713,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1787,45.651,-100.737,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1788,45.652,-100.76,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1789,45.652,-100.784,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1790,45.653,-100.808,206,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1791,45.653,-100.832,205,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1792,45.654,-100.856,205,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1793,45.654,-100.88,205,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1794,45.654,-100.903,205,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1795,45.655,-100.926,204,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1796,45.657,-100.947,203,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1797,45.66,-100.965,202,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1798,45.664,-100.982,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1799,45.669,-100.996,196,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1800,45.674,-101.008,191,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1801,45.68,-101.02,186,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1802,45.686,-101.032,180,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1803,45.689,-101.048,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1804,45.689,-101.068,172,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1805,45.686,-101.094,170,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1806,45.68,-101.126,171,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1807,45.671,-101.163,175,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1808,45.659,-101.202,180,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1809,45.647,-101.242,185,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1810,45.635,-101.282,190,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1811,45.624,-101.319,194,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1812,45.614,-101.354,197,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1813,45.605,-101.386,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1814,45.597,-101.416,201,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1815,45.589,-101.444,201,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1816,45.582,-101.47,202,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1817,45.575,-101.496,202,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1818,45.567,-101.521,201,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1819,45.56,-101.545,201,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1820,45.552,-101.569,200,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1821,45.544,-101.592,200,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1822,45.536,-101.615,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1823,45.527,-101.638,199,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1824,45.518,-101.66,198,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1825,45.509,-101.682,197,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1826,45.5,-101.703,197,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1827,45.49,-101.724,196,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1828,45.48,-101.744,195,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1829,45.469,-101.763,194,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1830,45.459,-101.782,193,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1831,45.448,-101.8,192,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1832,45.437,-101.817,191,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1833,45.425,-101.834,190,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1834,45.414,-101.85,189,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1835,45.402,-101.865,188,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1836,45.389,-101.88,187,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1837,45.377,-101.894,186,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1838,45.364,-101.906,185,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1839,45.352,-101.919,183,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1840,45.339,-101.93,182,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1841,45.325,-101.94,181,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1842,45.312,-101.95,179,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1843,45.299,-101.96,178,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1844,45.285,-101.969,176,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1845,45.271,-101.979,174,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1846,45.257,-101.989,172,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1847,45.244,-102.003,169,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1848,45.231,-102.019,166,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1849,45.22,-102.038,161,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1850,45.21,-102.061,155,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1851,45.203,-102.087,147,1,0,-1,0,1 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1852,45.198,-102.112,138,1,0,-1,0,1 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1853,45.194,-102.135,129,0,0,-2,0,1 0 -1 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1854,45.19,-102.152,120,1,0,-3,0,2 0 -1 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1855,45.185,-102.158,113,1,0,-3,0,2 0 -1 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1856,45.177,-102.156,109,1,-1,-4,1,3 -1 -2 0 -1 0 0 0,none
-sna,Itazipčho (Sans Arc),1857,45.165,-102.14,111,3,-1,-6,1,5 -1 -2 0 -1 0 0 0,none
-sna,Itazipčho (Sans Arc),1858,45.148,-102.116,116,3,0,-8,2,6 -1 -3 0 -1 0 1 0,none
-sna,Itazipčho (Sans Arc),1859,45.128,-102.086,123,4,-1,-10,3,8 -1 -4 1 -2 0 1 0,none
-sna,Itazipčho (Sans Arc),1860,45.105,-102.052,130,5,-1,-12,3,10 -2 -5 1 -2 0 1 0,none
-sna,Itazipčho (Sans Arc),1861,45.081,-102.019,136,7,-2,-16,4,13 -2 -6 1 -3 0 1 0,none
-sna,Itazipčho (Sans Arc),1862,45.057,-101.987,141,8,-1,-20,4,16 -3 -8 1 -3 1 2 0,none
-sna,Itazipčho (Sans Arc),1863,45.035,-101.958,145,10,-2,-25,5,20 -3 -10 2 -4 1 2 0,none
-sna,Itazipčho (Sans Arc),1864,45.014,-101.931,147,13,-3,-31,6,25 -4 -12 2 -5 1 2 0,none
-sna,Itazipčho (Sans Arc),1865,44.994,-101.908,148,15,-3,-38,7,30 -4 -15 3 -6 1 3 -1,none
-sna,Itazipčho (Sans Arc),1866,44.975,-101.889,147,18,-4,-44,8,35 -5 -17 3 -7 1 3 -1,none
-sna,Itazipčho (Sans Arc),1867,44.957,-101.879,146,20,-4,-50,10,40 -6 -20 4 -8 1 4 -1,none
-sna,Itazipčho (Sans Arc),1868,44.941,-101.88,143,23,-5,-57,11,46 -7 -23 5 -9 1 4 -1,none
-sna,Itazipčho (Sans Arc),1869,44.926,-101.903,138,27,-5,-65,13,52 -7 -25 5 -10 1 5 -1,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1870,44.912,-101.947,132,29,-5,-71,14,57 -8 -28 6 -11 2 6 -1,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1871,44.901,-102.011,124,31,-6,-77,15,62 -9 -31 7 -12 2 6 -1,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1872,44.89,-102.083,113,34,-7,-83,16,67 -9 -33 8 -13 2 6 -1,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1873,44.878,-102.147,102,36,-7,-88,17,71 -9 -35 8 -14 2 7 -2,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1874,44.863,-102.162,90,38,-7,-91,17,74 -10 -36 9 -14 2 7 -2,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1875,44.843,-102.141,79,38,-8,-93,18,75 -10 -37 9 -15 2 7 -2,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1876,44.818,-102.041,70,39,-8,-93,18,76 -10 -37 10 -15 2 7 -2,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1877,44.79,-101.89,65,38,-8,-93,18,75 -9 -37 10 -15 2 7 -2,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1878,44.761,-101.707,64,38,-7,-91,17,74 -9 -36 10 -14 2 7 -2,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1879,44.737,-101.527,70,37,-7,-87,17,71 -8 -34 10 -14 2 7 -2,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1880,44.721,-101.381,81,34,-7,-83,15,67 -8 -33 9 -13 2 6 -2,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1881,44.713,-101.286,95,32,-6,-76,15,62 -7 -30 9 -12 1 6 -2,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1882,44.714,-101.252,110,29,-6,-70,13,57 -7 -28 8 -11 1 5 -2,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1883,44.721,-101.26,123,27,-5,-63,13,52 -6 -25 8 -10 1 5 -1,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1884,44.73,-101.3,134,24,-5,-56,11,46 -5 -22 7 -9 1 4 -1,learned from season-dated places (literature at half weight)
-sna,Itazipčho (Sans Arc),1885,44.74,-101.35,142,20,-4,-49,10,40 -4 -20 6 -8 1 4 -1,none
-sna,Itazipčho (Sans Arc),1886,44.747,-101.396,148,18,-4,-43,8,35 -4 -17 5 -7 1 3 -1,none
-sna,Itazipčho (Sans Arc),1887,44.752,-101.429,152,15,-3,-35,7,29 -3 -14 5 -6 1 3 -1,none
-sna,Itazipčho (Sans Arc),1888,44.752,-101.448,155,13,-3,-31,6,25 -2 -12 4 -5 0 2 -1,none
-sna,Itazipčho (Sans Arc),1889,44.752,-101.451,158,10,-2,-25,5,20 -2 -10 3 -4 0 2 -1,none
-sna,Itazipčho (Sans Arc),1890,44.749,-101.447,160,8,-1,-19,4,16 -2 -8 3 -3 0 2 -1,none
-sna,Itazipčho (Sans Arc),1891,44.746,-101.435,162,7,-2,-16,4,13 -1 -6 2 -3 0 1 0,none
-sna,Itazipčho (Sans Arc),1892,44.742,-101.418,163,5,-1,-12,3,10 -1 -5 2 -2 0 1 0,none
-sna,Itazipčho (Sans Arc),1893,44.738,-101.4,165,4,-1,-10,3,8 -1 -4 1 -2 0 1 0,none
-sna,Itazipčho (Sans Arc),1894,44.734,-101.379,167,3,0,-7,2,6 -1 -3 1 -1 0 1 0,none
-sna,Itazipčho (Sans Arc),1895,44.73,-101.357,168,3,-1,-6,1,5 0 -2 1 -1 0 0 0,none
-sna,Itazipčho (Sans Arc),1896,44.726,-101.334,169,1,-1,-4,1,3 0 -2 1 -1 0 0 0,none
-sna,Itazipčho (Sans Arc),1897,44.722,-101.309,169,1,0,-3,0,2 0 -1 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1898,44.717,-101.282,169,1,0,-3,0,2 0 -1 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1899,44.712,-101.253,168,0,0,-2,0,1 0 -1 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1900,44.708,-101.222,167,1,0,-1,0,1 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1901,44.703,-101.192,164,1,0,-1,0,1 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1902,44.699,-101.162,161,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1903,44.696,-101.136,159,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1904,44.695,-101.114,157,0,0,0,0,0 0 0 0 0 0 0 0,none
-sna,Itazipčho (Sans Arc),1905,44.695,-101.106,158,0,0,0,0,0 0 0 0 0 0 0 0,none
+hnk,Hunkpapa,1874,46.324,-103.859,77,-7,3,-28,-17,14 35 -21 23 15 -26 -12 -2,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1875,46.333,-103.971,73,-4,4,-29,-19,16 36 -20 23 16 -26 -12 -3,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1876,46.346,-104.037,71,-2,4,-30,-20,17 36 -19 22 17 -26 -13 -3,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1877,46.356,-104.024,75,0,5,-31,-22,18 36 -18 20 18 -25 -13 -3,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1878,46.358,-103.89,81,2,5,-30,-22,18 36 -16 19 18 -24 -13 -3,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1879,46.353,-103.649,90,3,5,-29,-22,17 36 -14 17 18 -23 -13 -3,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1880,46.339,-103.328,97,4,5,-27,-23,16 35 -12 15 18 -22 -13 -3,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1881,46.319,-102.969,103,3,5,-24,-21,13 34 -10 12 17 -21 -12 -3,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1882,46.298,-102.615,108,2,5,-20,-19,10 33 -8 10 16 -19 -11 -2,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1883,46.278,-102.292,111,1,4,-17,-19,7 31 -6 7 15 -17 -11 -2,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1884,46.261,-102.013,112,-1,4,-13,-18,3 30 -4 4 14 -16 -10 -2,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1885,46.246,-101.777,112,-3,4,-8,-16,-1 28 -2 2 13 -14 -9 -1,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1886,46.233,-101.578,108,-4,4,-5,-15,-4 27 0 0 12 -12 -8 -1,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1887,46.223,-101.411,101,-7,3,0,-12,-8 25 1 -2 10 -11 -7 0,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1888,46.215,-101.28,93,-8,3,3,-11,-11 23 3 -4 9 -9 -6 0,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1889,46.211,-101.192,84,-10,3,6,-9,-14 22 4 -6 8 -8 -5 0,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1890,46.21,-101.159,79,-12,3,8,-8,-16 20 4 -7 7 -7 -4 0,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1891,46.214,-101.171,81,-12,3,10,-6,-17 19 5 -8 6 -6 -3 1,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1892,46.22,-101.237,89,-13,2,11,-5,-18 17 5 -9 5 -5 -3 1,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1893,46.23,-101.334,101,-13,3,11,-5,-18 16 5 -9 5 -4 -2 1,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1894,46.24,-101.445,114,-13,2,12,-4,-18 14 5 -9 4 -3 -2 1,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1895,46.249,-101.551,126,-12,2,11,-4,-17 13 5 -9 4 -3 -2 1,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1896,46.255,-101.635,135,-11,2,11,-2,-16 11 5 -8 3 -2 -1 1,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1897,46.259,-101.689,141,-11,2,10,-2,-15 10 4 -8 3 -2 -1 1,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1898,46.259,-101.708,145,-10,1,10,-2,-14 9 4 -7 2 -1 -1 1,learned from season-dated places (literature at half weight)
+hnk,Hunkpapa,1899,46.257,-101.701,147,-8,1,9,-2,-12 7 4 -6 2 -1 -1 1,none
+hnk,Hunkpapa,1900,46.251,-101.667,148,-8,1,8,-2,-11 6 3 -5 2 -1 -1 1,none
+hnk,Hunkpapa,1901,46.245,-101.618,147,-6,1,7,0,-9 5 3 -5 1 -1 0 1,none
+hnk,Hunkpapa,1902,46.237,-101.563,145,-6,1,6,-1,-8 4 2 -4 1 -1 0 0,none
+hnk,Hunkpapa,1903,46.23,-101.51,143,-4,1,5,-1,-6 3 2 -3 1 0 0 0,none
+hnk,Hunkpapa,1904,46.225,-101.465,142,-4,1,3,-1,-5 3 1 -3 1 0 0 0,none
+hnk,Hunkpapa,1905,46.222,-101.445,143,-3,1,3,-1,-4 2 1 -2 1 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1806,45.976,-101.41,178,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1807,45.981,-101.427,178,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1808,45.987,-101.453,181,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1809,45.993,-101.482,185,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1810,45.999,-101.514,190,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1811,46.005,-101.545,194,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1812,46.011,-101.574,198,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1813,46.016,-101.6,201,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1814,46.022,-101.624,202,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1815,46.027,-101.645,203,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1816,46.032,-101.664,203,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1817,46.038,-101.682,203,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1818,46.043,-101.7,202,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1819,46.048,-101.717,201,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1820,46.053,-101.735,200,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1821,46.058,-101.753,199,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1822,46.063,-101.771,198,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1823,46.068,-101.79,197,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1824,46.072,-101.809,196,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1825,46.077,-101.828,195,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1826,46.082,-101.847,194,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1827,46.087,-101.867,193,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1828,46.091,-101.887,192,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1829,46.096,-101.907,191,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1830,46.1,-101.927,190,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1831,46.104,-101.947,188,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1832,46.108,-101.967,187,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1833,46.112,-101.987,186,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1834,46.116,-102.008,185,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1835,46.119,-102.028,183,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1836,46.123,-102.048,182,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1837,46.126,-102.068,181,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1838,46.129,-102.088,179,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1839,46.132,-102.107,178,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1840,46.134,-102.126,176,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1841,46.136,-102.145,175,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1842,46.138,-102.163,174,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1843,46.138,-102.18,172,0,-1,0,1,0 0 0 0 -1 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1844,46.138,-102.196,170,0,-1,0,1,0 0 0 0 -1 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1845,46.135,-102.21,168,0,-1,0,1,0 0 0 0 -1 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1846,46.128,-102.221,166,0,-1,0,2,0 0 0 0 -1 -1 0 1,none
+sih,Sihasapa (Blackfeet Lakota),1847,46.117,-102.229,164,0,-1,0,4,0 0 0 0 -2 -1 1 1,none
+sih,Sihasapa (Blackfeet Lakota),1848,46.1,-102.233,160,0,-1,0,4,0 0 0 0 -2 -1 1 1,none
+sih,Sihasapa (Blackfeet Lakota),1849,46.077,-102.235,156,1,-2,-1,5,1 0 0 0 -3 -1 1 1,none
+sih,Sihasapa (Blackfeet Lakota),1850,46.048,-102.236,150,1,-3,-1,6,1 0 0 0 -4 -2 1 2,none
+sih,Sihasapa (Blackfeet Lakota),1851,46.016,-102.238,143,1,-3,-1,6,1 0 0 0 -4 -2 1 2,none
+sih,Sihasapa (Blackfeet Lakota),1852,45.983,-102.244,134,0,-3,-2,8,1 0 -1 0 -5 -2 2 2,none
+sih,Sihasapa (Blackfeet Lakota),1853,45.957,-102.255,125,1,-4,-3,10,2 0 -1 0 -6 -3 2 3,none
+sih,Sihasapa (Blackfeet Lakota),1854,45.942,-102.274,116,1,-5,-3,11,2 0 -1 0 -7 -3 2 3,none
+sih,Sihasapa (Blackfeet Lakota),1855,45.945,-102.299,109,2,-5,-4,14,3 0 -1 0 -8 -4 3 4,none
+sih,Sihasapa (Blackfeet Lakota),1856,45.971,-102.33,105,2,-7,-5,16,4 0 -2 0 -10 -5 3 4,none
+sih,Sihasapa (Blackfeet Lakota),1857,46.021,-102.364,105,3,-7,-6,18,5 0 -2 0 -11 -5 4 5,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1858,46.093,-102.398,108,3,-8,-8,20,6 0 -3 0 -12 -6 4 6,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1859,46.183,-102.43,112,4,-9,-11,21,8 0 -4 0 -13 -6 4 6,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1860,46.282,-102.457,115,5,-8,-13,22,10 -1 -5 0 -13 -7 5 6,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1861,46.379,-102.478,115,6,-9,-16,24,12 -1 -6 0 -14 -7 5 7,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1862,46.462,-102.492,114,8,-9,-20,24,15 -1 -7 0 -14 -8 5 7,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1863,46.52,-102.494,111,9,-9,-23,24,18 -2 -9 1 -14 -8 5 7,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1864,46.547,-102.486,110,11,-9,-29,24,22 -2 -11 1 -14 -8 5 7,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1865,46.542,-102.464,110,14,-9,-33,22,26 -3 -12 1 -13 -8 4 7,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1866,46.506,-102.431,113,15,-8,-39,21,30 -3 -15 2 -12 -8 4 7,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1867,46.447,-102.389,117,18,-8,-45,19,35 -4 -17 2 -11 -8 3 7,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1868,46.374,-102.347,120,20,-7,-49,18,39 -5 -19 3 -10 -8 3 6,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1869,46.296,-102.32,122,23,-6,-55,15,44 -5 -21 4 -8 -7 2 6,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1870,46.22,-102.321,121,25,-5,-60,14,48 -6 -23 4 -7 -7 2 6,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1871,46.148,-102.366,116,27,-4,-65,10,52 -6 -25 5 -5 -6 1 5,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1872,46.083,-102.459,109,29,-3,-69,8,56 -7 -27 6 -3 -6 0 5,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1873,46.024,-102.593,101,30,-2,-74,6,59 -7 -29 6 -2 -5 0 4,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1874,45.972,-102.747,93,31,-1,-76,3,61 -7 -30 7 0 -5 -1 4,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1875,45.927,-102.888,87,32,0,-77,1,62 -7 -30 7 1 -4 -1 3,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1876,45.892,-102.989,86,32,0,-77,-1,62 -7 -30 7 2 -4 -2 3,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1877,45.868,-103.009,89,32,1,-76,-2,62 -7 -30 8 3 -3 -2 3,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1878,45.857,-102.976,95,31,2,-74,-3,60 -7 -29 8 4 -3 -2 2,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1879,45.856,-102.87,103,30,2,-71,-4,58 -7 -28 8 4 -2 -2 2,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1880,45.865,-102.733,111,28,3,-68,-5,55 -6 -27 7 5 -2 -2 2,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1881,45.88,-102.59,120,26,3,-63,-5,51 -6 -25 7 5 -2 -2 2,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1882,45.897,-102.466,128,24,2,-58,-5,47 -5 -23 7 4 -1 -2 1,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1883,45.914,-102.374,136,22,2,-51,-5,42 -5 -20 6 4 -1 -2 1,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1884,45.927,-102.316,143,20,2,-46,-5,38 -4 -18 6 4 -1 -2 1,learned from season-dated places (literature at half weight)
+sih,Sihasapa (Blackfeet Lakota),1885,45.937,-102.287,148,17,2,-40,-5,33 -3 -16 5 4 -1 -2 1,none
+sih,Sihasapa (Blackfeet Lakota),1886,45.942,-102.275,153,14,1,-35,-4,28 -3 -14 4 3 -1 -2 1,none
+sih,Sihasapa (Blackfeet Lakota),1887,45.943,-102.274,156,12,2,-30,-3,24 -2 -12 4 3 0 -1 1,none
+sih,Sihasapa (Blackfeet Lakota),1888,45.941,-102.273,159,10,1,-25,-3,20 -2 -10 3 2 0 -1 0,none
+sih,Sihasapa (Blackfeet Lakota),1889,45.937,-102.271,161,9,1,-20,-3,17 -2 -8 3 2 0 -1 0,none
+sih,Sihasapa (Blackfeet Lakota),1890,45.931,-102.265,163,7,1,-16,-3,13 -1 -6 2 2 0 -1 0,none
+sih,Sihasapa (Blackfeet Lakota),1891,45.923,-102.255,165,6,0,-13,-2,11 -1 -5 2 1 0 -1 0,none
+sih,Sihasapa (Blackfeet Lakota),1892,45.915,-102.242,167,4,1,-10,-1,8 -1 -4 1 1 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1893,45.907,-102.226,169,3,1,-7,-1,6 -1 -3 1 1 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1894,45.898,-102.207,170,3,1,-6,-1,5 0 -2 1 1 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1895,45.889,-102.185,172,2,0,-5,0,4 0 -2 1 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1896,45.879,-102.157,173,2,0,-3,0,3 0 -1 1 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1897,45.867,-102.124,173,1,0,-3,0,2 0 -1 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1898,45.855,-102.084,173,0,0,-2,0,1 0 -1 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1899,45.842,-102.037,172,1,0,-1,0,1 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1900,45.828,-101.985,170,1,0,-1,0,1 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1901,45.814,-101.93,167,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1902,45.8,-101.879,164,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1903,45.788,-101.834,161,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1904,45.778,-101.803,160,0,0,0,0,0 0 0 0 0 0 0 0,none
+sih,Sihasapa (Blackfeet Lakota),1905,45.774,-101.792,161,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1806,45.501,-101.666,178,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1807,45.498,-101.683,178,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1808,45.493,-101.707,181,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1809,45.485,-101.735,185,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1810,45.477,-101.765,190,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1811,45.469,-101.794,195,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1812,45.462,-101.82,199,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1813,45.456,-101.843,201,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1814,45.45,-101.863,203,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1815,45.445,-101.879,204,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1816,45.441,-101.893,204,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1817,45.437,-101.906,204,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1818,45.432,-101.918,203,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1819,45.428,-101.929,203,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1820,45.424,-101.939,202,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1821,45.419,-101.95,201,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1822,45.414,-101.96,200,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1823,45.408,-101.97,199,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1824,45.403,-101.98,199,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1825,45.397,-101.989,198,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1826,45.39,-101.999,197,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1827,45.384,-102.008,196,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1828,45.377,-102.017,195,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1829,45.369,-102.025,194,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1830,45.362,-102.033,193,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1831,45.354,-102.041,192,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1832,45.346,-102.048,191,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1833,45.337,-102.055,190,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1834,45.329,-102.062,189,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1835,45.32,-102.067,187,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1836,45.311,-102.073,186,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1837,45.301,-102.078,185,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1838,45.291,-102.082,184,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1839,45.281,-102.086,183,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1840,45.271,-102.089,181,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1841,45.261,-102.092,180,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1842,45.25,-102.094,179,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1843,45.239,-102.096,177,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1844,45.228,-102.098,176,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1845,45.217,-102.1,174,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1846,45.207,-102.104,172,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1847,45.196,-102.109,169,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1848,45.187,-102.117,165,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1849,45.179,-102.128,161,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1850,45.174,-102.142,155,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1851,45.17,-102.159,147,1,0,-1,0,1 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1852,45.169,-102.175,138,1,0,-1,0,1 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1853,45.169,-102.19,129,0,0,-2,0,1 0 -1 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1854,45.169,-102.199,119,1,0,-3,0,2 0 -1 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1855,45.166,-102.2,112,1,0,-3,0,2 0 -1 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1856,45.16,-102.193,109,1,-1,-4,1,3 -1 -2 0 -1 0 0 0,none
+sna,Itazipčho (Sans Arc),1857,45.149,-102.176,111,3,-1,-6,1,5 -1 -2 0 -1 0 0 0,none
+sna,Itazipčho (Sans Arc),1858,45.132,-102.151,115,3,0,-8,2,6 -1 -3 0 -1 0 1 0,none
+sna,Itazipčho (Sans Arc),1859,45.112,-102.122,123,4,-1,-10,3,8 -1 -4 1 -2 0 1 0,none
+sna,Itazipčho (Sans Arc),1860,45.089,-102.089,130,5,-1,-12,3,10 -2 -5 1 -2 0 1 0,none
+sna,Itazipčho (Sans Arc),1861,45.065,-102.057,136,7,-2,-16,4,13 -2 -6 1 -3 0 1 0,none
+sna,Itazipčho (Sans Arc),1862,45.041,-102.026,141,8,-1,-20,4,16 -3 -8 1 -3 1 2 0,none
+sna,Itazipčho (Sans Arc),1863,45.019,-101.997,145,10,-2,-25,5,20 -3 -10 2 -4 1 2 0,none
+sna,Itazipčho (Sans Arc),1864,44.998,-101.971,147,13,-3,-31,6,25 -4 -12 2 -5 1 2 0,none
+sna,Itazipčho (Sans Arc),1865,44.979,-101.947,148,15,-3,-38,7,30 -4 -15 3 -6 1 3 -1,none
+sna,Itazipčho (Sans Arc),1866,44.961,-101.927,147,18,-4,-44,8,35 -5 -17 3 -7 1 3 -1,none
+sna,Itazipčho (Sans Arc),1867,44.944,-101.914,146,20,-4,-50,10,40 -6 -20 4 -8 1 4 -1,none
+sna,Itazipčho (Sans Arc),1868,44.929,-101.914,143,23,-5,-57,11,46 -7 -23 5 -9 1 4 -1,none
+sna,Itazipčho (Sans Arc),1869,44.915,-101.934,138,27,-5,-65,13,52 -7 -25 5 -10 1 5 -1,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1870,44.903,-101.975,132,29,-5,-71,14,57 -8 -28 6 -11 2 6 -1,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1871,44.893,-102.035,124,32,-6,-78,15,63 -9 -31 7 -12 2 6 -1,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1872,44.883,-102.103,113,34,-7,-83,16,67 -9 -33 8 -13 2 6 -1,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1873,44.873,-102.162,102,36,-7,-88,17,71 -9 -35 8 -14 2 7 -2,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1874,44.859,-102.176,90,38,-8,-91,18,74 -10 -36 9 -15 2 7 -2,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1875,44.84,-102.15,79,38,-8,-93,18,75 -10 -37 9 -15 2 7 -2,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1876,44.816,-102.05,70,39,-8,-93,18,76 -10 -37 10 -15 2 7 -2,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1877,44.788,-101.899,65,38,-8,-93,18,75 -9 -37 10 -15 2 7 -2,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1878,44.759,-101.719,64,38,-8,-91,18,74 -9 -36 10 -15 2 7 -2,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1879,44.735,-101.542,70,37,-7,-87,17,71 -8 -34 10 -14 2 7 -2,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1880,44.717,-101.401,81,34,-7,-83,15,67 -8 -33 9 -13 2 6 -2,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1881,44.709,-101.312,95,32,-6,-76,15,62 -7 -30 9 -12 1 6 -2,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1882,44.708,-101.289,110,29,-6,-70,13,57 -7 -28 8 -11 1 5 -2,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1883,44.714,-101.3,123,27,-5,-63,13,52 -6 -25 8 -10 1 5 -1,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1884,44.722,-101.348,134,24,-5,-56,11,46 -5 -22 7 -9 1 4 -1,learned from season-dated places (literature at half weight)
+sna,Itazipčho (Sans Arc),1885,44.731,-101.404,142,20,-4,-49,10,40 -4 -20 6 -8 1 4 -1,none
+sna,Itazipčho (Sans Arc),1886,44.737,-101.455,148,18,-4,-43,8,35 -4 -17 5 -7 1 3 -1,none
+sna,Itazipčho (Sans Arc),1887,44.741,-101.493,152,16,-3,-36,7,30 -3 -14 5 -6 1 3 -1,none
+sna,Itazipčho (Sans Arc),1888,44.741,-101.516,155,13,-3,-31,6,25 -2 -12 4 -5 0 2 -1,none
+sna,Itazipčho (Sans Arc),1889,44.74,-101.525,158,10,-2,-25,5,20 -2 -10 3 -4 0 2 -1,none
+sna,Itazipčho (Sans Arc),1890,44.736,-101.524,160,8,-1,-19,4,16 -2 -8 3 -3 0 2 -1,none
+sna,Itazipčho (Sans Arc),1891,44.732,-101.517,162,7,-2,-16,4,13 -1 -6 2 -3 0 1 0,none
+sna,Itazipčho (Sans Arc),1892,44.727,-101.505,163,5,-1,-12,3,10 -1 -5 2 -2 0 1 0,none
+sna,Itazipčho (Sans Arc),1893,44.722,-101.49,165,4,-1,-10,3,8 -1 -4 1 -2 0 1 0,none
+sna,Itazipčho (Sans Arc),1894,44.717,-101.474,166,3,0,-7,2,6 -1 -3 1 -1 0 1 0,none
+sna,Itazipčho (Sans Arc),1895,44.712,-101.457,168,3,-1,-6,1,5 0 -2 1 -1 0 0 0,none
+sna,Itazipčho (Sans Arc),1896,44.707,-101.438,169,1,-1,-4,1,3 0 -2 1 -1 0 0 0,none
+sna,Itazipčho (Sans Arc),1897,44.702,-101.416,169,1,0,-3,0,2 0 -1 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1898,44.697,-101.391,169,1,0,-3,0,2 0 -1 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1899,44.692,-101.364,168,0,0,-2,0,1 0 -1 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1900,44.686,-101.335,167,1,0,-1,0,1 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1901,44.681,-101.305,164,1,0,-1,0,1 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1902,44.677,-101.277,161,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1903,44.673,-101.254,159,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1904,44.671,-101.237,157,0,0,0,0,0 0 0 0 0 0 0 0,none
+sna,Itazipčho (Sans Arc),1905,44.67,-101.231,158,0,0,0,0,0 0 0 0 0 0 0 0,none
 twk,Oohenunpa (Two Kettle),1833,44.552,-100.521,158,0,0,0,0,0 0 0 0 0 0 0 0,none
 twk,Oohenunpa (Two Kettle),1834,44.551,-100.523,157,0,0,0,0,0 0 0 0 0 0 0 0,none
 twk,Oohenunpa (Two Kettle),1835,44.55,-100.526,158,0,0,0,0,0 0 0 0 0 0 0 0,none

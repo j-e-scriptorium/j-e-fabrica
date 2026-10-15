@@ -23,7 +23,7 @@ The page loads its data with plain `<script>` tags, so it runs from `file://`; o
 
 ## Scope
 
-- **Peoples.** 34 peoples in 9 language families, fitted as 64 divisions, from the Saskatchewan to the Rio Grande and from the Rockies to the Mississippi (`data/groups.csv`). Two names recorded by Clark that cannot be securely identified (Castahana, Dotame) are kept as evidence only. Not on the map: the Plains Métis, who were not an Indian band in the sense of the rest, though their hunts are part of the Plains Ojibwe and Cree story.
+- **Peoples.** 34 peoples in 9 language families, fitted as 66 divisions, from the Saskatchewan to the Rio Grande and from the Rockies to the Mississippi (`data/groups.csv`). Two names recorded by Clark that cannot be securely identified (Castahana, Dotame) are kept as evidence only. Not on the map: the Plains Métis, who were not an Indian band in the sense of the rest, though their hunts are part of the Plains Ojibwe and Cree story.
 - **Period.** 1700–1900 on the page; the fit runs to 1905 so that its end is not distorted by the edge.
 - **Quantities.** For each division and year: population, position (the estimated centre of where its people were, with the range they would be found in), an uncertainty for each, and an optional seasonal round. Bands and villages are a derived, weaker layer.
 - **Not claimed.** Territorial boundaries; anything below the band; populations living off the plains; Native-language sources not available in translation.
@@ -34,7 +34,7 @@ The page loads its data with plain `<script>` tags, so it runs from `file://`; o
 |---|---|
 | `records.csv` (2,490) | Documented record: a count, a place, or both, with the source's words, the source and locator, a provenance tier, judgment flags, whether it steers the track, and the fitted and held-out values at that point. |
 | `sources.csv` | Source, with records drawn from it, tier and peoples covered. |
-| `keyframes_our_guesses.csv` (517) | Our own guess. **Never data.** 240 carry no note; their basis is interpolation between neighbouring documented states. |
+| `keyframes_our_guesses.csv` (508) | Our own guess. **Never data.** 227 carry no note; their basis is interpolation between neighbouring documented states. |
 | `division_transfers.csv` | Splits and mergers: the year, the division, and the share it loses to a new division or gains from one that ends. |
 | `epidemics_and_shocks.csv` | Epidemic or famine × division: dates, mortality applied, whether the fraction is sourced, scaled or assumed. |
 | `coverage_by_division_and_period.csv` | Division × period: counts, places, keyframes, longest gap, `thin` and `sparse` flags. |
@@ -61,7 +61,7 @@ Each record is tiered by how its text reached the project, not by the quality of
 
 ## Reliability
 
-1. **Population, held out.** Each of 1,172 division counts withheld in turn and predicted: median miss a factor of 1.11 (1.08 for plain interpolation between the neighbouring counts). By period: 1.38 for 1700–99 (interpolation 1.59), 1.28 for 1800–39 (1.39), 1.18 for 1840–69 (1.14), 1.06 for 1870–1905 (1.04). The model earns its keep where counts are sparse; once the Indian Office counts come year by year, interpolating between them does as well or slightly better. 92% fall inside the 2-sd range before the 25% widening shown on the map.
+1. **Population, held out.** Each of 1,173 division counts withheld in turn and predicted: median miss a factor of 1.11 (1.08 for plain interpolation between the neighbouring counts). By period: 1.37 for 1700–99 (interpolation 1.59), 1.29 for 1800–39 (1.40), 1.18 for 1840–69 (1.14), 1.06 for 1870–1905 (1.04). The model earns its keep where counts are sparse; once the Indian Office counts come year by year, interpolating between them does as well or slightly better. 92% fall inside the 2-sd range before the 25% widening shown on the map.
 2. **Place, held out.** 538 nomadic places, each withheld together with every other place within half a year, settings tuned on half the divisions and scored on the other half: the estimated centre misses by a median 110 km and a mean 139 (115 and 145 without our keyframes), against 116 and 147 for a track drawn through every record. Season-dated places are scored against the prediction for their date, ranges and agencies against the year's centre. The range halo holds 67% of withheld places in each season, against a target of 68%. Village divisions with dated moves: a median 8 km and a mean 43 km over 222 places; the village halo holds 68% of 243 withheld village places (`model/src/calib_gp.py`, `calib_vmove.py`, `calib_vhalo.py`).
 3. **Seasonal round.** On the 321 season-dated places among them, the seasonal component lowers the median miss from 118 to 107 km (mean 146 to 141); a track through every record misses them by 124 and 154. The gain is limited because each season's ground moved from year to year almost as far as the seasons were apart: the Kiowa summer ground lies a median 155 km from the next winter camp but 140 km from the summer before (`METHODS.md` §3).
 4. **Most influential assumption.** Epidemic mortality: scaling every fraction by 0.75 or 1.25 moves the 1780 total from 154,000 to 136,000 or 185,000.

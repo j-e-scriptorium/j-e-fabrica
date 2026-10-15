@@ -52,7 +52,7 @@
    "annual": {
     "n": 182,
     "median": 100,
-    "mean": 125,
+    "mean": 124,
     "beyond_radius_median": 17
    }
   }
@@ -66,7 +66,7 @@
  "places": {
   "all": {
    "n": 538,
-   "median": 108,
+   "median": 109,
    "mean": 138,
    "beyond_radius_median": 55
   },
@@ -81,7 +81,7 @@
   "winter": 95,
   "between": 59,
   "summer": 70,
-  "annual": 43
+  "annual": 42
  },
  "roam_coverage": {
   "winter": 0.67,
@@ -92,8 +92,8 @@
   "winter": {
    "n": 101,
    "median": 116,
-   "mean": 161,
-   "beyond_radius_median": 65
+   "mean": 160,
+   "beyond_radius_median": 64
   },
   "between": {
    "n": 88,
