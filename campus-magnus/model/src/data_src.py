@@ -19,6 +19,8 @@ DENIG46=lambda pp: f'Denig, “Indian Tribes of the Upper Missouri” (BAE 46th 
 JENNESS=lambda pp: f'Jenness, The Sarcee Indians of Alberta (1938), {pp}'
 _TIP=lambda v: (lambda pp: f'Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. {v} (1966; repr. 1995), {pp}')
 TIPV1,TIPV2,TIPV3,TIPV4,TIPV5=(_TIP(v) for v in (1,2,3,4,5))
+HM_='Hämäläinen, The Comanche Empire (2008)'
+CPH_='Kavanagh, Comanche Political History: An Ethnohistorical Perspective, 1706–1875 (1996)'
 
 FAM = {  # language family -> categorical slot (fixed order)
  'dakotan':1, 'algonquian':2, 'numic':3, 'caddoan':4, 'msiouan':5, 'dhegiha':6, 'athabaskan':7, 'kiowa':8}
@@ -70,8 +72,8 @@ GROUPS = [
  ('cyy','Comanche','Yamparika','numic',1700,1905,'nomadic'),
  ('cyk','Comanche','Kotsoteka','numic',1700,1905,'nomadic'),
  ('cyp','Comanche','Penateka (Eastern Comanche)','numic',1745,1905,'nomadic'),
- ('cyn','Comanche','Nokoni','numic',1830,1905,'nomadic'),
- ('cyq','Comanche','Kwahadi','numic',1835,1905,'nomadic'),
+ ('cyn','Comanche','Tenewa and Nokoni','numic',1830,1905,'nomadic'),
+ ('cyq','Comanche','Kwahadi','numic',1858,1905,'nomadic'),
  ('sho','Shoshone','Eastern (Plains) Shoshone','numic',1700,1905,'nomadic'),
  ('wic','Wichita','Wichita (Taovaya & allies)','caddoan',1700,1905,'village'),
  ('pwc','Pawnee','Chawi & Pitahawirata (Grand Pawnee)','caddoan',1700,1905,'village'),
@@ -201,17 +203,17 @@ OBS = [
  dict(g='ykl',y=1866,pop=2100,raw='Hunkpatina “estimated at 2,100” in 1866',basis='souls',loc='inferred',at=(44.6,-99.6),r=200,src=HODGE,kind='primary'),
  dict(g='ykl',y=1905,pop=1009,raw='“chiefly on Crow Creek res., S. Dak., where they numbered 1,009 in 1905”',basis='souls',loc='stated',at=P['crow_creek'],r=20,src=HODGE,kind='primary'),
  # ---- Denig on the Assiniboine ----
- dict(g=['ass','asn'],y=1760,pop=9000,raw='At separation from the Sioux (traditional date c. 1760) “at least 1,500 lodges, averaging six souls to a lodge”; then about the head of the Minnesota & Des Moines, Devils Lake, Lac qui Parle',basis='lodges × 6 (stated)',loc='stated',at=(46.5,-97.5),r=250,src=DENIG+'; Hodge’s editor notes the date is far too late',kind='secondary'),
- dict(g='ass',y=1837,pop=6600,raw='“Still numbered 1,000 to 1,200 lodges, trading on the Missouri until the year 1838”',basis='lodges × 6',loc='stated',at=(48.4,-104.5),r=200,src=DENIG,kind='primary'),
- dict(g='ass',y=1839,pop=2400,raw='Smallpox of 1838 “reduced their numbers to less than 400 lodges”',basis='lodges × 6',loc='stated',at=(48.4,-104.5),r=200,src=DENIG,kind='primary'),
- dict(g='ass',y=1854,pop=450,raw='Gens du Gauche, 100 lodges',basis='lodges × 4.5 (stated)',loc='inferred',at=(48.3,-104.6),r=100,src=DENIG,kind='primary',part=True),
- dict(g='ass',y=1854,pop=270,raw='Gens du Nord, 60 lodges',basis='lodges × 4.5 (stated)',loc='inferred',at=(48.9,-105.6),r=100,src=DENIG,kind='primary',part=True),
- dict(g='ass',y=1854,pop=990,raw='Gens des Canots, 220 lodges',basis='lodges × 4.5 (stated)',loc='inferred',at=(48.5,-103.3),r=100,src=DENIG,kind='primary',part=True),
- dict(g='ass',y=1854,pop=135,raw='Gens des Canots, 30 more lodges trading near the mouth of the Pembina',basis='lodges × 4.5 (stated)',loc='stated',at=P['pembina'],r=40,src=DENIG,kind='primary',part=True),
- dict(g='ass',y=1854,pop=270,raw='Gens des Filles, 60 lodges',basis='lodges × 4.5 (stated)',loc='inferred',at=(48.7,-106.7),r=100,src=DENIG,kind='primary',part=True),
- dict(g='ass',y=1854,pop=225,raw='Gens des Roches, 50 lodges',basis='lodges × 4.5 (stated)',loc='inferred',at=(48.5,-107.6),r=100,src=DENIG,kind='primary',part=True),
- dict(g='ass',y=1854,pop=135,raw='Bas Rouge, 30 lodges',basis='lodges × 4.5 (stated)',loc='inferred',at=(48.2,-105.2),r=100,src=DENIG,kind='primary',part=True),
- dict(g='asn',y=1854,pop=1240,raw='Northern Assiniboine, “250 or 300 lodges,” from the W. banks of the Saskatchewan, Assiniboine & Red rivers west to the Woody Mountains',basis='lodges × 4.5',loc='stated',at=(50.5,-105.5),r=250,src=DENIG,kind='primary'),
+ dict(g=['ass','asn'],y=1760,pop=9000,raw='At separation from the Sioux (traditional date c. 1760) “at least 1,500 lodges, averaging six souls to a lodge”; then about the head of the Minnesota & Des Moines, Devils Lake, Lac qui Parle',basis='lodges × 6 (stated)',loc='stated',at=(46.5,-97.5),r=250,src=DENIG46('p. 396')+'; Hodge’s editor notes the date is far too late',kind='secondary'),
+ dict(g='ass',y=1837,pop=6600,raw='“Still numbered 1,000 to 1,200 lodges, trading on the Missouri until the year 1838”',basis='lodges × 6',loc='stated',at=(48.4,-104.5),r=200,src=DENIG46('p. 397'),kind='primary'),
+ dict(g='ass',y=1839,pop=2400,raw='Smallpox of 1838 “reduced their numbers to less than 400 lodges”',basis='lodges × 6',loc='stated',at=(48.4,-104.5),r=200,src=DENIG46('p. 397'),kind='primary'),
+ dict(g='ass',y=1854,pop=450,raw='Gens du Gauche, 100 lodges',basis='lodges × 4.5 (stated)',loc='inferred',at=(48.3,-104.6),r=100,src=DENIG46('pp. 430–31'),kind='primary',part=True),
+ dict(g='ass',y=1854,pop=270,raw='Gens du Nord, 60 lodges',basis='lodges × 4.5 (stated)',loc='inferred',at=(48.9,-105.6),r=100,src=DENIG46('pp. 430–31'),kind='primary',part=True),
+ dict(g='ass',y=1854,pop=990,raw='Gens des Canots, 220 lodges',basis='lodges × 4.5 (stated)',loc='inferred',at=(48.5,-103.3),r=100,src=DENIG46('pp. 430–31'),kind='primary',part=True),
+ dict(g='ass',y=1854,pop=135,raw='Gens des Canots, 30 more lodges trading near the mouth of the Pembina',basis='lodges × 4.5 (stated)',loc='stated',at=P['pembina'],r=40,src=DENIG46('p. 430'),kind='primary',part=True),
+ dict(g='ass',y=1854,pop=270,raw='Gens des Filles, 60 lodges',basis='lodges × 4.5 (stated)',loc='inferred',at=(48.7,-106.7),r=100,src=DENIG46('pp. 430–31'),kind='primary',part=True),
+ dict(g='ass',y=1854,pop=225,raw='Gens des Roches, 50 lodges',basis='lodges × 4.5 (stated)',loc='inferred',at=(48.5,-107.6),r=100,src=DENIG46('pp. 430–31'),kind='primary',part=True),
+ dict(g='ass',y=1854,pop=135,raw='Bas Rouge, 30 lodges',basis='lodges × 4.5 (stated)',loc='inferred',at=(48.2,-105.2),r=100,src=DENIG46('p. 431'),kind='primary',part=True),
+ dict(g='asn',y=1854,pop=1240,raw='Northern Assiniboine, “250 or 300 lodges,” from the W. banks of the Saskatchewan, Assiniboine & Red rivers west to the Woody Mountains',basis='lodges × 4.5',loc='stated',at=(50.5,-105.5),r=250,src=DENIG46('p. 396'),kind='primary'),
  dict(g=['ass','asn'],y=1890,pop=3008,raw='“In 1890 they numbered 3,008”',basis='souls',loc='inferred',at=(49.0,-105.5),r=300,src=HODGE+', “Assiniboin”',kind='primary'),
  dict(g=['ass','asn'],y=1904,pop=2600,raw='“in 1904, 2,600” (US: 699 at Ft Belknap, 535 at Ft Peck)',basis='souls',loc='inferred',at=(49.0,-105.5),r=300,src=HODGE+', “Assiniboin”',kind='primary'),
  # ---- Cree, 1856 (Denig via Hayden): lodges × 4 (stated) ----
@@ -378,21 +380,21 @@ GUESS = {
         g(1762,(29.6,-99.9),2800,'Missions on the upper Nueces'),g(1780,(29.4,-100.6),2500,''),g(1830,(28.9,-100.1),1500,''),g(1850,(29.0,-101.0),800,''),
         g(1880,(29.2,-102.4),200,''),g(1903.5,(28.8,-101.2),40,'Band in Coahuila (centre ours)'),g(1905,(33.15,-105.7),30,'With the Mescalero')],
  # ---------------- Comanche, Shoshone ----------------
- 'cyj':[g(1700,(39.6,-103.8),1500,''),g(1740,(38.5,-104.2),2000,''),g(1780,(37.9,-103.4),3000,''),g(1782,None,1800,''),
-        g(1786.15,None,1800,'Anza’s peace, signed at Pecos 1786 by a delegation (not a place for the division)'),g(1795,(37.6,-101.0),1600,'Merging with the Yamparika')],
- 'cyy':[g(1700,(40.6,-106.6),2000,'Yampa & North Park'),g(1730,(39.3,-104.8),3000,''),g(1760,(38.3,-102.0),4000,''),g(1780,(37.8,-101.5),6000,''),
-        g(1782,None,4000,'1780–81 smallpox'),g(1800,(37.5,-100.8),5000,''),g(1840,(36.6,-100.1),None,''),g(1849.5,None,None,'1849 cholera'),g(1860,(36.4,-99.6),2000,''),g(1867.8,P['medicine_lodge'],1800,''),
+ 'cyj':[g(1700,(39.6,-103.8),1500,''),g(1740,(38.5,-104.2),2000,''),g(1780,(38.6,-104.6),2400,'North of the Arkansas along the Front Range (Anza 1786, in Kavanagh pp. 123–25)'),
+        g(1786.15,None,None,'Anza’s peace, signed at Pecos 1786 by a delegation (not a place for the division)'),g(1795,(38.4,-103.6),1600,'Merging with the Yamparika: the Jupe and Yamparika leadership reverses by 1794; the name lingers to the 1820s (Kavanagh, pp. 190, 482–83)')],
+ 'cyy':[g(1700,(40.6,-106.6),2000,'Yampa & North Park'),g(1730,(39.3,-104.8),3000,''),g(1760,(38.3,-102.0),4000,''),g(1780,(38.7,-103.6),3500,'North of the Arkansas (Kavanagh, pp. 123–25, 482)'),
+        g(1796,None,7100,'With the Jupe, merged after 1794 (Kavanagh, pp. 190, 482–83)'),g(1800,(38.3,-102.6),7300,'Mostly north of the Arkansas until about 1805 (Kavanagh, p. 190); includes the former Jupe'),g(1825,(37.4,-101.2),None,'South of the Arkansas by the end of the 1820s (Kavanagh, pp. 482–83)'),g(1840,(36.6,-100.1),None,''),g(1849.5,None,None,'1849 cholera'),g(1860,(36.4,-99.6),2000,''),g(1867.8,P['medicine_lodge'],1800,''),
         g(1869,None,1200,'Agency count covers only part of the division'),g(1875.4,(34.7,-98.5),400,''),g(1905,(34.7,-98.55),350,'')],
- 'cyk':[g(1700,(38.7,-104.8),1500,''),g(1730,(37.5,-103.0),2500,''),g(1750,(36.0,-102.4),4000,''),g(1780,(35.3,-101.8),6000,''),g(1782,None,4000,''),
-        g(1800,(35.2,-101.0),4500,''),g(1840,(35.4,-100.5),None,''),g(1849.5,None,None,''),
+ 'cyk':[g(1700,(38.7,-104.8),1500,''),g(1730,(37.5,-103.0),2500,''),g(1750,(36.0,-102.4),4000,''),g(1780,(35.4,-103.0),6000,'Between the Canadian and the Pecos (Ortiz 1786, in Kavanagh pp. 113–14)'),
+        g(1800,(35.3,-102.6),4500,'Quegüe’s Kotsoteka on the Canadian, 1808–10 (Kavanagh, pp. 154–55)'),g(1840,(35.3,-101.5),5000,'Bald Head’s “Buffalo eaters” near Bent’s Canadian post, 1845 (Kavanagh, p. 311); includes the Llano Estacado bands later drawn into the Kwahadi'),g(1855,None,3000,'Before the Kwahadi faction formed (Hämäläinen, pp. 311, 315)'),g(1849.5,None,None,''),
         g(1860,(35.3,-100.5),1500,''),g(1869.5,(34.7,-98.45),600,''),g(1905,(34.75,-98.4),300,'')],
  'cyp':[g(1745,(35.4,-101.4),1500,'Eastern Comanche separating'),g(1758.2,None,3000,'Destruction of the San Sabá mission, 1758, by a war party (not a place for the division)'),g(1760,(33.0,-99.0),3000,''),
-        g(1780,(32.0,-99.5),8000,'Eastern Comanche at their height (Hämäläinen’s high reckoning)'),g(1782,None,4000,'Eastern Comanche reported losing two-thirds to smallpox'),
+        g(1780,(33.3,-99.6),8000,'Eastern Comanche at their height (Hämäläinen’s high reckoning); their rancherías “commonly stay above” the Red and pass to the head of the Brazos (Cabello 1786, in Kavanagh p. 108)'),g(1782,None,4000,'Eastern Comanche reported losing two-thirds to smallpox'),
         g(1785.6,None,4200,'Peace with Spanish Texas, 1785, made by a delegation at San Antonio (not a place for the division)'),g(1800,(31.5,-99.0),5000,''),g(1838,P['edwards'],None,''),g(1840.2,None,None,'Council House Fight, San Antonio: a delegation (not a place for the division)'),g(1840.6,None,None,'Great Raid to Linnville, Aug. 1840: a war party (not a place for the division)'),
         g(1841,(31.5,-99.0),None,''),g(1849.5,None,None,'1849 cholera'),g(1855,(33.0,-99.0),500,'Clear Fork (Brazos) reserve'),
         g(1859.6,P['anadarko'],400,'Removed to the Wichita agency'),g(1869,(34.68,-98.45),350,''),g(1905,(34.68,-98.45),250,'')],
  'cyn':[g(1830,(34.5,-99.8),2000,''),g(1847,None,1500,'1847 report called exaggerated'),g(1860,(34.3,-100.2),1000,''),g(1869,P['ft_sill'],None,''),g(1905,(34.62,-98.5),300,'')],
- 'cyq':[g(1835,(34.4,-101.8),1500,'Llano Estacado'),g(1860,(34.3,-101.6),1500,''),g(1874.75,P['palo_duro'],1000,'Palo Duro Canyon, Sept. 1874'),
+ 'cyq':[g(1858,(34.4,-101.6),1300,'A faction drawing followers across divisional lines from the late 1850s (Hämäläinen, pp. 311, 315); the name first in 1862 (Kavanagh, p. 372)'),g(1860,(34.3,-101.6),1400,''),g(1874.75,P['palo_duro'],1000,'Palo Duro Canyon, Sept. 1874'),
         g(1875.4,P['ft_sill'],400,'Surrender at Fort Sill, June 1875'),g(1905,(34.62,-98.35),300,'')],
  'sho':[g(1700,(49.6,-111.0),6000,'Northwestern Plains; placement uncertain'),g(1730,(48.6,-110.4),7000,''),g(1780,(47.2,-110.5),6000,''),
         g(1782,None,3000,'1781 smallpox; Blackfoot guns push them south'),g(1800,(44.8,-110.0),3000,''),g(1830,(42.6,-109.5),2500,'Wind River & Green River'),
@@ -742,12 +744,12 @@ LAKOTA=['bru','ogl','min','hnk','sih','sna','twk']
 COM=['cyj','cyy','cyk','cyp','cyn','cyq']
 EPI = [
  (1780.6,1782.0,'Smallpox, 1780–82',
-   {**{g:.55 for g in ['ass','asn','cre','crw','sik','kai','pik','gv','sho']},
+   {**{g:.55 for g in ['cre','crw','sik','kai','pik','gv','sho']},'ass':.4,'asn':.4,
     **{g:.68 for g in ['man','hid','ari']}, 'cwm':.43,'cwr':.43,
-    **{g:.2 for g in LAKOTA+['ynk','yku','ykl','chy','ara','kio','kap']}, 'cyp':.6, **{g:.3 for g in ['cyj','cyy','cyk']},
+    **{g:.2 for g in LAKOTA+['ynk','yku','ykl','chy','ara','kio','kap']}, 'cyp':.6, **{g:.05 for g in ['cyj','cyy','cyk']},
     **{g:.3 for g in ['pwc','pwk','pws','wic','jic']}, 'lip':.15, **{g:.15 for g in ['sis','wpt']},
     **{g:.2 for g in ['oma','pon','oto','mis','kaw','osg','osl','iow']}, **{g:.1 for g in ['mde','wpk']}},
-   'Fenn, Pox Americana (2001), ch. 6 and epilogue, read in full. North: the traders put losses at 50–98%; Oman, counting the tents left, “about three fifths had perished”; Umfreville, “at least one half” of the plains Indians. Missouri villages: Lehmer’s overall 68% for the Mandan, Hidatsa and Arikara. Crow: Larocque’s 2,000 lodges before the smallpox against 2,400 people in 1805 (after 1801–02 as well); Fenn’s minimum is 21.5%. Sioux: Fenn’s minimum assumes a third infected at the 43% case-fatality rate (about 14%), lower than among the villages because nomads were less exposed and some were immune from 1734–35. Eastern Comanche: Vial and Chaves (1785) report two-thirds dead, which Fenn thinks may be too high. Lipan: “more than four hundred” dead (Cabello, Dec. 1780)','sourced for the north (55%), the Missouri villages (68%), the Lipan (15%, of about 2,900) and the eastern Comanche (60%); Crow at 43% (above Fenn’s minimum, as Larocque implies); the Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache at 20%, just above Fenn’s minimum for the Sioux; the western Comanche at 30% (still 16,000–18,000 in the mid-1780s, Hämäläinen p. 102); the rest assumed'),
+   'Fenn, Pox Americana (2001), ch. 6 and epilogue, read in full. North: the traders put losses at 50–98%; Oman, counting the tents left, “about three fifths had perished”; Umfreville, “at least one half” of the plains Indians. Missouri villages: Lehmer’s overall 68% for the Mandan, Hidatsa and Arikara. Crow: Larocque’s 2,000 lodges before the smallpox against 2,400 people in 1805 (after 1801–02 as well); Fenn’s minimum is 21.5%. Sioux: Fenn’s minimum assumes a third infected at the 43% case-fatality rate (about 14%), lower than among the villages because nomads were less exposed and some were immune from 1734–35. Eastern Comanche: Vial and Chaves (1785) report two-thirds dead, which Fenn thinks may be too high. Lipan: “more than four hundred” dead (Cabello, Dec. 1780)','sourced for the north (55%), the Missouri villages (68%), the Lipan (15%, of about 2,900) and the eastern Comanche (60%); Crow at 43% (above Fenn’s minimum, as Larocque implies); the Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache at 20%, just above Fenn’s minimum for the Sioux; the western Comanche at 5%: the epidemic “failed to spread among the nearby western Comanches, who had shunned the province after Anza’s shock victory over Cuerno Verde” (Hämäläinen, p. 111), and they were still 16,000–18,000 in the mid-1780s (p. 102); the Assiniboine at 40%: “between one-third and one-half” (Handbook 13, p. 574), Denig’s tradition about 300 of some 1,500 lodges (BAE 46, p. 399); the rest assumed'),
  (1801.3,1802.3,'Smallpox, 1801–02',
    {'oma':.6,'pon':.6,**{g:.45 for g in ['oto','mis','pwc','pwk','pws','ari','wic']},'kaw':.3,
     **{g:.25 for g in LAKOTA+['ynk','yku','ykl','man','hid']}, **{g:.2 for g in ['cyy','cyk','cyp','kio','kap','lip','osg','osl','osa','chy','ara','cwm','cwr']}},
@@ -757,14 +759,14 @@ EPI = [
    'Chihuahua via Jameson (about 4,000 Comanche dead; Thornton: of about 10,000); Mooney (the Kiowa suffered “in proportion”)','sourced for the Comanche; scaled for the Kiowa'),
  (1837.45,1838.0,'Smallpox, 1837–38 (Missouri)',
    {'man':.93,'hid':.5,'ari':.5,'ass':.6,'asn':.25,'sik':.67,'kai':.67,'pik':.67,'gv':.05,'cwm':.33,'cwr':.33,'pwc':.25,'pwk':.25,'pws':.25,
-    **{g:.1 for g in LAKOTA+['ynk','yku','ykl','cre','crw','crs','ojb']},'hnk':.2},
-   'Chardon & Pilcher (Mandan 7/8 or more); Denig (Assiniboine 1,000→400 lodges; HBC-vaccinated bands spared); Bradley (Blackfoot ≥6,000, two-thirds); Calloway (Arikara ½, Crow ⅓, Pawnee ¼); Fowler and Flannery, “Gros Ventre”, Handbook 13 (2001), p. 678 (the Gros Ventre “escaped the smallpox epidemic of 1837 with only 200 deaths”); DeMallie, “Sioux Until 1850”, Handbook 13 (2001), p. 734, after Denig (“a heavy toll on the population of the Hunkpapa and other Sioux along the Missouri”)','sourced, except the lighter Lakota, Cree and Gros Ventre figures (assumed)'),
+    **{g:.02 for g in LAKOTA},'hnk':.05,'sih':.05,**{g:.1 for g in ['ynk','cre','crw','crs','ojb']},'yku':.15,'ykl':.15},
+   'Chardon & Pilcher (Mandan 7/8 or more); Denig (Assiniboine 1,000→400 lodges; HBC-vaccinated bands spared); Bradley (Blackfoot ≥6,000, two-thirds); Calloway (Arikara ½, Crow ⅓, Pawnee ¼); Fowler and Flannery, “Gros Ventre”, Handbook 13 (2001), p. 678 (the Gros Ventre “escaped the smallpox epidemic of 1837 with only 200 deaths”); DeMallie, “Sioux Until 1850”, Handbook 13 (2001), p. 734, after Denig (“a heavy toll on the population of the Hunkpapa and other Sioux along the Missouri”); Bray, “Teton Sioux Population History, 1655–1881”, Nebraska History 75 (1994), p. 178: the Tetons, vaccinated in 1832, “went relatively unscathed”, losses “restricted to the two northernmost divisions (Sihasapa and Hunkpapa) and even there probably numbered in scores rather than hundreds”; “four hundred Yanktonais are said to have died” (n. 42)','sourced, except the Cree and Gros Ventre figures (assumed); the Teton rates follow Bray against Denig'),
  (1839.8,1840.4,'Smallpox, 1839–40 (southern plains)',
    {'kio':.25,'kap':.25,**{g:.2 for g in COM},'chs':.15,'ars':.15,'wic':.15,'osg':.1,'osl':.1},
    'Mooney (Kiowa calendar, winter 1839–40; “destroying probably a third”)','assumed below Mooney’s plains-wide third'),
  (1849.4,1849.8,'Cholera, 1849',
-   {'kio':.2,'kap':.2,'chs':.45,'chn':.15,'ars':.3,**{g:.05 for g in COM},'pwc':.25,'pwk':.25,'pws':.25,'ogl':.08,'bru':.08,'wic':.15,'osg':.1,'osl':.1,'kaw':.1,'iow':.1},
-   'Levy, “Kiowa”, Handbook 13 (2001), p. 921 (after Mooney’s “hundreds died”, and a Kiowa total never much above 1,200–1,350: “if as many as 200 or 300 died, the losses would have been between 13 and 20 percent”; the Kiowa tradition of losing half is set aside); Grinnell, The Cheyenne Indians (“perhaps half of the whole tribe died”); other tribes on the overland trails assumed; Swagerty, “History of the United States Plains Until 1850”, Handbook 13 (2001), p. 258 (“one-fourth of the remaining Pawnee”, after Powers and Leiker); West, The Contested Plains: Indians, Goldseekers, and the Rush to Colorado (1998), ch. 4 (the Southern Cheyenne “devastated”, the Flexed Leg band absorbed by others; soldiers on the Platte report “terrible losses” among the Northern Cheyenne and Lakota; the Pawnee agent reports 1,200 dead, “nearly one-fourth of the tribe”) and ch. 8 (cholera killed more than half of the Flexed Leg band, the Dog Soldiers losing only a few)','sourced for the Kiowa and Cheyenne (the north/south split is ours); assumed elsewhere'),
+   {'kio':.2,'kap':.2,'chs':.45,'chn':.15,'ars':.3,**{g:.05 for g in COM},'pwc':.25,'pwk':.25,'pws':.25,'ogl':.08,'bru':.15,'wic':.15,'osg':.1,'osl':.1,'kaw':.1,'iow':.1},
+   'Levy, “Kiowa”, Handbook 13 (2001), p. 921 (after Mooney’s “hundreds died”, and a Kiowa total never much above 1,200–1,350: “if as many as 200 or 300 died, the losses would have been between 13 and 20 percent”; the Kiowa tradition of losing half is set aside); Grinnell, The Cheyenne Indians (“perhaps half of the whole tribe died”); other tribes on the overland trails assumed; Swagerty, “History of the United States Plains Until 1850”, Handbook 13 (2001), p. 258 (“one-fourth of the remaining Pawnee”, after Powers and Leiker); West, The Contested Plains: Indians, Goldseekers, and the Rush to Colorado (1998), ch. 4 (the Southern Cheyenne “devastated”, the Flexed Leg band absorbed by others; soldiers on the Platte report “terrible losses” among the Northern Cheyenne and Lakota; the Pawnee agent reports 1,200 dead, “nearly one-fourth of the tribe”) and ch. 8 (cholera killed more than half of the Flexed Leg band, the Dog Soldiers losing only a few); Bray, “Teton Sioux Population History” (1994), pp. 179–80: in the cholera of 1849 and smallpox of 1850 “about 500 Brulés died … about 15 percent of the population … by far the single most severe blow to Teton numbers during the nineteenth century”; the other divisions “lost fewer”','sourced for the Kiowa, the Cheyenne (the north/south split is ours) and the Brulé (with the smallpox of 1850); assumed elsewhere'),
  (1861.9,1862.4,'Smallpox, 1861–62',
    {'kio':.15,'kap':.15,**{g:.4 for g in COM},'ari':.15,'man':.1,'hid':.1},
    'Mooney (Kiowa calendar; the Arikara abandoned their village because of it); for the Comanche, Hämäläinen, The Comanche Empire (2008), pp. 302, 313: smallpox “struck again” in 1862, “the seventeenth year of famine”, and with war on the New Mexico border “as many as four thousand Comanches may have perished during the early 1860s, leaving a total population of only five thousand in 1865”','assumed, except the Comanche (40%: Hämäläinen’s “as many as” four thousand of about nine thousand, smallpox, famine and war together)'),
@@ -949,7 +951,7 @@ OBS += [
  sw('chy',1832.5,3000,'“The Shiennes are a small tribe of about 3000 in numbers… between the Black Hills and the Rocky Mountains”',(44.0,-104.5),250,src=CATLIN+', Letter 32, p. 2'),
  sw('kaw',1832.5,1560,'“The Konzas, of 1560 souls… on the Konzas River, fifty miles above its union with the Missouri”',(39.1,-95.75),30,src=CATLIN+', Letter 34, p. 22'),
  sw(['osg','osl','osa'],1834.4,5200,'“The Osage… a tribe of about 5200 in numbers… in three villages”',(37.3,-95.3),80,src=CATLIN+', Letter 38, p. 40'),
- pl(['cyk','cyp'],1834.55,'The dragoons camp by “the great Camanchee village… of six or eight hundred skin-covered lodges”, July 1834',(34.75,-98.75),40,CATLIN+', Letter 42, p. 63'),
+ pl(['cyk','cyp','cyn'],1834.55,'The dragoons camp by “the great Camanchee village… of six or eight hundred skin-covered lodges”, July 1834 (rancherías of several divisions; Tabequana, its chief, was Tenewa: Hämäläinen, pp. 259, 288)',(34.75,-98.75),40,CATLIN+', Letter 42, p. 63'),
 ]
 
 # =============================================================================================
@@ -1032,13 +1034,13 @@ OBS += [
  *pls(['cyy','cyk','kap'],1853.55,'Treaty council at Fort Atkinson on the Arkansas with the Comanche, Kiowa and Apache, July 1853',(37.753,-100.083),20,WP('Fort Atkinson (Kansas)')+' (treaty of 27 July 1853 with the Apache, Comanche and Kiowa)'),
  *pls(['cyy','cyk','kap'],1854.55,'Whitfield: the Indians “encamped on Pawnee Fork, at the crossing of the Santa Fe Road… twelve to fifteen hundred lodges… The entire Kiowa and Prairie Comanche were there… the Prairie Apache”',(38.18,-99.2),20,GRF+', p. 98 (quoting Agent Whitfield)'),
  *pls(['ars','kap','cyp','cyy','cyn'],1867.8,'Medicine Lodge treaty council, Oct. 1867: Arapaho, Apache and Comanche (Ten Bears’ Yamparika, Silver Brooch’s Penateka, Horse Back’s Nokoni) camped on Medicine Lodge Creek',P['medicine_lodge'],15,WP('Medicine Lodge Treaty')+' (Comanche divisions recalled)'),
- pl('cyq',1858.36,'Little Robe Creek: Iron Jacket’s Comanche camp on the South Canadian, 12 May 1858',(35.973,-99.908),10,WP('Battle of Little Robe Creek')+'; '+WP('Iron Jacket')),
- *pls(['cyp','wic'],1858.75,'Van Dorn attacks Buffalo Hump’s Comanche camp at the Wichita village near Rush Springs, 1 Oct. 1858',(34.78,-97.96),10,'Van Dorn’s Wichita Village fight, 1 Oct. 1858'+RECS),
+ pl('cyk',1858.36,'Little Robe Creek: Iron Jacket’s Comanche camp on the South Canadian, 12 May 1858; “a Kotsoteka camp of seventy lodges” (Hämäläinen, p. 310; Kavanagh, p. 365)',(35.973,-99.908),10,WP('Battle of Little Robe Creek')+'; '+WP('Iron Jacket')),
+ *pls(['cyp','cyk','wic'],1858.75,'Van Dorn attacks Buffalo Hump’s Comanche camp at the Wichita village near Rush Springs, 1 Oct. 1858',(34.78,-97.96),10,'Van Dorn’s Wichita Village fight, 1 Oct. 1858'+RECS),
  pl('cyn',1860.96,'Pease River: a Nokoni camp, 19 Dec. 1860',(34.070,-99.595),10,WP('Battle of Pease River')),
  pl('cyq',1871.78,'Blanco Canyon: Quanah’s Kwahadi and Kotsoteka camp, Oct. 1871',(33.664,-101.176),15,WP('Battle of Blanco Canyon')),
  pl('cyk',1872.74,'North Fork of the Red River: Mow-way’s Kotsoteka village near McClellan Creek, 28 Sept. 1872',(35.412,-100.672),10,WP('Battle of the North Fork of the Red River')),
  *pls(['cyq','chs'],1874.74,'Palo Duro Canyon: Comanche, Kiowa and Cheyenne winter camps, 28 Sept. 1874',(34.878,-101.606),15,WP('Battle of Palo Duro Canyon')),
- pl('cyk',1779.67,'Anza defeats Cuerno Verde (“likely of the Kotsoteka”) near the Greenhorn Mountains, 3 Sept. 1779',(37.9,-105.0),40,WP('Cuerno Verde')),
+ pl('cyj',1779.67,'Anza defeats Cuerno Verde, “probably a Jupe war chief” (Hämäläinen), near the Greenhorn Mountains, 3 Sept. 1779, after surprising his ranchería of 120 lodges; Kavanagh: the battles of 1774 and 1779 were in the area Miera’s map gives the Jupes',(37.9,-105.0),40,HM_+', pp. 103, 110; '+CPH_+', p. 93; '+WP('Cuerno Verde')),
  pl('wic',1759.8,'Parrilla’s attack on the Taovaya twin villages on the Red River, Oct. 1759',(33.952,-97.627),5,WP('Battle of the Twin Villages')),
  pl('wic',1834.55,'The Wichita (“Pawnee Pict”) village of “five or six hundred wigwams” of grass on the Red River among the granite mountains, July 1834',(34.89,-99.32),15,CATLIN+', Letter 43, pp. 68–69'),
  pl('wic',1865.0,'Wichita refugees at the mouth of the Little Arkansas, 1864–67',(37.69,-97.34),10,'Wichita refugee camp on the Little Arkansas'+RECS),
@@ -1080,8 +1082,8 @@ OBS += [
  pl('wic',1750.0,'Deer Creek and Bryson-Paddock: “18th century fortified villages of the Wichita… along the Arkansas River in Kay County”',(36.84,-97.10),15,WP('Deer Creek/Bryson Paddock Sites')),
  pl('wic',1778.0,'“In 1778, the Taovaya village at Spanish Fort had 123 houses and across the Red River a Wichita town had another 37 houses”',(33.952,-97.627),5,WP('Taovaya')),
  pl('wic',1785.6,'Vial and Chaves reach the twin Taovaya villages near Spanish Fort, 6 Aug. 1785',(33.952,-97.627),5,WP('Pedro Vial')),
- pl('cyk',1785.65,'The Taovaya take Vial to “the various bands of the Eastern Comanche (Cuchanees or Kotsoteka) on the Little Wichita River near… Wichita Falls”, Aug. 1785',(33.85,-98.55),40,WP('Pedro Vial')),
- pl('cyk',1787.1,'Vial winters “among the Comanche near Wichita Falls”, 1786–87',(33.9,-98.5),50,WP('Pedro Vial')),
+ pl('cyp',1785.65,'The Taovaya take Vial to “the various bands of the Eastern Comanche (Cuchanees or Kotsoteka) on the Little Wichita River near… Wichita Falls”, Aug. 1785',(33.85,-98.55),40,WP('Pedro Vial')),
+ pl('cyp',1787.1,'Vial winters “among the Comanche near Wichita Falls”, 1786–87 (the eastern Comanche: Kavanagh, p. 97)',(33.9,-98.5),50,WP('Pedro Vial')),
  pl('pwk',1806.75,'Pike-Pawnee (Hill) site near Guide Rock: the Kitkehahki village visited by Melgares and then Pike in 1806',(40.07,-98.33),5,WP('Pike-Pawnee Village Site')),
  pl('pwk',1790.0,'Hill site: “a village of the Kitkehahki band… in a region of the Republican River valley that they occupied intermittently from the 1770s to the 1820s”',(40.07,-98.33),20,WP('Pike-Pawnee Village Site')),
  pl('oma',1734.0,'“Around 1734 the Omaha established their first village west of the Missouri River on Bow Creek in present-day Cedar County, Nebraska”',(42.72,-97.2),15,WP('Omaha people')),
@@ -1218,7 +1220,7 @@ OBS += [
  pl('iow',1800.0,'“Their principal town was on the Des Moines River and for a long time at a spot in the northwestern part of Van Buren County”',(40.8,-92.1),15,SW),
  pl('ass',1738.83,'La Vérendrye, from Fort La Reine (Oct. 1738): “Joining a large band of Assiniboines, he pushed southwest across the prairie” to the Mandan',(49.6,-99.3),120,WP('Pierre Gaultier de Varennes, sieur de La Vérendrye')),
  pl('asn',1754.72,'Henday meets “Asinepoets” (“thought by some to be Assiniboines”) on 20 Sept. 1754, nine days after crossing into present Alberta near Chauvin',(52.6,-110.4),100,WP('Anthony Henday')),
- pl('sik',1754.79,'14–17 Oct. 1754: Henday “came to 200 tents of Archithinue Natives, pitched in two rows”; on the 17th “322 tents of Archithinue Natives unpitched and moved Westward”. Burpee places the camp southwest of the Red Deer crossing near Knee Hills Creek; others put it west of Pine Lake near Innisfail. Which people is disputed: Burpee reads Blackfoot, Ewers probably Gros Ventre; placed with the Siksika, the northernmost Blackfoot',(51.6,-113.5),60,HENDAY('pp. 337–40 (pdf 37–40)')),
+ pl(['gv','sik'],1754.79,'14–17 Oct. 1754 (Archithinue, Cocking’s general term for the Gros Ventre and the three Blackfoot tribes; “Wissler … was reasonably certain that they also were Gros Ventres”: Ewers, The Horse in Blackfoot Indian Culture (BAE Bulletin 159, 1955), pp. 17–18): Henday “came to 200 tents of Archithinue Natives, pitched in two rows”; on the 17th “322 tents of Archithinue Natives unpitched and moved Westward”. Burpee places the camp southwest of the Red Deer crossing near Knee Hills Creek; others put it west of Pine Lake near Innisfail. Which people is disputed: Burpee reads Blackfoot, Ewers probably Gros Ventre; placed with the Siksika, the northernmost Blackfoot',(51.6,-113.5),60,HENDAY('pp. 337–40 (pdf 37–40)')),
  pl('gv',1754.8,'“The earliest known contact of Gros Ventre with whites was around 1754, between the north and south forks of the Saskatchewan River”',(52.6,-106.8),120,WP('Gros Ventre')),
  pl('sho',1835.32,'27 April [1835]: at the outlet of Bear River from the Snake (Bear) Lake “we found about 300 lodges of Snake Indians”',(42.05,-111.3),40,RUSSELL+', pp. 17–18'),
  pl('sho',1836.35,'8 May [1836]: on Bear River at Thomas Fork, the trappers “encamped with 400 lodges of Snakes and Bannocks and 100 lodges of Nez Perces and Flatheads”',(42.25,-111.05),30,RUSSELL+', pp. 44–45'),
@@ -1243,7 +1245,7 @@ TSHA_C=TSHA+', “Comanche Indians”'
 COMSP='Wikipedia, “Comanche–Spanish peace treaties”'
 OBS += [
  pl('cyp',1758.2,'Mission Santa Cruz de San Sabá near present Menard attacked by “a force of some 2,000 Comanches and allied tribes”, March 1758 (a war expedition, kept off the division track)',(30.92,-99.79),10,TSHA_C,seasonal=True),
- *pls(['cyj','cyy'],1785.85,'Before 10 Dec. 1785 the western Comanche held a conference of “600 rancherias (family groups)” on the Arkansas in Colorado and chose Ecueracapa to treat with Anza (site not given; placed on the Arkansas below the Purgatoire)',(38.1,-103.4),150,COMSP),
+ *pls(['cyj','cyy','cyk'],1785.85,'Before 10 Dec. 1785 the western Comanche held a conference of “600 rancherias (family groups)” (“six hundred western Comanche households, some six thousand people”: Hämäläinen, p. 118) on the Arkansas in Colorado and chose Ecueracapa to treat with Anza (site not given; placed on the Arkansas below the Purgatoire)',(38.1,-103.4),150,COMSP),
  *pls(['cyj','cyy'],1786.16,'Pecos, 28 Feb.–3 Mar. 1786: “two hundred Comanche chiefs waited in Pecos” for the treaty and trade fair with Anza (a delegation, kept off the division track)',(35.55,-105.68),3,COMSP,seasonal=True),
  pl('cyp',1840.8,'Oct. 1840: Moore’s expedition “destroyed a Comanche encampment near the site of present Colorado City”; the Penateka then crossed the Red River',(32.39,-100.86),25,TSHA_C),
  pl('cyp',1844.5,'Treaty of Tehuacana Creek, 1844, “signed by Buffalo Hump and other chiefs” (a council, kept off the division track; month not given)',(31.6,-97.05),15,TSHA_C,seasonal=True),
@@ -1680,7 +1682,7 @@ CPH=lambda pp: f'Kavanagh, Comanche Political History: An Ethnohistorical Perspe
 OBS += [
  # ---- Comanche
  _cnt('cyk',1786.3,8400,'Spring 1786: eight Kotsoteka rancherías of 700 lodges in an area 40 leagues square; “at 12 residents each, there were 8,400 persons”',HBCO('p. 900'),(35.3,-101.0),r=250,basis='lodges × 12 (Kavanagh)'),
- pl('cyk',1788.55,'July 1788: a Comanche village of 372 lodges on the upper Red River (Loomis and Nasatir; division ours)',(34.6,-100.6),80,HBCO('p. 900')),
+ pl(['cyk','cyp'],1788.55,'July 1788: a Comanche village of 372 lodges on the upper Red River (Loomis and Nasatir; western Kotsoteka or eastern Comanche, not known)',(34.6,-100.6),80,HBCO('p. 900')),
  _cnt(COM5,1846,15600,'Butler and Lewis, final report, July 1846: Yamparika 500 lodges and 3,500 souls; Hois 400 and 2,800; Kotsoteka over 300 and 2,000; Noonah 250 and 2,750; Nokoni 250 and 1,750; Tenewa 400 and 2,800 (sum 15,600; Butler’s March letter had five bands of about 500 lodges at 5 a lodge, 12,500). Kavanagh calls the list confused and the figures unreliable; the Handbook gives 14,300',CPH('pp. 297–99'),(34.0,-100.5),r=300),
  _cnt('cyp',1859.6,384,'August 1859: 384 Penatika Comanches moved from the Brazos reserve to the Wichita Agency at Fort Cobb (the reserve Comanches only)',HBCO('p. 888'),(35.1,-98.45),r=15,whole=False),
  *pls(['cyy','cyq'],1874.4,'Spring 1874: the Yamparika, Kwahada and other Comanches convene on Elk Creek in western Oklahoma before the attack on the hunters at Adobe Walls',(35.2,-99.35),25,HBCO('p. 889')),
@@ -1954,7 +1956,7 @@ OBS += [
  _cnt('cyn',1874.2,322,'March 1874 census (Haworth): Nokoni bands 272 and Tenewa 50',CPH('p. 472, table 7.12'),P['ft_sill'],r=60,basis='census'),
  _cnt('cyk',1874.2,310,'March 1874 census (Haworth): Kotsoteka bands under Mowway, Kawertzeme, Black Duck and Prairie Fire, 310',CPH('p. 472, table 7.12'),P['ft_sill'],r=60,basis='census'),
  _cnt('cyq',1874.2,649,'March 1874 census (Haworth): Kwahada bands 649, besides those still out',CPH('p. 472, table 7.12'),P['ft_sill'],r=60,basis='census'),
- _cnt('cyp',1874.2,195,'March 1874 census (Haworth): Penateka under Seichinicah and Asatoyet, 195; the bands of Asehabit and Tosaway were at the Wichita agency and not counted',CPH('p. 473, table 7.12'),P['ft_sill'],r=60,basis='census',whole=False),
+ _cnt('cyp',1874.2,255,'March 1874 census (Haworth): Penateka under Seichinicah and Asatoyet, 195, and Kakarawa’s band, 60; the bands of Asehabit and Tosaway were at the Wichita agency and not counted',CPH('p. 473, table 7.12'),P['ft_sill'],r=60,basis='census',whole=False),
 ]
 
 # ---------------------------------------------------------------------------------------------
@@ -1984,7 +1986,7 @@ OBS += [
  pl('wic',1843.43,'5–10 June 1843: the Waco village and, four miles from it, the Tawakoni village “on a very high hill”, its hundred acres of corn, beans, melons and pumpkins “in the bottom of one of the branches of the Trinity”; Eldredge dates a letter “Tawakoni Village, Trinity River, June 11, 1843” (reached by the Santa Fe Expedition’s trail north from Comanche Peak; centre ours)',(33.05,-97.75),35,TIP1('pp. 214, 256–57')),
  pl('wic',1843.61,'11 Aug. 1843: Eldredge crosses Cache Creek “near the mountains” and camps by the Wichita or Tawehash village, most of its warriors away hunting and raiding',(34.7,-98.4),20,TIP1('p. 262')),
  pl('kit',1843.62,'Aug. 1843: “about four miles distant” from the Wichita village, “a settlement of Keechi, who becoming dissatisfied with the balance of their tribe residing on the Brazos and Trinity seceded, elected a Chief of their own and moved up here to live” (part)',(34.7,-98.35),20,TIP1('p. 263'),whole=False),
- pl('cyp',1843.6,'4–9 Aug. 1843: Pahayuko’s camp south of the Red River, a few miles from the crossing, “in the open prairie on the bank of a small creek”, covering “about half a mile”; the Penateka chief signs an armistice there on 9 Aug. (centre ours)',(34.0,-98.9),60,TIP1('pp. 229–30, 265–67')),
+ pl('cyn',1843.6,'4–9 Aug. 1843: Pahayuko’s camp south of the Red River, a few miles from the crossing, “in the open prairie on the bank of a small creek”, covering “about half a mile”; the chief, Tenewa according to Hämäläinen (pp. 259, 277) and Kavanagh (pp. 332, 484), signs an armistice there on 9 Aug. (centre ours)',(34.0,-98.9),60,TIP1('pp. 229–30, 265–67')),
 ]
 EPI += [
  (1867.6,1868.2,'Cholera, 1867–68 (Wichita)',{'wic':.15},WEST2('ch. 12')+': a Wichita village “contracted cholera from the soldiers escorting them to a reservation on the Washita River. More than 100 died”; it broke out again on the way, and so many died at one camp that it was called Skeleton Creek','event sourced; the rate ours (more than 100 of a confederacy counted at 572 in 1868)'),
@@ -2075,7 +2077,7 @@ OBS += [
   # Identification (judgment): 'Archithinue' = Blackfoot confederacy per Burpee (introd., p. 316, using Cocking's list of the five 'Equestrian' tribes); division not determinable, so coded to the three Blackfoot divisions. G
  dict(g=['sik', 'kai', 'pik'],y=1754.753,pop=None,raw='Came to us 7 tents of Archithinue Indians; the men all mounted on Horse-back, with Bows and Arrows, & bone spears & darts. I gave the Leader a foot of tobacco, one fire Steel, a string of beads, a knife; and smoked with them. (place ours) (part)',basis='',loc='stated',at=(51.95, -111.35),r=60,src=HENDAY('p. 335 (pdf 35), Henday (Burpee ed. 1907), entry of 1 Oct. 1754'),kind='primary',whole=False),
   # Assiniboine (possibly Stoney, sto — cf. records.csv R0066) camped with Henday's party at the Archithinue camp; they leave northward for the winter.
- dict(g='asn',y=1754.797,pop=None,raw='322 tents of Archithinue Natives unpitched and moved Westward; 17 tents of Asinepoet Natives moved Northwards; and we moved S.W.b.W. 9 Miles. (place ours) (part)',basis='',loc='stated',at=(51.38, -113.35),r=40,src=HENDAY('p. 340 (pdf 40), Henday (Burpee ed. 1907), entry of 17 Oct. 1754'),kind='primary',whole=False),
+ dict(g='sto',y=1754.797,pop=None,raw='322 tents of Archithinue Natives unpitched and moved Westward; 17 tents of Asinepoet Natives moved Northwards; and we moved S.W.b.W. 9 Miles. (place ours) (part; Henday’s Alberta “Assiniboine” were “doubtless Stoneys”: Handbook 13, p. 596)',basis='',loc='stated',at=(51.38, -113.35),r=40,src=HENDAY('p. 340 (pdf 40), Henday (Burpee ed. 1907), entry of 17 Oct. 1754'),kind='primary',whole=False),
   # Burpee n.: 'he was on the 21st day of November, 1754, in about lat. 51° 50’ N., long. 114° W. This was his farthest point west' (p. 342). Henday's winter companions (Cree trading Indians, with Assiniboine; 'Our Indians'/
  dict(g='crw',y=1754.891,pop=None,raw='Clear frosty weather. Travelled 6 Miles S.E. Plains & Ledges of tall Birch trees. Thaws very little to-day. (part)',basis='',loc='stated',at=(51.83, -114.0),r=15,src=HENDAY('p. 342 (pdf 42), Henday (Burpee ed. 1907), entry of 21 Nov. 1754'),kind='primary',whole=False),
   # Mid-winter position (ours) between Knee Hills Creek (crossed 23 Dec; Burpee n. p. 344) and Three Hills Creek (crossed 22 Jan; n. p. 346). Small winter tent groups follow buffalo; 2 Jan 'Three tents of Indians joined us',
@@ -2085,9 +2087,9 @@ OBS += [
   # Canoe-building camp on the Red Deer 'above Tail Creek' (Burpee n., p. 347); embarkation 28 Apr 'about the mouth of Tail Creek' (n., p. 349). Spring round: Mar–Apr canoe building on the river, ice breaks 23 Apr, embark 28
  dict(g='crw',y=1755.216,pop=None,raw='Ten tents came & pitched alongside of us in order to build Canoes. (place ours) (part)',basis='',loc='stated',at=(52.22, -113.05),r=20,src=HENDAY('p. 348 (pdf 48), Henday (Burpee ed. 1907), entry of 18 Mar. 1755'),kind='primary',whole=False),
   # Assiniboine canoe camp just below Henday's on the Red Deer near Tail Creek (Burpee). On 9–12 Apr 'Several Asinepoet Indians pitched their tents a small distance below us' and promised to go to York Fort (pp. 348–49).
- dict(g='asn',y=1755.235,pop=None,raw='All hands preparing Wood &c for building Canoes: The Asinepoet Natives are building Canoes below us. (place ours) (part)',basis='',loc='stated',at=(52.2, -113.0),r=25,src=HENDAY('p. 348 (pdf 48), Henday (Burpee ed. 1907), entry of 25 Mar. 1755'),kind='primary',whole=False),
+ dict(g='sto',y=1755.235,pop=None,raw='All hands preparing Wood &c for building Canoes: The Asinepoet Natives are building Canoes below us. (place ours) (part; Henday’s Alberta “Assiniboine” were “doubtless Stoneys”: Handbook 13, p. 596)',basis='',loc='stated',at=(52.2, -113.0),r=25,src=HENDAY('p. 348 (pdf 48), Henday (Burpee ed. 1907), entry of 25 Mar. 1755'),kind='primary',whole=False),
   # Count of canoes, not tents (not convertible without assumptions). Embarkation about the mouth of Tail Creek (Burpee n., p. 349).
- dict(g='asn',y=1755.327,pop=None,raw='Embarked on board my Canoe, & paddled down the river 34 Miles, in company with 20 Canoes of Assinipoet Natives (place ours) (part)',basis='',loc='stated',at=(52.22, -113.05),r=20,src=HENDAY('p. 349 (pdf 49), Henday (Burpee ed. 1907), entry of 28 Apr. 1755'),kind='primary',whole=False),
+ dict(g='sto',y=1755.327,pop=None,raw='Embarked on board my Canoe, & paddled down the river 34 Miles, in company with 20 Canoes of Assinipoet Natives (place ours) (part; Henday’s Alberta “Assiniboine” were “doubtless Stoneys”: Handbook 13, p. 596)',basis='',loc='stated',at=(52.22, -113.05),r=20,src=HENDAY('p. 349 (pdf 49), Henday (Burpee ed. 1907), entry of 28 Apr. 1755'),kind='primary',whole=False),
   # Identification (judgment): 'Archithinue' = Blackfoot confederacy per Burpee (introd., p. 316, using Cocking's list of the five 'Equestrian' tribes); division not determinable, so coded to the three Blackfoot divisions. G
  dict(g=['sik', 'kai', 'pik'],y=1755.366,pop=None,raw='Paddled 10 miles E.b.N. then came to one hundred tents of Archithinue Natives. Their Leader invited me to his tent, and gave me plenty of Buffalo flesh: our Indians bought a great many Wolves from them, for old axes &c. I could not persuade them to go to the Fort. (place ours) (part)',basis='',loc='stated',at=(51.55, -106.9),r=90,src=HENDAY('p. 350 (pdf 50), Henday (Burpee ed. 1907), entry of 12 May 1755'),kind='primary',whole=False),
   # Identification (judgment): 'Archithinue' = Blackfoot confederacy per Burpee (introd., p. 316, using Cocking's list of the five 'Equestrian' tribes); division not determinable, so coded to the three Blackfoot divisions. G
@@ -2279,7 +2281,7 @@ OBS += [
   # Mopechucope (Old Owl), Penateka chief, writing from his camp; 'head of Colorado' placement ours. He adds his people are 'scattered'.
  dict(g=['cyp'],y=1844.22,pop=None,raw='Near the head of Colorado March 21st 1844. (part)',basis='',loc='stated',at=(32.3, -101.0),r=80,src=TIPV2('doc. No. 9'),kind='primary',whole=False),
   # Pahayuko's band (Penateka) at the Salt Plain(s), spring 1844. Watson's version (doc. 18, pdf 17) says 'Pah-hah-yuco is at the Salt Plains Red River', and Sanchez (doc. 35, pdf 36) that he took new skins 'to the Salt Plai
- dict(g=['cyp'],y=1844.22,pop=None,raw='Pah-hah-yuco with some of his band have gone to the Salt plain on Arkansas some have gone over to the Pecos and Rio Grande (part)',basis='',loc='stated',at=(36.7, -98.2),r=120,src=TIPV2('doc. No. 9'),kind='primary',whole=False),
+ dict(g=['cyn'],y=1844.22,pop=None,raw='Pah-hah-yuco with some of his band have gone to the Salt plain on Arkansas some have gone over to the Pecos and Rio Grande (part)',basis='',loc='stated',at=(36.7, -98.2),r=120,src=TIPV2('doc. No. 9'),kind='primary',whole=False),
   # Territorial claim of the (Penateka) Comanche, 1844, not a camp. Watson's paraphrase: 'he claimed no territory East of the Brazos that their hunting grounds are west of that river'. Centre of the claimed range ours.
  dict(g=['cyp'],y=1844.22,pop=None,raw='all I want now is a line run between our countries which line I want to commence on Brazos river passing over the Comanche Peak from thare direct to the mouth of the first large creek running in the Colorado on the west-side below the mouth of the San Saba; from thence in a direct line to the Rio Grande; all above that line is Comanche Country (place ours)',basis='',loc='stated',at=(31.5, -99.8),r=250,src=TIPV2('doc. No. 9'),kind='primary'),
   # Meeting on Pecan Bayou, 17-22 Mar. 1844; the Comanche camp itself was not reached (they 'might have crossed to the Pecos, over from the head of the Colorado'). Weak placement.
@@ -2334,17 +2336,17 @@ OBS += [
   # Mopechucope on the Colorado above Austin (to remain there until the September council); Pahayuko's band on the headwaters of the Brazos, 'out of the Buffalo Range' in June. A large party of Comanche near San Antonio.
  dict(g=['cyp'],y=1845.48,pop=None,raw='Mopechucope who is now encamped on the Colorado above Austin ... Pah-hah yuco is on the head waters of the Brazos but that he will be down and join Mopechucope. in a short time, as they are in want of meat, and are out of the Buffalo Range where they are. (part)',basis='',loc='stated',at=(30.5, -98.0),r=50,src=TIPV2('doc. No. 238'),kind='primary',whole=False),
   # Pahayuko's band, June 1845, headwaters of the Brazos (placement ours).
- dict(g=['cyp'],y=1845.48,pop=None,raw='Pah-hah yuco is on the head waters of the Brazos but that he will be down and join Mopechucope. in a short time, as they are in want of meat, and are out of the Buffalo Range where they are. (place ours) (part)',basis='',loc='stated',at=(33.2, -100.8),r=150,src=TIPV2('doc. No. 238'),kind='primary',whole=False),
+ dict(g=['cyn'],y=1845.48,pop=None,raw='Pah-hah yuco is on the head waters of the Brazos but that he will be down and join Mopechucope. in a short time, as they are in want of meat, and are out of the Buffalo Range where they are. (place ours) (part)',basis='',loc='stated',at=(33.2, -100.8),r=150,src=TIPV2('doc. No. 238'),kind='primary',whole=False),
   # Tonkawa on Cibolo Creek near the old Gonzales crossing, 30 June 1845 (date as printed). The Lipan wished the Tonkawa to join them for 'a long Buffalo Hunt on the upper Brazos and Colorado' with families before the Septem
  dict(g=['tkw'],y=1845.49,pop=None,raw='On the 30th Jun I visited the Tonkawa Camp. and found Them Camped on the Cibolo near the old Gonzales crossing.',basis='',loc='stated',at=(29.45, -98.05),r=25,src=TIPV2('doc. No. 124'),kind='primary'),
   # Mopechucope's village on the San Saba, mid-July to late Aug. 1845; Buffalo Hump arrived with his band 6 Aug. ('Buffalo Hump arived to this Mopechucope vilage on the San Saba from Pah hah yuco vilage', doc. 290). Later th
  dict(g=['cyp'],y=1845.54,pop=None,raw='the fifth Day after levin Austin i found them incamped on the San Saba this was Mopechucope Band (part)',basis='',loc='stated',at=(31.0, -99.4),r=60,src=TIPV2('doc. No. 262'),kind='primary',whole=False),
   # Villages of Buffalo Hump and Pahayuko on the Clear Fork, July 1845.
- dict(g=['cyp'],y=1845.56,pop=None,raw='Buffalo Hump and Pah hah yu co vilag air on the Clear Fork of the Brazos which they will rmane thair untl wee can get thir (part)',basis='',loc='stated',at=(32.9, -99.6),r=70,src=TIPV2('doc. No. 262'),kind='primary',whole=False),
+ dict(g=['cyp','cyn'],y=1845.56,pop=None,raw='Buffalo Hump and Pah hah yu co vilag air on the Clear Fork of the Brazos which they will rmane thair untl wee can get thir (part)',basis='',loc='stated',at=(32.9, -99.6),r=70,src=TIPV2('doc. No. 262'),kind='primary',whole=False),
   # Council of 12-25 Sept. 1845: Comanche (Mopechucope's band with Saviah etc.; Pahayuko/'Powauca' absent), Lipan (Ramon Castro, Chicito, Chico + 3 warriors), Tonkawa (Campo, Placido, Jose + 5 warriors). Lipan and Tonkawa 'c
  dict(g=['cyp', 'lip', 'tkw'],y=1845.72,pop=None,raw='On the 12th Inst we met the Comanche Indians under Mo-pe-chu-co-pe, and encamped with them at the Council Ground near the Brazos River, and within four miles of this Post. In a day or two representatives from the Anadarko, Caddo, Cherokee, Delaware, Ioni, Lipan and Tonkawa, arrived (part)',basis='',loc='stated',at=(31.47, -97.05),r=10,src=TIPV2('doc. No. 300'),kind='primary',whole=False),
   # Pahayuko's band, autumn 1845, 'a long way off, up among the Mountains' (Wichita Mountains? ours, very uncertain).
- dict(g=['cyp'],y=1845.8,pop=None,raw='Mopechucope started in quest of Pah-hah yuco, and struck his trail high up the country and followed on it for several days, but was unable to overtake them ... Pah-hah yuco has gone a long way off, up among the Mountains and they do not think he will return this fall (place ours) (part)',basis='',loc='stated',at=(34.8, -99.0),r=250,src=TIPV2('doc. No. 364'),kind='primary',whole=False),
+ dict(g=['cyn'],y=1845.8,pop=None,raw='Mopechucope started in quest of Pah-hah yuco, and struck his trail high up the country and followed on it for several days, but was unable to overtake them ... Pah-hah yuco has gone a long way off, up among the Mountains and they do not think he will return this fall (place ours) (part)',basis='',loc='stated',at=(34.8, -99.0),r=250,src=TIPV2('doc. No. 364'),kind='primary',whole=False),
   # Council at Torrey's Post No. 2 (Tehuacana Creek): Acaquash (Waco), Kechikaroqua (Tawakoni), Saatzarook (Keechi), Saatzarwaritz (Wichita, 'first of all the Wichita Chiefs that has come down to make peace').
  dict(g=['wic', 'kit'],y=1845.87,pop=None,raw='by the 13th the Chiefs of Waco, Tawakoni, Keechi and Wichita, together with a number of their warriors, women and children, were upon the ground (part)',basis='',loc='stated',at=(31.47, -97.05),r=10,src=TIPV2('doc. Nos. 367-371'),kind='primary',whole=False),
   # Santa Anna's party (Penateka) with Mopechucope at Post No. 2: 12 named chiefs/captains plus nearly 40 warriors. A visiting party, not a band total.
@@ -3246,4 +3248,84 @@ OBS += [
  dict(g='oma',y=1899,pop=1157,raw='Omaha 1,157 (Omaha and Winnebago Agency, Nebraska)',basis='census',loc='inferred',at=(42.12, -96.36),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1899, population table, p. 568 (read from the page images of the 1884–99 tables, pdf 291)',kind='primary'),
  dict(g=['sis', 'wpt'],y=1899,pop=1884,raw='Sisseton and Wahpeton Sioux 1,884 (Sisseton Agency, South Dakota)',basis='census',loc='inferred',at=(45.72, -97.19),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1899, population table, p. 576 (read from the page images of the 1884–99 tables, pdf 293)',kind='primary'),
  dict(g='ynk',y=1899,pop=1701,raw='Yankton Sioux 1,701 (Yankton Agency, South Dakota)',basis='census',loc='inferred',at=(42.98, -98.42),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1899, population table, p. 576 (read from the page images of the 1884–99 tables, pdf 293)',kind='primary'),
+]
+# ---- From a full reading of Kavanagh, Comanche Political History (1996), Hamalainen, The Comanche Empire (2008),
+#      West, The Contested Plains (1998) and the Handbook 13 chapters, checked against the existing records (Oct. 2026).
+OBS += [
+ # Western Kotsoteka between the Canadian and the Pecos, 1786-1845
+ pl('cyk',1788.5,'1 July 1788, three leagues east of modern Tucumcari: Vial’s party meets “a rancheria of fifty-six lodges under Naisaras”',(35.17,-103.6),20,CPH_+', p. 139'),
+ pl('cyk',1789.6,'Aug. 1789: near Palo Duro Canyon the New Mexicans meet the ranchería of Ecueracapa, the Kotsoteka principal chief',(34.95,-101.67),40,CPH_+', p. 139'),
+ pl('cyk',1793.85,'Nov. 1793: the Kotsoteka meet “along the [Canadian]” to elect a successor to Ecueracapa',(35.4,-103.2),120,CPH_+', pp. 143, 190'),
+ pl('cyk',1810.12,'Feb. 1810: Quegüe, the Kotsoteka principal chief, “at his village near the Colorado River” (the Canadian, in New Mexican usage)',(35.3,-103.0),120,CPH_+', p. 155'),
+ pl('cyk',1828.66,'29 Aug. 1828: some “600 souls” on the Gallinas River beyond San Miguel',(35.3,-104.8),40,CPH_+', p. 204; '+HM_+', p. 210 (“some six hundred western Comanches on the Gallinas River”)'),
+ pl('cyk',1845.7,'Sept. 1845, Abert: the “Buffalo eaters” of “old Bald-Head”, “100 lodges or 200 men”, camped near Bent’s post on the Canadian (35°47′56″ N, 101°35′47″ W)',(35.80,-101.60),15,CPH_+', pp. 311–12 and n. 4'),
+ # Jupe and Yamparika north of the Arkansas, 1786
+ *pls(['cyj','cyy'],1786.45,'Anza, 1786: “the Jupes and Yamparicas extending from the Rio Napestle [Arkansas] to the north a little beyond the Sierra de Almagre. Many others … are farther along in the same direction”',(38.9,-104.4),120,CPH_+', p. 123'),
+ _cnt('cyj',1786.45,1560,'Anza, 1786: five Jupe local bands, “with a total of 223 lodges, all north of the Arkansas River” (the Jupe then outnumbered the Yamparika, whose lieutenant general was a Jupe)',CPH_+', pp. 124–25',(38.9,-104.4),r=120,basis='lodges × 7 (Butler and Lewis’s ratio; ours)'),
+ _cnt('cyy',1786.45,760,'Anza, 1786: perhaps six Yamparika local bands with a total of 108 lodges north of the Arkansas; “many others … are farther along in the same direction” (a partial count)',CPH_+', pp. 123–25',(39.2,-104.4),r=150,basis='lodges × 7 (Butler and Lewis’s ratio; ours)',whole=False),
+ # Yamparika and Tenewa
+ pl('cyy',1849.9,'Esakeep’s Yamparika at the Cerro Tucumcari, 1849: “about three hundred persons with twenty-five hundred horses” (Marcy), “one hundred lodges and fifteen hundred horses” (Simpson)',(35.17,-103.72),20,CPH_+', p. 326'),
+ pl('cyy',1866.7,'Sept. 1866: Paruasemena’s 200 lodges on the Salt Plains of the Arkansas, waiting for the fall distribution of presents',(36.75,-98.2),40,CPH_+', p. 404'),
+ pl('cyn',1849.4,'Pahayuko, the Tenewa chief, “had spent the last six months on the Salt Plains of the Arkansas” (Feb.–Aug. 1849); he “occupies a kind of middle ground being sometimes in the north and sometimes in the south”',(36.75,-98.2),50,CPH_+', pp. 325, 335'),
+ # Texas Comanche counts of 1851-52, as Kavanagh quotes them
+ _cnt('cyp',1851.5,600,'Stem, 1851: 600 for the southern bands of Ketumsee, Buffalo Hump and Yellow Wolf, “the only Comanches that remain in Texas continuously”',CPH_+', p. 332',(33.0,-99.3),r=150),
+ _cnt('cyp',1852.5,700,'Hardee, 1852, from bundles of sticks brought by the chiefs: “the lower [bands] represented by Buffalo Hump, Yellow Wolf, and Ketumsee, number 700 souls or 140 warriors”',CPH_+', p. 332',(33.0,-99.3),r=150),
+ _cnt(['cyn','cyp'],1852.5,1500,'Hardee, 1852: “the upper [bands] represented by Pahayuko and Ichonako [Sanaco], number 1500 souls or 300 warriors” (hearsay, he admitted; Pahayuko Tenewa, Sanaco Penateka)',CPH_+', p. 332',(33.6,-99.5),r=200,whole=False),
+ # Bogy and Irwin's band list, Fort Zarah, Nov.-Dec. 1866
+ _cnt('cyy',1866.9,1800,'Bogy and Irwin, Fort Zarah, 1866: “3 bands of Yamparikas (600 each) 1800”; the tribe “at present embraces seven bands, there were formerly nine but two have merged with others”',CPH_+', p. 404',(36.5,-99.5),r=200),
+ _cnt('cyk',1866.9,700,'Bogy and Irwin, 1866: “1 band of Cochetakers 700”',CPH_+', p. 404',(35.0,-101.5),r=200),
+ _cnt('cyn',1866.9,600,'Bogy and Irwin, 1866: “1 band of Noconees 600”',CPH_+', p. 404',(34.5,-99.5),r=200),
+ _cnt('cyp',1866.9,600,'Bogy and Irwin, 1866: “1 band of Penatekas 600”',CPH_+', p. 404',(34.5,-97.5),r=150),
+ _cnt('cyq',1866.9,1000,'Bogy and Irwin, 1866: “1 band of Quaradachokos 1000”',CPH_+', p. 404',(34.3,-101.5),r=200),
+ # Kiowa and Plains Apache on the upper Arkansas, 1810-21
+ pl('kio',1810.85,'Nov. 1810: ciboleros from Taos hear “from a combined Comanche-Kiowa rancheria on the Huerfano River”',(37.9,-104.6),60,CPH_+', p. 171'),
+ *pls(['kio','kap','ara'],1821.9,'Winter 1821–22, Glenn and Fowler near modern Pueblo trading with “about seven hundred lodges of Indians, including Kiowas”; Fowler names Comanches, Kiowas, Arapahoes, Snakes, Apaches and Cheyennes',(38.27,-104.6),60,CPH_+', p. 211; West, The Contested Plains (1998), c. p. 83; '+HM_+', p. 162'),
+ # Cheyenne, Arapaho and Lakota events of 1855-69 (camps of part of a division; kept off the tracks)
+ pl('chs',1864.91,'Sand Creek, 29 Nov. 1864: Black Kettle’s camp, “more than 120 lodges” in a sharp bend of the creek, with several lodges of Left Hand’s Arapaho; the dead “around 150” (Handbook 13: 137 Cheyenne)',(38.54,-102.51),5,'West, The Contested Plains (1998), pp. 303–5; Moore, Liberty and Straus, “Cheyenne”, Handbook of North American Indians 13 (2001), p. 796',whole=False),
+ pl('ars',1864.79,'“About 650 Arapahoes under Little Raven and Left Hand arrived at Fort Lyon in mid-October” 1864; “most drifted down the Arkansas”',(38.06,-102.95),15,'West, The Contested Plains (1998), pp. 297–98',whole=False),
+ pl('bru',1855.67,'Ash Hollow, 3 Sept. 1855: Harney attacks Little Thunder’s Brulé village “camped near the trail”; 86 killed and 70 women and children taken',(41.31,-102.15),5,'DeMallie, “Teton”, Handbook of North American Indians 13 (2001), p. 795',whole=False),
+ pl('chs',1869.53,'Summit Springs, 11 July 1869: Tall Bull’s Dog Soldiers and Lakotas “at some springs at the base of White Butte” near the South Platte; eighty-four lodges',(40.47,-103.33),5,'West, The Contested Plains (1998), pp. 313–16',whole=False),
+]
+
+# ---- Bray, "Teton Sioux Population History, 1655-1881", Nebraska History 75 (1994), read in full. His Table 3 (pp. 174-75)
+#      reconstructs each division from the contemporary estimates with a persons-per-lodge ratio falling from ten in 1805 to six
+#      by 1870 (p. 166). Entered as a secondary reconstruction. 1805: only his total, because the division split keeps Clark's
+#      proportions (p. 173). 1855 is left out: it rests on Warren, whose counts are already in the record. Before 1849 his
+#      Miniconjou include the incipient Two Kettle.
+BRAY=lambda pp: f'Bray, “Teton Sioux Population History, 1655–1881”, Nebraska History 75 (1994), {pp}'
+BRAYT={1825:dict(bru=3000,ogl=1500,mintwk=2200,sna=900,sih=900,hnk=1500),
+       1839:dict(bru=3450,ogl=2250,mintwk=2080,sna=880,sih=890,hnk=1770),
+       1849:dict(bru=3500,ogl=2800,min=1890,twk=420,sna=1015,sih=980,hnk=2240),
+       1865:dict(bru=3300,ogl=3430,min=1720,twk=1050,sna=1220,sih=1040,hnk=2100),
+       1870:dict(bru=4050,ogl=3600,min=1620,twk=990,sna=1170,sih=1050,hnk=1890),
+       1881:dict(bru=5700,ogl=4800,min=1290,twk=740,sna=870,sih=1090,hnk=1620)}
+_BRAYBASIS={1825:'Atkinson',1839:'Nicollet and Riggs',1849:'Culbertson',1865:'Collins',1870:'the Indian Office reports',1881:'the agency counts, the Lower Brulé taken at 1,200 against an anomalous 1,509, the Upper Brulé at 4,500 from the 1890 Rosebud count, the Oglala at 4,800 from the military census of 4,873, and the Hunkpapa with Sitting Bull’s 187 and about 210 still in Canada'}
+_BRAYAT={'bru':(43.6,-100.5),'ogl':(43.0,-102.5),'min':(44.8,-101.5),'twk':(44.4,-100.5),'sna':(45.0,-101.5),'sih':(45.5,-101.0),'hnk':(45.8,-101.0)}
+OBS += [_cnt(['ogl','bru','min','twk','sna','sih','hnk'],1805.3,8500,'Bray’s reconstructed Teton total for 1805, 8,500 including the Sihasapa: Pike’s lodge and warrior figures corrected, Clark’s 2,910 “a gross underestimate”',BRAY('p. 173 and table 3, p. 174'),(44.5,-100.8),r=250,kind='secondary')]
+for _y,_d in BRAYT.items():
+    for _k,_v in _d.items():
+        _g=['min','twk'] if _k=='mintwk' else [_k]
+        OBS.append(_cnt(_g if len(_g)>1 else _g[0],_y+0.5 if _y<1881 else 1881.3,_v,f'Bray’s reconstruction for {_y}: {_v:,}'+(' (Miniconjou with the incipient Two Kettle)' if _k=='mintwk' else '')+f', from {_BRAYBASIS[_y]}',BRAY('table 3, pp. 174–75'),_BRAYAT[_g[0]],r=200,kind='secondary'))
+# ---- Canada, Department of Indian Affairs, Annual Reports for the years ended 30 June 1890 and 1893 (Sessional Papers), read
+#      in full: the tables of the number and whereabouts of the Indians of the North-West Territories (total in band, including
+#      absentees). The Woods Cree, Chipewyan and Iroquois bands are left out, as are the Treaty 4 Saulteaux (not part of the
+#      Pembina-Turtle Mountain division) and the Canadian Dakota.
+DIA=lambda yr,pp: f'Canada, Department of Indian Affairs, Annual Report for the year ended 30 June {yr} (Sessional Papers), {pp}'
+_W90='“Number of Indians in the North-West Territories and their Whereabouts in 1890”'
+_W93='“Number and Whereabouts of Indians in the North-west Territories, 1893”, signed A. E. Forget'
+OBS += [
+ _cnt('sik',1890.4,1752,f'{_W90}: Blackfeet, Three Bulls 1,033 and Old Sun 719, on the Bow River',DIA(1890,'whereabouts table, Treaty 7'),(50.85,-112.95),r=40,basis='census'),
+ _cnt('kai',1890.4,1713,f'{_W90}: Blood, Red Crow, Belly River, 1,713 (1,703 on the reserve)',DIA(1890,'whereabouts table, Treaty 7'),(49.4,-113.2),r=40,basis='census'),
+ _cnt('pik',1890.45,2746,'1890: the Montana Piegan at the census of 1 June 1890, 1,811, and the Canadian Piegan of North Axe on the Old Man’s River, 935 ('+_W90+')',DIA(1890,'whereabouts table, Treaty 7')+'; Report on Indians Taxed and Indians Not Taxed (1894)',(49.0,-113.0),r=120,basis='census'),
+ _cnt('sar',1890.4,311,f'{_W90}: Sarcee, Bull’s Head, Calgary, 311 (280 on the reserve)',DIA(1890,'whereabouts table, Treaty 7'),(50.95,-114.25),r=30,basis='census'),
+ _cnt('sto',1890.4,574,f'{_W90}: Stonys at Morleyville, Bear’s Paw 228, Chiniquay 118, Jacob 228',DIA(1890,'whereabouts table, Treaty 7'),(51.16,-115.0),r=40,basis='census'),
+ _cnt('asn',1890.4,575,f'{_W90}: Assiniboine of Pheasant Rump 66 and Striped Blanket 80 (Moose Mountain), The-man-who-took-the-coat 233 (Indian Head), and the Stony bands of Mosquito 86, Bear’s Head 86 and Lean Man 24 (Eagle Hills)',DIA(1890,'whereabouts table, Treaties 4 and 6'),(50.7,-105.5),r=250,basis='census'),
+ _cnt(['cre','crw','crs'],1890.4,5291,f'{_W90}: the Plains Cree treaty bands of Treaties 4 and 6, 3,641, the mixed Cree, Saulteaux and Stony bands (White Bear, Cowessess, George Gordon, Enoch, the Onion Lake and Saddle Lake bands, James Smith, Twatt), 1,435, and Foremost Man’s Cree stragglers near Maple Creek and Medicine Hat, 215 (the Woods Cree bands left out)',DIA(1890,'whereabouts table'),(52.3,-107.5),r=350,basis='census'),
+ _cnt('sik',1893.4,1331,f'{_W93}: Blackfoot, Running Rabbit 678 and Old Sun 653',DIA(1893,'whereabouts table, Treaty 7'),(50.85,-112.95),r=40,basis='census'),
+ _cnt('kai',1893.4,1611,f'{_W93}: Blood, Red Crow and Day Chief, Belly River, 1,611 (45 in Montana, 25 hunting in the Rocky Mountains, 47 unknown)',DIA(1893,'whereabouts table, Treaty 7'),(49.4,-113.2),r=40,basis='census'),
+ _cnt('pik',1893.4,830,f'{_W93}: Canadian Piegan, Crow Eagle, Old Man’s River, 830 (the Montana Piegan not included)',DIA(1893,'whereabouts table, Treaty 7'),(49.6,-113.8),r=40,basis='census',whole=False),
+ _cnt('sar',1893.4,235,f'{_W93}: Sarcee, Bull Head, Fish Creek, 235',DIA(1893,'whereabouts table, Treaty 7'),(50.95,-114.25),r=30,basis='census'),
+ _cnt('sto',1893.4,647,f'{_W93}: Stonys at Morley, 647, of whom 97 were hunting and trapping in the Rocky Mountains of British Columbia',DIA(1893,'whereabouts table, Treaty 7'),(51.16,-115.0),r=40,basis='census'),
+ _cnt('asn',1893.4,486,f'{_W93}: Assiniboine of Pheasant Rump 75, Striped Blanket 69 and Carry-the-Kettle 210, and the Battleford Stony band of Mosquito, Bear’s Head and Lean Man, 132',DIA(1893,'whereabouts table, Treaties 4 and 6'),(50.7,-105.5),r=250,basis='census'),
+ _cnt(['cre','crw','crs'],1893.4,5059,f'{_W93}: the Plains Cree treaty bands, 3,448, the mixed bands, 1,431, and the Cree stragglers at Swift Current, Maple Creek and Medicine Hat, 180 (the Woods Cree bands left out)',DIA(1893,'whereabouts table'),(52.3,-107.5),r=350,basis='census'),
 ]

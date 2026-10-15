@@ -103,18 +103,32 @@ The estimated factors run from 0.60 (Henry 1809, counting men in his trading dis
 
 ## 9. Seasonal round
 
-- **The literature patterns.** Rows in `seasonal_patterns.csv`, each with its source.
-  - Read: the Southern Cheyenne and Arapaho (West, *The Contested Plains*, chs. 4 and 11; Wedel and Frison in Handbook 13); the Piegan (Ewers, *The Horse in Blackfoot Indian Culture*, pp. 41, 125–28: winters on the Sun and Teton about 1833, on the Marias from about 1848, summer gatherings at the Sweetgrass Hills); the eighteenth-century Blackfoot or Gros Ventre ("Archithinue"), Saskatchewan Assiniboine and Fort des Prairies Cree (Henday 1754–55, Cocking 1772–73); the Sarsi (Jenness, pp. 11–12, direction and distance ours); the Comanche after 1840 (Texas Indian Papers: the Penateka winter grounds on the Clear Fork and in the upper Cross Timbers, the northern bands summering by the Arkansas); the Siksika, Plains Cree of the 1790s and Plains Ojibwe (Handbook 13).
-  - Ewers gives no distance or bearing for the Blackfoot summer move, only the places above. The Blood, for whom no summer ground is sourced after 1790, have no pattern.
-  - **Recalled, not reread for this build:** Ray and Moodie for the nineteenth-century Cree and Assiniboine; Hämäläinen's general description for the Comanche before 1840; Hoxie for the Crow; Stamm for the Shoshone; Tabeau and Pond for the Dakota.
+- **The literature patterns.** Rows in `seasonal_patterns.csv`, each with its source and page.
+  - The Southern Cheyenne and Arapaho: West, *The Contested Plains*, chs. 4 and 11, and Wedel and Frison in Handbook 13. Winter at the Big Timbers of the Arkansas; summer hunts between the Arkansas and the Smoky Hill.
+  - The Piegan: Ewers, *The Horse in Blackfoot Indian Culture*, pp. 41, 125–28. Winters on the Sun and Teton about 1833 and on the Marias from about 1848; summer gatherings at the Sweetgrass Hills.
+  - The eighteenth-century Archithinue (Blackfoot or Gros Ventre), Saskatchewan Assiniboine and Fort des Prairies Cree: Henday 1754–55 and Cocking 1772–73.
+  - The Sarsi: Jenness, pp. 11–12; the direction and distance are ours.
+  - The Comanche after 1840: the Texas Indian Papers. The Penateka wintered on the Clear Fork and in the upper Cross Timbers; the northern bands summered by the Arkansas, which Kavanagh's sources of 1851–53 confirm (*Comanche Political History*, pp. 332, 343–44, 348).
+  - The Kiowa, 1830–70: Levy, Handbook 13, p. 908, and Kavanagh's sources of 1851–53. Winter camps on the Red River and Washita; spring and summer on the Arkansas, following the herds north.
+  - The River Crow after about 1849: Denig, BAE 46, p. 404, "the Crows winter with the Assiniboin", near Fort Union.
+  - The Yankton: DeMallie, Handbook 13, pp. 777, 789. Gardens at village sites on the Missouri, "largely abandon[ed] … during the summer buffalo hunts" west of the Missouri on the Niobrara and White.
+  - The Siksika, the Plains Cree of the 1790s and the Plains Ojibwe: Handbook 13.
+  - **Recalled, not reread for this build:** Ray and Moodie for the nineteenth-century Cree and Assiniboine; Hoxie for the Crow before 1849; Stamm for the Shoshone; Pond for the Sisseton and Wahpeton.
+- **Where the sources disagree, no pattern.**
+  - The western Comanche divisions before 1830. Hämäläinen has the upper Arkansas as their winter ground and trade-fair site (pp. 164, 284–85). Trimble in 1818 and the sources of 1851–53 that Kavanagh quotes put them on the Arkansas in spring and summer and on the Red River in winter. Kavanagh himself finds that the eighteenth-century documents "do not indicate that the Comanche pattern followed seasonal changes" (p. 55).
+  - The Kotsoteka before 1850 and the eastern Comanche before 1840, for the same reason.
+  - The Yanktonai. Their villages and hunts ran in different directions in different bands.
 - **Weight.** Each pattern enters at half its stated distance, as a starting point the division's season-dated places correct; the whole distance did worse out of sample.
 - **What they control.** They set the direction of the summer move wherever a division has no season-dated places of its own.
 - **The calendar.** The months of the move were chosen among statistically tied candidates by closeness to the ethnographic year. It times the literature patterns and the bands' scatter, not the pattern learned from the records.
 - **Undated camps.** A camp with no month is weighted by the seasons of the dated records, not assigned a season.
 - **Not adopted.** Pooling the seasonal move across the divisions of a people: the Lakota divisions' moves ran in different directions.
-- **Two fitted patterns rejected because they worsened held-out error:**
+- **Patterns rejected because they worsened held-out error:**
   - a Kiowa and Plains Apache winter ground on the North Fork of the Red;
-  - a Teton round along the Missouri.
+  - a Teton round along the Missouri;
+  - for the Blood after 1800, Dempsey's Blackfoot round (Handbook 13, p. 609: winters at the Porcupine Hills and the Belly–Saint Mary confluence, early summer near the Cypress Hills), which raised the mean miss on three withheld Blood places from 58 to 89 km;
+  - for the Yamparika and the Tenewa and Nokoni, 1830–49, the winter-south, summer-north swing of the 1850s carried back two decades;
+  - for the eastern Comanche, 1750–1839, Hämäläinen's winter villages on the Brazos, Colorado and Concho with summer assemblies by the Wichita Mountains (pp. 276, 284–86).
 
 ## 10. Bands and villages
 
@@ -132,7 +146,7 @@ The estimated factors run from 0.60 (Henry 1809, counting men in his trading dis
 The full list is in the “About the data” section of the map page, "Where the sources disagree". These are the calls a reviewer is most likely to challenge.
 
 - **Comanche, 1819–54.** Burnet's 10,000–12,000 (written from memory in 1847), Butler and Lewis's 12,500–15,600 and Butler and Davis's 14,300 (1846), round figures of 19,200–20,000 (1838–49) from Texas, and Parker's 10,000 (1854).
-  - **Resolution.** The fit gives about 11,400 in 1846 and 8,500 in 1854. Burnet is weighted as a reconstruction, Butler and Lewis and the round figures as contemporary estimates.
+  - **Resolution.** The fit gives about 10,500 in 1846 and 7,400 in 1854. Burnet is weighted as a reconstruction, Butler and Lewis and the round figures as contemporary estimates.
   - **Reason.** Kavanagh's *Comanche Political History* shows how each figure was made: Butler and Lewis divide the nation into six divisions in lodges, but Kavanagh calls the list unreliable; the 20,000 figures are hearsay or describe only the Comanches known to Texans.
   - **Status.** Hämäläinen (2008) accepts 20,000; nothing in the counts supports it. Closed unless new counts appear.
 - **Mandan and Arikara, 1780.** Mooney's reconstructions are far below the village counts; kept as soft constraints.
@@ -141,3 +155,23 @@ The full list is in the “About the data” section of the map page, "Where the
 - **Arapaho, 1820.** Bell's "10,000" excluded as a mixed-camp count.
 - **Kiowa, 1854.** Whitfield's 2,800 treated as an overestimate against Mooney's series.
 - **Blackfoot, 1809.** Henry's tents give half of Umfreville's 1789 figures; both kept, and Henry's family factor (0.60) absorbs the difference.
+
+## 12. Checks against the narrative histories
+
+The tracks and populations were read against the developments described in Hämäläinen, *The Comanche Empire* (2008), Kavanagh, *Comanche Political History* (1996), West, *The Contested Plains* (1998), Bray, "Teton Sioux Population History" (1994), Ewers (1955), Denig (BAE 46) and the Handbook 13 chapters. Each development below is followed by how the map shows it.
+
+- **Jupe and Yamparika north of the Arkansas, to about 1805.** Anza in 1786: "the Jupes and Yamparicas extending from the Rio Napestle to the north a little beyond the Sierra de Almagre" (Kavanagh, pp. 123–25, 190, 482). Both centres now stay north of the Arkansas through the 1790s; the Yamparika cross it in the 1820s, as the Cheyenne and Arapaho take the upper Arkansas.
+- **The Jupe merge into the Yamparika.** The leadership of the two reversed by 1794; the name lingers to the 1820s (Kavanagh, pp. 190, 482–83; Hämäläinen, p. 282). The Jupe division ends in 1795 and its people pass to the Yamparika, whose keyframes from 1796 include them: the merger, not a loss.
+- **The western Kotsoteka faced New Mexico.** Ortiz in 1786 counted eight Kotsoteka rancherías between the Canadian and the Pecos; their chiefs met on the Canadian in 1793 and camped there in 1808–10 (Kavanagh, pp. 113–14, 139, 143, 154–55). The Kotsoteka centre now lies on the upper Canadian, not in western Oklahoma. Vial's camps of 1785–87 near Wichita Falls are now the eastern Comanche's.
+- **The eastern Comanche, from the 1750s.** Kotsoteka bands took the Texas plains in the early 1750s (Hämäläinen, pp. 55, 105). Their rancherías in the 1780s "commonly stay above" the Red and pass to the head of the Brazos (Cabello, in Kavanagh, p. 108); the 1780 keyframe follows that.
+- **The smallpox of 1780–81 struck the eastern Comanche only.** "It failed to spread among the nearby western Comanches" (Hämäläinen, p. 111). The western divisions now lose 5%, the eastern 60%.
+- **The Tenewa, from about 1810.** A splinter of Yamparikas under El Sordo formed the Tenewa on the middle Red (Kavanagh, p. 483; Hämäläinen, pp. 151, 282). The model carries them, with the Nokoni who emerged among them by 1846, as one division from 1830, labelled Tenewa and Nokoni. Pahayuko's camps are now theirs, not the Penateka's. Between 1810 and 1830 they are within the Yamparika.
+- **The Kwahadi, from the late 1850s.** A faction drawing followers across divisional lines, first named in 1862 (Hämäläinen, pp. 311, 315; Kavanagh, pp. 372, 481). The division now begins in 1858, not 1835.
+- **The Kiowa move south.** The Kiowa–Comanche peace was made about 1790 or in 1806. The Kiowa then "established residence on the upper Canadian and Red rivers" (Hämäläinen, p. 172) and camped "along and south of the Arkansas River" (Levy, Handbook 13, p. 908). A combined Comanche–Kiowa ranchería was on the Huerfano in 1810, and Fowler's camp of 1821 near Pueblo held Kiowas (Kavanagh, pp. 171, 211). The Kiowa centre is now at 39.8° N in 1810 and 38.0° N in 1825, against 41.3° and 38.7° before. A Dakota winter count still puts a Kiowa village by Scott's Bluff in the winter of 1814–15, so part of the people stayed north.
+- **1859: the Comanche and Kiowa on the Arkansas–Canadian strip.** "Nearly all Comanches and Kiowas, some ten thousand people" (Hämäläinen, p. 311). The Yamparika, Kotsoteka and Kiowa centres lie there; the reserve Penateka stay on the Clear Fork until their removal in August.
+- **The Comanche totals.** Hämäläinen's 30,000–40,000 about 1800 and 20,000 in the 1840s are his reconstruction from round contemporary figures. Kavanagh shows how those figures were made, and the fit follows the counts (§11; `KNOWN_ISSUES.md` §1).
+- **The Teton, 1805–81.** Bray reconstructs 8,500 in 1805 and 16,110 in 1881 (Table 3). His reconstruction is entered at secondary weight. The fit stays at about 6,250 in 1805: Clark's figures, which Bray calls "a gross underestimate", and the keyframes outweigh it. The fit is about 18,100 in 1881, between Bray and the agency counts he calls inflated. The fit's Sans Arc stay about a third below Bray's through 1870. Following Bray, the Tetons lose 2% in 1837–38 (5% for the Sihasapa and Hunkpapa), and the Brulé lose 15% in 1849–50.
+- **The Cheyenne and Arapaho after 1840.** They wintered at the Front Range, the South Platte and the Big Timbers and hunted more than 100 miles east in summer. The gold rush of 1858–59 took the Front Range winter grounds and pushed them into the Smoky Hill–Republican country (West, pp. 192–93, 204, 234–35). The tracks show the centre of that range, not the displacement within it.
+- **The Wichita after 1811.** Hämäläinen has them abandoning the Red River villages: some joined the Comanche, and the rest gathered in villages on the Brazos, Navasota and Trinity (p. 149). The Wichita division moves west up the Red from 1813 and to the Wichita Mountains by 1828. The Waco and Tawakoni villages on the Brazos are records, not the division centre.
+- **The Cuartelejo and Paloma Apache after 1730.** Hämäläinen has them at Pecos and in the Pecos valley until 1752 (pp. 36, 48). The model ends them in 1732, absorbed by the Jicarilla.
+- **Henday's "Archithinue", 1754.** Cocking used the term for the Gros Ventre and the three Blackfoot tribes. "Wissler … was reasonably certain that they also were Gros Ventres" (Ewers, pp. 17–18). The camp of October 1754 is now shared between the Gros Ventre and Siksika tracks. Henday's Alberta "Assiniboine" were "doubtless Stoneys" (Handbook 13, p. 596).

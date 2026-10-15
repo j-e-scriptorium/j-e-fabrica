@@ -10,19 +10,19 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
   - Butler and Lewis's 1846 report gives every division in lodges at seven to a lodge, 15,600 in all. Butler's own letter four months earlier had 12,500 at five to a lodge. Kavanagh calls the list confused and its figures unreliable (pp. 297–300, 332).
   - Neighbors's 20,000 of 1849 (4,000 warriors, "made from the best information that could be obtained from the Indians by frequent inquiry") and the "19,200" of 1841–45 are round figures from Texas, which Kavanagh notes describe only the Comanches known to Anglo-Texans (p. 354). Schoolcraft's table of Texas estimates gives Butler and Davis's 1846 figure as 14,300 and a "consolidated" 15,000 for 1850; Parker's census of 1854 gives 10,000 "men, women, and children" (Winfrey and Day, *Indian Papers of Texas*, vol. 3, docs. 87, 100, 131). The consolidated figure is a compilation of the others and is not entered.
   - After 1850 the counts are concrete: the Penateka at 2,800 (1846, unreliable), 1,200 (1854) and 384 (1859); the Arkansas River Comanches at 3,200 (Whitfield 1856); the New Mexico Kotsoteka and Kwahada at about 2,000 (Norton 1866); 4,445 in 1869 (including an estimated 1,960 never reported); 3,742 in 1870 (including 1,000 estimated); 2,643 at the census of March 1874; 1,721 in 1875.
-- **Verdict.** The best contemporary whole-nation figure for the 1840s is Butler and Lewis's 12,500–15,600, itself unreliable; the 20,000 figures are round hearsay. The fit, about 11,400 in 1846, sits under the Butler and Lewis range; Parker's 10,000 of 1854, the first figure after the epidemic of 1849, is above the fit's 8,500. Hämäläinen's 20,000–30,000 for the 1820s–40s is not supported by any count Kavanagh reports and is weighted as a reconstruction.
+- **Verdict.** The best contemporary whole-nation figure for the 1840s is Butler and Lewis's 12,500–15,600, itself unreliable; the 20,000 figures are round hearsay. The fit, about 10,500 in 1846, sits under the Butler and Lewis range; Parker's 10,000 of 1854, the first figure after the epidemic of 1849, is above the fit's 7,400. The Texas counts of 1851–52 that Kavanagh quotes (Stem: 600 for the southern bands; Hardee: 700 for the lower bands and 1,500, by hearsay, for the bands of Pahayuko and Sanaco; pp. 332) and Bogy and Irwin's band list of 1866 (Yamparika 1,800, Kotsoteka 700, Nokoni 600, Penateka 600, Kwahada 1,000; p. 404) are in the record. Hämäläinen's 20,000–30,000 for the 1820s–40s is not supported by any count Kavanagh reports and is weighted as a reconstruction.
 - **What remains uncertain.** Whether the decline from the 1840s to the 1860s came mainly in 1848–49 (Hämäläinen: severe; the only contemporary count, 300 deaths) or in the drought of the 1850s. The model puts most of it in the 1850s and early 1860s, with rates of its own scaled to the counts.
 - **An unentered report.** In May 1843 Eldredge heard that smallpox had broken out among Comanches back from Matamoros, "carrying them off by the hundreds", and gave it "but little credence" (Winfrey and Day, *Indian Papers of Texas*, vol. 1, p. 256). No epidemic is applied for 1843.
-- **Would settle it.** The Stem (1851) and Hardee (1852) reports and the Brazos and Clear Fork reservation rolls of 1855–59, none of which Winfrey and Day print.
+- **Would settle it.** The Stem (1851) and Hardee (1852) reports in full, for their division detail, and the Brazos and Clear Fork reservation rolls of 1855–59, none of which Winfrey and Day print.
 
 ## 2. Epidemic mortality rates are mostly assumed
 
 - **Scale.** Still the single most influential input before 1800: ±25% on every rate moves the 1780 total between 137,000 and 188,000.
 - **1780–82, after reading Fenn, *Pox Americana* (2001).**
-  - Sourced: the northern plains (55%), the Missouri villages (68%, Lehmer), the Lipan (more than 400 dead, about 15%) and the eastern Comanche (two-thirds reported, 60% used).
-  - Fenn's 43% is a case-fatality rate (deaths among the infected, from Madras in the 1960s), not a mortality rate. Her own minimum for the nomadic Sioux, a third infected, is about 14%. The Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache lose 20%, the western Comanche 30%: assumed, just above that minimum.
+  - Sourced: the northern plains (55%), the Missouri villages (68%, Lehmer), the Lipan (more than 400 dead, about 15%) and the eastern Comanche (two-thirds reported, 60% used). The western Comanche lose 5%: the epidemic "failed to spread among the nearby western Comanches" (Hämäläinen, p. 111). The Assiniboine lose 40%: "between one-third and one-half" (Handbook 13, p. 574), with Denig's tradition of about 300 lodges lost from some 1,500 (BAE 46, p. 399).
+  - Fenn's 43% is a case-fatality rate (deaths among the infected, from Madras in the 1960s), not a mortality rate. Her own minimum for the nomadic Sioux, a third infected, is about 14%. The Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache lose 20%: assumed, just above that minimum. Bray's reconstruction has the Sioux as a whole losing 16% ("Teton Sioux Population History", p. 170).
   - The Crow stay at 43%, above Fenn's 21.5% minimum, because Larocque's lodge count implies far heavier losses.
-- **Other epidemics.** Most division-level rates for 1801–02, 1837–38 (beyond the sourced ones) and 1849 remain scaled or assumed (JUDGMENTS §7).
+- **Other epidemics.** Most division-level rates for 1801–02 and 1849 remain scaled or assumed (JUDGMENTS §7). The Teton rates for 1837–38 (2%, 5% for the Sihasapa and Hunkpapa) and the Brulé rate for 1849–50 (15%) follow Bray (pp. 178–80); Bray mentions no Teton losses in 1801–02, which the model still applies at 25%.
 - **Would settle it.** Thornton (1987); Trimble's work and the Fort Clark journal for 1837; Hackett for the Canadian epidemics.
 
 ## 3. The eighteenth century rests on few records
@@ -33,8 +33,9 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 
 ## 4. Canadian peoples after 1870 and before 1790
 
-- **The gap.** The Plains Cree, Plains Ojibwe and Northern Assiniboine have no Canadian Indian Affairs or treaty paylist counts in the record. Their reserve-era curves rest on Hodge, Denig via Hayden, and keyframes. The Cree and Ojibwe are flagged `thin` for 1875–1905. The Sarsi and Stoney have the 1877 Treaty 7 rolls and the Department's counts for 1885 and 1895 as the Handbook gives them, and nothing else after 1877. The 1890 census covers the United States only.
-- **Would settle it.** Canada, *Annual Reports of the Department of Indian Affairs* (1880 onward) and the Treaty 4, 6 and 7 paylists.
+- **The gap.** The Department of Indian Affairs reports for 1890 and 1893 are in the record: the Blackfoot, Blood, Canadian Piegan, Sarsi, Stoney, Northern Assiniboine and Plains Cree, band by band from the tables of the number and whereabouts of the Indians of the North-West Territories. Other reserve-era years rest on Hodge, Denig via Hayden, the Handbook's counts for 1877, 1885 and 1895, and keyframes.
+- **What the counts need.** The Plains Cree total includes bands the Department called mixed Cree, Saulteaux and Stony; the Woods Cree bands are left out. The Treaty 4 Saulteaux are not part of the Pembina–Turtle Mountain division and are not modelled. The Canadian Dakota refugees (about 730 on reserves in 1890) are not modelled either.
+- **Would settle it.** The other years of the Department's *Annual Reports*, 1880–1900, and the Treaty 4, 6 and 7 paylists.
 
 ## 5. Agency counts used as the fixed reference
 
@@ -64,7 +65,7 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
   - Prescott's 1850 Mdewakanton count via Schoolcraft;
   - the treaty-council attendance lists for Fort Laramie (1851) and Medicine Lodge (1867), taken from Wikipedia;
   - several Texas and Oklahoma sites recalled (El Cañón mission, Van Dorn's fight, the Wichita refugee camp of 1865).
-- **Other recalled material.** The seasonal literature patterns not yet read (Ray and Moodie for the nineteenth-century Cree and Assiniboine, Hämäläinen's general description for the Comanche before 1840, Hoxie, Stamm, Tabeau and Pond), the original 129 settlement dates (since checked against references, each naming its check), and the band places.
+- **Other recalled material.** The seasonal literature patterns not yet read (Ray and Moodie for the nineteenth-century Cree and Assiniboine, Hoxie for the Crow before 1849, Stamm for the Shoshone, Pond for the Sisseton and Wahpeton), the original 129 settlement dates (since checked against references, each naming its check), and the band places.
 - The header of `data_src.py` describes the documented records as read for this build. The tier-C records are the exceptions, and each is marked in its source field.
 
 **Would settle it.** The `review_sample.csv` check (`REVIEW_PROTOCOL.md` §1), with all tier-C records added.
@@ -83,6 +84,7 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
   - Brulé, Miniconjou, Hunkpapa and Sans Arc, 1803–04 (Tabeau).
   - Sihasapa and Two Kettle in their Sioux forms, 1833 (Denig). Tabeau's 1803–04 list has a Two Kettle band name.
 - **Consequence.** The divisions' tracks before those dates are projections of their later identities backward. Tabeau also reports two Oglala bands trying to farm with the Arikara before the Teton crossed the Missouri ("Sioux Until 1850", p. 731).
+- **The Comanche divisions.** Kavanagh treats them as processual: the eastern Kotsoteka became the Hois and then the Penateka; a splinter of Yamparikas became the Tenewa about 1810; the Jupe merged into the Yamparika between 1794 and the 1820s; the Kwahadi drew on several divisions in the 1860s (*Comanche Political History*, pp. 479–86). The model's dates follow him where it can: the Kwahadi from 1858, the Jupe to 1795, the Tenewa and Nokoni as one division from 1830. The Tenewa of 1810–30 are carried within the Yamparika. The Texas habit of calling any distant Comanche "Yamparika" (p. 124) makes the Texas Yamparika records of 1780–1812 uncertain, and they are not entered.
 - **Would settle it.** Not more reading but a modelling choice: an undivided Teton before 1795, splitting into Oglala, Brulé and Saone, and the Saone into its later divisions by 1804. This is the next structural change to make.
 
 ## 11. Things the tests cannot see
