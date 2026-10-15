@@ -27,13 +27,13 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 
 ## 3. The eighteenth century rests on few records
 
-- **Thin coverage.** Of 345 division × period cells, 33 have neither a count nor a place (`coverage_by_division_and_period.csv`, flag `thin`). Fourteen of them are 1700–49, mostly the northern plains (Blackfoot divisions, Gros Ventre, both Crow divisions, Shoshone, Northern Assiniboine, Cree) and the Osage and Ponca.
-- **What fills the gap.** The map draws these years from keyframes and smoothing. Their held-out error (×1.39 for population, 1700–99) is the worst of any period.
-- **Would settle it.** Russell, *Eighteenth-Century Western Cree and Their Neighbours* (1991); Burpee's editions of Henday (1907), Cocking (1908) and La Vérendrye (1927); A. B. Thomas, *After Coronado* (1935) and *Forgotten Frontiers* (1932) for the Spanish documents; Bolton's *Athanase de Mézières* (1914) for the Wichita, Kitsai and Tonkawa; Nasatir, *Before Lewis and Clark* (1952) for Truteau and Mackay.
+- **Thin coverage.** Of 341 division × period cells, 28 have neither a count nor a place (`coverage_by_division_and_period.csv`, flag `thin`). Sixteen of them are 1700–49: the northern plains (the Blackfoot divisions, Gros Ventre, Sarsi, Stoney, both Crow divisions, Shoshone, Northern Assiniboine and Cree), the Arapaho, the Osage, the Ponca and the Tonkawa.
+- **What fills the gap.** The map draws these years from keyframes and smoothing. Their held-out error (×1.38 for population, 1700–99) is the worst of any period.
+- **Would settle it.** Russell, *Eighteenth-Century Western Cree and Their Neighbours* (1991); the Hudson's Bay Company post journals of the Saskatchewan, 1770–1800; A. B. Thomas, *After Coronado* (1935), *Forgotten Frontiers* (1932) and *The Plains Indians and New Mexico* (1940) for the Spanish documents; John, *Storms Brewed in Other Men's Worlds* (1975); Nasatir, *Before Lewis and Clark* (1952) for Truteau and Mackay.
 
 ## 4. Canadian peoples after 1870 and before 1790
 
-- **The counts.** The Department of Indian Affairs returns give the Blackfoot, Blood, Canadian Piegan, Sarsi, Morley Stoney, Northern Assiniboine and Plains Cree band by band for 1883, 1884, 1886–88, 1890, 1892, 1893, about 1898, 1899 and 1900, some years for Treaty 7 or Treaties 4 and 6 only. The returns for 1881–82, 1885 and 1889–91 give one figure per treaty, which cannot be divided among the peoples; 1894–97 were not available. Two series run side by side: the census returns, and the tables of the number and whereabouts of each band, which count absentees and run higher.
+- **The counts.** The Department of Indian Affairs returns give the Blackfoot, Blood, Canadian Piegan, Sarsi, Morley Stoney, Northern Assiniboine and Plains Cree band by band for 1883, 1884, 1886–88, 1890, 1892, 1893, about 1898, 1899 and 1900, some years for Treaty 7 or Treaties 4 and 6 only. The returns read for 1881–82, 1885, 1889 and 1891 give one figure per treaty, which cannot be divided among the peoples; 1894–97 were not available. Two series run side by side: the census returns, and the tables of the number and whereabouts of each band, which count absentees and run higher.
 - **What the counts need.** The Plains Cree total includes bands the Department called mixed Cree, Saulteaux and Stony; the Woods Cree bands are left out. The Treaty 4 Saulteaux are not part of the Pembina–Turtle Mountain division and are not modelled. The Canadian Dakota refugees (about 730 on reserves in 1890) are not modelled either.
 - **Would settle it.** The band-level returns for 1881–82, 1885, 1889, 1891 and 1894–97, and the Treaty 4, 6 and 7 paylists.
 
@@ -46,7 +46,7 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 
 ## 6. The band layer is largely illustrative
 
-- **Recalled places.** 198 band places are recalled from standard histories without entry-by-entry checking.
+- **Recalled places.** 197 band places are recalled from standard histories without entry-by-entry checking.
 - **Ours.** Band weights and budding order; the matching of lists from different decades.
 - **Status.** Division totals constrain the bands' sum, but nothing else about the bands is tested. Do not cite band-level positions or sizes from this map.
 
@@ -66,20 +66,20 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
   - Prescott's 1850 Mdewakanton count via Schoolcraft;
   - the treaty-council attendance lists for Fort Laramie (1851) and Medicine Lodge (1867), taken from Wikipedia;
   - several Texas and Oklahoma sites recalled (El Cañón mission, Van Dorn's fight, the Wichita refugee camp of 1865).
-- **Other recalled material.** The seasonal literature patterns not yet read (Ray and Moodie for the nineteenth-century Cree and Assiniboine, Hoxie for the Crow before 1849, Stamm for the Shoshone, Pond for the Sisseton and Wahpeton), the original 129 settlement dates (since checked against references, each naming its check), and the band places.
+- **Other recalled material.** The seasonal literature patterns not read here (Ray and Moodie for the nineteenth-century Cree and Assiniboine, Milloy for the Cypress Hills Cree, Ross for the Plains Ojibwe after 1820, Hoxie for the Crow before 1849, Stamm for the Shoshone, Pond for the Sisseton and Wahpeton), the village moves cited from Smith's *Like-a-Fishhook Village* (1972), and the band places. The 129 settlement dates were checked against references, each named in `settlements.csv`.
 - The header of `data_src.py` describes the documented records as read for this build. The tier-C records are the exceptions, and each is marked in its source field.
 
 **Would settle it.** The `review_sample.csv` check (`REVIEW_PROTOCOL.md` §1), with all tier-C records added.
 
 ## 9. Wikipedia as a coordinate source
 
-- **Scale.** About 110 places use Wikipedia's coordinates for battles, treaties, agencies and archaeological sites, as given.
+- **Scale.** About 130 places, from 72 articles, use Wikipedia's coordinates for battles, treaties, agencies and archaeological sites, as given.
 - **Risk.** Errors there are usually small for named sites (under 10 km) but can be larger for battle sites known only approximately.
 - **Would settle it.** Spot-check against the National Register of Historic Places nominations or USGS GNIS.
 
 ## 10. Divisions as fixed entities
 
-- **The simplification.** Divisions split, merged and re-formed over two centuries, and the model fixes a single date for each split (JUDGMENTS §1). The seven Teton divisions are drawn from 1700, though most are not named in any source until much later.
+- **The simplification.** Divisions split, merged and re-formed over two centuries, and the model fixes a single date for each split (JUDGMENTS §1). Six of the seven Teton divisions are drawn from 1700 (the Two Kettle from 1833), though most are not named in any source until much later.
 - **First recorded names**, from the synonymy in DeMallie, "Sioux Until 1850", Handbook 13, pp. 755–58:
   - Oglala ("Occononas") and Saone ("Chaony"), 1795–96 (Truteau). Saone was an umbrella for the northern Teton (Miniconjou, Sans Arc, Hunkpapa and others).
   - Brulé, Miniconjou, Hunkpapa and Sans Arc, 1803–04 (Tabeau).

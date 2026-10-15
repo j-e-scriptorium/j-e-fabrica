@@ -1,5 +1,5 @@
 # Hold-out test of dated village moves: drop each documented village place, rebuild the hold-and-move track, score the miss.
-import sys,runpy,io,contextlib,os,math,statistics as st
+import sys,runpy,io,contextlib,os,statistics as st
 sys.argv=['build3.py','.','..']; os.environ['SENS']='1'
 with contextlib.redirect_stdout(io.StringIO()): B=runpy.run_path('build3.py',run_name='__main__')
 import seasonal as SE, ecology_src as EC

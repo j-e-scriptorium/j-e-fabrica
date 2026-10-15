@@ -1,6 +1,6 @@
 # Hold-out calibration of the village halo: drop each documented village place, rebuild the hold-and-move track and its halo from
 # the rest, and fit the halo's terms so that 68% of withheld places fall inside it, with the narrowest mean halo that does so.
-import sys,runpy,io,contextlib,os,math,statistics as st, itertools as it
+import sys,runpy,io,contextlib,os,statistics as st, itertools as it
 sys.argv=['build3.py','.','..']; os.environ['SENS']='1'
 with contextlib.redirect_stdout(io.StringIO()): B=runpy.run_path('build3.py',run_name='__main__')
 import seasonal as SE, ecology_src as EC

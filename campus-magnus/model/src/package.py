@@ -1,8 +1,8 @@
 """Build the review package: data tables with provenance and judgment flags, coverage and fit diagnostics.
 usage: python3 package.py <src dir> <project dir> <out dir>"""
-import json, csv, sys, os, re, math, collections, shutil
+import json, csv, sys, os, re, collections, shutil
 sys.path.insert(0, sys.argv[1]); S = sys.argv[2]; OUT = sys.argv[3]
-import data_src as D, ecology_src as EC, provenance as P
+import data_src as D, provenance as P
 d = json.load(open(f'{S}/build/data.json', encoding='utf-8'))
 G = {g['id']: g for g in d['groups']}
 os.makedirs(f'{OUT}/data', exist_ok=True)

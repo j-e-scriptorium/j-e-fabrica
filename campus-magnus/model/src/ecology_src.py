@@ -2,7 +2,6 @@
 # read for this build; the others are recalled from the works named and marked so.
 
 SMITH='Smith, Like-a-Fishhook Village and Fort Berthold (1972) (recalled)'
-ARIK='Swanton, The Indian Tribes of North America (1952); Meyer, The Village Indians of the Upper Missouri (1977)'
 # Dated relocations of village peoples. Between two places the village holds at the first and moves at this date
 # (over about five months); without a dated move it moves at the midpoint.
 PARKS_P='Parks, “Pawnee”, Handbook of North American Indians 13 (2001), pp. 519–22'

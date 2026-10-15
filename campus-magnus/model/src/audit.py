@@ -1,11 +1,12 @@
 """Mechanical audit of the built model. usage: python3 audit.py <project dir>   (reads build/data.json)
-Prints four lists a reviewer should look through:
+Prints five lists a reviewer should look through:
   1. documented places of one division less than about half a year apart but more than 200 km apart (possible conflicting places);
   2. track moves of 300 km or more across 15 years or more with no documented place between (long unsupported moves);
-  3. year-on-year population changes beyond -15% or +8% with no shock that year (unexplained jumps);
-  4. internal consistency: keyframes overriding documented places, records outside the map, counts on dead divisions.
+  3. year-on-year population changes beyond -15% or +8% with no shock, split or merger that year (unexplained jumps);
+  4. internal consistency: keyframes overriding documented places, records outside the map, counts on dead divisions;
+  5. nomadic division centres outside the bison range (ecology_src.BISON, from 1850) before the division's reservation year.
 """
-import json, math, sys
+import json, math, os, sys
 S = sys.argv[1]
 d = json.load(open(f'{S}/build/data.json', encoding='utf-8'))
 G = {g['id']: g for g in d['groups']}
@@ -36,11 +37,15 @@ for gid, t in d['tracks'].items():
             pa, pb = at(t['pos'], a), at(t['pos'], b)
             if km(pa, pb) >= 300: print(f'   {gid:4} {a:8.2f} -> {b:8.2f}  {km(pa, pb):5.0f} km')
 
-print('3. Unexplained population jumps')
+print('3. Unexplained population jumps (shocks, splits and mergers excluded)')
 shock_years = {}
 for e in d['epi']:
     for g in e['m']:
         for y in range(int(e['s']), int(e['e']) + 2): shock_years.setdefault(g, set()).add(y)
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+import data_src as D
+for (y, g, f, lab, src) in D.SHIFTS:
+    for yy in (math.floor(y), math.ceil(y)): shock_years.setdefault(g, set()).add(int(yy))
 for gid, t in d['tracks'].items():
     g = G[gid]; pa = t['pa']
     for y in range(max(1701, g['start'] + 1), min(1905, g['end']) + 1):
@@ -57,3 +62,22 @@ for o in d['obs']:
     if o.get('lat') is not None and not (25 <= o['lat'] <= 60 and -125 <= o['lon'] <= -85):
         print(f'   place outside map: {o["g"]} {o["y"]} {o["lat"]},{o["lon"]}'); bad += 1
 print(f'   {bad} problems')
+
+print('5. Nomadic centres outside the bison range before the reservation (from 1850)')
+import ecology_src as EC
+def inside(lon, lat, poly):
+    c = False
+    for (x1, y1), (x2, y2) in zip(poly, poly[1:] + poly[:1]):
+        if (y1 > lat) != (y2 > lat) and lon < x1 + (lat - y1) * (x2 - x1) / (y2 - y1): c = not c
+    return c
+BIS = sorted(EC.BISON, key=lambda r: r[0])
+for gid, t in d['tracks'].items():
+    g = G[gid]
+    if g.get('life') != 'nomadic': continue
+    out = []
+    for y in range(max(1850, int(g['start'])), min(int(g['end']), d['res'].get(gid, 9999) - 1) + 1):
+        P = [p for (yy, p) in BIS if yy <= y]
+        if not P or not P[-1]: continue
+        la, lo = at(t['pos'], y + 0.5)
+        if not any(inside(lo, la, poly) for poly in P[-1]): out.append(y)
+    if out: print(f'   {gid:4} {out[0]}–{out[-1]}  {len(out)} yr')

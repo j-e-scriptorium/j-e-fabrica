@@ -7,7 +7,7 @@
 #   BOBS   - band-level documented records (counts or places for a named band, village or chief's camp).
 #   BSHOCK - documented attacks that fell on one band or camp; deaths are recalled ranges (not checked).
 #   STRUCT - one paragraph per tribe on how the people were organized, with source.
-from data_src import P, HAYDEN, DENIG, HODGE, MOONEY, CLARK, CIA
+from data_src import P, HAYDEN, DENIG, HODGE, MOONEY, CLARK
 
 DORSEY = 'Dorsey, “Siouan Sociology” (BAE 15th Annual Report, 1897)'
 H56 = HAYDEN + ', “Names of Dakota bands, with their principal chiefs”, pp. 375–76 (collected c. 1855–57)'

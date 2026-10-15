@@ -23,7 +23,7 @@ The page loads its data with plain `<script>` tags, so it runs from `file://`; o
 
 ## Scope
 
-- **Peoples.** 34 peoples in 9 language families, fitted as 59 divisions, from the Saskatchewan to the Rio Grande and from the Rockies to the Mississippi (`data/groups.csv`). Two names recorded by Clark that cannot be securely identified (Castahana, Dotame) are kept as evidence only. Not on the map: the Plains Métis, who were not an Indian band in the sense of the rest, though their hunts are part of the Plains Ojibwe and Cree story.
+- **Peoples.** 34 peoples in 9 language families, fitted as 64 divisions, from the Saskatchewan to the Rio Grande and from the Rockies to the Mississippi (`data/groups.csv`). Two names recorded by Clark that cannot be securely identified (Castahana, Dotame) are kept as evidence only. Not on the map: the Plains Métis, who were not an Indian band in the sense of the rest, though their hunts are part of the Plains Ojibwe and Cree story.
 - **Period.** 1700–1900 on the page; the fit runs to 1905 so that its end is not distorted by the edge.
 - **Quantities.** For each division and year: population, position (the estimated centre of where its people were, with the range they would be found in), an uncertainty for each, and an optional seasonal round. Bands and villages are a derived, weaker layer.
 - **Not claimed.** Territorial boundaries; anything below the band; populations living off the plains; Native-language sources not available in translation.
@@ -34,7 +34,7 @@ The page loads its data with plain `<script>` tags, so it runs from `file://`; o
 |---|---|
 | `records.csv` (2,490) | Documented record: a count, a place, or both, with the source's words, the source and locator, a provenance tier, judgment flags, whether it steers the track, and the fitted and held-out values at that point. |
 | `sources.csv` | Source, with records drawn from it, tier and peoples covered. |
-| `keyframes_our_guesses.csv` (519) | Our own guess. **Never data.** 250 carry no note; their basis is interpolation between neighbouring documented states. |
+| `keyframes_our_guesses.csv` (517) | Our own guess. **Never data.** 240 carry no note; their basis is interpolation between neighbouring documented states. |
 | `division_transfers.csv` | Splits and mergers: the year, the division, and the share it loses to a new division or gains from one that ends. |
 | `epidemics_and_shocks.csv` | Epidemic or famine × division: dates, mortality applied, whether the fraction is sourced, scaled or assumed. |
 | `coverage_by_division_and_period.csv` | Division × period: counts, places, keyframes, longest gap, `thin` and `sparse` flags. |
@@ -52,24 +52,24 @@ Each record is tiered by how its text reached the project, not by the quality of
 
 | Tier | Meaning | Records |
 |---|---|---|
-| A1 | A work read in a PDF or EPUB supplied by the project's owner, page-cited: *Handbook of North American Indians* vols. 10, 11 and 13; the 1890 census *Report on Indians Taxed and Indians Not Taxed* (1894) and the Indian Office population tables of 1854–99, both read from the page images; Hämäläinen, *The Comanche Empire* (2008); Kavanagh, *Comanche Political History* (1996); Fenn, *Pox Americana* (2001) and West, *The Contested Plains* (1998), both cited by chapter; Winfrey and Day, eds., *The Indian Papers of Texas and the Southwest*, vols. 1–5; Bolton's De Mézières papers (1914); Henday, Cocking and La Vérendrye in Burpee's editions; Ewers (1955); Denig (BAE 46); Jenness (1938). | 1,546 |
-| A2 | A standard printed source read in full text (BAE series, Indian Office reports, the Lewis and Clark journals, travellers' narratives). | 623 |
-| B | A reference article read online (mostly Wikipedia, for battle, treaty, agency and site coordinates; Handbook of Texas; Encyclopedia of the Great Plains). | 134 |
+| A1 | A work read in a PDF or EPUB supplied by the project's owner, page-cited: *Handbook of North American Indians* vols. 10, 11 and 13; the 1890 census *Report on Indians Taxed and Indians Not Taxed* (1894) and the Indian Office population tables of 1854–99, both read from the page images; Hämäläinen, *The Comanche Empire* (2008); Kavanagh, *Comanche Political History* (1996); Fenn, *Pox Americana* (2001) and West, *The Contested Plains* (1998), both cited by chapter; Winfrey and Day, eds., *The Indian Papers of Texas and the Southwest*, vols. 1–5; Bolton's De Mézières papers (1914); Henday, Cocking and La Vérendrye in Burpee's editions; Ewers (1955); Denig (BAE 46); Jenness (1938); Bray, "Teton Sioux Population History" (1994); Morton, *A History of the Canadian West* (1939); the Canadian Department of Indian Affairs reports of 1884–1900. | 1,722 |
+| A2 | A standard printed source read in full text (BAE series, Indian Office reports, the Lewis and Clark journals, travellers' narratives). | 611 |
+| B | A reference article read online (mostly Wikipedia, for battle, treaty, agency and site coordinates; Handbook of Texas; Encyclopedia of the Great Plains). | 135 |
 | C | Second-hand or recalled: the work itself was not read. A lead to verify. | 22 |
 
-1,854 records (80%) carry a page, table, entry or document number.
+1,962 records (79%) carry a page, table, entry or document number.
 
 ## Reliability
 
-1. **Population, held out.** Each of 1,172 division counts withheld in turn and predicted: median miss a factor of 1.11 (1.08 for plain interpolation between the neighbouring counts). By period: 1.38 for 1700–99 (interpolation 1.63), 1.30 for 1800–39 (1.39), 1.18 for 1840–69 (1.15), 1.06 for 1870–1905 (1.04). The model earns its keep where counts are sparse; once the Indian Office counts come year by year, interpolating between them does as well or slightly better. 92% fall inside the 2-sd range before the 25% widening shown on the map.
-2. **Place, held out.** 533 nomadic places, each withheld together with every other place within half a year, settings tuned on half the divisions and scored on the other half: the estimated centre misses by a median 110 km and a mean 139 (111 and 144 without our keyframes), against 115 and 147 for a track drawn through every record. Season-dated places are scored against the prediction for their date, ranges and agencies against the year's centre. The range halo holds 68% of withheld places in each season. Village divisions with dated moves: a median 7 km and a mean 42 km over 207 places; the village halo holds 68% of 243 withheld village places (`model/src/calib_gp.py`, `calib_vmove.py`, `calib_vhalo.py`).
-3. **Seasonal round.** On the 316 season-dated places among them, the seasonal component lowers the median miss from 117 to 105 km (mean 145 to 141); a track through every record misses them by 123 and 153. The gain is limited because each season's ground moved from year to year almost as far as the seasons were apart: the Kiowa summer ground lies a median 155 km from the next winter camp but 140 km from the summer before (`METHODS.md` §3).
-4. **Most influential assumption.** Epidemic mortality: scaling every fraction by 0.75 or 1.25 moves the 1780 total from 153,000 to 136,000 or 185,000.
-5. **Weakest stretches.** The eighteenth century, the northern plains before 1790, Canadian peoples after 1870, and the decline of the Comanche between the 1840s and the 1860s (`docs/KNOWN_ISSUES.md`). The band layer is illustration constrained by division totals, not evidence.
+1. **Population, held out.** Each of 1,172 division counts withheld in turn and predicted: median miss a factor of 1.11 (1.08 for plain interpolation between the neighbouring counts). By period: 1.38 for 1700–99 (interpolation 1.59), 1.28 for 1800–39 (1.39), 1.18 for 1840–69 (1.14), 1.06 for 1870–1905 (1.04). The model earns its keep where counts are sparse; once the Indian Office counts come year by year, interpolating between them does as well or slightly better. 92% fall inside the 2-sd range before the 25% widening shown on the map.
+2. **Place, held out.** 538 nomadic places, each withheld together with every other place within half a year, settings tuned on half the divisions and scored on the other half: the estimated centre misses by a median 110 km and a mean 139 (115 and 145 without our keyframes), against 116 and 147 for a track drawn through every record. Season-dated places are scored against the prediction for their date, ranges and agencies against the year's centre. The range halo holds 67% of withheld places in each season, against a target of 68%. Village divisions with dated moves: a median 8 km and a mean 43 km over 222 places; the village halo holds 68% of 243 withheld village places (`model/src/calib_gp.py`, `calib_vmove.py`, `calib_vhalo.py`).
+3. **Seasonal round.** On the 321 season-dated places among them, the seasonal component lowers the median miss from 118 to 107 km (mean 146 to 141); a track through every record misses them by 124 and 154. The gain is limited because each season's ground moved from year to year almost as far as the seasons were apart: the Kiowa summer ground lies a median 155 km from the next winter camp but 140 km from the summer before (`METHODS.md` §3).
+4. **Most influential assumption.** Epidemic mortality: scaling every fraction by 0.75 or 1.25 moves the 1780 total from 154,000 to 136,000 or 185,000.
+5. **Weakest stretches.** The eighteenth century, the northern plains before 1790, the Canadian peoples between 1870 and the first band returns of 1883, and the decline of the Comanche between the 1840s and the 1860s (`docs/KNOWN_ISSUES.md`). The band layer is illustration constrained by division totals, not evidence.
 
 ## Rebuilding
 
-Python 3.10+ with `numpy` and `pandas`.
+Python 3.10+ with `numpy` and `pandas` (`geo.py` also needs `shapely`).
 
 ```
 cd model/src
@@ -81,7 +81,7 @@ python3 validate.py . ..          # leave-one-out population test (a few minutes
 python3 calib_gp.py . ..          # tune and test the nomadic position model → ../build/gpcal.json (≈20 min); rebuild after
 python3 calib_vmove.py            # withheld village places
 python3 calib_vhalo.py            # village halo fitted to withheld places
-python3 sens.py . ..              # whole-model sensitivity runs (≈8 min)
+python3 sens.py . ..              # whole-model sensitivity runs (≈25 min)
 python3 audit.py ..               # mechanical audit of tracks and populations (cf. docs/audit.txt)
 ```
 

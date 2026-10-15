@@ -4,7 +4,6 @@
 #   the literature patterns (SEASPRI), each the step from a winter ground to a summer ground, used by possgp.py at half weight
 #   as a prior mean for the seasonal component the records then correct.
 import math, re
-import numpy as np
 import possmooth as PS
 
 # Calendar: PROF gives, as fractions of the year, when the people leave the winter ground, reach the summer ground, leave it,
@@ -31,8 +30,9 @@ def season_known(y,raw,r):
 # Prior seasonal patterns. 'vec': bearing (degrees from north) of the summer ground from the winter ground, and half the distance;
 # 'pts': a winter ground and a summer ground, (lat, lon). Read in the works named where a page or chapter is given: the Southern
 # Cheyenne and Arapaho (West), the Piegan (Ewers), the eighteenth-century Blackfoot, Gros Ventre, Assiniboine and Cree (Henday, Cocking),
-# the Sarsi (Jenness), the Comanche after 1840 (Texas Indian Papers) and the Blackfoot, Plains Cree and Plains Ojibwe (Handbook 13).
-# The rest (Ray, Hämäläinen's general description, Hoxie, Stamm, Tabeau, Pond) are recalled, not checked page by page.
+# the Sarsi (Jenness), the Comanche after 1840 (Texas Indian Papers), the Kiowa (Levy; Kavanagh), the River Crow after 1849 (Denig),
+# the Yankton (DeMallie) and the Blackfoot, Plains Cree and Plains Ojibwe (Handbook 13).
+# The rest (Ray and Moodie, Milloy for the Cypress Hills Cree, Ross, Hoxie, Stamm, Pond) are recalled, not checked page by page.
 RAY='Ray, Indians in the Fur Trade (1974), ch. 2; Moodie & Ray, “Buffalo Migrations in the Canadian Plains”, Plains Anthropologist 21 (1976)'
 WEST='West, The Contested Plains: Indians, Goldseekers, and the Rush to Colorado (1998), ch. 4 (spring by the streams; early summer onto the highlands between the drainages for the hunt and the sun dance; from autumn to March in the timbered river bottoms; 6,000 Indians at the Arkansas big timbers in Nov. 1848) and ch. 11 (1861–64: the reservation bands winter at Point of Rocks on the Arkansas and hunt in summer on the Smoky Hill, Republican and Solomon)'
 MILLOY='Milloy, The Plains Cree (1988), pp. 21–22, via Darnell, “Plains Cree”, Handbook of North American Indians 13 (2001), p. 640: in the 1790s the Plains Cree hunted in the woodlands in the plentiful summer season and moved onto the plains for buffalo in winter'
@@ -50,7 +50,6 @@ NCOM=TIPS+', vol. 5 (Neighbors, July 1855: “All the Northern Comanches bands, 
 KAV='Kavanagh, Comanche Political History (1996)'
 HAMR='Hämäläinen, The Comanche Empire (2008)'
 NCOMK=KAV+', pp. 237, 332, 343–44, 348: “The Northern Comanches come into Texas only in the winters” (Stem, 1851); in March 1852 “the mass of the Comanche Nation are journeying from Red River” to reach Fort Atkinson on the Arkansas early in April, “as is their usual practice in the spring”, and by February 1853 they were moving north again; '+HAMR+', pp. 284–85: winter villages in the wooded river valleys from late November to April. Kavanagh doubts any fixed round for the nation as a whole before then (p. 55)'
-ECOM=HAMR+', pp. 276, 284–86: winter villages from late November on the Brazos, Colorado and Concho; the summer hunt in June and multidivisional assemblies in the zone between the Medicine Mounds, the Wichita Mountains and the Caprock'
 KIOW='Levy, “Kiowa”, Handbook of North American Indians 13 (2001), p. 908: winter camps along watercourses; by late spring the buffalo moved north out of Texas to the Arkansas River country and the bands followed; the Sun Dance in June and early July; '+NCOMK
 SEASPRI={
  'ass':[(1700,1880,('vec',200,90),RAY+': wintered in the parkland and wooded valleys, summered on the open grassland to the south and west')],
