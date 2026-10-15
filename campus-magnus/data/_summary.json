@@ -1,11 +1,11 @@
 {
  "tiers": {
+  "A1": 1668,
   "A2": 611,
   "B": 135,
-  "A1": 1659,
   "C": 22
  },
- "records": 2427,
+ "records": 2436,
  "keyframes": 517,
  "epidemic_rows": 236,
  "keyframes_without_note": 240,
@@ -16,19 +16,19 @@
   "marker only (defers to records)": 6
  },
  "counts": 1534,
- "places_only": 893,
- "steer": 814,
- "with_locator": 1946,
+ "places_only": 902,
+ "steer": 818,
+ "with_locator": 1955,
  "flags": {
+  "identification_judged": 30,
   "place_placed_by_us": 1327,
-  "kept_off_track": 309,
+  "kept_off_track": 314,
   "date_ours": 5,
-  "identification_judged": 27,
   "assumed_quantity": 240,
   "multiplier_ours": 109,
   "place_centre_ours": 53,
   "multiplier_stated_by_source": 33,
-  "partial_group": 225,
+  "partial_group": 228,
   "recalled": 3
  },
  "coverage_thin": 28,

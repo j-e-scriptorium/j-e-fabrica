@@ -31,7 +31,7 @@ A request for copies (PDF scans or full text) of the works and documents below, 
 ## The eighteenth century
 
 15. Dale R. Russell, *Eighteenth-Century Western Cree and Their Neighbours* (Hull, Quebec: Canadian Museum of Civilization, Mercury Series, Archaeological Survey of Canada Paper 143, 1991).
-16. Arthur S. Morton, *A History of the Canadian West to 1870–71* (London: T. Nelson, 1939), the chapters on Anthony Henday's journey of 1754–1755; and any later reconstruction of Henday's route.
+16. Any reconstruction of Anthony Henday's route of 1754–1755 published after 1939, with its identification of the "Archithinue" he met in October 1754.
 17. Hudson's Bay Company post journals, 1770–1800, for the Saskatchewan posts (Cumberland House, Hudson House, Manchester House, South Branch House, Fort George, Buckingham House, Edmonton House), the entries naming the Indian peoples who came to trade (Hudson's Bay Company Archives, Archives of Manitoba, series B).
 18. Alfred Barnaby Thomas, ed. and trans., *After Coronado: Spanish Exploration Northeast of New Mexico, 1696–1727* (Norman: University of Oklahoma Press, 1935).
 19. Alfred Barnaby Thomas, ed. and trans., *Forgotten Frontiers: A Study of the Spanish Indian Policy of Don Juan Bautista de Anza, Governor of New Mexico, 1777–1787* (Norman: University of Oklahoma Press, 1932).
