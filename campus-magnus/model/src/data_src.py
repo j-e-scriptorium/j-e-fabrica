@@ -35,7 +35,7 @@ GROUPS = [
  ('hnk','Lakota','Hunkpapa','dakotan',1700,1905,'nomadic'),
  ('sih','Lakota','Sihasapa (Blackfeet Lakota)','dakotan',1700,1905,'nomadic'),
  ('sna','Lakota','Itazipčho (Sans Arc)','dakotan',1700,1905,'nomadic'),
- ('twk','Lakota','Oohenunpa (Two Kettle)','dakotan',1700,1905,'nomadic'),
+ ('twk','Lakota','Oohenunpa (Two Kettle)','dakotan',1833,1905,'nomadic'),
  ('ynk','Yankton','Yankton','dakotan',1700,1905,'nomadic'),
  ('yku','Yanktonai','Upper Yanktonai & Cuthead','dakotan',1700,1905,'nomadic'),
  ('ykl','Yanktonai','Hunkpatina (Lower Yanktonai)','dakotan',1700,1905,'nomadic'),
@@ -298,7 +298,7 @@ GUESS = {
         g(1876,(45.5,-101.0),1200,''),g(1880,(45.6,-100.8),1100,'Standing Rock & Cheyenne River'),g(1905,(45.6,-100.8),1000,'')],
  'sna':[g(1700,(45.8,-98.5),400,''),g(1760,(45.6,-99.9),500,''),g(1805,(45.9,-100.7),500,'Share of Clark’s “Saone”'),g(1855,(45.0,-102.4),1000,''),
         g(1876.47,P['lbh'],800,'Little Bighorn camp, June 1876'),g(1878,P['chyR_agency'],800,''),g(1905,P['chyR_agency'],700,'')],
- 'twk':[g(1700,(45.4,-98.0),300,''),g(1760,(45.0,-99.6),400,''),g(1805,(45.8,-100.4),400,'Share of Clark’s “Saone”'),g(1855,(44.6,-100.6),900,''),
+ 'twk':[g(1833,(44.6,-100.5),500,'Budded from the Miniconjou (Bray, “Teton Sioux Population History”, pp. 178, 182); first counted as a division by Denig, for 1833'),g(1855,(44.6,-100.6),900,''),
         g(1870,P['chyR_agency'],800,''),g(1905,P['chyR_agency'],700,'')],
  # ---------------- Yankton, Yanktonai, Dakota ----------------
  'ynk':[g(1700,(44.4,-95.9),1500,'Pipestone quarry country'),g(1760,(43.6,-96.6),2000,''),g(1782,None,1600,''),g(1805,None,1800,'Clark’s band is a partial count'),
@@ -3336,7 +3336,7 @@ OBS += [
 #      division's at its last) over the population it leaves or joins, taken from the fit; ours. They keep each people's
 #      total continuous across the change. Unlike the epidemics they are not scaled in the sensitivity runs.
 SHIFTS = [
- (1745.0,'cyk',0.48,'The eastern Comanche break away from the Kotsoteka','Hämäläinen, The Comanche Empire (2008), pp. 55, 105; Kavanagh, Comanche Political History (1996), p. 480'),
+ (1745.0,'cyk',0.479,'The eastern Comanche break away from the Kotsoteka','Hämäläinen, The Comanche Empire (2008), pp. 55, 105; Kavanagh, Comanche Political History (1996), p. 480'),
  (1790.0,'cre',0.346,'The Cypress Hills and Wood Mountain Cree form from the Qu’Appelle and Fort des Prairies Cree','ours'),
  (1790.0,'crw',0.346,'The Cypress Hills and Wood Mountain Cree form from the Qu’Appelle and Fort des Prairies Cree','ours'),
  (1795.5,'cyy',-0.416,'The Jupe merge into the Yamparika','Kavanagh (1996), pp. 190, 482–83; Hämäläinen (2008), p. 282'),
@@ -3346,10 +3346,11 @@ SHIFTS = [
  (1830.5,'oto',-0.233,'The Missouria join the Oto','ours'),
  (1839.5,'osg',-0.577,'The Arkansas Osage rejoin the Osage on the reserve','ours'),
  (1839.5,'osl',-0.577,'The Arkansas Osage rejoin the Osage on the reserve','ours'),
- (1858.0,'cyk',0.528,'The Kwahadi faction forms, largely from the Kotsoteka of the Llano Estacado','Hämäläinen (2008), pp. 311, 315; Kavanagh (1996), pp. 372, 481'),
+ (1858.0,'cyk',0.527,'The Kwahadi faction forms, largely from the Kotsoteka of the Llano Estacado','Hämäläinen (2008), pp. 311, 315; Kavanagh (1996), pp. 372, 481'),
  (1732.5,'jic',-0.598,'Half the Cuartelejo and Paloma Apache join the Jicarilla','Hämäläinen (2008), pp. 36, 48 (some went to Pecos and the Jicarilla, others to the Lipan)'),
  (1732.5,'lip',-0.273,'Half the Cuartelejo and Paloma Apache join the Lipan','Hämäläinen (2008), p. 48'),
  (1894.5,'wic',-0.173,'The Kitsai merge into the Wichita','Parks, “Kitsai”, Handbook of North American Indians 13 (2001), p. 570'),
+ (1833.0,'min',0.288,'The Two Kettle bud from the Miniconjou','Bray, “Teton Sioux Population History” (1994), pp. 178, 182'),
  (1885.0,'cwm',-0.647,'The River and Mountain Crow are counted together at the Crow agency','ours'),
 ]
 GUESS['chy'].append(g(1831.9,None,3500,'Continuity with the divided Cheyenne (Handbook 13: 3,500 in 1780, 3,200 in 1837)'))

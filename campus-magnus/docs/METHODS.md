@@ -118,7 +118,7 @@ $$x(t) = T(t) + S(t) + \lambda\,\phi(t)\,A_{\text{lit}}(t), \qquad x_i = x(t_i) 
 
 | Test | Script | Output | Result |
 |---|---|---|---|
-| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,133 counts; median miss ×1.12 (interpolation ×1.09; before 1840 the model is better, after it interpolation); 2-sd coverage 0.91 before widening |
+| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,133 counts; median miss ×1.11 (interpolation ×1.09; before 1840 the model is better, after it interpolation); 2-sd coverage 0.91 before widening |
 | Held-out nomadic places | `calib_gp.py` | `model/build/gpcal.json` | 533 places; median 110 km, mean 139 (track through every record 115, 147); season-dated 105 against 117 without the seasonal component; halo 68% in each season |
 | Held-out village places | `calib_vmove.py` | console | 207 places; median 7 km, mean 42 |
 | Whole-model sensitivity | `sens.py` | `model/build/sensitivity.json` | table under “Sensitivity of the population totals” on the map page |

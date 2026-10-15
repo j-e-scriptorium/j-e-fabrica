@@ -6,11 +6,11 @@
   "C": 22
  },
  "records": 2427,
- "keyframes": 519,
+ "keyframes": 517,
  "epidemic_rows": 236,
- "keyframes_without_note": 242,
+ "keyframes_without_note": 240,
  "keyframe_roles": {
-  "place+persons": 426,
+  "place+persons": 424,
   "persons only": 77,
   "place only": 10,
   "marker only (defers to records)": 6
@@ -32,7 +32,7 @@
   "recalled": 3
  },
  "coverage_thin": 28,
- "coverage_rows": 344,
+ "coverage_rows": 341,
  "epi_basis": {
   "sourced for the north (55%), the Missour": 50,
   "sourced for the Omaha": 35,
