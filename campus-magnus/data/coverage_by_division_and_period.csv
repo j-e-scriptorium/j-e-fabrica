@@ -90,25 +90,25 @@ asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1700–1749,0,0,0,2,50,31,15
 asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1750–1799,0,2,4,0,19.0,30,121,
 asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1800–1824,1,1,2,0,15.5,23,135,
 asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1825–1849,0,3,0,1,25,21,153,
-asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1850–1874,1,2,1,0,21,21,142,
-asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1875–1905,2,2,2,1,23.5,15,117,
+asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1850–1874,1,2,1,0,21,20,142,
+asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1875–1905,9,2,2,1,23.5,11,117,
 cre,Plains Cree,Qu’Appelle–Touchwood Cree,1700–1749,0,0,0,1,50,35,215,thin
 cre,Plains Cree,Qu’Appelle–Touchwood Cree,1750–1799,0,0,0,1,50,30,191,thin
 cre,Plains Cree,Qu’Appelle–Touchwood Cree,1800–1824,1,0,1,0,20,26,167,
 cre,Plains Cree,Qu’Appelle–Touchwood Cree,1825–1849,0,0,0,0,25,29,187,thin
-cre,Plains Cree,Qu’Appelle–Touchwood Cree,1850–1874,0,1,1,1,24.7,23,152,
-cre,Plains Cree,Qu’Appelle–Touchwood Cree,1875–1905,0,2,0,1,31,20,163,sparse
+cre,Plains Cree,Qu’Appelle–Touchwood Cree,1850–1874,0,1,1,1,24.7,22,152,
+cre,Plains Cree,Qu’Appelle–Touchwood Cree,1875–1905,0,9,0,1,31,14,163,sparse
 crw,Plains Cree,Fort des Prairies Cree,1700–1749,0,0,0,1,50,40,195,thin
 crw,Plains Cree,Fort des Prairies Cree,1750–1799,0,0,1,0,44.8,38,174,sparse
 crw,Plains Cree,Fort des Prairies Cree,1800–1824,0,1,0,1,25,29,197,
 crw,Plains Cree,Fort des Prairies Cree,1825–1849,0,0,0,0,25,30,186,thin
-crw,Plains Cree,Fort des Prairies Cree,1850–1874,1,1,1,0,19,23,135,
-crw,Plains Cree,Fort des Prairies Cree,1875–1905,0,2,1,1,29.4,20,157,sparse
+crw,Plains Cree,Fort des Prairies Cree,1850–1874,1,1,1,0,19,22,135,
+crw,Plains Cree,Fort des Prairies Cree,1875–1905,0,9,1,1,29.4,14,157,sparse
 crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1790–1799,0,0,0,1,10,29,187,thin
 crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1800–1824,0,1,0,0,25,28,184,
 crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1825–1849,0,0,1,1,19.1,25,131,
-crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1850–1874,2,1,2,1,19,21,112,
-crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1875–1905,0,2,0,7,31,17,128,sparse
+crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1850–1874,2,1,2,1,19,20,112,
+crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1875–1905,0,9,0,7,31,13,128,sparse
 ojb,Plains Ojibwe,Pembina–Turtle Mountain,1780–1799,0,0,2,1,10.0,28,107,
 ojb,Plains Ojibwe,Pembina–Turtle Mountain,1800–1824,1,0,4,1,16.4,25,102,
 ojb,Plains Ojibwe,Pembina–Turtle Mountain,1825–1849,0,0,1,0,15.0,26,131,
@@ -119,13 +119,13 @@ sik,Blackfoot,Siksika,1750–1799,1,1,1,1,39,25,158,sparse
 sik,Blackfoot,Siksika,1800–1824,2,1,1,1,15.0,19,123,
 sik,Blackfoot,Siksika,1825–1849,0,0,1,1,16.1,21,131,
 sik,Blackfoot,Siksika,1850–1874,10,0,1,0,18.5,13,142,
-sik,Blackfoot,Siksika,1875–1905,3,0,0,5,31,13,145,sparse
+sik,Blackfoot,Siksika,1875–1905,11,0,0,5,31,9,145,sparse
 kai,Blackfoot,Kainai (Blood),1700–1749,0,0,0,1,50,39,234,thin
 kai,Blackfoot,Kainai (Blood),1750–1799,1,1,1,0,39,31,190,sparse
 kai,Blackfoot,Kainai (Blood),1800–1824,2,1,1,1,15.0,19,124,
 kai,Blackfoot,Kainai (Blood),1825–1849,0,0,1,1,16.1,21,130,
 kai,Blackfoot,Kainai (Blood),1850–1874,11,0,2,0,14.3,13,119,
-kai,Blackfoot,Kainai (Blood),1875–1905,3,0,1,2,28.3,13,144,sparse
+kai,Blackfoot,Kainai (Blood),1875–1905,11,0,1,2,28.3,9,144,sparse
 pik,Blackfoot,Piikani (Piegan),1700–1749,0,0,1,1,29.5,39,168,sparse
 pik,Blackfoot,Piikani (Piegan),1750–1799,1,1,2,0,37.9,31,164,sparse
 pik,Blackfoot,Piikani (Piegan),1800–1824,2,1,1,1,15.0,19,123,
@@ -321,13 +321,13 @@ sar,Sarsi,Tsuut’ina (Sarsi),1750–1799,1,0,1,1,40.5,24,161,sparse
 sar,Sarsi,Tsuut’ina (Sarsi),1800–1824,4,0,3,0,10.5,19,115,
 sar,Sarsi,Tsuut’ina (Sarsi),1825–1849,2,0,0,1,25,19,139,
 sar,Sarsi,Tsuut’ina (Sarsi),1850–1874,3,0,3,1,8.2,14,99,
-sar,Sarsi,Tsuut’ina (Sarsi),1875–1905,5,0,3,3,22.5,12,111,
+sar,Sarsi,Tsuut’ina (Sarsi),1875–1905,13,0,3,3,22.5,9,111,
 sto,Stoney,Mountain Stoney (Nakoda),1700–1749,0,0,0,2,50,31,180,thin
 sto,Stoney,Mountain Stoney (Nakoda),1750–1799,0,0,1,0,45.1,33,178,sparse
 sto,Stoney,Mountain Stoney (Nakoda),1800–1824,0,0,0,1,25,32,188,thin
 sto,Stoney,Mountain Stoney (Nakoda),1825–1849,0,0,1,0,20.5,33,159,
-sto,Stoney,Mountain Stoney (Nakoda),1850–1874,0,0,1,1,23.5,23,126,
-sto,Stoney,Mountain Stoney (Nakoda),1875–1905,5,0,2,1,26.5,13,133,sparse
+sto,Stoney,Mountain Stoney (Nakoda),1850–1874,0,0,1,1,23.5,22,126,
+sto,Stoney,Mountain Stoney (Nakoda),1875–1905,13,0,2,1,26.5,10,133,sparse
 tkw,Tonkawa,Tonkawa,1700–1749,0,0,0,2,50,28,176,thin
 tkw,Tonkawa,Tonkawa,1750–1799,3,0,4,2,20.3,21,119,
 tkw,Tonkawa,Tonkawa,1800–1824,1,0,0,0,25,26,152,

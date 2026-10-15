@@ -17,7 +17,7 @@ A request for copies (PDF scans or full text) of the works and documents below, 
 
 ## Population tables, Canada
 
-8. Canada, Department of Indian Affairs, *Annual Report*, in the Sessional Papers, for each of the years 1880–1889, 1891, 1892 and 1894–1900: the tabular statements of population by band and reserve for the Manitoba and North-West Territories superintendencies.
+8. Canada, Department of Indian Affairs, *Annual Report*, in the Sessional Papers, for the years 1881, 1882, 1885, 1889, 1891, 1894, 1895, 1896 and 1897: the tabular statements of population by band and reserve for the North-West Territories (Treaties 4, 6 and 7), at the level of the individual band rather than the treaty total.
 9. The annuity paylists for Treaty 4 (1874), Treaty 6 (1876) and Treaty 7 (1877), 1874–1900, by band: the Plains Cree, Plains Ojibwe (Saulteaux), Assiniboine, Sarcee (Tsuu T'ina), Stoney and Blackfoot (Siksika, Kainai, Piikani) reserves (Library and Archives Canada, RG 10).
 
 ## Epidemics

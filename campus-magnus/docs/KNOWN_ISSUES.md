@@ -33,9 +33,9 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 
 ## 4. Canadian peoples after 1870 and before 1790
 
-- **The gap.** The Department of Indian Affairs reports for 1890 and 1893 are in the record: the Blackfoot, Blood, Canadian Piegan, Sarsi, Stoney, Northern Assiniboine and Plains Cree, band by band from the tables of the number and whereabouts of the Indians of the North-West Territories. Other reserve-era years rest on Hodge, Denig via Hayden, the Handbook's counts for 1877, 1885 and 1895, and keyframes.
+- **The counts.** The Department of Indian Affairs returns give the Blackfoot, Blood, Canadian Piegan, Sarsi, Morley Stoney, Northern Assiniboine and Plains Cree band by band for 1883, 1884, 1886–88, 1890, 1892, 1893, about 1898, 1899 and 1900, some years for Treaty 7 or Treaties 4 and 6 only. The returns for 1881–82, 1885 and 1889–91 give one figure per treaty, which cannot be divided among the peoples; 1894–97 were not available. Two series run side by side: the census returns, and the tables of the number and whereabouts of each band, which count absentees and run higher.
 - **What the counts need.** The Plains Cree total includes bands the Department called mixed Cree, Saulteaux and Stony; the Woods Cree bands are left out. The Treaty 4 Saulteaux are not part of the Pembina–Turtle Mountain division and are not modelled. The Canadian Dakota refugees (about 730 on reserves in 1890) are not modelled either.
-- **Would settle it.** The other years of the Department's *Annual Reports*, 1880–1900, and the Treaty 4, 6 and 7 paylists.
+- **Would settle it.** The band-level returns for 1881–82, 1885, 1889, 1891 and 1894–97, and the Treaty 4, 6 and 7 paylists.
 
 ## 5. Agency counts used as the fixed reference
 

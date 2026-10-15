@@ -3369,3 +3369,30 @@ OBS += [
  *pls(['sik','kai'],1769.9,'Winter 1769–70: Pink, wintering on the plains beyond Manitou Lake, “had to do with Blackfeet, Bloods, and Assiniboins” (dealings, not their camps; kept off the division tracks)',(52.6,-110.1),150,MORTON('p. 280'),whole=False),
  pl('asn',1775.95,'Winter 1775–76: Alexander Henry the elder visits the Assiniboins “encamped in a similar island of trees upon the plains somewhere south of Melfort. There might be a hundred tents or more”, later joined by another camp of like size',(52.7,-104.6),40,MORTON('pp. 314–15')),
 ]
+# ---- Canada, Department of Indian Affairs, census returns and whereabouts tables of the North-West Territories, 1883-1900
+#      (two volumes of returns, read band by band). Totals per band, summed per people. The Canadian Piegan are a partial
+#      count of the division. The Plains Cree sum is the treaty bands, the mixed Cree, Saulteaux and Stony bands, the other
+#      Onion Lake bands and the listed Cree stragglers, as for 1890 and 1893; the Woods Cree bands are left out. The return
+#      placed between 1893 and 1899 carries no date; its bands (Running Rabbit, White Pup, the Montana Cree) date it 1897-98.
+_DIAR=lambda lab: f'Canada, Department of Indian Affairs, Annual Report for the year ended 30 June {lab} (Sessional Papers), census return of the North-West Territories'
+_DIAX={1883.95:('1884','whereabouts table, 31 Dec. 1883'),1884.95:('1885','whereabouts table, 31 Dec. 1884'),1886.8:('1887','whereabouts table, Oct. 1886'),
+       1887.8:('1888','whereabouts table, Oct. 1887'),1888.8:('1889','whereabouts table, Oct. 1888'),1892.5:('1892','tabular statement no. 3, 30 June 1892'),
+       1898.0:('1898','census return, undated (1897–98 by its bands)'),1899.5:('1899','census return'),1900.5:('1900','census return')}
+def _dx(y): yr,t=_DIAX[y]; return f'Canada, Department of Indian Affairs, Annual Report for the year ended 30 June {yr} (Sessional Papers), {t}'
+_DIAC={
+ 'sik':{1883.95:2158,1884.95:2173,1886.8:2147,1887.8:1955,1892.5:1472,1898.0:1099,1899.5:1096,1900.5:1038},
+ 'kai':{1883.95:2589,1884.95:2278,1886.8:2241,1887.8:2204,1892.5:1701,1898.0:1291,1899.5:1278,1900.5:1247},
+ 'sar':{1883.95:436,1884.95:429,1886.8:341,1887.8:339,1892.5:230,1898.0:227,1899.5:213,1900.5:203},
+ 'sto':{1883.95:597,1884.95:621,1886.8:633,1887.8:603,1892.5:424,1898.0:581,1899.5:594,1900.5:626},
+ 'asn':{1883.95:921,1886.8:602,1888.8:612,1892.5:390,1898.0:382,1899.5:377,1900.5:371},
+ 'cre':{1883.95:8619,1886.8:6424,1888.8:5906,1892.5:4436,1898.0:4721,1899.5:4548,1900.5:4600},
+}
+_DIAPIK={1883.95:893,1884.95:929,1886.8:932,1887.8:932,1892.5:881,1898.0:658,1899.5:536,1900.5:519}
+_DIALAB={'sik':'Blackfoot (Siksika), both bands','kai':'Blood','sar':'Sarcee','sto':'Stoney at Morley','asn':'Assiniboine of Moose Mountain, Indian Head and the Eagle Hills',
+         'cre':'Plains Cree: treaty bands, mixed bands, the other Onion Lake bands and Cree stragglers'}
+_AT={'sik':(50.85,-112.95),'kai':(49.4,-113.2),'sar':(50.95,-114.25),'sto':(51.16,-115.0),'asn':(50.7,-105.5),'cre':(52.3,-107.5)}
+for _g,_d in _DIAC.items():
+    for _y,_v in _d.items():
+        OBS.append(_cnt(['cre','crw','crs'] if _g=='cre' else _g,_y,_v,f'{_DIALAB[_g]}, {_v:,}',_dx(_y),_AT[_g],r=350 if _g=='cre' else (250 if _g=='asn' else 40),basis='census'))
+for _y,_v in _DIAPIK.items():
+    OBS.append(_cnt('pik',_y,_v,f'Canadian Piegan (North Axe, Crow Eagle), Old Man’s River, {_v:,} (the Montana Piegan not included)',_dx(_y),(49.6,-113.8),r=40,basis='census',whole=False))
