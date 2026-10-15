@@ -78,7 +78,7 @@ These are the identifications that most affect tracks.
   - Before 1780, where six divisions have no count at all.
   - The northern plains before 1790.
   - The Plains Cree and Plains Ojibwe throughout, where Canadian treaty-era counts were not read.
-- **Effect of removing all of them.** The 1780 total falls by about 3%, the 1850 total by 3%, held-out population error barely moves (1.114 to 1.113, sensitivity runs), and held-out place error for the nomadic centre worsens from 109 to 111 km.
+- **Effect of removing all of them.** The 1780 total falls by about 2%, the 1850 total by 3%, held-out population error barely moves (1.112 to 1.111, sensitivity runs), and held-out place error for the nomadic centre worsens from 109 to 111 km.
 
 ## 7. Epidemics and famines (`epidemics_and_shocks.csv`)
 
@@ -92,7 +92,7 @@ These are the identifications that most affect tracks.
   - The Comanche losses of 1848–49 (5% a year, against a contemporary report of 300 deaths), 1850–60 (drought and famine, 35%), the early 1860s (40%), 1871–73 (15%) and 1874–75 (30%): the events are from Hämäläinen and Kavanagh, read in full; the rates are ours, scaled to the counts.
   - The Sarsi and Stoney in 1780–82 and the Stoney in 1837–38, at their neighbours' rates.
 - **Events deliberately not modelled.** Grinnell's 1845 Blackfoot smallpox, which no other source read here gives (probably a misdating of 1837).
-- **If wrong.** This is the most influential assumption before 1800: ±25% on every rate moves the 1780 total between 135,000 and 183,000.
+- **If wrong.** This is the most influential assumption before 1800: ±25% on every rate moves the 1780 total between 136,000 and 185,000.
 
 ## 8. Source-family factors
 

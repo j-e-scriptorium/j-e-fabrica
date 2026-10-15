@@ -17,7 +17,7 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 
 ## 2. Epidemic mortality rates are mostly assumed
 
-- **Scale.** Still the single most influential input before 1800: ±25% on every rate moves the 1780 total between 135,000 and 183,000.
+- **Scale.** Still the single most influential input before 1800: ±25% on every rate moves the 1780 total between 136,000 and 185,000.
 - **1780–82, after reading Fenn, *Pox Americana* (2001).**
   - Sourced: the northern plains (55%), the Missouri villages (68%, Lehmer), the Lipan (more than 400 dead, about 15%) and the eastern Comanche (two-thirds reported, 60% used). The western Comanche lose 5%: the epidemic "failed to spread among the nearby western Comanches" (Hämäläinen, p. 111). The Assiniboine lose 40%: "between one-third and one-half" (Handbook 13, p. 574), with Denig's tradition of about 300 lodges lost from some 1,500 (BAE 46, p. 399).
   - Fenn's 43% is a case-fatality rate (deaths among the infected, from Madras in the 1960s), not a mortality rate. Her own minimum for the nomadic Sioux, a third infected, is about 14%. The Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache lose 20%: assumed, just above that minimum. Bray's reconstruction has the Sioux as a whole losing 16% ("Teton Sioux Population History", p. 170).
