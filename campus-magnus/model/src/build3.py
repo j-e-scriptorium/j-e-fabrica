@@ -181,7 +181,8 @@ FIT={g:((v[0],v[1]) if not math.isnan(v[0][0]) else (np.zeros(n),np.full(n,.9)))
 # Nomadic divisions: the track passes through every documented place and keyframe; its uncertainty comes from a random-walk smoother
 # (Kalman + RTS) fitted by hold-out (calib_pos.py): q = 2000 km² a year per axis, within-year scatter 90 km, a stated range counts at a
 # quarter of its radius, keyframes ±150 km; the smoother's spread, scaled by 1.46, holds 68% of held-out places (calib_halo.py).
-# Village divisions: hold at each place and move over two years at the midpoint to the next (villages move by relocation, not drift).
+# Village divisions: hold at each place and move over two years at the midpoint to the next (villages move by relocation, not drift);
+# the halo is 24 km plus 1.25 times the distance to the next place times the share of the gap elapsed (calib_vhalo.py).
 import possmooth as _PS
 import ecology_src as _EC
 DENSE={}; SV={}; SVS={}; SVD={}; MOVES={}
@@ -220,8 +221,8 @@ for gid in gids:
                 a_,b_=lo[-1],hi[0]; dm=[m for m in MOVES.get(gid,[]) if a_[0]<m<b_[0]+0.3]
                 if dm: u=0.5*max(0.0,1-abs(t-dm[0]))      # dated move: the place is known on either side of it
                 else: u=min(t-a_[0],b_[0]-t)/(b_[0]-a_[0])
-                v=20+_km(a_[1:3],b_[1:3])*u+3*min(t-a_[0],b_[0]-t)
-            else: a_=(lo or hi)[-1 if lo else 0]; v=20+3*abs(t-a_[0])
+                v=24+1.25*_km(a_[1:3],b_[1:3])*u      # fitted by hold-out (calib_vhalo.py): holds 68% of withheld village places
+            else: v=24
             sp.append(round(min(300,v)))
         SP[gid]=sp
     else:

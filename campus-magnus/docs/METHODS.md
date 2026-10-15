@@ -102,7 +102,7 @@ $$x(t) = T(t) + S(t) + \lambda\,\phi(t)\,A_{\text{lit}}(t), \qquad x_i = x(t_i) 
 **Village divisions.** The track holds at each place.
 - Where `ecology_src.VMOVE` dates a relocation, the move happens over about five months around that date.
 - Otherwise it moves over two years centred on the midpoint between the two places.
-- The halo is a hand-set formula: 20 km + (distance to next site × fraction of the gap elapsed) + 3 km per year from the nearest anchor, capped at 300 km. **This formula is not calibrated.**
+- The halo is 24 km + 1.25 × (distance to the next place × the share of the gap elapsed, up to half), capped at 300 km; where the move is dated, the distance term applies only within a year of it. The two terms are fitted to 243 withheld village places (`calib_vhalo.py`) as the halo that holds 68% of them with coverage most even across strata of time and distance from the nearest place. A term in the years from the nearest place was tried and not chosen. Coverage is 59% within three years of another record and 76% three to ten years from one (`KNOWN_ISSUES.md` §7).
 - Held out (`calib_vmove.py`), the 207 village places of the peoples with dated moves are missed by a median 7 km and a mean 42 km.
 
 **Seasonal round (optional layer).** With it on, the map adds $S$ and the literature term to the centre. Where a division has neither season-dated places within about eight years nor a literature pattern, $S$ is zero and only the bands' scatter moves with the seasons. The calendar φ (winter ground to mid-March, summer ground by early July until early August, back by late October; `build/profcal.json`) times the literature patterns and the bands; the learned component keeps its own timing.
@@ -121,6 +121,7 @@ $$x(t) = T(t) + S(t) + \lambda\,\phi(t)\,A_{\text{lit}}(t), \qquad x_i = x(t_i) 
 | Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,172 counts; median miss ×1.11 (interpolation ×1.08; before 1840 the model is better, after it interpolation); 2-sd coverage 0.91 before widening |
 | Held-out nomadic places | `calib_gp.py` | `model/build/gpcal.json` | 533 places; median 110 km, mean 139 (track through every record 115, 147); season-dated 105 against 117 without the seasonal component; halo 68% in each season |
 | Held-out village places | `calib_vmove.py` | console | 207 places; median 7 km, mean 42 |
+| Village halo coverage | `calib_vhalo.py` | console | 243 places; median miss 11 km; 68% inside |
 | Whole-model sensitivity | `sens.py` | `model/build/sensitivity.json` | table under “Sensitivity of the population totals” on the map page |
 | Rebuild from package | — | — | bit-identical populations and tracks |
 

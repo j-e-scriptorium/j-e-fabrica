@@ -91,7 +91,7 @@ Open `index.html` (served over http). With "Best guess" and "Divisions" selected
 - After the 25% widening, about 68% of |z| should be ≤ 1.25 and 95% ≤ 2.5.
 - Check this by period and by people. If one people's misses all run one way, its fit is biased, not merely noisy.
 
-**Place.** The nomadic halo is calibrated to contain 68% of withheld places in each season. The village halo is not calibrated (`KNOWN_ISSUES.md` §7).
+**Place.** The nomadic halo is calibrated to contain 68% of withheld places in each season. The village halo is fitted to hold 68% of withheld village places, unevenly across strata (`KNOWN_ISSUES.md` §7).
 
 **Coverage.** Cross `coverage_by_division_and_period.csv` with the halo and SD columns. Uncertainty should be largest where the flag is `thin`. If it is not, the model is overconfident there.
 

@@ -50,11 +50,12 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 - **Ours.** Band weights and budding order; the matching of lists from different decades.
 - **Status.** Division totals constrain the bands' sum, but nothing else about the bands is tested. Do not cite band-level positions or sizes from this map.
 
-## 7. Uncalibrated village halos
+## 7. Village halos: uneven coverage
 
-- **The gap.** Village divisions' position uncertainty is a hand-set formula (`METHODS.md` §3), not fitted to held-out places.
-- **Measured miss.** The held-out median miss is 45 km.
-- **Whether the halo is the right size.** Untested: it may be too wide near well-dated sites and too narrow across long undocumented gaps.
+- **The fit.** The village halo is fitted to 243 withheld village places (`calib_vhalo.py`, `METHODS.md` §3) and holds 68% of them; the median miss is 11 km.
+- **Where it is too narrow.** Places within three years of another record fall inside only 59% of the time. Most of these misses are a division's several villages standing apart in the same years, which one track cannot represent; the halo is a statement about the track, not about the spread of a division's villages.
+- **Where it is too wide.** Places three to ten years from the nearest record fall inside 76% of the time.
+- **No time term.** A term growing with the years since the nearest record was tested and not chosen: the widest misses are those nearest in time to another record, and places more than ten years from one already fall inside 72% of the time.
 
 ## 8. Second-hand and recalled material in the record
 
