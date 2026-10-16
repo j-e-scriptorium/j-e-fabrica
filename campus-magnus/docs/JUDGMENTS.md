@@ -16,7 +16,7 @@ A judgment call is any step where the record does not decide the matter and we d
 | Arkansas Osage (Claremore's band) a separate division, 1802–39 | Pike and Clark count it separately. | `osa` |
 | Two names Clark recorded but which cannot be identified (Castahana, Dotame) kept as evidence only. Two others once kept apart ("Staitan", "Nemousin") folded into the Arapaho. | Parks, "Enigmatic Groups", Handbook 13, pp. 972–73: probable identifications only. | records with group `u_cas`, `u_dot`; Arapaho 1805 |
 
-## 2. Who a record is about (30 records flagged `identification_judged`)
+## 2. Who a record is about (31 records flagged `identification_judged`)
 
 These are the identifications that most affect tracks.
 
@@ -34,7 +34,7 @@ These are the identifications that most affect tracks.
 | Decision | Records |
 |---|---|
 | A source's own persons-per-lodge or per-warrior ratio where it states one | 33 (`multiplier_stated_by_source`) |
-| Our ratio otherwise: lodges × 5, warriors × 4, earth lodges × 10 (Thompson's ratio is 8–10) | 109 (`multiplier_ours`) |
+| Our ratio otherwise: lodges × 5, warriors × 4, earth lodges × 10 (Thompson's ratio is 8–10) | 119 (`multiplier_ours`) |
 | Clark 1805: the lower of his two figures | ~40 Clark records |
 | Same-year counts of parts of one division are summed to a division total | see `summed_with_same_year_records` |
 | A range ("1,000–1,500 families") taken at its midpoint | noted in `source_says` |
@@ -45,15 +45,15 @@ These are the identifications that most affect tracks.
 
 | Decision | Records |
 |---|---|
-| A count whose source gives no usable place is placed by us (`place_status = inferred`) and **never steers a track** | 1,381 |
+| A count whose source gives no usable place is placed by us (`place_status = inferred`) and **never steers a track** | 1,390 |
 | A stated place is geocoded by us, with a radius `place_radius_km` for its vagueness | all `stated` records |
 | A range ("between the Platte and the Arkansas") is placed at its centre; its radius is kept as uncertainty | 53 (`place_centre_ours`) |
 | Wikipedia's coordinates for battle, treaty, agency and site articles are used as given | about 130 records from 72 articles, tier B |
-| A date derived from context (a narrator's age, "mid-18th century", an archaeological span) | 5 (`date_ours`) |
+| A date derived from context (a narrator's age, "mid-18th century", an archaeological span) | 6 (`date_ours`) |
 
 ## 5. Which records steer a division's track
 
-818 records inform a track, each as a noisy sighting of the division's centre rather than a point it must pass through (`METHODS.md` §3). Another 291 stated places are drawn but kept off (`steers_track = no`): camps, councils and visits of part of a division. The reasons follow.
+826 records inform a track, each as a noisy sighting of the division's centre rather than a point it must pass through (`METHODS.md` §3). Another 302 stated places are drawn but kept off (`steers_track = no`): camps, councils and visits of part of a division. The reasons follow.
 
 - **A part of the division.** A band, a chief's following, a camp holding part of the people (Crazy Horse's following, 1876–77; Cocking's Pegogamaw, 1772–73).
 - **A visit, delegation, council attendance or war party.** San Sabá 1758, the Council House Fight 1840, Shoshone at Horse Creek 1851. These say where some men were for days.
@@ -78,27 +78,27 @@ These are the identifications that most affect tracks.
   - Before 1780, where sixteen divisions have no count, not even as part of a tribal total, and the Cuartelejo and Paloma Apache, who have none at any date.
   - The northern plains before 1790.
   - The Plains Ojibwe throughout, and the Plains Cree before the Canadian returns of 1883.
-- **Effect of removing all of them.** The 1780 total falls by about 6%, nearly all of it the undivided Teton, who have no count of their own and drop out with the Cuartelejo and Paloma Apache; the 1850 total falls by 2%; held-out population error barely moves (1.106 to 1.108, sensitivity runs), and held-out place error for the nomadic centre worsens from 109 to 115 km.
+- **Effect of removing all of them.** The 1780 total falls by about 6%, nearly all of it the undivided Teton, who have no count of their own and drop out with the Cuartelejo and Paloma Apache; the 1850 total falls by 2%; held-out population error barely moves (1.106 to 1.110, sensitivity runs), and held-out place error for the nomadic centre worsens from 107 to 114 km.
 
 ## 7. Epidemics and famines (`epidemics_and_shocks.csv`)
 
-- **What is applied.** 32 events, 220 event × division rows, each applied only to divisions alive while it ran.
+- **What is applied.** 33 events, 221 event × division rows, each applied only to divisions alive while it ran.
 - **What is sourced.** Dates and the existence of each event are sourced. Rates are sourced for some divisions per event and scaled or assumed for the rest; the `rate_basis` field of each event says which.
 - **The assumed rates that matter most.**
-  - The 1780–82 smallpox for the Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache (20%, just above Fenn's minimum for the Sioux) and at the edges of its range. The north, the Missouri villages, the Lipan and the eastern Comanche are sourced from Fenn (2001), read in full; the western Comanche (5%) from Hämäläinen, p. 111; the Assiniboine (40%) from Handbook 13, p. 574, and Denig.
+  - The 1780–82 smallpox for the Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache (20%, just above Fenn's minimum for the Sioux) and at the edges of its range. The north, the Missouri villages, the Lipan and the eastern Comanche are sourced from Fenn (2001), read in full; the western Comanche (5%) from Hämäläinen, p. 111; the Assiniboine (40%) from Handbook 13, p. 574, and Denig. The northern rate (60%) sits between the traders' "at least one half" and Binnema's "about two-thirds" (*Common and Contested Ground*, p. 122), at Oman's three-fifths. The Gros Ventre losses of 1801 (smallpox and Cree–Assiniboine attacks, about 175 of 2,400) are from Binnema, p. 189.
   - The 1801–02 smallpox except for the Omaha.
   - The 1839–40 southern smallpox (assumed below Mooney's "third").
   - The 1849 cholera except for the Kiowa, the Cheyenne and the Brulé (Bray).
   - The Comanche losses of 1848–49 (5% a year, against a contemporary report of 300 deaths), 1850–60 (drought and famine, 35%), the early 1860s (40%), 1871–73 (15%) and 1874–75 (30%): the events are from Hämäläinen and Kavanagh, read in full; the rates are ours, scaled to the counts.
   - The Sarsi and Stoney in 1780–82 and the Stoney in 1837–38, at their neighbours' rates.
 - **Events deliberately not modelled.** Grinnell's 1845 Blackfoot smallpox, which no other source read here gives (probably a misdating of 1837).
-- **If wrong.** This is the most influential assumption before 1800: ±25% on every rate moves the 1780 total between 136,000 and 185,000.
+- **If wrong.** This is the most influential assumption before 1800: ±25% on every rate moves the 1780 total between 135,000 and 188,000.
 
 ## 8. Source-family factors
 
 The factors are estimated by the model, not set by hand, but the grouping of sources into families is ours (`family()` in `build3.py`). Reservation censuses are fixed as the reference; every other family's counts are scaled toward them.
 
-The estimated factors run from 0.60 (Henry 1809, counting men in his trading district) to 1.14 ("other sources" and modern reconstructions). The catch-all family holds most counts cited from the Handbook chapters, so it scales down every people whose figures come mainly from there, including the four peoples added from Handbook 13. Morse 1820 comes out about 8% high and Clark about 13% low.
+The estimated factors run from 0.64 (Henry 1809, counting men in his trading district) to 1.14 ("other sources" and modern reconstructions). The catch-all family holds most counts cited from the Handbook chapters, so it scales down every people whose figures come mainly from there, including the four peoples added from Handbook 13. Morse 1820 comes out about 8% high and Clark about 12% low.
 
 **If wrong:** a family biased in the same direction as the censuses (for example, agents inflating ration rolls before 1880) would go uncorrected. See `KNOWN_ISSUES.md` §5.
 
@@ -111,10 +111,11 @@ The estimated factors run from 0.60 (Henry 1809, counting men in his trading dis
   - The Sarsi: Jenness, pp. 11–12; the direction and distance are ours.
   - The Comanche after 1840: the Texas Indian Papers. The Penateka wintered on the Clear Fork and in the upper Cross Timbers; the northern bands summered by the Arkansas, which Kavanagh's sources of 1851–53 confirm (*Comanche Political History*, pp. 332, 343–44, 348).
   - The Kiowa, 1830–70: Levy, Handbook 13, p. 908, and Kavanagh's sources of 1851–53. Winter camps on the Red River and Washita; spring and summer on the Arkansas, following the herds north.
+  - The Mountain Crow: Larocque in 1805, as Binnema quotes him (*Common and Contested Ground*, p. 37): in winter "at a Park by the foot of the Mountain", in spring and fall on the Yellowstone, in summer on the Tongue and "Horses River". The places are ours. It lowered the miss on withheld Mountain Crow season-dated places (median 71 to 65 km), and replaces Hoxie's recalled pattern.
   - The River Crow after about 1849: Denig, BAE 46, p. 404, "the Crows winter with the Assiniboin", near Fort Union.
   - The Yankton: DeMallie, Handbook 13, pp. 777, 789. Gardens at village sites on the Missouri, "largely abandon[ed] … during the summer buffalo hunts" west of the Missouri on the Niobrara and White.
   - The Siksika after 1800: Dempsey, Handbook 13, p. 609. The Plains Cree of the 1790s: Milloy via Darnell, Handbook 13, p. 640. The Plains Ojibwe: Albers, Handbook 13, pp. 653–54.
-  - **Recalled, not reread for this build:** Ray and Moodie for the nineteenth-century Cree and Assiniboine; Milloy for the Cypress Hills Cree; Ross (1856) for the Pembina hunts of the Plains Ojibwe after 1820; Hoxie for the Crow before 1849; Stamm for the Shoshone; Pond for the Sisseton and Wahpeton.
+  - **Recalled, not reread for this build:** Ray and Moodie for the nineteenth-century Cree and Assiniboine; Milloy for the Cypress Hills Cree; Ross (1856) for the Pembina hunts of the Plains Ojibwe after 1820; Hoxie for the River Crow before 1849; Stamm for the Shoshone; Pond for the Sisseton and Wahpeton.
 - **Where the sources disagree, no pattern.**
   - The western Comanche divisions before 1830. Hämäläinen has the upper Arkansas as their winter ground and trade-fair site (pp. 164, 284–85). Trimble in 1818 and the sources of 1851–53 that Kavanagh quotes put them on the Arkansas in spring and summer and on the Red River in winter. Kavanagh himself finds that the eighteenth-century documents "do not indicate that the Comanche pattern followed seasonal changes" (p. 55).
   - The Kotsoteka before 1850 and the eastern Comanche before 1840, for the same reason.
@@ -155,7 +156,7 @@ The full list is in the “About the data” section of the map page, "Where the
 - **Arikara, 1871–78.** Hodge's 1,650 against the Fort Berthold roll of 654; irreconcilable, fit splits them.
 - **Arapaho, 1820.** Bell's "10,000" excluded as a mixed-camp count.
 - **Kiowa, 1854.** Whitfield's 2,800 treated as an overestimate against Mooney's series.
-- **Blackfoot, 1809.** Henry's tents give half of Umfreville's 1789 figures; both kept, and Henry's family factor (0.60) absorbs the difference.
+- **Blackfoot, 1809.** Henry's tents give half of Umfreville's 1789 figures; both kept, and Henry's family factor (0.64) absorbs the difference.
 
 ## 12. Checks against the narrative histories
 
@@ -171,6 +172,12 @@ The tracks and populations were read against the developments described in Häm�
 - **The Kiowa move south.** The Kiowa–Comanche peace was made about 1790 or in 1806. The Kiowa then "established residence on the upper Canadian and Red rivers" (Hämäläinen, p. 172) and camped "along and south of the Arkansas River" (Levy, Handbook 13, p. 908). A combined Comanche–Kiowa ranchería was on the Huerfano in 1810, and Fowler's camp of 1821 near Pueblo held Kiowas (Kavanagh, pp. 171, 211). The Kiowa centre is at 39.8° N in 1810 and 37.9° N in 1825. A Dakota winter count still puts a Kiowa village by Scott's Bluff in the winter of 1814–15, so part of the people stayed north.
 - **1859: the Comanche and Kiowa on the Arkansas–Canadian strip.** "Nearly all Comanches and Kiowas, some ten thousand people" (Hämäläinen, p. 311). The Yamparika, Kotsoteka and Kiowa centres lie there; the reserve Penateka stay on the Clear Fork until their removal in August.
 - **The Comanche totals.** Hämäläinen's 30,000–40,000 about 1800 and 20,000 in the 1840s are his reconstruction from round contemporary figures. Kavanagh shows how those figures were made, and the fit follows the counts (§11; `KNOWN_ISSUES.md` §1).
+- **The northwestern plains, 1700–1806.** Binnema, *Common and Contested Ground* (2001), read in full, reconstructs the region from the Hudson's Bay Company journals.
+  - The Shoshone were "probably already established in the Missouri Basin" by 1690–1700 (p. 84), held the northwestern plains from the 1720s, and after the smallpox of 1781 and the Blackfoot advance lived "along the mountainous margins" (p. 182); Le Raye puts them on the headwaters of the Bighorn in 1802. The Shoshone keyframe for 1700 is on the Missouri, and the centre moves south from the 1780s.
+  - The Blackfoot were pushed north toward the Eagle Hills by the 1730s, were secure in the Red Deer basin by 1770, and held the Oldman basin by the 1790s (pp. 90, 106, 137). Large Piegan camps on the Highwood in December 1792 and Sakatow's band at High River in November 1800 are in the record.
+  - The Gros Ventre held the country near the Saskatchewan forks in the 1770s (p. 75), wintered near Chesterfield House at the Red Deer forks about 1800 (about 180 tents and 600 warriors, Fidler), and after the attacks of 1801 "pitched away" for the Missouri in April 1802 (pp. 189–92); a southern band with Arapaho kin was in the Bighorn Basin by 1802–05.
+  - The Sarsi were pounding bison as far south as the Battle River by 1793 (p. 175).
+  - The Gros Ventre map of 1801 (fig. 7.5) gives tents for a dozen peoples to the south; they are in the record as counts of the groups the cartographer knew, not as totals.
 - **The Teton, 1785–1881.** The model follows Bray's chronology of the divisions: one Teton division to 1785, then the Brulé, Oglala, Miniconjou and Saone, the Saone dividing in 1806 (§1; `KNOWN_ISSUES.md` §10).
 - **The Teton, 1805–81.** Bray reconstructs 8,500 in 1805 and 16,110 in 1881 (Table 3). His reconstruction is entered at secondary weight. The fit stays at about 5,900 in 1805: Clark's figures, which Bray calls "a gross underestimate", and the keyframes outweigh it. The fit is about 18,100 in 1881, between Bray and the agency counts he calls inflated. The fit's Sans Arc stay about a third below Bray's through 1870. Following Bray, the Tetons lose 2% in 1837–38 (5% for the Sihasapa and Hunkpapa), and the Brulé lose 15% in 1849–50.
 - **The Cheyenne and Arapaho after 1840.** They wintered at the Front Range, the South Platte and the Big Timbers and hunted more than 100 miles east in summer. The gold rush of 1858–59 took the Front Range winter grounds and pushed them into the Smoky Hill–Republican country (West, pp. 192–93, 204, 234–35). The tracks show the centre of that range, not the displacement within it.

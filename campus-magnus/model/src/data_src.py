@@ -403,7 +403,7 @@ GUESS = {
  'cyn':[g(1830,(34.5,-99.8),2000,''),g(1847,None,1500,'1847 report called exaggerated'),g(1860,(34.3,-100.2),1000,''),g(1869,P['ft_sill'],None,''),g(1905,(34.62,-98.5),300,'')],
  'cyq':[g(1858,(34.4,-101.6),1300,'A faction drawing followers across divisional lines from the late 1850s (Hämäläinen, pp. 311, 315); the name first in 1862 (Kavanagh, p. 372)'),g(1860,(34.3,-101.6),1400,''),g(1874.75,P['palo_duro'],1000,'Palo Duro Canyon, Sept. 1874'),
         g(1875.4,P['ft_sill'],400,'Surrender at Fort Sill, June 1875'),g(1905,(34.62,-98.35),300,'')],
- 'sho':[g(1700,(49.6,-111.0),6000,'Northwestern Plains; placement uncertain'),g(1730,(48.6,-110.4),7000,''),g(1780,(47.2,-110.5),6000,''),
+ 'sho':[g(1700,(47.3,-110.6),6000,'Missouri basin, little sign north of the Missouri (Binnema, p. 84)'),g(1730,(48.6,-110.4),7000,''),g(1780,(47.2,-110.5),6000,''),
         g(1782,None,3000,'1781 smallpox; Blackfoot guns push them south'),g(1800,(44.8,-110.0),3000,''),g(1830,(42.6,-109.5),2500,'Wind River & Green River'),
         g(1868.5,P['wind_res'],1800,'Wind River reservation'),g(1905,(43.05,-108.95),900,'')],
  # ---------------- Caddoan ----------------
@@ -751,12 +751,12 @@ LAKOTA=['tet','bru','ogl','min','sao','hnk','sih','sna','twk']
 COM=['cyj','cyy','cyk','cyp','cyn','cyq']
 EPI = [
  (1780.6,1782.0,'Smallpox, 1780–82',
-   {**{g:.55 for g in ['cre','crw','sik','kai','pik','gv','sho']},'ass':.4,'asn':.4,
+   {**{g:.6 for g in ['cre','crw','sik','kai','pik','gv','sho']},'ass':.4,'asn':.4,
     **{g:.68 for g in ['man','hid','ari']}, 'cwm':.43,'cwr':.43,
     **{g:.2 for g in LAKOTA+['ynk','yku','ykl','chy','ara','kio','kap']}, 'cyp':.6, **{g:.05 for g in ['cyj','cyy','cyk']},
     **{g:.3 for g in ['pwc','pwk','pws','wic','jic']}, 'lip':.15, **{g:.15 for g in ['sis','wpt']},
     **{g:.2 for g in ['oma','pon','oto','mis','kaw','osg','osl','iow']}, **{g:.1 for g in ['mde','wpk']}},
-   'Fenn, Pox Americana (2001), ch. 6 and epilogue, read in full. North: the traders put losses at 50–98%; Oman, counting the tents left, “about three fifths had perished”; Umfreville, “at least one half” of the plains Indians. Missouri villages: Lehmer’s overall 68% for the Mandan, Hidatsa and Arikara. Crow: Larocque’s 2,000 lodges before the smallpox against 2,400 people in 1805 (after 1801–02 as well); Fenn’s minimum is 21.5%. Sioux: Fenn’s minimum assumes a third infected at the 43% case-fatality rate (about 14%), lower than among the villages because nomads were less exposed and some were immune from 1734–35. Eastern Comanche: Vial and Chaves (1785) report two-thirds dead, which Fenn thinks may be too high. Lipan: “more than four hundred” dead (Cabello, Dec. 1780)','sourced for the north (55%), the Missouri villages (68%), the Lipan (15%, of about 2,900) and the eastern Comanche (60%); Crow at 43% (above Fenn’s minimum, as Larocque implies); the Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache at 20%, just above Fenn’s minimum for the Sioux; the western Comanche at 5%: the epidemic “failed to spread among the nearby western Comanches, who had shunned the province after Anza’s shock victory over Cuerno Verde” (Hämäläinen, p. 111), and they were still 16,000–18,000 in the mid-1780s (p. 102); the Assiniboine at 40%: “between one-third and one-half” (Handbook 13, p. 574), Denig’s tradition about 300 of some 1,500 lodges (BAE 46, p. 399); the rest assumed'),
+   'Binnema, Common and Contested Ground (2001), pp. 120–27: on the northwestern plains “the disease probably killed about two-thirds of all” the Indians, “at least a third of almost every band”; Young Man’s camp lost “about one third”, other camps whole tents; no group escaped. '+'Fenn, Pox Americana (2001), ch. 6 and epilogue, read in full. North: the traders put losses at 50–98%; Oman, counting the tents left, “about three fifths had perished”; Umfreville, “at least one half” of the plains Indians. Missouri villages: Lehmer’s overall 68% for the Mandan, Hidatsa and Arikara. Crow: Larocque’s 2,000 lodges before the smallpox against 2,400 people in 1805 (after 1801–02 as well); Fenn’s minimum is 21.5%. Sioux: Fenn’s minimum assumes a third infected at the 43% case-fatality rate (about 14%), lower than among the villages because nomads were less exposed and some were immune from 1734–35. Eastern Comanche: Vial and Chaves (1785) report two-thirds dead, which Fenn thinks may be too high. Lipan: “more than four hundred” dead (Cabello, Dec. 1780)','sourced for the north (60%: Oman’s count of the tents left, three-fifths dead, between the traders’ “at least one half” and Binnema’s “about two-thirds of all northwestern plains Indians”), the Missouri villages (68%), the Lipan (15%, of about 2,900) and the eastern Comanche (60%); Crow at 43% (above Fenn’s minimum, as Larocque implies); the Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache at 20%, just above Fenn’s minimum for the Sioux; the western Comanche at 5%: the epidemic “failed to spread among the nearby western Comanches, who had shunned the province after Anza’s shock victory over Cuerno Verde” (Hämäläinen, p. 111), and they were still 16,000–18,000 in the mid-1780s (p. 102); the Assiniboine at 40%: “between one-third and one-half” (Handbook 13, p. 574), Denig’s tradition about 300 of some 1,500 lodges (BAE 46, p. 399); the rest assumed'),
  (1801.3,1802.3,'Smallpox, 1801–02',
    {'oma':.6,'pon':.6,**{g:.45 for g in ['oto','mis','pwc','pwk','pws','ari','wic']},'kaw':.3,
     **{g:.25 for g in LAKOTA+['ynk','yku','ykl','man','hid']}, **{g:.2 for g in ['cyy','cyk','cyp','kio','kap','lip','osg','osl','osa','chy','ara','cwm','cwr']}},
@@ -893,6 +893,7 @@ OBS += [
 # ADDITIONS (round 4): village moves and hunting places from Fletcher & La Flesche, Grinnell, Tixier, Maximilian.
 FL = 'Fletcher & La Flesche, “The Omaha Tribe” (BAE 27th Annual Report, 1911)'
 GRP = 'Grinnell, Pawnee Hero Stories and Folk-Tales (1889), “A Summer Hunt”'
+BINN0=lambda pp: f'Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001), {pp}'
 def pl(g,y,raw,at,r,src,kind='primary',**o): return dict(g=g,y=y,pop=None,raw=raw,basis='',loc='stated',at=at,r=r,src=src,kind=kind,**o)
 OBS += [
  pl('oma',1841.3,'Ton’wonzhinga, the Little Village, built on the Elkhorn near Clark Creek, Dodge County, in the spring of 1841 “on account of attacks by the Sioux”; occupied two years',(41.6,-96.55),8,FL+', p. 100'),
@@ -2101,7 +2102,7 @@ OBS += [
   # Identification (judgment): 'Archithinue' = Blackfoot confederacy per Burpee (introd., p. 316, using Cocking's list of the five 'Equestrian' tribes); division not determinable, so coded to the three Blackfoot divisions. G
  dict(g=['sik', 'kai', 'pik'],y=1755.374,pop=None,raw='One hundred and twenty seven tents of Archithinue Natives came to us: I bought 30 Wolves’ skins from them, and the Indians purchased great numbers of Wolves, Beaver & Foxes etc. (place ours) (part)',basis='',loc='stated',at=(51.9, -106.75),r=80,src=HENDAY('p. 350 (pdf 50), Henday (Burpee ed. 1907), entry of 15 May 1755'),kind='primary',whole=False),
   # Identification (judgment): 'Archithinue' = Blackfoot confederacy per Burpee (introd., p. 316, using Cocking's list of the five 'Equestrian' tribes); division not determinable, so coded to the three Blackfoot divisions. G
- dict(g=['sik', 'kai', 'pik'],y=1755.377,pop=None,raw='Paddled 30 Miles N.b.E. when we came to 30 tents of Archithinue Natives: I talked with them as I did with the others; but all to no purpose. Our Indians traded a great many Furs from them. They have the finest Horses I have yet seen here (place ours) (part)',basis='',loc='stated',at=(52.2, -106.6),r=70,src=HENDAY('p. 351 (pdf 51), Henday (Burpee ed. 1907), entry of 16 May 1755'),kind='primary',whole=False),
+ dict(g='kai',y=1755.377,pop=None,raw='Paddled 30 Miles N.b.E. when we came to 30 tents of Archithinue Natives: I talked with them as I did with the others; but all to no purpose. Our Indians traded a great many Furs from them. They have the finest Horses I have yet seen here (place ours) (part)',basis='',loc='stated',at=(52.2, -106.6),r=70,src=HENDAY('p. 351 (pdf 51), Henday (Burpee ed. 1907), entry of 16 May 1755')+'; '+BINN0('p. 212, n. 52: another version of the journal, B.239/a/40, “specifically mentions meeting ‘bloody Indians’ on 16 May 1755”'),kind='primary',whole=False),
   # Eagle Indians = Assiniboine band (Henday). Same camp as 16 May.
  dict(g='asn',y=1755.38,pop=None,raw='Ten tents of Eagle Indians joined the Archithinue Indians. Five Canoes of them are going to the Fort with me. They are a tribe of the Asinepoet Nation; and like them use the Horses for carrying the baggage and not to ride on. (place ours) (part)',basis='',loc='stated',at=(52.2, -106.6),r=70,src=HENDAY('p. 351 (pdf 51), Henday (Burpee ed. 1907), entry of 17 May 1755'),kind='primary',whole=False),
   # Identification (judgment): 'Archithinue' = Blackfoot confederacy per Burpee (introd., p. 316, using Cocking's list of the five 'Equestrian' tribes); division not determinable, so coded to the three Blackfoot divisions. G
@@ -3402,6 +3403,48 @@ for _g,_d in _DIAC.items():
         OBS.append(_cnt(['cre','crw','crs'] if _g=='cre' else _g,_y,_v,f'{_DIALAB[_g]}, {_v:,}',_dx(_y),_AT[_g],r=350 if _g=='cre' else (250 if _g=='asn' else 40),basis='census'))
 for _y,_v in _DIAPIK.items():
     OBS.append(_cnt('pik',_y,_v,f'Canadian Piegan (North Axe, Crow Eagle), Old Man’s River, {_v:,} (the Montana Piegan not included)',_dx(_y),(49.6,-113.8),r=40,basis='census',whole=False))
+
+# ---- Binnema, Common and Contested Ground (2001), read in full. The observers' words are as Binnema quotes them; where he gives
+# a reconstruction of his own, the record says so and is weighted as a reconstruction.
+BINN=BINN0
+CHF=(50.93,-110.0)
+OBS += [
+ # counts
+ dict(g='gv',y=1800.9,pop=2400,raw='Fidler at Chesterfield House, 1800: “the Gros Ventres consisted of about 180 tents with about 600 warriors”; the post was “situated near the Gros Ventre wintering grounds”',basis='warriors × 4 (ours)',loc='stated',at=CHF,r=120,src=BINN('p. 189 (Fidler, B.39/a/1; Johnson, Saskatchewan Journals)'),kind='primary'),
+ dict(g=['cwm','cwr'],y=1805.3,pop=2400,raw='McKenzie, 1805: the Crows were two groups of bands, the Kegh-chy-sa under Red Calf and the Hey-re-ro-ka under Red Fish; “combined, he believed they could raise a formidable six hundred warriors”',basis='warriors × 4 (ours)',loc='inferred',at=(45.6,-107.5),r=250,src=BINN('p. 182 (McKenzie, in Wood and Thiessen, Early Fur Trade)'),kind='primary'),
+ dict(g=['sik','gv'],y=1801.75,pop=1400,raw='2 Oct. 1801: “Fidler estimated that 1,400 Indian men, women, and children were camped at the posts at Chesterfield House”; most were Siksika and Gros Ventre',basis='souls',loc='stated',at=CHF,r=10,src=BINN('p. 171'),kind='primary',whole=False),
+ dict(g='ara',y=1801.83,pop=475,raw='31 Oct. 1801, Fidler: about twenty “Tatood Indians”, Arapaho escorted by the Gros Ventre, forty-four days from the south; “a pretty numerous tribe amounting to about 90 or 100 tents” (part: one Arapaho group)',basis='tents × 5 (ours)',loc='inferred',at=(44.5,-106.5),r=300,src=BINN('p. 171 (B.39/a/2)'),kind='primary',whole=False),
+ dict(g='gv',y=1796.95,pop=400,raw='14 Dec. 1796: “four hundred Gros Ventres arrived at Edmonton” to reconcile with the traders (a trading visit; persons or men not stated)',basis='souls',loc='stated',at=P['edmonton'],r=10,src=BINN('p. 187 (B.60/a/2)'),kind='primary',whole=False),
+ dict(g='cre',y=1795.05,pop=None,raw='Jan. 1795, Bird at Nipawin: “the seventy tents of the Saskatchewan, Red Deer…, Swan, and Red River Cree bands” gathering against the Gros Ventre (part; place ours)',basis='',loc='stated',at=(53.37,-104.0),r=60,src=BINN('pp. 187–88'),kind='primary',whole=False),
+ # the Gros Ventre map of 1801 (Ac ko mok ki's companion map, HBCA E.3/2, fols. 105d–6), tents by group as Binnema translates it; the map's
+ # places are not in his text, so these are kept as counts of the groups the cartographer knew, not as division totals
+ *[dict(g=g_,y=1801.1,pop=n_*5,raw=f'Gros Ventre map of 1801, legend as translated by Binnema: {lab_}',basis='tents × 5 (ours)',loc='inferred',at=at_,r=300,src=BINN('p. 152, fig. 7.5 (HBCA E.3/2, fols. 105d–6)'),kind='primary',whole=False)
+   for g_,n_,lab_,at_ in [('ara',150,'Arapaho (kin of the Gros Ventres) 100 and 10 tents, Southern Arapaho 20, Arapaho 20',(43.0,-105.5)),
+                          ('chy',130,'Cheyenne 30 and 100 tents',(44.5,-103.5)),('kio',100,'Kiowa 100 tents',(43.0,-104.0)),
+                          ('kap',13,'Kiowa Apache 13 tents',(43.0,-104.0)),(['cwm','cwr'],100,'Crow 100 tents (and “Crow?” 20, 10 and 8)',(45.6,-107.5)),
+                          ('sho',140,'Shoshoni 130 and 10 tents (and a group of 300 farther south, near the Ute)',(44.0,-109.5)),('hid',40,'Hidatsa 40 tents',(47.35,-101.4))]],
+ # places
+ pl('pik',1792.95,'Dec. 1792: Shoshone emissaries visit “large Piegan encampments near the Highwood River”; Fidler winters with Sakatow’s band',(50.55,-113.9),40,BINN('p. 138 (Fidler, E.3/2)')),
+ pl('pik',1800.88,'Nov. 1800: Thompson and McGillivray visit “Sakatow’s Piegan band at Spitcheyee (near present-day High River, Alberta)” (one band)',(50.58,-113.87),20,BINN('p. 169'),whole=False),
+ pl('gv',1802.17,'1 Mar. 1802: “the entire Gros Ventre band, together with Arapaho guests, was camped at Chesterfield House”',CHF,10,BINN('p. 191 (B.39/a/2)')),
+ pl('gv',1801.6,'Summer 1801: Cree and Assiniboine kill forty-six Gros Ventres in the Cypress Hills (one camp)',(49.65,-110.0),50,BINN('p. 189'),whole=False),
+ pl('gv',1801.65,'Late Aug. 1801: twenty-eight more Gros Ventres killed “on the upper Oldman River near present-day Lethbridge” (one camp)',(49.7,-112.85),30,BINN('p. 189'),whole=False),
+ pl('gv',1802.29,'By 15 Apr. 1802: “every Fall Indian with their families are pitched away for the Mis sis su rie River” (Little Bear to Fidler; destination only)',(48.5,-109.5),200,BINN('pp. 191–92 (B.39/a/2)'),whole=False),
+ pl('gv',1805.7,'Sept. 1805, Larocque: Gros Ventres meet a Crow band at the Yellowstone near Billings; they “represented a band of apparently 275 or 300 lodges encamped in the Big Horn Basin” (the southern band, with Arapaho kin)',(44.6,-108.2),120,BINN('p. 192 (Larocque)'),whole=False),
+ pl('gv',1802.7,'Aug. and Oct. 1802: Le Raye meets “Paunched Indians”, whom Binnema takes as “certainly Gros Ventre-Arapahos”, in the foothills of the upper Yellowstone; they lived on the upper Yellowstone and the Bighorn (one band)',(45.4,-109.5),150,BINN('p. 192 (Le Raye)'),whole=False),
+ pl('gv',1775.0,'“In the 1770s the Gros Ventres occupied the region near the forks of the Saskatchewan River” (Binnema’s reconstruction)',(52.9,-106.2),150,BINN('p. 75'),kind='secondary'),
+ pl('sho',1802.79,'Le Raye, Oct. 1802: the Shoshone nation “resides principally on the headwaters of the Big Horn river, and in the most inaccessible parts of the Rocky mountains” (the narrative’s authenticity is doubted by some)',(43.3,-109.0),150,BINN('pp. 182–83 (Le Raye)')),
+ pl('sho',1700.0,'By 1690–1700 the Shoshone “were probably already established in the Missouri Basin”; little sign of them north of the Missouri (Binnema’s reconstruction)',(47.0,-110.5),250,BINN('p. 84'),kind='secondary'),
+ pl('cwm',1802.7,'1802: “Charles Le Raye visited the Crows in the upper Yellowstone and lower Bighorn Valleys”',(45.75,-108.0),100,BINN('p. 182 (Le Raye)')),
+ pl('cwm',1781.0,'Crow tradition told to Bradley (1876): “the greater portion making their home upon the waters of the Powder River, while the smaller band of four hundred lodges, or about four thousand souls, were camped in the lower extremity of the Clark’s Fork bottom”, where the smallpox struck (one band; date about 1781)',(45.65,-108.75),30,BINN('p. 127 (Bradley, “Journal”, p. 166)'),kind='secondary',whole=False),
+ pl('sar',1793.0,'“Sarcee bands pounded bison as far south as the Battle River by 1793”',(52.6,-112.6),80,BINN('p. 175')),
+ pl('gv',1779.85,'Nov. 1779: the first recorded Gros Ventre visit to Hudson House (a trading visit)',(53.15,-106.27),10,BINN('p. 133'),whole=False),
+]
+EPI += [
+ (1801.4,1801.9,'Smallpox and Cree–Assiniboine attacks, 1801 (Gros Ventre)',{'gv':.07},
+  BINN('p. 189: the smallpox, caught from their Arapaho kin, carried off “at least a hundred of their young people”, and Cree and Assiniboine attacks killed fourteen men and sixty women and children; p. 180: the epidemic of 1801 spared the Blackfoot, Cree and Assiniboine'),
+  'sourced: about 175 dead of about 2,400'),
+]
 
 # Each epidemic applies only to the divisions alive while it ran.
 _LIFE={_g[0]:(_g[4],_g[5]) for _g in GROUPS}

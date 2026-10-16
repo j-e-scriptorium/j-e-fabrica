@@ -39,21 +39,20 @@ A request for copies (PDF scans or full text) of the works and documents below, 
 21. A. P. Nasatir, ed., *Before Lewis and Clark: Documents Illustrating the History of the Missouri, 1785–1804*, 2 vols. (St. Louis: St. Louis Historical Documents Foundation, 1952).
 22. Elizabeth A. H. John, *Storms Brewed in Other Men's Worlds: The Confrontation of Indians, Spanish, and French in the Southwest, 1540–1795* (College Station: Texas A&M University Press, 1975).
 23. W. Raymond Wood and Thomas D. Thiessen, eds., *Early Fur Trade on the Northern Plains: Canadian Traders among the Mandan and Hidatsa Indians, 1738–1818* (Norman: University of Oklahoma Press, 1985).
-24. Theodore Binnema, *Common and Contested Ground: A Human and Environmental History of the Northwestern Plains* (Norman: University of Oklahoma Press, 2001).
 
 ## Locations and seasonal movements
 
-25. R. Cole Harris, ed., *Historical Atlas of Canada*, vol. 1, *From the Beginning to 1800* (Toronto: University of Toronto Press, 1987): the plates on the western interior and the fur trade, with their notes.
-26. Helen Hornbeck Tanner, ed., *Atlas of Great Lakes Indian History* (Norman: University of Oklahoma Press, 1987): the maps and text for the Dakota, Ojibwe and Iowa.
-27. D. W. Moodie and Arthur J. Ray, "Buffalo Migrations in the Canadian Plains," *Plains Anthropologist* 21, no. 71 (1976): the whole article.
-28. Arthur J. Ray, *Indians in the Fur Trade: Their Role as Trappers, Hunters, and Middlemen in the Lands Southwest of Hudson Bay, 1660–1870* (Toronto: University of Toronto Press, 1974): the chapters on the seasonal movements of the Cree and Assiniboine.
-29. Frederick E. Hoxie, *Parading through History: The Making of the Crow Nation in America, 1805–1935* (Cambridge: Cambridge University Press, 1995): the chapters on the Crow before the reservation.
-30. Henry E. Stamm IV, *People of the Wind River: The Eastern Shoshones, 1825–1900* (Norman: University of Oklahoma Press, 1999): the chapters on the Shoshone before the reservation.
+24. R. Cole Harris, ed., *Historical Atlas of Canada*, vol. 1, *From the Beginning to 1800* (Toronto: University of Toronto Press, 1987): the plates on the western interior and the fur trade, with their notes.
+25. Helen Hornbeck Tanner, ed., *Atlas of Great Lakes Indian History* (Norman: University of Oklahoma Press, 1987): the maps and text for the Dakota, Ojibwe and Iowa.
+26. D. W. Moodie and Arthur J. Ray, "Buffalo Migrations in the Canadian Plains," *Plains Anthropologist* 21, no. 71 (1976): the whole article.
+27. Arthur J. Ray, *Indians in the Fur Trade: Their Role as Trappers, Hunters, and Middlemen in the Lands Southwest of Hudson Bay, 1660–1870* (Toronto: University of Toronto Press, 1974): the chapters on the seasonal movements of the Cree and Assiniboine.
+28. Frederick E. Hoxie, *Parading through History: The Making of the Crow Nation in America, 1805–1935* (Cambridge: Cambridge University Press, 1995): the chapters on the Crow before the reservation.
+29. Henry E. Stamm IV, *People of the Wind River: The Eastern Shoshones, 1825–1900* (Norman: University of Oklahoma Press, 1999): the chapters on the Shoshone before the reservation.
 
 ## Bands and divisions
 
-31. Edwin Thompson Denig, *Five Indian Tribes of the Upper Missouri: Sioux, Arickaras, Assiniboines, Crees, Crows*, ed. John C. Ewers (Norman: University of Oklahoma Press, 1961): the whole book, especially its counts of lodges by band.
-32. George E. Hyde, *Red Cloud's Folk: A History of the Oglala Sioux Indians* (Norman: University of Oklahoma Press, 1937).
-33. George E. Hyde, *Spotted Tail's Folk: A History of the Brulé Sioux* (Norman: University of Oklahoma Press, 1961).
-34. Catherine Price, *The Oglala People, 1841–1879: A Political History* (Lincoln: University of Nebraska Press, 1996).
-35. Thomas F. Schilz, *People of the Cross Timbers: A History of the Tonkawa Indians* (Fort Worth: TCU Press, 1987).
+30. Edwin Thompson Denig, *Five Indian Tribes of the Upper Missouri: Sioux, Arickaras, Assiniboines, Crees, Crows*, ed. John C. Ewers (Norman: University of Oklahoma Press, 1961): the whole book, especially its counts of lodges by band.
+31. George E. Hyde, *Red Cloud's Folk: A History of the Oglala Sioux Indians* (Norman: University of Oklahoma Press, 1937).
+32. George E. Hyde, *Spotted Tail's Folk: A History of the Brulé Sioux* (Norman: University of Oklahoma Press, 1961).
+33. Catherine Price, *The Oglala People, 1841–1879: A Political History* (Lincoln: University of Nebraska Press, 1996).
+34. Thomas F. Schilz, *People of the Cross Timbers: A History of the Tonkawa Indians* (Fort Worth: TCU Press, 1987).

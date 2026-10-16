@@ -1,13 +1,13 @@
 {
  "tiers": {
-  "A1": 1722,
+  "A1": 1750,
   "A2": 611,
   "B": 135,
   "C": 22
  },
- "records": 2490,
+ "records": 2518,
  "keyframes": 508,
- "epidemic_rows": 220,
+ "epidemic_rows": 221,
  "keyframes_without_note": 227,
  "keyframe_roles": {
   "place+persons": 417,
@@ -15,26 +15,26 @@
   "persons only": 73,
   "marker only (defers to records)": 6
  },
- "counts": 1588,
- "places_only": 902,
- "steer": 818,
- "with_locator": 1962,
+ "counts": 1600,
+ "places_only": 918,
+ "steer": 826,
+ "with_locator": 1990,
  "flags": {
-  "identification_judged": 30,
-  "place_placed_by_us": 1381,
-  "kept_off_track": 322,
-  "date_ours": 5,
-  "assumed_quantity": 240,
-  "multiplier_ours": 109,
+  "identification_judged": 31,
+  "place_placed_by_us": 1390,
+  "kept_off_track": 341,
+  "date_ours": 6,
+  "assumed_quantity": 251,
+  "multiplier_ours": 119,
   "place_centre_ours": 53,
   "multiplier_stated_by_source": 33,
-  "partial_group": 228,
+  "partial_group": 236,
   "recalled": 3
  },
- "coverage_thin": 32,
+ "coverage_thin": 30,
  "coverage_rows": 336,
  "epi_basis": {
-  "sourced for the north (55%), the Missour": 44,
+  "sourced for the north (60%: Oman’s count": 44,
   "sourced for the Omaha": 32,
   "sourced for the Comanche": 8,
   "sourced, except the Cree and Gros Ventre": 28,
@@ -55,6 +55,7 @@
   "Sarsi scaled from the tent counts": 2,
   "scaled between the lodge count and the 1": 1,
   "sourced (fraction of about 300 to 340)": 1,
-  "assumed": 1
+  "assumed": 1,
+  "sourced: about 175 dead of about 2,400": 1
  }
 }

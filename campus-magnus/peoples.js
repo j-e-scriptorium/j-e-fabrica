@@ -96,7 +96,7 @@ window.CM_PEOPLES = {
     "Their power was broken by epidemics (smallpox in 1781, 1837 and 1869–70), the whiskey trade of the 1860s and the end of the bison. The Lame Bull treaty of 1855 set their country in the United States; the Marias Massacre of January 1870, in which the army killed some 170 to 200 of Heavy Runner’s Piegan, was followed by the North-West Mounted Police in 1874, Treaty 7 in 1877 and the Starvation Winter of 1883–84 on the Montana reservation."
   ],
   y1900: "On the Siksika, Blood and Piikani reserves (Alberta) and the Blackfeet Reservation (Montana).",
-  read: ["Hugh A. Dempsey, “Blackfoot,” Handbook of North American Indians 13 (2001)", "John C. Ewers, The Blackfeet: Raiders on the Northwestern Plains (1958) and The Horse in Blackfoot Indian Culture (1955)", "Theodore Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001)"]
+  read: ["Hugh A. Dempsey, “Blackfoot,” Handbook of North American Indians 13 (2001)", "John C. Ewers, The Blackfeet: Raiders on the Northwestern Plains (1958) and The Horse in Blackfoot Indian Culture (1955)", "Theodore Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001)", "Theodore Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001)"]
 },
 
 "Gros Ventre": {
@@ -108,7 +108,7 @@ window.CM_PEOPLES = {
     "They escaped the worst of the 1837 smallpox but broke with the Blackfoot in 1861 and suffered heavily in the epidemic of 1869–70 and in war with the Piegan. The Fort Belknap agency on the Milk River, shared with the Assiniboine, became their reservation in 1888."
   ],
   y1900: "At Fort Belknap, Montana.",
-  read: ["Loretta Fowler and Regina Flannery, “Gros Ventre,” Handbook of North American Indians 13 (2001)", "Loretta Fowler, Shared Symbols, Contested Meanings: Gros Ventre Culture and History, 1778–1984 (1987)", "A. L. Kroeber, “Ethnology of the Gros Ventre” (1908)"]
+  read: ["Loretta Fowler and Regina Flannery, “Gros Ventre,” Handbook of North American Indians 13 (2001)", "Loretta Fowler, Shared Symbols, Contested Meanings: Gros Ventre Culture and History, 1778–1984 (1987)", "A. L. Kroeber, “Ethnology of the Gros Ventre” (1908)", "Theodore Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001)"]
 },
 
 "Cheyenne": {
