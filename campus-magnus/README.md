@@ -25,7 +25,7 @@ The page loads its data with plain `<script>` tags, so it runs from `file://`; o
 
 - **Peoples.** 34 peoples in 9 language families, fitted as 66 divisions, from the Saskatchewan to the Rio Grande and from the Rockies to the Mississippi (`data/groups.csv`). Two names recorded by Clark that cannot be securely identified (Castahana, Dotame) are kept as evidence only. Not on the map: the Plains Métis, who were not an Indian band in the sense of the rest, though their hunts are part of the Plains Ojibwe and Cree story.
 - **Period.** 1700–1900 on the page; the fit runs to 1905 so that its end is not distorted by the edge.
-- **Quantities.** For each division and year: population, position (the estimated centre of where its people were, with the range they would be found in), an uncertainty for each, and an optional seasonal round. Bands and villages are a derived, weaker layer.
+- **Quantities.** For each division and year: population, position (the estimated centre of where its people were, with the range they would be found in), an uncertainty for each, and a seasonal round, shown by default (with it off, each division is drawn at its winter and its summer ground, half its people at each). Bands and villages are a derived, weaker layer.
 - **Not claimed.** Territorial boundaries; anything below the band; populations living off the plains; Native-language sources not available in translation.
 
 ## Data tables (`data/`)

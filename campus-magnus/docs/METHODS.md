@@ -99,13 +99,13 @@ $$x(t) = T(t) + S(t) + \lambda\,\phi(t)\,A_{\text{lit}}(t), \qquad x_i = x(t_i) 
 - Range and agency statements alone are better served by a track through every record (median 92 km against 101, mean 127 against 128).
 - The cost falls on precise events in years of mixed records: in 1876 the Miniconjou annual centre lies between the Cheyenne River agency and the summer camps, about 420 km from the Little Bighorn (about 315 km in late June with the seasonal component).
 
-**Village divisions.** The track holds at each place.
+**Village divisions.** The track holds at each place. With the seasonal round on, the division's dot and its bands go out on the tribal hunts in the hunt table (`index.html`, `HUNT`: grounds and calendars by people) and return; the track itself stays at the village.
 - Where `ecology_src.VMOVE` dates a relocation, the move happens over about five months around that date.
 - Otherwise it moves over two years centred on the midpoint between the two places.
 - The halo is 24 km + 1.25 × (distance to the next place × the share of the gap elapsed, up to half), capped at 300 km; where the move is dated, the distance term applies only within a year of it. The two terms are fitted to 243 withheld village places (`calib_vhalo.py`) as the halo that holds 68% of them with coverage most even across strata of time and distance from the nearest place. A term in the years from the nearest place was tried and not chosen. Coverage is 59% within three years of another record and 76% three to ten years from one (`KNOWN_ISSUES.md` §7).
 - Held out (`calib_vmove.py`), the 222 village places of the peoples with dated moves are missed by a median 8 km and a mean 43 km (the midpoint rule alone: 17 and 70).
 
-**Seasonal round (optional layer).** With it on, the map adds $S$ and the literature term to the centre. Where a division has neither season-dated places within about eight years nor a literature pattern, $S$ is zero and only the bands' scatter moves with the seasons. The calendar φ (winter ground to mid-March, summer ground by early July until early August, back by late October; `build/profcal.json`) times the literature patterns and the bands; the learned component keeps its own timing.
+**Seasonal round (on by default).** The map adds $S$ and the literature term to the centre at the month shown. With the seasonal round off, each division is drawn twice at half its population, at its winter ground (the middle of the winter-ground period of the calendar φ, the turn of the year) and at its summer ground (mid-July) for the year, so that the default picture of a year shows its range rather than the annual centre alone; at the bands level each band is placed on one ground or the other. Where a division has neither season-dated places within about eight years nor a literature pattern, $S$ is zero and only the bands' scatter moves with the seasons. The calendar φ (winter ground to mid-March, summer ground by early July until early August, back by late October; `build/profcal.json`) times the literature patterns and the bands; the learned component keeps its own timing.
 
 ## 4. Bands and villages (derived layer)
 
