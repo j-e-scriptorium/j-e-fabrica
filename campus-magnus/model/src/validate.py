@@ -1,7 +1,7 @@
 # Leave-one-out check of the demographic fit: drop each documented division count, refit, predict it.
-import sys,math,json,runpy,statistics as stt
+import sys,os,math,json,runpy,statistics as stt
 S=sys.argv[2]
-sys.argv=['build3.py',sys.argv[1],S]
+sys.argv=['build3.py',sys.argv[1],S]; os.environ['SENS']='1'   # never overwrite the build, whatever probe settings are in the environment
 G=runpy.run_path('build3.py',run_name='__main__')
 fit,PA,np,T,Y0,sig_obs=G['fit'],G['PA'],G['np'],G['T'],G['Y0'],G['sig_obs']
 FIT=G['FIT']
