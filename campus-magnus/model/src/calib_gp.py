@@ -10,7 +10,7 @@ import sys,os,runpy,io,contextlib,math,json,itertools,statistics as st
 S=sys.argv[2] if len(sys.argv)>2 else '..'
 sys.argv=['build3.py','.',S]; os.environ['SENS']='1'
 with contextlib.redirect_stdout(io.StringIO()): B=runpy.run_path('build3.py',run_name='__main__')
-import possgp as GP, seasonal as SE, numpy as np
+import possgp as GP, seasonal as SE
 G=B['G']
 DIV={g:GP.prepare(g,B['DOCO'][g],B['GSP'][g]) for g in B['DOCO'] if 'nomadic' in G[g][6] and len(B['DOCO'][g])>=3}
 M=GP.moments([p for d in DIV.values() for p in d['pts']])

@@ -11,7 +11,7 @@ for o in ALLOBS:
     if o.get('band'): continue
     for pre,dv,key in B.TAG:
         if key and o['g']==dv and o['raw'].startswith(pre): o['band']=key; break
-Y0,Y1,STEP=1700,1905,0.5
+Y0,Y1=1700,1905
 gids=[g[0] for g in D.GROUPS]; G={g[0]:g for g in D.GROUPS}
 groups=[dict(id=a,tribe=b,name=c,fam=d,start=e,end=f,life=h) for a,b,c,d,e,f,h in D.GROUPS]
 groups+=[dict(id=a,tribe=b,name=c,fam='unident',start=1805,end=1805,life='') for a,b,c in D.UNIDENT]
@@ -28,12 +28,14 @@ def surv(gid,t):
     for s,e,lab,M,src,basis in D.EPI:
         f=M.get(gid)
         if f: v*=1-min(.97,f*float(__import__('os').environ.get('EPS','1')))*smooth((t-s)/(e-s))
+    for y,g,f,lab,src in getattr(D,'SHIFTS',[]):
+        if g==gid: v*=1-f*smooth((t-y+.5)/.5)
     return v
 import seasonal as _SE
 tracks={}; diag=[]; DOCP={}; DOCSK={}; GSP={}; FAMS={}; PA={}; POS={}; NOTES={}; SP={}; NY={}
 SIG_GUESS=float(__import__('os').environ.get('SG','0.3'))
 NOGUESS=__import__('os').environ.get('NOGUESS')
-SD_INFL=1.25  # leave-one-out calibration: stated intervals were ~25% too narrow (validate.py)
+SD_INFL=1.25  # leave-one-out calibration (validate.py): widened, the 2-sd range holds 96% of withheld counts, the 1-sd range 80%
 import re as _re
 def lodge_adj(basis):
     d=float(__import__('os').environ.get('LD','0'))
@@ -41,7 +43,7 @@ def lodge_adj(basis):
     if not d or not m: return 1.0
     k=float(m.group(2)); return (k+d)/k
 def family(o):
-    s=o['src'];y=o['y'];r=o['raw'].lower()
+    s=o['src'];y=o['y']
     if o.get('basis')=='census' or (y>=1868 and any(k in s for k in ('Annual Report','Commissioner','Indian Office','ARCIA'))): return 'census'
     for key,f in (('Clark','clark'),('Morse','morse'),('Aboriginal Population','mooney1928'),('Mooney (1928)','mooney1928'),('Pike','pike'),
                   ('Henry','henry'),('Thompson','thompson'),('Umfreville','umfreville'),('Mackenzie','umfreville'),('Maximilian','maximilian'),
@@ -176,13 +178,12 @@ if __import__('os').environ.get('BIAS','1')!='0':
 FIT_RAW=dict(FIT)
 FIT={g:((v[0],v[1]) if not math.isnan(v[0][0]) else (np.zeros(n),np.full(n,.9))) for g,v in FIT.items()}
 # ================= positions: estimated tracks =================
-# Nomadic divisions: the track passes through every documented place and keyframe; its uncertainty comes from a random-walk smoother
-# (Kalman + RTS) fitted by hold-out (calib_pos.py): q = 2000 km² a year per axis, within-year scatter 90 km, a stated range counts at a
-# quarter of its radius, keyframes ±150 km; the smoother's spread, scaled by 1.46, holds 68% of held-out places (calib_halo.py).
-# Village divisions: hold at each place and move over two years at the midpoint to the next (villages move by relocation, not drift).
+# Nomadic divisions: a Gaussian-process centre (possgp.py) whose settings and halo scale are fitted by hold-out (calib_gp.py).
+# Village divisions: hold at each place and move over two years at the midpoint to the next (villages move by relocation, not drift);
+# the halo is 24 km plus 1.25 times the distance to the next place times the share of the gap elapsed (calib_vhalo.py).
 import possmooth as _PS
 import ecology_src as _EC
-DENSE={}; SV={}; SVS={}; SVD={}; MOVES={}
+DENSE={}; SVS={}; MOVES={}
 _PC=f'{S}/build/profcal.json'
 _SE.PROF=tuple(json.load(open(_PC))['best']) if __import__('os').path.exists(_PC) else None   # seasonal calendar, used for the bands' scatter and the village hunts
 import possgp as _GP
@@ -218,8 +219,8 @@ for gid in gids:
                 a_,b_=lo[-1],hi[0]; dm=[m for m in MOVES.get(gid,[]) if a_[0]<m<b_[0]+0.3]
                 if dm: u=0.5*max(0.0,1-abs(t-dm[0]))      # dated move: the place is known on either side of it
                 else: u=min(t-a_[0],b_[0]-t)/(b_[0]-a_[0])
-                v=20+_km(a_[1:3],b_[1:3])*u+3*min(t-a_[0],b_[0]-t)
-            else: a_=(lo or hi)[-1 if lo else 0]; v=20+3*abs(t-a_[0])
+                v=24+1.25*_km(a_[1:3],b_[1:3])*u      # fitted by hold-out (calib_vhalo.py): holds 68% of withheld village places
+            else: v=24
             sp.append(round(min(300,v)))
         SP[gid]=sp
     else:
@@ -323,7 +324,7 @@ def shares(gid,t,withm=True):
     tot=sum(raw) or 1
     return [r/tot for r in raw],a,gs,pop
 # documented band counts -> share multipliers decaying with a 20-year scale
-TAU=20.0
+BTAU=20.0
 brec={}
 for o in obs:
     if o['band'] and o['pop'] and o['g'][0] in BSPEC: brec.setdefault(o['band'],[]).append(o)
@@ -340,7 +341,7 @@ for it in range(4):
         ys=sorted(u['_r']); lr=[math.log(u['_r'][y]) for y in ys]
         m=[]
         for t in T:
-            kk=[math.exp(-abs(t-y)/TAU) for y in ys]
+            kk=[math.exp(-abs(t-y)/BTAU) for y in ys]
             m.append(math.exp(sum(a*b for a,b in zip(kk,lr))/sum(kk)*max(kk)))
         u['_m']=np.array(m)
 if __import__('os').environ.get('V'):
@@ -365,16 +366,16 @@ nb=sum(len(sp['units']) for sp in BSPEC.values())
 print('bands: divisions',len(BSPEC),'named units',nb,'band records',len(brec))
 
 epi=[dict(s=s,e=e,label=lab,m=M,src=src,basis=basis) for s,e,lab,M,src,basis in D.EPI]
-FAMLAB={'clark':'Clark, 1804–06','henry':'Henry the younger, 1809','thompson':'Thompson, 1798','pike':'Pike, 1806','morse':'Morse, 1820','umfreville':'Umfreville & Mackenzie, 1789–1801','maximilian':'Maximilian, 1833','catlin':'Catlin, 1832–34','denig':'Denig, 1833–56','hayden':'Hayden, 1862','stevens':'Stevens & Doty, 1853–55','agents':'Indian Office before 1868','mooney1928':'Mooney’s 1928 reconstructions','mooney_kiowa':'Mooney, Kiowa calendar','swanton':'Swanton’s series','hodge':'Hodge’s Handbook','grinnell':'Grinnell','reconstruction':'modern reconstructions','other':'other sources','census':'Indian Office, 1868 on (reference)'}
+FAMLAB={'clark':'Clark, 1804–06','henry':'Henry the younger, 1809','thompson':'Thompson, 1798','pike':'Pike, 1806','morse':'Morse, 1820','umfreville':'Umfreville & Mackenzie, 1789–1801','maximilian':'Maximilian, 1833','catlin':'Catlin, 1832–34','denig':'Denig, 1833–56','hayden':'Hayden, 1862','stevens':'Stevens & Doty, 1853–55','agents':'Indian Office before 1868','mooney1928':'Mooney’s 1928 reconstructions','mooney_kiowa':'Mooney, Kiowa calendar','swanton':'Swanton’s series','hodge':'Hodge’s Handbook','grinnell':'Grinnell','reconstruction':'modern reconstructions','other':'other sources','census':'Indian Office, 1868 on (reference)','demezieres':'De Mézières, 1770–79','hbcjournals':'Henday and Cocking, 1754–73','verendrye':'La Vérendrye, 1733–43'}
 for o in aggs: o['pop']=o['pop0']   # documented value, not the corrected one used in fitting
 for o in obs: o['fam']=family(o); o['famf']=round(math.exp(BIAS.get(o['fam'],0)),2)
 BIASOUT=[[FAMLAB.get(f,f),BIAS_N.get(f,0),round(math.exp(b),2)] for f,b in sorted(BIAS.items(),key=lambda x:x[1]) if f!='census' and BIAS_N.get(f,0)>0]
-SEASOUT={g:[[a,b_,(f'summer ground {spec[2]} km from winter ground, bearing {spec[1]}°' if spec[0]=='vec' else 'winter ground %.2f°N %.2f°W, summer ground %.2f°N %.2f°W'%(spec[1][0],-spec[1][1],spec[2][0],-spec[2][1])) if spec[0]=='pts' or True else '',src] for (a,b_,spec,src) in L] for g,L in _SE.SEASPRI.items()}
+SEASOUT={g:[[a,b_,('' if spec[0]=='vec' else 'winter ground %.2f°N %.2f°W, summer ground %.2f°N %.2f°W'%(spec[1][0],-spec[1][1],spec[2][0],-spec[2][1])),src] for (a,b_,spec,src) in L] for g,L in _SE.SEASPRI.items()}
 for g,L in SEASOUT.items():
     for r_,(a,b_,spec,src) in zip(L,_SE.SEASPRI[g]):
         if spec[0]=='vec': r_[2]=f'summer ground about {2*spec[2]} km {["N","NNE","NE","ENE","E","ESE","SE","SSE","S","SSW","SW","WSW","W","WNW","NW","NNW"][int((spec[1]+11.25)%360//22.5)]} of the winter ground'
 VMOUT={g:[[m,t_,s_] for (m,t_,s_) in L] for g,L in _EC.VMOVE.items()}
-out=dict(roam=GPCAL.get('roam',{'winter':85,'between':65,'summer':71}),res=_GP.RES,prof=list(_SE.PROF) if _SE.PROF else None,bias=BIASOUT,seaspri=SEASOUT,vmove=VMOUT,STEP=1,fam=D.FAM,famname=D.FAMNAME,groups=groups,obs=obs,tracks=tracks,cities=cities,settle=[list(s) for s in D.SETTLE],epi=epi,Y0=Y0,bands=BSPEC,struct=B.STRUCT,sensitivity=(json.load(open(f'{S}/build/sensitivity.json')) if __import__('os').path.exists(f'{S}/build/sensitivity.json') else None),validation=(json.load(open(f'{S}/build/validation.json')) if __import__('os').path.exists(f'{S}/build/validation.json') else None))
+out=dict(roam=GPCAL.get('roam',{'winter':85,'between':65,'summer':71}),res=_GP.RES,prof=list(_SE.PROF) if _SE.PROF else None,bias=BIASOUT,seaspri=SEASOUT,vmove=VMOUT,fam=D.FAM,famname=D.FAMNAME,groups=groups,obs=obs,tracks=tracks,cities=cities,settle=[list(s) for s in D.SETTLE],epi=epi,Y0=Y0,bands=BSPEC,struct=B.STRUCT,sensitivity=(json.load(open(f'{S}/build/sensitivity.json')) if __import__('os').path.exists(f'{S}/build/sensitivity.json') else None),validation=(json.load(open(f'{S}/build/validation.json')) if __import__('os').path.exists(f'{S}/build/validation.json') else None))
 if not __import__('os').environ.get('SENS'): json.dump(out,open(f'{S}/build/data.json','w'),ensure_ascii=False,separators=(',',':'))
 if not __import__('os').environ.get('SENS'): json.dump(BANDROWS,open(f'{S}/build/bandrows.json','w'),ensure_ascii=False)
 print('obs',len(obs),'primary',sum(o['kind']=='primary' for o in obs),'placeonly',sum(o['pop'] is None for o in obs),'bytes',len(json.dumps(out,ensure_ascii=False,separators=(',',':'))))

@@ -18,7 +18,8 @@ ANNUAL=re.compile(r'range|roam|rove|between|hunting grounds|country|territor|liv
 # Year each division settled on a reservation or reserve; roaming then shrinks to a quarter over three years (the page uses the same).
 RES={'bru':1878,'ogl':1878,'min':1877,'hnk':1881,'sih':1877,'sna':1877,'twk':1868,'ynk':1859,'yku':1873,'ykl':1863,'mde':1853,'wpk':1853,'wpt':1853,'sis':1867,'ass':1871,'asn':1877,
  'cre':1876,'crw':1876,'crs':1883,'ojb':1882,'sik':1880,'kai':1880,'pik':1880,'gv':1878,'chn':1877,'chs':1875,'arn':1878,'ars':1870,'cwm':1882,'cwr':1884,'kio':1875,'kap':1875,'jic':1887,'lip':1880,
- 'cyy':1875,'cyk':1875,'cyp':1855,'cyn':1875,'cyq':1875,'sho':1868,'apc':1732,'cyj':1795,'chy':1832,'ara':1835}
+ 'cyy':1875,'cyk':1875,'cyp':1855,'cyn':1875,'cyq':1875,'sho':1868,'apc':1732,'cyj':1795,'chy':1832,'ara':1835,
+ 'sar':1881,'sto':1879,'tkw':1868,'tet':1785,'sao':1806}
 def roamf(gid,t):
     r=RES.get(gid); return 1.0 if r is None or t<r else max(0.25,1-0.75*(t-r)/3)
 

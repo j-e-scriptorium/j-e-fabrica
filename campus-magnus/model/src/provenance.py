@@ -5,7 +5,11 @@ Tier is about how the text reached this project, not about the source's own qual
       and 13; the 1890 census Report on Indians Taxed and Indians Not Taxed (1894), its tables read from the page
       images; Hämäläinen, The Comanche Empire (2008); Kavanagh, Comanche Political History (1996);
       Fenn, Pox Americana (2001, an EPUB without print pages, cited by chapter); West, The Contested Plains (1998,
-      likewise cited by chapter); Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, vol. 1 (1966; repr. 1995).
+      likewise cited by chapter); Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, vols. 1–5 (1966; repr. 1995);
+      Bolton's De Mézières papers (1914); Henday, Cocking and La Vérendrye in Burpee's editions; Ewers (1955); Denig (BAE 46);
+      Jenness (1938); Bray, "Teton Sioux Population History" (1994); Morton, A History of the Canadian West (1939);
+      Binnema, Common and Contested Ground (2001);
+      the Canadian Department of Indian Affairs reports of 1884–1900.
   A2  Original or standard printed text read in a full-text copy online (Internet Archive, Project Gutenberg,
       UNL Lewis & Clark edition, digitised Indian Office reports, BAE series).
   B   Reference article read online (Wikipedia, Historical Marker Database, Handbook of Texas, Encyclopedia of
@@ -34,7 +38,7 @@ A2_MARKERS = ('Swanton', 'Mooney', 'Clark', 'Lewis & Clark', 'Annual Report of t
 def tier(src: str) -> str:
     """Weakest component wins when a record cites several works."""
     s = src or ''
-    hb = any(k in s for k in ('Handbook of North American Indians, vol. 1', 'Report on Indians Taxed', 'Comanche Empire (2008), p', 'Comanche Political History: An Ethnohistorical Perspective, 1706–1875 (1996), p', 'Pox Americana (2001), ch', 'Rush to Colorado (1998), ch', 'The Indian Papers of Texas and the Southwest, 1825–1916, vol.', 'Louisiana–Texas Frontier, 1768–1780 (1914), vol', '“York Factory to the Blackfeet Country” (1907), p', '“An Adventurer from Hudson Bay” (1908), p', 'Vérendrye and His Sons (1927), p', 'Blackfoot Indian Culture (BAE Bulletin 159, 1955), p', '(BAE 46th Annual Report, 1930), p', 'Sarcee Indians of Alberta (1938), p', 'read from the page images of the'))
+    hb = any(k in s for k in ('Handbook of North American Indians, vol. 1', 'Report on Indians Taxed', 'Comanche Empire (2008), p', 'Comanche Political History: An Ethnohistorical Perspective, 1706–1875 (1996), p', 'Pox Americana (2001), ch', 'Rush to Colorado (1998), ch', 'The Indian Papers of Texas and the Southwest, 1825–1916, vol.', 'Louisiana–Texas Frontier, 1768–1780 (1914), vol', '“York Factory to the Blackfeet Country” (1907), p', '“An Adventurer from Hudson Bay” (1908), p', 'Vérendrye and His Sons (1927), p', 'Blackfoot Indian Culture (BAE Bulletin 159, 1955), p', '(BAE 46th Annual Report, 1930), p', 'Sarcee Indians of Alberta (1938), p', 'read from the page images of the', 'Nebraska History 75 (1994)', 'Canadian West to 1870–71 (1939), p', 'Northwestern Plains (2001), p', 'Department of Indian Affairs, Annual Report for the year ended', 'Department of Indian Affairs, Annual Report for the year ended 30 June', 'The Contested Plains (1998), p', 'The Contested Plains (1998), c. p', 'Handbook of North American Indians 13 (2001), p'))
     if 'Hämäläinen' in s and 'Comanche Empire (2008), p' not in s: return 'C'
     if any(k in s for k in ('recalled', 'not checked', 'as quoted in', 'highlight', 'as summarized in')):
         return 'C'

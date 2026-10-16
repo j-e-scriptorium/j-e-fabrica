@@ -7,7 +7,7 @@
 #   BOBS   - band-level documented records (counts or places for a named band, village or chief's camp).
 #   BSHOCK - documented attacks that fell on one band or camp; deaths are recalled ranges (not checked).
 #   STRUCT - one paragraph per tribe on how the people were organized, with source.
-from data_src import P, HAYDEN, DENIG, HODGE, MOONEY, CLARK, CIA
+from data_src import P, HAYDEN, DENIG, HODGE, MOONEY, CLARK
 
 DORSEY = 'Dorsey, “Siouan Sociology” (BAE 15th Annual Report, 1897)'
 H56 = HAYDEN + ', “Names of Dakota bands, with their principal chiefs”, pp. 375–76 (collected c. 1855–57)'
@@ -28,6 +28,8 @@ WP = 'Wikipedia (event dates and places checked, Oct. 2026)'
 # LISTS: div -> list year, source, note. 'S' overrides people-per-unit-weight; 'gap' is the spacing
 # between villages (km) for village peoples; 'gen' = generic unit name when no names are recorded.
 LISTS = {
+ 'tet':dict(y=1760,src='',note='No band list survives for the Teton before their divisions; the bands shown are unnamed.'),
+ 'sao':dict(y=1795,src='',note='No band list survives for the Saone, the northern Teton from whom the Hunkpapa, Sihasapa and Sans Arc emerged; the bands shown are unnamed.'),
  'bru':dict(y=1880,src=DORSEY+', pp. 218–19 (gentes given by Mysterious Buffalo Bull, 1880); Upper/Lower division also from Dorsey',note='Dorsey’s 1880 list is of Rosebud (Upper) Brulé gentes; Cleveland’s 1884 list splits them further. The Lower Brulé are shown as one unit.'),
  'ogl':dict(y=1884,src=DORSEY+', pp. 220–21 (seven early divisions, Robinson 1879; twenty-one gentes, Cleveland 1884)',note='The seven 1879 names were “probably the earlier divisions”; the 1884 additions are drawn as offshoots appearing as the Oglala grew.'),
  'min':dict(y=1884,src=DORSEY+', p. 220 (Buffalo-bull Eagle 1880; No Heart to Swift 1884)',note=''),
@@ -90,7 +92,7 @@ BANDS = [
  # ---------- Brulé ----------
  b('bru','bru_sic','Sičangu proper','Burnt thighs',chief1856='Little Thunder',
    track=[(1854.0,(41.6,-101.8),''),(1855.67,(41.28,-102.12),'Ash Hollow (Blue Water Creek): Harney destroys Little Thunder’s camp of about 250, 3 Sept. 1855'),(1857,(42.4,-101.5),'')],tdoc=True,tchk=WP),
- b('bru','bru_low','Kul wičaša (Lower Brulé)','Lowland people',w=3,start=1780,note='Dorsey divides the Brulé “locally” into Upper and Lower; the two split in the late 18th century, the Lower Brulé favouring the White River mouth (Wikipedia, “Lower Brule Indian Reservation”). Kept as one unit.',tchk=WP+' (split and White River location)',
+ b('bru','bru_low','Kul wičaša (Lower Brulé)','Lowland people',w=3,start=1785,note='Dorsey divides the Brulé “locally” into Upper and Lower; the two split in the late 18th century, the Lower Brulé favouring the White River mouth (Wikipedia, “Lower Brule Indian Reservation”). Kept as one unit.',tchk=WP+' (split and White River location)',
    track=[(1800,(43.75,-99.45),'Lower Brulé at the confluence of the White River and the Missouri'),(1860,(43.8,-99.5),''),(1868.5,(43.1,-99.3),'Whetstone agency'),(1875,(44.07,-99.58),'Lower Brulé agency'),(1905,(44.07,-99.58),'')]),
  b('bru','bru_iya','Iyakoza','Lump on a horse’s leg',chief1856='Long Elk (Hayden: “Big ankle band”)'),
  b('bru','bru_cok','Čoka-towela','Blue spot in the middle'),

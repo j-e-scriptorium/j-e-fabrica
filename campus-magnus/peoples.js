@@ -8,7 +8,7 @@ window.CM_PEOPLES = {
   lang: "Lakota, a dialect of Sioux (Siouan)",
   gist: "The Teton crossed from the prairies of the upper Minnesota and James rivers to the Missouri and beyond in the eighteenth century and by the 1850s were the dominant power of the northern plains, until the wars of 1866–77 and the reservations.",
   body: [
-    "In 1700 the Teton were a prairie people east of the Missouri, between the Minnesota River and the James, hunting bison on foot and trading at the Dakota rendezvous. With horses from the south and guns from the east they pushed west across the Missouri through the middle decades of the century, past the Arikara villages that the smallpox had emptied; the American Horse winter count dates the discovery of the Black Hills to 1775–76. By 1800 the seven divisions (Oglala, Sičháŋǧu or Brulé, Miniconjou, Hunkpapa, Sihasapa, Itazipčho or Sans Arc, Oohenunpa or Two Kettle) ranged from the Platte to the Heart River, and over the next half-century took the Powder River country from the Crow.",
+    "In 1700 the Teton were a prairie people east of the Missouri, between the Minnesota River and the James, hunting bison on foot and trading at the Dakota rendezvous. With horses from the south and guns from the east they pushed west across the Missouri through the middle decades of the century, past the Arikara villages that the smallpox had emptied; the American Horse winter count dates the discovery of the Black Hills to 1775–76. The Oglala, the Sičháŋǧu or Brulé and the Miniconjou were distinct by the 1780s, beside the northern bands known together as the Saone, from whom the Hunkpapa, Sihasapa and Itazipčho or Sans Arc emerged by the early 1800s; the Oohenunpa or Two Kettle budded from the Miniconjou about 1833. By then the divisions ranged from the Platte to the Heart River, and over the next half-century took the Powder River country from the Crow.",
     "The Fort Laramie treaty of 1851 was followed by Red Cloud’s War (1866–68) and the second Fort Laramie treaty, which set aside the Great Sioux Reservation west of the Missouri. Gold in the Black Hills (1874) led to the Great Sioux War of 1876–77, the Little Bighorn and the surrender of Crazy Horse; Sitting Bull’s Hunkpapa returned from Canada in 1881. The act of 1889 broke the reservation into six, and the Ghost Dance ended at Wounded Knee in December 1890."
   ],
   y1900: "On the Pine Ridge, Rosebud, Standing Rock, Cheyenne River and Lower Brulé reservations in South and North Dakota.",
@@ -96,7 +96,7 @@ window.CM_PEOPLES = {
     "Their power was broken by epidemics (smallpox in 1781, 1837 and 1869–70), the whiskey trade of the 1860s and the end of the bison. The Lame Bull treaty of 1855 set their country in the United States; the Marias Massacre of January 1870, in which the army killed some 170 to 200 of Heavy Runner’s Piegan, was followed by the North-West Mounted Police in 1874, Treaty 7 in 1877 and the Starvation Winter of 1883–84 on the Montana reservation."
   ],
   y1900: "On the Siksika, Blood and Piikani reserves (Alberta) and the Blackfeet Reservation (Montana).",
-  read: ["Hugh A. Dempsey, “Blackfoot,” Handbook of North American Indians 13 (2001)", "John C. Ewers, The Blackfeet: Raiders on the Northwestern Plains (1958) and The Horse in Blackfoot Indian Culture (1955)", "Theodore Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001)"]
+  read: ["Hugh A. Dempsey, “Blackfoot,” Handbook of North American Indians 13 (2001)", "John C. Ewers, The Blackfeet: Raiders on the Northwestern Plains (1958) and The Horse in Blackfoot Indian Culture (1955)", "Theodore Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001)", "Theodore Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001)"]
 },
 
 "Gros Ventre": {
@@ -108,7 +108,7 @@ window.CM_PEOPLES = {
     "They escaped the worst of the 1837 smallpox but broke with the Blackfoot in 1861 and suffered heavily in the epidemic of 1869–70 and in war with the Piegan. The Fort Belknap agency on the Milk River, shared with the Assiniboine, became their reservation in 1888."
   ],
   y1900: "At Fort Belknap, Montana.",
-  read: ["Loretta Fowler and Regina Flannery, “Gros Ventre,” Handbook of North American Indians 13 (2001)", "Loretta Fowler, Shared Symbols, Contested Meanings: Gros Ventre Culture and History, 1778–1984 (1987)", "A. L. Kroeber, “Ethnology of the Gros Ventre” (1908)"]
+  read: ["Loretta Fowler and Regina Flannery, “Gros Ventre,” Handbook of North American Indians 13 (2001)", "Loretta Fowler, Shared Symbols, Contested Meanings: Gros Ventre Culture and History, 1778–1984 (1987)", "A. L. Kroeber, “Ethnology of the Gros Ventre” (1908)", "Theodore Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001)"]
 },
 
 "Cheyenne": {

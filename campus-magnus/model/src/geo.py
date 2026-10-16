@@ -6,7 +6,6 @@ B=box(-126,20,-76,62)
 def load(f): return json.load(open(f"{G}/{f}.geojson"))['features']
 def rnd(geom):
     if geom.geom_type=='GeometryCollection':
-        from shapely.geometry import MultiLineString,MultiPolygon
         ls=[g for g in geom.geoms if 'Line' in g.geom_type]; ps=[g for g in geom.geoms if 'Polygon' in g.geom_type]
         from shapely.ops import unary_union as U
         geom=U(ls) if ls else U(ps)

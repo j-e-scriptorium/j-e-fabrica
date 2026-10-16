@@ -1,8 +1,8 @@
 """Build the review package: data tables with provenance and judgment flags, coverage and fit diagnostics.
 usage: python3 package.py <src dir> <project dir> <out dir>"""
-import json, csv, sys, os, re, math, collections, shutil
+import json, csv, sys, os, re, collections, shutil
 sys.path.insert(0, sys.argv[1]); S = sys.argv[2]; OUT = sys.argv[3]
-import data_src as D, ecology_src as EC, provenance as P
+import data_src as D, provenance as P
 d = json.load(open(f'{S}/build/data.json', encoding='utf-8'))
 G = {g['id']: g for g in d['groups']}
 os.makedirs(f'{OUT}/data', exist_ok=True)
@@ -84,6 +84,12 @@ for i, (s_, e, lab, M, srcs, basis) in enumerate(D.EPI, 1):
         ep.append([f'E{i:03d}', s_, e, lab, g, G[g]['name'], f, basis, P.tier(srcs), srcs])
 W('epidemics_and_shocks.csv', ['event_id', 'start', 'end', 'event', 'group_id', 'division', 'mortality_fraction',
                                'rate_basis', 'provenance_tier', 'source'], ep)
+
+# ---------- transfers between divisions ----------
+import data_src as _DS
+_names={g['id']:g['name'] for g in d['groups']}
+W('division_transfers.csv', ['year', 'group_id', 'division', 'fraction', 'event', 'basis'],
+  [[y, g, _names.get(g, g), f, lab, src] for (y, g, f, lab, src) in sorted(getattr(_DS, 'SHIFTS', []))])
 
 # ---------- groups ----------
 W('groups.csv', ['group_id', 'tribe', 'division', 'language_family', 'start', 'end', 'lifeway'],

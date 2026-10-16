@@ -1,346 +1,337 @@
 group_id,tribe,division,period,counts_for_division,counts_shared_with_other_divisions,documented_places_on_track,keyframe_places_on_track,longest_gap_without_documented_place_years,mean_population_sd_percent,mean_halo_km,flag
-bru,Lakota,Brulé (Sičháŋǧu),1700–1749,0,2,0,2,50,27,188,sparse
-bru,Lakota,Brulé (Sičháŋǧu),1750–1799,0,1,0,1,50,26,165,sparse
-bru,Lakota,Brulé (Sičháŋǧu),1800–1824,2,2,5,1,7.5,19,86,
-bru,Lakota,Brulé (Sičháŋǧu),1825–1849,1,1,2,1,15.0,19,102,
-bru,Lakota,Brulé (Sičháŋǧu),1850–1874,2,1,5,2,12.1,14,90,
-bru,Lakota,Brulé (Sičháŋǧu),1875–1905,2,2,1,2,15.6,13,122,
-ogl,Lakota,Oglala,1700–1749,0,2,0,2,50,27,186,sparse
-ogl,Lakota,Oglala,1750–1799,0,1,0,2,50,23,156,sparse
-ogl,Lakota,Oglala,1800–1824,1,2,2,0,20,20,122,
-ogl,Lakota,Oglala,1825–1849,1,1,3,2,18.5,18,109,
-ogl,Lakota,Oglala,1850–1874,6,1,5,4,8.7,12,82,
-ogl,Lakota,Oglala,1875–1905,16,2,1,2,15.6,8,115,
-min,Lakota,Miniconjou,1700–1749,0,2,0,1,50,30,215,sparse
-min,Lakota,Miniconjou,1750–1799,0,1,0,1,50,27,178,sparse
-min,Lakota,Miniconjou,1800–1824,1,2,3,1,13.6,20,106,
-min,Lakota,Miniconjou,1825–1849,1,1,0,0,25,20,142,
-min,Lakota,Miniconjou,1850–1874,9,0,4,1,10.5,13,101,
-min,Lakota,Miniconjou,1875–1905,7,4,2,3,27.4,12,120,sparse
-hnk,Lakota,Hunkpapa,1700–1749,0,2,0,1,50,30,214,sparse
-hnk,Lakota,Hunkpapa,1750–1799,0,1,0,2,50,25,178,sparse
-hnk,Lakota,Hunkpapa,1800–1824,0,4,0,1,25,21,170,
-hnk,Lakota,Hunkpapa,1825–1849,1,1,0,0,25,19,158,
-hnk,Lakota,Hunkpapa,1850–1874,11,0,6,1,8.1,12,93,
-hnk,Lakota,Hunkpapa,1875–1905,12,2,3,2,15.6,10,108,
-sih,Lakota,Sihasapa (Blackfeet Lakota),1700–1749,0,2,0,1,50,30,215,sparse
-sih,Lakota,Sihasapa (Blackfeet Lakota),1750–1799,0,1,0,1,50,27,201,sparse
-sih,Lakota,Sihasapa (Blackfeet Lakota),1800–1824,0,4,0,1,25,22,190,
-sih,Lakota,Sihasapa (Blackfeet Lakota),1825–1849,1,1,0,0,25,21,180,
-sih,Lakota,Sihasapa (Blackfeet Lakota),1850–1874,9,0,3,1,10.1,12,111,
-sih,Lakota,Sihasapa (Blackfeet Lakota),1875–1905,15,3,1,2,29.5,10,143,sparse
-sna,Lakota,Itazipčho (Sans Arc),1700–1749,0,2,0,1,50,30,215,sparse
-sna,Lakota,Itazipčho (Sans Arc),1750–1799,0,1,0,1,50,27,201,sparse
-sna,Lakota,Itazipčho (Sans Arc),1800–1824,0,4,0,1,25,22,192,
-sna,Lakota,Itazipčho (Sans Arc),1825–1849,1,1,0,0,25,21,186,
-sna,Lakota,Itazipčho (Sans Arc),1850–1874,4,0,2,1,18.2,14,130,
-sna,Lakota,Itazipčho (Sans Arc),1875–1905,8,4,2,1,27.4,12,133,sparse
-twk,Lakota,Oohenunpa (Two Kettle),1700–1749,0,2,0,1,50,30,215,sparse
-twk,Lakota,Oohenunpa (Two Kettle),1750–1799,0,1,0,1,50,27,201,sparse
-twk,Lakota,Oohenunpa (Two Kettle),1800–1824,0,4,0,1,25,22,189,
-twk,Lakota,Oohenunpa (Two Kettle),1825–1849,1,1,0,0,25,21,179,
-twk,Lakota,Oohenunpa (Two Kettle),1850–1874,8,0,2,2,18.2,13,111,
-twk,Lakota,Oohenunpa (Two Kettle),1875–1905,9,4,1,1,27.4,12,126,sparse
-ynk,Yankton,Yankton,1700–1749,0,2,1,0,49.1,30,177,sparse
-ynk,Yankton,Yankton,1750–1799,0,1,1,0,40.0,27,159,sparse
-ynk,Yankton,Yankton,1800–1824,3,1,2,0,20,19,136,
-ynk,Yankton,Yankton,1825–1849,2,0,0,0,25,19,154,
-ynk,Yankton,Yankton,1850–1874,11,0,6,0,9.1,12,72,
-ynk,Yankton,Yankton,1875–1905,22,0,2,2,15.6,8,100,
-yku,Yanktonai,Upper Yanktonai & Cuthead,1700–1749,0,2,0,1,50,30,208,sparse
-yku,Yanktonai,Upper Yanktonai & Cuthead,1750–1799,0,1,1,0,40.0,27,185,sparse
-yku,Yanktonai,Upper Yanktonai & Cuthead,1800–1824,0,4,0,1,25,22,166,
-yku,Yanktonai,Upper Yanktonai & Cuthead,1825–1849,1,1,1,0,16.5,21,132,
-yku,Yanktonai,Upper Yanktonai & Cuthead,1850–1874,1,1,6,3,7.2,15,87,
-yku,Yanktonai,Upper Yanktonai & Cuthead,1875–1905,0,2,0,1,31,18,146,sparse
-ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1700–1749,0,2,0,1,50,30,208,sparse
-ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1750–1799,0,1,1,0,40.0,28,176,sparse
-ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1800–1824,0,4,1,1,13.6,23,136,
-ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1825–1849,0,1,0,1,25,22,143,
-ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1850–1874,2,1,4,1,13.1,16,81,
-ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1875–1905,3,2,3,0,19,12,78,
-mde,Dakota,Mdewakanton,1700–1749,0,2,3,1,45.0,27,68,sparse
-mde,Dakota,Mdewakanton,1750–1799,0,1,1,1,35.0,27,51,sparse
-mde,Dakota,Mdewakanton,1800–1824,5,0,1,0,20,22,50,
-mde,Dakota,Mdewakanton,1825–1849,0,0,0,0,25,22,67,thin
-mde,Dakota,Mdewakanton,1850–1874,1,10,6,2,6.0,13,36,
-mde,Dakota,Mdewakanton,1875–1905,0,24,0,1,31,10,42,sparse
-wpk,Dakota,Wahpekute,1700–1749,0,2,1,0,49.1,30,175,sparse
-wpk,Dakota,Wahpekute,1750–1799,0,1,1,1,35.0,28,146,sparse
-wpk,Dakota,Wahpekute,1800–1824,4,0,1,0,20,24,140,
-wpk,Dakota,Wahpekute,1825–1849,1,0,0,0,25,23,153,
-wpk,Dakota,Wahpekute,1850–1874,0,10,5,2,6.0,13,52,
-wpk,Dakota,Wahpekute,1875–1905,0,24,0,1,31,10,149,sparse
-wpt,Dakota,Wahpeton,1700–1749,0,2,0,1,50,30,199,sparse
-wpt,Dakota,Wahpeton,1750–1799,0,1,1,1,35.0,28,138,sparse
-wpt,Dakota,Wahpeton,1800–1824,4,0,2,0,20,24,122,
-wpt,Dakota,Wahpeton,1825–1849,1,0,1,0,15.0,22,118,
-wpt,Dakota,Wahpeton,1850–1874,0,7,6,2,6.0,14,59,
+tet,Lakota,Teton (before division),1700–1749,0,2,0,2,50,27,187,sparse
+tet,Lakota,Teton (before division),1750–1785,0,1,0,3,36,26,156,sparse
+bru,Lakota,Brulé (Sičháŋǧu),1785–1799,0,0,0,1,15,24,151,thin
+bru,Lakota,Brulé (Sičháŋǧu),1800–1824,2,3,5,1,7.5,18,98,
+bru,Lakota,Brulé (Sičháŋǧu),1825–1849,4,1,2,1,15.0,17,110,
+bru,Lakota,Brulé (Sičháŋǧu),1850–1874,4,1,5,2,12.1,13,96,
+bru,Lakota,Brulé (Sičháŋǧu),1875–1905,3,2,1,2,15.6,13,120,
+ogl,Lakota,Oglala,1785–1799,0,0,0,1,15,24,158,thin
+ogl,Lakota,Oglala,1800–1824,1,3,2,0,20,19,129,
+ogl,Lakota,Oglala,1825–1849,4,1,3,2,18.5,17,114,
+ogl,Lakota,Oglala,1850–1874,8,1,5,4,8.7,12,90,
+ogl,Lakota,Oglala,1875–1905,17,2,1,2,15.6,8,117,
+min,Lakota,Miniconjou,1785–1799,0,0,0,1,15,24,155,thin
+min,Lakota,Miniconjou,1800–1824,1,3,3,1,13.6,19,114,
+min,Lakota,Miniconjou,1825–1849,2,3,0,0,25,19,144,
+min,Lakota,Miniconjou,1850–1874,11,0,4,1,10.5,12,104,
+min,Lakota,Miniconjou,1875–1905,8,4,2,3,27.4,12,124,sparse
+sao,Lakota,"Saone (northern Teton, before division)",1785–1799,0,0,0,2,15,26,144,thin
+sao,Lakota,"Saone (northern Teton, before division)",1800–1806,1,2,1,0,5,22,124,
+hnk,Lakota,Hunkpapa,1806–1824,0,2,0,1,19,23,188,
+hnk,Lakota,Hunkpapa,1825–1849,4,1,0,0,25,18,160,
+hnk,Lakota,Hunkpapa,1850–1874,13,0,6,1,8.1,12,94,
+hnk,Lakota,Hunkpapa,1875–1905,13,2,3,2,15.6,10,111,
+sih,Lakota,Sihasapa (Blackfeet Lakota),1806–1824,0,2,0,1,19,24,195,
+sih,Lakota,Sihasapa (Blackfeet Lakota),1825–1849,4,1,0,0,25,19,179,
+sih,Lakota,Sihasapa (Blackfeet Lakota),1850–1874,11,0,3,1,10.1,12,116,
+sih,Lakota,Sihasapa (Blackfeet Lakota),1875–1905,16,3,1,2,29.5,10,147,sparse
+sna,Lakota,Itazipčho (Sans Arc),1806–1824,0,2,0,1,19,24,196,
+sna,Lakota,Itazipčho (Sans Arc),1825–1849,4,1,0,0,25,20,184,
+sna,Lakota,Itazipčho (Sans Arc),1850–1874,6,0,2,1,18.2,13,130,
+sna,Lakota,Itazipčho (Sans Arc),1875–1905,9,4,2,1,27.4,12,138,sparse
+twk,Lakota,Oohenunpa (Two Kettle),1833–1849,2,2,0,1,17,20,163,
+twk,Lakota,Oohenunpa (Two Kettle),1850–1874,10,0,2,2,18.2,12,111,
+twk,Lakota,Oohenunpa (Two Kettle),1875–1905,10,4,1,1,27.4,12,126,sparse
+ynk,Yankton,Yankton,1700–1749,0,2,1,0,49.1,30,188,sparse
+ynk,Yankton,Yankton,1750–1799,0,1,1,0,40.0,27,165,sparse
+ynk,Yankton,Yankton,1800–1824,3,1,2,0,20,19,145,
+ynk,Yankton,Yankton,1825–1849,2,0,0,0,25,19,157,
+ynk,Yankton,Yankton,1850–1874,11,0,6,0,9.1,12,77,
+ynk,Yankton,Yankton,1875–1905,22,0,2,2,15.6,8,101,
+yku,Yanktonai,Upper Yanktonai & Cuthead,1700–1749,0,2,0,1,50,30,206,sparse
+yku,Yanktonai,Upper Yanktonai & Cuthead,1750–1799,0,1,1,0,40.0,27,179,sparse
+yku,Yanktonai,Upper Yanktonai & Cuthead,1800–1824,0,4,0,1,25,22,169,
+yku,Yanktonai,Upper Yanktonai & Cuthead,1825–1849,1,1,1,0,16.5,21,139,
+yku,Yanktonai,Upper Yanktonai & Cuthead,1850–1874,1,1,6,3,7.2,15,92,
+yku,Yanktonai,Upper Yanktonai & Cuthead,1875–1905,0,2,0,1,31,18,149,sparse
+ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1700–1749,0,2,0,1,50,30,205,sparse
+ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1750–1799,0,1,1,0,40.0,28,172,sparse
+ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1800–1824,0,4,1,1,13.6,23,144,
+ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1825–1849,0,1,0,1,25,22,147,
+ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1850–1874,2,1,4,1,13.1,16,86,
+ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1875–1905,3,2,3,0,19,12,80,
+mde,Dakota,Mdewakanton,1700–1749,0,2,3,1,45.0,27,53,sparse
+mde,Dakota,Mdewakanton,1750–1799,0,1,1,1,35.0,27,30,sparse
+mde,Dakota,Mdewakanton,1800–1824,5,0,1,0,20,22,31,
+mde,Dakota,Mdewakanton,1825–1849,0,0,0,0,25,22,35,thin
+mde,Dakota,Mdewakanton,1850–1874,1,10,6,2,6.0,13,40,
+mde,Dakota,Mdewakanton,1875–1905,0,24,0,1,31,10,24,sparse
+wpk,Dakota,Wahpekute,1700–1749,0,2,1,0,49.1,30,186,sparse
+wpk,Dakota,Wahpekute,1750–1799,0,1,1,1,35.0,28,157,sparse
+wpk,Dakota,Wahpekute,1800–1824,4,0,1,0,20,24,155,
+wpk,Dakota,Wahpekute,1825–1849,1,0,0,0,25,23,158,
+wpk,Dakota,Wahpekute,1850–1874,0,10,5,2,6.0,13,57,
+wpk,Dakota,Wahpekute,1875–1905,0,24,0,1,31,10,150,sparse
+wpt,Dakota,Wahpeton,1700–1749,0,2,0,1,50,30,202,sparse
+wpt,Dakota,Wahpeton,1750–1799,0,1,1,1,35.0,28,148,sparse
+wpt,Dakota,Wahpeton,1800–1824,4,0,2,0,20,24,134,
+wpt,Dakota,Wahpeton,1825–1849,1,0,1,0,15.0,22,128,
+wpt,Dakota,Wahpeton,1850–1874,0,7,6,2,6.0,14,58,
 wpt,Dakota,Wahpeton,1875–1905,0,20,0,1,31,10,150,sparse
 sis,Dakota,Sisseton,1700–1749,0,2,0,1,50,30,215,sparse
-sis,Dakota,Sisseton,1750–1799,0,1,0,1,50,27,170,sparse
-sis,Dakota,Sisseton,1800–1824,5,0,2,0,20,20,129,
-sis,Dakota,Sisseton,1825–1849,1,0,0,0,25,21,150,
-sis,Dakota,Sisseton,1850–1874,0,7,6,2,6.0,14,77,
+sis,Dakota,Sisseton,1750–1799,0,1,0,1,50,27,175,sparse
+sis,Dakota,Sisseton,1800–1824,5,0,2,0,20,20,141,
+sis,Dakota,Sisseton,1825–1849,1,0,0,0,25,21,155,
+sis,Dakota,Sisseton,1850–1874,0,7,6,2,6.0,14,85,
 sis,Dakota,Sisseton,1875–1905,0,20,0,1,31,10,151,sparse
-ass,Assiniboine,Southern (Missouri) Assiniboine,1700–1749,0,0,1,2,38.8,30,169,sparse
-ass,Assiniboine,Southern (Missouri) Assiniboine,1750–1799,0,2,2,1,47.9,26,151,sparse
-ass,Assiniboine,Southern (Missouri) Assiniboine,1800–1824,2,1,3,0,15.5,21,113,
-ass,Assiniboine,Southern (Missouri) Assiniboine,1825–1849,2,3,3,1,12,17,116,
-ass,Assiniboine,Southern (Missouri) Assiniboine,1850–1874,16,2,3,1,18.2,12,124,
-ass,Assiniboine,Southern (Missouri) Assiniboine,1875–1905,20,2,2,1,15.6,8,113,
-asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1700–1749,0,0,0,2,50,31,178,thin
-asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1750–1799,0,2,2,0,40.3,30,145,sparse
-asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1800–1824,1,1,2,0,15.5,23,136,
-asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1825–1849,0,3,0,1,25,21,154,
-asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1850–1874,1,2,1,0,21,21,143,
-asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1875–1905,0,2,2,1,23.5,18,117,
+ass,Assiniboine,Southern (Missouri) Assiniboine,1700–1749,0,0,1,2,38.8,30,171,sparse
+ass,Assiniboine,Southern (Missouri) Assiniboine,1750–1799,0,2,2,1,47.9,26,153,sparse
+ass,Assiniboine,Southern (Missouri) Assiniboine,1800–1824,2,1,3,0,15.5,21,114,
+ass,Assiniboine,Southern (Missouri) Assiniboine,1825–1849,2,3,3,1,12,17,114,
+ass,Assiniboine,Southern (Missouri) Assiniboine,1850–1874,16,2,3,1,18.2,12,116,
+ass,Assiniboine,Southern (Missouri) Assiniboine,1875–1905,20,2,2,1,15.6,8,104,
+asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1700–1749,0,0,0,2,50,31,161,thin
+asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1750–1799,0,2,4,0,19.0,30,127,
+asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1800–1824,1,1,2,0,15.5,23,130,
+asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1825–1849,0,3,0,1,25,21,150,
+asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1850–1874,1,2,1,0,21,20,138,
+asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1875–1905,9,2,2,1,23.5,11,120,
 cre,Plains Cree,Qu’Appelle–Touchwood Cree,1700–1749,0,0,0,1,50,35,215,thin
 cre,Plains Cree,Qu’Appelle–Touchwood Cree,1750–1799,0,0,0,1,50,30,191,thin
-cre,Plains Cree,Qu’Appelle–Touchwood Cree,1800–1824,1,0,1,0,20,26,167,
-cre,Plains Cree,Qu’Appelle–Touchwood Cree,1825–1849,0,0,0,0,25,30,187,thin
-cre,Plains Cree,Qu’Appelle–Touchwood Cree,1850–1874,0,1,1,1,24.7,24,152,
-cre,Plains Cree,Qu’Appelle–Touchwood Cree,1875–1905,0,0,0,1,31,28,163,thin
-crw,Plains Cree,Fort des Prairies Cree,1700–1749,0,0,0,1,50,40,195,thin
-crw,Plains Cree,Fort des Prairies Cree,1750–1799,0,0,1,0,44.8,38,174,sparse
-crw,Plains Cree,Fort des Prairies Cree,1800–1824,0,1,0,1,25,29,197,
-crw,Plains Cree,Fort des Prairies Cree,1825–1849,0,0,0,0,25,30,186,thin
-crw,Plains Cree,Fort des Prairies Cree,1850–1874,1,1,1,0,19,25,135,
-crw,Plains Cree,Fort des Prairies Cree,1875–1905,0,0,1,1,29.4,28,157,sparse
-crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1790–1799,0,0,0,1,10,29,187,thin
-crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1800–1824,0,1,0,0,25,28,184,
-crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1825–1849,0,0,1,1,19.1,25,131,
-crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1850–1874,2,1,2,1,19,21,112,
-crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1875–1905,0,0,0,7,31,20,128,thin
-ojb,Plains Ojibwe,Pembina–Turtle Mountain,1780–1799,0,0,2,1,10.0,28,107,
-ojb,Plains Ojibwe,Pembina–Turtle Mountain,1800–1824,1,0,4,1,16.4,25,102,
-ojb,Plains Ojibwe,Pembina–Turtle Mountain,1825–1849,0,0,1,0,15.0,26,131,
-ojb,Plains Ojibwe,Pembina–Turtle Mountain,1850–1874,0,0,0,1,25,26,153,thin
+cre,Plains Cree,Qu’Appelle–Touchwood Cree,1800–1824,1,0,1,0,20,26,168,
+cre,Plains Cree,Qu’Appelle–Touchwood Cree,1825–1849,0,0,0,0,25,29,189,thin
+cre,Plains Cree,Qu’Appelle–Touchwood Cree,1850–1874,0,1,1,1,24.7,22,160,
+cre,Plains Cree,Qu’Appelle–Touchwood Cree,1875–1905,0,9,0,1,31,14,171,sparse
+crw,Plains Cree,Fort des Prairies Cree,1700–1749,0,0,0,1,50,40,201,thin
+crw,Plains Cree,Fort des Prairies Cree,1750–1799,0,0,1,0,44.8,38,183,sparse
+crw,Plains Cree,Fort des Prairies Cree,1800–1824,0,1,0,1,25,29,199,
+crw,Plains Cree,Fort des Prairies Cree,1825–1849,0,0,0,0,25,30,191,thin
+crw,Plains Cree,Fort des Prairies Cree,1850–1874,1,1,1,0,19,22,144,
+crw,Plains Cree,Fort des Prairies Cree,1875–1905,0,9,1,1,29.4,14,162,sparse
+crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1790–1799,0,0,0,1,10,29,188,thin
+crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1800–1824,0,1,0,0,25,28,186,
+crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1825–1849,0,0,1,1,19.1,25,138,
+crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1850–1874,2,1,2,1,19,20,117,
+crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1875–1905,0,9,0,7,31,13,128,sparse
+ojb,Plains Ojibwe,Pembina–Turtle Mountain,1780–1799,0,0,2,1,10.0,28,111,
+ojb,Plains Ojibwe,Pembina–Turtle Mountain,1800–1824,1,0,4,1,16.4,25,109,
+ojb,Plains Ojibwe,Pembina–Turtle Mountain,1825–1849,0,0,1,0,15.0,26,135,
+ojb,Plains Ojibwe,Pembina–Turtle Mountain,1850–1874,0,0,0,1,25,26,155,thin
 ojb,Plains Ojibwe,Pembina–Turtle Mountain,1875–1905,1,0,1,2,15.6,19,128,
-sik,Blackfoot,Siksika,1700–1749,0,0,0,2,50,30,176,thin
-sik,Blackfoot,Siksika,1750–1799,1,1,2,1,34.2,25,135,sparse
-sik,Blackfoot,Siksika,1800–1824,2,1,1,1,15.0,19,122,
-sik,Blackfoot,Siksika,1825–1849,0,0,1,1,16.1,21,131,
-sik,Blackfoot,Siksika,1850–1874,10,0,1,0,18.5,13,142,
-sik,Blackfoot,Siksika,1875–1905,1,0,0,5,31,18,145,sparse
+sik,Blackfoot,Siksika,1700–1749,0,0,0,2,50,30,191,thin
+sik,Blackfoot,Siksika,1750–1799,1,1,1,1,39,25,159,sparse
+sik,Blackfoot,Siksika,1800–1824,2,1,1,1,15.0,19,127,
+sik,Blackfoot,Siksika,1825–1849,0,0,1,1,16.1,21,134,
+sik,Blackfoot,Siksika,1850–1874,10,0,1,0,18.5,13,139,
+sik,Blackfoot,Siksika,1875–1905,11,0,0,5,31,9,145,sparse
 kai,Blackfoot,Kainai (Blood),1700–1749,0,0,0,1,50,39,234,thin
-kai,Blackfoot,Kainai (Blood),1750–1799,1,1,1,0,39,31,190,sparse
-kai,Blackfoot,Kainai (Blood),1800–1824,2,1,1,1,15.0,19,124,
-kai,Blackfoot,Kainai (Blood),1825–1849,0,0,1,1,16.1,21,130,
-kai,Blackfoot,Kainai (Blood),1850–1874,11,0,2,0,14.3,13,119,
-kai,Blackfoot,Kainai (Blood),1875–1905,1,0,1,2,28.3,18,144,sparse
-pik,Blackfoot,Piikani (Piegan),1700–1749,0,0,1,1,29.5,39,168,sparse
-pik,Blackfoot,Piikani (Piegan),1750–1799,1,1,2,0,37.9,31,164,sparse
-pik,Blackfoot,Piikani (Piegan),1800–1824,2,1,1,1,15.0,19,123,
-pik,Blackfoot,Piikani (Piegan),1825–1849,0,0,2,1,16.1,21,114,
-pik,Blackfoot,Piikani (Piegan),1850–1874,11,0,6,0,8.4,12,89,
-pik,Blackfoot,Piikani (Piegan),1875–1905,2,0,0,2,31,16,153,sparse
-gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1700–1749,0,0,0,1,50,38,198,thin
-gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1750–1799,2,0,2,1,34.2,29,148,sparse
-gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1800–1824,4,0,2,0,15.5,19,130,
-gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1825–1849,2,0,2,0,16.4,19,121,
-gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1850–1874,10,0,3,1,13.2,12,100,
-gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1875–1905,20,0,4,1,13.6,7,71,
-chy,Cheyenne,Cheyenne (before division),1700–1749,0,0,1,1,35.0,35,153,sparse
-chy,Cheyenne,Cheyenne (before division),1750–1799,1,0,2,1,30.0,24,122,sparse
-chy,Cheyenne,Cheyenne (before division),1800–1824,2,0,4,0,10.4,19,103,
-chy,Cheyenne,Cheyenne (before division),1825–1832,1,0,0,2,8,18,122,
-chn,Cheyenne,Northern Cheyenne,1832–1849,0,1,0,2,18,21,137,
-chn,Cheyenne,Northern Cheyenne,1850–1874,5,2,3,1,13.5,13,98,
-chn,Cheyenne,Northern Cheyenne,1875–1905,16,5,4,4,15.6,8,120,
-chs,Cheyenne,Southern Cheyenne,1832–1849,0,1,8,1,3.9,19,70,
-chs,Cheyenne,Southern Cheyenne,1850–1874,5,7,12,0,7.5,13,70,
-chs,Cheyenne,Southern Cheyenne,1875–1905,18,5,1,1,27.3,8,130,sparse
+kai,Blackfoot,Kainai (Blood),1750–1799,1,1,1,0,39,31,191,sparse
+kai,Blackfoot,Kainai (Blood),1800–1824,2,1,1,1,15.0,19,129,
+kai,Blackfoot,Kainai (Blood),1825–1849,0,0,1,1,16.1,21,134,
+kai,Blackfoot,Kainai (Blood),1850–1874,11,0,2,0,14.3,13,126,
+kai,Blackfoot,Kainai (Blood),1875–1905,11,0,1,2,28.3,9,149,sparse
+pik,Blackfoot,Piikani (Piegan),1700–1749,0,0,1,1,29.5,39,172,sparse
+pik,Blackfoot,Piikani (Piegan),1750–1799,1,1,3,0,37.9,31,161,sparse
+pik,Blackfoot,Piikani (Piegan),1800–1824,2,1,1,1,15.0,19,124,
+pik,Blackfoot,Piikani (Piegan),1825–1849,0,0,2,1,16.1,21,119,
+pik,Blackfoot,Piikani (Piegan),1850–1874,11,0,6,0,8.4,12,99,
+pik,Blackfoot,Piikani (Piegan),1875–1905,3,0,0,2,31,14,155,sparse
+gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1700–1749,0,0,0,1,50,38,182,thin
+gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1750–1799,2,0,3,1,20.2,28,129,
+gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1800–1824,5,0,4,0,15.5,18,115,
+gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1825–1849,2,0,2,0,16.4,19,125,
+gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1850–1874,10,0,3,1,13.2,12,111,
+gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1875–1905,20,0,4,1,13.6,7,75,
+chy,Cheyenne,Cheyenne (before division),1700–1749,0,0,1,1,35.0,35,165,sparse
+chy,Cheyenne,Cheyenne (before division),1750–1799,1,0,2,1,30.0,24,134,sparse
+chy,Cheyenne,Cheyenne (before division),1800–1824,2,0,4,0,10.4,19,106,
+chy,Cheyenne,Cheyenne (before division),1825–1832,1,0,0,2,8,17,120,
+chn,Cheyenne,Northern Cheyenne,1832–1849,0,1,0,2,18,21,140,
+chn,Cheyenne,Northern Cheyenne,1850–1874,5,2,3,1,13.5,13,106,
+chn,Cheyenne,Northern Cheyenne,1875–1905,16,5,4,4,15.6,8,116,
+chs,Cheyenne,Southern Cheyenne,1832–1849,0,1,8,1,3.9,19,81,
+chs,Cheyenne,Southern Cheyenne,1850–1874,5,7,12,0,7.5,13,79,
+chs,Cheyenne,Southern Cheyenne,1875–1905,18,5,1,1,27.3,8,131,sparse
 ara,Arapaho,Arapaho (before division),1700–1749,0,0,0,1,50,33,203,thin
-ara,Arapaho,Arapaho (before division),1750–1799,1,0,1,1,45.0,29,163,sparse
-ara,Arapaho,Arapaho (before division),1800–1824,1,0,5,1,14.0,24,112,
-ara,Arapaho,Arapaho (before division),1825–1835,1,0,0,1,11,22,157,
-arn,Arapaho,Northern Arapaho,1835–1849,0,0,2,1,7.5,24,106,
-arn,Arapaho,Northern Arapaho,1850–1874,8,2,10,0,7.8,13,75,
-arn,Arapaho,Northern Arapaho,1875–1905,20,0,5,1,13.6,8,82,
-ars,Arapaho,Southern Arapaho,1835–1849,0,0,6,1,4.4,22,72,
-ars,Arapaho,Southern Arapaho,1850–1874,7,7,6,3,7.8,12,85,
+ara,Arapaho,Arapaho (before division),1750–1799,1,0,1,1,45.0,29,164,sparse
+ara,Arapaho,Arapaho (before division),1800–1824,1,0,6,1,10.9,24,100,
+ara,Arapaho,Arapaho (before division),1825–1835,1,0,0,1,11,22,144,
+arn,Arapaho,Northern Arapaho,1835–1849,0,0,2,1,7.5,24,114,
+arn,Arapaho,Northern Arapaho,1850–1874,8,2,10,0,7.8,13,83,
+arn,Arapaho,Northern Arapaho,1875–1905,20,0,5,1,13.6,8,86,
+ars,Arapaho,Southern Arapaho,1835–1849,0,0,6,1,4.4,22,83,
+ars,Arapaho,Southern Arapaho,1850–1874,7,7,6,3,7.8,12,87,
 ars,Arapaho,Southern Arapaho,1875–1905,20,0,1,1,27.3,8,132,sparse
 cwm,Crow,Mountain Crow,1700–1749,0,0,0,1,50,38,231,thin
-cwm,Crow,Mountain Crow,1750–1799,0,2,0,1,50,29,190,sparse
-cwm,Crow,Mountain Crow,1800–1824,1,2,6,0,19.3,21,115,
-cwm,Crow,Mountain Crow,1825–1849,0,2,3,1,9.5,20,105,
-cwm,Crow,Mountain Crow,1850–1874,7,7,6,1,9.6,12,84,
-cwm,Crow,Mountain Crow,1875–1905,4,17,3,1,21.5,10,108,
-cwr,Crow,River Crow,1700–1749,0,0,0,1,50,39,243,thin
-cwr,Crow,River Crow,1750–1799,0,2,0,0,50,34,230,sparse
-cwr,Crow,River Crow,1800–1824,1,2,1,0,20,21,133,
-cwr,Crow,River Crow,1825–1849,0,2,5,1,10.0,20,102,
-cwr,Crow,River Crow,1850–1874,4,7,3,1,12.0,13,94,
-cwr,Crow,River Crow,1875–1884,4,4,3,1,6.1,8,70,
-man,Mandan,Mandan,1700–1749,1,0,0,2,50,27,50,sparse
-man,Mandan,Mandan,1750–1799,5,0,6,1,29.0,23,41,sparse
-man,Mandan,Mandan,1800–1824,2,0,1,0,20,20,44,
-man,Mandan,Mandan,1825–1849,3,0,2,1,12.6,16,31,
-man,Mandan,Mandan,1850–1874,9,0,3,0,12.2,12,38,
-man,Mandan,Mandan,1875–1905,22,2,4,1,15.6,7,31,
-hid,Hidatsa,Hidatsa,1700–1749,1,0,1,0,50.0,34,71,sparse
-hid,Hidatsa,Hidatsa,1750–1799,4,0,2,0,38.0,29,45,sparse
-hid,Hidatsa,Hidatsa,1800–1824,3,0,2,0,20,21,43,
-hid,Hidatsa,Hidatsa,1825–1849,5,0,2,1,12,17,33,
-hid,Hidatsa,Hidatsa,1850–1874,7,0,3,0,12.2,14,28,
-hid,Hidatsa,Hidatsa,1875–1905,21,2,4,1,15.6,8,32,
-kio,Kiowa,Kiowa,1700–1749,0,0,1,1,50.0,30,167,sparse
-kio,Kiowa,Kiowa,1750–1799,0,0,2,2,40.0,24,129,sparse
-kio,Kiowa,Kiowa,1800–1824,3,1,3,1,10.0,16,102,
-kio,Kiowa,Kiowa,1825–1849,5,1,20,0,8.2,15,71,
-kio,Kiowa,Kiowa,1850–1874,11,1,33,0,2.3,11,51,
-kio,Kiowa,Kiowa,1875–1905,21,0,17,1,15.1,8,69,
-kap,Plains Apache,Plains (Kiowa) Apache,1700–1749,0,0,1,1,33.0,38,168,sparse
-kap,Plains Apache,Plains (Kiowa) Apache,1750–1799,1,0,3,0,30.0,31,128,sparse
-kap,Plains Apache,Plains (Kiowa) Apache,1800–1824,2,1,2,1,20,19,115,
-kap,Plains Apache,Plains (Kiowa) Apache,1825–1849,1,1,9,0,10.5,18,99,
-kap,Plains Apache,Plains (Kiowa) Apache,1850–1874,12,1,22,0,3.0,10,65,
-kap,Plains Apache,Plains (Kiowa) Apache,1875–1905,22,0,10,1,15.5,8,81,
-apc,Plains Apache,Cuartelejo & Paloma Apache,1700–1732,0,0,3,3,14.0,24,48,
-jic,Jicarilla,Jicarilla Apache,1700–1749,0,0,4,0,18.5,30,127,
-jic,Jicarilla,Jicarilla Apache,1750–1799,0,0,0,1,50,31,196,thin
-jic,Jicarilla,Jicarilla Apache,1800–1824,0,0,0,0,25,34,212,thin
-jic,Jicarilla,Jicarilla Apache,1825–1849,2,0,0,0,25,25,170,
-jic,Jicarilla,Jicarilla Apache,1850–1874,8,0,5,0,13.0,13,91,
-jic,Jicarilla,Jicarilla Apache,1875–1905,21,0,3,1,15.6,8,103,
-lip,Lipan,Lipan Apache,1700–1749,2,0,0,2,50,26,175,sparse
-lip,Lipan,Lipan Apache,1750–1799,1,0,3,2,22.1,22,125,
-lip,Lipan,Lipan Apache,1800–1824,2,0,2,0,20.0,21,135,
-lip,Lipan,Lipan Apache,1825–1849,3,0,3,1,15.0,18,99,
-lip,Lipan,Lipan Apache,1850–1874,1,0,3,0,17.8,22,110,
-lip,Lipan,Lipan Apache,1875–1905,0,0,1,2,29.5,24,127,sparse
+cwm,Crow,Mountain Crow,1750–1799,0,2,0,1,50,28,189,sparse
+cwm,Crow,Mountain Crow,1800–1824,1,3,7,0,19.3,20,114,
+cwm,Crow,Mountain Crow,1825–1849,0,2,3,1,9.5,20,110,
+cwm,Crow,Mountain Crow,1850–1874,7,7,6,1,9.6,12,93,
+cwm,Crow,Mountain Crow,1875–1905,4,17,3,1,21.5,10,113,
+cwr,Crow,River Crow,1700–1749,0,0,0,1,50,39,244,thin
+cwr,Crow,River Crow,1750–1799,0,2,0,0,50,33,234,sparse
+cwr,Crow,River Crow,1800–1824,1,3,1,0,20,20,137,
+cwr,Crow,River Crow,1825–1849,0,2,5,1,10.0,20,104,
+cwr,Crow,River Crow,1850–1874,4,7,3,1,12.0,13,102,
+cwr,Crow,River Crow,1875–1884,4,4,3,1,6.1,8,86,
+man,Mandan,Mandan,1700–1749,1,0,0,2,50,27,31,sparse
+man,Mandan,Mandan,1750–1799,5,0,6,1,29.0,23,33,sparse
+man,Mandan,Mandan,1800–1824,2,0,1,0,20,20,27,
+man,Mandan,Mandan,1825–1849,3,0,2,1,12.6,16,27,
+man,Mandan,Mandan,1850–1874,9,0,3,0,12.2,12,36,
+man,Mandan,Mandan,1875–1905,22,2,4,1,15.6,7,29,
+hid,Hidatsa,Hidatsa,1700–1749,1,0,1,0,50.0,34,25,sparse
+hid,Hidatsa,Hidatsa,1750–1799,4,0,2,0,38.0,29,24,sparse
+hid,Hidatsa,Hidatsa,1800–1824,3,0,2,0,20,21,25,
+hid,Hidatsa,Hidatsa,1825–1849,5,0,2,1,12,17,25,
+hid,Hidatsa,Hidatsa,1850–1874,7,0,3,0,12.2,14,24,
+hid,Hidatsa,Hidatsa,1875–1905,21,2,4,1,15.6,8,30,
+kio,Kiowa,Kiowa,1700–1749,0,0,1,1,50.0,30,164,sparse
+kio,Kiowa,Kiowa,1750–1799,0,0,2,2,40.0,24,130,sparse
+kio,Kiowa,Kiowa,1800–1824,3,1,5,1,7.0,16,97,
+kio,Kiowa,Kiowa,1825–1849,6,1,20,0,8.2,15,77,
+kio,Kiowa,Kiowa,1850–1874,11,1,33,0,2.3,11,59,
+kio,Kiowa,Kiowa,1875–1905,21,0,17,1,15.1,8,71,
+kap,Plains Apache,Plains (Kiowa) Apache,1700–1749,0,0,1,1,33.0,38,163,sparse
+kap,Plains Apache,Plains (Kiowa) Apache,1750–1799,1,0,3,0,30.0,31,133,sparse
+kap,Plains Apache,Plains (Kiowa) Apache,1800–1824,2,1,3,1,16.9,19,109,
+kap,Plains Apache,Plains (Kiowa) Apache,1825–1849,1,1,9,0,10.5,18,102,
+kap,Plains Apache,Plains (Kiowa) Apache,1850–1874,12,1,22,0,3.0,10,74,
+kap,Plains Apache,Plains (Kiowa) Apache,1875–1905,22,0,10,1,15.5,8,82,
+apc,Plains Apache,Cuartelejo & Paloma Apache,1700–1732,0,0,3,3,14.0,24,51,
+jic,Jicarilla,Jicarilla Apache,1700–1749,0,0,4,0,18.5,30,138,
+jic,Jicarilla,Jicarilla Apache,1750–1799,0,0,0,1,50,31,199,thin
+jic,Jicarilla,Jicarilla Apache,1800–1824,0,0,0,0,25,34,214,thin
+jic,Jicarilla,Jicarilla Apache,1825–1849,2,0,0,0,25,25,173,
+jic,Jicarilla,Jicarilla Apache,1850–1874,8,0,5,0,13.0,13,104,
+jic,Jicarilla,Jicarilla Apache,1875–1905,21,0,3,1,15.6,8,110,
+lip,Lipan,Lipan Apache,1700–1749,2,0,0,2,50,26,177,sparse
+lip,Lipan,Lipan Apache,1750–1799,1,0,3,2,22.1,22,131,
+lip,Lipan,Lipan Apache,1800–1824,2,0,2,0,20.0,21,136,
+lip,Lipan,Lipan Apache,1825–1849,6,0,3,1,15.0,17,104,
+lip,Lipan,Lipan Apache,1850–1874,1,0,3,0,17.8,21,119,
+lip,Lipan,Lipan Apache,1875–1905,0,0,1,2,29.5,24,130,sparse
 cyj,Comanche,Jupe,1700–1749,0,1,0,2,50,29,191,sparse
-cyj,Comanche,Jupe,1750–1795,0,6,2,2,35.8,23,150,sparse
+cyj,Comanche,Jupe,1750–1795,1,6,4,1,29.7,23,145,sparse
 cyy,Comanche,Yamparika,1700–1749,0,1,0,2,50,27,181,sparse
-cyy,Comanche,Yamparika,1750–1799,0,6,1,2,35.8,22,149,sparse
-cyy,Comanche,Yamparika,1800–1824,0,3,1,1,19.5,24,149,
-cyy,Comanche,Yamparika,1825–1849,0,6,2,0,14.4,21,126,
-cyy,Comanche,Yamparika,1850–1874,1,8,5,1,10.4,14,88,
-cyy,Comanche,Yamparika,1875–1905,0,24,1,2,27.4,9,127,sparse
-cyk,Comanche,Kotsoteka,1700–1749,0,1,0,2,50,26,174,sparse
-cyk,Comanche,Kotsoteka,1750–1799,1,6,4,1,29.7,21,130,sparse
-cyk,Comanche,Kotsoteka,1800–1824,0,3,0,1,25,23,149,
-cyk,Comanche,Kotsoteka,1825–1849,0,6,2,0,10.6,21,119,
-cyk,Comanche,Kotsoteka,1850–1874,1,8,4,2,10.4,14,90,
+cyy,Comanche,Yamparika,1750–1799,0,6,2,2,35.8,22,141,sparse
+cyy,Comanche,Yamparika,1800–1824,0,3,1,1,19.5,23,134,
+cyy,Comanche,Yamparika,1825–1849,0,7,3,1,14.4,20,116,
+cyy,Comanche,Yamparika,1850–1874,2,9,6,1,10.4,13,90,
+cyy,Comanche,Yamparika,1875–1905,0,24,1,2,27.4,9,128,sparse
+cyk,Comanche,Kotsoteka,1700–1749,0,1,0,2,50,26,175,sparse
+cyk,Comanche,Kotsoteka,1750–1799,1,6,4,2,35.8,21,133,sparse
+cyk,Comanche,Kotsoteka,1800–1824,0,3,1,1,14.9,22,126,
+cyk,Comanche,Kotsoteka,1825–1849,0,7,4,0,7.0,19,103,
+cyk,Comanche,Kotsoteka,1850–1874,2,9,6,2,7.8,13,89,
 cyk,Comanche,Kotsoteka,1875–1905,0,24,1,1,27.4,9,128,sparse
-cyp,Comanche,Penateka (Eastern Comanche),1745–1749,0,0,0,1,5,23,163,thin
-cyp,Comanche,Penateka (Eastern Comanche),1750–1799,0,6,0,2,50,19,160,sparse
-cyp,Comanche,Penateka (Eastern Comanche),1800–1824,0,3,1,1,19.5,23,144,
-cyp,Comanche,Penateka (Eastern Comanche),1825–1849,1,6,6,1,10.6,20,91,
-cyp,Comanche,Penateka (Eastern Comanche),1850–1874,1,8,6,1,8.2,13,63,
+cyp,Comanche,Penateka (Eastern Comanche),1745–1749,0,0,0,1,5,23,161,thin
+cyp,Comanche,Penateka (Eastern Comanche),1750–1799,0,6,2,2,35.7,19,138,sparse
+cyp,Comanche,Penateka (Eastern Comanche),1800–1824,0,3,1,1,19.5,22,133,
+cyp,Comanche,Penateka (Eastern Comanche),1825–1849,1,7,5,1,10.6,19,101,
+cyp,Comanche,Penateka (Eastern Comanche),1850–1874,4,9,6,1,8.2,12,68,
 cyp,Comanche,Penateka (Eastern Comanche),1875–1905,0,24,0,1,31,9,142,sparse
-cyn,Comanche,Nokoni,1830–1849,1,4,0,1,20,19,170,
-cyn,Comanche,Nokoni,1850–1874,1,8,2,1,11.0,14,113,
-cyn,Comanche,Nokoni,1875–1905,0,24,1,1,27.4,9,130,sparse
-cyq,Comanche,Kwahadi,1835–1849,0,4,0,1,15,21,163,
-cyq,Comanche,Kwahadi,1850–1874,1,8,4,1,13.4,15,109,
-cyq,Comanche,Kwahadi,1875–1905,0,24,2,1,27.4,9,127,sparse
-sho,Shoshone,Eastern (Plains) Shoshone,1700–1749,0,0,0,2,50,30,190,thin
-sho,Shoshone,Eastern (Plains) Shoshone,1750–1799,0,0,0,1,50,28,185,thin
-sho,Shoshone,Eastern (Plains) Shoshone,1800–1824,0,0,0,1,25,25,160,thin
-sho,Shoshone,Eastern (Plains) Shoshone,1825–1849,2,0,3,1,12.5,21,119,
-sho,Shoshone,Eastern (Plains) Shoshone,1850–1874,4,0,5,0,13.5,15,94,
+cyn,Comanche,Tenewa and Nokoni,1830–1849,1,5,2,1,13.6,19,130,
+cyn,Comanche,Tenewa and Nokoni,1850–1874,2,9,2,1,11.0,13,108,
+cyn,Comanche,Tenewa and Nokoni,1875–1905,0,24,1,1,27.4,9,130,sparse
+cyq,Comanche,Kwahadi,1858–1874,2,8,3,2,13.8,12,115,
+cyq,Comanche,Kwahadi,1875–1905,0,24,2,1,27.4,9,128,sparse
+sho,Shoshone,Eastern (Plains) Shoshone,1700–1749,0,0,1,1,50.0,30,181,sparse
+sho,Shoshone,Eastern (Plains) Shoshone,1750–1799,0,0,0,1,50,28,178,thin
+sho,Shoshone,Eastern (Plains) Shoshone,1800–1824,0,0,1,1,22.2,25,143,
+sho,Shoshone,Eastern (Plains) Shoshone,1825–1849,2,0,3,1,12.5,21,121,
+sho,Shoshone,Eastern (Plains) Shoshone,1850–1874,4,0,5,0,13.5,15,101,
 sho,Shoshone,Eastern (Plains) Shoshone,1875–1905,18,0,3,1,15.6,8,89,
-wic,Wichita,Wichita (Taovaya & allies),1700–1749,2,0,2,2,30.2,23,79,sparse
+wic,Wichita,Wichita (Taovaya & allies),1700–1749,2,0,2,2,30.2,23,78,sparse
 wic,Wichita,Wichita (Taovaya & allies),1750–1799,4,0,9,0,14.4,20,43,
-wic,Wichita,Wichita (Taovaya & allies),1800–1824,2,0,2,1,20,22,43,
-wic,Wichita,Wichita (Taovaya & allies),1825–1849,0,1,3,0,9.5,20,67,
-wic,Wichita,Wichita (Taovaya & allies),1850–1874,7,0,6,3,8.8,12,31,
-wic,Wichita,Wichita (Taovaya & allies),1875–1905,17,1,2,1,24.0,10,42,
-pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1700–1749,0,1,0,1,50,37,97,sparse
-pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1750–1799,1,2,2,0,27.0,29,54,sparse
+wic,Wichita,Wichita (Taovaya & allies),1800–1824,2,0,2,1,20,22,42,
+wic,Wichita,Wichita (Taovaya & allies),1825–1849,2,1,3,0,9.5,18,72,
+wic,Wichita,Wichita (Taovaya & allies),1850–1874,8,0,6,3,8.8,11,33,
+wic,Wichita,Wichita (Taovaya & allies),1875–1905,17,1,2,1,24.0,10,35,
+pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1700–1749,0,1,0,1,50,37,37,sparse
+pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1750–1799,1,2,2,0,27.0,29,31,sparse
 pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1800–1824,3,3,5,0,9.0,18,29,
-pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1825–1849,1,4,3,0,9.0,17,35,
-pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1850–1874,2,12,4,0,8.7,12,27,
-pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1875–1905,0,23,2,1,27.4,10,48,sparse
-pwk,Pawnee,Kitkahahki (Republican Pawnee),1700–1749,0,1,0,1,50,36,89,sparse
-pwk,Pawnee,Kitkahahki (Republican Pawnee),1750–1799,1,2,4,1,27.0,26,51,sparse
-pwk,Pawnee,Kitkahahki (Republican Pawnee),1800–1824,3,3,5,0,9.0,16,38,
-pwk,Pawnee,Kitkahahki (Republican Pawnee),1825–1849,1,4,2,0,15.0,16,34,
+pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1825–1849,1,4,3,0,9.0,17,31,
+pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1850–1874,2,12,4,0,8.7,12,25,
+pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1875–1905,0,23,2,1,27.4,10,36,sparse
+pwk,Pawnee,Kitkahahki (Republican Pawnee),1700–1749,0,1,0,1,50,36,28,sparse
+pwk,Pawnee,Kitkahahki (Republican Pawnee),1750–1799,1,2,4,1,27.0,26,32,sparse
+pwk,Pawnee,Kitkahahki (Republican Pawnee),1800–1824,3,3,5,0,9.0,16,39,
+pwk,Pawnee,Kitkahahki (Republican Pawnee),1825–1849,1,4,2,0,15.0,16,25,
 pwk,Pawnee,Kitkahahki (Republican Pawnee),1850–1874,2,12,4,1,8.7,12,28,
-pwk,Pawnee,Kitkahahki (Republican Pawnee),1875–1905,0,23,2,1,27.4,10,48,sparse
-pws,Pawnee,Skiri (Loup Pawnee),1700–1749,0,1,3,1,20.6,33,49,
-pws,Pawnee,Skiri (Loup Pawnee),1750–1799,2,1,2,1,27.0,23,49,sparse
-pws,Pawnee,Skiri (Loup Pawnee),1800–1824,3,3,5,0,13.7,18,29,
-pws,Pawnee,Skiri (Loup Pawnee),1825–1849,1,4,2,0,15.0,17,42,
-pws,Pawnee,Skiri (Loup Pawnee),1850–1874,2,12,4,0,8.7,12,27,
-pws,Pawnee,Skiri (Loup Pawnee),1875–1905,0,23,2,1,27.4,10,48,sparse
-ari,Arikara,Arikara,1700–1749,1,0,1,1,43.2,31,56,sparse
-ari,Arikara,Arikara,1750–1799,2,0,3,2,20.0,24,44,
+pwk,Pawnee,Kitkahahki (Republican Pawnee),1875–1905,0,23,2,1,27.4,10,36,sparse
+pws,Pawnee,Skiri (Loup Pawnee),1700–1749,0,1,3,1,20.6,33,43,
+pws,Pawnee,Skiri (Loup Pawnee),1750–1799,2,1,2,1,27.0,23,42,sparse
+pws,Pawnee,Skiri (Loup Pawnee),1800–1824,3,3,5,0,13.7,18,26,
+pws,Pawnee,Skiri (Loup Pawnee),1825–1849,1,4,2,0,15.0,17,33,
+pws,Pawnee,Skiri (Loup Pawnee),1850–1874,2,12,4,0,8.7,12,25,
+pws,Pawnee,Skiri (Loup Pawnee),1875–1905,0,23,2,1,27.4,10,36,sparse
+ari,Arikara,Arikara,1700–1749,1,0,1,1,43.2,31,33,sparse
+ari,Arikara,Arikara,1750–1799,2,0,3,2,20.0,24,41,
 ari,Arikara,Arikara,1800–1824,2,0,5,0,15.5,20,51,
-ari,Arikara,Arikara,1825–1849,3,0,5,1,11.5,15,40,
-ari,Arikara,Arikara,1850–1874,11,0,3,1,12.2,11,27,
-ari,Arikara,Arikara,1875–1905,22,2,4,0,15.6,7,33,
-oma,Omaha,Omaha,1700–1749,0,0,1,2,34.0,29,61,sparse
-oma,Omaha,Omaha,1750–1799,5,0,2,0,25.0,21,60,
-oma,Omaha,Omaha,1800–1824,3,0,3,1,15.3,16,48,
-oma,Omaha,Omaha,1825–1849,4,0,5,0,8.7,16,31,
-oma,Omaha,Omaha,1850–1874,15,0,3,0,12.0,10,30,
-oma,Omaha,Omaha,1875–1905,22,0,1,1,15.6,8,31,
-pon,Ponca,Ponca,1700–1749,0,0,0,1,50,33,87,thin
-pon,Ponca,Ponca,1750–1799,1,0,3,1,35.0,27,46,sparse
-pon,Ponca,Ponca,1800–1824,2,0,2,0,15.5,20,40,
-pon,Ponca,Ponca,1825–1849,5,0,2,1,15.7,16,53,
-pon,Ponca,Ponca,1850–1874,14,0,3,0,18.7,11,63,
-pon,Ponca,Ponca,1875–1905,21,0,4,1,15.6,8,36,
-oto,Oto,Oto,1700–1749,0,0,3,0,29.4,28,92,sparse
-oto,Oto,Oto,1750–1799,3,1,0,1,50,22,72,sparse
-oto,Oto,Oto,1800–1824,1,1,2,0,15.5,21,30,
-oto,Oto,Oto,1825–1849,4,2,1,2,17.0,15,29,
-oto,Oto,Oto,1850–1874,13,0,3,0,13.0,11,30,
-oto,Oto,Oto,1875–1905,22,0,1,1,24.2,8,36,
-mis,Missouria,Missouria,1700–1749,0,0,2,1,26.1,33,36,sparse
-mis,Missouria,Missouria,1750–1799,3,1,2,2,40.0,21,52,sparse
-mis,Missouria,Missouria,1800–1824,1,1,2,0,15.5,21,30,
-mis,Missouria,Missouria,1825–1830,1,1,0,1,6,21,27,
-kaw,Kansa,Kansa (Kaw),1700–1749,2,0,3,1,24.5,26,38,
-kaw,Kansa,Kansa (Kaw),1750–1799,1,0,3,1,40.2,26,57,sparse
-kaw,Kansa,Kansa (Kaw),1800–1824,4,0,3,0,9.6,17,30,
-kaw,Kansa,Kansa (Kaw),1825–1849,6,0,2,2,18.0,14,42,
-kaw,Kansa,Kansa (Kaw),1850–1874,13,0,4,0,18,10,35,
-kaw,Kansa,Kansa (Kaw),1875–1905,23,0,1,1,20,8,32,
-osg,Osage,Great Osage,1700–1749,0,0,0,1,50,35,88,thin
-osg,Osage,Great Osage,1750–1799,1,4,2,0,27.7,24,50,sparse
-osg,Osage,Great Osage,1800–1824,1,2,2,0,14.8,16,36,
-osg,Osage,Great Osage,1825–1849,0,3,0,2,25,19,36,
-osg,Osage,Great Osage,1850–1874,0,11,2,1,18.7,15,43,
-osg,Osage,Great Osage,1875–1905,0,21,0,1,31,10,44,sparse
-osl,Osage,Little Osage,1700–1749,0,0,0,1,50,35,135,thin
-osl,Osage,Little Osage,1750–1799,0,4,0,1,50,25,70,sparse
-osl,Osage,Little Osage,1800–1824,2,1,2,0,18.3,21,53,
-osl,Osage,Little Osage,1825–1849,0,3,0,1,25,21,61,
-osl,Osage,Little Osage,1850–1874,0,11,2,1,18.7,15,47,
-osl,Osage,Little Osage,1875–1905,0,21,0,1,31,10,42,sparse
+ari,Arikara,Arikara,1825–1849,3,0,5,1,11.5,15,39,
+ari,Arikara,Arikara,1850–1874,11,0,3,1,12.2,11,25,
+ari,Arikara,Arikara,1875–1905,22,2,4,0,15.6,7,25,
+oma,Omaha,Omaha,1700–1749,0,0,1,2,34.0,29,49,sparse
+oma,Omaha,Omaha,1750–1799,5,0,2,0,25.0,21,46,
+oma,Omaha,Omaha,1800–1824,3,0,3,1,15.3,16,51,
+oma,Omaha,Omaha,1825–1849,4,0,5,0,8.7,16,30,
+oma,Omaha,Omaha,1850–1874,15,0,3,0,12.0,10,27,
+oma,Omaha,Omaha,1875–1905,22,0,1,1,15.6,8,24,
+pon,Ponca,Ponca,1700–1749,0,0,0,1,50,33,61,thin
+pon,Ponca,Ponca,1750–1799,1,0,3,1,35.0,27,30,sparse
+pon,Ponca,Ponca,1800–1824,2,0,2,0,15.5,20,37,
+pon,Ponca,Ponca,1825–1849,5,0,2,1,15.7,16,46,
+pon,Ponca,Ponca,1850–1874,14,0,3,0,18.7,11,50,
+pon,Ponca,Ponca,1875–1905,21,0,4,1,15.6,8,33,
+oto,Oto,Oto,1700–1749,0,0,3,0,29.4,28,78,sparse
+oto,Oto,Oto,1750–1799,3,1,0,1,50,22,44,sparse
+oto,Oto,Oto,1800–1824,1,1,2,0,15.5,21,24,
+oto,Oto,Oto,1825–1849,4,2,1,2,17.0,15,25,
+oto,Oto,Oto,1850–1874,13,0,3,0,13.0,11,26,
+oto,Oto,Oto,1875–1905,22,0,1,1,24.2,8,26,
+mis,Missouria,Missouria,1700–1749,0,0,2,1,26.1,33,26,sparse
+mis,Missouria,Missouria,1750–1799,3,1,2,2,40.0,21,44,sparse
+mis,Missouria,Missouria,1800–1824,1,1,2,0,15.5,21,25,
+mis,Missouria,Missouria,1825–1830,1,1,0,1,6,21,24,
+kaw,Kansa,Kansa (Kaw),1700–1749,2,0,3,1,24.5,26,28,
+kaw,Kansa,Kansa (Kaw),1750–1799,1,0,3,1,40.2,26,52,sparse
+kaw,Kansa,Kansa (Kaw),1800–1824,4,0,3,0,9.6,17,28,
+kaw,Kansa,Kansa (Kaw),1825–1849,6,0,2,2,18.0,14,40,
+kaw,Kansa,Kansa (Kaw),1850–1874,13,0,4,0,18,10,27,
+kaw,Kansa,Kansa (Kaw),1875–1905,23,0,1,1,20,8,24,
+osg,Osage,Great Osage,1700–1749,0,0,0,1,50,35,26,thin
+osg,Osage,Great Osage,1750–1799,1,4,2,0,27.7,24,25,sparse
+osg,Osage,Great Osage,1800–1824,1,2,2,0,14.8,16,32,
+osg,Osage,Great Osage,1825–1849,0,3,0,2,25,19,29,
+osg,Osage,Great Osage,1850–1874,0,11,2,1,18.7,15,28,
+osg,Osage,Great Osage,1875–1905,0,21,0,1,31,10,26,sparse
+osl,Osage,Little Osage,1700–1749,0,0,0,1,50,35,85,thin
+osl,Osage,Little Osage,1750–1799,0,4,0,1,50,25,45,sparse
+osl,Osage,Little Osage,1800–1824,2,1,2,0,18.3,21,50,
+osl,Osage,Little Osage,1825–1849,0,3,0,1,25,21,32,
+osl,Osage,Little Osage,1850–1874,0,11,2,1,18.7,15,30,
+osl,Osage,Little Osage,1875–1905,0,21,0,1,31,10,24,sparse
 osa,Osage,Arkansas Osage (Claremore’s band),1802–1824,1,2,5,1,12.8,19,38,
-osa,Osage,Arkansas Osage (Claremore’s band),1825–1839,0,2,0,2,15,20,49,
-iow,Iowa,Iowa (Báxoje),1700–1749,0,0,2,1,40.0,33,104,sparse
-iow,Iowa,Iowa (Báxoje),1750–1799,2,0,3,1,34.0,24,61,sparse
-iow,Iowa,Iowa (Báxoje),1800–1824,2,0,5,1,10.0,20,28,
-iow,Iowa,Iowa (Báxoje),1825–1849,6,0,2,0,12.4,15,33,
-iow,Iowa,Iowa (Báxoje),1850–1874,14,0,2,0,18.7,11,42,
-iow,Iowa,Iowa (Báxoje),1875–1905,22,0,0,1,31,8,42,sparse
+osa,Osage,Arkansas Osage (Claremore’s band),1825–1839,0,2,0,2,15,20,50,
+iow,Iowa,Iowa (Báxoje),1700–1749,0,0,2,1,40.0,33,91,sparse
+iow,Iowa,Iowa (Báxoje),1750–1799,2,0,3,1,34.0,24,51,sparse
+iow,Iowa,Iowa (Báxoje),1800–1824,2,0,5,1,10.0,20,29,
+iow,Iowa,Iowa (Báxoje),1825–1849,6,0,2,0,12.4,15,25,
+iow,Iowa,Iowa (Báxoje),1850–1874,14,0,2,0,18.7,11,24,
+iow,Iowa,Iowa (Báxoje),1875–1905,22,0,0,1,31,8,24,sparse
 sar,Sarsi,Tsuut’ina (Sarsi),1700–1749,0,0,0,2,50,30,190,thin
-sar,Sarsi,Tsuut’ina (Sarsi),1750–1799,1,0,1,1,40.5,24,161,sparse
-sar,Sarsi,Tsuut’ina (Sarsi),1800–1824,4,0,3,0,10.5,19,115,
-sar,Sarsi,Tsuut’ina (Sarsi),1825–1849,2,0,0,1,25,19,139,
-sar,Sarsi,Tsuut’ina (Sarsi),1850–1874,3,0,3,1,8.2,14,99,
-sar,Sarsi,Tsuut’ina (Sarsi),1875–1905,3,0,3,3,22.5,16,111,
-sto,Stoney,Mountain Stoney (Nakoda),1700–1749,0,0,0,2,50,31,180,thin
+sar,Sarsi,Tsuut’ina (Sarsi),1750–1799,1,0,2,1,40.5,24,151,sparse
+sar,Sarsi,Tsuut’ina (Sarsi),1800–1824,4,0,3,0,10.5,19,118,
+sar,Sarsi,Tsuut’ina (Sarsi),1825–1849,2,0,0,1,25,19,141,
+sar,Sarsi,Tsuut’ina (Sarsi),1850–1874,3,0,3,1,8.2,14,106,
+sar,Sarsi,Tsuut’ina (Sarsi),1875–1905,13,0,3,3,22.5,9,108,
+sto,Stoney,Mountain Stoney (Nakoda),1700–1749,0,0,0,2,50,31,181,thin
 sto,Stoney,Mountain Stoney (Nakoda),1750–1799,0,0,1,0,45.1,33,178,sparse
-sto,Stoney,Mountain Stoney (Nakoda),1800–1824,0,0,0,1,25,32,188,thin
-sto,Stoney,Mountain Stoney (Nakoda),1825–1849,0,0,1,0,20.5,33,159,
-sto,Stoney,Mountain Stoney (Nakoda),1850–1874,0,0,1,1,23.5,23,126,
-sto,Stoney,Mountain Stoney (Nakoda),1875–1905,3,0,2,1,26.5,15,133,sparse
-tkw,Tonkawa,Tonkawa,1700–1749,0,0,0,2,50,28,176,thin
-tkw,Tonkawa,Tonkawa,1750–1799,3,0,4,2,20.3,21,119,
-tkw,Tonkawa,Tonkawa,1800–1824,1,0,0,0,25,26,152,
-tkw,Tonkawa,Tonkawa,1825–1849,2,0,6,1,15.7,22,97,
-tkw,Tonkawa,Tonkawa,1850–1874,4,0,6,1,7.5,16,78,
-tkw,Tonkawa,Tonkawa,1875–1905,11,0,2,0,15.6,12,133,
+sto,Stoney,Mountain Stoney (Nakoda),1800–1824,0,0,0,1,25,32,190,thin
+sto,Stoney,Mountain Stoney (Nakoda),1825–1849,0,0,1,0,20.5,33,163,
+sto,Stoney,Mountain Stoney (Nakoda),1850–1874,0,0,1,1,23.5,22,133,
+sto,Stoney,Mountain Stoney (Nakoda),1875–1905,13,0,2,1,26.5,10,140,sparse
+tkw,Tonkawa,Tonkawa,1700–1749,0,0,0,2,50,28,177,thin
+tkw,Tonkawa,Tonkawa,1750–1799,3,0,4,2,20.3,21,126,
+tkw,Tonkawa,Tonkawa,1800–1824,1,0,0,0,25,26,157,
+tkw,Tonkawa,Tonkawa,1825–1849,3,0,6,1,15.7,22,106,
+tkw,Tonkawa,Tonkawa,1850–1874,4,0,8,1,7.5,16,88,
+tkw,Tonkawa,Tonkawa,1875–1905,11,0,2,0,15.6,12,123,
 kit,Kitsai,Kitsai,1700–1749,0,0,2,1,27.0,34,86,sparse
-kit,Kitsai,Kitsai,1750–1799,2,0,2,1,22.3,22,59,
-kit,Kitsai,Kitsai,1800–1824,2,0,2,0,19.5,20,67,
-kit,Kitsai,Kitsai,1825–1849,1,1,4,2,16.4,19,46,
-kit,Kitsai,Kitsai,1850–1874,7,0,3,1,15.4,13,38,
-kit,Kitsai,Kitsai,1875–1894,16,1,0,1,20,7,34,
+kit,Kitsai,Kitsai,1750–1799,2,0,2,1,22.3,22,50,
+kit,Kitsai,Kitsai,1800–1824,2,0,2,0,19.5,20,52,
+kit,Kitsai,Kitsai,1825–1849,2,1,4,2,16.4,18,51,
+kit,Kitsai,Kitsai,1850–1874,8,0,3,1,15.4,12,39,
+kit,Kitsai,Kitsai,1875–1894,16,1,0,1,20,7,24,

@@ -1,6 +1,6 @@
 import json,csv,sys
 sys.path.insert(0,sys.argv[1]); S=sys.argv[2]
-import data_src as D, bands_src as B
+import data_src as D
 d=json.load(open(f'{S}/build/data.json',encoding='utf-8')); rows=json.load(open(f'{S}/build/bandrows.json',encoding='utf-8'))
 G={g['id']:g for g in d['groups']}; O=f'{S}/out/'
 def W(name,head,data):
@@ -19,7 +19,6 @@ W('plains_settlements.csv',['name','kind','lat','lon','from','to','checked_again
 v=json.load(open(f'{S}/build/validation.json'))
 W('plains_validation.csv',['division_id','division','year','documented_persons','predicted_without_it','standardized_miss_before_widening'],[[p[0],G[p[0]]['name'],p[1],p[2],p[3],p[4]] for p in v['points']])
 # bands
-lists=B.LISTS
 W('plains_bands.csv',['division_id','tribe','division','unit_id','name','gloss','kind','weight','forced_start','forced_end','offshoot_or_merges_into','chief_c1856_Hayden','names_source','list_year','note','has_recalled_places'],
   [[gid,G[gid]['tribe'],G[gid]['name'],u['id'],u['name'],u['gloss'],u['kind'],u['w'],u['start'] or '',u['end'] or '',bname.get(u['into'],'') if u['into'] else '',u['chief'] or '',sp['src'],sp['Ly'],u['note'],'yes' if u['track'] else 'no']
    for gid,sp in d['bands'].items() for u in sp['units']])
@@ -45,6 +44,6 @@ for g in gids:
         w=_disp(c,((P_[3]+1+P_[0])/2)%1); s_=_disp(c,(P_[1]+P_[2])/2)
         rowsP.append([g,G[g]['name'],y,round(la,3),round(lo,3),tr['sp'][y-1700],w[0],w[1],s_[0],s_[1],' '.join(str(v) for v in c),SRCN[tr['svs'][y-1700]] if 'svs' in tr else 'none'])
 W('plains_positions.csv',['division_id','division','year','centre_lat_midyear','centre_lon_midyear','centre_uncertainty_km_68pct','winter_offset_east_km','winter_offset_north_km','summer_offset_east_km','summer_offset_north_km','seasonal_harmonics_km','seasonal_basis'],rowsP)
-W('plains_seasonal_patterns.csv',['division_id','division','from','to','pattern','source_recalled'],[[g,G[g]['name'],r[0],r[1],r[2],r[3]] for g,L in d['seaspri'].items() for r in L])
-W('plains_village_moves.csv',['division_id','division','year','what','source_recalled'],[[g,G[g]['name'],m,t,s] for g,L in EC.VMOVE.items() for (m,t,s) in L])
+W('plains_seasonal_patterns.csv',['division_id','division','from','to','pattern','source'],[[g,G[g]['name'],r[0],r[1],r[2],r[3]] for g,L in d['seaspri'].items() for r in L])
+W('plains_village_moves.csv',['division_id','division','year','what','source'],[[g,G[g]['name'],m,t,s] for g,L in EC.VMOVE.items() for (m,t,s) in L])
 W('plains_bison_range.csv',['from_year','outline_wkt','source'],[[y,'MULTIPOLYGON('+','.join('(('+','.join(f'{x} {yy}' for x,yy in poly+[poly[0]])+'))' for poly in P)+')' if P else 'EMPTY',EC.HORNADAY] for (y,P) in EC.BISON])

@@ -13,7 +13,7 @@ def run(env):
         else: os.environ[k]=v
     return G
 def totals(G):
-    FIT,T=G['FIT_RAW'],G['T']; out={}
+    FIT=G['FIT_RAW']; out={}
     for y in YEARS:
         k=y-1700; vals=[FIT[g][0][k] for g in FIT if G['G'][g][4]<=y<=G['G'][g][5]]; out[y]=round(sum(math.exp(v) for v in vals if not math.isnan(v)))
     out['unidentified']=sum(1 for g in FIT if math.isnan(FIT[g][0][100]))
