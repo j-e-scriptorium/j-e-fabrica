@@ -893,7 +893,7 @@ OBS += [
 # ADDITIONS (round 4): village moves and hunting places from Fletcher & La Flesche, Grinnell, Tixier, Maximilian.
 FL = 'Fletcher & La Flesche, “The Omaha Tribe” (BAE 27th Annual Report, 1911)'
 GRP = 'Grinnell, Pawnee Hero Stories and Folk-Tales (1889), “A Summer Hunt”'
-BINN0=lambda pp: f'Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001), {pp}'
+BINN=lambda pp: f'Binnema, Common and Contested Ground: A Human and Environmental History of the Northwestern Plains (2001), {pp}'
 def pl(g,y,raw,at,r,src,kind='primary',**o): return dict(g=g,y=y,pop=None,raw=raw,basis='',loc='stated',at=at,r=r,src=src,kind=kind,**o)
 OBS += [
  pl('oma',1841.3,'Ton’wonzhinga, the Little Village, built on the Elkhorn near Clark Creek, Dodge County, in the spring of 1841 “on account of attacks by the Sioux”; occupied two years',(41.6,-96.55),8,FL+', p. 100'),
@@ -2102,7 +2102,7 @@ OBS += [
   # Identification (judgment): 'Archithinue' = Blackfoot confederacy per Burpee (introd., p. 316, using Cocking's list of the five 'Equestrian' tribes); division not determinable, so coded to the three Blackfoot divisions. G
  dict(g=['sik', 'kai', 'pik'],y=1755.374,pop=None,raw='One hundred and twenty seven tents of Archithinue Natives came to us: I bought 30 Wolves’ skins from them, and the Indians purchased great numbers of Wolves, Beaver & Foxes etc. (place ours) (part)',basis='',loc='stated',at=(51.9, -106.75),r=80,src=HENDAY('p. 350 (pdf 50), Henday (Burpee ed. 1907), entry of 15 May 1755'),kind='primary',whole=False),
   # Identification (judgment): 'Archithinue' = Blackfoot confederacy per Burpee (introd., p. 316, using Cocking's list of the five 'Equestrian' tribes); division not determinable, so coded to the three Blackfoot divisions. G
- dict(g='kai',y=1755.377,pop=None,raw='Paddled 30 Miles N.b.E. when we came to 30 tents of Archithinue Natives: I talked with them as I did with the others; but all to no purpose. Our Indians traded a great many Furs from them. They have the finest Horses I have yet seen here (place ours) (part)',basis='',loc='stated',at=(52.2, -106.6),r=70,src=HENDAY('p. 351 (pdf 51), Henday (Burpee ed. 1907), entry of 16 May 1755')+'; '+BINN0('p. 212, n. 52: another version of the journal, B.239/a/40, “specifically mentions meeting ‘bloody Indians’ on 16 May 1755”'),kind='primary',whole=False),
+ dict(g='kai',y=1755.377,pop=None,raw='Paddled 30 Miles N.b.E. when we came to 30 tents of Archithinue Natives: I talked with them as I did with the others; but all to no purpose. Our Indians traded a great many Furs from them. They have the finest Horses I have yet seen here (place ours) (part)',basis='',loc='stated',at=(52.2, -106.6),r=70,src=HENDAY('p. 351 (pdf 51), Henday (Burpee ed. 1907), entry of 16 May 1755')+'; '+BINN('p. 212, n. 52: another version of the journal, B.239/a/40, “specifically mentions meeting ‘bloody Indians’ on 16 May 1755”'),kind='primary',whole=False),
   # Eagle Indians = Assiniboine band (Henday). Same camp as 16 May.
  dict(g='asn',y=1755.38,pop=None,raw='Ten tents of Eagle Indians joined the Archithinue Indians. Five Canoes of them are going to the Fort with me. They are a tribe of the Asinepoet Nation; and like them use the Horses for carrying the baggage and not to ride on. (place ours) (part)',basis='',loc='stated',at=(52.2, -106.6),r=70,src=HENDAY('p. 351 (pdf 51), Henday (Burpee ed. 1907), entry of 17 May 1755'),kind='primary',whole=False),
   # Identification (judgment): 'Archithinue' = Blackfoot confederacy per Burpee (introd., p. 316, using Cocking's list of the five 'Equestrian' tribes); division not determinable, so coded to the three Blackfoot divisions. G
@@ -3406,7 +3406,6 @@ for _y,_v in _DIAPIK.items():
 
 # ---- Binnema, Common and Contested Ground (2001), read in full. The observers' words are as Binnema quotes them; where he gives
 # a reconstruction of his own, the record says so and is weighted as a reconstruction.
-BINN=BINN0
 CHF=(50.93,-110.0)
 OBS += [
  # counts

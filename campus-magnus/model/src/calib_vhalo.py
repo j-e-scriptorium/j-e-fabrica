@@ -1,5 +1,5 @@
 # Hold-out calibration of the village halo: drop each documented village place, rebuild the hold-and-move track and its halo from
-# the rest, and fit the halo's terms so that 68% of withheld places fall inside it, with the narrowest mean halo that does so.
+# the rest, and fit the halo's terms so that 68% of withheld places fall inside it, with coverage as even as possible across strata.
 import sys,runpy,io,contextlib,os,statistics as st, itertools as it
 sys.argv=['build3.py','.','..']; os.environ['SENS']='1'
 with contextlib.redirect_stdout(io.StringIO()): B=runpy.run_path('build3.py',run_name='__main__')
@@ -42,15 +42,17 @@ def halo(a,b,c,D,T): return min(300,a+b*D+c*T)
 def cov(a,b,c,rows=R): return sum(e<=halo(a,b,c,D,T) for (_,_,e,D,T,_) in rows)/len(rows)
 def width(a,b,c): return st.mean(halo(a,b,c,D,T) for (_,_,e,D,T,_) in R)
 print('withheld village places',len(R),'median miss',round(st.median(r[2] for r in R)),'km')
-print('current formula 20+1*D+3*T: coverage',round(cov(20,1,3),3),'mean halo',round(width(20,1,3)))
+# strata of time and distance from the nearest place; the chosen halo holds 68% overall with coverage most even across them
+STRATA=(('within 3 yr of a place',lambda r:r[4]<3),('3-10 yr from a place',lambda r:3<=r[4]<10),('10 yr or more from a place',lambda r:r[4]>=10),
+        ('next place under 30 km on',lambda r:r[3]<30),('next place 30 km or more on',lambda r:r[3]>=30))
 best=None
-for a,b,c in it.product(range(10,81,2),(0.25,0.5,0.75,1.0,1.25,1.5),(0,1,2,3,4,6,8,10,12)):
+for a,b,c in it.product(range(10,81,2),(0,0.25,0.5,0.75,1.0,1.25,1.5),(0,0.5,1,2,3,4,6)):
     if cov(a,b,c)<0.68: continue
-    w=width(a,b,c)
-    if best is None or w<best[0]: best=(w,a,b,c)
-w,a,b,c=best
-print('narrowest',a,b,c,'coverage',round(cov(a,b,c),3),'mean halo',round(w))
-inn=[r for r in R if r[5]]; out=[r for r in R if not r[5]]
-near=[r for r in R if r[4]<=3]; far=[r for r in R if r[4]>10]
-for nm,rows in (('between places',inn),('beyond the first or last place',out),('within 3 yr of a place',near),('over 10 yr from a place',far)):
-    if rows: print(nm,len(rows),'current',round(cov(20,1,3,rows),3),'fitted',round(cov(a,b,c,rows),3))
+    dev=sum((cov(a,b,c,[r for r in R if f(r)])-0.68)**2 for _,f in STRATA)
+    score=dev+width(a,b,c)/1000
+    if best is None or score<best[0]: best=(score,a,b,c)
+_,a,b,c=best
+print(f'chosen halo: {a} km + {b} x distance term + {c} km a year; coverage',round(cov(a,b,c),3),'mean halo',round(width(a,b,c)),'km')
+for nm,f in STRATA:
+    rows=[r for r in R if f(r)]
+    if rows: print(' ',nm,len(rows),round(cov(a,b,c,rows),3))

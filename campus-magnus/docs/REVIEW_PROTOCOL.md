@@ -89,7 +89,7 @@ Open `index.html` (served over http). With "Best guess" and "Divisions" selected
 
 **Population.**
 - `data/validation.csv` gives, for each count, the leave-one-out prediction and standardized miss.
-- After the 25% widening, 95% of |z| should be ≤ 2.5; the package gives 96%, and 81% ≤ 1.25, because the misses are heavier-tailed than normal.
+- After the 25% widening, 95% of |z| should be ≤ 2.5; the package gives 96%, and 80% ≤ 1.25, because the misses are heavier-tailed than normal.
 - Check this by period and by people. If one people's misses all run one way, its fit is biased, not merely noisy.
 
 **Place.** The nomadic halo is calibrated to contain 68% of withheld places in each season. The village halo is fitted to hold 68% of withheld village places, unevenly across strata (`KNOWN_ISSUES.md` §7).

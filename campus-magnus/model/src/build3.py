@@ -35,7 +35,7 @@ import seasonal as _SE
 tracks={}; diag=[]; DOCP={}; DOCSK={}; GSP={}; FAMS={}; PA={}; POS={}; NOTES={}; SP={}; NY={}
 SIG_GUESS=float(__import__('os').environ.get('SG','0.3'))
 NOGUESS=__import__('os').environ.get('NOGUESS')
-SD_INFL=1.25  # leave-one-out calibration (validate.py): widened, the 2-sd range holds 96% of withheld counts, the 1-sd range 81%
+SD_INFL=1.25  # leave-one-out calibration (validate.py): widened, the 2-sd range holds 96% of withheld counts, the 1-sd range 80%
 import re as _re
 def lodge_adj(basis):
     d=float(__import__('os').environ.get('LD','0'))

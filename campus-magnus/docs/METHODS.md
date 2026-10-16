@@ -43,7 +43,7 @@ The objective is a linear least-squares solve; the posterior SD comes from the i
 
 Every count is then divided by its family's factor and the model refitted. Reservation censuses are the fixed reference.
 
-**Reported uncertainty.** The posterior SD × 1.25 (`SD_INFL`), from the leave-one-out calibration (§5). Unwidened, the 1-sd range holds 75% of withheld counts and the 2-sd range 92%; widened, 81% and 96%. The misses are heavier-tailed than normal, so the widening is set by the 2-sd range and leaves the 1-sd range conservative.
+**Reported uncertainty.** The posterior SD × 1.25 (`SD_INFL`), from the leave-one-out calibration (§5). Unwidened, the 1-sd range holds 75% of withheld counts and the 2-sd range 92%; widened, 80% and 96%. The misses are heavier-tailed than normal, so the widening is set by the 2-sd range and leaves the 1-sd range conservative.
 
 | Setting | Value | Meaning | How set |
 |---|---|---|---|
