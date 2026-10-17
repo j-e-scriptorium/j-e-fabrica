@@ -53,7 +53,7 @@ HAMR='Hämäläinen, The Comanche Empire (2008)'
 NCOMK=KAV+', pp. 237, 332, 343–44, 348: “The Northern Comanches come into Texas only in the winters” (Stem, 1851); in March 1852 “the mass of the Comanche Nation are journeying from Red River” to reach Fort Atkinson on the Arkansas early in April, “as is their usual practice in the spring”, and by February 1853 they were moving north again; '+HAMR+', pp. 284–85: winter villages in the wooded river valleys from late November to April. Kavanagh doubts any fixed round for the nation as a whole before then (p. 55)'
 KIOW='Levy, “Kiowa”, Handbook of North American Indians 13 (2001), p. 908: winter camps along watercourses; by late spring the buffalo moved north out of Texas to the Arkansas River country and the bands followed; the Sun Dance in June and early July; '+NCOMK
 SEASPRI={
- 'ass':[(1700,1880,('vec',190,130),RAY)],
+ 'ass':[(1700,1880,('vec',190,90),RAY)],
  'asn':[(1700,1779,('pts',(52.3,-108.3),(53.2,-104.8)),TRADERS),(1780,1880,('vec',190,110),RAY)],
  'cre':[(1750,1825,('vec',20,90),MILLOY+'; '+RAYW),(1830,1880,('vec',200,90),'Milloy, The Plains Cree (1988), recalled, not reread: after about 1830 the Qu’Appelle Cree wintered in the Touchwood and Qu’Appelle valleys and hunted south onto the plains in summer')],
  'crw':[(1750,1779,('pts',(52.3,-108.3),(53.2,-104.8)),TRADERS+'; '+MILLOY),(1780,1880,('vec',190,90),RAY+'; pp. 219–20: winter pounds between Fort Carlton and Fort Pitt, summer camps in the grassland south of Fort Pitt (1830–31)')],
