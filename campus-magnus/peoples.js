@@ -132,7 +132,7 @@ window.CM_PEOPLES = {
     "The Fort Laramie treaty of 1851 placed their country between the Platte and the Arkansas. The gold rush of 1858–59 brought Denver onto it; Left Hand’s band died with the Cheyenne at Sand Creek. The southern people accepted a reservation with the Southern Cheyenne by the Medicine Lodge treaty (1867); the northern people, after years with the Lakota and Northern Cheyenne, were settled in 1878 at Wind River among their old enemies the Eastern Shoshone."
   ],
   y1900: "Southern Arapaho on allotments in western Oklahoma; Northern Arapaho at Wind River, Wyoming.",
-  read: ["Loretta Fowler, “Arapaho,” Handbook of North American Indians 13 (2001)", "Loretta Fowler, Arapahoe Politics, 1851–1978 (1982)", "A. L. Kroeber, “The Arapaho” (1902–7)"]
+  read: ["Loretta Fowler, “Arapaho,” Handbook of North American Indians 13 (2001)", "Loretta Fowler, Arapahoe Politics, 1851–1978 (1982)", "A. L. Kroeber, “The Arapaho” (1902–7)", "R. G. Robertson, Rotting Face: Smallpox and the American Indian (2001)"]
 },
 
 "Crow": {
@@ -156,7 +156,7 @@ window.CM_PEOPLES = {
     "The epidemic of 1837 killed perhaps nine in ten; Chardon, at Fort Clark, counted the survivors in the low hundreds. The remnant joined the Hidatsa at Like-a-Fishhook village in the 1840s and the Arikara there in 1862, and the three peoples received the Fort Berthold reservation in 1870."
   ],
   y1900: "On the Fort Berthold Reservation, North Dakota, with the Hidatsa and Arikara.",
-  read: ["W. Raymond Wood and Lee Irwin, “Mandan,” Handbook of North American Indians 13 (2001)", "Roy W. Meyer, The Village Indians of the Upper Missouri (1977)", "Elizabeth A. Fenn, Encounters at the Heart of the World: A History of the Mandan People (2014)", "Alfred W. Bowers, Mandan Social and Ceremonial Organization (1950)"]
+  read: ["W. Raymond Wood and Lee Irwin, “Mandan,” Handbook of North American Indians 13 (2001)", "Roy W. Meyer, The Village Indians of the Upper Missouri (1977)", "Elizabeth A. Fenn, Encounters at the Heart of the World: A History of the Mandan People (2014)", "Alfred W. Bowers, Mandan Social and Ceremonial Organization (1950)", "R. G. Robertson, Rotting Face: Smallpox and the American Indian (2001)"]
 },
 
 "Hidatsa": {
@@ -180,7 +180,7 @@ window.CM_PEOPLES = {
     "After the fight with Ashley’s traders and Leavenworth’s punitive expedition of 1823 they abandoned their villages and spent some years among the Skiri on the Loup. Returning to the upper Missouri, they occupied the empty Mandan village by Fort Clark after the 1837 smallpox and moved to Like-a-Fishhook in 1862."
   ],
   y1900: "On the Fort Berthold Reservation, North Dakota.",
-  read: ["Douglas R. Parks, “Arikara,” Handbook of North American Indians 13 (2001)", "Roy W. Meyer, The Village Indians of the Upper Missouri (1977)", "Pierre-Antoine Tabeau, Narrative of Loisel’s Expedition (1939)", "Edwin T. Denig, Five Indian Tribes of the Upper Missouri, ed. John C. Ewers (1961)"]
+  read: ["Douglas R. Parks, “Arikara,” Handbook of North American Indians 13 (2001)", "Roy W. Meyer, The Village Indians of the Upper Missouri (1977)", "Pierre-Antoine Tabeau, Narrative of Loisel’s Expedition (1939)", "Edwin T. Denig, Five Indian Tribes of the Upper Missouri, ed. John C. Ewers (1961)", "A. P. Nasatir, ed., Before Lewis and Clark, vol. 1 (1952)"]
 },
 
 "Kiowa": {
@@ -276,7 +276,7 @@ window.CM_PEOPLES = {
     "Smallpox, the cholera of 1849 and incessant Lakota raids cut them down; the treaty of 1857 left them a reservation on the Loup at Genoa, and their scouts served the army through the 1860s and 1870s. The Lakota attack on their summer hunt at Massacre Canyon (1873) helped decide their removal to Indian Territory in 1874–75."
   ],
   y1900: "On allotments on the former Pawnee reservation, Oklahoma.",
-  read: ["Douglas R. Parks, “Pawnee,” Handbook of North American Indians 13 (2001)", "Richard White, The Roots of Dependency (1983)", "George E. Hyde, The Pawnee Indians (1951; rev. 1974)", "Gene Weltfish, The Lost Universe (1965)"]
+  read: ["Douglas R. Parks, “Pawnee,” Handbook of North American Indians 13 (2001)", "Richard White, The Roots of Dependency (1983)", "George E. Hyde, The Pawnee Indians (1951; rev. 1974)", "Gene Weltfish, The Lost Universe (1965)", "R. G. Robertson, Rotting Face: Smallpox and the American Indian (2001)"]
 },
 
 "Omaha": {
@@ -288,7 +288,7 @@ window.CM_PEOPLES = {
     "Reduced by that epidemic and harried by the Lakota, they ceded most of their land in 1854 and kept a reservation in the Blackbird Hills. Under Joseph La Flesche they took up farming; their reservation was allotted in 1882, and Fletcher and Francis La Flesche’s monograph of 1911 is the classic account of their society."
   ],
   y1900: "On the Omaha Reservation, Nebraska.",
-  read: ["Margot P. Liberty, W. Raymond Wood and Lee Irwin, “Omaha,” Handbook of North American Indians 13 (2001)", "Alice C. Fletcher and Francis La Flesche, The Omaha Tribe (BAE 27th Annual Report, 1911)", "Judith A. Boughter, Betraying the Omaha Nation, 1790–1916 (1998)"]
+  read: ["Margot P. Liberty, W. Raymond Wood and Lee Irwin, “Omaha,” Handbook of North American Indians 13 (2001)", "Alice C. Fletcher and Francis La Flesche, The Omaha Tribe (BAE 27th Annual Report, 1911)", "Judith A. Boughter, Betraying the Omaha Nation, 1790–1916 (1998)", "A. P. Nasatir, ed., Before Lewis and Clark, vol. 1 (1952)"]
 },
 
 "Ponca": {
@@ -300,7 +300,7 @@ window.CM_PEOPLES = {
     "The Fort Laramie treaty of 1868 included their land in the Great Sioux Reservation by error, and in 1877 the government removed them to Indian Territory, where many died. Standing Bear’s return north to bury his son led to his arrest and to Standing Bear v. Crook (1879), in which a federal court held that an Indian was a person within the meaning of habeas corpus. A northern remnant was allowed to stay on the Niobrara from 1881."
   ],
   y1900: "Southern Ponca in Oklahoma; Northern Ponca on the Niobrara, Nebraska.",
-  read: ["Donald N. Brown and Lee Irwin, “Ponca,” Handbook of North American Indians 13 (2001)", "James H. Howard, The Ponca Tribe (1965)", "Valerie Sherer Mathes and Richard Lowitt, The Standing Bear Controversy (2003)"]
+  read: ["Donald N. Brown and Lee Irwin, “Ponca,” Handbook of North American Indians 13 (2001)", "James H. Howard, The Ponca Tribe (1965)", "Valerie Sherer Mathes and Richard Lowitt, The Standing Bear Controversy (2003)", "A. P. Nasatir, ed., Before Lewis and Clark, vol. 1 (1952)"]
 },
 
 "Oto": {
@@ -312,7 +312,7 @@ window.CM_PEOPLES = {
     "Smallpox and war reduced them; the remnant Missouria joined them through the early nineteenth century. By the treaty of 1854 they took a reservation on the Big Blue on the Kansas–Nebraska line, and after factional quarrels were removed to the Red Rock agency in Indian Territory in 1881."
   ],
   y1900: "As the Otoe-Missouria, on their former reservation, Oklahoma.",
-  read: ["Marjorie M. Schweitzer, “Otoe and Missouria,” Handbook of North American Indians 13 (2001)", "R. David Edmunds, The Otoe-Missouria People (1976)"]
+  read: ["Marjorie M. Schweitzer, “Otoe and Missouria,” Handbook of North American Indians 13 (2001)", "R. David Edmunds, The Otoe-Missouria People (1976)", "A. P. Nasatir, ed., Before Lewis and Clark, vol. 1 (1952)"]
 },
 
 "Missouria": {
@@ -336,7 +336,7 @@ window.CM_PEOPLES = {
     "A reservation at Council Grove (1846) was eroded by settlement and the Santa Fe trade; in 1873 they were removed to a reservation in Indian Territory on the Arkansas. Charles Curtis, of Kansa descent, became vice-president of the United States in 1929."
   ],
   y1900: "On the Kaw reservation, Oklahoma, allotted 1902.",
-  read: ["Garrick A. Bailey and Gloria A. Young, “Kansa,” Handbook of North American Indians 13 (2001)", "William E. Unrau, The Kansa Indians: A History of the Wind People, 1673–1873 (1971)"]
+  read: ["Garrick A. Bailey and Gloria A. Young, “Kansa,” Handbook of North American Indians 13 (2001)", "William E. Unrau, The Kansa Indians: A History of the Wind People, 1673–1873 (1971)", "A. P. Nasatir, ed., Before Lewis and Clark, vol. 1 (1952)"]
 },
 
 "Osage": {
@@ -348,7 +348,7 @@ window.CM_PEOPLES = {
     "The treaties of 1808, 1818 and 1825 gave up their lands in Missouri and Arkansas for a reservation in southeastern Kansas. In 1871–72 they sold it and bought a new one from the Cherokee in Indian Territory; oil beneath it later made them briefly the richest people per head in the world."
   ],
   y1900: "On the Osage reservation, Oklahoma.",
-  read: ["Garrick A. Bailey, “Osage,” Handbook of North American Indians 13 (2001)", "Willard H. Rollings, The Osage: An Ethnohistorical Study of Hegemony on the Prairie-Plains (1992)", "Gilbert C. Din and Abraham P. Nasatir, The Imperial Osages (1983)", "John Joseph Mathews, The Osages (1961)"]
+  read: ["Garrick A. Bailey, “Osage,” Handbook of North American Indians 13 (2001)", "Willard H. Rollings, The Osage: An Ethnohistorical Study of Hegemony on the Prairie-Plains (1992)", "Gilbert C. Din and Abraham P. Nasatir, The Imperial Osages (1983)", "John Joseph Mathews, The Osages (1961)", "A. P. Nasatir, ed., Before Lewis and Clark, vol. 1 (1952)"]
 },
 
 "Iowa": {
