@@ -16,7 +16,7 @@ A judgment call is any step where the record does not decide the matter and we d
 | Arkansas Osage (Claremore's band) a separate division, 1802–39 | Pike and Clark count it separately. | `osa` |
 | Two names Clark recorded but which cannot be identified (Castahana, Dotame) kept as evidence only. Two others once kept apart ("Staitan", "Nemousin") folded into the Arapaho. | Parks, "Enigmatic Groups", Handbook 13, pp. 972–73: probable identifications only. | records with group `u_cas`, `u_dot`; Arapaho 1805 |
 
-## 2. Who a record is about (31 records flagged `identification_judged`)
+## 2. Who a record is about (32 records flagged `identification_judged`)
 
 These are the identifications that most affect tracks.
 
@@ -33,8 +33,8 @@ These are the identifications that most affect tracks.
 
 | Decision | Records |
 |---|---|
-| A source's own persons-per-lodge or per-warrior ratio where it states one | 33 (`multiplier_stated_by_source`) |
-| Our ratio otherwise: lodges × 5, warriors × 4, earth lodges × 10 (Thompson's ratio is 8–10) | 119 (`multiplier_ours`) |
+| A source's own persons-per-lodge or per-warrior ratio where it states one | 42 (`multiplier_stated_by_source`) |
+| Our ratio otherwise: lodges × 5, warriors × 4, earth lodges × 10 (Thompson's ratio is 8–10) | 140 (`multiplier_ours`) |
 | Clark 1805: the lower of his two figures | ~40 Clark records |
 | Same-year counts of parts of one division are summed to a division total | see `summed_with_same_year_records` |
 | A range ("1,000–1,500 families") taken at its midpoint | noted in `source_says` |
@@ -45,9 +45,9 @@ These are the identifications that most affect tracks.
 
 | Decision | Records |
 |---|---|
-| A count whose source gives no usable place is placed by us (`place_status = inferred`) and **never steers a track** | 1,390 |
+| A count whose source gives no usable place is placed by us (`place_status = inferred`) and **never steers a track** | 1,428 |
 | A stated place is geocoded by us, with a radius `place_radius_km` for its vagueness | all `stated` records |
-| A range ("between the Platte and the Arkansas") is placed at its centre; its radius is kept as uncertainty | 53 (`place_centre_ours`) |
+| A range ("between the Platte and the Arkansas") is placed at its centre; its radius is kept as uncertainty | 54 (`place_centre_ours`) |
 | Wikipedia's coordinates for battle, treaty, agency and site articles are used as given | about 130 records from 72 articles, tier B |
 | A date derived from context (a narrator's age, "mid-18th century", an archaeological span) | 6 (`date_ours`) |
 
@@ -82,7 +82,7 @@ These are the identifications that most affect tracks.
 
 ## 7. Epidemics and famines (`epidemics_and_shocks.csv`)
 
-- **What is applied.** 33 events, 221 event × division rows, each applied only to divisions alive while it ran.
+- **What is applied.** 37 events, 228 event × division rows, each applied only to divisions alive while it ran.
 - **What is sourced.** Dates and the existence of each event are sourced. Rates are sourced for some divisions per event and scaled or assumed for the rest; the `rate_basis` field of each event says which.
 - **The assumed rates that matter most.**
   - The 1780–82 smallpox for the Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache (20%, just above Fenn's minimum for the Sioux) and at the edges of its range. The north, the Missouri villages, the Lipan and the eastern Comanche are sourced from Fenn (2001), read in full; the western Comanche (5%) from Hämäläinen, p. 111; the Assiniboine (40%) from Handbook 13, p. 574, and Denig. The northern rate (60%) sits between the traders' "at least one half" and Binnema's "about two-thirds" (*Common and Contested Ground*, p. 122), at Oman's three-fifths. The Gros Ventre losses of 1801 (smallpox and Cree–Assiniboine attacks, about 175 of 2,400) are from Binnema, p. 189.
