@@ -44,7 +44,7 @@ Specific questions a Plains ethnohistorian is best placed to answer:
 2. Are the Padouca of 1717 and 1724 Plains Apache, as assumed here?
 3. Is the low Comanche reading of the 1840s (≈10,000–12,000) more defensible than Hämäläinen's 20,000 (`KNOWN_ISSUES.md` §1)?
 4. Which assumed epidemic rates (`epidemics_and_shocks.csv`, basis "assumed" or "scaled") are most out of line with the literature?
-5. Are the seasonal-round directions in `seasonal_patterns.csv` correct for each people? Most are page-cited; those without a page (Ray and Moodie, Milloy for the Cypress Hills Cree, Ross, Hoxie, Stamm, Pond) were recalled, not reread.
+5. Are the seasonal-round directions in `seasonal_patterns.csv` correct for each people? Most are page-cited; those without a page (Ray and Moodie, Milloy for the Cypress Hills Cree, Ross, Hoxie, Pond) were recalled, not reread.
 6. Are any of the 508 keyframes (`keyframes_our_guesses.csv`) clearly wrong? Look especially at the 227 with no note, and at places before 1790.
 7. Is any people or division missing that should be on a map of this scope? Candidates include the Plains Ojibwe before 1780, the Caddo, the Quapaw and the Plains Métis. The Sarsi, Stoney, Tonkawa and Kitsai are on the map.
 

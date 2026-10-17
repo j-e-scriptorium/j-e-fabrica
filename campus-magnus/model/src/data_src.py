@@ -3612,6 +3612,10 @@ OBS += [
  *pls(['hnk','min','sna'],1876.4,'27 May 1876: “the great hostile camp on the Rosebud, the village at the time being about eighteen miles above the mouth of the stream” (Bradley)',(46.05,-106.5),10,HYDE('p. 262 n. 7')),
  pl('ogl',1876.75,'Aug.–Oct. 1876: Red Cloud and Red Leaf take their camps to Chadron Creek, “twenty-three miles east of the agency”; surrounded and dismounted on 24 Oct.',(42.8,-103.05),10,HYDE('pp. 284–85')),
  pl('ogl',1877.95,'Winter 1877–78: refusing the new agency on the Missouri, the Oglala camp “far up White River”, the nearest camps seventy-five miles from it (centre ours)',(43.6,-101.7),50,HYDE('p. 302')),
+ # Appendix A (p. 307), “Estimates of Oglala Population”, read from the page image: the figures not already in the record
+ _cnt('ogl',1840.5,2500,'Rev. S. R. Riggs, 1840: 2,500 people, 250 warriors',HYDE('p. 307 (app. A)'),(42.0,-104.5),r=200),
+ _cnt('ogl',1870.6,4200,'1870: “Red Cloud’s own estimate of the tribe”, 600 lodges, “7 to the lodge”',HYDE('p. 307 (app. A)'),(42.6,-104.5),r=150,basis='lodges × 7 (stated)'),
+ _cnt('ogl',1874.4,7000,'1874: “The Oglalas’ own estimate”, 1,000 lodges (“400 lodges added in 4 years”)',HYDE('p. 307 (app. A)'),RC74,r=60),
  pl('ogl',1879.5,'1879: the Oglala bands settle at Pine Ridge, the Bear People on Medicine Root Creek, the Wazhazha on Porcupine Tail Creek, the Oyukhpe on Wounded Knee Creek, the Bad Faces by the agency',P['pine_ridge'],40,HYDE('pp. 313–14')),
 ]
 EPI += [

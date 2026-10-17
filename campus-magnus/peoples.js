@@ -12,7 +12,7 @@ window.CM_PEOPLES = {
     "The Fort Laramie treaty of 1851 was followed by Red Cloud’s War (1866–68) and the second Fort Laramie treaty, which set aside the Great Sioux Reservation west of the Missouri. Gold in the Black Hills (1874) led to the Great Sioux War of 1876–77, the Little Bighorn and the surrender of Crazy Horse; Sitting Bull’s Hunkpapa returned from Canada in 1881. The act of 1889 broke the reservation into six, and the Ghost Dance ended at Wounded Knee in December 1890."
   ],
   y1900: "On the Pine Ridge, Rosebud, Standing Rock, Cheyenne River and Lower Brulé reservations in South and North Dakota.",
-  read: ["Raymond J. DeMallie, “Teton,” Handbook of North American Indians 13 (2001)", "Richard White, “The Winning of the West: The Expansion of the Western Sioux,” Journal of American History 65 (1978)", "Pekka Hämäläinen, Lakota America (2019)", "Jeffrey Ostler, The Plains Sioux and U.S. Colonialism from Lewis and Clark to Wounded Knee (2004)"]
+  read: ["Raymond J. DeMallie, “Teton,” Handbook of North American Indians 13 (2001)", "Richard White, “The Winning of the West: The Expansion of the Western Sioux,” Journal of American History 65 (1978)", "Pekka Hämäläinen, Lakota America (2019)", "Jeffrey Ostler, The Plains Sioux and U.S. Colonialism from Lewis and Clark to Wounded Knee (2004)", "Edwin T. Denig, Five Indian Tribes of the Upper Missouri, ed. John C. Ewers (1961)", "George E. Hyde, Red Cloud’s Folk: A History of the Oglala Sioux Indians (1937)"]
 },
 
 "Yankton": {
@@ -24,7 +24,7 @@ window.CM_PEOPLES = {
     "Under Struck by the Ree the Yankton kept peace with the United States through the wars further west. The treaty of 1858 gave up some eleven million acres between the Big Sioux and the Missouri for a reservation on the Missouri’s north bank at Greenwood, where the agency stood from 1859."
   ],
   y1900: "On the Yankton Reservation, South Dakota, allotted in the 1890s.",
-  read: ["Raymond J. DeMallie, “Yankton and Yanktonai,” Handbook of North American Indians 13 (2001)", "Herbert T. Hoover, The Yankton Sioux (1988)"]
+  read: ["Raymond J. DeMallie, “Yankton and Yanktonai,” Handbook of North American Indians 13 (2001)", "Herbert T. Hoover, The Yankton Sioux (1988)", "Edwin T. Denig, Five Indian Tribes of the Upper Missouri, ed. John C. Ewers (1961)"]
 },
 
 "Yanktonai": {
@@ -36,7 +36,7 @@ window.CM_PEOPLES = {
     "In the 1860s the Yanktonai were swept into the Dakota war’s aftermath by Sibley’s and Sully’s campaigns (Whitestone Hill, 1863; Killdeer Mountain, 1864). Afterward the Lower Yanktonai settled at Standing Rock and Crow Creek, the Upper Yanktonai at Fort Peck alongside the Assiniboine, and the Cuthead with the Sisseton and Wahpeton at Devils Lake."
   ],
   y1900: "At Standing Rock (North and South Dakota), Crow Creek (South Dakota), Fort Peck (Montana) and Devils Lake (North Dakota).",
-  read: ["Raymond J. DeMallie, “Yankton and Yanktonai,” Handbook of North American Indians 13 (2001)", "Pierre-Antoine Tabeau, Narrative of Loisel’s Expedition to the Upper Missouri, ed. Abel (1939)"]
+  read: ["Raymond J. DeMallie, “Yankton and Yanktonai,” Handbook of North American Indians 13 (2001)", "Pierre-Antoine Tabeau, Narrative of Loisel’s Expedition to the Upper Missouri, ed. Abel (1939)", "Edwin T. Denig, Five Indian Tribes of the Upper Missouri, ed. John C. Ewers (1961)"]
 },
 
 "Dakota": {
@@ -60,7 +60,7 @@ window.CM_PEOPLES = {
     "By the 1830s the Southern Assiniboine traded at Fort Union on the Missouri, the Northern at the Saskatchewan posts. Denig, at Fort Union, reckoned the 1837 smallpox had cut them from a thousand lodges to four hundred. After 1870 the Canadian bands entered Treaties 4 and 6 (1874, 1876); in the United States the Assiniboine were settled at Fort Peck and, with the Gros Ventre, at Fort Belknap (1888)."
   ],
   y1900: "At Fort Belknap and Fort Peck (Montana), and on reserves in Saskatchewan; the Stoney of Alberta, a related people, are not mapped separately.",
-  read: ["Raymond J. DeMallie and David Reed Miller, “Assiniboine,” Handbook of North American Indians 13 (2001)", "Edwin T. Denig, “Indian Tribes of the Upper Missouri” (c. 1854; BAE 46th Annual Report, 1930)", "Arthur J. Ray, Indians in the Fur Trade (1974)"]
+  read: ["Raymond J. DeMallie and David Reed Miller, “Assiniboine,” Handbook of North American Indians 13 (2001)", "Edwin T. Denig, “Indian Tribes of the Upper Missouri” (c. 1854; BAE 46th Annual Report, 1930)", "Edwin T. Denig, Five Indian Tribes of the Upper Missouri, ed. John C. Ewers (1961)", "Arthur J. Ray, Indians in the Fur Trade (1974)"]
 },
 
 "Plains Cree": {
@@ -72,7 +72,7 @@ window.CM_PEOPLES = {
     "With the bison failing, most bands signed Treaty 4 (1874) or Treaty 6 (1876); Big Bear held out until 1882. In the North-West Rebellion of 1885 warriors of Big Bear’s band killed nine people at Frog Lake, and Poundmaker’s camp turned back Otter at Cut Knife Hill; both chiefs were imprisoned, and eight Cree and Assiniboine men were hanged at Battleford."
   ],
   y1900: "On reserves in Saskatchewan and Alberta, with a few bands, Little Bear’s among them, landless in Montana.",
-  read: ["Regna Darnell, “Plains Cree,” Handbook of North American Indians 13 (2001)", "John S. Milloy, The Plains Cree: Trade, Diplomacy and War, 1790 to 1870 (1988)", "David G. Mandelbaum, The Plains Cree (1940; enlarged 1979)", "Dale R. Russell, Eighteenth-Century Western Cree and Their Neighbours (1991)"]
+  read: ["Regna Darnell, “Plains Cree,” Handbook of North American Indians 13 (2001)", "John S. Milloy, The Plains Cree: Trade, Diplomacy and War, 1790 to 1870 (1988)", "David G. Mandelbaum, The Plains Cree (1940; enlarged 1979)", "Dale R. Russell, Eighteenth-Century Western Cree and Their Neighbours (1991)", "Edwin T. Denig, Five Indian Tribes of the Upper Missouri, ed. John C. Ewers (1961)"]
 },
 
 "Plains Ojibwe": {
@@ -144,7 +144,7 @@ window.CM_PEOPLES = {
     "The Fort Laramie treaty of 1851 confirmed a large territory that the Lakota then overran; the treaty of 1868 set aside a reservation south of the Yellowstone. Crow scouts served with Crook and Custer in 1876. The reservation was cut back in 1882 and 1891, and the agency moved to the Little Bighorn in 1884."
   ],
   y1900: "On the Crow Reservation, Montana.",
-  read: ["Fred W. Voget, “Crow,” Handbook of North American Indians 13 (2001)", "Frederick E. Hoxie, Parading through History: The Making of the Crow Nation in America, 1805–1935 (1995)", "Robert H. Lowie, The Crow Indians (1935)"]
+  read: ["Fred W. Voget, “Crow,” Handbook of North American Indians 13 (2001)", "Frederick E. Hoxie, Parading through History: The Making of the Crow Nation in America, 1805–1935 (1995)", "Robert H. Lowie, The Crow Indians (1935)", "Edwin T. Denig, Five Indian Tribes of the Upper Missouri, ed. John C. Ewers (1961)"]
 },
 
 "Mandan": {
@@ -180,7 +180,7 @@ window.CM_PEOPLES = {
     "After the fight with Ashley’s traders and Leavenworth’s punitive expedition of 1823 they abandoned their villages and spent some years among the Skiri on the Loup. Returning to the upper Missouri, they occupied the empty Mandan village by Fort Clark after the 1837 smallpox and moved to Like-a-Fishhook in 1862."
   ],
   y1900: "On the Fort Berthold Reservation, North Dakota.",
-  read: ["Douglas R. Parks, “Arikara,” Handbook of North American Indians 13 (2001)", "Roy W. Meyer, The Village Indians of the Upper Missouri (1977)", "Pierre-Antoine Tabeau, Narrative of Loisel’s Expedition (1939)"]
+  read: ["Douglas R. Parks, “Arikara,” Handbook of North American Indians 13 (2001)", "Roy W. Meyer, The Village Indians of the Upper Missouri (1977)", "Pierre-Antoine Tabeau, Narrative of Loisel’s Expedition (1939)", "Edwin T. Denig, Five Indian Tribes of the Upper Missouri, ed. John C. Ewers (1961)"]
 },
 
 "Kiowa": {
