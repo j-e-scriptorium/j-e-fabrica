@@ -78,7 +78,7 @@ python3 assemble.py ..            # → ../../data.js, ../../geo.js
 python3 export.py . ..            # → ../out/*.csv (mkdir ../out first)
 python3 package.py . .. ../..     # regenerate ../../data/ from the build and ../out
 python3 validate.py . ..          # leave-one-out population test (a few minutes)
-python3 calib_gp.py . ..          # tune and test the nomadic position model → ../build/gpcal.json (≈20 min); rebuild after
+python3 calib_gp.py . .. [score]  # tune and test the nomadic position model → ../build/gpcal.json (full grid ≈1 hr; 'score' re-scores the stored settings in under a minute); rebuild after
 python3 calib_vmove.py            # withheld village places
 python3 calib_vhalo.py            # village halo fitted to withheld places
 python3 sens.py . ..              # whole-model sensitivity runs (≈25 min)
