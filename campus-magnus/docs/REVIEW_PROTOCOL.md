@@ -55,7 +55,7 @@ From `model/src`:
 ```
 python3 build3.py . ..        # must reproduce data/fitted_population_by_division.csv exactly
 python3 validate.py . ..      # leave-one-out: expect median factor ≈ 1.11, 2-sd coverage ≈ 0.92
-python3 calib_gp.py . ..      # expect out of sample a median ≈ 113 km, mean ≈ 143 on 630 places; halo coverage ≈ 0.68 per season
+python3 calib_gp.py . ..      # expect out of sample a median ≈ 112 km, mean ≈ 143 on 660 places; halo coverage ≈ 0.68 per season
 python3 audit.py ..           # expect the list in docs/audit.txt
 ```
 

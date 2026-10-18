@@ -78,25 +78,25 @@ $$x(t) = T(t) + S(t) + \lambda\,\phi(t)\,A_{\text{lit}}(t), \qquad x_i = x(t_i) 
 - *The literature pattern* $A_{\text{lit}}$ (`seasonal_patterns.csv`) enters as a prior mean, timed by the calendar φ and weighted λ = 0.5; half the stated distance did better than the whole.
 - *Each record* is a noisy sighting: $\varepsilon_i$ has variance $(0.5\,r_i)^2 + (90\,\rho_g(t_i))^2$ km², where $r_i$ is the stated radius and $\rho_g$ falls from 1 to 0.25 over three years after the division settles on a reservation (`possgp.RES`). A keyframe has variance $150^2$.
 - *Which part of the process a record sees.* A place dated to a season sees $T + S$ at its date. A camp with no month sees $T$ plus $S$ averaged over the season-of-record distribution of the dated places (its circular moments, which peak in late July), so it is neither credited to nor scored against a season it cannot be shown to belong to. Ranges, agencies, statements of where a people lived, places dated only to a year, radii over 150 km and keyframes see $T$ alone.
-- *The halo* is $1.51\sqrt{\sigma_T^2(t) + R(t)^2}$ per axis, capped at 450 km, where $\sigma_T^2$ is the posterior variance of the centre and $R$ is the spread of camps round it: 114 km in winter, 86 km between, 83 km in summer (interpolated by season), each set so that the halo holds 68% of withheld places of that season (68% in each). With the seasonal round off, $R$ also includes the year's seasonal swing. After a reservation $R$ is scaled by $\rho_g$.
+- *The halo* is $1.51\sqrt{\sigma_T^2(t) + R(t)^2}$ per axis, capped at 450 km, where $\sigma_T^2$ is the posterior variance of the centre and $R$ is the spread of camps round it: 114 km in winter, 84 km between, 83 km in summer (interpolated by season), each set so that the halo holds 68% of withheld places of that season (68%, 69% and 68%). With the seasonal round off, $R$ also includes the year's seasonal swing. After a reservation $R$ is scaled by $\rho_g$.
 - *The map* receives the yearly centre and, for each year, the eight harmonic coefficients of $S$ plus the literature term, evaluated at the fraction of the year.
 
 **Test** (`calib_gp.py`). Each documented place is withheld with every place of its division within half a year and predicted from the rest. Settings are chosen on a grid by hold-out over half the divisions and scored on the other half, then the reverse. When records are added without a change to the model, the stored settings are scored on the current record instead (`calib_gp.py . .. score`, under a minute); the grid is rerun when the model changes. The settings now in use were tuned on the record before Nasatir, Robertson, Hoxie and Ray were added, so the figures below are for those settings on the current record. Season-dated places are scored at their date, the others against the year's centre. Misses are also measured beyond each record's stated radius, so that a place given only as "on the Arkansas" is not counted as missed when the prediction falls within it.
 
 | | places | median miss | mean miss | beyond the stated radius, median |
 |---|---|---|---|---|
-| Track through every record (monotone cubic) | 630 | 125 km | 154 km | |
-| Centre only | 630 | 119 km | 146 km | 65 km |
-| Centre and seasonal component | 630 | 113 km | 143 km | 58 km |
-| Season-dated places: track through every record | 385 | 131 km | 162 km | |
-| Season-dated places: centre only | 385 | 123 km | 151 km | 83 km |
-| Season-dated places: centre and seasonal component | 385 | 113 km | 147 km | 75 km |
-| Ranges and agencies: track through every record | 206 | 100 km | 133 km | |
-| Ranges and agencies: centre and seasonal component | 206 | 99 km | 126 km | 17 km |
+| Track through every record (monotone cubic) | 660 | 125 km | 155 km | |
+| Centre only | 660 | 116 km | 146 km | 64 km |
+| Centre and seasonal component | 660 | 112 km | 143 km | 57 km |
+| Season-dated places: track through every record | 406 | 132 km | 165 km | |
+| Season-dated places: centre only | 406 | 122 km | 154 km | 81 km |
+| Season-dated places: centre and seasonal component | 406 | 117 km | 151 km | 75 km |
+| Ranges and agencies: track through every record | 212 | 96 km | 131 km | |
+| Ranges and agencies: centre and seasonal component | 212 | 98 km | 121 km | 14 km |
 
-- Without our keyframes the miss is 120 km (mean 148), against 112 km (mean 143) with them, both scored with the production settings.
-- The seasonal component is worth about a tenth on season-dated places (123 to 113 km); the rest of the gain over a track through every record comes from averaging several years of records. The Kiowa calendar, the densest record, shows why: a summer sun-dance ground lies a median 155 km from the next winter camp, but winter camps a median 129 km from the winter before and summer grounds 140 km from the summer before, in no fixed direction.
-- Range and agency statements are served about as well by a track through every record (median 100 km against 99, mean 133 against 126).
+- Without our keyframes the miss is 118 km (mean 149), against 112 km (mean 143) with them, both scored with the production settings.
+- The seasonal component is worth about a twentieth on season-dated places (122 to 117 km); the rest of the gain over a track through every record comes from averaging several years of records. The Kiowa calendar, the densest record, shows why: a summer sun-dance ground lies a median 155 km from the next winter camp, but winter camps a median 129 km from the winter before and summer grounds 140 km from the summer before, in no fixed direction.
+- Range and agency statements are served about as well by a track through every record (median 96 km against 98, mean 131 against 121).
 - The cost falls on precise events in years of mixed records: in 1876 the Miniconjou annual centre lies between the Cheyenne River agency and the summer camps, about 420 km from the Little Bighorn (about 315 km in late June with the seasonal component).
 
 **Village divisions.** The track holds at each place. With the seasonal round on, the division's dot and its bands go out on the tribal hunts in the hunt table (`index.html`, `HUNT`: grounds and calendars by people) and return; the track itself stays at the village.
@@ -118,8 +118,8 @@ $$x(t) = T(t) + S(t) + \lambda\,\phi(t)\,A_{\text{lit}}(t), \qquad x_i = x(t_i) 
 
 | Test | Script | Output | Result |
 |---|---|---|---|
-| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,206 counts; median miss ×1.11 (interpolation ×1.08; before 1840 the model is better, after it interpolation); 2-sd coverage 0.92 before widening, 0.96 after |
-| Held-out nomadic places | `calib_gp.py` | `model/build/gpcal.json` | 630 places; median 113 km, mean 143 (track through every record 125, 154); season-dated 113 against 123 without the seasonal component; halo 68% in each season |
+| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,242 counts; median miss ×1.11 (interpolation ×1.08; before 1840 the model is better, after it interpolation); 2-sd coverage 0.92 before widening, 0.96 after |
+| Held-out nomadic places | `calib_gp.py` | `model/build/gpcal.json` | 660 places; median 112 km, mean 143 (track through every record 125, 155); season-dated 117 against 122 without the seasonal component; halo 68–69% by season |
 | Held-out village places | `calib_vmove.py` | console | 222 places; median 8 km, mean 43 |
 | Village halo coverage | `calib_vhalo.py` | console | 243 places; median miss 11 km; 68% inside |
 | Whole-model sensitivity | `sens.py` | `model/build/sensitivity.json` | table under “Sensitivity of the population totals” on the map page |
