@@ -5252,6 +5252,7 @@ cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1795,83
 cre,cre.cre_cok,Co-kah’s band,band,1800,673
 cre,cre.cre_pei,Pe-i-si-e-kan,band,1800,286
 cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1800,191
+cre,cre.cre_kia,Ki-a-sku-sis,band,1800,0
 cre,cre.cre_cok,Co-kah’s band,band,1805,673
 cre,cre.cre_pei,Pe-i-si-e-kan,band,1805,291
 cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1805,291
@@ -5271,9 +5272,11 @@ cre,cre.cre_kia,Ki-a-sku-sis,band,1820,146
 cre,cre.cre_cok,Co-kah’s band,band,1825,630
 cre,cre.cre_pei,Pe-i-si-e-kan,band,1825,312
 cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1825,239
+cre,cre.cre_kia,Ki-a-sku-sis,band,1825,0
 cre,cre.cre_cok,Co-kah’s band,band,1830,611
 cre,cre.cre_pei,Pe-i-si-e-kan,band,1830,322
 cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1830,312
+cre,cre.cre_kia,Ki-a-sku-sis,band,1830,0
 cre,cre.cre_cok,Co-kah’s band,band,1835,584
 cre,cre.cre_pei,Pe-i-si-e-kan,band,1835,333
 cre,cre.cre_pis,Pis-ka-kau-a-kis,band,1835,333
@@ -6294,10 +6297,6 @@ kai,kai.kai_nit,Nitikskiks,band,1715,158
 kai,kai.kai_sah,Siksahpuniks,band,1715,158
 kai,kai.kai_aka,Ahkaiksumiks,band,1715,158
 kai,kai.kai_isi,Isisokasimiks,band,1715,73
-kai,kai.kai_akk,Akkaipokaks,band,1715,0
-kai,kai.kai_sak,Saksinahmahyiks,band,1715,0
-kai,kai.kai_apk,Apikaiyiks,band,1715,0
-kai,kai.kai_aks,Ahkotashiks,band,1715,0
 kai,kai.kai_sik,Siksinokaks,band,1720,158
 kai,kai.kai_ahk,Ahkwonistsists,band,1720,158
 kai,kai.kai_apu,Aputosi-kainah,band,1720,158
@@ -6484,10 +6483,6 @@ kai,kai.kai_nit,Nitikskiks,band,1795,158
 kai,kai.kai_sah,Siksahpuniks,band,1795,158
 kai,kai.kai_aka,Ahkaiksumiks,band,1795,158
 kai,kai.kai_isi,Isisokasimiks,band,1795,77
-kai,kai.kai_akk,Akkaipokaks,band,1795,0
-kai,kai.kai_sak,Saksinahmahyiks,band,1795,0
-kai,kai.kai_apk,Apikaiyiks,band,1795,0
-kai,kai.kai_aks,Ahkotashiks,band,1795,0
 kai,kai.kai_sik,Siksinokaks,band,1800,159
 kai,kai.kai_ahk,Ahkwonistsists,band,1800,159
 kai,kai.kai_apu,Aputosi-kainah,band,1800,159
@@ -10461,9 +10456,9 @@ kio,kio.ki_kai,Kaigwu,band,1835,186
 kio,kio.ki_kin,Kinep,band,1835,310
 kio,kio.ki_kon,Kontalyui,band,1835,186
 kio,kio.ki_kat,Kata,band,1840,647
-kio,kio.ki_kog,Kogui,band,1840,323
+kio,kio.ki_kog,Kogui,band,1840,324
 kio,kio.ki_kai,Kaigwu,band,1840,194
-kio,kio.ki_kin,Kinep,band,1840,323
+kio,kio.ki_kin,Kinep,band,1840,324
 kio,kio.ki_kon,Kontalyui,band,1840,194
 kio,kio#1,unnamed band,unnamed,1840,160
 kio,kio.ki_kat,Kata,band,1845,647
@@ -13497,8 +13492,8 @@ pwc,pwc.pw_cha,Chawi,village,1810,1129
 pwc,pwc.pw_pit,Pitahawirata,village,1810,564
 pwc,pwc.pw_kaw,Kawarakis,village,1810,564
 pwc,pwc.pw_cha,Chawi,village,1815,1165
-pwc,pwc.pw_pit,Pitahawirata,village,1815,582
-pwc,pwc.pw_kaw,Kawarakis,village,1815,582
+pwc,pwc.pw_pit,Pitahawirata,village,1815,583
+pwc,pwc.pw_kaw,Kawarakis,village,1815,583
 pwc,pwc#1,unnamed village,unnamed,1815,254
 pwc,pwc.pw_cha,Chawi,village,1820,1168
 pwc,pwc.pw_pit,Pitahawirata,village,1820,584

@@ -1,7 +1,8 @@
 # Calibrate and test the Gaussian-process positions of the nomadic divisions (possgp.py; METHODS.md §3).
-#   python3 calib_gp.py . ..          full run: tunes the settings on a grid  →  ../build/gpcal.json
-#   python3 calib_gp.py . .. score    scores the stored settings only (after adding records; a few minutes)
-# Divisions are held out in parallel, one process per core, each with a single BLAS thread.
+#   python3 calib_gp.py . ..          tunes the settings on a grid and tests them  →  ../build/gpcal.json (about a minute)
+# Divisions are held out in parallel, one process per core, each with a single BLAS thread. Each division is fitted once and
+# every place's block is removed from that fit exactly (_hold1); CALIB_SLOW=1 refits for every place instead, as a check.
+# CALIB_OUT=path writes the results elsewhere than build/gpcal.json.
 # 1. Settings tuned by block hold-out on all places (each withheld with every place within half a year): season-dated places
 #    against the predicted position at their date, range and agency statements and undated camps against the annual centre.
 #    The same tuning run on half the divisions and scored on the other half, both ways, gives the out-of-sample figures.
@@ -11,11 +12,13 @@
 import os
 for _v in ('OPENBLAS_NUM_THREADS','OMP_NUM_THREADS','MKL_NUM_THREADS'): os.environ[_v]='1'
 import sys,runpy,io,contextlib,math,json,itertools,statistics as st,multiprocessing as mp
-SCORE=len(sys.argv)>3 and sys.argv[3]=='score'
 S=sys.argv[2] if len(sys.argv)>2 else '..'
 sys.argv=['build3.py','.',S]; os.environ['SENS']='1'
 with contextlib.redirect_stdout(io.StringIO()): B=runpy.run_path('build3.py',run_name='__main__')
 import possgp as GP, seasonal as SE
+import numpy as np
+SLOW=os.environ.get('CALIB_SLOW')=='1'
+OUT=os.environ.get('CALIB_OUT') or f'{S}/build/gpcal.json'
 G=B['G']
 DIV={g:GP.prepare(g,B['DOCO'][g],B['GSP'][g]) for g in B['DOCO'] if 'nomadic' in G[g][6] and len(B['DOCO'][g])>=3}
 M=GP.moments([p for d in DIV.values() for p in d['pts']])
@@ -25,16 +28,39 @@ def holdout(th,groups,kinds=('dated',),guesses=True,BW=0.5):
     R=POOL.starmap(_hold1,args) if POOL else [_hold1(*a) for a in args]
     return [e for r in R for e in r]
 def _hold1(th,g,kinds,guesses,BW):
+    """one fit per division; each place's block is removed through the inverse covariance (exact: the block's rows and
+    columns are dropped from K by the Schur complement), so a hold-out costs O(N²) instead of a fresh O(N³) fit"""
+    if SLOW: return _hold1_refit(th,g,kinds,guesses,BW)
+    out=[]; d=DIV[g]
+    P=[q for q in d['pts'] if guesses or q['s']!='guess']
+    if len(P)<3: return out
+    f=GP.Fit(dict(d,pts=P),th,M); t=f.t; X=f.X
+    Li=np.linalg.solve(f.L,np.eye(len(P))); Q=Li.T@Li
+    s2=th['sT']**2+th.get('sL',0)**2
+    for i,p in enumerate(P):
+        if p['s'] not in kinds: continue
+        R=np.abs(t-p['t'])>BW
+        if R.sum()<2: continue
+        B=~R; QRR=Q[np.ix_(R,R)]; QRB=Q[np.ix_(R,B)]; QBBi=np.linalg.inv(Q[np.ix_(B,B)])
+        sol=lambda v: QRR@v-QRB@(QBBi@(QRB.T@v))
+        XR=X[R]; mu=XR.mean(0); a=sol(XR-mu)
+        kT=f._kT(p['t'])[R]
+        if p['s']=='dated': m=mu+(kT+f._kS(p['t'])[R])@a+GP.lit(g,p['t'],d['lat0'],d['lon0'])
+        else: m=mu+kT@a
+        v=max(1.0,s2-float(kT@sol(kT)))
+        out.append(dict(g=g,t=p['t'],s=p['s'],d=math.hypot(p['x']-m[0],p['y']-m[1]),v=v,r=p['r'],ph=SE.phi(p['t'])))
+    return out
+def _hold1_refit(th,g,kinds,guesses,BW):
+    """reference: a fresh fit for every withheld place (CALIB_SLOW=1)"""
     out=[]
-    if True:
-        d=DIV[g]
-        for p in d['pts']:
-            if p['s'] not in kinds: continue
-            tr=[q for q in d['pts'] if abs(q['t']-p['t'])>BW and (guesses or q['s']!='guess')]
-            if len(tr)<2: continue
-            f=GP.Fit(dict(d,pts=tr),th,M)
-            m,v=f.at(p['t']) if p['s']=='dated' else f.trend(p['t'])
-            out.append(dict(g=g,t=p['t'],s=p['s'],d=math.hypot(p['x']-m[0],p['y']-m[1]),v=v,r=p['r'],ph=SE.phi(p['t'])))
+    d=DIV[g]
+    for p in d['pts']:
+        if p['s'] not in kinds: continue
+        tr=[q for q in d['pts'] if abs(q['t']-p['t'])>BW and (guesses or q['s']!='guess')]
+        if len(tr)<2: continue
+        f=GP.Fit(dict(d,pts=tr),th,M)
+        m,v=f.at(p['t']) if p['s']=='dated' else f.trend(p['t'])
+        out.append(dict(g=g,t=p['t'],s=p['s'],d=math.hypot(p['x']-m[0],p['y']-m[1]),v=v,r=p['r'],ph=SE.phi(p['t'])))
     return out
 ALLK=('dated','annual','camp')
 def score(E): return st.mean(e['d'] for e in E)
@@ -57,11 +83,7 @@ if __name__=='__main__':
     gs=sorted(DIV,key=lambda g:-sum(p['s']=='dated' for p in DIV[g]['pts']))
     A,Bh=gs[0::2],gs[1::2]
     Es,Et=[],[]
-    for tr_,te in ((A,Bh),(Bh,A)):
-        POOL=mp.get_context('fork').Pool(os.cpu_count() or 4)
-    if SCORE:
-        prev=json.load(open(f'{S}/build/gpcal.json')); th0=prev['th']; th0['w']=tuple(th0['w'])
-        tune=lambda gr,_t=th0: (_t,dict(_t,sS=0))
+    POOL=mp.get_context('fork').Pool(os.cpu_count() or 4)
     for tr_,te in ((A,Bh),(Bh,A)):
         ts,tt=tune(tr_); Es+=holdout(ts,te,kinds=ALLK); Et+=holdout(tt,te,kinds=ALLK)
     pick=lambda E,k: [e for e in E if e['s']==k]
@@ -82,7 +104,7 @@ if __name__=='__main__':
         elif f<=0.2: W[yr-1]=p
     dd=lambda a,b: math.hypot(a['x']-b['x'],a['y']-b['y'])
     kio=dict(summer_to_winter=round(st.median([dd(Su[y],W[y]) for y in Su if y in W])),winter_to_winter=round(st.median([dd(W[y],W[y+1]) for y in W if y+1 in W])),summer_to_summer=round(st.median([dd(Su[y],Su[y+1]) for y in Su if y+1 in Su])))
-    out=dict(th=th,litw=GP.LITW,mode='stored settings scored' if SCORE else 'settings tuned',out_of_sample=nested,season_dated=summ(Ed),
+    out=dict(th=th,litw=GP.LITW,out_of_sample=nested,season_dated=summ(Ed),
              places=dict(all=summ(Ea),without_keyframes=summ(Eng)),roam=roam,roam_coverage=cov,
              by_season={b:summ([e for e in Ed if bin_(e['ph'])==b]) for b in ('winter','between','summer')},kiowa=kio)
-    json.dump(out,open(f'{S}/build/gpcal.json','w'),indent=1); print(json.dumps(out,indent=1))
+    json.dump(out,open(OUT,'w'),indent=1); print(json.dumps(out,indent=1))

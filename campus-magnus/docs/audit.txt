@@ -44,11 +44,12 @@
    lip   1845.43 ->  1845.95    213 km
    tkw   1859.56 ->  1859.60    228 km
 2. Long moves with no documented place between (>= 300 km over >= 15 yr)
-   kio   1700.00 ->  1755.00    316 km
-   kap   1805.00 ->  1821.90    368 km
-   lip   1873.38 ->  1904.50    438 km
+   kio   1700.00 ->  1755.00    451 km
+   kap   1805.00 ->  1821.90    422 km
+   lip   1873.38 ->  1904.50    479 km
+   sho   1700.00 ->  1802.79    305 km
    mis   1790.00 ->  1805.00    319 km
-   tkw   1867.50 ->  1885.30    366 km
+   tkw   1867.50 ->  1885.30    373 km
 3. Unexplained population jumps (shocks, splits and mergers excluded)
    sar  1875  x1.09  (179 -> 195)
    sar  1876  x1.09  (195 -> 213)

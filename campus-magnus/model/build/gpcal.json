@@ -1,7 +1,7 @@
 {
  "th": {
   "sT": 200,
-  "lT": 45,
+  "lT": 30,
   "sL": 75,
   "lL": 4,
   "sS": 45,
@@ -10,64 +10,63 @@
    1,
    0.5
   ],
-  "k": 0.5,
+  "k": 0.25,
   "s0": 90,
   "sg": 150
  },
  "litw": 0.5,
- "mode": "stored settings scored",
  "out_of_sample": {
   "track only": {
    "all": {
     "n": 660,
-    "median": 116,
-    "mean": 146,
-    "beyond_radius_median": 64
+    "median": 121,
+    "mean": 147,
+    "beyond_radius_median": 66
    },
    "dated": {
     "n": 406,
-    "median": 122,
+    "median": 124,
     "mean": 154,
-    "beyond_radius_median": 81
+    "beyond_radius_median": 84
    },
    "annual": {
     "n": 212,
-    "median": 101,
-    "mean": 125,
-    "beyond_radius_median": 16
+    "median": 104,
+    "mean": 128,
+    "beyond_radius_median": 18
    }
   },
   "track and seasonal component": {
    "all": {
     "n": 660,
-    "median": 112,
-    "mean": 143,
-    "beyond_radius_median": 57
+    "median": 119,
+    "mean": 147,
+    "beyond_radius_median": 64
    },
    "dated": {
     "n": 406,
-    "median": 117,
-    "mean": 151,
-    "beyond_radius_median": 75
+    "median": 122,
+    "mean": 153,
+    "beyond_radius_median": 82
    },
    "annual": {
     "n": 212,
-    "median": 98,
-    "mean": 121,
-    "beyond_radius_median": 14
+    "median": 106,
+    "mean": 129,
+    "beyond_radius_median": 17
    }
   }
  },
  "season_dated": {
   "n": 406,
   "median": 117,
-  "mean": 151,
-  "beyond_radius_median": 75
+  "mean": 149,
+  "beyond_radius_median": 72
  },
  "places": {
   "all": {
    "n": 660,
-   "median": 112,
+   "median": 113,
    "mean": 143,
    "beyond_radius_median": 57
   },
@@ -75,38 +74,38 @@
    "n": 658,
    "median": 118,
    "mean": 149,
-   "beyond_radius_median": 63
+   "beyond_radius_median": 67
   }
  },
  "roam": {
-  "winter": 114,
-  "between": 84,
-  "summer": 83,
-  "annual": 38
+  "winter": 108,
+  "between": 82,
+  "summer": 79,
+  "annual": 40
  },
  "roam_coverage": {
   "winter": 0.68,
-  "between": 0.69,
+  "between": 0.68,
   "summer": 0.68
  },
  "by_season": {
   "winter": {
    "n": 139,
-   "median": 134,
-   "mean": 166,
-   "beyond_radius_median": 77
+   "median": 127,
+   "mean": 164,
+   "beyond_radius_median": 79
   },
   "between": {
    "n": 115,
-   "median": 108,
-   "mean": 140,
-   "beyond_radius_median": 66
+   "median": 106,
+   "mean": 138,
+   "beyond_radius_median": 65
   },
   "summer": {
    "n": 152,
-   "median": 116,
-   "mean": 145,
-   "beyond_radius_median": 75
+   "median": 107,
+   "mean": 143,
+   "beyond_radius_median": 72
   }
  },
  "kiowa": {
