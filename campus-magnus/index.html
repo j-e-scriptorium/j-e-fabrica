@@ -329,7 +329,7 @@ ol.bib .grp{display:block;text-indent:0;padding:0;font:500 11px var(--f-body);le
         <p><b>Village peoples’ hunts.</b> With the seasonal round on, the village peoples leave on their tribal hunts and come back to plant and harvest. The hunting grounds and calendars come from sources read for this build, tribe by tribe, as set out in the table under “Every extrapolation choice”. Examples: the Pawnee summer hunt of July 1872 went south across the Platte and the Republican to the Beaver (Grinnell); the Osage hunted from early June to mid-August beyond the Arkansas toward the Great Saline, and again from October to March (Tixier, 1840); the Omaha left after the second hoeing and returned about 1 September (Dorsey, Fletcher and La Flesche). The eastern Dakota scattered “in different directions” on the deer hunt from October to January (Pond). The Mandan and Hidatsa moved a few kilometres into the timber for winter (Maximilian). Where no source was read (the Ponca, Iowa and Wichita), the pattern is borrowed from a neighbour and says so. Hunting-camp records, such as Massacre Canyon, are shown in the evidence layer but kept out of the division tracks, so a village people’s track stays at its village from year to year; the seasonal round takes the people, and their dot, out on the hunts and home again.</p>
         <p><b>Camps, villages and agencies.</b> The marker says how a people lived at that moment, not only where. A rounded square is a fixed village: the earth-lodge towns of the Mandan, Hidatsa, Arikara, Pawnee, Omaha, Ponca, Oto, Kansa, Iowa and Missouria, the grass-house towns of the Wichita, the mat-and-bark lodges of the Osage, and the bark summer houses of the Mdewakanton. These peoples farmed maize, beans and squash in the river bottoms and went out on the tribal bison hunt in summer and again in fall or winter (the Osage and Kansa also scattered in small camps for the winter deer and fur hunt), so with the seasonal round on, their squares turn into circles while they are out on the tribal hunt and back into squares when they come home to plant or harvest. A circle is a camp of tipis that moves with the herds. A circle with a hollow centre is a people settled at its agency or reserve, from a year after the date the agency opened for them. None of these peoples was pastoral in the usual sense; the nomads herded horses, sometimes in great numbers, but lived on bison, not on their herds. The Cheyenne change from squares to circles about 1790, when they left their earth-lodge villages for the tipi.</p>
         <p><b>Recorded places win.</b> Sixty-six bands and chiefs’ followings carry their own places, and these override the random draw. For 35 the places come from the sources read (Denig’s Cree bands, Henry’s Assiniboine, Mooney’s Kiowa, Dorsey’s and Long’s Red Wing, the Kaw villages, Lac qui Parle, the Wichita towns). For 26 more the dates and places were checked against Wikipedia and other references and are named in each band’s card (Sand Creek, the Washita, the Marias, Ash Hollow, Wounded Knee, the Cheyenne exodus, Sitting Bull, Big Bear, Kaposia, Bde Maka Ska, the Jicarilla Llaneros and Olleros, the Upper and Lower Lipan, the Pembina Saulteurs, the Wahpeton at Little Rapids, Drifting Goose’s people). Five remain recalled and say so. A dark outline marks a chief’s following, a group that existed only for a documented episode.</p>
-        <p><b>States, territories and reservations.</b> A layer, off by default, draws the settler map of the year: European and American claims faintly, organized territories more firmly, states and provinces fully, Confederate states in red while they seceded, and each reservation in its people’s colour from the year it was made. The lines are built from modern outlines and the meridians, parallels and rivers the acts and treaties name; none is traced from a historical map, and the dates are recalled from Van Zandt, the Newberry atlas, the <i>Atlas of Canada</i>, Gerhard and Royce. Treat them as tens of kilometres approximate.</p>
+        <p><b>States, territories and reservations.</b> A layer, off by default, draws the settler map of the year: European and American claims faintly, organized territories more firmly, states and provinces fully, Confederate states in red while they seceded, the self-governing nations of the Indian Territory in a dash-dot line of their own, and each reservation in its people’s colour from the year it was made. The lines are built from modern outlines and the meridians, parallels and rivers the acts and treaties name; none is traced from a historical map, and the dates are recalled from Van Zandt, the Newberry atlas, the <i>Atlas of Canada</i>, Gerhard and Royce. Treat them as tens of kilometres approximate.</p>
         <h4>Epidemic table</h4>
         <ul id="epilist"></ul>
       </div>
@@ -884,7 +884,7 @@ function combinedSpec(gid){const by={};for(const o of (specObs[gid]||[])){(by[o.
 let hits=[];
 
 // ---------- settler states, territories, claims and reservations (model/src/settler_src.py) ----------
-const SET=window.CM_SETTLER||[];const LVO={claim:0,unorg:1,terr:2,state:3,res:4};
+const SET=window.CM_SETTLER||[];const LVO={claim:0,unorg:1,terr:2,state:3,nat:3.5,res:4};
 SET.sort((a,b)=>LVO[a.lv]-LVO[b.lv]||b.a-a.a);
 const isCSA=(f,y)=>f.csa&&y>=f.csa[0]&&y<f.csa[1];
 const csaInk=()=>css.pal==='dark'?'#e0907a':'#a3412b';
@@ -903,6 +903,7 @@ function renderStates(A,y){
     c.beginPath();p(f.g);c.setLineDash([]);c.globalAlpha=1;
     if(f.lv==='res'){const k=tribeColor(f.tribes[0]);c.fillStyle=k;c.globalAlpha=.16;c.fill();c.globalAlpha=.85;c.strokeStyle=k;c.lineWidth=1.1;c.stroke();continue;}
     if(isCSA(f,y)){c.fillStyle=csaInk();c.globalAlpha=.06;c.fill();c.globalAlpha=.9;c.strokeStyle=csaInk();c.lineWidth=f.lv==='state'?1.5:1.1;if(f.lv!=='state')c.setLineDash([4,2]);c.stroke();continue;}
+    if(f.lv==='nat'){c.fillStyle=css['ink-2'];c.globalAlpha=.06;c.fill();c.globalAlpha=.6;c.strokeStyle=css['ink-2'];c.lineWidth=.9;c.setLineDash([5,1.5,1,1.5]);c.stroke();continue;}
     if(f.lv==='claim'){c.strokeStyle=css['ink-3'];c.globalAlpha=.4;c.lineWidth=.8;c.setLineDash([2,3]);}
     else if(f.lv==='unorg'){c.strokeStyle=css['ink-3'];c.globalAlpha=.5;c.lineWidth=.8;c.setLineDash([6,3]);}
     else if(f.lv==='terr'){c.strokeStyle=css['ink-2'];c.globalAlpha=f.sub?.45:.65;c.lineWidth=f.sub?.8:1.0;if(f.sub)c.setLineDash([3,2]);}
@@ -915,7 +916,7 @@ function renderStates(A,y){
     if(f.lv==='res'&&zoomK<2)continue;
     const bb=d3.geoPath(proj).bounds(f.g);const pw=bb[1][0]-bb[0][0],ph=bb[1][1]-bb[0][1];
     const q=proj(f.lab);if(!q||q[0]<0||q[0]>W||q[1]<0||q[1]>H)continue;
-    const sz=f.lv==='state'?10.5:f.lv==='terr'?10:9.5;
+    const sz=f.lv==='state'?10.5:f.lv==='terr'?10:f.lv==='nat'?9:9.5;
     c.font=(f.lv==='state'?'':'italic ')+sz+'px "Old Standard TT", Georgia, serif';
     let txt=f.n+(isCSA(f,y)?' (C.S.A.)':'');const w=c.measureText(txt).width;
     if(w>pw*1.1||ph<sz*1.6)continue;
@@ -924,11 +925,11 @@ function renderStates(A,y){
     c.fillStyle=f.lv==='res'?tribeColor(f.tribes[0]):isCSA(f,y)?csaInk():f.lv==='state'?css['ink-2']:css['ink-3'];
     c.globalAlpha=f.lv==='claim'?.75:1;c.fillText(txt,q[0],q[1]);c.globalAlpha=1;}
 }
-const LVTXT={claim:'claim',unorg:'held but unorganized',terr:'organized territory, province or district',state:'state or province',res:'reservation'};
+const LVTXT={claim:'claim',unorg:'held but unorganized',terr:'organized territory, province or district',state:'state or province',nat:'Indian nation, on land patented to it by treaty',res:'reservation'};
 function settlerAt(mx,my){if(!st.states)return null;const ll=proj.invert([mx,my]);if(!ll)return null;
   const A=setActive(st.year).filter(f=>d3.geoContains(f.g,ll));if(!A.length)return null;
   const best=lv=>A.filter(f=>f.lv===lv).sort((a,b)=>a.a-b.a)[0];
-  return ['res','state','terr','unorg','claim'].map(best).filter(Boolean);}
+  return ['res','nat','state','terr','unorg','claim'].map(best).filter(Boolean);}
 function settlerTip(L,mx,my){const y=st.year;const yr=v=>v>=1905.9?'':Math.floor(v);
   let html='';for(const f of L.slice(0,3)){html+=`<div style="margin-bottom:4px"><b>${f.n}</b>${isCSA(f,y)?' <span style="color:'+csaInk()+'">Confederate</span>':''}<div class="meta">${LVTXT[f.lv]}${f.nd?'':' · '+Math.floor(f.y0)+'–'+yr(f.y1)}${f.tribes?' · '+f.tribes.join(', '):''}</div><div class="meta">${f.src}</div>${f.note?`<div class="meta"><i>${f.note}</i></div>`:''}</div>`;}
   html+='<div class="meta">Boundaries drawn by us from the treaties and acts; approximate.</div>';
@@ -1282,7 +1283,7 @@ function renderMapLegend(){const ml=$('maplegend');const c=css['ink-2'];
   if(st.mode!=='evid'&&!st.seasons){const f=css['ink-2'];h+=k(`<path d="M3 10L11 4" stroke="${f}" stroke-width="1.4"/><circle cx="3" cy="10" r="2.4" fill="${f}"/><circle cx="11" cy="4" r="2.4" fill="${f}"/>`,'Half on the winter ground, half on the summer ground');}
   if(st.mode!=='evid'&&st.seasons&&(st.rounds||st.sel)){const f=css['ink-2'];h+=k(`<path d="M3 10L11 4" stroke="${f}" stroke-width="1.4"/><circle cx="3" cy="10" r="2.2" fill="${f}"/>`,'Winter ground')+k(`<path d="M3 10L11 4" stroke="${f}" stroke-width="1.4"/><circle cx="11" cy="4" r="2.2" fill="${css.plate}" stroke="${f}" stroke-width="1.2"/>`,'Summer ground');}
   if(st.settle){h+=k(`<rect x="3.5" y="3.5" width="7" height="7" fill="none" stroke="${c}" stroke-width="1.2"/>`,'Military post')+k(`<path d="M7 2.5L11.5 7 7 11.5 2.5 7z" fill="none" stroke="${c}" stroke-width="1.2"/>`,'Trading post')+k(`<path d="M7 2.5L11 10.5H3z" fill="${c}"/>`,'Spanish / French')+k(`<circle cx="7" cy="7" r="3.5" fill="${css['ink-3']}" opacity=".7"/>`,'Town');}
-  if(st.states){const g=css['ink-3'];h+=k(`<path d="M1 7H13" stroke="${g}" stroke-width="1" stroke-dasharray="2 3" opacity=".6"/>`,'Claim')+k(`<path d="M1 7H13" stroke="${g}" stroke-width="1" stroke-dasharray="6 3"/>`,'Unorganized')+k(`<path d="M1 7H13" stroke="${css['ink-2']}" stroke-width="1.1" opacity=".7"/>`,'Territory, province')+k(`<path d="M1 7H13" stroke="${css.ink}" stroke-width="1.5"/>`,'State')+k(`<path d="M1 7H13" stroke="${csaInk()}" stroke-width="1.6"/>`,'Confederate, 1861–65')+k(`<rect x="2" y="3" width="10" height="8" fill="${c}" fill-opacity=".16" stroke="${c}"/>`,'Reservation, in its people’s ink');}
+  if(st.states){const g=css['ink-3'];h+=k(`<path d="M1 7H13" stroke="${g}" stroke-width="1" stroke-dasharray="2 3" opacity=".6"/>`,'Claim')+k(`<path d="M1 7H13" stroke="${g}" stroke-width="1" stroke-dasharray="6 3"/>`,'Unorganized')+k(`<path d="M1 7H13" stroke="${css['ink-2']}" stroke-width="1.1" opacity=".7"/>`,'Territory, province')+k(`<path d="M1 7H13" stroke="${css.ink}" stroke-width="1.5"/>`,'State')+k(`<path d="M1 7H13" stroke="${csaInk()}" stroke-width="1.6"/>`,'Confederate, 1861–65')+k(`<rect x="2" y="3" width="10" height="8" fill="${css['ink-2']}" fill-opacity=".08" stroke="${css['ink-2']}" stroke-dasharray="4 1.5 1 1.5" opacity=".8"/>`,'Indian nation (Indian Territory)')+k(`<rect x="2" y="3" width="10" height="8" fill="${c}" fill-opacity=".16" stroke="${c}"/>`,'Reservation, in its people’s ink');}
   ml.innerHTML=h;ml.hidden=!h;}
 
 // ---------- timeline ----------

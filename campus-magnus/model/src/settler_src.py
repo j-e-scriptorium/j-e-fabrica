@@ -2,7 +2,7 @@
 # Every boundary is built here from modern state outlines (Natural Earth, model/geo/admin1.json), the rivers of the base map,
 # and the meridians, parallels and divides that the treaties and organic acts name. The lines are approximate; each feature
 # carries the act or treaty that made it and the date it took effect. Sources recalled, not reread: Van Zandt, Boundaries of
-# the United States and the Several States (USGS Bulletin 1212, 1966); the Newberry Library's Atlas of Historical County
+# the United States and the Several States (USGS Professional Paper 909, 1976); the Newberry Library's Atlas of Historical County
 # Boundaries; Natural Resources Canada, Atlas of Canada, Territorial Evolution; Gerhard, The North Frontier of New Spain (1982).
 # Levels: claim (sovereignty asserted), unorg (held but unorganized), terr (organized territory, province or district),
 # state (state or province with self-government, and the Republic of Texas), res (reservation or reserve).
@@ -81,6 +81,7 @@ NUECES = ('Nueces', (-101, 27, -97, 31))
 CANAD = ('Canadian', (-105, 34.5, -94.5, 37.5))
 WASHITA = ('Washita', (-101, 33.5, -96, 36))
 NFRED = ('North Fork Red', (-102, 34, -98.5, 36))
+NCAN = ('North Canadian', (-101, 34.8, -95, 37))
 YELL = ('Yellowstone', (-111.5, 43.5, -103.5, 48.5))
 CHEY = ('Cheyenne', (-105.5, 43, -100.5, 45))
 BELLE = ('Belle Fourche', (-106, 43.5, -102, 45))
@@ -150,14 +151,25 @@ NUECES_STRIP = poly(rseg(*RIOG, (25.95, -97.15), (29.8, -101.4)), P((30.0, -100.
 TEJAS = poly(rseg(*SABINE, (29.7, -93.85), (32.0, -94.05)), P((33.55, -94.04)),
              rseg(*REDS, (33.55, -94.04), (34.56, -100.0)), P((30.0, -100.17)),
              rseg(*NUECES, (30.0, -100.17), (27.85, -97.5)), P((28.0, -96.0))).intersection(LAND)
-NM_PROV = box(-109.5, 31.9, -103.0, 38.0).intersection(LAND)
+# Nuevo México: the upper Rio Grande, east to the Llano Estacado and west across the divide to the Hopi mesas, south to
+# Chihuahua (which held El Paso and the Mesilla valley) and Sonora (which ran north to the Gila). The province was never
+# surveyed; these lines are approximate, and the Llano east of 103°W and the Panhandle belong to no province here.
+TRANS_PECOS = US('Texas').intersection(west(-103.0)).intersection(south(32.0))
+SON_N = GADSDEN.intersection(west(-109.05))                                  # Pimería Alta, north to the Gila
+CHI_N = GADSDEN.intersection(east(-109.05)).union(TRANS_PECOS)              # the Mesilla valley, El Paso, the Big Bend
+NM_PROV = (EAST_OF_DIV.intersection(west(-103.0)).union(WEST_OF_DIV.intersection(east(-111.0)).intersection(south(38.0)))
+           .difference(NE_OF_AO).intersection(US_ALL).difference(GADSDEN).difference(TRANS_PECOS).intersection(LAND))
+# Alta California: everything north of Baja California, Sonora and the Gila, west of Nuevo México, to 42°; in the Mexican
+# view it ran east across the Great Basin to the divide. Its eastern line was never fixed.
+ALTA = (LAND.difference(NE_OF_AO).intersection(south(42.0)).intersection(US_ALL).difference(GADSDEN).difference(NM_PROV)
+        .intersection(west(-111.0).union(WEST_OF_DIV.intersection(north(38.0)))))
 
 # ---- the features ---------------------------------------------------------------------------------------------------
 F = []
 def add(fid, name, level, owner, y0, y1, geom, src, **o):
     F.append(dict(id=fid, name=name, level=level, owner=owner, y0=y0, y1=y1, geom=geom, src=src, **o))
 
-VZ = 'Van Zandt, Boundaries of the United States and the Several States (1966), recalled'
+VZ = 'Van Zandt, Boundaries of the United States and the Several States (1976), recalled'
 NB = 'Atlas of Historical County Boundaries (Newberry Library), recalled'
 AC = 'Atlas of Canada, Territorial Evolution, recalled'
 GE = 'Gerhard, The North Frontier of New Spain (1982), recalled'
@@ -194,7 +206,9 @@ add('ca', 'Canada', 'claim', 'ca', 1870.54, 1906, CA_ALL.intersection(EXT), 'Rup
 # Spanish provinces and Mexican states
 def prov(fid, name, y0, y1, g, src, owner='es', level='terr', **o): add(fid, name, level, owner, y0, y1, g, src, **o)
 prov('es_nm', 'Santa Fe de Nuevo México', 1700, 1821.74, NM_PROV, GE + '; bounds approximate')
-prov('mx_nm', 'Nuevo México (territory)', 1821.74, 1848.41, NM_PROV, 'Mexican province, a federal territory from 1824; bounds approximate', owner='mx')
+prov('es_alta', 'Alta California', 1769.5, 1821.74, ALTA, GE + '; San Diego founded 1769; Nueva California a separate province from 1804; its eastern line never fixed')
+prov('mx_nm', 'Nuevo México (territory)', 1821.74, 1848.41, NM_PROV, 'Mexican province, a federal territory from 1824; bounds approximate', owner='mx', note='Occupied by the United States from August 1846; Texas claimed the land east of the Rio Grande from 1836.')
+prov('mx_alta', 'Alta California (territory)', 1821.74, 1848.41, ALTA, 'Mexican province, a federal territory from 1824; ceded by the Treaty of Guadalupe Hidalgo; eastern line never fixed', owner='mx', note='Occupied by the United States from July 1846.')
 prov('es_tx', 'Texas (province)', 1716.5, 1821.74, TEJAS, GE + '; the Nueces and Medina lines with Nuevo Santander and Coahuila, the Sabine and Red with Louisiana; approximate')
 prov('mx_tx', 'Texas (province)', 1821.74, 1824.75, TEJAS, 'Mexican province until the constitution of 4 Oct. 1824', owner='mx')
 _coah = MX('Coahuila').union(NUECES_STRIP.intersection(west(-99.3)))
@@ -202,12 +216,12 @@ _tams = MX('Tamaulipas').union(NUECES_STRIP.intersection(east(-99.3)))
 prov('es_coah', 'Coahuila', 1700, 1821.74, _coah, GE + '; approximate')
 prov('es_ns_', 'Nuevo Santander', 1748.5, 1821.74, _tams, GE + '; founded 1748; approximate')
 prov('es_nl', 'Nuevo León', 1700, 1821.74, MX('Nuevo León'), GE)
-prov('es_nv', 'Nueva Vizcaya', 1700, 1821.74, MX('Chihuahua').union(MX('Durango')), GE)
-prov('es_son', 'Sonora y Sinaloa', 1700, 1821.74, MX('Sonora').union(MX('Sinaloa')), GE)
+prov('es_nv', 'Nueva Vizcaya', 1700, 1821.74, MX('Chihuahua').union(MX('Durango')).union(CHI_N), GE)
+prov('es_son', 'Sonora y Sinaloa', 1700, 1821.74, MX('Sonora').union(MX('Sinaloa')).union(SON_N), GE + '; north to the Gila')
 prov('mx_coah_p', 'Coahuila', 1821.74, 1824.75, _coah, 'Mexican province', owner='mx')
 prov('mx_tams_p', 'Nuevo Santander', 1821.74, 1824.75, _tams, 'Mexican province', owner='mx')
-prov('mx_nv_p', 'Nueva Vizcaya', 1821.74, 1824.75, MX('Chihuahua').union(MX('Durango')), 'Mexican province', owner='mx')
-prov('mx_son_p', 'Sonora y Sinaloa', 1821.74, 1824.75, MX('Sonora').union(MX('Sinaloa')), 'Mexican province', owner='mx')
+prov('mx_nv_p', 'Nueva Vizcaya', 1821.74, 1824.75, MX('Chihuahua').union(MX('Durango')).union(CHI_N), 'Mexican province', owner='mx')
+prov('mx_son_p', 'Sonora y Sinaloa', 1821.74, 1824.75, MX('Sonora').union(MX('Sinaloa')).union(SON_N), 'Mexican province', owner='mx')
 def mxs(fid, name, y0, y1, g, src='Mexican state under the constitution of 1824'): add(fid, name, 'state', 'mx', y0, y1, g, src)
 mxs('mx_cyt', 'Coahuila y Tejas', 1824.75, 1836.17, _coah.union(TEJAS))
 mxs('mx_coah', 'Coahuila', 1836.17, 1848.41, _coah, 'Coahuila after Texan independence; the Nueces strip claimed by Texas')
@@ -215,12 +229,12 @@ mxs('mx_coah2', 'Coahuila', 1848.41, 1906, MX('Coahuila'))
 mxs('mx_tams', 'Tamaulipas', 1824.75, 1848.41, _tams)
 mxs('mx_tams2', 'Tamaulipas', 1848.41, 1906, MX('Tamaulipas'))
 mxs('mx_nl', 'Nuevo León', 1824.75, 1906, MX('Nuevo León'))
-mxs('mx_chih', 'Chihuahua', 1824.75, 1848.41, MX('Chihuahua'))
+mxs('mx_chih', 'Chihuahua', 1824.75, 1848.41, MX('Chihuahua').union(CHI_N), 'Mexican state under the constitution of 1824; El Paso and the Mesilla valley transferred from New Mexico, 1824')
 mxs('mx_chih2', 'Chihuahua', 1848.41, 1854.5, MX('Chihuahua').union(GADSDEN.intersection(east(-109.05))), 'Chihuahua with the Mesilla strip, sold to the United States in 1854')
 mxs('mx_chih3', 'Chihuahua', 1854.5, 1906, MX('Chihuahua'))
 mxs('mx_dur', 'Durango', 1824.75, 1906, MX('Durango'))
-mxs('mx_sys', 'Estado de Occidente (Sonora y Sinaloa)', 1824.75, 1830.3, MX('Sonora').union(MX('Sinaloa')))
-mxs('mx_son', 'Sonora', 1830.3, 1848.41, MX('Sonora'), 'Separated from Sinaloa, 1830')
+mxs('mx_sys', 'Estado de Occidente (Sonora y Sinaloa)', 1824.75, 1830.3, MX('Sonora').union(MX('Sinaloa')).union(SON_N))
+mxs('mx_son', 'Sonora', 1830.3, 1848.41, MX('Sonora').union(SON_N), 'Separated from Sinaloa, 1830; north to the Gila')
 mxs('mx_son2', 'Sonora', 1848.41, 1854.5, MX('Sonora').union(GADSDEN.intersection(west(-109.05))), 'Sonora with the Gadsden strip, sold to the United States in 1854')
 mxs('mx_son3', 'Sonora', 1854.5, 1906, MX('Sonora'))
 
@@ -296,12 +310,40 @@ _ok = US('Oklahoma'); _pan = _ok.intersection(west(-100.0)); _okm = _ok.differen
 _canad_s = poly(rseg(*CANAD, (35.45, -94.6), (35.6, -100.0)), P((33, -100.0), (33, -94.4)))
 _it1890 = _okm.intersection(east(-96.5).difference(_canad_s).union(_canad_s.intersection(east(-98.0)))).union(_okm.intersection(band(36.5, 37.1)).intersection(lon(-100, -96.5)))
 _outlet = _okm.intersection(band(36.5, 37.1)).intersection(lon(-100, -96.5))
-add('ind_t', 'Indian Territory', 'unorg', 'us', 1834.5, 1890.34, _okm, 'Indian Intercourse Act, 30 June 1834, and the removal treaties; the country of the Five Tribes and others', note='Not an organized territory; the nations governed themselves under their treaties. Most allied with the Confederacy in 1861.')
+add('ind_t', 'Indian Territory', 'unorg', 'us', 1834.5, 1890.34, _okm, 'Indian Intercourse Act, 30 June 1834, and the removal treaties; the country of the Five Tribes and others', note='Not an organized territory. The removed nations, drawn within it, governed themselves under their treaties; before 1854 the name was often stretched to the emigrant reserves of Kansas and Nebraska.')
 add('ind_t2', 'Indian Territory', 'unorg', 'us', 1890.34, 1893.71, _it1890, 'Oklahoma Organic Act, 2 May 1890: the Five Tribes and the Cherokee Outlet (approximate)')
 add('ind_t3', 'Indian Territory', 'unorg', 'us', 1893.71, 1906, _it1890.difference(_outlet), 'The Cherokee Outlet opened, 16 Sept. 1893 (approximate)')
 ter('ok_t', 'Oklahoma Territory', 1890.34, 1893.71, _ok.difference(_it1890), 'Oklahoma Organic Act, 2 May 1890 (approximate)')
 ter('ok_t2', 'Oklahoma Territory', 1893.71, 1906, _ok.difference(_it1890.difference(_outlet)), 'With the Cherokee Outlet, 1893 (approximate)')
 add('pls', 'Public Land Strip (No Man’s Land)', 'unorg', 'us', 1850.9, 1890.34, _pan, 'Left outside every state and territory by the Compromise of 1850; joined to Oklahoma Territory, 1890')
+# The nations of the Indian Territory. The removal treaties conveyed these lands to the Cherokee, Creek, Seminole, Choctaw
+# and Chickasaw by patent, with self-government and a promise never to be put in a state or territory without their consent:
+# neither reservations nor American territories. Lines recalled from Royce's cession maps; approximate, the Choctaw–Chickasaw
+# line taken at 96.6°W and the 1866 Creek–Seminole lines at 96.45°–96.78°W.
+def cross(rv, x):
+    """(lat, lon) where a river crosses the meridian x (the northernmost crossing)"""
+    L = river(*rv); c = L.intersection(LineString([(x, 20), (x, 60)]))
+    pts = [c] if c.geom_type == 'Point' else list(getattr(c, 'geoms', []))
+    q = max(pts, key=lambda q: q.y); return (q.y, q.x)
+def nat(fid, name, y0, y1, g, src, **o): add(fid, name, 'nat', 'in', y0, y1, g.intersection(_okm), src, **o)
+_FS, _CM = (35.38, -94.43), (35.45, -95.05)                        # Fort Smith; the mouth of the Canadian
+_CHER = poly(P((37.0, -94.3), (37.0, -96.0), (36.42, -96.0), (36.05, -95.85)), rseg(*ARK, (35.77, -95.33), _FS), P((35.38, -94.3)))
+_OUTL = _okm.intersection(band(36.5, 37.1)).intersection(lon(-100, -96.0))
+_SOUTHC = poly(rseg(*ARK, _FS, _CM), rseg(*CANAD, _CM, cross(CANAD, -100.0)), P((33.0, -100.0), (33.0, -94.3), (35.38, -94.3)))
+_CREEK0 = _okm.difference(_CHER).difference(_OUTL).difference(_SOUTHC)
+_BETW = lambda w, e: poly(rseg(*NCAN, cross(NCAN, e), cross(NCAN, w)), rseg(*CANAD, cross(CANAD, w), cross(CANAD, e))).intersection(lon(w, e))
+_SEM56 = _BETW(-100.0, -96.62); _SEM66 = _BETW(-96.78, -96.45)
+nat('cher', 'Cherokee Nation', 1828.37, 1906, _CHER, 'Treaty of 6 May 1828 with the Western Cherokee; Treaty of New Echota, 1835; patent of 1838', note='Most of the nation came west on the Trail of Tears, 1838–39. Allied with the Confederacy, 1861, then divided.')
+nat('outlet', 'Cherokee Outlet', 1828.37, 1893.71, _OUTL, 'Treaty of 1828: a perpetual outlet west; Cherokee land, little settled', note='The Osage, Kansa, Pawnee, Ponca, Oto and Tonkawa reservations were cut from its eastern end after 1866; opened to settlement 16 Sept. 1893.')
+nat('creek', 'Creek Nation', 1833.12, 1856.6, _CREEK0, 'Treaty of Fort Gibson, 14 Feb. 1833; the Seminole within it from 1845', note='The Creek came west 1828–37, most in the removals of 1836–37.')
+nat('creek2', 'Creek Nation', 1856.6, 1866.5, _CREEK0.difference(_SEM56), 'Seminole separated by the treaty of 7 Aug. 1856', note='Divided in the Civil War between the Confederate treaty and Opothleyahola’s Union loyalists.')
+nat('creek3', 'Creek Nation', 1866.5, 1906, _CREEK0.intersection(east(-96.62)).difference(_SEM66), 'Treaty of 14 June 1866: the western half ceded')
+nat('sem', 'Seminole Nation', 1856.6, 1866.5, _SEM56, 'Treaty of 7 Aug. 1856: between the Canadian and the North Fork, west to 100°W')
+nat('sem2', 'Seminole Nation', 1866.5, 1906, _SEM66, 'Treaty of 21 Mar. 1866: the old lands ceded, a small tract bought from the Creek')
+nat('choc', 'Choctaw Nation', 1831.15, 1855.5, _SOUTHC, 'Treaty of Dancing Rabbit Creek, 1830 (in force Feb. 1831); the Chickasaw a district within it from 1837 (Treaty of Doaksville)', note='Removal 1831–33; the Chickasaw came west 1837–38.')
+nat('choc2', 'Choctaw Nation', 1855.5, 1906, _SOUTHC.intersection(east(-96.6)), 'Treaty of 22 June 1855: the Chickasaw separated and the land west of 98°W leased', note='Allied with the Confederacy, 1861.')
+nat('chick', 'Chickasaw Nation', 1855.5, 1906, _SOUTHC.intersection(lon(-98.0, -96.6)), 'Treaty of 22 June 1855', note='Allied with the Confederacy, 1861.')
+nat('leased', 'Leased District (Choctaw and Chickasaw)', 1855.5, 1866.5, _SOUTHC.intersection(west(-98.0)), 'Treaty of 22 June 1855: leased to the United States to settle the Wichita and other tribes; ceded 1866', note='The Wichita agency was placed here in 1859; the Kiowa–Comanche–Apache, Wichita and Cheyenne–Arapaho reservations were made from it and the Creek and Seminole cessions after 1866.')
 # States, with their dates of admission; the Confederate states are marked from secession to the surrender in the West.
 sta('ky', 'Kentucky', 1792.42, US('Kentucky'), 'Admitted 1 June 1792')
 sta('tn', 'Tennessee', 1796.42, US('Tennessee'), 'Admitted 1 June 1796', csa=(1861.44, 1865.45))
