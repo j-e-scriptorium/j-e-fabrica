@@ -26,7 +26,7 @@ K0024,ogl,Lakota,Oglala,1835,42.2,-104.55,1700,Move to the Platte with Fort Will
 K0025,ogl,Lakota,Oglala,1850,41.8,-102.7,2500,,yes,place+persons,
 K0026,ogl,Lakota,Oglala,1860,42.4,-104.0,3000,,yes,place+persons,
 K0027,ogl,Lakota,Oglala,1866.5,44.3,-106.4,3500,Powder River country (Red Cloud’s war),,place+persons,
-K0028,ogl,Lakota,Oglala,1871.5,42.2,-104.4,4000,Red Cloud agency on the Platte,,place+persons,
+K0028,ogl,Lakota,Oglala,1871.5,42.0,-104.07,4000,"Red Cloud agency on the Platte, near Henry, Nebr. (Hyde, p. 189 n. 1)",,place+persons,
 K0029,ogl,Lakota,Oglala,1873.6,42.68,-103.45,5000,Red Cloud agency on the White River,,place+persons,
 K0030,ogl,Lakota,Oglala,1878.9,43.03,-102.55,6000,Pine Ridge agency,,place+persons,
 K0031,ogl,Lakota,Oglala,1890.98,43.14,-102.36,5000,"Wounded Knee, Dec. 1890",,place+persons,
@@ -410,7 +410,7 @@ K0408,pws,Pawnee,Skiri (Loup Pawnee),1905,36.34,-96.8,250,,yes,place+persons,
 K0409,ari,Arikara,Arikara,1700,44.6,-100.4,12000,Many villages near the Bad River; numbers highly uncertain,,place+persons,
 K0410,ari,Arikara,Arikara,1760,44.9,-100.4,10000,,yes,place+persons,
 K0411,ari,Arikara,Arikara,1781,,,4000,1780–81 smallpox,,persons only,
-K0412,ari,Arikara,Arikara,1795,45.55,-100.45,3000,,yes,place+persons,
+K0412,ari,Arikara,Arikara,1795,44.68,-100.9,2400,"Two villages below the Cheyenne (Truteau, 1794–96)",,place+persons,place overridden by a documented place within a year
 K0413,ari,Arikara,Arikara,1823.6,45.55,-100.45,2500,"Leavenworth’s attack, Aug. 1823",,place+persons,place overridden by a documented place within a year
 K0414,ari,Arikara,Arikara,1830,45.55,-100.45,2200,"Back at the Grand River villages, spring 1824 to 1833 (Parks, Handbook 13, pp. 366–67)",,place+persons,
 K0415,ari,Arikara,Arikara,1834,41.6,-98.3,2000,Living with the Skiri on the Loup,,place+persons,place overridden by a documented place within a year

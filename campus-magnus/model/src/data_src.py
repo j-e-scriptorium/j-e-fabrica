@@ -16,6 +16,10 @@ COCKING=lambda pp: f'Cocking’s journal, 1772–73, in Burpee, ed., “An Adven
 VEREND=lambda pp: f'Burpee, ed., Journals and Letters of Pierre Gaultier de Varennes de la Vérendrye and His Sons (1927), {pp}'
 EWERS2=lambda pp: f'Ewers, The Horse in Blackfoot Indian Culture (BAE Bulletin 159, 1955), {pp}'
 DENIG46=lambda pp: f'Denig, “Indian Tribes of the Upper Missouri” (BAE 46th Annual Report, 1930), {pp}'
+DENIG5=lambda pp: f'Denig, Five Indian Tribes of the Upper Missouri, ed. Ewers (1961), {pp}'
+# observers whom Ewers quotes in his notes to Denig (the family is the observer's, so the name Denig is kept out of the string)
+EWN=lambda who,pp: f'{who}, as given in the editor’s notes to Five Indian Tribes of the Upper Missouri, ed. Ewers (1961), {pp}'
+STAMM=lambda pp: f'Stamm, People of the Wind River: The Eastern Shoshones, 1825–1900 (1999), {pp}'
 JENNESS=lambda pp: f'Jenness, The Sarcee Indians of Alberta (1938), {pp}'
 _TIP=lambda v: (lambda pp: f'Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. {v} (1966; repr. 1995), {pp}')
 TIPV1,TIPV2,TIPV3,TIPV4,TIPV5=(_TIP(v) for v in (1,2,3,4,5))
@@ -185,16 +189,18 @@ OBS = [
  dict(g='kai',y=1789,pop=1000,raw='“Next to them, on the same water, are the Blood Indians… fifty tents, or two hundred and fifty men”',basis='warriors × 4',loc='stated',at=(50.3,-112.3),r=150,src='Mackenzie (1801), quoted in '+HAYDEN,kind='primary'),
  dict(g='sik',y=1789,pop=3200,raw='“From them downwards extend the Blackfeet Indians… their number may be eight hundred men”',basis='warriors × 4',loc='stated',at=(50.9,-111.0),r=150,src='Mackenzie (1801), quoted in '+HAYDEN,kind='primary'),
  dict(g='gv',y=1789,pop=2400,raw='“Next to them, and who extend to the confluence of the South and North Branch, are the Fall or Big-bellied Indians… about six hundred warriors”',basis='warriors × 4',loc='stated',at=(52.4,-107.5),r=200,src='Mackenzie (1801), quoted in '+HAYDEN,kind='primary'),
- # ---- Denig (via Hayden) on the Teton etc., 1833: lodges × 5 (multiplier stated) ----
- dict(g='bru',y=1833,pop=2500,raw='Brulés, 500 lodges (avg. five souls per lodge)',basis='lodges × 5 (stated)',loc='inferred',at=P['whiteR'],r=150,src=HAYDEN+' (Denig’s count)',kind='primary'),
- dict(g='ogl',y=1833,pop=1500,raw='Oglalas, 300 lodges',basis='lodges × 5 (stated)',loc='inferred',at=(44.2,-101.8),r=150,src=HAYDEN+' (Denig’s count)',kind='primary'),
- dict(g='min',y=1833,pop=1300,raw='Minneconjou, 260 lodges',basis='lodges × 5 (stated)',loc='inferred',at=(44.7,-101.6),r=150,src=HAYDEN+' (Denig’s count)',kind='primary'),
- dict(g='sih',y=1833,pop=1100,raw='Sihasapa (Blackfeet Dakota), 220 lodges',basis='lodges × 5 (stated)',loc='inferred',at=(45.5,-101.3),r=150,src=HAYDEN+' (Denig’s count)',kind='primary'),
- dict(g='twk',y=1833,pop=500,raw='Two Kettles, 100 lodges',basis='lodges × 5 (stated)',loc='inferred',at=(44.5,-100.6),r=150,src=HAYDEN+' (Denig’s count)',kind='primary'),
- dict(g='hnk',y=1833,pop=750,raw='Hunkpapas, 150 lodges',basis='lodges × 5 (stated)',loc='inferred',at=(45.9,-101.0),r=150,src=HAYDEN+' (Denig’s count)',kind='primary'),
- dict(g='sna',y=1833,pop=500,raw='Sans Arcs, 100 lodges',basis='lodges × 5 (stated)',loc='inferred',at=(45.1,-102.2),r=150,src=HAYDEN+' (Denig’s count)',kind='primary'),
- dict(g='ynk',y=1833,pop=1500,raw='Lower Yanktons, 300 lodges',basis='lodges × 5 (stated)',loc='inferred',at=(43.4,-97.5),r=150,src=HAYDEN+' (Denig’s count)',kind='primary'),
- dict(g='yku',y=1833,pop=1250,raw='Pabaksa (Cut-Heads), 250 lodges',basis='lodges × 5 (stated)',loc='inferred',at=(46.6,-98.7),r=150,src=HAYDEN+' (Denig’s count)',kind='primary'),
+ # ---- Denig, Five Indian Tribes (Ewers ed.), pp. 14–15: “In the year 1833 that part of the Sioux nation residing on the Missouri … were divided as follows”;
+ #      “These 2360 lodges, averaging 5 souls to a lodge, would make a total of 11,800 souls.” Denig traded with the Teton from Fort Pierre in 1833–36
+ #      (Ewers, p. 14 n. 15). The places are the ranges he gives on pp. 16–36 (“continued with but little deviation to the present time”); centres ours.
+ dict(g='bru',y=1833,pop=2500,raw='Brulés, 500 lodges (avg. five souls per lodge)',basis='lodges × 5 (stated)',loc='stated',at=(43.2,-101.8),r=180,src=DENIG5('p. 14; range p. 16: “the headwaters of the White River and L’eau qui Court”; also given by Hayden (1862)'),kind='primary'),
+ dict(g='ogl',y=1833,pop=1500,raw='Oglalas, 300 lodges',basis='lodges × 5 (stated)',loc='stated',at=(43.7,-103.0),r=220,src=DENIG5('p. 14; range p. 19: “from Fort Laramie on the Platte, extending northeast, including the Black Hills, the heads of Teton River”; also given by Hayden (1862)'),kind='primary'),
+ dict(g='min',y=1833,pop=1300,raw='Minneconjou, 260 lodges',basis='lodges × 5 (stated)',loc='stated',at=(45.1,-101.9),r=120,src=DENIG5('p. 14; range p. 22: “from Cherry River on the Cheyenne to the Butte de Mince on Grand River”; also given by Hayden (1862)'),kind='primary'),
+ dict(g='sih',y=1833,pop=1100,raw='Sihasapa (Blackfeet Dakota), 220 lodges',basis='lodges × 5 (stated)',loc='stated',at=(46.0,-101.3),r=150,src=DENIG5('p. 14; range p. 25 (with the Hunkpapa and Sans Arc): “along the Moreau, Cannon Ball, Heart and Grand Rivers”; also given by Hayden (1862)'),kind='primary'),
+ dict(g='twk',y=1833,pop=500,raw='Two Kettles, 100 lodges',basis='lodges × 5 (stated)',loc='stated',at=(44.9,-100.9),r=110,src=DENIG5('p. 15; range p. 28: “the Cheyenne and Moreau Rivers, seldom going higher up on the former river than the mouth of Cherry Creek”; also given by Hayden (1862)'),kind='primary'),
+ dict(g='hnk',y=1833,pop=750,raw='Hunkpapas, 150 lodges',basis='lodges × 5 (stated)',loc='stated',at=(46.0,-101.3),r=150,src=DENIG5('p. 15; range p. 25: “along the Moreau, Cannon Ball, Heart and Grand Rivers”; also given by Hayden (1862)'),kind='primary'),
+ dict(g='sna',y=1833,pop=500,raw='Sans Arcs, 100 lodges',basis='lodges × 5 (stated)',loc='stated',at=(46.0,-101.3),r=150,src=DENIG5('p. 15; range p. 25 (with the Hunkpapa and Blackfeet Sioux); also given by Hayden (1862)'),kind='primary'),
+ dict(g='ynk',y=1833,pop=1500,raw='Lower Yanktons, 300 lodges',basis='lodges × 5 (stated)',loc='stated',at=(43.5,-99.0),r=150,src=DENIG5('p. 15; range p. 36: between the Vermilion and Fort Pierre, “but oftener situated on the west side of the Missouri between L’eau qui Court and White River”; also given by Hayden (1862)'),kind='primary'),
+ dict(g='yku',y=1833,pop=1250,raw='Pabaksa (Cut-Heads), 250 lodges',basis='lodges × 5 (stated)',loc='stated',at=(46.5,-99.6),r=200,src=DENIG5('p. 15; range p. 30: “from Apple River down to the mouth of the Little Cheyenne, north to the neighborhood of Lac du Diable”; also given by Hayden (1862)'),kind='primary'),
  # ---- Hodge on Teton divisions ----
  dict(g='min',y=1850,pop=2150,raw='Culbertson: 270 lodges, “between 2,100 and 2,200 people”; roamed the Black Hills & headwaters of the Cheyenne, Cherry Cr. to Grand R.',basis='souls',loc='stated',at=(44.8,-102.5),r=150,src=HODGE+', “Miniconjou”',kind='primary'),
  dict(g='min',y=1856,pop=1600,raw='Warren: 200 lodges and 1,600 souls',basis='souls',loc='inferred',at=(44.8,-102.5),r=150,src=HODGE+', “Miniconjou”',kind='primary'),
@@ -218,12 +224,12 @@ OBS = [
  dict(g='asn',y=1854,pop=1240,raw='Northern Assiniboine, “250 or 300 lodges,” from the W. banks of the Saskatchewan, Assiniboine & Red rivers west to the Woody Mountains',basis='lodges × 4.5',loc='stated',at=(50.5,-105.5),r=250,src=DENIG46('p. 396'),kind='primary'),
  dict(g=['ass','asn'],y=1890,pop=3008,raw='“In 1890 they numbered 3,008”',basis='souls',loc='inferred',at=(49.0,-105.5),r=300,src=HODGE+', “Assiniboin”',kind='primary'),
  dict(g=['ass','asn'],y=1904,pop=2600,raw='“in 1904, 2,600” (US: 699 at Ft Belknap, 535 at Ft Peck)',basis='souls',loc='inferred',at=(49.0,-105.5),r=300,src=HODGE+', “Assiniboin”',kind='primary'),
- # ---- Cree, 1856 (Denig via Hayden): lodges × 4 (stated) ----
- dict(g=['cre','crw','crs'],y=1856,pop=4200,raw='“About ten or eleven hundred lodges, averaging four souls to a lodge”',basis='lodges × 4 (stated)',loc='inferred',at=(51.0,-106.0),r=350,src=HAYDEN+' (Denig)',kind='primary'),
- dict(g='cre',y=1856,pop=400,raw='Co-kah (“Eyes Open”) band, 100 lodges and upwards, near Lac Qu’Appelle',basis='lodges × 4 (stated)',loc='stated',at=P['quappelle'],r=50,src=HAYDEN+' (Denig)',kind='primary',part=True,whole=False),
- dict(g='crw',y=1856,pop=540,raw='Four small bands, 130–140 lodges, about Fort de Prairie',basis='lodges × 4 (stated)',loc='stated',at=(53.4,-113.0),r=100,src=HAYDEN+' (Denig)',kind='primary'),
- dict(g='crs',y=1856,pop=1200,raw='Le Sonnant’s band, about 300 lodges, along the Montagnes des Bois (Wood Mountain)',basis='lodges × 4 (stated)',loc='stated',at=P['wood_mt'],r=80,src=HAYDEN+' (Denig)',kind='primary',part=True),
- dict(g='crs',y=1856,pop=1400,raw='La Lance’s band, 350 lodges, in the Cypress and Prickly Pear mountains',basis='lodges × 4 (stated)',loc='stated',at=P['cypress'],r=100,src=HAYDEN+' (Denig)',kind='primary',part=True),
+ # ---- Cree, 1855 (Denig, Five Indian Tribes, pp. 109–11: “At the present date, 1855”; also given by Hayden): lodges × 4 (stated) ----
+ dict(g=['cre','crw','crs'],y=1855,pop=3400,raw='“About ten or eleven hundred lodges, averaging four souls to a lodge”; about 200 of them are Woodland Cree at Lac de l’Isle Croix (Île-à-la-Crosse), p. 111, so the Plains Cree are taken as about 850 lodges (the subtraction is ours)',basis='lodges × 4 (stated)',loc='inferred',at=(51.0,-106.0),r=350,src=DENIG5('pp. 109–11; also given by Hayden (1862)'),kind='primary'),
+ dict(g='cre',y=1855,pop=400,raw='Co-kah (“Eyes Open”) band, 100 lodges and upwards, near Lac Qu’Appelle',basis='lodges × 4 (stated)',loc='stated',at=P['quappelle'],r=50,src=DENIG5('pp. 109–11; also given by Hayden (1862)'),kind='primary',part=True,whole=False),
+ dict(g='crw',y=1855,pop=540,raw='Four small bands, 130–140 lodges, about Fort de Prairie',basis='lodges × 4 (stated)',loc='stated',at=(53.4,-113.0),r=100,src=DENIG5('pp. 109–11; also given by Hayden (1862)'),kind='primary'),
+ dict(g='crs',y=1855,pop=1200,raw='Le Sonnant’s band, about 300 lodges, along the Montagnes des Bois (Wood Mountain)',basis='lodges × 4 (stated)',loc='stated',at=P['wood_mt'],r=80,src=DENIG5('pp. 109–11; also given by Hayden (1862)'),kind='primary',part=True),
+ dict(g='crs',y=1855,pop=1400,raw='La Lance’s band, 350 lodges, in the Cypress and Prickly Pear mountains',basis='lodges × 4 (stated)',loc='stated',at=P['cypress'],r=100,src=DENIG5('pp. 109–11; also given by Hayden (1862)'),kind='primary',part=True),
  # ---- Blackfoot ----
  dict(g='kai',y=1853,pop=2450,raw='Bloods, 350 lodges, 2,450 persons, 875 warriors',basis='souls',loc='inferred',at=(49.6,-112.8),r=150,src='Doty in Stevens, Pacific Railroad Reports vol. 1, as given by '+HAYDEN,kind='primary'),
  dict(g='sik',y=1853,pop=1750,raw='Blackfeet, 250 lodges, 1,750 persons',basis='souls',loc='inferred',at=(50.8,-112.5),r=150,src='Doty in Stevens, Pacific Railroad Reports vol. 1, as given by '+HAYDEN,kind='primary'),
@@ -244,9 +250,9 @@ OBS = [
  dict(g='chs',y=1904,pop=1903,raw='Southern Cheyenne, 1,903 in 1904',basis='souls',loc='inferred',at=P['darlington'],r=60,src=HODGE+', “Cheyenne”',kind='primary'),
  dict(g='chn',y=1904,pop=1409,raw='Northern Cheyenne, 1,409 in 1904',basis='souls',loc='inferred',at=P['lame_deer'],r=40,src=HODGE+', “Cheyenne”',kind='primary'),
  # ---- Crow ----
- dict(g=['cwm','cwr'],y=1855,pop=3220,raw='“Formerly numbered about eight hundred lodges… now reduced to four hundred and sixty lodges”',basis='lodges × 7 (assumed)',loc='inferred',at=(45.3,-107.8),r=250,src=HAYDEN+' (Denig)',kind='primary'),
- dict(g='cwm',y=1855,pop=1400,raw='Two-face’s band, “about two hundred lodges,” range through the Wind River mountain region',basis='lodges × 7 (assumed)',loc='stated',at=(43.3,-108.9),r=120,src=HAYDEN+' (Denig)',kind='primary',part=True),
- dict(g='cwr',y=1855,pop=None,raw='Bear’s Head’s band wanders the Yellowstone valley, sometimes wintering with the Assiniboine near Fort Union',basis='',loc='stated',at=(47.0,-106.0),r=200,src=HAYDEN+' (Denig)',kind='primary'),
+ dict(g=['cwm','cwr'],y=1856.0,pop=3220,raw='“They were formerly about 800 lodges or families, but from the usual causes of diminution, sickness, and war, are now reduced to 460 lodges” (p. 142); “about 460 lodges at the present date, 1856” (p. 170). Denig gives 8 to a lodge for 1833 (p. 169); 7 is ours',basis='lodges × 7 (assumed)',loc='inferred',at=(45.3,-107.8),r=250,src=DENIG5('pp. 142, 170; also given by Hayden (1862)'),kind='primary'),
+ dict(g='cwm',y=1855,pop=1400,raw='Two-face’s band, “the largest band of the Crows, consisting of about 200 lodges. These generally move about through Wind River Mountains” (one band)',basis='lodges × 7 (assumed)',loc='stated',at=(43.3,-108.9),r=120,src=DENIG5('p. 143; also given by Hayden (1862)'),kind='primary',part=True,whole=False),
+ dict(g='cwr',y=1855,pop=None,raw='Bear’s Head’s band “travels along the Yellowstone from the mouth to its head, sometimes passing the winter with the Assiniboines and trading at Fort Union” (taken as the River Crow)',basis='',loc='stated',at=(47.0,-106.0),r=200,src=DENIG5('p. 143; also given by Hayden (1862)'),kind='primary'),
  dict(g='cwm',y=1871,pop=2700,raw='“The Mountain Crows numbered 2,700 in 1871” (Pease)',basis='souls',loc='inferred',at=(45.68,-110.37),r=60,src=HODGE+', “Crows”',kind='primary'),
  dict(g='cwr',y=1871,pop=1400,raw='“…and the River Crows 1,400” (Pease)',basis='souls',loc='inferred',at=(48.3,-108.0),r=120,src=HODGE+', “Crows”',kind='primary'),
  # ---- Village tribes ----
@@ -292,7 +298,7 @@ GUESS = {
         g(1878.9,P['rosebud'],5000,'Rosebud agency'),g(1890,P['rosebud'],5400,''),g(1905,P['rosebud'],5200,'')],
  'ogl':[g(1785,(44.35,-100.88),1012,'Distinct from the Brulé by 1785 (Bray, “Teton Sioux Population History”, pp. 173, 177–78)'),g(1805,None,1200,'Clark’s 360–600 judged an undercount'),g(1825.5,P['badR_mouth'],1500,'Treaty at the Bad River, 1825'),
         g(1835,P['laramie'],1700,'Move to the Platte with Fort William trade'),g(1850,(41.8,-102.7),2500,''),g(1860,(42.4,-104.0),3000,''),
-        g(1866.5,(44.3,-106.4),3500,'Powder River country (Red Cloud’s war)'),g(1871.5,(42.2,-104.4),4000,'Red Cloud agency on the Platte'),
+        g(1866.5,(44.3,-106.4),3500,'Powder River country (Red Cloud’s war)'),g(1871.5,(42.0,-104.07),4000,'Red Cloud agency on the Platte, near Henry, Nebr. (Hyde, p. 189 n. 1)'),
         g(1873.6,(42.68,-103.45),5000,'Red Cloud agency on the White River'),g(1878.9,P['pine_ridge'],6000,'Pine Ridge agency'),g(1890.98,(43.14,-102.36),5000,'Wounded Knee, Dec. 1890'),g(1905,P['pine_ridge'],6600,'')],
  'min':[g(1785,(44.92,-100.01),1081,'Emerging by 1785 (Bray, “Teton Sioux Population History”, pp. 173, 177–78)'),g(1805,None,1200,'Clark’s undeducted figure'),
         g(1820,(44.9,-101.6),1500,''),g(1870,P['chyR_agency'],1700,'Cheyenne River agency'),g(1876.47,P['lbh'],1500,'Little Bighorn camp, June 1876'),
@@ -418,7 +424,7 @@ GUESS = {
  'pws':[g(1700,P['skidi_loup'],4000,''),g(1780,P['loup_vil'],4000,''),g(1782,None,3000,''),g(1805,None,1600,''),g(1838,None,2500,''),
         g(1849.5,None,1800,''),g(1859.5,P['genoa'],1200,''),g(1875.5,P['pawnee_ok'],800,''),g(1905,P['pawnee_ok'],250,'')],
  'ari':[g(1700,(44.6,-100.4),12000,'Many villages near the Bad River; numbers highly uncertain'),g(1760,(44.9,-100.4),10000,''),g(1781,None,4000,'1780–81 smallpox'),
-        g(1795,P['arikara_1804'],3000,''),g(1823.6,P['arikara_1804'],2500,'Leavenworth’s attack, Aug. 1823'),g(1830,P['arikara_1804'],2200,'Back at the Grand River villages, spring 1824 to 1833 (Parks, Handbook 13, pp. 366–67)'),
+        g(1795,(44.68,-100.9),2400,'Two villages below the Cheyenne (Truteau, 1794–96)'),g(1823.6,P['arikara_1804'],2500,'Leavenworth’s attack, Aug. 1823'),g(1830,P['arikara_1804'],2200,'Back at the Grand River villages, spring 1824 to 1833 (Parks, Handbook 13, pp. 366–67)'),
         g(1834,P['skidi_loup'],2000,'Living with the Skiri on the Loup'),g(1838,P['ft_clark'],1500,'Reoccupy the Mandan village'),g(1849.5,None,1300,''),
         g(1862.5,P['like_fishhook'],1500,'Like-a-Fishhook village')],
  # ---------------- Dhegiha & Chiwere ----------------
@@ -755,19 +761,19 @@ EPI = [
     **{g:.68 for g in ['man','hid','ari']}, 'cwm':.43,'cwr':.43,
     **{g:.2 for g in LAKOTA+['ynk','yku','ykl','chy','ara','kio','kap']}, 'cyp':.6, **{g:.05 for g in ['cyj','cyy','cyk']},
     **{g:.3 for g in ['pwc','pwk','pws','wic','jic']}, 'lip':.15, **{g:.15 for g in ['sis','wpt']},
-    **{g:.2 for g in ['oma','pon','oto','mis','kaw','osg','osl','iow']}, **{g:.1 for g in ['mde','wpk']}},
+    **{g:.2 for g in ['oma','pon','oto','mis','kaw','osg','osl','iow']}, **{g:.1 for g in ['mde','wpk']}, 'ojb':.5},
    'Binnema, Common and Contested Ground (2001), pp. 120–27: on the northwestern plains “the disease probably killed about two-thirds of all” the Indians, “at least a third of almost every band”; Young Man’s camp lost “about one third”, other camps whole tents; no group escaped. '+'Fenn, Pox Americana (2001), ch. 6 and epilogue, read in full. North: the traders put losses at 50–98%; Oman, counting the tents left, “about three fifths had perished”; Umfreville, “at least one half” of the plains Indians. Missouri villages: Lehmer’s overall 68% for the Mandan, Hidatsa and Arikara. Crow: Larocque’s 2,000 lodges before the smallpox against 2,400 people in 1805 (after 1801–02 as well); Fenn’s minimum is 21.5%. Sioux: Fenn’s minimum assumes a third infected at the 43% case-fatality rate (about 14%), lower than among the villages because nomads were less exposed and some were immune from 1734–35. Eastern Comanche: Vial and Chaves (1785) report two-thirds dead, which Fenn thinks may be too high. Lipan: “more than four hundred” dead (Cabello, Dec. 1780)','sourced for the north (60%: Oman’s count of the tents left, three-fifths dead, between the traders’ “at least one half” and Binnema’s “about two-thirds of all northwestern plains Indians”), the Missouri villages (68%), the Lipan (15%, of about 2,900) and the eastern Comanche (60%); Crow at 43% (above Fenn’s minimum, as Larocque implies); the Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache at 20%, just above Fenn’s minimum for the Sioux; the western Comanche at 5%: the epidemic “failed to spread among the nearby western Comanches, who had shunned the province after Anza’s shock victory over Cuerno Verde” (Hämäläinen, p. 111), and they were still 16,000–18,000 in the mid-1780s (p. 102); the Assiniboine at 40%: “between one-third and one-half” (Handbook 13, p. 574), Denig’s tradition about 300 of some 1,500 lodges (BAE 46, p. 399); the rest assumed'),
  (1801.3,1802.3,'Smallpox, 1801–02',
    {'oma':.6,'pon':.6,**{g:.45 for g in ['oto','mis','pwc','pwk','pws','ari','wic']},'kaw':.3,
-    **{g:.25 for g in LAKOTA+['ynk','yku','ykl','man','hid']}, **{g:.2 for g in ['cyy','cyk','cyp','kio','kap','lip','osg','osl','osa','chy','ara','cwm','cwr']}},
-   'Clark 1806 (Omaha from 700 warriors to “something less than 300”); Morse via Mooney (“prairie tribes… lost more than half,” Wichita and Caddo almost as severely)','sourced for the Omaha; scaled for the rest'),
+    **{g:.25 for g in LAKOTA+['ynk','yku','ykl','man','hid']}, **{g:.2 for g in ['cyy','cyk','cyp','kio','kap','lip','chy','ara','cwm','cwr','sho']}, **{g:.3 for g in ['osg','osl','osa']}, 'iow':.2, 'ass':.1},
+   'Clark 1806 (Omaha from 700 warriors to “something less than 300”); Morse via Mooney (“prairie tribes… lost more than half,” Wichita and Caddo almost as severely); for the Shoshone, Stamm, People of the Wind River: The Eastern Shoshones, 1825–1900 (1999), p. 7: “A smallpox epidemic in 1781 and another in 1800 further reduced Shoshonean tribal populations”; for the Osage, Iowa and Missouri Assiniboine, Robertson, Rotting Face (2001), pp. 194–96 (the Osage lost “at least half the tribe, better than 2,000 people by some estimates”, after Rollings; the rate is held below that against Clark’s counts of 1805)','sourced for the Omaha; scaled for the rest'),
  (1815.9,1816.7,'Smallpox, 1815–16',
    {'cyy':.4,'cyk':.4,'cyp':.4,'kio':.4,'kap':.4,'wic':.2,'lip':.2,'jic':.1},
    'Chihuahua via Jameson (about 4,000 Comanche dead; Thornton: of about 10,000); Mooney (the Kiowa suffered “in proportion”)','sourced for the Comanche; scaled for the Kiowa'),
  (1837.45,1838.0,'Smallpox, 1837–38 (Missouri)',
-   {'man':.93,'hid':.5,'ari':.5,'ass':.6,'asn':.25,'sik':.67,'kai':.67,'pik':.67,'gv':.05,'cwm':.33,'cwr':.33,'pwc':.25,'pwk':.25,'pws':.25,
+   {'man':.93,'hid':.5,'ari':.5,'ass':.6,'asn':.25,'sik':.67,'kai':.67,'pik':.67,'gv':.05,'cwm':.1,'cwr':.1,
     **{g:.02 for g in LAKOTA},'hnk':.05,'sih':.05,**{g:.1 for g in ['ynk','cre','crw','crs','ojb']},'yku':.15,'ykl':.15},
-   'Chardon & Pilcher (Mandan 7/8 or more); Denig (Assiniboine 1,000→400 lodges; HBC-vaccinated bands spared); Bradley (Blackfoot ≥6,000, two-thirds); Calloway (Arikara ½, Crow ⅓, Pawnee ¼); Fowler and Flannery, “Gros Ventre”, Handbook 13 (2001), p. 678 (the Gros Ventre “escaped the smallpox epidemic of 1837 with only 200 deaths”); DeMallie, “Sioux Until 1850”, Handbook 13 (2001), p. 734, after Denig (“a heavy toll on the population of the Hunkpapa and other Sioux along the Missouri”); Bray, “Teton Sioux Population History, 1655–1881”, Nebraska History 75 (1994), p. 178: the Tetons, vaccinated in 1832, “went relatively unscathed”, losses “restricted to the two northernmost divisions (Sihasapa and Hunkpapa) and even there probably numbered in scores rather than hundreds”; “four hundred Yanktonais are said to have died” (n. 42)','sourced, except the Cree and Gros Ventre figures (assumed); the Teton rates follow Bray against Denig'),
+   'Chardon & Pilcher (Mandan 7/8 or more); Denig (Assiniboine 1,000→400 lodges; HBC-vaccinated bands spared); Bradley (Blackfoot ≥6,000, two-thirds); Calloway (Arikara ½; the Pawnee quarter, which came in the spring of 1838, is a separate event below); for the Crow, Ewers in Denig, Five Indian Tribes of the Upper Missouri, ed. Ewers (1961), p. 170 n. 29, after Chardon: “the Crows suffered little loss during the severe smallpox epidemic” of 1837 (Calloway’s third set aside); Fowler and Flannery, “Gros Ventre”, Handbook 13 (2001), p. 678 (the Gros Ventre “escaped the smallpox epidemic of 1837 with only 200 deaths”); DeMallie, “Sioux Until 1850”, Handbook 13 (2001), p. 734, after Denig (“a heavy toll on the population of the Hunkpapa and other Sioux along the Missouri”); Bray, “Teton Sioux Population History, 1655–1881”, Nebraska History 75 (1994), p. 178: the Tetons, vaccinated in 1832, “went relatively unscathed”, losses “restricted to the two northernmost divisions (Sihasapa and Hunkpapa) and even there probably numbered in scores rather than hundreds”; “four hundred Yanktonais are said to have died” (n. 42)','sourced, except the Cree and Gros Ventre figures (assumed); the Teton rates follow Bray against Denig'),
  (1839.8,1840.4,'Smallpox, 1839–40 (southern plains)',
    {'kio':.25,'kap':.25,**{g:.2 for g in COM},'chs':.15,'ars':.15,'wic':.15,'osg':.1,'osl':.1},
    'Mooney (Kiowa calendar, winter 1839–40; “destroying probably a third”)','assumed below Mooney’s plains-wide third'),
@@ -784,8 +790,8 @@ EPI = [
    {'sik':.05,'kai':.05,'pik':.05},
    'Grinnell, Blackfoot Lodge Tales (1892), “The Blackfeet of To-day”: “measles ran through all the Blackfoot camps, and was very fatal”','event sourced; fractions assumed'),
  (1869.7,1870.3,'Smallpox, 1869–70',
-   {'sik':.3,'kai':.3,'pik':.3,'gv':.25,'asn':.1,'cre':.15,'crw':.15,'crs':.15},
-   'Grinnell, Blackfoot Lodge Tales (1892), “The Blackfeet of To-day” (“again in 1869 they had the small-pox”); fractions recalled from general histories of the northern plains','event sourced; fractions assumed'),
+   {'sik':.3,'kai':.3,'pik':.3,'gv':.35,'asn':.1,'cre':.03,'crw':.15,'crs':.15},
+   'Grinnell, Blackfoot Lodge Tales (1892), “The Blackfeet of To-day” (“again in 1869 they had the small-pox”); Hoxie, Parading through History (1995), p. 100: the Gros Ventre “dropped from 2,000 to 1,300” in weeks (agent’s report, 1870); Ray, Indians in the Fur Trade (1974), p. 192: no case among the Qu’Appelle and Touchwood Hills Indians; the other fractions recalled from general histories of the northern plains','sourced for the Gros Ventre and the Qu’Appelle Cree; assumed for the rest'),
  (1883.8,1884.4,'Starvation winter, 1883–84',
    {'pik':.27},'Grinnell, Blackfoot Lodge Tales (1892), “The Blackfeet of To-day”: “more than a quarter of the Piegan tribe… which then numbered about twenty-five or twenty-six hundred, died from starvation”; 400–500 recorded burials at the agency alone','sourced'),
 ]
@@ -1131,7 +1137,7 @@ OBS += [
 OBS += [
  pl('arn',1869.0,'“In 1868–69, the Arapaho briefly sought to locate with… the Gros Ventres at the agency on the Milk River in Montana, but left after a smallpox epidemic”',P['milk_mid'],80,WP('Northern Arapaho')),
  pl('arn',1870.4,'“The Arapaho briefly stayed in the Wind River valley in 1870, but left after miners and Shoshones attacked… as they moved lodges”',(43.0,-108.6),50,WP('Northern Arapaho')),
- pl('arn',1878.9,'“In the winter of 1878–79, the United States Army escorted the Northern Arapaho to the Sweetwater Valley near Independence Rock”',(42.49,-107.13),25,WP('Northern Arapaho')),
+ pl('arn',1877.95,'Winter 1877–78: on the way from Red Cloud Agency (left 31 Oct. 1877; Fort Fetterman 13 Nov.) the Arapaho “eventually settled in for the winter fifty miles west of Fort Caspar, but within reach of a buffalo herd” (the Sweetwater valley near Independence Rock; Wikipedia, “Northern Arapaho”, dates the escort to the winter of 1878–79)',(42.65,-107.2),30,STAMM('pp. 129–30 (Lemly to the Adjutant General, 29 Nov. 1877; Patten to Hayt, 17 Jan. 1878)')),
 ]
 
 # =============================================================================================
@@ -1196,7 +1202,7 @@ OBS += [
  *pls(['chs','ars'],1834.0,'Bent’s Fort, built in 1833 “to trade with Southern Cheyenne and Arapaho”',(38.04,-103.43),60,WP('Bent’s Old Fort National Historic Site')),
  # ---- Maximilian, 1833–34
  pl('yku',1833.46,'June 1833, between the Heart River and Fort Clark: a party from “a camp of the Yanktonans, consisting of 300 tents, which was in the neighbourhood; they generally lived on the banks of the Chayenne… near the Devil’s Lake”',(47.0,-100.9),40,MAX+', vol. 22, p. 315'),
- pl('cwm',1833.47,'Fort Clark, June 1833: “seventy leather tents of the Crows” of Eripuass (Rotten Belly), whose nation “consisting of 400 tents” was on the Missouri to trade (a trading visit, kept off the division track)',P['ft_clark'],150,MAX+', vol. 22, pp. 323–28',seasonal=True),
+ pl('cwr',1833.47,'Fort Clark, June 1833: “seventy leather tents of the Crows” of Eripuass (Rotten Belly, head chief of the River Crow: Hoxie, pp. 56, 62, 64; Ewers in Denig, Five Indian Tribes, p. 194 n. 40), whose nation “consisting of 400 tents” was on the Missouri to trade (a trading visit, kept off the division track)',P['ft_clark'],150,MAX+', vol. 22, pp. 323–28',seasonal=True),
  pl('gv',1833.6,'Aug. 1833: the Gros Ventres des Prairies meet the keelboat on the Missouri just above the Judith; later they camp about Fort McKenzie',(47.75,-109.9),40,MAX+', vol. 23, pp. 49–58, 131–33'),
  pl('pik',1833.6,'Fort McKenzie, July–Sept. 1833: “150 tents of the Piekanns” at the fort, the rest on the Marias; on 30 Aug. “the great Indian camp, consisting of about 400 tents”',(47.83,-110.6),20,MAX+', vol. 23, pp. 34, 82, 121'),
  pl('sik',1833.62,'Aug. 1833: “a numerous body of Blackfeet of 250 tents, which he had left on the Muscleshell River” (which Blackfoot division is not said; kept off the Siksika track)',(46.9,-108.6),120,MAX+', vol. 23, p. 109',whole=False),
@@ -1527,8 +1533,8 @@ OBS += [
  pl('osg',1821.5,'1821: Presbyterian missionaries arrive at Harmony Mission, near the Grand Osage village on the Marais des Cygnes (site recalled)',(38.1,-94.25),15,HBSW('p. 275')),
 ]
 EPI += [
- (1819.8,1820.4,'Measles, 1819–20 (north)',{'pik':.33,'kai':.33},
-   HBBR('p. 309')+' (“about one-third of the Piegan and Blood population had been lost to measles in 1819–1820”, after Milloy)','sourced for the Piegan and Blood'),
+ (1819.8,1820.4,'Measles and whooping cough, 1819–20 (north)',{'pik':.33,'kai':.33,'ass':.3,'asn':.3,'cre':.25,'crw':.25,'crs':.25},
+   HBBR('p. 309')+' (“about one-third of the Piegan and Blood population had been lost to measles in 1819–1820”, after Milloy); Ray, Indians in the Fur Trade (1974), pp. 106–10: the Brandon Assiniboine from about 5,000 to 2,600, the Carlton Assiniboine from 3,300 to 1,400, the Plains Cree “between 2000 and 2700 prior to the measles epidemic of 1819 and about 1600 shortly thereafter”','sourced for the Piegan and Blood; scaled below Ray’s figures for the Assiniboine and Cree, part of whose fall comes from his ratio of persons to a lodge dropping from 11 to 7'),
 ]
 HBTA=lambda pp: HBC('Three Affiliated Tribes','Schneider',pp)
 OBS += [
@@ -2681,7 +2687,7 @@ OBS += [
  dict(g='ars',y=1873,pop=1650,raw='Arapahoes 1,650 (Upper Arkansas agency)',basis='census',loc='inferred',at=(35.58, -98.07),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1873, population table, p. 336 (read from the page images of the 1873–83 tables, pdf 5)',kind='primary'),
  dict(g='chs',y=1873,pop=2200,raw='Cheyennes 2,200 (Upper Arkansas agency)',basis='census',loc='inferred',at=(35.27, -100.78),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1873, population table, p. 336 (read from the page images of the 1873–83 tables, pdf 5)',kind='primary'),
  dict(g='cwm',y=1873,pop=3000,raw='Mountain Crows 3,000 (Crow agency)',basis='census',loc='inferred',at=(45.17, -109.15),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1873, population table, p. 338 (read from the page images of the 1873–83 tables, pdf 7)',kind='primary'),
- dict(g='cwr',y=1873,pop=2440,raw='River Crows 1,200 (Crow agency); River Crows 1,240 (Fort Belknap special agency. (a))',basis='census',loc='inferred',at=(47.04, -109.32),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1873, population table, p. 338, p. 340 (read from the page images of the 1873–83 tables, pdf 7, 9)',kind='primary'),
+ dict(g='cwr',y=1873,whole=False,pop=2440,raw='River Crows 1,200 (Crow agency); River Crows 1,240 (Fort Belknap special agency. (a)); probably the same people counted twice, since they wintered at the Crow agency and summered north of the Yellowstone (Hoxie, Parading through History, p. 100)',basis='census',loc='inferred',at=(47.04, -109.32),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1873, population table, p. 338, p. 340 (read from the page images of the 1873–83 tables, pdf 7, 9)',kind='primary'),
  dict(g=['cyy', 'cyk', 'cyp', 'cyn', 'cyq'],y=1873,pop=2543,raw='Penetethka Comanches 345 (Wichita agency); Comanches 2,198 (Kiowa agency)',basis='census',loc='inferred',at=(35.58, -99.17),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1873, population table, p. 334 (read from the page images of the 1873–83 tables, pdf 3)',kind='primary'),
  dict(g='gv',y=1873,pop=1100,raw='Gros Ventres 1,100 (Fort Belknap special agency. (a))',basis='census',loc='inferred',at=(48.45, -108.67),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1873, population table, p. 340 (read from the page images of the 1873–83 tables, pdf 9)',kind='primary'),
  dict(g='hid',y=1873,pop=528,raw='Gros Ventres 528 (Fort Berthold agency)',basis='census',loc='inferred',at=(47.58, -101.85),r=60,src='Annual Report of the Commissioner of Indian Affairs, 1873, population table, p. 338 (read from the page images of the 1873–83 tables, pdf 7)',kind='primary'),
@@ -3443,6 +3449,327 @@ EPI += [
  (1801.4,1801.9,'Smallpox and Cree–Assiniboine attacks, 1801 (Gros Ventre)',{'gv':.07},
   BINN('p. 189: the smallpox, caught from their Arapaho kin, carried off “at least a hundred of their young people”, and Cree and Assiniboine attacks killed fourteen men and sixty women and children; p. 180: the epidemic of 1801 spared the Blackfoot, Cree and Assiniboine'),
   'sourced: about 175 dead of about 2,400'),
+]
+
+# ---- Denig, Five Indian Tribes of the Upper Missouri (written at Fort Union, 1855–56), ed. Ewers (1961), read in full. Denig's own
+# figures cite DENIG5; figures that Ewers quotes from other observers in his notes cite EWN with the observer named. Denig's
+# “present” is 1855 for the Sioux, Assiniboine and Cree and 1856 for the Crow; he gives four persons to a lodge for 1855 (p. 15).
+SFP=(44.38,-100.38)   # Fort Pierre
+SARPY=(46.27,-107.3)  # Fort Sarpy (I), 1850–55, on the Yellowstone below the Bighorn
+OBS += [
+ # Sioux: the rest of the 1833 table (p. 15)
+ dict(g='yku',y=1833,pop=500,raw='“Wahzecootai (Gens des Pin) 100” lodges, a Yanktonai band (Ewers, p. 15 n. 16); the Wazikute of the Upper Yanktonai (identification ours, after Dorsey)',basis='lodges × 5 (stated)',loc='stated',at=(46.5,-99.6),r=200,src=DENIG5('p. 15'),kind='primary',part=True),
+ dict(g='yku',y=1833.01,pop=250,raw='“Gens des Perches 50” lodges, a Yanktonai band (Ewers, p. 15 n. 16); Upper or Lower not known',basis='lodges × 5 (stated)',loc='inferred',at=(46.0,-100.0),r=200,src=DENIG5('p. 15'),kind='primary',part=True,whole=False),
+ dict(g='wpk',y=1833,pop=150,raw='“Esan tees 30” lodges, “a small division of the Wahpekutes” (Ewers, p. 15 n. 16); “formerly situated at or near the Vermilion River” (p. 39)',basis='lodges × 5 (stated)',loc='stated',at=(43.2,-97.0),r=100,src=DENIG5('pp. 15, 39'),kind='primary',part=True,whole=False),
+ # Sioux: Denig's 1855 figures (four to a lodge, p. 15)
+ dict(g='ynk',y=1855.0,pop=800,raw='“The number of this band at the present date can be set at about 200 lodges, perhaps a few more” (300 in 1833; hunger and disease along the emigrant route)',basis='lodges × 4 (stated)',loc='stated',at=(43.3,-99.3),r=150,src=DENIG5('pp. 36, 39'),kind='primary'),
+ dict(g='bru',y=1855.0,pop=600,raw='“This band of Sioux now consists of but 150 lodges” (Ewers, n. 22: the same as Vaughan’s 1853 figure; Warren had 480 lodges, Twiss 250 counted at the annuities in 1856)',basis='lodges × 4 (stated)',loc='inferred',at=(43.2,-101.8),r=180,src=DENIG5('p. 19'),kind='primary',whole=False),
+ dict(g='ogl',y=1855.0,pop=630,raw='“The band at present (1855) may number 180 lodges, averaging from three to four souls to a lodge” (Ewers, n. 26: Denig “seemed to have grossly exaggerated” the decline from 1833)',basis='souls',loc='inferred',at=(43.7,-103.0),r=220,src=DENIG5('p. 22'),kind='primary',whole=False),
+ dict(g='ari',y=1855.5,pop=600,raw='“The present number of huts in the Ree village is about 140 which contain about six hundred persons, two-thirds of whom are adults” (Ewers, n. 29: Vaughan 840, Culbertson 1,500 in 1850)',basis='souls',loc='stated',at=P['ft_clark'],r=5,src=DENIG5('pp. 59–60'),kind='primary'),
+ dict(g='ari',y=1815.0,pop=3200,raw='When trade opened at “their old village near Grand River”: “about 800 warriors or about 180 to 200 cabins” (date not given; before 1823)',basis='warriors × 4 (ours)',loc='stated',at=(45.55,-100.47),r=10,src=DENIG5('p. 43'),kind='primary',whole=False),
+ # other observers in Ewers's notes; Culbertson's own ratio is about 8 to a lodge (270 lodges, 2,100–2,200 people), Warren's 8; Vaughan and Twiss give lodges only
+ *[dict(g=g_,y=1850.0,pop=n_*8,raw=f'Culbertson, 1850: {lab_}',basis='lodges × 8 (Culbertson’s ratio)',loc='inferred',at=at_,r=150,src=EWN('Culbertson, Journal of an Expedition to the Mauvaises Terres and the Upper Missouri in 1850, p. 136',pp_),kind='primary')
+   for g_,n_,lab_,at_,pp_ in [('ogl',400,'Oglala, 400 lodges',(43.7,-103.0),'p. 22 n. 26'),('sih',450,'Blackfeet Sioux, 450 lodges',(46.0,-101.3),'p. 28 n. 32'),
+                              ('sna',250,'Sans Arc, 250 lodges',(46.0,-101.3),'p. 28 n. 32'),('twk',60,'“Kettle band,” only 60 lodges',(44.9,-100.9),'p. 28 n. 33')]],
+ *[dict(g=g_,y=1853.5,pop=n_*8,raw=f'Vaughan, 1853: {lab_}',basis='lodges × 8 (Warren’s ratio, ours)',loc='inferred',at=at_,r=150,src=EWN('Vaughan, Annual Report of the Commissioner of Indian Affairs, 1853',pp_),kind='primary')
+   for g_,n_,lab_,at_,pp_ in [('bru',150,'Brulé, 150 lodges',(43.2,-101.8),'p. 19 n. 22'),('min',225,'Miniconjou, 225 lodges',(45.1,-101.9),'p. 25 n. 29'),
+                              ('hnk',280,'Hunkpapa, 280 lodges',(46.0,-101.3),'p. 28 n. 32'),('sih',150,'Blackfeet Sioux, 150 lodges',(46.0,-101.3),'p. 28 n. 32'),
+                              ('sna',160,'Sans Arc, 160 lodges',(46.0,-101.3),'p. 28 n. 32'),('twk',165,'Two Kettles, 165 lodges',(44.9,-100.9),'p. 29 n. 36')]],
+ dict(g='bru',y=1856.6,pop=2000,raw='Twiss, 1856: 250 lodges, “by counting the lodges when they came to receive the annuity goods”',basis='lodges × 8 (Warren’s ratio, ours)',loc='inferred',at=(42.6,-103.5),r=150,src=EWN('Twiss, Annual Report of the Commissioner of Indian Affairs, 1856, p. 96','p. 19 n. 22'),kind='primary'),
+ dict(g='ogl',y=1856.6,pop=3600,raw='Twiss, 1856: 450 lodges (counted at the annuities)',basis='lodges × 8 (Warren’s ratio, ours)',loc='inferred',at=(42.4,-104.2),r=150,src=EWN('Twiss, Annual Report of the Commissioner of Indian Affairs, 1856, p. 95','p. 22 n. 26'),kind='primary'),
+ dict(g='ynk',y=1823.6,pop=2000,raw='Keating, 1823: 200 lodges, 500 warriors, 2,000 souls',basis='souls',loc='inferred',at=(43.5,-97.5),r=150,src=EWN('Keating, Narrative of an Expedition to the Source of St. Peter’s River (1824), vol. 1, p. 380','p. 39 n. 45'),kind='primary'),
+ dict(g='ynk',y=1825.5,pop=3000,raw='Atkinson, 1825: 600 warriors, 3,000 souls',basis='souls',loc='inferred',at=(43.5,-97.5),r=150,src=EWN('Atkinson, Expedition up the Missouri (1826), p. 8','p. 39 n. 45'),kind='primary'),
+ # Sioux places
+ pl('ogl',1836.4,'Spring 1836: “the camp being placed at Fort Pierre in 1836, awaiting the arrival of the annual steamboat from St. Louis” (Denig was at the post)',SFP,10,DENIG5('p. 22')),
+ pl('wpk',1836.4,'Spring 1836: “a small band of Santees then there” at Fort Pierre (one band)',SFP,10,DENIG5('p. 22'),whole=False),
+ pl('bru',1835.5,'1835: Pawnees and Arikaras steal “40 or 50 of the Bruleés horses from the camp on L’eau qui Court”',(42.8,-100.8),150,DENIG5('p. 18')),
+ *pls(['yku','ykl'],1830.5,'1830: the Yanktonai, “with some others, being encamped opposite Fort Pierre on the east side of the Missouri, killed 1,500 buffalo in a single surround”',(44.38,-100.3),15,DENIG5('p. 30')),
+ *pls(['yku','ykl'],1836.05,'Winter 1835–36: Wanata “was stationed with the greater part of his band near the mouth of Apple River, the rest having placed their camp some 50 or 60 miles below” (Ewers, n. 40, dates the killing of Primeau to early 1836)',(46.6,-100.75),40,DENIG5('p. 33')),
+ *pls(['yku','ykl'],1836.8,'Fall 1836: “the whole of the Yanctonnais came to Fort Pierre with a large quantity of buffalo robes”',SFP,15,DENIG5('p. 33')),
+ *pls(['yku','ykl'],1854.8,'Fall 1854: Vaughan meets the Yanktonai “about one hundred miles up river from Fort Pierre”',(45.6,-100.4),40,EWN('Vaughan','p. 34 n. 41')),
+ # Crow (pp. 139–204)
+ dict(g=['cwm','cwr'],y=1833.6,pop=6400,raw='“at the year 1833, at which time the whole Crow Nation might number 800 lodges, which, averaging 8 persons to each tent would make about 6,400 souls” (about twice Maximilian’s and Larpenteur’s figures)',basis='lodges × 8 (stated)',loc='inferred',at=(45.3,-107.5),r=300,src=DENIG5('p. 169'),kind='primary',whole=False),
+ dict(g=['cwm','cwr'],y=1834.3,pop=2880,raw='Spring 1834, after a smallpox of the winter: “Out of the 800 lodges counted the previous summer but 360 remained, even these but thinly peopled” (Ewers, n. 29, finds no other trace of the epidemic)',basis='lodges × 8 (stated)',loc='stated',at=(43.6,-108.2),r=80,src=DENIG5('p. 170'),kind='primary',whole=False),
+ dict(g=['cwm','cwr'],y=1856.55,pop=3150,raw='Vaughan, 1856: 450 lodges',basis='lodges × 7 (assumed)',loc='inferred',at=(45.3,-107.8),r=250,src=EWN('Vaughan, Annual Report of the Commissioner of Indian Affairs, 1856, p. 80','p. 143 n. 6'),kind='primary'),
+ *pls(['cwm','cwr'],1834.3,'Spring 1834: “the remnant of the nation was once more assembled near the head of Big Horn River”',(43.6,-108.2),80,DENIG5('p. 170')),
+ *pls(['cwm','cwr'],1834.48,'June 1834 (Denig: 1835; corrected by Ewers, n. 33): the whole Crow camp besieges Fort McKenzie, “pitched their lodges in three divisions commanding the three sides of the fort”',(47.88,-110.5),10,DENIG5('p. 177')),
+ pl('cwr',1851.9,'Fall and winter 1851–52: Bear’s Head’s band trades at Fort Union (Kurz)',P['fort_union'],25,EWN('Kurz, Journal','p. 143 n. 9')),
+ pl('cwr',1855.15,'Early 1855: Bear’s Head trades at Fort Sarpy (Fort Sarpy journal)',SARPY,25,EWN('Fort Sarpy journal','p. 144 n. 9')),
+ pl('cwr',1856.2,'March 1856: Bear’s Head trades at Fort Union',P['fort_union'],25,EWN('Fort Union records','p. 144 n. 9')),
+ pl('cwm',1855.28,'April 1855: Two Face’s camp trades at Fort Sarpy (one band)',SARPY,25,EWN('Fort Sarpy journal','p. 143 n. 8'),whole=False),
+ pl('cwm',1855.95,'Big Robber’s band (the Whistle Water, after Curtis: Ewers, n. 6) “usually make their winter hunt on the head of Powder River” and take their robes to the Platte posts in the spring (one band)',(43.9,-106.7),80,DENIG5('p. 143'),whole=False),
+ *pls(['cwm','cwr'],1856.6,'Summer 1856: “Vaughan persuaded 350 Crows to accompany him to Fort Union to obtain the annuities” (a party)',P['fort_union'],10,EWN('Vaughan, Annual Report of the Commissioner of Indian Affairs, 1856, p. 81','p. 203 n. 44'),whole=False),
+ # Assiniboine, Cree, Gros Ventre (pp. 63–138)
+ dict(g='ass',y=1855.4,pop=2080,raw='The band table of the Missouri Assiniboine: 520 lodges, “average 4 persons” (the BAE 46 manuscript gives the same bands at four and a half)',basis='lodges × 4 (stated)',loc='inferred',at=(48.4,-105.0),r=200,src=DENIG5('pp. 79–80'),kind='primary'),
+ dict(g='asn',y=1855.4,pop=900,raw='“some 200 or 250 lodges remain with the Crees in the British Territory”',basis='lodges × 4 (Denig’s ratio)',loc='inferred',at=(50.5,-105.5),r=250,src=DENIG5('p. 101'),kind='primary'),
+ dict(g='gv',y=1850.5,pop=1200,raw='The Gros Ventres, about 300 lodges, on or near the Milk River',basis='lodges × 4 (Denig’s ratio)',loc='stated',at=P['milk_mid'],r=150,src=DENIG5('p. 91'),kind='primary'),
+ dict(g=['cre','crw'],y=1781.5,pop=3200,raw='Tradition: 800 lodges before the smallpox (Denig: 1776–77; Ewers, n. 21: 1781–82), about 400 after, “about 1,200 persons” dead',basis='lodges × 4 (Denig’s ratio)',loc='inferred',at=(51.5,-105.0),r=350,src=DENIG5('pp. 109, 114–15'),kind='primary',whole=False),
+ dict(g=['cre','crw','crs'],y=1858.5,pop=11500,raw='Palliser, 1858 (via Wissler): 11,500 Western Crees (perhaps with the Woodland Cree)',basis='souls',loc='inferred',at=(52.0,-108.0),r=400,src=EWN('Palliser','p. 109 n. 13'),kind='primary',whole=False),
+ dict(g=['cre','crs'],y=1832.5,pop=3000,raw='Catlin, 1832: the Cree trading at Fort Union, 3,000 souls (part)',basis='souls',loc='inferred',at=(49.5,-105.5),r=300,src=EWN('Catlin','p. 112 n. 17'),kind='primary',whole=False),
+]
+EPI += [
+ (1850.85,1851.3,'Influenza, winter 1850–51 (Crow)',{'cwm':.08,'cwr':.08},
+  DENIG5('p. 186: “In 1849 the greater part of the Crow Nation was visited by an influenza of so destructive a nature as to take off about 600 persons”; Ewers, n. 36: Kurz, 28 Oct. 1851, “some 150” dead the previous winter'),
+  'sourced: between Kurz’s 150 and Denig’s 600 of about 4,000'),
+ (1851.75,1852.2,'Smallpox, 1851–52 (Mountain Crow)',{'cwm':.12},
+  EWN('Vaughan, Annual Report of the Commissioner of Indian Affairs, 1853, p. 354','p. 186 n. 35')+': the Crows on the headwaters of the Powder caught the smallpox from the Shoshones in the fall and winter of 1851, which “reduced Crow numbers by thirty lodges, killing some four hundred”; '+DENIG5('pp. 185–86')+' dates a milder Crow smallpox caught from the Snakes to 1848',
+  'sourced: about 400 of about 3,300'),
+]
+
+# ---- Stamm, People of the Wind River: The Eastern Shoshones, 1825–1900 (1999), read in full. The observers are the agents and
+# travellers Stamm cites (named in each record); his reconstructions are marked as his.
+FBR=(41.32,-110.39)   # Fort Bridger
+WRA=(43.0,-108.88)    # Shoshone agency / Fort Washakie
+OBS += [
+ # counts
+ dict(g='sho',y=1859.5,pop=1200,raw='“In 1859, Washakie supposedly headed twelve hundred Eastern Shoshones assisted by four to six subchiefs” (Report of the Commissioner, 1859)',basis='souls',loc='inferred',at=(41.6,-110.0),r=150,src=STAMM('p. 37'),kind='primary'),
+ dict(g='sho',y=1862.5,pop=1400,raw='Mann: the tribe numbered fourteen hundred in 1862',basis='souls',loc='inferred',at=FBR,r=150,src=STAMM('p. 42'),kind='primary'),
+ dict(g='sho',y=1863.7,pop=1800,raw='Mann, 1863: “deserters” and others “attracted by Wasakee’s rising home”, so that “the tribe now totaled eighteen hundred people, up from fourteen hundred the year before” (perhaps with some Bannocks and Northwestern Shoshones)',basis='souls',loc='inferred',at=FBR,r=150,src=STAMM('p. 42'),kind='primary'),
+ dict(g='sho',y=1867.5,pop=1500,raw='Stamm’s estimate for the 1860s round: “about fifteen hundred people took part in this annual cycle (although this number might vary by five hundred persons either way…)”',basis='souls',loc='inferred',at=(42.5,-109.0),r=250,src=STAMM('p. 44'),kind='secondary'),
+ dict(g='sho',y=1872.95,pop=1200,raw='Winter 1872–73: “Nearly eight hundred Shoshones stayed on the reservation, and Irwin expected that four hundred more would appear” (Irwin to Smith, 15 May 1873)',basis='souls',loc='inferred',at=WRA,r=60,src=STAMM('pp. 103–4'),kind='primary'),
+ dict(g='sho',y=1880.55,pop=1050,raw='“In 1880 Agent Hatton reported that 1050 Shoshones and 913 Arapahoes were listed on the tribal censuses” (his written report; the statistical table gives 1,150: Stamm, p. 279 n. 35)',basis='census',loc='inferred',at=WRA,r=30,src=STAMM('p. 196'),kind='primary',whole=False),
+ dict(g=['sho','arn'],y=1883.5,pop=1730,raw='1 July 1883: “only 1730 Indians were on-site, although Irwin expected 200 to 230 more to return in the fall” (residents only)',basis='souls',loc='inferred',at=WRA,r=30,src=STAMM('p. 170'),kind='primary',whole=False),
+ dict(g='sho',y=1900.5,pop=841,raw='“by 1900 only 841 Shoshones … were alive” (Report of the Commissioner, 1900, p. 657)',basis='census',loc='inferred',at=WRA,r=30,src=STAMM('p. 238'),kind='primary'),
+ dict(g='arn',y=1900.5,pop=801,raw='“by 1900 only … 801 Arapahoes were alive” (Report of the Commissioner, 1900, p. 657)',basis='census',loc='inferred',at=P['wind_res'],r=30,src=STAMM('p. 238'),kind='primary'),
+ dict(g='sho',y=1840.5,pop=1800,raw='1840: Mohwoomhah “and his three hundred lodges of followers—approximately eighteen hundred people” (Russell; one leader’s following)',basis='lodges × 6 (Stamm’s)',loc='inferred',at=(42.3,-110.6),r=150,src=STAMM('p. 23'),kind='primary',part=True,whole=False),
+ dict(g='sho',y=1866.7,pop=1100,raw='Sept. 1866: “a large Indian camp (about eleven hundred Shoshones, Bannocks, and Utes), where Washakie exercised his rights as the hunting-camp leader”, on the Wind River (Henderson; mixed)',basis='souls',loc='stated',at=(43.2,-109.0),r=60,src=STAMM('p. 42'),kind='primary',whole=False),
+ dict(g='arn',y=1877.7,pop=935,raw='Black Coal, Sept. 1877: “We are a small tribe; our village is 170 lodges; we would like to join the Snakes” (camps near Red Cloud Agency)',basis='lodges × 5.5 (ours)',loc='stated',at=(42.68,-103.45),r=30,src=STAMM('p. 128 (Fowler, Arapahoe Politics, p. 65)'),kind='primary'),
+ dict(g='arn',y=1878.31,pop=950,raw='24 Apr. 1878: “seven hundred members were within three miles of the agency, with two hundred to three hundred more still ‘straggling’ in” (Patten to Hayt)',basis='souls',loc='stated',at=(43.0,-108.85),r=10,src=STAMM('p. 133'),kind='primary'),
+ # Shoshone places
+ pl('sho',1843.5,'1843: Washakie’s and Ungatushapa’s bands hunt in the Big Horn Basin, Crow country, where Washakie’s band and a Crow band trade; Cut Nose stays by Fort Bridger (two bands)',(44.3,-108.2),120,STAMM('p. 23 (Field; Hamilton)'),whole=False),
+ pl('sho',1851.64,'22 Aug. 1851: Holeman and Bridger meet some of the bands “at their camp near the old St. Mary’s Stage Station on the Sweetwater River”; Gahnacumah’s people “were hunting buffalo”',(42.47,-108.27),20,STAMM('p. 29')),
+ pl('sho',1852.67,'Sept. 1852: the chiefs tell Brigham Young that “they lived and inhabited in the vicinity of the Wind river chain of mountains, and the Sweetwater”',(42.7,-109.4),80,STAMM('p. 30')),
+ pl('sho',1855.6,'Aug. 1855: “the whole tribe congregated in August in the Deer Lodge Valley of Montana” with Pocatello’s Northwestern Shoshones and Bannocks (Wilson, a memoir)',(46.4,-112.73),30,STAMM('pp. 15, 36')),
+ pl('sho',1855.95,'Winter 1855–56: Washakie’s band “camped near present-day Dillon, Montana” (Wilson)',(45.22,-112.64),20,STAMM('p. 35')),
+ pl('sho',1856.3,'Early spring 1856: hunting and fishing “near the confluence of the Big Hole and Beaverhead Rivers” (Wilson)',(45.54,-112.33),15,STAMM('p. 35')),
+ pl('sho',1856.45,'Late spring 1856: over the Madison and the divide to Henry’s Lake (Wilson)',(44.62,-111.37),30,STAMM('p. 35')),
+ pl('sho',1856.62,'Aug. 1856: Washakie’s band, “forty lodges, three hundred people”, at Fort Bridger with three Mormon envoys',FBR,10,STAMM('p. 33')),
+ pl('sho',1855.85,'Oct. and Dec. 1855: Tibaboendwartsa’s band, “which included one hundred warriors, threatened the residents of Fort Supply” (one band)',(41.15,-110.38),10,STAMM('p. 33'),whole=False),
+ pl('sho',1864.75,'1864: “most of the tribe tarried near Fort Bridger until October, anticipating the annuity distribution” (Mann to Irish, 5 Oct. 1864)',FBR,20,STAMM('p. 45')),
+ pl('sho',1869.8,'Oct. 1869: Washakie “went hunting in the Big Horns”',(44.4,-107.5),100,STAMM('p. 57')),
+ pl('sho',1870.87,'Nov. 1870: Washakie at Camp Brown; the Shoshones receive their annuity goods in the Wind River valley for the first time',(42.83,-108.73),20,STAMM('p. 62')),
+ pl('sho',1871.69,'9 Sept. 1871: “the bulk of the Shoshones appeared”; Irwin “met them in Popoagie Valley”',(42.8,-108.65),15,STAMM('p. 80')),
+ pl('sho',1872.6,'Early Aug. 1872: “Irwin found most of the tribe gathered around Fort Bridger”, “entirely destitute of food”, and sent them hunting in the upper Green River valley',FBR,20,STAMM('p. 103')),
+ pl('sho',1872.72,'Sept. 1872: Brunot finds “the Shoshones were still camped at Green River”',(41.6,-109.5),60,STAMM('p. 89')),
+ pl('sho',1876.8,'Oct. 1876, on the fall hunt in the Big Horn valley: “the larger village stayed with Washakie near the mouth of Owl Creek and Big Horn River” (Irwin to Smith, 6 Nov. 1876)',(43.70,-108.20),10,STAMM('p. 114')),
+ pl('sho',1876.82,'Oct. 1876: the smaller band of Naakie and Tagundum “near the confluence of the Greybull and Big Horn Rivers”, where Dull Knife’s Cheyennes killed six of them on 30 Oct. (one band)',(44.49,-108.06),10,STAMM('p. 114'),whole=False),
+ pl('sho',1878.78,'Oct. 1878: “The Shoshones left for the Big Horn Basin, while the Arapahoes headed east to Powder River”',(44.2,-108.0),100,STAMM('p. 141')),
+ pl('sho',1880.88,'Nov. 1880: Wright “lodged in the main camp of the tribe at Fort Washakie”',WRA,8,STAMM('p. 216')),
+ pl('sho',1883.3,'Apr. 1883: “The majority of the Shoshones, Irwin maintained, stayed along the Grey Bull and Stinking Water Rivers in the Big Horn Basin”',(44.45,-108.6),70,STAMM('p. 205')),
+ pl('sho',1883.88,'Nov. 1883: the Shoshones “hunting peacefully in the Greybull Valley”',(44.45,-108.6),70,STAMM('p. 207')),
+ pl('sho',1884.35,'May 1884: troops find “a Shoshone camp on Green River, headed by Tawunasia”, a band that never settled on the reservation (one band)',(41.75,-110.2),50,STAMM('p. 180'),whole=False),
+ # Arapaho places
+ pl('arn',1878.19,'March 1878: Black Coal’s band reaches Wind River on 13 March; “the main body of the Arapahoes was still hunting in the Powder River region”',(43.8,-106.3),100,STAMM('pp. 130–32')),
+ pl('arn',1878.79,'Oct. 1878: “the Arapahoes headed east to Powder River” to hunt',(43.8,-106.3),100,STAMM('p. 141')),
+ pl('arn',1883.88,'Nov. 1883: “only a few Arapahoes were out on the headwaters of the Powder River” (a party)',(43.4,-106.9),60,STAMM('p. 207'),whole=False),
+ pl('arn',1885.05,'Jan. 1885: the three Arapaho villages on the Little Wind “approximately twenty to thirty miles east and downstream from the agency”, from the Mill Creek confluence to the Big Wind',(42.98,-108.5),15,STAMM('p. 193 (Martin to the Commissioner, 20 Jan. 1885)')),
+]
+EPI += [
+ (1897.2,1897.6,'Measles, 1897 (Wind River)',{'sho':.087,'arn':.087},
+  STAMM('p. 238: “measles killed 152 people in 1897” (Ludin to the Commissioner, 25 Aug. 1897); the two tribes numbered about 1,746 in 1896'),
+  'sourced: 152 dead of about 1,746, not split by tribe'),
+]
+
+# ---- Hyde, Red Cloud’s Folk: A History of the Oglala Sioux Indians (1937), read in full from the page images (OCR). Where Hyde
+# relays a named observer the record names him; Hyde’s own judgments are marked secondary. Appendix A (p. 307) is a rotated table
+# the OCR could not read.
+HYDE=lambda pp: f'Hyde, Red Cloud’s Folk: A History of the Oglala Sioux Indians (1937), {pp}'
+BEARB=(44.48,-103.43)  # Bear Butte
+OBS += [
+ # counts
+ _cnt('ogl',1835.5,2000,'Summer 1835: Samuel Parker “met two thousand Oglalas there, about two hundred lodges”, hunting near the forks of the Platte on the way up to Laramie Fork',HYDE('p. 46 (Parker, Journal of an Exploring Tour)'),(41.12,-100.77),r=60),
+ _cnt('ogl',1854.63,2400,'19 Aug. 1854, below Fort Laramie: “the Oglala camp of 300 or more lodges” (Grattan testimony); Hyde reckons 8 to a lodge',HYDE('p. 73'),(42.18,-104.47),r=10,basis='lodges × 8 (Hyde’s)',whole=False),
+ _cnt('ogl',1866.55,3000,'Summer 1866: “The Crows reported that the Oglalas had 500 lodges on Tongue River this summer” (Red Cloud’s 250 and Man-Afraid’s 250)',HYDE('pp. 141–42'),(44.95,-106.9),r=40,basis='lodges × 6 (Hyde’s)'),
+ _cnt('ogl',1870.77,5000,'7 Oct. 1870, Fort Laramie: “Five thousand Oglalas were standing and sitting in a great circle” for the commissioners’ presents (four bands; Little Wound’s Kiyuksa were away)',HYDE('p. 184'),(42.2,-104.6),r=10,whole=False),
+ _cnt(['ogl','bru'],1871.8,6000,'Autumn 1871: Spotted Tail’s Brulé and the Oglala and Wazhazha of Red Cloud and Little Wound go to hunt and winter on the Republican Fork: “There were 1,200 Brulés and 4,800 Oglalas and Wazhazhas in the camps”',HYDE('p. 193'),(40.2,-101.0),r=100,whole=False),
+ _cnt('ogl',1874.85,9339,'Nov. 1874: “by actual count it was found that there were 9,339 Sioux at Red Cloud”, with 800–900 Kiyuksa hunting south of the Platte still to add (Oglala with Wazhazha and wintering northerners; the Indians’ own estimate was about 6,500)',HYDE('p. 223'),RC74,r=30,basis='census',whole=False),
+ _cnt(['ogl','arn'],1876.57,4760,'26 July 1876, the army’s count of those who came in for rations at Red Cloud: 4,760, against the agent’s roll of 12,873 (the summer population “about half the winter number”)',HYDE('p. 279'),RC74,r=15,basis='census',whole=False),
+ _cnt('ogl',1877.34,1125,'5–6 May 1877, Camp Robinson: Crazy Horse’s surrender, “146 lodges, with two families crowded into most of them, between 1,100 and 1,150 people, 300 warriors, and 2,500 ponies” (Bourke; one following)',HYDE('p. 292'),(42.67,-103.47),r=10,whole=False),
+ _cnt(['min','sna'],1877.28,917,'14 Apr. 1877: “the 105 lodges reached Spotted Tail Agency and there surrendered … 917 people”, Miniconjou under Touch-the-Clouds and Sans Arc under Red Bear and High Bear (one following)',HYDE('p. 291'),SPT74,r=10,whole=False),
+ _cnt('ogl',1877.82,4600,'27 Oct. 1877: the Oglala chiefs “led the march of the 4,600 Sioux who moved off down White River” toward the new agency on the Missouri',HYDE('p. 299'),(42.85,-102.9),r=40,whole=False),
+ # places
+ pl('tet',1775.5,'c. 1775 (Hyde’s date): the Oglala cross the Missouri “at the Sioux Pass, just below the Great Bend in the Crow Creek neighborhood” and start up Bad River (the Oglala part of the Teton)',(44.05,-99.4),20,HYDE('pp. 19–20'),kind='secondary',whole=False),
+ pl('bru',1794.8,'Autumn 1794 (Truteau): Brulés with Yankton visitors stop Truteau at the lower end of the Great Bend; one band of 22 lodges hunts west of the Missouri on White River',(43.95,-99.4),30,HYDE('p. 26 (Truteau)')),
+ pl('ogl',1834.75,'Autumn 1834: Bull Bear’s hundred lodges of Oglala, wintering near Bear Butte, are induced to move to the Platte (Powell, from Carlin)',BEARB,25,HYDE('pp. 45–46')),
+ pl('ogl',1841.88,'Nov. 1841: Bull Bear killed in Smoke’s camp on the Chugwater; the Kiyuksa, True Oglala and Red Water’s band, “fully half the tribe”, secede',(41.85,-104.85),25,HYDE('pp. 53–55')),
+ pl('ogl',1849.55,'Summer 1849: in the cholera the Smoke Oglala flee north to White River and camp near the site of the later Pine Ridge agency (one division)',(43.15,-102.6),30,HYDE('p. 64'),whole=False),
+ pl('ogl',1854.63,'19 Aug. 1854: the Oglala camp, “300 or more lodges”, east of the spur about five miles below Fort Laramie, on the day of the Grattan fight',(42.18,-104.47),5,HYDE('p. 73')),
+ *pls(['bru','ogl'],1855.69,'8 Sept. 1855: Twiss “had assembled 400 lodges of Brulés and Oglalas at a camp on Laramie Fork thirty-five miles above the fort” (the friendly bands)',(41.95,-105.1),12,HYDE('p. 78'),whole=False),
+ *pls(['bru','ogl','min','hnk','sih','sna','twk'],1857.55,'Summer 1857: the great Teton council near Bear Butte, “in the northern edge of the Black Hills”; the chiefs brought their people with them',BEARB,25,HYDE('p. 82')),
+ pl('ogl',1857.9,'The later 1850s: the Big Cheyenne River, about eighty miles north of Fort Laramie, “where the tribe had wintered so often”',(43.3,-104.4),50,HYDE('p. 181'),kind='secondary'),
+ *pls(['ogl','bru','arn'],1865.08,'28 Jan.–2 Feb. 1865: the combined village of Oglala, Brulé, Northern Arapaho and Southern Cheyenne on the north bank of the South Platte, “from Moore’s Creek nearly four miles up the Platte”, near Harlow’s Ranch',(40.98,-102.65),8,HYDE('p. 111')),
+ pl('bru',1866.0,'Winter 1865–66: Spotted Tail’s Brulé on White River, east of the Black Hills; “He remained on White River until the spring of 1866”',(43.5,-102.5),80,HYDE('pp. 119, 122')),
+ *pls(['ogl','min','sna'],1865.68,'5–10 Sept. 1865: the Oglala, Miniconjou and Sans Arc near the mouth of the Little Powder, where Cole found “the remains of an immense Indian camp of 1,500 to 2,000 lodges”',(45.45,-105.42),15,HYDE('pp. 131–32')),
+ pl('ogl',1866.55,'Summer 1866: the Oglala, 500 lodges in two camps under Red Cloud and Man-Afraid, on Tongue River (the Crows’ report)',(44.95,-106.9),40,HYDE('pp. 141–42')),
+ pl('chn',1866.54,'16 July 1866: the Cheyenne chiefs tell Carrington “their village, 176 lodges, was hunting on Goose Creek and Tongue River”',(44.9,-107.1),30,HYDE('p. 141')),
+ pl('cwm',1866.6,'Summer 1866: “The Crows were in three camps, one near Fort C. F. Smith on the Bighorn, one on Clark’s Fork, and a small one on Pryor’s Fork”',(45.5,-108.3),50,HYDE('p. 144')),
+ pl('bru',1869.0,'Winter 1868–69: Spotted Tail’s Brulé “camped on the South Fork” of White River, “their camps never less than thirty miles from the agency” at Whetstone',(43.4,-100.6),60,HYDE('p. 170')),
+ pl('ogl',1870.72,'Late Sept. 1870: Red Cloud in camp on Minipuss, the Dry Fork of the Cheyenne',(43.3,-105.2),40,HYDE('p. 182')),
+ pl('ogl',1870.76,'4 Oct. 1870: Red Cloud “went into camp on the Platte three miles above the fort”',(42.21,-104.6),5,HYDE('p. 182')),
+ pl('ogl',1871.6,'Aug. 1871 – Aug. 1873: the first Red Cloud Agency, on the north bank of the North Platte “about one mile west of the present village of Henry, Nebraska”',(42.0,-104.07),8,HYDE('p. 189 n. 1')),
+ pl('ogl',1876.0,'Dec. 1875 – Jan. 1876: the runners find “Crazy Horse and Black Twin, Oglala hostiles, in camp near Bear Butte” (one following)',BEARB,25,HYDE('p. 251'),whole=False),
+ pl('hnk',1876.0,'Winter 1875–76: Sitting Bull in winter camp “near the mouth of Powder River”',(46.73,-105.42),30,HYDE('pp. 251, 256')),
+ *pls(['hnk','min','sna'],1876.4,'27 May 1876: “the great hostile camp on the Rosebud, the village at the time being about eighteen miles above the mouth of the stream” (Bradley)',(46.05,-106.5),10,HYDE('p. 262 n. 7')),
+ pl('ogl',1876.75,'Aug.–Oct. 1876: Red Cloud and Red Leaf take their camps to Chadron Creek, “twenty-three miles east of the agency”; surrounded and dismounted on 24 Oct.',(42.8,-103.05),10,HYDE('pp. 284–85')),
+ pl('ogl',1877.95,'Winter 1877–78: refusing the new agency on the Missouri, the Oglala camp “far up White River”, the nearest camps seventy-five miles from it (centre ours)',(43.6,-101.7),50,HYDE('p. 302')),
+ # Appendix A (p. 307), “Estimates of Oglala Population”, read from the page image: the figures not already in the record
+ _cnt('ogl',1840.5,2500,'Rev. S. R. Riggs, 1840: 2,500 people, 250 warriors',HYDE('p. 307 (app. A)'),(42.0,-104.5),r=200),
+ _cnt('ogl',1870.6,4200,'1870: “Red Cloud’s own estimate of the tribe”, 600 lodges, “7 to the lodge”',HYDE('p. 307 (app. A)'),(42.6,-104.5),r=150,basis='lodges × 7 (stated)'),
+ _cnt('ogl',1874.4,7000,'1874: “The Oglalas’ own estimate”, 1,000 lodges (“400 lodges added in 4 years”)',HYDE('p. 307 (app. A)'),RC74,r=60),
+ pl('ogl',1879.5,'1879: the Oglala bands settle at Pine Ridge, the Bear People on Medicine Root Creek, the Wazhazha on Porcupine Tail Creek, the Oyukhpe on Wounded Knee Creek, the Bad Faces by the agency',P['pine_ridge'],40,HYDE('pp. 313–14')),
+]
+EPI += [
+ (1868.85,1869.3,'Hunger and sickness at Whetstone, winter 1868–69 (Brulé)',{'bru':.03},
+  HYDE('p. 170: “over one hundred of the children and old people” buried that winter'),'sourced: about 100 of about 3,500'),
+]
+
+# ---- Robertson, Rotting Face: Smallpox and the American Indian (2001), read in full: the 1837 epidemic day by day from Chardon,
+# Pilcher, Halsey and Larpenteur, and the earlier and later outbreaks from the literature he cites.
+ROB=lambda pp: f'Robertson, Rotting Face: Smallpox and the American Indian (2001), {pp}'
+# ---- Hoxie, Parading through History: The Making of the Crow Nation in America, 1805–1935 (1995), read in full.
+HOX=lambda pp: f'Hoxie, Parading through History: The Making of the Crow Nation in America, 1805–1935 (1995), {pp}'
+# ---- Nasatir, ed., Before Lewis and Clark, vol. 1 (1952), read in full: the French and Spanish documents of the Missouri, 1702–1796.
+NAS=lambda pp: f'Nasatir, ed., Before Lewis and Clark: Documents Illustrating the History of the Missouri, 1785–1804, vol. 1 (1952), {pp}'
+# ---- Ray, Indians in the Fur Trade (1974), read in full: the Hudson’s Bay Company district reports and censuses.
+RAY74=lambda pp: f'Ray, Indians in the Fur Trade: Their Role as Trappers, Hunters, and Middlemen in the Lands Southwest of Hudson Bay, 1660–1870 (1974), {pp}'
+ARI95=(44.68,-100.9)   # the two Arikara villages below the Cheyenne, 1794–96 (Truteau)
+STILLW=(45.52,-109.44) # Crow agency on the Stillwater, 1875–84
+MISSIONCK=(45.65,-110.35) # Crow agency on Mission Creek, 1869–75
+OBS += [
+ # --- Robertson
+ dict(g='ari',y=1837.4,pop=2875,raw='Meyer: the Arikara numbered “between 2,750 and 3,000” before the 1837 epidemic (Stearn and Stearn: 3,000)',basis='souls',loc='inferred',at=P['ft_clark'],r=30,src=ROB('p. 282 n. 40'),kind='secondary'),
+ dict(g='man',y=1838.3,pop=128,raw='Meyer: the Mandan survivors were “twenty-three men, forty women, and between sixty and seventy children”',basis='souls (by sex)',loc='inferred',at=P['ft_clark'],r=15,src=ROB('p. 282 n. 40'),kind='secondary'),
+ dict(g='pon',y=1837.4,pop=620,raw='Spring 1837: the Ponca, “a tribe that numbered between seventy-five and eighty lodges”, most of them “on the right side of the Missouri River near its confluence with the Niobrara”',basis='lodges × 8 (ours)',loc='stated',at=P['ponca_ck'],r=20,src=ROB('p. 75'),kind='secondary'),
+ dict(g=['bru','ogl','min','hnk','sih','sna','twk'],y=1835.2,pop=14000,raw='“Estimated to be 14,000 members strong, the Lakota subagency stretched from the Missouri to the Black Hills” (after Sunder, Joshua Pilcher)',basis='souls (agency estimate)',loc='inferred',at=(44.0,-101.5),r=250,src=ROB('p. 16'),kind='secondary',whole=False),
+ dict(g=['sik','kai','pik'],y=1832.5,pop=16500,raw='Catlin: “1,650 lodges, each with an average of ten family members” (Robertson thinks it inflated)',basis='lodges × 10 (stated)',loc='inferred',at=(48.5,-111.5),r=250,src=ROB('p. 217 n. 16'),kind='secondary',whole=False),
+ pl('ari',1837.32,'28 Apr. 1837: “the main band of Arikaras—250 families—rode down from the prairie to the broad bench that was shared by Mitutanka Village and Fort Clark” and move into the Mandan lodges (Chardon)',P['ft_clark'],5,ROB('pp. 26–27, 61')),
+ pl('ari',1837.8,'16 Oct. 1837: the Arikara survivors make their winter camp “in a sheltered nook known as the Point of Woods”, below Fort Clark (Chardon)',(47.15,-101.15),12,ROB('p. 234')),
+ pl('hid',1837.8,'Oct. 1837: the Hidatsa winter below the mouth of Lucky Mound Creek, at a place afterwards named “Where People Died of Smallpox”',(47.72,-102.0),20,ROB('p. 234 (Meyer)')),
+ pl('gv',1832.0,'1832: the Atsina flee the smallpox among the Arapaho to “their home territory alongside the upper curve of the Milk River”',(48.9,-110.0),120,ROB('p. 223')),
+ # --- Hoxie
+ dict(g=['cwm','cwr'],y=1805.55,pop=2400,raw='Larocque’s Crow informants, 1805: “about 2,400 persons dwelling in 300 tents”; before the smallpox “they counted 2,000 lodges … in their camp when all together” (perhaps only the bands known to them)',basis='souls (stated)',loc='inferred',at=(45.6,-107.5),r=250,src=HOX('p. 41'),kind='primary',whole=False),
+ dict(g='gv',y=1869.45,pop=2000,raw='Summer 1869, before the smallpox: the Gros Ventre camps near Fort Belknap number 2,000 (their agent, Annual Report of the Commissioner, 1870, p. 654)',basis='souls',loc='stated',at=P['milk_mid'],r=40,src=HOX('p. 100'),kind='primary'),
+ dict(g='gv',y=1869.8,pop=1300,raw='“In a matter of weeks, the tribe’s population dropped from 2,000 to 1,300”',basis='souls',loc='stated',at=P['milk_mid'],r=40,src=HOX('p. 100'),kind='primary'),
+ dict(g='cwr',y=1870.6,pop=2000,raw='Summer 1870: “as many as a third of the 2,000 River Crows who were still north of the Missouri came south to the Mountain Crow agency. The balance of the group moved west … along the Musselshell and Judith Rivers”',basis='souls',loc='inferred',at=(46.9,-109.0),r=120,src=HOX('p. 100 (Annual Report, 1870, pp. 662, 664)'),kind='primary'),
+ dict(g=['cwm','cwr'],y=1878.4,pop=3500,raw='Miles, 1878: “a camp of some 700 lodges” for a victory celebration, “an immense village the young officer guessed held 3,500 people”',basis='souls (observer’s estimate)',loc='stated',at=(45.8,-107.55),r=40,src=HOX('p. 109 (Miles, Personal Recollections)'),kind='primary'),
+ dict(g='cwm',y=1883.59,pop=3000,raw='4 Aug. 1883: the Jesuits at the Stillwater agency see “over four hundred lodges of this miserable people around the Agency” at a ration issue',basis='lodges × 7.5 (ours)',loc='stated',at=STILLW,r=10,src=HOX('p. 199'),kind='primary',whole=False),
+ dict(g='cwm',y=1900.4,pop=1875,raw='Crow population 1900: 1,875 (Hoxie’s Table 1, from the federal census)',basis='census',loc='inferred',at=P['crow_ag'],r=40,src=HOX('p. 172, table 1'),kind='primary'),
+ dict(g='cwm',y=1902.5,pop=1870,raw='1902: 82 deaths in a population of 1,870 (Table 1, n. b)',basis='census',loc='inferred',at=P['crow_ag'],r=40,src=HOX('p. 172, table 1 n. b'),kind='primary'),
+ dict(g='cwr',y=1855.3,pop=350,raw='Horse Guard “is a chief and leads a camp of fifty lodges” (Chambers, Fort Sarpy; one band)',basis='lodges × 7 (assumed)',loc='stated',at=SARPY,r=20,src=HOX('p. 82 n. 34'),kind='primary',whole=False),
+ pl('cwr',1805.6,'Summer 1805: “another major band was travelling along the Milk River near the 49th parallel” (the River Crow, close to the Gros Ventre)',(48.5,-108.0),200,HOX('pp. 41–42, 59')),
+ pl('cwm',1805.54,'About 20 July 1805: Larocque’s Crow band near where the North Dakota–South Dakota line meets Montana',(45.95,-104.05),40,HOX('p. 43')),
+ pl('cwm',1805.59,'4 Aug. 1805: the band just east of modern Sheridan; first sight of the Rockies',(44.8,-106.8),25,HOX('p. 45')),
+ pl('cwm',1805.64,'About 22 Aug. 1805: camp probably on Lodge Grass Creek, then down the Little Bighorn and west to the Bighorn',(45.3,-107.4),20,HOX('p. 46')),
+ pl('cwm',1825.59,'1–5 Aug. 1825: Red Plume’s Mountain Crows meet Atkinson and O’Fallon at the Hidatsa villages; Sore Belly’s River Crows camp apart',P['knifeR'],15,HOX('p. 62'),whole=False),
+ pl('cwm',1834.95,'Dec. 1834: Zenas Leonard reaches a Crow camp near the Wind River range and winters with it',(43.3,-108.8),80,HOX('p. 71')),
+ *pls(['cwm','cwr'],1855.95,'Winter 1855–56: Fort Sarpy “full of Crows” from November to the first week of March (Chambers)',SARPY,15,HOX('p. 68'),whole=False),
+ pl('cwr',1863.5,'1863: the River Crow and Gros Ventre “living together almost indiscriminately” on the Milk River (an army scouting party)',(48.4,-108.0),120,HOX('p. 93')),
+ pl('cwr',1864.5,'1864: at the mouth of the Milk River “about fifty lodges of Crows”, who “dare not go up into their own country on the Yellowstone” (Reed; part)',(48.05,-106.32),15,HOX('p. 93'),whole=False),
+ pl('cwr',1865.5,'1865: the River Crow and Gros Ventre together on the Milk River, “constantly moving to avoid the Sioux, as well as to follow the buffalo”',(48.4,-108.0),120,HOX('p. 93 (Annual Report, 1865, p. 411)')),
+ pl('cwr',1869.95,'Winter 1869–70: having “moved south of the Missouri as soon as they learned of” the Gros Ventre smallpox, the River Crow winter in the Judith basin',(47.1,-109.6),70,HOX('pp. 95, 100')),
+ pl('cwm',1873.6,'Aug. 1873: the Brunot council at the Mission Creek agency, the principal Mountain Crow leaders present',MISSIONCK,10,HOX('pp. 100–102')),
+ pl('cwr',1878.7,'1878: the Mountain and River Crows “keep up separate organizations” but “both tribes now profess to be attached to their agency and call it their home” (the Stillwater)',STILLW,20,HOX('p. 104 (Annual Report, 1878, p. 580)')),
+ pl('cwm',1884.0,'Winter 1883–84: “about two-thirds of the tribe at the agency or near enough to come in and draw their rations regularly”',STILLW,25,HOX('p. 115')),
+ pl('cwm',1884.28,'April 1884: the Crows move from the Stillwater to the new agency on the Little Bighorn; the first ration issue goes to about 900 people',P['crow_ag'],10,HOX('pp. 126, 128')),
+ pl('cwm',1882.95,'Winter 1882–83: Crazy Head “and thirty-five lodges of followers had been on the Powder River in Wyoming Territory for several months” (one band)',(44.2,-106.1),80,HOX('p. 113'),whole=False),
+ # --- Nasatir
+ dict(g='osg',y=1758.9,pop=2800,raw='Kerlerec, 12 Dec. 1758: “The Big Osages number 700 men bearing arms”',basis='warriors × 4 (ours)',loc='stated',at=P['osage_vil'],r=20,src=NAS('p. 51'),kind='primary'),
+ dict(g='osl',y=1758.9,pop=1000,raw='Kerlerec, 1758: “the Little Osages 250 men”, a league inland from the Missouri, forty leagues by land from the Big Osages',basis='warriors × 4 (ours)',loc='stated',at=(39.3,-93.3),r=10,src=NAS('p. 52'),kind='primary'),
+ dict(g='kaw',y=1758.9,pop=1100,raw='Kerlerec, 1758: the Kansa, at Fort Cavagnolle, “very numerous, but the wars … with the Pawnees and small-pox have extremely weakened them”: two hundred and fifty to three hundred men',basis='warriors × 4 (ours)',loc='stated',at=(39.40,-94.93),r=15,src=NAS('p. 52'),kind='primary'),
+ dict(g='iow',y=1758.9,pop=800,raw='Kerlerec, 1758: the Ayowais, ten leagues above the Oto and living with them on the Missouri, “200 men”',basis='warriors × 4 (ours)',loc='stated',at=(41.25,-95.87),r=25,src=NAS('p. 52'),kind='primary'),
+ dict(g='osg',y=1719.7,pop=800,raw='Du Tisné, 1719: an Osage village “of a hundred cabanes and two hundred warriors”, eighty leagues up the Osage (one village)',basis='warriors × 4 (ours)',loc='stated',at=P['osage_vil'],r=15,src=NAS('p. 18'),kind='primary',whole=False),
+ *[dict(g=g_,y=1785.95,pop=4*m_,raw=f'Miró, 12 Dec. 1785: {lab_}',basis='warriors × 4 (ours)',loc='stated',at=at_,r=r_,src=NAS(pp_+', doc. I'),kind='primary')
+   for g_,m_,lab_,at_,r_,pp_ in [('osg',425,'the Big Osage, “about four hundred or four hundred and fifty men capable of bearing arms”',P['osage_vil'],10,'p. 124'),
+                                 ('osl',250,'the Little Osage, “two hundred and fifty men under arms”',(39.3,-93.2),15,'pp. 124–25'),
+                                 ('mis',120,'the Missouria, “about a hundred and twenty men capable of bearing arms”, a league from the Little Osage',(39.33,-93.22),15,'p. 125'),
+                                 ('kaw',200,'the Kansa, “two hundred warriors”',(39.6,-95.1),20,'p. 125'),
+                                 ('oto',100,'the Oto, “about a hundred men capable of bearing arms”, fifteen leagues up the Platte',P['oto_vil'],10,'p. 125'),
+                                 ('pon',80,'the Ponca, “not more than eighty warriors”, a league below the Niobrara',(42.75,-97.95),10,'p. 126'),
+                                 ('ari',900,'the Arikara, seven villages, “about nine hundred warriors”',(44.5,-100.6),40,'pp. 126–27')]],
+ dict(g='ari',y=1791.83,pop=4000,raw='Concha, Santa Fe, 1 Nov. 1791: “the Ricaras who have 1000 men, more or less, in seven villages”',basis='warriors × 4 (ours)',loc='inferred',at=(44.5,-100.6),r=40,src=NAS('p. 148, doc. X'),kind='primary'),
+ dict(g=['osg','osl'],y=1793.27,pop=5000,raw='Trudeau, 10 Apr. 1793: “a population of 1,250 men, young men and warriors”, living “all together in the same village in the midst of an immense prairie”',basis='warriors × 4 (ours)',loc='stated',at=P['osage_vil'],r=15,src=NAS('p. 172, doc. XXV'),kind='primary'),
+ dict(g=['man','hid'],y=1791.9,pop=4500,raw='D’Eglise, about 1791–92: eight villages half a league apart on the Missouri “may have a population of four or five thousand persons”',basis='souls (impression)',loc='stated',at=(47.2,-101.25),r=25,src=NAS('p. 161, doc. XVIII'),kind='primary',whole=False),
+ dict(g='ari',y=1795.45,pop=2000,raw='Truteau, June 1795: the nation that “could turn out four thousand warriors, is now reduced to about five hundred fighting men”; two of its four parts had left the spring before, one to the Skiri and one to the Mandan',basis='warriors × 4 (ours)',loc='stated',at=ARI95,r=15,src=NAS('p. 299 (Truteau’s journal)'),kind='primary'),
+ dict(g='chy',y=1795.4,pop=750,raw='Fotman, May 1795: near the lower Arikara villages “about a hundred and fifty tents of the Cheyenne nation” (one of their camps)',basis='tents × 5 (ours)',loc='stated',at=(44.5,-101.6),r=80,src=NAS('pp. 309, 332'),kind='primary',whole=False),
+ dict(g='oma',y=1795.87,pop=2800,raw='Mackay at the Omaha village, 15 Nov. 1795: “This village contains seven hundred warriors”',basis='warriors × 4 (ours)',loc='stated',at=P['omaha_vil'],r=10,src=NAS('p. 358 (Mackay’s journal)'),kind='primary'),
+ dict(g='sao',y=1795.55,pop=400,raw='Truteau, 20 July 1795: a Sioux village “Ta Coropa” of “eighty huts” joins the Sioux camped at the Arikara (one band)',basis='lodges × 5 (ours)',loc='stated',at=(44.7,-101.0),r=25,src=NAS('p. 310'),kind='primary',whole=False),
+ pl('kaw',1752.5,'4 July 1752: Fort Cavagnolle to be re-established “as the Kansas had returned to their old homes” (Macarty)',(39.40,-94.93),10,NAS('pp. 46–48')),
+ pl('oma',1758.9,'Kerlerec, 1758: “The Mahas are eighty leagues further up than the Ayowais, ascending the Missouri”',(42.6,-96.9),60,NAS('p. 52')),
+ *pls(['mis','osl'],1771.45,'Piernas, 12 June 1771: eighty-five leagues from St. Louis “to the nearest Missouri Indians and Little Osage, whose villages were not always fixed”',(39.33,-93.22),15,NAS('p. 70')),
+ pl('oto',1777.85,'Cruzat, Nov. 1777: the Oto “about fifteen leagues from the Missouri River up the Platte”',(41.15,-96.4),20,NAS('p. 71')),
+ pl('ari',1794.55,'Midsummer 1794: attacked “by the savages of the North”, the Arikara abandon their village below the Cheyenne before the harvest; in October Truteau finds it “in a ruined state and half burned”',ARI95,20,NAS('pp. 273, 277'),whole=False),
+ pl('ari',1795.45,'Truteau, June 1795: two villages half a mile apart, 800 paces from the Missouri, the Cheyenne entering “about three miles above the second Ricara village”',ARI95,10,NAS('pp. 295–96, 299–301')),
+ pl('chy',1795.5,'Summer 1795: the Cheyenne “wander over the country along the river” of the Cheyennes; “their entire village was approaching” the Arikara (18 July)',(44.5,-101.6),80,NAS('pp. 301, 309')),
+ pl('kaw',1794.53,'Truteau, July 1794: “80 leagues from the mouth is the village of the Kansas”',P['kaw_vil'],20,NAS('p. 261')),
+ pl('pwk',1794.53,'Truteau, July 1794: the Republican Pawnee on the Republican Fork',P['rep_vil'],60,NAS('p. 261')),
+ pl('oto',1794.6,'Truteau, Aug. 1794: “12 leagues from its mouth [the Platte] lives the Otactatas nation”',P['oto_vil'],20,NAS('p. 264')),
+ pl('pwc',1794.6,'Truteau, Aug. 1794: “25 leagues further is situated the village of the great Pawnee”',P['grand_pawnee'],20,NAS('p. 264')),
+ pl('pws',1794.6,'Truteau, Aug. 1794: the Panimahas live 30 leagues from there “on a river which empties into the Platte”',P['loup_vil'],30,NAS('p. 264')),
+ pl('oma',1794.65,'24 Aug. 1794: Truteau passes the village of the Mahas “in a beautiful prairie at about a league’s distance from the Missouri”',P['omaha_vil'],5,NAS('p. 264')),
+ pl('pon',1794.71,'14 Sept. 1794: “The village of the Poncas is situated a league above [the Niobrara], near the Missouri”',(42.808,-98.164),5,NAS('p. 266')),
+ pl('ynk',1794.75,'Truteau, autumn 1794: “the nation of Yankton Sioux who lived on the Des Moines River”',(43.0,-94.9),150,NAS('p. 268')),
+ pl('oma',1795.0,'Winter 1794–95: Blackbird with “all my family in the number of seventeen lodges” hunts buffalo by Truteau’s winter post near the Ponca (one band)',(42.85,-98.2),40,NAS('pp. 282, 287, 290'),whole=False),
+ pl('pwk',1795.4,'4 July 1795: Vial reached the Republican Pawnee, who have “their village on the bank of the Kansas River”',P['rep_vil'],40,NAS('pp. 329–30')),
+ pl('kap',1795.45,'Truteau, 1795: “South of them on a fork of the Platte River live the Pados”, seven days’ march from the Arikara',(41.4,-101.0),120,NAS('p. 301')),
+ pl('man',1796.73,'23 Sept. 1796: Evans reaches the Mandan village and takes over the British fort',(47.2,-101.25),15,NAS('p. 101')),
+ # --- Ray
+ dict(g=['cre','crw','crs'],y=1871.05,pop=7000,raw='Indian Branch, 1870–71: “the Cree were said to have a population of about 7000” (the Woodland Cree, 425, separately)',basis='souls',loc='inferred',at=(51.5,-107.0),r=400,src=RAY74('p. 192 (Sessional Papers 1872, no. 22, p. 60)'),kind='primary'),
+ dict(g='asn',y=1871.05,pop=500,raw='Indian Branch, 1870–71: “the Assiniboine of Saskatchewan 500”',basis='souls',loc='inferred',at=(50.0,-104.5),r=250,src=RAY74('p. 192'),kind='primary'),
+ dict(g='sik',y=1871.05,pop=4000,raw='Indian Branch, 1870–71: Blackfoot 4,000',basis='souls',loc='inferred',at=(51.0,-112.5),r=250,src=RAY74('p. 192'),kind='primary'),
+ dict(g='kai',y=1871.05,pop=2000,raw='Indian Branch, 1870–71: Blood 2,000',basis='souls',loc='inferred',at=(49.7,-112.8),r=250,src=RAY74('p. 192'),kind='primary'),
+ dict(g='pik',y=1871.05,pop=3000,raw='Indian Branch, 1870–71: Piegan 3,000',basis='souls',loc='inferred',at=(48.8,-112.3),r=250,src=RAY74('p. 192'),kind='primary'),
+ dict(g='sar',y=1871.05,pop=200,raw='Indian Branch, 1870–71: “the Sarsi only 200”',basis='souls',loc='inferred',at=(51.4,-113.4),r=150,src=RAY74('p. 192'),kind='primary'),
+ dict(g='kai',y=1858.6,pop=2800,raw='Palliser, 1858: Blood 2,800',basis='souls',loc='inferred',at=(49.7,-112.8),r=250,src=RAY74('p. 191'),kind='primary'),
+ dict(g='pik',y=1858.6,pop=4400,raw='Palliser, 1858: Piegan 4,400',basis='souls',loc='inferred',at=(48.8,-112.3),r=250,src=RAY74('p. 191'),kind='primary'),
+ dict(g='asn',y=1858.6,pop=1000,raw='Palliser: “the Assiniboine in Saskatchewan totaled only 1000” (another 4,000 south of the border), the remnant near Moose Mountain',basis='souls',loc='stated',at=(49.8,-102.4),r=150,src=RAY74('pp. 183, 191'),kind='primary'),
+ dict(g='ass',y=1815.0,pop=3200,raw='Fidler’s census of the Assiniboine and Red River valleys, 1815: Assiniboine 300 lodges, about 800 men, 500 horses',basis='warriors × 4 (ours)',loc='inferred',at=(49.8,-100.3),r=150,src=RAY74('p. 162'),kind='primary'),
+ dict(g='ojb',y=1815.0,pop=700,raw='Fidler, 1815: Ojibwa 100 lodges, 100 horses',basis='lodges × 7 (Ray’s ratio)',loc='inferred',at=(49.9,-97.5),r=120,src=RAY74('p. 162'),kind='primary'),
+ dict(g='ass',y=1822.9,pop=2600,raw='Brandon District Report, 1822–23 (McDonald): seven to a tent; his band list (Walking Stones 80 lodges, Young Girl’s 140, Assapascan 40 and two more) sums to 370 lodges, “roughly 2600”, though he reckoned 450',basis='lodges × 7 (stated)',loc='inferred',at=(49.75,-100.4),r=150,src=RAY74('pp. 106–8 and fig. 31'),kind='primary'),
+ dict(g='asn',y=1815.5,pop=3300,raw='Carlton House (upper Assiniboine) District Report, 1815: “300 lodges of Assiniboine were found in the grassland portions of the district”; Ray takes eleven to a lodge',basis='lodges × 11 (Ray)',loc='inferred',at=(51.3,-102.5),r=150,src=RAY74('pp. 96, 108'),kind='primary'),
+ dict(g='asn',y=1822.5,pop=1400,raw='The 1822 report for the Carlton department “tallied only 200 lodges … the Carlton Assiniboine population would have been about 1400 in 1822”',basis='lodges × 7 (stated)',loc='inferred',at=(51.3,-102.5),r=150,src=RAY74('p. 108 and n. 38'),kind='primary'),
+ dict(g='asn',y=1789.5,pop=1600,raw='Mackenzie, 1789: Assiniboine of the Saskatchewan, a plains group of 120 lodges and a woodland group of 70; Ray puts them at 1,600–2,000',basis='lodges × 8 (Ray)',loc='inferred',at=(52.5,-107.0),r=250,src=RAY74('p. 110 and n. 30'),kind='primary'),
+ dict(g=['cre','crw'],y=1789.5,pop=880,raw='Mackenzie, 1789: 110 tents of Plains Cree (and 200 of the Strongwood bands, left out)',basis='tents × 8 (Ray)',loc='inferred',at=(52.5,-106.0),r=300,src=RAY74('pp. 110–11'),kind='primary'),
+ dict(g='ass',y=1776.5,pop=2700,raw='Henry the Elder, 1776: the Plains Assiniboine “roughly 300 lodges”, 2,400–3,000 at eight to ten a tent; Ray thinks it an undercount (several villages of 100 to 200 tents each)',basis='lodges × 9 (Ray)',loc='inferred',at=(50.5,-103.5),r=250,src=RAY74('p. 105 and n. 26'),kind='primary',whole=False),
+ dict(g='cre',y=1822.9,pop=600,raw='Brandon District Report, 1822–23: 75 lodges of Cree hunting in the Beaver and Touchwood Hills and the Strong Woods near the Nut Hills (part)',basis='lodges × 8 (ours)',loc='stated',at=(51.4,-104.0),r=120,src=RAY74('p. 180 n. 27'),kind='primary',whole=False),
+ dict(g=['cre','crw','crs'],y=1833.6,pop=2800,raw='Maximilian, 1833: Plains Cree lodges “between 600 and 800”',basis='lodges × 4 (Denig’s Cree ratio)',loc='inferred',at=(51.0,-106.0),r=350,src=RAY74('p. 187'),kind='primary'),
+ dict(g='asn',y=1838.07,pop=1000,raw='Todd, Fort Pelly, 25 Jan. 1838: “about 200 tents have traded this year at Beaver Creek got vaccinated and have so far escaped and these are nearly all that remain of that once Numerous tribe”',basis='tents × 5 (ours)',loc='stated',at=(50.45,-101.4),r=60,src=RAY74('p. 191'),kind='primary'),
+ pl('asn',1800.95,'Winter 1800–01: the Qu’Appelle Lakes a winter camping ground of the Assiniboine (McLeod, Fort Alexandria)',(50.8,-103.9),30,RAY74('p. 173')),
+ pl('cre',1800.95,'Winter 1800–01: the Cree winter on the White Sand River and in the Touchwood and Nut Hills (McLeod)',(51.6,-103.8),100,RAY74('p. 173')),
+ pl('crw',1808.7,'Mid-Sept. 1808: a village of 100 Cree lodges near present North Battleford (Henry)',(52.77,-108.29),20,RAY74('p. 172')),
+ pl('asn',1808.95,'Winter 1808–09: the Strong Wood and Gens du Pied Assiniboine winter between the lower Battle River and Redberry Lake (Henry)',(52.75,-107.7),50,RAY74('p. 179 n. 16')),
+ pl('ass',1822.9,'Brandon District Report, 1822: the Assiniboine winter along the lower Souris, middle Assiniboine and lower Qu’Appelle and in Moose and Turtle mountains',(49.75,-100.4),120,RAY74('p. 174')),
+ pl('crw',1830.38,'May 1830: Cree and Blackfoot gathering in the grasslands south of Fort Pitt, “over 200 lodges” (mixed)',(53.25,-109.8),60,RAY74('pp. 219–20'),whole=False),
+ pl('crw',1831.12,'Feb. 1831: eight Cree buffalo pounds between Fort Carlton and Fort Pitt, north of the river',(53.1,-108.2),80,RAY74('p. 220')),
+ pl('asn',1830.98,'25 Dec. 1830: the Assiniboine and “lower Cree” work eight buffalo pounds at Jackfish Lake',(53.08,-108.4),30,RAY74('p. 220')),
+ pl('asn',1838.07,'Winter 1837–38: about 200 tents of Assiniboine trade at Beaver Creek on the lower Qu’Appelle and are vaccinated',(50.45,-101.4),40,RAY74('p. 191')),
+]
+EPI += [
+ (1831.5,1832.5,'Smallpox, 1831–32 (central plains)',{'ara':.25,'gv':.25,'chy':.05,'pwc':.15,'pwk':.15,'pws':.15},
+  ROB('pp. 223, 254: “killing better than a quarter of both tribes” (the Arapaho and their Atsina visitors); it “touched the Cheyennes, Pawnees, and a few bands of Arikaras”; Catlin’s Pawnee half is “a gross exaggeration”'),
+  'sourced for the Arapaho and Gros Ventre; assumed for the rest'),
+ (1838.0,1838.5,'Smallpox, 1838 (Pawnee)',{'pwc':.25,'pwk':.25,'pws':.25},
+  ROB('p. 215: from Lakota captives taken by a Skidi party, smallpox “eventually spread to the rest of the Pawnee nation, devouring nearly one-fourth of its population—an estimated 2,500 men, women, and children”'),'sourced'),
+ (1851.45,1851.75,'Cholera, 1851 (upper Missouri)',{'hid':.07,'man':.07,'ari':.1},
+  ROB('p. 290 (Meyer, after Kurz): “seven percent—one out of fourteen” at Like-a-Fishhook; at the Arikara village “said to have been higher”'),
+  'sourced for the Hidatsa; Mandan as Hidatsa; Arikara assumed above'),
+ (1848.4,1848.9,'Smallpox, 1848 (Shoshone and Crow)',{'sho':.08,'cwm':.03,'cwr':.03},
+  ROB('p. 290')+'; '+DENIG5('pp. 185–86: the Crows caught it from the Snakes; “not nearly so destructive”'),'event sourced; rates assumed'),
+ (1846.3,1846.9,'Measles, 1846 (Arikara)',{'ari':.05,'man':.03},ROB('p. 289 (Meyer; count unknown)'),'event sourced; rates assumed'),
+ (1806.8,1807.3,'Smallpox, 1806–07 (Osage)',{'osg':.05,'osl':.05,'osa':.05},
+  ROB('p. 200 n. 17 (Rollings, The Osage, p. 278): after Pike’s visit “smallpox again hit them, killing 200 more”'),'sourced (200 of about 4,500)'),
+ (1870.06,1870.07,'Marias Massacre, Jan. 1870',{'pik':.06},ROB('p. 293 (after Ewers): 173 dead'),'sourced (173 of about 2,800)'),
+ (1750.0,1753.0,'Smallpox, early 1750s (Kansa)',{'kaw':.25},
+  NAS('p. 52: Kerlerec, 1758, the Kansa “very numerous, but the wars … with the Pawnees and small-pox have extremely weakened them”'),'event sourced; rate assumed'),
+ (1749.5,1750.5,'Measles and smallpox, c. 1750 (Wichita)',{'wic':.15},
+  NAS('p. 44: Vaudreuil, one of the Panis-Noirs’ and Pani-Picques’ villages “had been wiped out by an epidemic of measles and smallpox”'),'event sourced; rate assumed'),
+ (1870.5,1870.9,'Smallpox, 1870 (River Crow)',{'cwr':.05},
+  HOX('p. 100: a Crow woman “picked up the disease from an infected Gros Ventres family and carried it home. Her kinsmen separated from one another immediately”'),'event sourced; rate assumed (quick dispersal)'),
+ (1890.0,1890.99,'Sickness, 1890 (Crow)',{'cwm':.07},
+  HOX('p. 133 and n. 12: the 1887 census notations record 165 deaths in 1890, “more than 3 a week”, more than half under twenty'),'sourced: 165 of about 2,290'),
+ (1822.4,1823.6,'Sioux attack on a Crow village, c. 1822',{'cwm':.05,'cwr':.05},
+  HOX('p. 55 (Bradley manuscript): “as many as 1,000 Sioux warriors surprised a Crow village near the Yellowstone and destroyed several hundred lodges… half of the village’s population was killed” (oral)'),'assumed (an oral account of one village)'),
+ (1870.9,1871.6,'Famine after the smallpox and the failed hunt, 1870–71 (Saskatchewan)',{'cre':.05,'crs':.05,'crw':.05,'asn':.05},
+  RAY74('p. 225: “the summer bison hunt of 1870 was a total failure … During the ensuing winter, starvation was widespread … The summer of 1871 proved to be equally lean”; p. 192'),'event sourced; rates assumed'),
 ]
 
 # Each epidemic applies only to the divisions alive while it ran.

@@ -67,7 +67,7 @@ class Fit:
         X=np.array([[p['x'],p['y']] for p in P],float)
         for i,p in enumerate(P):
             if p['s']=='dated': X[i]-=lit(div['gid'],p['t'],div['lat0'],div['lon0'])
-        self.mu=X.mean(0); self.L=np.linalg.cholesky(K)
+        self.X=X; self.mu=X.mean(0); self.L=np.linalg.cholesky(K)
         self.alpha=np.linalg.solve(self.L.T,np.linalg.solve(self.L,X-self.mu))
     def _kT(self,tq):
         k=self.th['sT']**2*np.exp(-(tq-self.t)**2/(2*self.th['lT']**2))
