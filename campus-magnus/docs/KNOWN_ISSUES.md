@@ -122,3 +122,11 @@ Reading the primary sources behind figures the record had cited second-hand turn
 - **The Wichita confederacy.** De Mézières calls both of the Red River villages of 1778 Taovaya; the Handbook calls the north-bank town Wichita proper. The "Panis-mahas" who joined the Taovaya in the 1770s may have been Skiri Pawnee; they are left out of the Wichita counts.
 - **La Vérendrye's peoples of 1742–43.** The Gens des Chevaux, Gens de l'Arc, Beaux Hommes, Petits Renards, Pioya and Gens de la Belle Rivière cannot be securely identified; they are not in the record.
 
+## 13. The settler layer is approximate
+
+- **Drawn by us.** Every boundary in the states-and-reservations layer is built from modern outlines and the lines the acts name; none is digitized from a historical map, and the dates and definitions are recalled (`METHODS.md` §5). Expect errors of tens of kilometres, and some of dates.
+- **The divides.** French Louisiana, Rupert's Land and the western edge of the American territories to 1861 follow drainage divides drawn by hand with a few dozen points.
+- **Spanish and Mexican provinces.** Their northern limits were never surveyed. Nuevo México is a box around the settled Rio Grande country; Texas runs from the Sabine and Red to 100°W and the Nueces; Coahuila and Nuevo Santander share the strip between the Nueces and the Rio Grande at 99.3°W.
+- **Simplified changes.** Arkansas Territory's western line is drawn at 100°W until 1828; Missouri gains the Platte Purchase in 1837 but Nebraska's 1882 addition north of the Niobrara is left out; the Oklahoma and Indian Territory line of 1890–1907 is approximate; Keewatin, Athabasca and the Ontario boundary before 1884 are simplified or left out.
+- **Contested claims.** Spain and the United States disputed Louisiana's western line until 1821; Mexico never recognized Texas, and Texas held little of what it claimed. The layer draws the claims as asserted.
+- **Reservations.** Small reservations are boxes on their location; Fort Berthold before 1880 and the Wind River and Cheyenne–Arapaho reservations are approximate; the Canadian Cree and Assiniboine reserves of Treaties 4 and 6 are not drawn.

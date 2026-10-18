@@ -138,6 +138,10 @@ for f in ['plains_positions.csv', 'plains_seasonal_patterns.csv', 'plains_villag
           'plains_bison_range.csv', 'plains_validation.csv']:
     shutil.copy(f'{S}/out/{f}', f'{OUT}/data/{f.replace("plains_", "")}')
 
+# the settler states, territories, claims and reservations, as GeoJSON
+_st = json.load(open(f'{S}/build/settler.json', encoding='utf-8'))
+json.dump(dict(type='FeatureCollection', features=[dict(type='Feature', geometry=f['g'], properties=dict(id=f['id'], name=f['n'], level=f['lv'], sovereign=f['ow'], start=f['y0'], end=f['y1'], confederate=f.get('csa'), peoples=f.get('tribes'), source=f['src'], note=f.get('note'))) for f in _st]),
+          open(f'{OUT}/data/settler_boundaries.geojson', 'w', encoding='utf-8'), ensure_ascii=False)
 json.dump(dict(tiers=tiers, records=len(rec), keyframes=len(kf), epidemic_rows=len(ep),
                keyframes_without_note=sum(1 for k in kf if k[9]), keyframe_roles=collections.Counter(k[10] for k in kf), counts=sum(1 for r in rec if r[5] != ''),
                places_only=sum(1 for r in rec if r[5] == ''), steer=sum(1 for r in rec if r[14] == 'yes'),

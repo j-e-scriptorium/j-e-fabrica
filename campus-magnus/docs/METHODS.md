@@ -43,7 +43,7 @@ The objective is a linear least-squares solve; the posterior SD comes from the i
 
 Every count is then divided by its family's factor and the model refitted. Reservation censuses are the fixed reference.
 
-**Reported uncertainty.** The posterior SD × 1.25 (`SD_INFL`), from the leave-one-out calibration (§5). Unwidened, the 1-sd range holds 75% of withheld counts and the 2-sd range 92%; widened, 80% and 96%. The misses are heavier-tailed than normal, so the widening is set by the 2-sd range and leaves the 1-sd range conservative.
+**Reported uncertainty.** The posterior SD × 1.25 (`SD_INFL`), from the leave-one-out calibration (§6). Unwidened, the 1-sd range holds 75% of withheld counts and the 2-sd range 92%; widened, 80% and 96%. The misses are heavier-tailed than normal, so the widening is set by the 2-sd range and leaves the 1-sd range conservative.
 
 | Setting | Value | Meaning | How set |
 |---|---|---|---|
@@ -114,7 +114,16 @@ $$x(t) = T(t) + S(t) + \lambda\,\phi(t)\,A_{\text{lit}}(t), \qquad x_i = x(t_i) 
 - Band positions are the division centre plus a shared annual shift and band scatter, drawn from a fixed random seed with scales from the Kiowa calendar camps.
 - Documented band places (`band_places_recalled.csv`; most recalled from standard histories, see `JUDGMENTS.md` §10) override the draw.
 
-## 5. Tests
+## 5. Settler states, territories and reservations (reference layer)
+
+A switchable layer shows, for the year on the timeline, the claims of the European and American powers, the organized territories, provinces and districts, the states and provinces (with the Republic of Texas), the Confederate states during the war, and the reservations and reserves. It is reference only: nothing in the population or position model reads it.
+
+- *Construction* (`settler_src.py`, `build_settler.py` → `build/settler.json`, `settler.js`, `data/settler_boundaries.geojson`). Each feature is built from modern state and province outlines (Natural Earth admin-1, kept in `model/geo/admin1.json`), the rivers of the base map, and the meridians, parallels and divides the treaties and organic acts name: the Adams–Onís line, the 49th parallel, the summit of the Rockies, the Missouri and White Earth rivers, the Rio Grande to its source and north to 42° for the Texan claim, and so on. A feature lasts from the day its act or treaty took effect to the day the next one changed it.
+- *Levels.* Claims (sovereignty asserted: New France, New Spain, Rupert's Land, the United States, Mexico, Canada) are drawn faint and dotted; land the United States held outside any state or territory is the residual of the others, dashed; territories, provinces and districts in a mid tone; states and provinces in full ink. The Confederate states, and the Confederate Territory of Arizona, are drawn in red from secession to the surrender in the West (June 1865).
+- *Reservations* take the ink of the people they were made for and appear on the date of the treaty or order that made them; each reduction is a new feature. Small reservations are boxes on their location.
+- *Sources.* The dates and the defining lines are recalled from Van Zandt, *Boundaries of the United States and the Several States* (1976), the Newberry Library's *Atlas of Historical County Boundaries*, the *Atlas of Canada*'s territorial evolution maps, Gerhard, *The North Frontier of New Spain* (1982), and Royce, *Indian Land Cessions* (1899); they have not been checked against those works page by page. The lines are approximate throughout (`KNOWN_ISSUES.md` §13).
+
+## 6. Tests
 
 | Test | Script | Output | Result |
 |---|---|---|---|
