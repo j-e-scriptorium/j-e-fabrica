@@ -3772,6 +3772,93 @@ EPI += [
   RAY74('p. 225: “the summer bison hunt of 1870 was a total failure … During the ensuing winter, starvation was widespread … The summer of 1871 proved to be equally lean”; p. 192'),'event sourced; rates assumed'),
 ]
 
+# =============================================================================================
+# ADDITIONS: Hämäläinen, Lakota America (2019) and Indigenous Continent (2022), read in full. Both are syntheses; what is
+# taken here is what their notes tie to a primary source, and the places and shocks the record lacked (JUDGMENTS §12).
+HLA=lambda loc: f'Hämäläinen, Lakota America: A New History of Indigenous Power (2019), {loc}'
+HIC=lambda loc: f'Hämäläinen, Indigenous Continent: The Epic Contest for North America (2022), {loc}'
+# The 1736 enumeration: the 2,000 men “on the prairies” are the western Sioux (Teton, Yankton and Yanktonai), not all the
+# Sioux; the 300 east of the Mississippi are only part of the Dakota (LA, ch. 2, which gives the 2,000 to the Lakota alone).
+for _o in OBS:
+    if _o['y']==1736 and _o['pop']==9200 and _o['raw'].startswith('1736: 300 Sioux men'):
+        _o.update(g=['tet','ynk','yku','ykl'],pop=8000,basis='men × 4 (ours)',at=(44.8,-97.5),
+                  raw='1736: “2,000 on the prairies”, the western Sioux (and 300 men east of the Mississippi, part of the Dakota, left out)')
+# The Indian Office tables of 1861–63 repeat the same Teton figures year after year (Hunkpapa 2,680 three years running):
+# copied, not counted (LA, ch. 6, n. 82). Each repeated figure is kept once, at its first year.
+_seen=set(); _keep=[]
+for _o in OBS:
+    _k=(tuple(_o['g']) if isinstance(_o['g'],list) else _o['g'],_o['pop'])
+    if 1861<=_o['y']<=1863 and _o['pop'] and 'Annual Report of the Commissioner' in _o['src'] and _k[0] in ('hnk','min','sih','twk'):
+        if _k in _seen: continue
+        _seen.add(_k)
+    _keep.append(_o)
+OBS[:]=_keep
+OBS += [
+ dict(g='tet',y=1728.0,pop=300,raw='Winter 1727–28: “some three hundred Lakotas camped near the fort” at Lake Pepin; the band “was calculated in men—about sixty” (part)',basis='men × 5 (Hämäläinen)',loc='stated',at=(44.5,-92.3),r=15,src=HLA('ch. 2, n. 38, citing Guignas to Beauharnois, 29 May 1728 (DÉ 6: 558), and others'),kind='primary',whole=False),
+ dict(g='mde',y=1728.0,pop=475,raw='1727–28: “Ninety-five Dakota lodges immediately settled at Lake Pepin” by Fort Beauharnois (part)',basis='lodges × 5 (ours)',loc='stated',at=(44.5,-92.3),r=15,src=HLA('ch. 2, n. 38'),kind='primary',whole=False),
+ dict(g=['bru','ogl','min','sao'],y=1804.85,pop=15000,raw='Pierre Chouteau to Gallatin, 7 Nov. 1804: the Lakota 15,000, expecting them to be “beaucoup plus considerable”; Hämäläinen, after Bray, calls it “inflated by nearly half”',basis='souls',loc='inferred',at=(44.8,-100.5),r=250,src='Chouteau to Gallatin, 7 Nov. 1804 (Nasatir, Before Lewis and Clark, 2: 759), as cited in '+HLA('ch. 3, n. 66'),kind='primary'),
+ dict(g=['pwc','pwk','pws'],y=1832.85,pop=6000,raw='Autumn 1832: a Lakota party attacks “the six thousand survivors” of the smallpox, “who had seven guns between them”',basis='souls',loc='inferred',at=(41.4,-98.0),r=80,src='Dougherty to Clark, 29 and 30 Nov. 1832, and Clark to Cass, 10 Dec. 1832 (LROIA, Upper Missouri Agency, roll 883), as cited in '+HLA('ch. 4, n. 113'),kind='primary'),
+ pl('sao',1795.5,'Truteau, 1795: the “Chaony” “usually roam the land to the northeast of the Missouri, but, lacking buffalo bulls and cows in those regions, they are forced to cross to the western side of the river”; their tipi villages on the east bank around Beaver Creek (Tabeau)',(46.1,-100.3),80,
+    'Truteau’s journal, 1795, and Tabeau’s Narrative, pp. 103, 106, as cited in '+HLA('ch. 3, nn. 42, 44')),
+ pl('sna',1815.5,'About 1815 the Sans Arc build dirt lodges at Peoria Bottom above the Bad River, then large wooden houses, “which they occupied for at least two years” (winter counts)',(44.48,-100.42),20,HLA('ch. 4, n. 101, citing YSF 157–61')),
+ pl('sna',1817.0,'The Sans Arc houses at Peoria Bottom, second year (winter counts)',(44.48,-100.42),20,HLA('ch. 4, n. 101')),
+ pl('ogl',1828.95,'Winter, late 1820s: the Crow gone west to the Powder, “Oglalas and Sicangus established themselves on Pahá Sápa’s eastern side”; “By the late 1820s Lakotas were wintering in Pahá Sápa”',(43.9,-103.3),80,HLA('ch. 5, nn. 5, 8, citing Pilcher’s answers, Atkinson, and the winter counts (YSF 184–91)')),
+ pl('bru',1828.95,'Winter, late 1820s: the Oglala and Brulé on the eastern side of the Black Hills (see the Oglala record)',(43.7,-103.1),100,HLA('ch. 5, nn. 5, 8')),
+ pl('min',1848.95,'From about 1846–47, at peace with the Arikara, the Miniconjou winter “behind the Arickara Village on the heads of the Little Missouri, a point one hundred miles farther west than their former range”; “In the summer season they move back on Grand River or the Cheyenne”',(45.6,-104.0),100,DENIG5('pp. 24–25')),
+ pl('min',1849.5,'Summer: the Miniconjou “move back on Grand River or the Cheyenne” and in the fall trade corn with the Arikara',(45.2,-101.8),120,DENIG5('p. 25')),
+ pl('hnk',1868.47,'June 1868: De Smet at Sitting Bull’s village on the Powder, a council “attended by thousands of men and women”',(46.5,-105.5),60,'De Smet, Life, Letters and Travels, 3: 911–21, as cited in '+HLA('ch. 7, n. 87')),
+ pl('hnk',1872.3,'Spring 1872: “Sitting Bull and a Minneconjou chief Black Moon spent the spring of 1872 near Fort Peck with seven hundred lodges”',(48.0,-106.45),60,'Simmons to Walker, 9 June 1872 (LROIA, Montana Superintendency, roll 492), and others, as cited in '+HLA('ch. 8, n. 70')),
+ pl('hnk',1872.95,'Winter 1872–73: “By the end of the year more than eight hundred Lakota tipis stood around Fort Peck”',(48.0,-106.45),60,'Cowen, Turney and Wham, report on the Teton Sioux at and near Fort Peck (ARCIA 1872, 456–59), as cited in '+HLA('ch. 8, n. 73')),
+ pl('hnk',1874.23,'Late March 1874: “Sitting Bull’s Hunkpapas” sight the Yellowstone wagon expedition near the mouth of the Rosebud',(46.27,-106.45),40,HLA('ch. 9, n. 20, citing Quivey, “Yellowstone Expedition of 1874”')),
+ pl('hnk',1875.85,'Watkins, Nov. 1875: the northern nontreaty Sioux “occupy the center, so to speak, and roam over Western Dakota and Eastern Montana, including the rich valleys of the Yellowstone and Powder Rivers” (a range)',(46.0,-105.5),300,'Watkins to Smith, 9 Nov. 1875 (Sen. Ex. Doc. 52, 44th Cong., 1st Sess., 3–4), as cited in '+HLA('ch. 9, n. 31')),
+ pl(['hnk','sna'],1875.95,'Winter 1875–76: “Hunkpapas, Sans Arcs, and Cheyennes wintered near” Fort Pease on the Yellowstone opposite the Bighorn (part)',(46.16,-107.43),20,HLA('ch. 9, n. 35'),whole=False),
+ pl(['ogl'],1876.21,'17 Mar. 1876: Reynolds strikes “a mixed Oglala-Cheyenne village” (He Dog’s Oglala) on the Powder (part)',(45.06,-105.87),10,HLA('ch. 9, n. 33'),whole=False),
+]
+# Keyframes. The Teton of 1700–65 start farther east: “Pays et Nations des Tintons” on the upper Minnesota in the late 1690s
+# (Hennepin), Le Sueur’s “prairies between the Upper Mississippi and the river of the Missouris”, the Big Sioux their western
+# border in the early 1700s, the James and the Coteau du Missouri crossed only in the 1750s (LA, ch. 1, n. 90; ch. 2, nn. 22–23, 77).
+GUESS['tet'][0]=g(1700,(44.9,-96.8),4170,'Upper Minnesota and Big Sioux country: “Pays et Nations des Tintons” (Hennepin); the prairies between the upper Mississippi and the Missouri (Le Sueur); Hämäläinen, Lakota America, ch. 1 n. 90, ch. 2 n. 23')
+GUESS['tet'][1]=g(1740,(44.7,-98.0),4810,'On the James, short of the Coteau du Missouri (Lakota America, ch. 2, n. 77)')
+GUESS['tet'][2]=g(1765,(44.5,-99.7),6250,'At the Big Bend of the Missouri (Brulé and Oglala), the Saone and Miniconjou about 75 miles north (Lakota America, ch. 2, nn. 77–78)')
+GUESS['sao'][1]=g(1795,None,None,'')
+for _gid in ('bru','ogl','min'):
+    GUESS[_gid]=[k if k[0]!=1805 else g(1805,None,None,'') for k in GUESS[_gid]]
+GUESS['chy']=[k if k[0]!=1785 else g(1785,(44.5,-101.6),3000,'Most left the Missouri villages after the 1781 smallpox for the Cheyenne River (West; Moore; Lakota America, ch. 3, n. 28); the Masikota stayed with the Lakota') for k in GUESS['chy']]
+# Epidemics and shocks.
+EPI[0][3]['hid']=.5
+EPI[0]=EPI[0][:4]+(EPI[0][4]+'; for the Hidatsa, Stewart, “Hidatsa”, Handbook 13, p. 329: “cut by half” (also in Lakota America, ch. 3, n. 28)',EPI[0][5].replace('the Missouri villages (68%)','the Mandan and Arikara (68%) and the Hidatsa (50%)'))
+EPI[1][3]['pon']=.4; EPI[1][3]['oma']=.55
+EPI[1]=EPI[1][:4]+(EPI[1][4]+'; for the Teton, five winter counts name the Brulé, Oglala, Miniconjou, Two Kettle and Yanktonai as struck (YSF 129–31, BMWC 13, RHO 59, BTWC; Howard, “Yanktonai Ethnohistory”, 41–42; Lakota America, ch. 4, n. 8); the Ponca and Omaha rates are held below the losses Clark saw, which include the Brulé attack of 1803 (below)',EPI[1][5]+'; the Teton event attested by winter counts, the rate assumed')
+for _i,_e in enumerate(EPI):
+    if _e[2]=='Smallpox, 1831–32 (central plains)':
+        _M=dict(_e[3]); _M.update(pwc=.33,pwk=.33,pws=.33)
+        EPI[_i]=(_e[0],_e[1],_e[2],_M,_e[4]+'; against Robertson, the agent Dougherty’s letters of Nov. 1832 have the smallpox kill “half of the Pawnees”, leaving “six thousand survivors” (Lakota America, ch. 4, n. 113; Wishart, An Unspeakable Sadness, pp. 80–81: about 4,000 dead)',
+                 'sourced for the Arapaho and Gros Ventre; the Pawnee at a third, between Robertson (a half is “a gross exaggeration”) and Dougherty (a half), which with Long’s 10,000 of 1820 and the counts of 1840 a third fits best; assumed for the rest')
+    if _e[2]=='Massacre Canyon, Aug. 1873':
+        EPI[_i]=_e[:4]+(_e[4]+'; Hämäläinen, from the agency letters and Blaine and Blaine (1977), has “more than seventy” dead (Lakota America, ch. 8, n. 77)',_e[5])
+EPI += [
+ (1741.5,1741.7,'Cree and Assiniboine attack on a prairie Sioux camp, 1741',{'tet':.04},
+  '“Paroles des Sioux …”, July 1742, and Beauharnois to Maurepas, 12 Oct. 1742, as cited in '+HLA('ch. 2, n. 57')+': “the well-armed northerners killed 160 Sioux warriors and uncounted women and children” (the Sioux’s own figure)','sourced (160 men and an unknown number of others, of about 4,800)'),
+ (1793.5,1794.5,'Lakota destruction of a Mandan village, 1793–94',{'man':.2},
+  HLA('ch. 3, n. 39, citing YSF 118–19 and the Blue Thunder count')+': “a village of fifty-eight lodges and killing everyone in it”, probably the Mandan village sacked then','event sourced; rate ours (58 earth lodges of about 300)'),
+ (1803.7,1803.95,'Brulé attacks on the Ponca and Omaha, 1803',{'pon':.35,'oma':.07},
+  'Tabeau’s Narrative, pp. 99–101, 110, as cited in '+HIC('ch. 24, n. 21')+' and '+HLA('ch. 4, n. 22')+': Black Buffalo’s men “killed more than half of the people in a Ponca town—perhaps as many as 150 men, women, and children—and 75 in an Omaha town”','sourced (150 and 75 against the populations left by the 1801–02 smallpox)'),
+ (1828.9,1829.3,'Lakota attack on the Hidatsa, winter 1828–29',{'hid':.12},
+  HLA('ch. 4, n. 113, citing YSF 180–85 and the Blue Thunder count')+': “Lakotas killed two hundred Hidatsas in one of the bloodiest recorded Indian-Indian fights”','sourced (200 of about 1,600)'),
+ (1835.3,1835.6,'Mandan and Hidatsa attack on a Yanktonai camp, 1835',{'yku':.05},
+  'Pilcher to Clark, 18 July 1835 (LROIA, Upper Missouri Agency, roll 883), as cited in '+HLA('ch. 5, n. 18')+': on the Knife River, “killing and capturing nearly two hundred people”','sourced (nearly 200 of about 3,900 Yanktonai, given to the Upper Yanktonai)'),
+ (1840.2,1840.7,'Council House Fight and Plum Creek, 1840',{'cyp':.07},
+  HIC('ch. 27')+': “The Texans shot thirty-five Comanches point-blank”; at Plum Creek volunteers “ambushed the returning Comanches, killing 140” (Texan figures run as low as about 80)','sourced (115–175 of about 1,700)'),
+ (1855.67,1855.7,'Ash Hollow (Blue Water), Sept. 1855',{'bru':.03},
+  'Mattison, ed., “Harney Expedition against the Sioux”, as cited in '+HLA('ch. 6, n. 53')+': “One soldier reported eighty-six dead”, with seventy women and children captured','sourced (86 of about 3,000)'),
+ (1863.67,1863.7,'Whitestone Hill, Sept. 1863',{'yku':.06},
+  'Sully’s report of 3 Sept. 1863 (Kingsbury, History of Dakota Territory, 1: 291–95), as cited in '+HLA('ch. 7, n. 19')+': “They killed nearly two hundred”; the lodges and the winter’s meat burned','sourced (nearly 200 from a camp mostly of Upper Yanktonai, with Dakota, Yankton and Lakota)'),
+ (1864.9,1864.92,'Sand Creek, Nov. 1864',{'chs':.08},
+  HLA('ch. 7, n. 32, citing Kelman and Hoig')+': “more than 150 of their people, mostly women, children, and the elderly”; Handbook 13 counts 137 Cheyenne','sourced (about 140 of about 1,750)'),
+ (1890.99,1891.0,'Wounded Knee, Dec. 1890',{'min':.17,'hnk':.02},
+  'Ostler, Utley, Warren and Coleman, as cited in '+HLA('ch. 9, n. 78')+': “At least 270 Indians died, and at least 170 of them were women and children”, Spotted Elk’s Miniconjou with “some of Sitting Bull’s followers”','sourced (270; the split between the Miniconjou and the Hunkpapa refugees is ours)'),
+]
+
 # Each epidemic applies only to the divisions alive while it ran.
 _LIFE={_g[0]:(_g[4],_g[5]) for _g in GROUPS}
 EPI=[(s,e,lab,{g:f for g,f in M.items() if g not in _LIFE or (_LIFE[g][0]<=e and _LIFE[g][1]>=s)},src,basis) for (s,e,lab,M,src,basis) in EPI]

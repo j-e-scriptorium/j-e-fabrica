@@ -1,37 +1,37 @@
 group_id,tribe,division,period,counts_for_division,counts_shared_with_other_divisions,documented_places_on_track,keyframe_places_on_track,longest_gap_without_documented_place_years,mean_population_sd_percent,mean_halo_km,flag
 tet,Lakota,Teton (before division),1700–1749,0,2,0,2,50,27,204,sparse
 tet,Lakota,Teton (before division),1750–1785,0,1,0,3,36,26,164,sparse
-bru,Lakota,Brulé (Sičháŋǧu),1785–1799,0,0,1,1,9.8,24,131,
-bru,Lakota,Brulé (Sičháŋǧu),1800–1824,2,3,5,1,7.5,18,98,
-bru,Lakota,Brulé (Sičháŋǧu),1825–1849,4,1,4,1,14.5,17,107,
-bru,Lakota,Brulé (Sičháŋǧu),1850–1874,6,1,9,1,7.5,12,85,
+bru,Lakota,Brulé (Sičháŋǧu),1785–1799,0,0,1,1,9.8,25,131,
+bru,Lakota,Brulé (Sičháŋǧu),1800–1824,2,4,5,1,7.5,19,97,
+bru,Lakota,Brulé (Sičháŋǧu),1825–1849,4,1,5,1,14.5,17,103,
+bru,Lakota,Brulé (Sičháŋǧu),1850–1874,6,1,9,1,7.5,14,85,
 bru,Lakota,Brulé (Sičháŋǧu),1875–1905,3,2,1,2,15.6,13,124,
-ogl,Lakota,Oglala,1785–1799,0,0,0,1,15,24,166,thin
-ogl,Lakota,Oglala,1800–1824,1,3,2,0,20,19,133,
-ogl,Lakota,Oglala,1825–1849,6,1,7,1,8,15,93,
+ogl,Lakota,Oglala,1785–1799,0,0,0,1,15,25,166,thin
+ogl,Lakota,Oglala,1800–1824,1,4,2,0,20,20,131,
+ogl,Lakota,Oglala,1825–1849,6,1,8,1,5.5,15,87,
 ogl,Lakota,Oglala,1850–1874,13,1,14,3,7.2,11,71,
 ogl,Lakota,Oglala,1875–1905,17,2,4,1,15.6,8,108,
-min,Lakota,Miniconjou,1785–1799,0,0,0,1,15,24,163,thin
-min,Lakota,Miniconjou,1800–1824,1,3,3,1,13.6,19,116,
-min,Lakota,Miniconjou,1825–1849,2,3,1,0,17,18,131,
-min,Lakota,Miniconjou,1850–1874,12,0,6,1,8.1,12,93,
+min,Lakota,Miniconjou,1785–1799,0,0,0,1,15,25,163,thin
+min,Lakota,Miniconjou,1800–1824,1,4,3,1,13.6,20,115,
+min,Lakota,Miniconjou,1825–1849,2,3,3,0,16.0,19,123,
+min,Lakota,Miniconjou,1850–1874,11,0,6,1,8.1,13,90,
 min,Lakota,Miniconjou,1875–1905,8,4,3,3,27.4,12,130,sparse
-sao,Lakota,"Saone (northern Teton, before division)",1785–1799,0,0,0,2,15,26,148,thin
-sao,Lakota,"Saone (northern Teton, before division)",1800–1806,1,2,1,0,5,22,126,
+sao,Lakota,"Saone (northern Teton, before division)",1785–1799,0,0,1,1,10.5,25,131,
+sao,Lakota,"Saone (northern Teton, before division)",1800–1806,1,3,1,0,5,21,118,
 hnk,Lakota,Hunkpapa,1806–1824,0,2,0,1,19,23,184,
 hnk,Lakota,Hunkpapa,1825–1849,4,1,1,0,17,17,139,
-hnk,Lakota,Hunkpapa,1850–1874,14,0,7,1,7.0,11,91,
-hnk,Lakota,Hunkpapa,1875–1905,13,2,5,2,15.6,10,113,
-sih,Lakota,Sihasapa (Blackfeet Lakota),1806–1824,0,2,0,1,19,23,185,
-sih,Lakota,Sihasapa (Blackfeet Lakota),1825–1849,4,1,1,0,17,18,151,
-sih,Lakota,Sihasapa (Blackfeet Lakota),1850–1874,13,0,4,1,10.1,11,112,
-sih,Lakota,Sihasapa (Blackfeet Lakota),1875–1905,16,3,1,2,29.5,10,156,sparse
-sna,Lakota,Itazipčho (Sans Arc),1806–1824,0,2,0,1,19,23,185,
-sna,Lakota,Itazipčho (Sans Arc),1825–1849,4,1,1,0,17,18,151,
-sna,Lakota,Itazipčho (Sans Arc),1850–1874,8,0,4,1,9.0,13,109,
+hnk,Lakota,Hunkpapa,1850–1874,12,0,11,1,7.0,13,84,
+hnk,Lakota,Hunkpapa,1875–1905,13,2,6,2,15.6,12,112,
+sih,Lakota,Sihasapa (Blackfeet Lakota),1806–1824,0,2,0,1,19,24,185,
+sih,Lakota,Sihasapa (Blackfeet Lakota),1825–1849,4,1,1,0,17,19,151,
+sih,Lakota,Sihasapa (Blackfeet Lakota),1850–1874,12,0,4,1,10.1,13,112,
+sih,Lakota,Sihasapa (Blackfeet Lakota),1875–1905,16,3,1,2,29.5,11,156,sparse
+sna,Lakota,Itazipčho (Sans Arc),1806–1824,0,2,2,1,9.5,24,125,
+sna,Lakota,Itazipčho (Sans Arc),1825–1849,4,1,1,0,17,19,142,
+sna,Lakota,Itazipčho (Sans Arc),1850–1874,8,0,4,1,9.0,14,109,
 sna,Lakota,Itazipčho (Sans Arc),1875–1905,9,4,3,1,27.4,12,144,sparse
-twk,Lakota,Oohenunpa (Two Kettle),1833–1849,2,2,1,0,17,18,150,
-twk,Lakota,Oohenunpa (Two Kettle),1850–1874,12,0,3,2,17.2,12,107,
+twk,Lakota,Oohenunpa (Two Kettle),1833–1849,2,2,1,0,17,19,150,
+twk,Lakota,Oohenunpa (Two Kettle),1850–1874,10,0,3,2,17.2,13,107,
 twk,Lakota,Oohenunpa (Two Kettle),1875–1905,10,4,1,1,27.4,12,134,sparse
 ynk,Yankton,Yankton,1700–1749,0,2,1,0,49.1,30,216,sparse
 ynk,Yankton,Yankton,1750–1799,0,1,2,0,34.8,27,164,sparse
@@ -44,37 +44,37 @@ yku,Yanktonai,Upper Yanktonai & Cuthead,1750–1799,0,1,1,0,40.0,27,198,sparse
 yku,Yanktonai,Upper Yanktonai & Cuthead,1800–1824,0,4,0,1,25,22,174,
 yku,Yanktonai,Upper Yanktonai & Cuthead,1825–1849,2,1,6,0,13.2,21,109,
 yku,Yanktonai,Upper Yanktonai & Cuthead,1850–1874,1,1,7,3,7.2,15,88,
-yku,Yanktonai,Upper Yanktonai & Cuthead,1875–1905,0,2,0,1,31,18,161,sparse
+yku,Yanktonai,Upper Yanktonai & Cuthead,1875–1905,0,2,0,1,31,19,161,sparse
 ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1700–1749,0,2,0,1,50,30,234,sparse
 ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1750–1799,0,1,1,0,40.0,28,192,sparse
 ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1800–1824,0,4,1,1,13.6,23,144,
 ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1825–1849,0,1,3,1,13.2,22,115,
 ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1850–1874,2,1,5,1,13.1,16,81,
 ykl,Yanktonai,Hunkpatina (Lower Yanktonai),1875–1905,3,2,3,0,19,12,82,
-mde,Dakota,Mdewakanton,1700–1749,0,2,3,1,45.0,27,53,sparse
+mde,Dakota,Mdewakanton,1700–1749,0,1,3,1,45.0,28,53,sparse
 mde,Dakota,Mdewakanton,1750–1799,0,1,1,1,35.0,27,30,sparse
 mde,Dakota,Mdewakanton,1800–1824,5,0,1,0,20,22,31,
 mde,Dakota,Mdewakanton,1825–1849,0,0,0,0,25,22,35,thin
 mde,Dakota,Mdewakanton,1850–1874,1,10,6,2,6.0,13,40,
 mde,Dakota,Mdewakanton,1875–1905,0,24,0,1,31,10,24,sparse
-wpk,Dakota,Wahpekute,1700–1749,0,2,1,0,49.1,30,219,sparse
-wpk,Dakota,Wahpekute,1750–1799,0,1,1,1,35.0,28,172,sparse
+wpk,Dakota,Wahpekute,1700–1749,0,1,1,0,49.1,33,219,sparse
+wpk,Dakota,Wahpekute,1750–1799,0,1,1,1,35.0,29,172,sparse
 wpk,Dakota,Wahpekute,1800–1824,4,0,1,0,20,24,172,
 wpk,Dakota,Wahpekute,1825–1849,1,0,0,0,25,23,187,
 wpk,Dakota,Wahpekute,1850–1874,0,10,5,2,6.0,13,58,
 wpk,Dakota,Wahpekute,1875–1905,0,24,0,1,31,10,163,sparse
-wpt,Dakota,Wahpeton,1700–1749,0,2,0,1,50,30,234,sparse
-wpt,Dakota,Wahpeton,1750–1799,0,1,1,1,35.0,28,160,sparse
+wpt,Dakota,Wahpeton,1700–1749,0,1,0,1,50,33,234,sparse
+wpt,Dakota,Wahpeton,1750–1799,0,1,1,1,35.0,29,160,sparse
 wpt,Dakota,Wahpeton,1800–1824,4,0,2,0,20,24,146,
 wpt,Dakota,Wahpeton,1825–1849,1,0,1,0,15.0,22,141,
 wpt,Dakota,Wahpeton,1850–1874,0,7,6,2,6.0,14,59,
-wpt,Dakota,Wahpeton,1875–1905,0,20,0,1,31,10,162,sparse
-sis,Dakota,Sisseton,1700–1749,0,2,0,1,50,30,241,sparse
-sis,Dakota,Sisseton,1750–1799,0,1,0,1,50,27,193,sparse
+wpt,Dakota,Wahpeton,1875–1905,0,20,0,1,31,11,162,sparse
+sis,Dakota,Sisseton,1700–1749,0,1,0,1,50,33,241,sparse
+sis,Dakota,Sisseton,1750–1799,0,1,0,1,50,28,193,sparse
 sis,Dakota,Sisseton,1800–1824,5,0,2,0,20,20,157,
 sis,Dakota,Sisseton,1825–1849,1,0,0,0,25,21,186,
 sis,Dakota,Sisseton,1850–1874,0,7,6,2,6.0,14,87,
-sis,Dakota,Sisseton,1875–1905,0,20,0,1,31,10,164,sparse
+sis,Dakota,Sisseton,1875–1905,0,20,0,1,31,11,164,sparse
 ass,Assiniboine,Southern (Missouri) Assiniboine,1700–1749,0,0,1,2,38.8,30,184,sparse
 ass,Assiniboine,Southern (Missouri) Assiniboine,1750–1799,0,2,2,1,47.9,26,174,sparse
 ass,Assiniboine,Southern (Missouri) Assiniboine,1800–1824,4,1,4,0,13.4,18,109,
@@ -88,21 +88,21 @@ asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1825–1849,1,3,3,0,11.9,17,
 asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1850–1874,4,2,2,0,16.4,15,130,
 asn,Assiniboine,Northern (Saskatchewan) Assiniboine,1875–1905,9,2,2,1,23.5,10,125,
 cre,Plains Cree,Qu’Appelle–Touchwood Cree,1700–1749,0,0,0,1,50,35,241,thin
-cre,Plains Cree,Qu’Appelle–Touchwood Cree,1750–1799,0,1,0,1,50,26,198,sparse
-cre,Plains Cree,Qu’Appelle–Touchwood Cree,1800–1824,1,0,2,0,20,24,167,
-cre,Plains Cree,Qu’Appelle–Touchwood Cree,1825–1849,0,1,0,0,25,24,224,
-cre,Plains Cree,Qu’Appelle–Touchwood Cree,1850–1874,0,2,1,1,24.7,19,170,
+cre,Plains Cree,Qu’Appelle–Touchwood Cree,1750–1799,0,1,0,1,50,28,198,sparse
+cre,Plains Cree,Qu’Appelle–Touchwood Cree,1800–1824,1,0,2,0,20,25,167,
+cre,Plains Cree,Qu’Appelle–Touchwood Cree,1825–1849,0,1,0,0,25,26,224,
+cre,Plains Cree,Qu’Appelle–Touchwood Cree,1850–1874,0,2,1,1,24.7,20,170,
 cre,Plains Cree,Qu’Appelle–Touchwood Cree,1875–1905,0,9,0,1,31,14,182,sparse
-crw,Plains Cree,Fort des Prairies Cree,1700–1749,0,0,0,1,50,39,225,thin
-crw,Plains Cree,Fort des Prairies Cree,1750–1799,0,1,1,0,44.8,32,190,sparse
-crw,Plains Cree,Fort des Prairies Cree,1800–1824,0,1,1,1,16.3,26,150,
-crw,Plains Cree,Fort des Prairies Cree,1825–1849,0,1,1,0,18.9,26,156,
-crw,Plains Cree,Fort des Prairies Cree,1850–1874,1,2,1,0,20,19,147,
+crw,Plains Cree,Fort des Prairies Cree,1700–1749,0,0,0,1,50,40,225,thin
+crw,Plains Cree,Fort des Prairies Cree,1750–1799,0,1,1,0,44.8,35,190,sparse
+crw,Plains Cree,Fort des Prairies Cree,1800–1824,0,1,1,1,16.3,27,150,
+crw,Plains Cree,Fort des Prairies Cree,1825–1849,0,1,1,0,18.9,27,156,
+crw,Plains Cree,Fort des Prairies Cree,1850–1874,1,2,1,0,20,20,147,
 crw,Plains Cree,Fort des Prairies Cree,1875–1905,0,9,1,1,29.4,14,172,sparse
 crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1790–1799,0,0,0,1,10,29,199,thin
 crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1800–1824,0,1,0,0,25,27,211,
-crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1825–1849,0,1,1,1,19.1,22,147,
-crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1850–1874,2,2,2,1,20,18,123,
+crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1825–1849,0,1,1,1,19.1,23,147,
+crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1850–1874,2,2,2,1,20,19,123,
 crs,Plains Cree,Cypress Hills–Wood Mountain Cree,1875–1905,0,9,0,7,31,13,133,sparse
 ojb,Plains Ojibwe,Pembina–Turtle Mountain,1780–1799,0,0,2,1,10.0,28,114,
 ojb,Plains Ojibwe,Pembina–Turtle Mountain,1800–1824,2,0,4,1,16.4,22,115,
@@ -112,19 +112,19 @@ ojb,Plains Ojibwe,Pembina–Turtle Mountain,1875–1905,1,0,1,2,15.6,19,135,
 sik,Blackfoot,Siksika,1700–1749,0,0,0,2,50,30,207,thin
 sik,Blackfoot,Siksika,1750–1799,1,1,1,1,39,25,175,sparse
 sik,Blackfoot,Siksika,1800–1824,2,1,1,1,15.0,19,134,
-sik,Blackfoot,Siksika,1825–1849,0,0,1,1,16.1,20,144,
+sik,Blackfoot,Siksika,1825–1849,0,0,1,1,16.1,21,144,
 sik,Blackfoot,Siksika,1850–1874,11,0,1,0,18.5,13,150,
 sik,Blackfoot,Siksika,1875–1905,11,0,0,5,31,9,152,sparse
 kai,Blackfoot,Kainai (Blood),1700–1749,0,0,0,1,50,39,265,thin
 kai,Blackfoot,Kainai (Blood),1750–1799,1,1,1,0,39,31,217,sparse
 kai,Blackfoot,Kainai (Blood),1800–1824,2,1,1,1,15.0,19,135,
-kai,Blackfoot,Kainai (Blood),1825–1849,0,0,1,1,16.1,20,144,
+kai,Blackfoot,Kainai (Blood),1825–1849,0,0,1,1,16.1,21,144,
 kai,Blackfoot,Kainai (Blood),1850–1874,13,0,2,0,14.3,12,133,
 kai,Blackfoot,Kainai (Blood),1875–1905,11,0,1,2,28.3,9,159,sparse
 pik,Blackfoot,Piikani (Piegan),1700–1749,0,0,1,1,29.5,39,192,sparse
 pik,Blackfoot,Piikani (Piegan),1750–1799,1,1,3,0,37.9,31,191,sparse
 pik,Blackfoot,Piikani (Piegan),1800–1824,2,1,1,1,15.0,19,131,
-pik,Blackfoot,Piikani (Piegan),1825–1849,0,0,2,1,16.1,20,126,
+pik,Blackfoot,Piikani (Piegan),1825–1849,0,0,2,1,16.1,21,126,
 pik,Blackfoot,Piikani (Piegan),1850–1874,13,0,6,0,8.4,12,101,
 pik,Blackfoot,Piikani (Piegan),1875–1905,3,0,0,2,31,14,167,sparse
 gv,Gros Ventre,"A’aninin (Gros Ventre, Fall Indians)",1700–1749,0,0,0,1,50,38,215,thin
@@ -149,20 +149,20 @@ ara,Arapaho,Arapaho (before division),1800–1824,1,0,6,1,10.9,24,102,
 ara,Arapaho,Arapaho (before division),1825–1835,1,0,0,1,11,22,152,
 arn,Arapaho,Northern Arapaho,1835–1849,0,0,2,1,7.5,24,118,
 arn,Arapaho,Northern Arapaho,1850–1874,8,2,11,0,7.8,13,83,
-arn,Arapaho,Northern Arapaho,1875–1905,23,0,10,1,13.6,7,69,
+arn,Arapaho,Northern Arapaho,1875–1905,23,0,10,1,13.6,8,69,
 ars,Arapaho,Southern Arapaho,1835–1849,0,0,6,1,4.4,22,83,
 ars,Arapaho,Southern Arapaho,1850–1874,7,7,6,3,7.8,12,88,
 ars,Arapaho,Southern Arapaho,1875–1905,20,0,1,1,27.3,8,145,sparse
 cwm,Crow,Mountain Crow,1700–1749,0,0,0,1,50,38,262,thin
-cwm,Crow,Mountain Crow,1750–1799,0,2,0,1,50,28,212,sparse
-cwm,Crow,Mountain Crow,1800–1824,1,3,10,0,19.3,19,117,
-cwm,Crow,Mountain Crow,1825–1849,0,2,6,1,9.5,19,102,
+cwm,Crow,Mountain Crow,1750–1799,0,2,0,1,50,29,212,sparse
+cwm,Crow,Mountain Crow,1800–1824,1,3,10,0,19.3,20,117,
+cwm,Crow,Mountain Crow,1825–1849,0,2,6,1,9.5,21,102,
 cwm,Crow,Mountain Crow,1850–1874,6,8,7,1,9.6,12,98,
 cwm,Crow,Mountain Crow,1875–1905,6,18,5,1,21.5,9,115,
 cwr,Crow,River Crow,1700–1749,0,0,0,1,50,39,268,thin
-cwr,Crow,River Crow,1750–1799,0,2,0,0,50,32,265,sparse
-cwr,Crow,River Crow,1800–1824,1,3,2,0,19.4,19,133,
-cwr,Crow,River Crow,1825–1849,0,2,7,1,10.0,19,99,
+cwr,Crow,River Crow,1750–1799,0,2,0,0,50,33,265,sparse
+cwr,Crow,River Crow,1800–1824,1,3,2,0,19.4,21,133,
+cwr,Crow,River Crow,1825–1849,0,2,7,1,10.0,20,99,
 cwr,Crow,River Crow,1850–1874,4,8,9,1,5.0,12,81,
 cwr,Crow,River Crow,1875–1884,4,5,4,1,5.8,8,79,
 man,Mandan,Mandan,1700–1749,1,0,0,2,50,27,31,sparse
@@ -207,7 +207,7 @@ cyj,Comanche,Jupe,1750–1795,1,6,4,1,29.7,23,159,sparse
 cyy,Comanche,Yamparika,1700–1749,0,1,0,2,50,27,196,sparse
 cyy,Comanche,Yamparika,1750–1799,0,6,2,2,35.8,22,152,sparse
 cyy,Comanche,Yamparika,1800–1824,0,3,1,1,19.5,23,147,
-cyy,Comanche,Yamparika,1825–1849,0,7,3,1,14.4,20,122,
+cyy,Comanche,Yamparika,1825–1849,0,7,3,1,14.4,21,122,
 cyy,Comanche,Yamparika,1850–1874,2,9,6,1,10.4,13,91,
 cyy,Comanche,Yamparika,1875–1905,0,24,1,2,27.4,9,136,sparse
 cyk,Comanche,Kotsoteka,1700–1749,0,1,0,2,50,26,188,sparse
@@ -242,19 +242,19 @@ wic,Wichita,Wichita (Taovaya & allies),1875–1905,17,1,2,1,24.0,10,35,
 pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1700–1749,0,1,0,1,50,37,37,sparse
 pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1750–1799,1,2,3,0,27.0,29,31,sparse
 pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1800–1824,3,3,5,0,9.0,18,29,
-pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1825–1849,1,4,3,0,9.0,17,31,
+pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1825–1849,1,5,3,0,9.0,16,31,
 pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1850–1874,2,12,4,0,8.7,12,25,
 pwc,Pawnee,Chawi & Pitahawirata (Grand Pawnee),1875–1905,0,23,2,1,27.4,10,36,sparse
 pwk,Pawnee,Kitkahahki (Republican Pawnee),1700–1749,0,1,0,1,50,36,28,sparse
 pwk,Pawnee,Kitkahahki (Republican Pawnee),1750–1799,1,2,6,1,27.0,26,32,sparse
 pwk,Pawnee,Kitkahahki (Republican Pawnee),1800–1824,3,3,5,0,9.0,16,40,
-pwk,Pawnee,Kitkahahki (Republican Pawnee),1825–1849,1,4,2,0,15.0,16,25,
+pwk,Pawnee,Kitkahahki (Republican Pawnee),1825–1849,1,5,2,0,15.0,15,25,
 pwk,Pawnee,Kitkahahki (Republican Pawnee),1850–1874,2,12,4,1,8.7,12,28,
 pwk,Pawnee,Kitkahahki (Republican Pawnee),1875–1905,0,23,2,1,27.4,10,36,sparse
 pws,Pawnee,Skiri (Loup Pawnee),1700–1749,0,1,3,1,20.6,33,43,
 pws,Pawnee,Skiri (Loup Pawnee),1750–1799,2,1,3,1,27.0,23,42,sparse
 pws,Pawnee,Skiri (Loup Pawnee),1800–1824,3,3,5,0,13.7,18,27,
-pws,Pawnee,Skiri (Loup Pawnee),1825–1849,1,4,2,0,15.0,17,33,
+pws,Pawnee,Skiri (Loup Pawnee),1825–1849,1,5,2,0,15.0,16,33,
 pws,Pawnee,Skiri (Loup Pawnee),1850–1874,2,12,4,0,8.7,12,25,
 pws,Pawnee,Skiri (Loup Pawnee),1875–1905,0,23,2,1,27.4,10,36,sparse
 ari,Arikara,Arikara,1700–1749,1,0,1,1,43.2,31,33,sparse

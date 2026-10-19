@@ -3,7 +3,7 @@ source,records,of_which_counts,provenance_tier,peoples
 "Mooney, Calendar History of the Kiowa Indians (BAE 17th Annual Report, 1898), calendar entry",64,0,A2,Kiowa
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), DeMallie, “Sioux Until 1850”",59,44,A1,Dakota; Lakota; Yankton; Yanktonai
 "Hyde, Red Cloud’s Folk: A History of the Oglala Sioux Indians (1937)",51,13,A1,Arapaho; Cheyenne; Crow; Lakota
-"Denig, Five Indian Tribes of the Upper Missouri, ed. Ewers (1961)",45,30,A1,Arikara; Assiniboine; Crow; Dakota; Gros Ventre; Lakota; Plains Cree; Yankton; Yanktonai
+"Denig, Five Indian Tribes of the Upper Missouri, ed. Ewers (1961)",47,30,A1,Arikara; Assiniboine; Crow; Dakota; Gros Ventre; Lakota; Plains Cree; Yankton; Yanktonai
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Parks, “Pawnee”",42,20,A1,Pawnee
 "Mooney, Calendar History of the Kiowa Indians (BAE 17th Annual Report, 1898)",41,1,A2,Comanche; Kiowa; Plains Apache
 "Bray, “Teton Sioux Population History, 1655–1881”, Nebraska History 75 (1994)",41,41,A1,Lakota
@@ -53,7 +53,6 @@ source,records,of_which_counts,provenance_tier,peoples
 "Annual Report of the Commissioner of Indian Affairs, 1880, population table",20,20,A1,Arapaho; Arikara; Assiniboine; Comanche; Crow; Dakota; Gros Ventre; Hidatsa; Jicarilla; Kitsai; Lakota; Mandan; Oto; Pawnee; Shoshone; Wichita; Yankton
 "Denig, “Indian Tribes of the Upper Missouri” (BAE 46th Annual Report, 1930)",19,13,A1,Arikara; Assiniboine; Crow; Mandan
 "Annual Report of the Commissioner of Indian Affairs, 1861, population table",19,19,A1,Arikara; Assiniboine; Blackfoot; Crow; Gros Ventre; Hidatsa; Jicarilla; Kansa; Lakota; Omaha; Oto; Pawnee; Ponca
-"Annual Report of the Commissioner of Indian Affairs, 1862, population table",19,19,A1,Arapaho; Arikara; Assiniboine; Cheyenne; Crow; Dakota; Iowa; Jicarilla; Kiowa; Lakota; Omaha; Pawnee; Plains Apache; Yankton
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), DeMallie and Miller, “Assiniboine”",18,8,A1,Assiniboine
 "Cocking’s journal, 1772–73, in Burpee, ed., “An Adventurer from Hudson Bay” (1908)",18,0,A1,Assiniboine; Gros Ventre; Plains Cree
 "Mooney, “The Aboriginal Population of America North of Mexico” (1928), as given by Swanton, The Indian Tribes of North America (BAE Bulletin 145, 1952)",18,18,A2,Arapaho; Arikara; Assiniboine; Cheyenne; Crow; Gros Ventre; Hidatsa; Jicarilla; Kansa; Lakota; Mandan; Missouria; Omaha; Osage; Oto; Pawnee; Ponca; Wichita
@@ -65,6 +64,7 @@ source,records,of_which_counts,provenance_tier,peoples
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Parks, “Arikara”",16,9,A1,Arikara
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Parks, “Kitsai”",16,7,A1,Kitsai
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Dempsey, “Sarcee”",16,11,A1,Sarsi
+"Annual Report of the Commissioner of Indian Affairs, 1862, population table",16,16,A1,Arapaho; Arikara; Assiniboine; Cheyenne; Crow; Dakota; Iowa; Jicarilla; Kiowa; Lakota; Omaha; Pawnee; Plains Apache; Yankton
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Newcomb and Campbell, “Tonkawa”",15,7,A1,Tonkawa
 "Annual Report of the Commissioner of Indian Affairs, 1869, population table",15,15,A1,Arapaho; Cheyenne; Comanche; Crow; Dakota; Iowa; Jicarilla; Omaha; Osage; Oto; Pawnee; Ponca; Shoshone; Yankton
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Liberty, Wood, and Irwin, “Omaha”",13,10,A1,Omaha
@@ -74,7 +74,6 @@ source,records,of_which_counts,provenance_tier,peoples
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Brown and Irwin, “Ponca”",12,7,A1,Ponca
 "Morse, Report to the Secretary of War… on Indian Affairs (1822), Appendix (figures from Maj. O’Fallon and Capt. Crooks, and Capt. Bell of Long’s party)",12,10,A2,Arikara; Crow; Hidatsa; Mandan; Missouria; Omaha; Oto; Pawnee; Ponca
 "Annual Report of the Commissioner of Indian Affairs, 1855, population table",12,12,A1,Arapaho; Assiniboine; Cheyenne; Iowa; Kansa; Kiowa; Mandan; Pawnee; Plains Apache; Ponca; Tonkawa; Wichita
-"Annual Report of the Commissioner of Indian Affairs, 1863, population table",12,12,A1,Arapaho; Arikara; Assiniboine; Cheyenne; Dakota; Iowa; Kansa; Lakota; Oto; Ponca
 "Annual Report of the Commissioner of Indian Affairs, 1870, population table",12,12,A1,Arapaho; Crow; Dakota; Iowa; Jicarilla; Omaha; Osage; Oto; Pawnee; Ponca; Wichita; Yankton
 Annual Report of the Commissioner of Indian Affairs for 1878,12,12,A2,Arapaho; Arikara; Assiniboine; Cheyenne; Comanche; Hidatsa; Kiowa; Mandan; Plains Apache; Ponca; Shoshone; Yanktonai
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Fowler and Flannery, “Gros Ventre”",11,8,A1,Gros Ventre
@@ -89,9 +88,11 @@ Annual Report of the Commissioner of Indian Affairs for 1874,11,11,A2,Assiniboin
 "Annual Report of the Commissioner of Indian Affairs, 1891, population table",10,10,A1,Arapaho; Cheyenne; Crow; Dakota; Iowa; Kansa; Kitsai; Lakota; Oto; Wichita
 "Annual Report of the Commissioner of Indian Affairs, 1899, population table",10,10,A1,Arapaho; Assiniboine; Cheyenne; Crow; Dakota; Gros Ventre; Lakota; Omaha; Yankton
 "Morton, A History of the Canadian West to 1870–71 (1939)",9,0,A1,Assiniboine; Blackfoot; Gros Ventre
+"Hämäläinen, Lakota America: A New History of Indigenous Power (2019)",9,2,A1,Dakota; Lakota
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Bailey, “Osage”",9,7,A1,Osage
 "Alexander Henry the younger, journal 1809–10, in Coues ed., New Light on the Early History of the Greater Northwest (1897), vol. 2",9,6,A2,Assiniboine; Blackfoot; Gros Ventre; Plains Cree
 "Robertson, Rotting Face: Smallpox and the American Indian (2001)",9,5,A1,Arikara; Blackfoot; Gros Ventre; Hidatsa; Lakota; Mandan; Ponca
+"Annual Report of the Commissioner of Indian Affairs, 1863, population table",9,9,A1,Arapaho; Arikara; Assiniboine; Cheyenne; Dakota; Iowa; Kansa; Oto; Ponca
 "Ortiz, ed., Handbook of North American Indians, vol. 10: Southwest (1983), Tiller, “Jicarilla Apache”",8,2,A1,Jicarilla
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Newcomb, “Wichita”",8,4,A1,Wichita
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Getty and Gooding, “Stoney”",8,3,A1,Stoney
@@ -251,8 +252,10 @@ Mission San Lorenzo de la Santa Cruz (El Cañón) (recalled; not checked against
 "Lewis & Clark journals, ed. Moulton (UNL online edition), with Moulton’s notes, 24 Oct. 1804, n. 3",1,0,A2,Mandan
 "Wikipedia, “Ponca Fort” (site coordinates and participants)",1,0,B,Ponca
 "Swanton, The Indian Tribes of North America (BAE Bulletin 145, 1952); Lewis & Clark journals, ed. Moulton (UNL online edition)",1,0,A2,Cheyenne
+"Truteau’s journal, 1795, and Tabeau’s Narrative",1,0,A1,Lakota
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Itscheabine”",1,1,A2,Assiniboine
 "Wikipedia, “Osage Nation” (site coordinates and participants)",1,0,B,Osage
+"Chouteau to Gallatin, 7 Nov. 1804 (Nasatir, Before Lewis and Clark, 2: 759), as cited in Hämäläinen, Lakota America: A New History of Indigenous Power (2019)",1,1,A1,Lakota
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Lipan”, vol. 1",1,1,A2,Lipan
 "Larocque, journal of the expedition to the Yellowstone (1805), as summarized in Wikipedia",1,1,C,Crow
 "Pike, Expeditions, ed. Coues (1895), vol. 2, letter to Wilkinson",1,1,A2,Osage
@@ -276,6 +279,7 @@ Mission San Lorenzo de la Santa Cruz (El Cañón) (recalled; not checked against
 "Catlin, Letters and Notes on the Manners, Customs, and Condition of the North American Indians (1841), vol. 2, Letter 32",1,1,A2,Cheyenne
 "Catlin, as given in the editor’s notes to Five Indian Tribes of the Upper Missouri, ed. Ewers (1961)",1,1,A1,Plains Cree
 "Catlin, Letters and Notes on the Manners, Customs, and Condition of the North American Indians (1841), vol. 2, Letter 34",1,1,A2,Kansa
+"Dougherty to Clark, 29 and 30 Nov. 1832, and Clark to Cass, 10 Dec. 1832 (LROIA, Upper Missouri Agency, roll 883), as cited in Hämäläinen, Lakota America: A New History of Indigenous Power (2019)",1,1,A1,Pawnee
 "Maximilian, Travels in the Interior of North America, 1832–1834 (Thwaites ed., Early Western Travels 23–24)",1,0,A2,Mandan
 "Maximilian, Travels in the Interior of North America, 1832–1834, in Thwaites ed., Early Western Travels, vol. 24",1,0,A2,Ponca
 "Catlin, Letters and Notes on the Manners, Customs, and Condition of the North American Indians (1841), vol. 2, Letter 38",1,1,A2,Osage
@@ -356,20 +360,24 @@ Annual Report of the Commissioner of Indian Affairs for 1886 (agent’s retrospe
 "Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 144",1,0,A1,Tonkawa
 "Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 140",1,0,A1,Comanche
 "Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. No. 189",1,0,A1,Lipan
+"De Smet, Life, Letters and Travels, 3: 911–21, as cited in Hämäläinen, Lakota America: A New History of Indigenous Power (2019)",1,0,A1,Lakota
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Ditsakana”, vol. 1",1,1,A2,Comanche
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Crows”",1,1,A2,Crow
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Crows”, vol. 1",1,1,A2,Crow
 "Wikipedia, “Battle of Blanco Canyon” (site coordinates and participants)",1,0,B,Comanche
 "Hodge ed., Handbook of American Indians North of Mexico (BAE Bulletin 30, 1907–10), “Ditsakana”",1,1,A2,Comanche
+"Simmons to Walker, 9 June 1872 (LROIA, Montana Superintendency, roll 492), and others, as cited in Hämäläinen, Lakota America: A New History of Indigenous Power (2019)",1,0,A1,Lakota
 "Grinnell, Pawnee Hero Stories and Folk-Tales (1889), “A Summer Hunt”",1,1,A2,Pawnee
 "Wikipedia, “Battle of the North Fork of the Red River” (site coordinates and participants)",1,0,B,Comanche
+"Cowen, Turney and Wham, report on the Teton Sioux at and near Fort Peck (ARCIA 1872, 456–59), as cited in Hämäläinen, Lakota America: A New History of Indigenous Power (2019)",1,0,A1,Lakota
 "Wikipedia, “Massacre Canyon”",1,0,B,Pawnee
 "Winfrey and Day, eds., The Indian Papers of Texas and the Southwest, 1825–1916, vol. 4 (1966; repr. 1995), doc. Nos. 224-226",1,0,A1,Kiowa
 "Wikipedia, “Bates Battlefield” (site coordinates and participants)",1,0,B,Arapaho
 "Annual Report of the Commissioner of Indian Affairs, 1874, agent’s report, Cimarron Indian Agency",1,0,A2,Jicarilla
 "DeMallie, ed., Handbook of North American Indians, vol. 13: Plains (2001), Levy, “Kiowa”",1,1,A1,Kiowa
 "Wikipedia, “Comanche” (site coordinates and participants)",1,0,B,Comanche
-"Wikipedia, “Kill Eagle”",1,1,B,Lakota
+"Watkins to Smith, 9 Nov. 1875 (Sen. Ex. Doc. 52, 44th Cong., 1st Sess., 3–4), as cited in Hämäläinen, Lakota America: A New History of Indigenous Power (2019)",1,0,A1,Lakota
+"Poland to AAG, 4 June 1876 (H. Ex. Doc. 184, 44th Cong., 1st Sess.",1,1,C,Lakota
 "Wikipedia, “Battle of Cedar Creek (1876)” (site coordinates and participants)",1,0,B,Lakota
 "Wikipedia, “Dull Knife Fight” (site coordinates and participants)",1,0,B,Cheyenne
 "Wikipedia, “Treaty 7” (site coordinates and participants)",1,0,B,Blackfoot

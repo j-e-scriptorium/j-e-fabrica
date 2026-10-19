@@ -37,6 +37,15 @@ SIG_GUESS=float(__import__('os').environ.get('SG','0.3'))
 NOGUESS=__import__('os').environ.get('NOGUESS')
 SD_INFL=1.25  # leave-one-out calibration (validate.py): widened, the 2-sd range holds 96% of withheld counts, the 1-sd range 80%
 import re as _re
+# Teton agency figures from 1868 until each division settled (possgp.RES) are agents' estimates, not censuses: the agents
+# inflated them for rations and the nonagency bands went uncounted (Hämäläinen, Lakota America, ch. 8, nn. 55, 57; ch. 9, n. 51;
+# our own R1950, an army count of 4,760 against a roll of 12,873). They form their own family at the primary weight.
+import possgp as _PG0
+TETON_AG=('bru','ogl','min','hnk','sih','sna','twk')
+def teton_agency(o):
+    gs=o['g'] if isinstance(o['g'],list) else [o['g']]
+    return (all(x in TETON_AG for x in gs) and 1868<=o['y']<=max(_PG0.RES[x] for x in gs)
+            and (o.get('basis')=='census' or any(k in o['src'] for k in ('Annual Report','Commissioner','Indian Office','ARCIA'))))
 def lodge_adj(basis):
     d=float(__import__('os').environ.get('LD','0'))
     m=_re.search(r'(lodges|tipis|tents|families) × ([\d.]+)',basis or '')
@@ -44,6 +53,7 @@ def lodge_adj(basis):
     k=float(m.group(2)); return (k+d)/k
 def family(o):
     s=o['src'];y=o['y']
+    if teton_agency(o): return 'agents_teton'
     if o.get('basis')=='census' or (y>=1868 and any(k in s for k in ('Annual Report','Commissioner','Indian Office','ARCIA'))): return 'census'
     for key,f in (('Clark','clark'),('Morse','morse'),('Aboriginal Population','mooney1928'),('Mooney (1928)','mooney1928'),('Pike','pike'),
                   ('Henry','henry'),('Thompson','thompson'),('Umfreville','umfreville'),('Mackenzie','umfreville'),('Maximilian','maximilian'),
@@ -54,6 +64,7 @@ def family(o):
     return 'other'
 def sig_obs(o):
     if o['kind']=='secondary': return float(__import__('os').environ.get('SSEC','0.45'))
+    if teton_agency(o): return 0.3
     if o.get('basis')=='census': return 0.15
     if o['y']>=1868: return 0.1 if any(k in o['raw'].lower() for k in ('census','roll','enrollment','numbered','number ')) else 0.15
     if 'Clark' in o['src']: return float(__import__('os').environ.get('SC','0.35'))
@@ -119,7 +130,7 @@ def fit(gid,extra):
     x=np.linalg.solve(M+1e-9*np.eye(n),A.T@b+(D1.T@np.full(n-1,R0))/SIG_R**2)
     var=np.diag(np.linalg.inv(M+1e-9*np.eye(n)))
     return x+lsv,np.sqrt(var)
-aggs=[o for o in obs if o['agg'] and o['pop'] and all(x in G for x in o['g'])]
+aggs=[o for o in obs if o['agg'] and o['pop'] and o['whole'] and all(x in G for x in o['g'])]   # a count of part of several divisions informs no total
 for o in aggs: o['fam']=family(o); o['pop0']=o['pop']
 def run_fit():
     global FIT,extra
@@ -366,7 +377,7 @@ nb=sum(len(sp['units']) for sp in BSPEC.values())
 print('bands: divisions',len(BSPEC),'named units',nb,'band records',len(brec))
 
 epi=[dict(s=s,e=e,label=lab,m=M,src=src,basis=basis) for s,e,lab,M,src,basis in D.EPI]
-FAMLAB={'clark':'Clark, 1804–06','henry':'Henry the younger, 1809','thompson':'Thompson, 1798','pike':'Pike, 1806','morse':'Morse, 1820','umfreville':'Umfreville & Mackenzie, 1789–1801','maximilian':'Maximilian, 1833','catlin':'Catlin, 1832–34','denig':'Denig, 1833–56','hayden':'Hayden, 1862','stevens':'Stevens & Doty, 1853–55','agents':'Indian Office before 1868','mooney1928':'Mooney’s 1928 reconstructions','mooney_kiowa':'Mooney, Kiowa calendar','swanton':'Swanton’s series','hodge':'Hodge’s Handbook','grinnell':'Grinnell','reconstruction':'modern reconstructions','other':'other sources','census':'Indian Office, 1868 on (reference)','demezieres':'De Mézières, 1770–79','hbcjournals':'Henday and Cocking, 1754–73','verendrye':'La Vérendrye, 1733–43'}
+FAMLAB={'agents_teton':'Teton agency figures, 1868 to settlement','clark':'Clark, 1804–06','henry':'Henry the younger, 1809','thompson':'Thompson, 1798','pike':'Pike, 1806','morse':'Morse, 1820','umfreville':'Umfreville & Mackenzie, 1789–1801','maximilian':'Maximilian, 1833','catlin':'Catlin, 1832–34','denig':'Denig, 1833–56','hayden':'Hayden, 1862','stevens':'Stevens & Doty, 1853–55','agents':'Indian Office before 1868','mooney1928':'Mooney’s 1928 reconstructions','mooney_kiowa':'Mooney, Kiowa calendar','swanton':'Swanton’s series','hodge':'Hodge’s Handbook','grinnell':'Grinnell','reconstruction':'modern reconstructions','other':'other sources','census':'Indian Office, 1868 on (reference)','demezieres':'De Mézières, 1770–79','hbcjournals':'Henday and Cocking, 1754–73','verendrye':'La Vérendrye, 1733–43'}
 for o in aggs: o['pop']=o['pop0']   # documented value, not the corrected one used in fitting
 for o in obs: o['fam']=family(o); o['famf']=round(math.exp(BIAS.get(o['fam'],0)),2)
 BIASOUT=[[FAMLAB.get(f,f),BIAS_N.get(f,0),round(math.exp(b),2)] for f,b in sorted(BIAS.items(),key=lambda x:x[1]) if f!='census' and BIAS_N.get(f,0)>0]

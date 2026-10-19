@@ -1,37 +1,37 @@
 {
  "tiers": {
-  "A1": 2014,
+  "A1": 2026,
   "A2": 594,
-  "B": 134,
-  "C": 22
+  "B": 133,
+  "C": 23
  },
- "records": 2764,
+ "records": 2776,
  "keyframes": 508,
- "epidemic_rows": 264,
- "keyframes_without_note": 226,
+ "epidemic_rows": 276,
+ "keyframes_without_note": 228,
  "keyframe_roles": {
   "place+persons": 417,
-  "place only": 12,
-  "persons only": 73,
-  "marker only (defers to records)": 6
+  "place only": 11,
+  "persons only": 70,
+  "marker only (defers to records)": 10
  },
- "counts": 1710,
- "places_only": 1054,
- "steer": 973,
- "with_locator": 2237,
+ "counts": 1708,
+ "places_only": 1068,
+ "steer": 985,
+ "with_locator": 2250,
  "flags": {
   "identification_judged": 34,
-  "place_placed_by_us": 1454,
-  "kept_off_track": 399,
+  "place_placed_by_us": 1450,
+  "kept_off_track": 403,
   "date_ours": 6,
-  "assumed_quantity": 288,
-  "multiplier_ours": 170,
-  "place_centre_ours": 54,
+  "assumed_quantity": 289,
+  "multiplier_ours": 172,
+  "place_centre_ours": 55,
   "multiplier_stated_by_source": 45,
-  "partial_group": 241,
+  "partial_group": 246,
   "recalled": 3
  },
- "coverage_thin": 26,
+ "coverage_thin": 25,
  "coverage_rows": 336,
  "epi_basis": {
   "sourced for the north (60%: Oman’s count": 45,
@@ -41,7 +41,7 @@
   "assumed below Mooney’s plains-wide third": 11,
   "sourced for the Kiowa, the Cheyenne (the": 19,
   "assumed, except the Comanche (40%: Hämäl": 10,
-  "event sourced": 25,
+  "event sourced": 26,
   "sourced for the Gros Ventre and the Qu’A": 8,
   "sourced": 9,
   "sourced (fraction of about 1,600)": 1,
@@ -67,6 +67,15 @@
   "sourced (200 of about 4,500)": 3,
   "sourced (173 of about 2,800)": 1,
   "sourced: 165 of about 2,290": 1,
-  "assumed (an oral account of one village)": 2
+  "assumed (an oral account of one village)": 2,
+  "sourced (160 men and an unknown number o": 1,
+  "sourced (150 and 75 against the populati": 2,
+  "sourced (200 of about 1,600)": 1,
+  "sourced (nearly 200 of about 3,900 Yankt": 1,
+  "sourced (115–175 of about 1,700)": 1,
+  "sourced (86 of about 3,000)": 1,
+  "sourced (nearly 200 from a camp mostly o": 1,
+  "sourced (about 140 of about 1,750)": 1,
+  "sourced (270": 2
  }
 }

@@ -205,12 +205,23 @@ add('ca', 'Canada', 'claim', 'ca', 1870.54, 1906, CA_ALL.intersection(EXT), 'Rup
 
 # Spanish provinces and Mexican states
 def prov(fid, name, y0, y1, g, src, owner='es', level='terr', **o): add(fid, name, level, owner, y0, y1, g, src, **o)
-prov('es_nm', 'Santa Fe de Nuevo México', 1700, 1821.74, NM_PROV, GE + '; bounds approximate')
-prov('es_alta', 'Alta California', 1769.5, 1821.74, ALTA, GE + '; San Diego founded 1769; Nueva California a separate province from 1804; its eastern line never fixed')
-prov('mx_nm', 'Nuevo México (territory)', 1821.74, 1848.41, NM_PROV, 'Mexican province, a federal territory from 1824; bounds approximate', owner='mx', note='Occupied by the United States from August 1846; Texas claimed the land east of the Rio Grande from 1836.')
-prov('mx_alta', 'Alta California (territory)', 1821.74, 1848.41, ALTA, 'Mexican province, a federal territory from 1824; ceded by the Treaty of Guadalupe Hidalgo; eastern line never fixed', owner='mx', note='Occupied by the United States from July 1846.')
-prov('es_tx', 'Texas (province)', 1716.5, 1821.74, TEJAS, GE + '; the Nueces and Medina lines with Nuevo Santander and Coahuila, the Sabine and Red with Louisiana; approximate')
-prov('mx_tx', 'Texas (province)', 1821.74, 1824.75, TEJAS, 'Mexican province until the constitution of 4 Oct. 1824', owner='mx')
+# Spanish and Mexican provinces held only their settled corridors; the rest of each province was a claim over Ute, Navajo,
+# Apache, Comanche and Lipan country (Hämäläinen, Indigenous Continent, ch. 14: New Mexico “an isolated archipelago in a vast
+# Indigenous sea”; ch. 17: Texas’s status “almost entirely symbolic”). Each is drawn as a province where it was held and as
+# a claim elsewhere. The corridors are ours: the Rio Grande from Taos to El Paso; San Antonio to La Bahía and Nacogdoches to
+# Los Adaes; the mission coast from San Diego to Sonoma.
+CORE_NM = LineString(rseg(*RIOG, (36.8, -105.7), (31.75, -106.45))).buffer(0.45)
+CORE_TX = LineString(P((29.42, -98.49), (28.66, -97.39))).buffer(0.35).union(LineString(P((31.6, -94.66), (31.56, -93.48))).buffer(0.35))
+CORE_AC = LineString(P((32.7, -117.15), (34.05, -118.6), (34.42, -119.7), (35.6, -121.1), (36.6, -121.9), (37.8, -122.3), (38.3, -122.45))).buffer(0.4)
+def provs(fid, name, y0, y1, g, core, src, owner='es', **o):
+    prov(fid, name, y0, y1, g.intersection(core), src + '; the settled corridor', owner=owner, **o)
+    prov(fid + '_c', name + ' (claimed limits)', y0, y1, g.difference(core), src + '; claimed, not held', owner=owner, level='claim')
+provs('es_nm', 'Santa Fe de Nuevo México', 1700, 1821.74, NM_PROV, CORE_NM, GE + '; bounds approximate')
+provs('es_alta', 'Alta California', 1769.5, 1821.74, ALTA, CORE_AC, GE + '; San Diego founded 1769; Nueva California a separate province from 1804; its eastern line never fixed')
+provs('mx_nm', 'Nuevo México (territory)', 1821.74, 1848.41, NM_PROV, CORE_NM, 'Mexican province, a federal territory from 1824; bounds approximate', owner='mx', note='Occupied by the United States from August 1846; Texas claimed the land east of the Rio Grande from 1836.')
+provs('mx_alta', 'Alta California (territory)', 1821.74, 1848.41, ALTA, CORE_AC, 'Mexican province, a federal territory from 1824; ceded by the Treaty of Guadalupe Hidalgo; eastern line never fixed', owner='mx', note='Occupied by the United States from July 1846.')
+provs('es_tx', 'Texas (province)', 1716.5, 1821.74, TEJAS, CORE_TX, GE + '; the Nueces and Medina lines with Nuevo Santander and Coahuila, the Sabine and Red with Louisiana; approximate')
+provs('mx_tx', 'Texas (province)', 1821.74, 1824.75, TEJAS, CORE_TX, 'Mexican province until the constitution of 4 Oct. 1824', owner='mx')
 _coah = MX('Coahuila').union(NUECES_STRIP.intersection(west(-99.3)))
 _tams = MX('Tamaulipas').union(NUECES_STRIP.intersection(east(-99.3)))
 prov('es_coah', 'Coahuila', 1700, 1821.74, _coah, GE + '; approximate')
@@ -427,6 +438,12 @@ _gsr = poly(rseg(*MISSOURI, (43.0, -98.46), (46.0, -100.6)), P((46.0, -104.05), 
 _bh = poly(rseg(*BELLE, (44.75, -103.0), (44.43, -102.2)), rseg(*CHEY, (44.43, -102.2), (43.95, -103.0))).union(west(-103.0))
 res('gsr', 'Great Sioux Reservation', ['Lakota'], 1868.33, 1877.16, _gsr, 'Fort Laramie treaty, 29 Apr. 1868: South Dakota west of the Missouri to 46°N')
 res('gsr2', 'Great Sioux Reservation', ['Lakota'], 1877.16, 1890.11, _gsr.difference(_bh), 'Act of 28 Feb. 1877: the Black Hills taken, west of 103°W and between the forks of the Cheyenne')
+# Article 16 of the 1868 treaty: the country north of the North Platte and east of the summits of the Bighorn Mountains
+# “unceded Indian territory”, with no northern line (Hämäläinen, Lakota America, ch. 7, n. 89); drawn to 46°N, which is ours.
+add('art16', 'Unceded Indian territory (Fort Laramie treaty, art. 16)', 'nat', 'in', 1868.33, 1877.16,
+    poly(P((42.75, -104.05), (46.0, -104.05), (46.0, -107.6), (44.6, -107.4), (43.6, -107.1), (42.85, -106.6), (42.85, -105.4))).intersection(LAND),
+    'Fort Laramie treaty, 29 Apr. 1868, art. 16: “unceded Indian territory”, closed to settlement; taken by the Act of 28 Feb. 1877',
+    note='The treaty gave no northern line; 46°N is ours. Hunting rights south to the Republican (art. 11) are not drawn.')
 res('pr', 'Pine Ridge Reservation (Oglala)', ['Lakota'], 1890.11, 1906, box(-103.0, 43.0, -101.23, 43.75), 'Sioux Act, 2 Mar. 1889, in force 10 Feb. 1890')
 res('rb', 'Rosebud Reservation (Brulé)', ['Lakota'], 1890.11, 1904.6, box(-101.23, 43.0, -98.5, 43.7).intersection(WMO), 'Sioux Act, 1889')
 res('rb2', 'Rosebud Reservation (Brulé)', ['Lakota'], 1904.6, 1906, box(-101.23, 43.0, -99.53, 43.7), 'Gregory County opened, 1904')
