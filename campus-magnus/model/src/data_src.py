@@ -3820,9 +3820,9 @@ OBS += [
 GUESS['tet'][0]=g(1700,(44.9,-96.8),4170,'Upper Minnesota and Big Sioux country: “Pays et Nations des Tintons” (Hennepin); the prairies between the upper Mississippi and the Missouri (Le Sueur); Hämäläinen, Lakota America, ch. 1 n. 90, ch. 2 n. 23')
 GUESS['tet'][1]=g(1740,(44.7,-98.0),4810,'On the James, short of the Coteau du Missouri (Lakota America, ch. 2, n. 77)')
 GUESS['tet'][2]=g(1765,(44.5,-99.7),6250,'At the Big Bend of the Missouri (Brulé and Oglala), the Saone and Miniconjou about 75 miles north (Lakota America, ch. 2, nn. 77–78)')
-GUESS['sao'][1]=g(1795,None,None,'')
+del GUESS['sao'][1]
 for _gid in ('bru','ogl','min'):
-    GUESS[_gid]=[k if k[0]!=1805 else g(1805,None,None,'') for k in GUESS[_gid]]
+    GUESS[_gid]=[k for k in GUESS[_gid] if k[0]!=1805]
 GUESS['chy']=[k if k[0]!=1785 else g(1785,(44.5,-101.6),3000,'Most left the Missouri villages after the 1781 smallpox for the Cheyenne River (West; Moore; Lakota America, ch. 3, n. 28); the Masikota stayed with the Lakota') for k in GUESS['chy']]
 # Epidemics and shocks.
 EPI[0][3]['hid']=.5

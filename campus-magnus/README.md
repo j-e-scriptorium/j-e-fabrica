@@ -82,7 +82,7 @@ python3 validate.py . ..          # leave-one-out population test (a few minutes
 python3 calib_gp.py . ..        # tune and test the nomadic position model → ../build/gpcal.json (about a minute); rebuild after
 python3 calib_vmove.py            # withheld village places
 python3 calib_vhalo.py            # village halo fitted to withheld places
-python3 sens.py . ..              # whole-model sensitivity runs (≈25 min)
+python3 sens.py . ..              # whole-model sensitivity runs, in parallel (about 10 min; RESUME=1 picks up a run cut short)
 python3 audit.py ..               # mechanical audit of tracks and populations (cf. docs/audit.txt)
 ```
 
