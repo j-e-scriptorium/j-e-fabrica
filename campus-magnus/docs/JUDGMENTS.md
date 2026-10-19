@@ -34,7 +34,7 @@ These are the identifications that most affect tracks.
 | Decision | Records |
 |---|---|
 | A source's own persons-per-lodge or per-warrior ratio where it states one | 45 (`multiplier_stated_by_source`) |
-| Our ratio otherwise: lodges × 5, warriors × 4, earth lodges × 10 (Thompson's ratio is 8–10) | 170 (`multiplier_ours`) |
+| Our ratio otherwise: lodges × 5, warriors × 4, earth lodges × 10 (Thompson's ratio is 8–10) | 172 (`multiplier_ours`) |
 | Clark 1805: the lower of his two figures | ~40 Clark records |
 | Same-year counts of parts of one division are summed to a division total | see `summed_with_same_year_records` |
 | A range ("1,000–1,500 families") taken at its midpoint | noted in `source_says` |
@@ -47,7 +47,7 @@ These are the identifications that most affect tracks.
 
 | Decision | Records |
 |---|---|
-| A count whose source gives no usable place is placed by us (`place_status = inferred`) and **never steers a track** | 1,454 |
+| A count whose source gives no usable place is placed by us (`place_status = inferred`) and **never steers a track** | 1,450 |
 | A stated place is geocoded by us, with a radius `place_radius_km` for its vagueness | all `stated` records |
 | A range ("between the Platte and the Arkansas") is placed at its centre; its radius is kept as uncertainty | 54 (`place_centre_ours`) |
 | Wikipedia's coordinates for battle, treaty, agency and site articles are used as given | about 130 records from 72 articles, tier B |
@@ -81,7 +81,7 @@ These are the identifications that most affect tracks.
   - Before 1780, where sixteen divisions have no count, not even as part of a tribal total, and the Cuartelejo and Paloma Apache, who have none at any date.
   - The northern plains before 1790.
   - The Plains Ojibwe throughout, and the Plains Cree before the Canadian returns of 1883.
-- **Effect of removing all of them.** The 1780 total falls by about 6%, nearly all of it the undivided Teton, who have no count of their own and drop out with the Cuartelejo and Paloma Apache; the 1850 total falls by 2%; held-out population error barely moves (1.106 to 1.110, sensitivity runs), and held-out place error for the nomadic centre worsens from 107 to 114 km.
+- **Effect of removing all of them.** The 1780 total falls by about 3%, most of it the Cuartelejo and Paloma Apache, who drop out, and the undivided Teton, whose only counts are shares of the Sioux totals; the 1850 total falls by 2%; held-out population error does not move (1.118 to 1.117, sensitivity runs), and held-out place error for the nomadic centre worsens from 111 to 114 km.
 
 ## 7. Epidemics and famines (`epidemics_and_shocks.csv`)
 
@@ -98,7 +98,7 @@ These are the identifications that most affect tracks.
 - **Massacres and raids.** A killing that took a measurable share of a division is a shock like an epidemic, at its documented toll against the fitted population: the Cree and Assiniboine attack on a prairie Sioux camp in 1741 (160 men), the Lakota destruction of a Mandan village of 58 lodges in 1793–94 (rate ours), Black Buffalo's attacks on the Ponca (about 150) and Omaha (75) in 1803, the Lakota attack on the Hidatsa in 1828–29 (200), the attack on a Yanktonai camp on the Knife River in 1835 (nearly 200), the Council House Fight and Plum Creek in 1840, Ash Hollow (86), Whitestone Hill (nearly 200), Sand Creek (about 140), the Marias (173), Massacre Canyon and Wounded Knee (at least 270, split between the Miniconjou and the Hunkpapa refugees by us). The tolls are from *Lakota America* and *Indigenous Continent* and the sources their notes cite.
 - **Changed after Hämäläinen.** The Hidatsa lose 50% in 1780–82, after Stewart (Handbook 13, p. 329, "cut by half"), not the Mandan rate. The Pawnee lose a third in 1831–32 (`KNOWN_ISSUES.md` §2). The 1801–02 Ponca and Omaha rates are lowered so that, with the 1803 attacks, they meet Clark's counts.
 - **Events deliberately not modelled.** Grinnell's 1845 Blackfoot smallpox, which no other source read here gives (probably a misdating of 1837). The others are listed in `KNOWN_ISSUES.md` §2.
-- **If wrong.** This is the most influential assumption before 1800: ±25% on every rate moves the 1780 total between 135,000 and 188,000.
+- **If wrong.** This is the most influential assumption before 1800: ±25% on every rate moves the 1780 total between 136,000 and 187,000.
 
 ## 8. Source-family factors
 

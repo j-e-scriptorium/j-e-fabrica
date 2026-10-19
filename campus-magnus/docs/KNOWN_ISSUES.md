@@ -17,7 +17,7 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 
 ## 2. Epidemic mortality rates are mostly assumed
 
-- **Scale.** Still the single most influential input before 1800: ±25% on every rate moves the 1780 total between 135,000 and 188,000.
+- **Scale.** Still the single most influential input before 1800: ±25% on every rate moves the 1780 total between 136,000 and 187,000.
 - **1780–82, after reading Fenn, *Pox Americana* (2001).**
   - Sourced: the northern plains (60%: Oman's count of the tents left gives three-fifths dead; Binnema, *Common and Contested Ground*, p. 122, judges "about two-thirds of all northwestern plains Indians", and finds no group that escaped), the Missouri villages (68%, Lehmer), the Lipan (more than 400 dead, about 15%) and the eastern Comanche (two-thirds reported, 60% used). The western Comanche lose 5%: the epidemic "failed to spread among the nearby western Comanches" (Hämäläinen, p. 111). The Assiniboine lose 40%: "between one-third and one-half" (Handbook 13, p. 574), with Denig's tradition of about 300 lodges lost from some 1,500 (BAE 46, p. 399).
   - Fenn's 43% is a case-fatality rate (deaths among the infected, from Madras in the 1960s), not a mortality rate. Her own minimum for the nomadic Sioux, a third infected, is about 14%. The Sioux, Cheyenne, Arapaho, Kiowa and Plains Apache lose 20%: assumed, just above that minimum. Bray's reconstruction has the Sioux as a whole losing 16% ("Teton Sioux Population History", p. 170).
@@ -30,8 +30,8 @@ Issues are ranked by how far they could move the map if resolved against us. Eac
 
 ## 3. The eighteenth century rests on few records
 
-- **Thin coverage.** Of 336 division × period cells, 30 have neither a count nor a place (`coverage_by_division_and_period.csv`, flag `thin`). Four are the Teton divisions of 1785–99, which no source counts or places before Lewis and Clark. Fifteen are 1700–49: the northern plains (the Siksika and Blood, Gros Ventre, Sarsi, Stoney, both Crow divisions, Northern Assiniboine and Cree), the Arapaho, the Osage, the Ponca and the Tonkawa.
-- **What fills the gap.** The map draws these years from keyframes and smoothing. Their held-out error (×1.38 for population, 1700–99) is the worst of any period.
+- **Thin coverage.** Of 336 division × period cells, 25 have neither a count nor a place (`coverage_by_division_and_period.csv`, flag `thin`). Two are the Oglala and Miniconjou of 1785–99, which no source counts or places before Lewis and Clark. Fifteen are 1700–49: the northern plains (the Siksika and Blood, Gros Ventre, Sarsi, Stoney, both Crow divisions, Northern Assiniboine and Cree), the Arapaho, the Osage, the Ponca and the Tonkawa.
+- **What fills the gap.** The map draws these years from keyframes and smoothing. Their held-out error (×1.44 for population, 1700–99) is the worst of any period.
 - **Would settle it.** Russell, *Eighteenth-Century Western Cree and Their Neighbours* (1991); the Hudson's Bay Company post journals of the Saskatchewan, 1770–1800; A. B. Thomas, *After Coronado* (1935), *Forgotten Frontiers* (1932) and *The Plains Indians and New Mexico* (1940) for the Spanish documents; John, *Storms Brewed in Other Men's Worlds* (1975); Nasatir, *Before Lewis and Clark* (1952) for Truteau and Mackay.
 
 ## 4. Canadian peoples after 1870 and before 1790

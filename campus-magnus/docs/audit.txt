@@ -25,6 +25,7 @@
    cwm   1834.30 ->  1834.48    510 km
    cwm   1834.48 ->  1834.95    524 km
    cwm   1870.50 ->  1870.50    216 km
+   hnk   1874.23 ->  1874.70    447 km
    hnk   1876.48 ->  1876.80    234 km
    crs   1855.00 ->  1855.00    254 km
    arn   1865.08 ->  1865.20    568 km
@@ -51,11 +52,11 @@
    mis   1790.00 ->  1805.00    319 km
    tkw   1867.50 ->  1885.30    373 km
 3. Unexplained population jumps (shocks, splits and mergers excluded)
-   sar  1875  x1.09  (179 -> 195)
-   sar  1876  x1.09  (195 -> 213)
-   sar  1877  x1.09  (213 -> 233)
-   sar  1878  x1.09  (233 -> 255)
-   sar  1879  x1.09  (255 -> 277)
+   sar  1875  x1.09  (177 -> 193)
+   sar  1876  x1.10  (193 -> 212)
+   sar  1877  x1.09  (212 -> 232)
+   sar  1878  x1.09  (232 -> 254)
+   sar  1879  x1.09  (254 -> 276)
 4. Consistency
    0 problems
 5. Nomadic centres outside the bison range before the reservation (from 1850)

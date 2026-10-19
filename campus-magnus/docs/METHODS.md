@@ -43,7 +43,7 @@ The objective is a linear least-squares solve; the posterior SD comes from the i
 
 Every count is then divided by its family's factor and the model refitted. Reservation censuses are the fixed reference.
 
-**Reported uncertainty.** The posterior SD × 1.25 (`SD_INFL`), from the leave-one-out calibration (§6). Unwidened, the 1-sd range holds 75% of withheld counts and the 2-sd range 92%; widened, 80% and 96%. The misses are heavier-tailed than normal, so the widening is set by the 2-sd range and leaves the 1-sd range conservative.
+**Reported uncertainty.** The posterior SD × 1.25 (`SD_INFL`), from the leave-one-out calibration (§6). Unwidened, the 1-sd range holds 75% of withheld counts and the 2-sd range 93%; widened, 81% and 97%. The misses are heavier-tailed than normal, so the widening is set by the 2-sd range and leaves the 1-sd range conservative.
 
 | Setting | Value | Meaning | How set |
 |---|---|---|---|
@@ -86,18 +86,18 @@ $$x(t) = T(t) + S(t) + \lambda\,\phi(t)\,A_{\text{lit}}(t), \qquad x_i = x(t_i) 
 
 | | places | median miss | mean miss | beyond the stated radius, median |
 |---|---|---|---|---|
-| Track through every record (monotone cubic) | 660 | 125 km | 155 km | |
-| Centre only | 660 | 121 km | 147 km | 66 km |
-| Centre and seasonal component | 660 | 119 km | 147 km | 64 km |
-| Season-dated places: track through every record | 406 | 132 km | 165 km | |
-| Season-dated places: centre only | 406 | 124 km | 154 km | 84 km |
-| Season-dated places: centre and seasonal component | 406 | 122 km | 153 km | 82 km |
-| Ranges and agencies: track through every record | 212 | 96 km | 131 km | |
-| Ranges and agencies: centre and seasonal component | 212 | 106 km | 129 km | 17 km |
+| Track through every record (monotone cubic) | 671 | 125 km | 153 km | |
+| Centre only | 671 | 119 km | 146 km | 62 km |
+| Centre and seasonal component | 671 | 115 km | 143 km | 59 km |
+| Season-dated places: track through every record | 415 | 129 km | 160 km | |
+| Season-dated places: centre only | 415 | 122 km | 152 km | 79 km |
+| Season-dated places: centre and seasonal component | 415 | 118 km | 149 km | 71 km |
+| Ranges and agencies: track through every record | 214 | 97 km | 132 km | |
+| Ranges and agencies: centre and seasonal component | 214 | 102 km | 126 km | 13 km |
 
-- With the production settings, tuned on all divisions, the miss is 113 km (mean 143) over the 660 places, 117 km (mean 149) on the season-dated places, and 118 km (mean 149) without our keyframes. These are a little better than the out-of-sample figures because the settings have seen every division.
-- The seasonal component is worth little on season-dated places out of sample (124 to 122 km); the rest of the gain over a track through every record comes from averaging several years of records. The Kiowa calendar, the densest record, shows why: a summer sun-dance ground lies a median 155 km from the next winter camp, but winter camps a median 129 km from the winter before and summer grounds 140 km from the summer before, in no fixed direction.
-- Range and agency statements are served about as well by a track through every record (median 96 km against 106, mean 131 against 129).
+- With the production settings, tuned on all divisions, the miss is 111 km (mean 142) over the 671 places, 114 km (mean 147) on the season-dated places, and 114 km (mean 147) without our keyframes. These are a little better than the out-of-sample figures because the settings have seen every division.
+- The seasonal component is worth about a thirtieth on season-dated places out of sample (122 to 118 km); the rest of the gain over a track through every record comes from averaging several years of records. The Kiowa calendar, the densest record, shows why: a summer sun-dance ground lies a median 155 km from the next winter camp, but winter camps a median 129 km from the winter before and summer grounds 140 km from the summer before, in no fixed direction.
+- Range and agency statements are served about as well by a track through every record (median 97 km against 102, mean 132 against 126).
 - The cost falls on precise events in years of mixed records: in 1876 the Miniconjou annual centre lies between the Cheyenne River agency and the summer camps, about 385 km from the Little Bighorn (about 245 km in late June with the seasonal component).
 
 **Village divisions.** The track holds at each place. With the seasonal round on, the division's dot and its bands go out on the tribal hunts in the hunt table (`index.html`, `HUNT`: grounds and calendars by people) and return; the track itself stays at the village.
@@ -131,8 +131,8 @@ A switchable layer shows, for the year on the timeline, the claims of the Europe
 
 | Test | Script | Output | Result |
 |---|---|---|---|
-| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,242 counts; median miss ×1.11 (interpolation ×1.08; before 1840 the model is better, after it interpolation); 2-sd coverage 0.92 before widening, 0.96 after |
-| Held-out nomadic places | `calib_gp.py` | `model/build/gpcal.json` | 660 places out of sample; median 119 km, mean 147 (track through every record 125, 155); season-dated 122 against 124 without the seasonal component; halo 68% in each season |
+| Leave-one-out population | `validate.py` | `model/build/validation.json`, `data/validation.csv` | 1,236 counts; median miss ×1.12 (interpolation ×1.09; from 1800 to 1840 the model is better, before and after it interpolation); 2-sd coverage 0.93 before widening, 0.97 after |
+| Held-out nomadic places | `calib_gp.py` | `model/build/gpcal.json` | 671 places out of sample; median 115 km, mean 143 (track through every record 125, 153); season-dated 118 against 122 without the seasonal component; halo 67–69% by season |
 | Held-out village places | `calib_vmove.py` | console | 222 places; median 8 km, mean 43 |
 | Village halo coverage | `calib_vhalo.py` | console | 243 places; median miss 11 km; 68% inside |
 | Whole-model sensitivity | `sens.py` | `model/build/sensitivity.json` | table under “Sensitivity of the population totals” on the map page |

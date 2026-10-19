@@ -6,14 +6,14 @@
   "C": 23
  },
  "records": 2776,
- "keyframes": 508,
+ "keyframes": 504,
  "epidemic_rows": 276,
- "keyframes_without_note": 228,
+ "keyframes_without_note": 224,
  "keyframe_roles": {
   "place+persons": 417,
   "place only": 11,
   "persons only": 70,
-  "marker only (defers to records)": 10
+  "marker only (defers to records)": 6
  },
  "counts": 1708,
  "places_only": 1068,
