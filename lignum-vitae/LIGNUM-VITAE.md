@@ -480,6 +480,16 @@ what a temper controls: Feral never touches a stem before firing, a Keeper's aim
 brings its predicted pass from 41 units of the core to 36 and a Master's from 93
 to 77, and Master fires half again as often as Keeper.
 
+**Against each other they do not rank at all.** `ladder.js` plays every
+pairing from both sides on a seedling the two share, so the hand is the only
+difference. Over thirty random seedlings, Feral — which never aims — wins 28 of
+60 against Keeper, 28 against Adept and 27 against Master; Keeper beats Adept
+36–24 and loses to Master 18–42; Adept and Master split 29–31. On the default
+seedling the order changes again (Keeper beats Master 28–12), and moving
+Master's first shot from 60 s to 75 s turns its 3–17 loss to Keeper into a 17–3 win.
+What decides a temper-against-temper match is how two fixed cadences fall
+against each other, not how well either one aims.
+
 **Aiming past a couple of seconds measured worse, every time**: eight seconds of
 aim did a quarter of the damage of two and a half, across every configuration
 and fix I tried, and I do not know why. Every temper also loses to both headless
@@ -618,6 +628,15 @@ answer and is unbuilt. Whether an unlimited ring of wards at a full unaimed shot
 each is too much shelter, or a single ward too little, is unmeasured; so is
 whether elliptical orbits, which bunch at their near ends and sweep a band,
 shelter better or worse than circles would.
+
+**The tempers do not make a ladder.** Measured against each other (§8), the
+four tempers are within noise of one another, and the order they fall in
+depends on the seedling and on a few seconds of cadence. Each differs from the
+next only in how long it aims and how often it fires, and neither moves the
+result much. A temper that is better needs to *do* more: ward, graft,
+straighten a barrel, aim at a ring. Those are the verbs that separate the
+headless players (§12.5), and none of them is built. Until they are, the
+campaign's later bouts are not harder than its earlier ones.
 
 **The campaign's curve is a guess.** Five tempers in a row, with nothing but
 the Adept built to fill the gap between Keeper and Master, and none of it
