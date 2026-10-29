@@ -12,7 +12,7 @@ Only `index.html` is the game, and it is the only file the site needs. It is sel
   - `/*BEGIN VIEW*/ … /*END VIEW*/` holds drawing, measuring the figures, and flying the shots. It runs headless against a stubbed canvas.
   - After that come the planting screen, the frame loop, the readout, and the tuning drawer (`t` in the game).
 - **`LIGNUM-VITAE.md`**: the designer's manual. It covers every rule, every default number, why each rule is the way it is, and what is not built yet. Read this first to understand the game.
-- **`lignum_vitae_tests.js`**: the regression suite, about 140 checks from growth to the campaign. It lifts the SIM block straight out of `index.html` and runs it, so the tests can never drift from the game.
+- **`lignum_vitae_tests.js`**: the regression suite, about 145 checks from growth to the campaign. It lifts the SIM block straight out of `index.html` and runs it, so the tests can never drift from the game.
 - **`harness.js`**: a loader used by `play.js`. It runs both the SIM and VIEW blocks under a fake canvas and document, so a headless run uses exactly the firing and flight code the browser uses.
 - **`ladder.js`**: temper against temper, headless, every pairing from both sides over many seeds and spread across the machine's cores, with any temper's numbers overridable (`master.aimFor=4`). Its table is how to check that the tempers rank.
 - **`PLAYTEST.md`**: how to find out whether the game is fun, what can be measured headless and what needs a person, and how to run a session.

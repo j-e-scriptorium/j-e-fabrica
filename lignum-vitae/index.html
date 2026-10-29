@@ -362,6 +362,9 @@ var S = {
   wardSize:    7,       // how close a shot must pass a ward to be caught, units
   wardFloor:   0.25,    // a ward faded below this fraction of what it held is gone
 
+  // the other mage
+  handTaste:   5,       // the furthest a temper keeps any joint from the angle it grew at, degrees
+
   // the campaign
   boutHead:    300,     // the most growth an opponent starts a bout with, seconds; otherwise as old as your tree
 
@@ -591,6 +594,53 @@ function makeGraft(T, a, b){
   var sh = mkNode(T, a.id, 0, Math.min(a.order, b.order), a.side);
   sh.forkSide = a.forkSide;
   sh.sinceFork = Math.max(a.sinceFork, b.sinceFork);
+}
+
+// The pairs worth fusing on a tree, best first, never two that share a tip, at
+// most `max` of them, into `out` as a flat list a, b, a, b… Two conditions, and
+// the second matters more than the first — a crowded rim puts hundreds of tips
+// within reach of each other and almost every one of those pairs closes a lens
+// worth nothing, so a pair counts only if the circuit it would close is worth
+// having. Bucketed by the fusing reach, because a thousand-tip canopy is half a
+// million pairs. The board draws these for you; the other mage grafts from them.
+var PTIPS = [], PCELL = new Map(), PCAND = [], PUSED = new Set();
+function pairsOf(W, out, max){
+  out.length = 0; PTIPS.length = 0; PCAND.length = 0; PCELL.clear(); PUSED.clear();
+  var c = Math.max(1, S.graftR), i, j, di, dj, n, o, a;
+  for (i = 0; i < W.list.length; i++){
+    n = W.list[i];
+    if (!n.bud || n.mate !== null) continue;
+    PTIPS.push(n);
+    var k = (Math.floor(n.x1/c)*73856093) ^ (Math.floor(n.y1/c)*19349663);
+    a = PCELL.get(k); if (!a){ a = []; PCELL.set(k, a); }
+    a.push(n);
+  }
+  for (i = 0; i < PTIPS.length; i++){
+    n = PTIPS[i];
+    var ix = Math.floor(n.x1/c), iy = Math.floor(n.y1/c);
+    for (di = -1; di <= 1; di++) for (dj = -1; dj <= 1; dj++){
+      a = PCELL.get(((ix+di)*73856093) ^ ((iy+dj)*19349663));
+      if (!a) continue;
+      for (j = 0; j < a.length; j++){
+        o = a[j];
+        if (o.id <= n.id || o.id === n.parent || n.id === o.parent) continue;
+        if (Math.hypot(o.x1-n.x1, o.y1-n.y1) >= S.graftR) continue;
+        var ar = circuitArea(W, n, o);
+        if (ar < S.pairFloor*S.coreR*S.coreR) continue;
+        PCAND.push({ a:n, b:o, area:ar });
+      }
+    }
+  }
+  // Neighbouring pairs along a seam all close much the same circuit, so
+  // offering every one of them is a thicket rather than a choice.
+  PCAND.sort(function(x, y){ return y.area - x.area; });
+  for (i = 0; i < PCAND.length && out.length < max*2; i++){
+    var cd = PCAND[i];
+    if (PUSED.has(cd.a.id) || PUSED.has(cd.b.id)) continue;
+    PUSED.add(cd.a.id); PUSED.add(cd.b.id);
+    out.push(cd.a, cd.b);
+  }
+  return out;
 }
 
 function release(n){
@@ -1643,33 +1693,45 @@ function wardCatch(W, b, ax, ay, bx, by){
    bends at the speed wood can be bent, and fires by cutting. It is told
    nothing you are not: where your core is, where your wood's weight sits,
    and how far your crown reaches.
-   What separates one temper from another is only how much of that it uses —
-   whether it aims at all, how close it insists on passing before it lets go,
-   how early it takes hold of the stem, and how long it waits between shots.
+   Every temper keeps the same pace — when it first fires, how long between
+   shots, how long it winds up — so what separates one from the next is only
+   what its hand knows how to do. Each rung adds a verb: the Feral mage cuts,
+   the Keeper aims what it cuts, the Adept wards its core with trimmed leaves,
+   and the Master grafts rings into its crown and straightens a barrel behind
+   every cut before it aims.
 
    Every temper telegraphs. The limb it means to cut is lit on its tree while
    it works the stem round and for a beat after, with the arc the shot will
-   fly; that is the moment to shoot the loaded limb off before it fires.
+   fly; that is the moment to shoot the loaded limb off before it fires. A
+   graft it is holding shows as a ring filling between the two tips.
    ═══════════════════════════════════════════════════════════════════════ */
+// the pace every temper keeps, so that only the verbs differ
+var MIND_PACE = { first: 75, every: 17, windup: 2.0, fill: 0.45, aimFor: 4, tries: 2, aimTo: 0.5,
+                  straightFor: 3, wardShell: 10, wardEvery: 6, wardStroke: 3, wardFrom: 40, graftEvery: 5 };
 var MINDS = {
   still:  { name: "Still",  fires: false,
     blurb: "Only grows. A target to practise on: it heals what you take off it and never answers." },
-  feral:  { name: "Feral",  fires: true, aimTo: 0, every: 16, windup: 3.0, first: 90, fill: 0.3,
-    blurb: "Cuts whatever glows brightest on its own tree and lets fly without aiming. Slow, and most of what it throws goes wide." },
-  keeper: { name: "Keeper", fires: true, aimTo: 0.5, aimFor: 2.5, tries: 1, every: 20, windup: 2.5, first: 75, fill: 0.45,
-    blurb: "Takes hold of a stem well before it means to fire and works it round toward your heartwood, but gives up on an aim early and waits a long time between shots." },
-  adept:  { name: "Adept",  fires: true, aimTo: 0.5, aimFor: 4, tries: 1, every: 17, windup: 2.0, first: 70, fill: 0.5,
-    blurb: "Aims as a Keeper aims but holds the stem longer, and fires more often. Not yet a Master: it gives up on a hard aim and takes the next limb." },
-  master: { name: "Master", fires: true, aimTo: 0.5, aimFor: 6, tries: 2, every: 14, windup: 1.6, first: 60, fill: 0.6,
-    blurb: "Chooses its limb early and will not let go of the stem until the arc runs into your heartwood. Fires often, and does not miss by much." }
+  feral:  { name: "Feral",  fires: true,
+    blurb: "Cuts whatever glows brightest on its own tree and lets fly without aiming. Most of what it throws goes wide." },
+  keeper: { name: "Keeper", fires: true, aims: true,
+    blurb: "Takes hold of a stem well before it means to fire and works it round toward your heartwood." },
+  adept:  { name: "Adept",  fires: true, aims: true, wards: true,
+    blurb: "Aims as a Keeper does, and keeps a shell of wards round its core, trimming leaves to renew it as it runs down." },
+  master: { name: "Master", fires: true, aims: true, wards: true, grafts: true, straightens: true,
+    blurb: "Wards and aims, grafts the widest ring its crown offers, and straightens the stem behind every cut into a barrel before it aims. Its shots come fast and heavy." }
 };
+(function(){
+  for (var k in MINDS) if (MINDS[k].fires)
+    for (var f in MIND_PACE) if (!(f in MINDS[k])) MINDS[k][f] = MIND_PACE[f];
+})();
 var MIND_ORDER = ["still", "feral", "keeper", "adept", "master"];
 
 function newMind(level, seed){
   var lv = MINDS[level] || MINDS.keeper;
   return { level: MINDS[level] ? level : "keeper", lv: lv, state: "grow",
            wait: lv.first || 0, seed: (seed || 1) >>> 0, limb: null, peri: 1e9,
-           acc: 0, t: 0, shots: 0, idle: 0, fig: {} };
+           acc: 0, t: 0, shots: 0, idle: 0, fig: {}, did: [], chore: null,
+           wardT: 0, graftT: 0, grafted: 0, warded: 0 };
 }
 function mindRnd(M){
   M.seed = (Math.imul(M.seed, 1103515245) + 12345) >>> 0;
@@ -1682,13 +1744,16 @@ function mindReset(M, wait){ M.state = "grow"; M.limb = null; M.wait = wait; M.p
 // it better. Never a limb
 // carrying more than a third of the tree's green wood: a mage that fires its
 // own crown away has nothing left to fire with, or to hide behind.
+// A mage that does not aim does not ask where a shot would go either: it
+// takes the heaviest shot on its tree that is not mostly waste, and lets fly.
 function mindPick(W, M){
   var best = null, bv = 0, i, n, root = W.nodes.get(W.roots[0]);
-  var most = root ? 0.35*root.sub : 0;
+  var most = root ? 0.35*root.sub : 0, cap = M.fig.cap || 1, aims = M.lv.aims;
   for (i = 0; i < W.list.length; i++){
     n = W.list[i];
     if (n.parent === null || !n.children.length || n.loop || n.sub > most) continue;
-    if (n.eff > bv){ bv = n.eff; best = n; }
+    var v = aims ? n.eff : n.val*Math.min(1, cap/Math.max(1e-6, n.sub*S.chargeWood));
+    if (v > bv){ bv = v; best = n; }
   }
   return best;
 }
@@ -1710,10 +1775,13 @@ function mindPeri(W, limb, tgt){
 // This one never keeps a joint more than a few degrees from the angle it grew
 // at: summed down a long limb that is still a real sweep, but it bends the way
 // a tree someone kept is bent, not the way a clock spring is.
-var HAND_DEG = 5;
-function handPull(n, rel){
-  var k = HAND_DEG*D2R;
-  return n.rel0 + Math.max(-k, Math.min(k, wrapA(rel - n.rel0)));
+// Straightening a stem is the one exception, and it is taste too: a hand
+// that pulls a kink out toward the straight is making a formal upright, not a
+// spring, so a joint may always go as far as straight.
+function handPull(n, rel, straight){
+  var k = S.handTaste*D2R, lo = -k, hi = k;
+  if (straight){ var z = wrapA(-n.rel0); lo = Math.min(lo, z); hi = Math.max(hi, z); }
+  return n.rel0 + Math.max(lo, Math.min(hi, wrapA(rel - n.rel0)));
 }
 
 // The wood the other mage's hand works on: the stem behind the cut and the
@@ -1751,8 +1819,9 @@ function mindAim(W, M, dt){
   var g = aimGrip(W, p);
   reachChain(g, M.hand[0], M.hand[1], S.bendRate*D2R*dt);
   // taste is applied as it bends, not afterwards: what it aims is what it keeps
-  for (var i = 0; i < g.length; i++) g[i].rel = handPull(g[i], g[i].rel);
+  for (var i = 0; i < g.length; i++) g[i].rel = handPull(g[i], g[i].rel, M.lv.straightens);
   layout(W);
+  if (W.grafts.length) bindGrafts(W, mindHeld(M, g), dt);
   var now = mindPeri(W, M.limb, M.tgt);
   if (now < M.peri - 1e-4){
     M.peri = now; M.stuck = 0;
@@ -1769,15 +1838,106 @@ function mindAim(W, M, dt){
   }
   if (M.peri <= M.lv.aimTo*S.coreR){ M.easing = false; M.done = true; }
 }
+// the wood in its hand, as the set bindGrafts asks for
+var MHELD = new Set();
+function mindHeld(M, g){
+  MHELD.clear();
+  for (var i = 0; i < g.length; i++) MHELD.add(g[i].id);
+  return MHELD;
+}
 // What the hand got out of the wood is what the wood keeps, on either side.
 function mindKeep(W, M){
   if (!M.limb) return;
   var p = M.limb.parent === null ? null : W.nodes.get(M.limb.parent);
   if (!p) return;
   M.keep = null; M.kept = null; M.easing = false;
-  var g = aimGrip(W, p);
+  var g = M.lv.straightens ? barrelOf(W, p) : aimGrip(W, p);
   for (var i = 0; i < g.length; i++) g[i].rest = g[i].rel;
   layout(W);
+}
+
+/* Making a barrel. The speed of a shot is the straight run behind the cut,
+   and no tree grows one: every fork turns the axis. So before it aims, the
+   Master takes the stem behind the limb it means to cut and pulls the kinks
+   out of it, joint by joint toward straight, at the pace wood turns; when a
+   pull has given all it will, it lets go and takes hold again, the way your
+   hand walks green wood round. Set wood does not move, so how long a barrel
+   it gets is how far back the stem is still green. */
+function barrelOf(W, p){
+  var g = bendGroup(W, p);
+  return g.length > 24 ? g.slice(0, 24) : g;
+}
+function mindStraighten(W, M, dt){
+  var p = M.limb.parent === null ? null : W.nodes.get(M.limb.parent);
+  if (!p) return true;
+  var g = barrelOf(W, p), want = 0, i, n, d = TURN;
+  while (d.length < g.length) d.push(0);
+  // every joint but the deepest toward the line of the one below it
+  for (i = 0; i < g.length - 1; i++){
+    n = g[i]; d[i] = 0;
+    var lim = bendLimit(n);
+    if (lim < 0.0005) continue;
+    var to = n.rest + Math.max(-lim, Math.min(lim, wrapA(-n.rest)));
+    to = handPull(n, to, true);
+    d[i] = wrapA(to - n.rel); want += Math.abs(d[i]);
+  }
+  if (want < 0.002){
+    // this pull has given what it will: let go and take hold again
+    if ((M.grips = (M.grips || 0) + 1) > 4) return true;
+    var moved = false;
+    for (i = 0; i < g.length; i++){ if (Math.abs(g[i].rest - g[i].rel) > 1e-4) moved = true; g[i].rest = g[i].rel; }
+    return !moved;
+  }
+  var k = Math.min(1, S.bendRate*D2R*dt/want);
+  for (i = 0; i < g.length - 1; i++) g[i].rel += d[i]*k;
+  layout(W);
+  if (W.grafts.length) bindGrafts(W, mindHeld(M, g), dt);
+  return false;
+}
+
+/* Warding. A mage that knows how keeps a shell of wards round its core,
+   trimming a spray of leaves whenever the shell runs thin, exactly as your
+   blade does: the leaves are taken off the tree and each falls to its own
+   orbit, holding what an unaimed shot carries. Leaves near the trunk make the
+   inner shell, so it trims those first, and never from the limb it is about
+   to fire. */
+function mindWard(W, M){
+  var cand = [], i, n, skip = M.limb ? M.limb.id : -1;
+  for (i = 0; i < W.list.length; i++){
+    n = W.list[i];
+    if (!n.bud || n.children.length || n.parent === null || !isLeaf(W, n)) continue;
+    var q = n, mine = false;
+    while (q){ if (q.id === skip){ mine = true; break; } q = q.parent === null ? null : W.nodes.get(q.parent); }
+    if (!mine) cand.push(n);
+  }
+  if (!cand.length) return 0;
+  cand.sort(function(a, b){ return (a.x1*a.x1 + a.y1*a.y1) - (b.x1*b.x1 + b.y1*b.y1); });
+  var hold = wardHold(W, M.fig.gain || 1), took = 0;
+  for (i = 0; i < cand.length && took < M.lv.wardStroke; i++){
+    n = cand[i];
+    if (!W.nodes.has(n.id)) continue;
+    makeWard(W, n.x1, n.y1, hold, n.abs);
+    M.did.push({ kind: "ward", x: n.x1, y: n.y1 });
+    cutNode(W, n); took++;
+  }
+  layout(W);
+  return took;
+}
+
+/* Grafting. The widest ring the crown offers, if it adds anything to what the
+   rings already closed are worth, taken the way your hand takes a suggested
+   pair: press, and hold still while the ring fills. */
+var MPAIRS = [];
+function mindGraftPick(W, M){
+  if ((M.fig.gain || 1) >= S.loopCap - 0.02) return null;
+  pairsOf(W, MPAIRS, 4);
+  var best = null, bv = 0.03;
+  for (var i = 0; i < MPAIRS.length; i += 2){
+    var a = MPAIRS[i], b = MPAIRS[i+1];
+    var v = loopAmp(M.fig.area + circuitArea(W, a, b)) - M.fig.gain;
+    if (v > bv){ bv = v; best = { a: a, b: b }; }
+  }
+  return best;
 }
 
 // One tick of the other mage's hand. Returns the shot, if it fired one, in
@@ -1796,8 +1956,24 @@ function mindStep(W, M, dt, X){
     // moves at the speed wood moves: a hand that waits for the moment and only
     // then starts bending has already missed it. That is also why you get so
     // long a look at the limb it means to cut.
-    var lead = (M.lv.aimTo ? (M.lv.aimFor || 6) : 0) + M.lv.windup;
-    if (M.wait > lead) return null;
+    var lead = (M.lv.aims ? M.lv.aimFor : 0) + (M.lv.straightens ? M.lv.straightFor : 0) + M.lv.windup;
+    if (M.wait > lead){
+      // A free hand between shots: keep the shell up, and close a ring.
+      M.wardT -= dt; M.graftT -= dt;
+      // a seedling has no leaves to spare: the shell waits for a crown
+      if (M.lv.wards && M.wardT <= 0 && W.wards.length < M.lv.wardShell &&
+          (W.buds ? W.buds.length : 0) >= M.lv.wardFrom){
+        figuresOf(W, M.fig, M.tgt);
+        M.warded += mindWard(W, M); M.wardT = M.lv.wardEvery;
+      }
+      if (M.lv.grafts && M.graftT <= 0 && M.wait > lead + S.graftHold + 0.5){
+        M.graftT = M.lv.graftEvery;
+        figuresOf(W, M.fig, M.tgt);
+        var pr = mindGraftPick(W, M);
+        if (pr){ M.chore = pr; M.t = 0; M.state = "graft"; }
+      }
+      return null;
+    }
     figuresOf(W, M.fig, M.tgt);
     var limb = M.fig.fan ? mindPick(W, M) : null;
     // A shot out of a limb that holds a fraction of what the trunk could
@@ -1815,18 +1991,49 @@ function mindStep(W, M, dt, X){
     var pp = limb.parent === null ? null : W.nodes.get(limb.parent);
     M.keep = pp ? aimGrip(W, pp) : null;
     M.kept = M.keep ? M.keep.map(function(n){ return n.rel; }) : null;
-    M.state = M.lv.aimTo ? "aim" : "ready";
+    M.grips = 0; M.straight = !M.lv.straightens;
+    M.state = M.lv.aims || M.lv.straightens ? "aim" : "ready";
+    return null;
+  }
+  if (M.state === "graft"){
+    // holding the two tips together while the ring fills; let go if either is
+    // shot off or grows out of reach
+    var ga = M.chore.a, gb = M.chore.b;
+    var live = W.nodes.has(ga.id) && W.nodes.has(gb.id) && ga.mate === null && gb.mate === null &&
+               Math.hypot(ga.x1 - gb.x1, ga.y1 - gb.y1) < S.graftR;
+    if (!live){ M.chore = null; M.state = "grow"; return null; }
+    if (M.t >= S.graftHold){
+      if (ga.bud && gb.bud){
+        makeGraft(W, ga, gb); layout(W);
+        M.grafted++;
+        M.did.push({ kind: "graft", x: (ga.x1 + gb.x1)/2, y: (ga.y1 + gb.y1)/2 });
+      }
+      M.chore = null; M.state = "grow";
+    }
     return null;
   }
   if (!alive){ mindReset(M, 2); return null; }   // you shot it off: start again
   if (M.state === "aim"){
+    if (!M.straight){
+      // a barrel first, then aim it
+      if (mindStraighten(W, M, dt) || M.t > M.lv.straightFor){
+        M.straight = true; M.t = 0;
+        bestSpire(W);
+        M.peri = M.p0 = mindPeri(W, M.limb, M.tgt);
+        var pq = M.limb.parent === null ? null : W.nodes.get(M.limb.parent);
+        M.keep = pq ? aimGrip(W, pq) : null;
+        M.kept = M.keep ? M.keep.map(function(n){ return n.rel; }) : null;
+        if (!M.lv.aims){ mindKeep(W, M); M.state = "ready"; M.acc = 0; }
+      }
+      return null;
+    }
     if (M.peri <= M.lv.aimTo*S.coreR) M.done = true;
     else mindAim(W, M, dt);
     // out of time, and not better than it started: walk back and take the shot
-    if (!M.done && !M.easing && M.t > (M.lv.aimFor || 6) && M.keep){
+    if (!M.done && !M.easing && M.t > M.lv.aimFor && M.keep){
       M.easing = true; M.pending = true;
     }
-    if (M.done || M.t > (M.lv.aimFor || 6) + 3){
+    if (M.done || M.t > M.lv.aimFor + 3){
       mindKeep(W, M);                              // it lets go, and the wood keeps it
       M.state = "ready"; M.t = 0; M.acc = 0;
     }
@@ -1837,11 +2044,12 @@ function mindStep(W, M, dt, X){
   figuresOf(W, M.fig, M.tgt);
   // what it predicted when it chose the limb, against what it is firing
   M.p1 = mindPeri(W, M.limb, M.tgt);
-  var st = M.stat || (M.stat = { shots: 0, pass0: 0, pass1: 0, better: 0, worse: 0, bent: 0 });
+  var st = M.stat || (M.stat = { shots: 0, pass0: 0, pass1: 0, better: 0, worse: 0, bent: 0, run: 0, gain: 0 });
   st.shots++; st.pass0 += M.p0; st.pass1 += M.p1;
   if (M.p1 < M.p0 - 0.5) st.better++; else if (M.p1 > M.p0 + 0.5) st.worse++;
   var charge = greenOf(W, M.limb), muzzle = muzzleFor(W, M.limb);
   if (muzzle && Math.abs(wrapA(muzzle.dir - M.d0)) > 1e-3) st.bent++;   // it moved the stem
+  if (muzzle){ st.run += muzzle.run; st.gain += M.fig.gain || 1; }
   cutNode(W, M.limb); layout(W);
   var bolt = shotFrom(M.fig, charge, muzzle, M.tgt);
   M.shots++;
@@ -1982,47 +2190,8 @@ function graftTarget(n, hx, hy){
 // other and almost every one of those pairs closes a lens worth nothing, so a
 // pair is only drawn if the circuit it would close is worth drawing. Bucketed by
 // the fusing reach, because a thousand-tip canopy is half a million pairs.
-var PAIRS = [], PTIPS = [], PCELL = new Map(), PCAND = [], PUSED = new Set();
-function graftablePairs(){
-  PAIRS.length = 0; PTIPS.length = 0; PCAND.length = 0; PCELL.clear(); PUSED.clear();
-  var c = Math.max(1, S.graftR), i, j, di, dj, n, o, a;
-  for (i = 0; i < T.list.length; i++){
-    n = T.list[i];
-    if (!n.bud || n.mate !== null) continue;
-    PTIPS.push(n);
-    var k = (Math.floor(n.x1/c)*73856093) ^ (Math.floor(n.y1/c)*19349663);
-    a = PCELL.get(k); if (!a){ a = []; PCELL.set(k, a); }
-    a.push(n);
-  }
-  for (i = 0; i < PTIPS.length; i++){
-    n = PTIPS[i];
-    var ix = Math.floor(n.x1/c), iy = Math.floor(n.y1/c);
-    for (di = -1; di <= 1; di++) for (dj = -1; dj <= 1; dj++){
-      a = PCELL.get(((ix+di)*73856093) ^ ((iy+dj)*19349663));
-      if (!a) continue;
-      for (j = 0; j < a.length; j++){
-        o = a[j];
-        if (o.id <= n.id || o.id === n.parent || n.id === o.parent) continue;
-        if (Math.hypot(o.x1-n.x1, o.y1-n.y1) >= S.graftR) continue;
-        var ar = circuitArea(T, n, o);
-        if (ar < S.pairFloor*S.coreR*S.coreR) continue;
-        PCAND.push({ a:n, b:o, area:ar });
-      }
-    }
-  }
-  // Neighbouring pairs along a seam all close much the same circuit, so
-  // drawing every one of them is a thicket rather than a hint. Best first,
-  // never two that share a tip, and only a handful: these are the circuits
-  // actually on offer, not every graft the wood would tolerate.
-  PCAND.sort(function(x, y){ return y.area - x.area; });
-  for (i = 0; i < PCAND.length && PAIRS.length < S.pairShow*2; i++){
-    var c = PCAND[i];
-    if (PUSED.has(c.a.id) || PUSED.has(c.b.id)) continue;
-    PUSED.add(c.a.id); PUSED.add(c.b.id);
-    PAIRS.push(c.a, c.b);
-  }
-  return PAIRS;
-}
+var PAIRS = [];
+function graftablePairs(){ return pairsOf(T, PAIRS, S.pairShow); }
 // The hint under the pointer. The line itself is the handle: you do not have to
 // find either tip in the leaves, only the stroke the board drew between them,
 // and a press anywhere along it takes the pair. Nearest line wins; the list is
@@ -2902,6 +3071,16 @@ function mindTell(W, X){
 // drawn in the tree's own frame, so it serves either side
 function drawMind(W, pal){
   var M = W.mind, TD = W;
+  if (M && M.state === "graft" && M.chore && W.nodes.has(M.chore.a.id) && W.nodes.has(M.chore.b.id)){
+    var ga = M.chore.a, gb = M.chore.b, kk = 1/view.scale, mx = (ga.x1 + gb.x1)/2, my = (ga.y1 + gb.y1)/2;
+    pal = pal || FOE;
+    ctx.beginPath(); ctx.moveTo(ga.x1, ga.y1); ctx.lineTo(gb.x1, gb.y1);
+    ctx.strokeStyle = "rgba(" + pal.tip + ",.8)"; ctx.lineWidth = 1.5*kk; ctx.stroke();
+    ctx.beginPath();
+    ctx.arc(mx, my, 6*kk, -Math.PI/2, -Math.PI/2 + 2*Math.PI*Math.min(1, M.t/S.graftHold));
+    ctx.strokeStyle = "rgba(" + pal.vein + ",.95)"; ctx.lineWidth = 2.2*kk; ctx.stroke();
+    return;
+  }
   if (!M || !M.limb || M.state === "grow" || !W.nodes.has(M.limb.id)) return;
   var k = 1/view.scale, n = M.limb, ready = M.state === "ready";
   ctx.beginPath(); below(TD, n, traceSeg);
@@ -3649,6 +3828,18 @@ document.getElementById("p-restart").onclick = function(){
 };
 document.getElementById("p-reroll").onclick = function(){ FOE_PICKS = drawPicks(); refreshChooser(); };
 
+// what a temper's hand did besides firing, flashed where it did it
+function mindDid(W, foe){
+  var M = W.mind;
+  if (!M || !M.did.length) return;
+  for (var i = 0; i < M.did.length; i++){
+    var d = M.did[i];
+    flash.push({ x: foe ? S.coreSep - d.x : d.x, y: d.y, t: d.kind === "graft" ? 0.8 : 0.6, kind: d.kind });
+    if (foe) note(d.kind === "graft" ? "their-graft" : "their-ward");
+  }
+  M.did.length = 0;
+}
+
 /* ── the playtest log ───────────────────────────────────────────────────
    Every match keeps a plain record of what the hand did and what came of
    it: bends and how long they took, strokes and what they were, strokes put
@@ -3726,6 +3917,7 @@ function frame(now){
         var atT = targetOf(T), atTD = targetOf(TD);
         if (T.mind){
           var ours = mindStep(T, T.mind, total, atTD);
+          mindDid(T, false);
           if (ours){
             launch(ours, false);
             flash.push({x:ours.x, y:ours.y, t:0.6, kind:"cut"});
@@ -3734,6 +3926,7 @@ function frame(now){
           mindTell(T, TD);
         }
         var shot = mindStep(TD, TD.mind, total, atT);
+        mindDid(TD, true);
         if (shot){
           note("their-shot");
           launch(shot, true);

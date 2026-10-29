@@ -26,6 +26,7 @@ function duel(mine, theirs, sd, seedling){
   const g = load();
   // a temper retuned for the run: master.aimFor=4 and the like
   for (const k in opt) if (k.includes(".")){ const [m, f] = k.split("."); if (g.MINDS[m]) g.MINDS[m][f] = +opt[k]; }
+  for (const k in opt) if (k in g.S) g.S[k] = +opt[k];
   const gen = () => g.genome(seedling);
   g.T = g.newTree(0, gen()); g.layout(g.T); g.buildGrid(g.T);
   g.T.hpMax = g.T.hp = g.coreOf(g.T.g);
@@ -41,6 +42,7 @@ function duel(mine, theirs, sd, seedling){
     const a = g.mindStep(T, T.mind, dt, atTD); if (a){ g.launch(a, false); shots[0]++; }
     const b = g.mindStep(TD, TD.mind, dt, atT); if (b){ g.launch(b, true); shots[1]++; }
     g.layout(T); g.buildGrid(T); g.layout(TD); g.buildGrid(TD);
+    g.stepWards(T, dt); g.stepWards(TD, dt);
     const h0 = T.hp, h1 = TD.hp;
     for (let k = 0; k < 3; k++) g.stepBolts(dt/3);
     dealt[1] += h0 - T.hp; dealt[0] += h1 - TD.hp;
@@ -48,7 +50,11 @@ function duel(mine, theirs, sd, seedling){
   }
   const left = [g.T.hp/g.T.hpMax, g.TD.hp/g.TD.hpMax];
   const winner = left[0] <= 0 ? 1 : left[1] <= 0 ? 0 : left[0] > left[1] ? 0 : left[1] > left[0] ? 1 : -1;
-  return { t: Math.round(t), winner, killed: left[0] <= 0 || left[1] <= 0, left, dealt, shots };
+  const ms = [g.T.mind, g.TD.mind].map(M => {
+    const st = M.stat || { shots: 0, run: 0, gain: 0 };
+    return { grafts: M.grafted, wards: M.warded, run: st.shots ? st.run/st.shots : 0, gain: st.shots ? st.gain/st.shots : 1 };
+  });
+  return { t: Math.round(t), winner, killed: left[0] <= 0 || left[1] <= 0, left, dealt, shots, ms };
 }
 
 if (opt.pair){
@@ -65,7 +71,8 @@ if (opt.pair){
   const me = side ? 1 : 0, it = 1 - me;
   console.log(JSON.stringify({ a, b, seed: sd, side, t: r.t, killed: r.killed,
     win: r.winner === -1 ? 0.5 : r.winner === me ? 1 : 0,
-    left: [r.left[me], r.left[it]], dealt: [r.dealt[me], r.dealt[it]], shots: [r.shots[me], r.shots[it]] }));
+    left: [r.left[me], r.left[it]], dealt: [r.dealt[me], r.dealt[it]], shots: [r.shots[me], r.shots[it]],
+    ms: [r.ms[me], r.ms[it]] }));
   process.exit(0);
 }
 
@@ -79,7 +86,7 @@ for (let i = 0; i < minds.length; i++) for (let j = i + 1; j < minds.length; j++
   for (let s = 1; s <= seeds; s++) for (const side of [0, 1])
     jobs.push(["pair=" + minds[i] + "," + minds[j], "seed=" + s, "side=" + side, "secs=" + SECS]
               .concat(opt.seedling ? ["seedling=" + opt.seedling] : [])
-              .concat(Object.keys(opt).filter(k => k.includes(".")).map(k => k + "=" + opt[k])));
+              .concat(Object.keys(opt).filter(k => k.includes(".") || k in load().S).map(k => k + "=" + opt[k])));
 const out = [];
 let next = 0, running = 0;
 function launch(){
@@ -97,7 +104,7 @@ function launch(){
 function report(){
   process.stderr.write("\n");
   const f1 = x => x.toFixed(1);
-  const tuned = Object.keys(opt).filter(k => k.includes(".")).map(k => k + "=" + opt[k]).join(" ");
+  const tuned = Object.keys(opt).filter(k => k.includes(".") || k in load().S).map(k => k + "=" + opt[k]).join(" ");
   console.log("\n" + SECS + " s limit, " + seeds + " seeds, both sides, " + (opt.seedling || "default seedling") +
               (tuned ? ", " + tuned : "") + "\n");
   console.log("  pairing              wins (of " + 2*seeds + ")   kills   mean length   core left (a / b)   force landed (a / b)   shots (a / b)");
@@ -111,6 +118,16 @@ function report(){
       (Math.round(100*mean(r => r.left[0])) + "% / " + Math.round(100*mean(r => r.left[1])) + "%").padStart(20) +
       (f1(mean(r => r.dealt[0])) + " / " + f1(mean(r => r.dealt[1]))).padStart(23) +
       (f1(mean(r => r.shots[0])) + " / " + f1(mean(r => r.shots[1]))).padStart(16));
+  }
+  // what each temper's hand actually did, across all its matches
+  console.log("\n  temper    grafts a match   wards a match   barrel behind a shot   gain on a shot");
+  for (const m of minds){
+    const seen = [];
+    for (const r of out){ if (r.a === m) seen.push(r.ms[0]); if (r.b === m) seen.push(r.ms[1]); }
+    if (!seen.length) continue;
+    const avg = k => seen.reduce((s, x) => s + x[k], 0)/seen.length;
+    console.log("  " + m.padEnd(8) + f1(avg("grafts")).padStart(15) + f1(avg("wards")).padStart(16) +
+                (f1(avg("run")) + " u").padStart(23) + ("\u00d7" + avg("gain").toFixed(2)).padStart(17));
   }
   console.log("");
 }
