@@ -366,7 +366,7 @@ var S = {
   handTaste:   5,       // the furthest a temper keeps any joint from the angle it grew at, degrees
 
   // the campaign
-  boutHead:    300,     // the most growth an opponent starts a bout with, seconds; otherwise as old as your tree
+  trialStep:   60,      // how much longer each Master past the first class has grown before you meet it, seconds
 
 };
 var D2R = Math.PI / 180;
@@ -3390,7 +3390,7 @@ var TD = null, bolts = [], hitBuf = [], hits = [];
    its own tree and cuts at you (MINDS). */
 function newFoe(g, mind, seed){
   TD = newTree(0, g);
-  for (var t = 0; t < S.foeHead; t += 0.15) step(TD, 0.15, null);
+  for (var t = 0; t < S.foeHead; t += 0.25) step(TD, 0.25, null);
   layout(TD); buildGrid(TD);
   TD.hpMax = TD.hp = coreOf(TD.g);
   TD.mind = newMind(mind || "still", seed || (1 + Math.floor(Math.random()*1e9)));
@@ -3547,6 +3547,10 @@ try { MY_RANK = Math.max(0, Math.min(RANKS.length-1,
                  localStorage.getItem("heartwood.rank") || "0", 10) || 0)); } catch (e) {}
 function saveRank(){ try { localStorage.setItem("lignum-vitae.rank", String(MY_RANK)); } catch (e) {} }
 function boutMind(){ return BOUTS[Math.min(MY_RANK, BOUTS.length-1)]; }
+// trials won against the Master since reaching the first class
+var MY_TRIALS = 0;
+try { MY_TRIALS = Math.max(0, parseInt(localStorage.getItem("lignum-vitae.trials") || "0", 10) || 0); } catch (e) {}
+function saveTrials(){ try { localStorage.setItem("lignum-vitae.trials", String(MY_TRIALS)); } catch (e) {} }
 var BOUT_FOE = { still: "a sapling that never fires", feral: "a Feral mage", keeper: "a Keeper",
                  adept: "an Adept", master: "a Master" };
 
@@ -3564,9 +3568,14 @@ function carriedPicks(){
   try { return CAMP ? JSON.parse(CAMP).picks : null; } catch (e) { return null; }
 }
 
-// A bout: your carried tree (or a new seedling, for the first), at full
-// heart and with no wards, against a temper as old as your tree, up to a
-// point, so a tree you have kept for twenty minutes is not met by a sapling.
+// How long the next Master has grown before you meet it: nothing, until you
+// are of the first class; then a minute more for every trial you have won.
+function trialHead(){ return MY_RANK < RANKS.length - 1 ? 0 : (MY_TRIALS + 1)*S.trialStep; }
+
+// A bout: your carried tree (or a new seedling, for the first), at full heart
+// and with no wards, against a temper planted as a seedling — your tree is the
+// whole of what you have earned, and a Master is beatable because it is young.
+// Past the first class, every trial meets a Master a minute older than the last.
 function startBout(){
   var carried = null;
   if (CAMP){ try { carried = unpackTree(CAMP); } catch (e) { forgetTree(); } }
@@ -3576,7 +3585,7 @@ function startBout(){
   T.mind = null; T.arc = []; T.arcHit = null; T.wards = [];
   clearBoard();
   var head = S.foeHead;
-  S.foeHead = Math.min(T.clock, S.boutHead);
+  S.foeHead = trialHead();
   newFoe(genome(FOE_PICKS), boutMind());
   S.foeHead = head;
   BOUT = true;
@@ -3590,14 +3599,16 @@ function nextBout(){
   startBout();
 }
 
-var LAUREL = { won:false, lost:false, wait:0, from:0, to:0, own:true, bout:false };
+var LAUREL = { won:false, lost:false, wait:0, from:0, to:0, own:true, bout:false, trial:0 };
 function victory(){
   endLog(T.mind ? "temper won" : "won");
   LAUREL.won = true; LAUREL.lost = false; LAUREL.wait = 1.4;   // let the burst be seen first
+  LAUREL.trial = 0;
   LAUREL.own = !T.mind; LAUREL.bout = BOUT;
   LAUREL.from = MY_RANK;
   if (BOUT){
     if (MY_RANK < RANKS.length-1){ MY_RANK++; saveRank(); }
+    else { MY_TRIALS++; saveTrials(); LAUREL.trial = MY_TRIALS; }
     keepTree();                   // the tree you won with is the one you go on with
   }
   LAUREL.to = MY_RANK;
@@ -3620,6 +3631,7 @@ function showLaurel(){
       lost ? (LAUREL.bout ? "Fight the bout again with the tree you began it with. You are a"
                           : "You are a")
     : up ? "You have advanced to the rank of"
+    : LAUREL.bout && LAUREL.trial ? "Trial " + LAUREL.trial + " won. You remain a"
     : LAUREL.bout ? "You remain a"
     : "Rank is earned in the campaign. You are a";
   el.querySelector(".from").textContent = up ? RANKS[LAUREL.from] + " \u2192" : "";
@@ -3628,7 +3640,7 @@ function showLaurel(){
   if (LAUREL.bout){
     go.textContent = lost ? "Fight it again"
                    : more ? "On to bout " + (MY_RANK + 1) + ": " + BOUT_FOE[boutMind()]
-                          : "Another bout against a Master";
+                          : "On to trial " + (MY_TRIALS + 1) + ": a Master grown for " + mmss(trialHead());
     alt.classList.remove("hide");
   } else {
     go.textContent = "Plant again";
@@ -3645,7 +3657,8 @@ function hideLaurel(){
 }
 function refreshRank(){
   var e = document.getElementById("p-rank");
-  if (e) e.textContent = "You are a " + RANKS[MY_RANK] + ".";
+  if (e) e.textContent = "You are a " + RANKS[MY_RANK] +
+    (MY_TRIALS ? ", " + MY_TRIALS + " trial" + (MY_TRIALS === 1 ? "" : "s") + " won." : ".");
 }
 
 /* ── planting ──────────────────────────────────────────────────────── */
@@ -3766,7 +3779,8 @@ function refreshChooser(){
   var bm = MINDS[boutMind()], done = MY_RANK >= RANKS.length - 1;
   document.querySelector("#play-row .blurb").textContent = !camp
     ? "One match on your own terms: any seedling, any temper, either side. Rank is not earned here."
-    : (done ? "You are a First-Class Mage. Every bout from here is against a Master, and earns nothing but the fight."
+    : (done ? "Trial " + (MY_TRIALS + 1) + ": a Master that has grown for " + mmss(trialHead()) +
+              " before you meet it. Every trial you win, the next Master has grown a minute longer."
             : "Bout " + (MY_RANK + 1) + " of " + BOUTS.length + ": against " + BOUT_FOE[boutMind()] +
               ". Win, and you rise to " + RANKS[MY_RANK + 1] + ".") +
       (carried ? " You fight with the tree you have kept, as it stands." : " The tree you plant now is the one you keep from bout to bout.");
@@ -3824,7 +3838,7 @@ document.getElementById("l-alt").onclick = function(){ forgetTree(); openChooser
 })();
 document.getElementById("p-restart").onclick = function(){
   if (!confirm("Forget your tree and your rank, and begin the campaign again as a novice?")) return;
-  forgetTree(); MY_RANK = 0; saveRank(); refreshChooser();
+  forgetTree(); MY_RANK = 0; saveRank(); MY_TRIALS = 0; saveTrials(); refreshChooser();
 };
 document.getElementById("p-reroll").onclick = function(){ FOE_PICKS = drawPicks(); refreshChooser(); };
 
@@ -3853,7 +3867,8 @@ function startLog(){
   if (PLOG && !PLOG.end) endLog("abandoned");
   PLOG = { at: new Date().toISOString(), wall0: performance.now(),
            mine: T.g.picks, theirs: FOE_PICKS, hand: T.mind ? T.mind.level : "hand", foe: TD.mind.level,
-           bout: BOUT ? MY_RANK + 1 : null, age: +T.clock.toFixed(1),
+           bout: BOUT ? MY_RANK + 1 + MY_TRIALS : null, age: +T.clock.toFixed(1),
+           head: +TD.clock.toFixed(0),
            hp: [T.hpMax, TD.hpMax], tuned: {}, ev: [], end: null };
   // anything moved in the tuning drawer, so a match played on other numbers says so
   for (var k in S0) if (S[k] !== S0[k]) PLOG.tuned[k] = S[k];

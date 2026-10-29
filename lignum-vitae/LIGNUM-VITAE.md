@@ -415,22 +415,40 @@ A mage starts as a **Novice** and rises by bouts, each against a better hand:
 **Your tree carries.** You plant once, for the first bout, and from then on you
 fight with whatever you have made of it: every limb you bent, every graft you
 closed, every year of girth. Each bout starts your core whole and your wards
-gone, against a temper whose seedling is drawn at random and grown as long as
-yours has been, up to five minutes (`boutHead`), so a tree you have kept for a
-quarter of an hour is not met by a sapling. The first bout is where you learn
-the hand with nothing shooting back; the last is against the hardest temper
-there is, with a tree old enough that most of it will no longer bend (§3) — the
-shape you gave it early is the shape you fight the Master with.
+gone, against a temper planted as a seedling, drawn at random: **your tree is
+the whole of what you have earned**, and it is what makes each bout winnable.
+The first bout is where you learn the hand with nothing shooting back; the last
+is against the hardest temper there is, which is beatable only because it is
+young and you are not — with a tree old enough that most of it will no longer
+bend (§3), so the shape you gave it early is the shape you fight the Master
+with.
 
 **Losing a bout** spends your core, but not the campaign: you fight the bout
 again with the tree you began it with, or plant a new seedling and carry that
 on from the bout you reached. A win throws up a burst of leaves and sparks from
-the spent core and a card announces the promotion. Past the first class every
-bout is against a Master and earns nothing but the fight. Where you stand in the
+the spent core and a card announces the promotion. Where you stand in the
 campaign *is* your rank: it and your tree are kept in the browser, the tree as
 plain data (about 170 bytes a node), and **Begin again** on the planting screen
 forgets both. A single match, chosen on the same screen, is any seedling
 against any temper with either side played by a temper, and earns no rank.
+
+**Past the first class, trials.** A First-Class Mage keeps fighting Masters
+with the same tree, and each one has grown for longer before you meet it: a
+minute for the first trial, two for the second, a minute more for every trial
+won (`trialStep`). The count of trials won is kept with your rank. There is no
+last trial; there is a Master old enough that your tree cannot beat it, and
+how far you get toward it is the score.
+
+How fast that comes, measured headless (`ladder.js ageA=900 ageB=…`): an
+Adept holding a fifteen-minute tree against a Master grown for
+
+| the Master grown for | 0:00 | 1:00 | 2:00 | 3:00 | 4:00 | 5:00 |
+|---|---|---|---|---|---|---|
+| the Adept wins, of 30 | 29 (ten-minute tree) | 29 | 22 | 23 | 23 | 13 |
+
+— so an old tree's advantage is worth about four minutes of a Master's growth,
+and a player of the Adept's strength would run out of trials around the fifth.
+Fifteen seeds a cell; the middle three are not distinguishable from each other.
 
 ### The other mage
 
@@ -650,11 +668,14 @@ each is too much shelter, or a single ward too little, is unmeasured; so is
 whether elliptical orbits, which bunch at their near ends and sweep a band,
 shelter better or worse than circles would.
 
-**The Master may be too much.** It beats the Adept sixty times in sixty, in
-about three minutes, with rings at ×1.8 and barrels three times a Keeper's. As
-the last bout of a campaign that may be right or may be a wall. The levers, if
-it is a wall, are its verbs rather than its pace: fewer grafts, a shorter
-barrel, a thinner shell.
+**The Master is beaten by age, and nothing else has been tried.** Seedling
+against seedling it beats the Adept sixty times in sixty, with rings at ×1.8
+and barrels three times a Keeper's; the campaign makes it beatable by setting
+your old tree against a young one, and the trials measure how old a Master your
+tree can take (§8). Whether a person, who bends slower than any temper, gets
+the same mileage out of an old tree as the Adept does is the question. If the
+fifth bout is a wall, the levers are the Master's verbs rather than its pace:
+fewer grafts, a shorter barrel, a thinner shell.
 
 **The campaign's curve is a guess.** Five tempers in a row that rank cleanly
 against each other, and none of it played through by a person. Two things in it are untested and could each break

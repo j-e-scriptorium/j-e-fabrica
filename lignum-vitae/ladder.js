@@ -6,6 +6,7 @@
 //   node ladder.js                              keeper, adept, master, 6 seeds
 //   node ladder.js minds=feral,keeper seeds=4 secs=900 seedling=spear,open
 //   node ladder.js seedling=random master.aimFor=4     one seedling per seed; a temper retuned
+//   node ladder.js minds=adept,master ageA=900          the first-named starts with 15 minutes' growth
 //   node ladder.js pair=keeper,adept seed=3 side=0     one match, as JSON (used for running in parallel)
 const path = require("path");
 const load = require(path.join(__dirname, "harness.js"));
@@ -28,9 +29,16 @@ function duel(mine, theirs, sd, seedling){
   for (const k in opt) if (k.includes(".")){ const [m, f] = k.split("."); if (g.MINDS[m]) g.MINDS[m][f] = +opt[k]; }
   for (const k in opt) if (k in g.S) g.S[k] = +opt[k];
   const gen = () => g.genome(seedling);
-  g.T = g.newTree(0, gen()); g.layout(g.T); g.buildGrid(g.T);
+  g.T = g.newTree(0, gen());
+  // a head start for either side, in seconds of growth: ageA for the first-named
+  // temper, ageB for the second (a campaign tree against a younger opponent)
+  const ages = [+(opt.ageA || 0), +(opt.ageB || 0)], side = +(opt.side || 0);
+  for (let t = 0; t < ages[side]; t += 0.25) g.step(g.T, 0.25, null);
+  g.layout(g.T); g.buildGrid(g.T);
   g.T.hpMax = g.T.hp = g.coreOf(g.T.g);
+  const head = g.S.foeHead; g.S.foeHead = ages[1 - side];
   g.newFoe(gen(), theirs, sd);
+  g.S.foeHead = head;
   g.T.mind = g.newMind(mine, sd + 1000);
   const dt = 0.05, dealt = [0, 0], shots = [0, 0];
   let t = 0;
@@ -86,7 +94,8 @@ for (let i = 0; i < minds.length; i++) for (let j = i + 1; j < minds.length; j++
   for (let s = 1; s <= seeds; s++) for (const side of [0, 1])
     jobs.push(["pair=" + minds[i] + "," + minds[j], "seed=" + s, "side=" + side, "secs=" + SECS]
               .concat(opt.seedling ? ["seedling=" + opt.seedling] : [])
-              .concat(Object.keys(opt).filter(k => k.includes(".") || k in load().S).map(k => k + "=" + opt[k])));
+              .concat(Object.keys(opt).filter(k => k.includes(".") || k in load().S || k === "ageA" || k === "ageB")
+                      .map(k => k + "=" + opt[k])));
 const out = [];
 let next = 0, running = 0;
 function launch(){
@@ -104,7 +113,8 @@ function launch(){
 function report(){
   process.stderr.write("\n");
   const f1 = x => x.toFixed(1);
-  const tuned = Object.keys(opt).filter(k => k.includes(".") || k in load().S).map(k => k + "=" + opt[k]).join(" ");
+  const tuned = Object.keys(opt).filter(k => k.includes(".") || k in load().S || k === "ageA" || k === "ageB")
+                    .map(k => k + "=" + opt[k]).join(" ");
   console.log("\n" + SECS + " s limit, " + seeds + " seeds, both sides, " + (opt.seedling || "default seedling") +
               (tuned ? ", " + tuned : "") + "\n");
   console.log("  pairing              wins (of " + 2*seeds + ")   kills   mean length   core left (a / b)   force landed (a / b)   shots (a / b)");
