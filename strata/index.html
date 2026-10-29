@@ -245,6 +245,15 @@ header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
 .sc .sub{font-size:11.5px;color:var(--ink-3);font-family:'Space Mono',monospace}
 .sc.total .val{color:var(--patina);font-size:33px}
 .perfect{color:var(--patina)}
+/* The reveal takes on the colour of the answer's layer of the timeline: a
+   faint wash and darker accents from the middle of its window, and a stripe
+   along the top showing every layer the window covers, in proportion.
+   Colour only, never the layer's name, which would misfit China or Peru. */
+.card.era{background:linear-gradient(90deg,var(--era-stripe)) top left/100% 6px no-repeat,
+  color-mix(in srgb,var(--era) 10%,var(--paper))}
+.card.era .sc.total .val{color:color-mix(in srgb,var(--era) 78%,var(--ink))}
+.card.era .cta{background:color-mix(in srgb,var(--era) 72%,var(--ink))}
+.card.era .tag{border-color:color-mix(in srgb,var(--era) 35%,var(--rule))}
 /* the answer's timeline in miniature, for when the sheet covers the real one */
 .tstrip{position:relative;height:12px;border:1px solid var(--ink);margin:2px 0 4px;overflow:visible}
 .tstrip .b{position:absolute;top:0;bottom:0;opacity:.55}
@@ -673,6 +682,15 @@ function showReveal(it,km,yrs,ps,ts,sum,dir,early){
   '<div class="ans" style="left:'+(100*fa)+'%;width:'+(100*(fb-fa))+'%"></div>'+
   '<div class="g" style="left:'+(100*fg)+'%"></div></div>'+
   '<div class="tlegend"><span>'+COPY.stripGuess+' <b>'+fmtY(year)+'</b></span><span>'+COPY.stripAnswer+' <b>'+dateText+'</b></span></div>';
+ /* era theming: stripe stops for each layer the window touches, and the
+    accent colour of the layer at the window's visual midpoint */
+ const stops=[];let acc=0;
+ BANDS.forEach(b=>{const lo=yearToFrac(Math.max(b.a,it.time.start)),hi=yearToFrac(Math.min(b.b,it.time.end));
+  if((it.time.start<b.b&&it.time.end>b.a)||(fa===fb&&bandOf(it.time.start)===b)){stops.push({c:b.c,w:Math.max(hi-lo,1e-6)});acc+=Math.max(hi-lo,1e-6);}});
+ let at=0;const stripe=stops.map(s=>{const a=at;at+=100*s.w/acc;return s.c+' '+a.toFixed(2)+'% '+at.toFixed(2)+'%';}).join(',');
+ cardEl.classList.add('era');
+ cardEl.style.setProperty('--era',bandOf(fracToYear((fa+fb)/2)).c);
+ cardEl.style.setProperty('--era-stripe',stripe);
  document.getElementById('card').innerHTML=
  '<div class="scorerow">'+
   '<div class="sc"><div class="lab">'+COPY.scorePlace+'</div><div class="val txt'+(inP?' perfect':'')+'">'+placeText+'</div>'+
@@ -698,6 +716,7 @@ function showReveal(it,km,yrs,ps,ts,sum,dir,early){
   idx++;if(idx>=rounds.length)finish();else loadRound();};
  b.focus({preventScroll:true});}
 function finish(){
+ cardEl.classList.remove('era');
  const s=results.slice().sort((a,b)=>b.sum-a.sum),best=s[0],worst=s[s.length-1];
  document.getElementById('card').innerHTML=
  '<div class="final"><div class="lab">'+COPY.finalHeading+'</div>'+
