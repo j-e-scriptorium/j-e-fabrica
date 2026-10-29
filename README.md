@@ -12,7 +12,7 @@ assets/                     shared header/footer, styles, logo, favicon
 voyages/                    exhibit: Twenty Voyages (an atlas)
 school/                     exhibit: School (a recreation)
 many-rooms/                 exhibit: Many Rooms (a sonnet-dating game), plus the corpus + pipeline behind it
-heartwood/                  exhibit: Heartwood (a duel of growing trees), plus its manual and headless tests
+lignum-vitae/               exhibit: Lignum Vitae (a duel of growing trees), plus its manual and headless tests
 campus-magnus/              exhibit: Campus Magnus (the Plains peoples, 1700–1900), plus its data tables, model and review docs
 ```
 

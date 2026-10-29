@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-<title>Heartwood</title>
+<title>Lignum Vitae</title>
 <style>
   :root{
     --ground:#171a17; --ink:#cfd6c6; --dim:#8b9382; --rule:#2c3128;
@@ -104,8 +104,11 @@
   #laurel .rank{font-size:22px;color:var(--ink);margin:4px 0 16px;font-weight:600}
   #laurel.up .rank{color:#f6e3a4;animation:laurel-glow 2.4s ease-in-out .6s infinite}
   #laurel .go{display:flex;gap:8px}
-  #laurel .go button{padding:7px 10px;font-size:12.5px}
+  #laurel .go button{padding:7px 10px;font-size:12.5px;white-space:nowrap}
   #laurel .go .plant{background:#4a4322;border-color:#6b5d2e;flex:2}
+  #laurel.lost .card{border-color:#5e3b33}
+  #laurel.lost h2{color:#d9a497}
+  #laurel .go button.hide,#plant .go button.hide,#plant .hide{display:none}
   @keyframes laurel-in{from{opacity:0;transform:scale(.8)}to{opacity:1;transform:none}}
   @keyframes laurel-glow{0%,100%{text-shadow:0 0 6px rgba(246,220,140,.25)}50%{text-shadow:0 0 22px rgba(246,220,140,.8)}}
   @media (prefers-reduced-motion:reduce){#laurel .card,#laurel.up .rank{animation:none}}
@@ -141,12 +144,16 @@
   <div class="card">
     <div class="picks">
       <h2>Plant a seedling</h2>
-      <div class="sub"><span id="p-rank" class="p-rank"></span> What kind of tree you grow is chosen once, now. Every choice is a trade.</div>
+      <div class="sub"><span id="p-rank" class="p-rank"></span> <span id="p-sub"></span></div>
+      <div class="axis" id="play-row"><div class="nm">Play</div><div class="seg">
+        <button data-k="campaign">Campaign</button><button data-k="free">A single match</button></div>
+        <div class="blurb"></div></div>
       <div id="axes"></div>
       <div class="axis" id="mind-row"><div class="nm">Across the field</div><div class="seg"></div><div class="blurb"></div></div>
       <div class="axis" id="hand-row"><div class="nm">This side</div><div class="seg"></div><div class="blurb"></div></div>
       <div class="go">
         <button id="p-cancel">Back to the match</button>
+        <button id="p-restart" title="forget your tree and your rank and begin again as a novice">Begin again</button>
         <button id="p-plant" class="plant">Plant</button>
       </div>
     </div>
@@ -169,13 +176,14 @@
     <div class="rank"></div>
     <div class="go">
       <button id="l-stay">Look at the field</button>
+      <button id="l-alt">Plant a new seedling</button>
       <button id="l-plant" class="plant">Plant again</button>
     </div>
   </div>
 </div>
 
 <div class="panel hide" id="hud">
-  <h1>Heartwood <span>· prototype</span></h1>
+  <h1>Lignum Vitae <span>· prototype</span></h1>
   <div class="grp">The tree</div>
   <div class="row"><span>rank</span><b id="s-rank">—</b></div>
   <div class="row"><span>seedling</span><b id="s-mine">—</b></div>
@@ -227,6 +235,7 @@
   <div><kbd>c a f s g</kbd><span>charge glow, aim arc, fan, spire, grafts</span></div>
   <div><kbd>h</kbd><span>the readout, and this list</span></div>
   <div><kbd>t</kbd><span>tuning, for development</span></div>
+  <div><kbd>l</kbd><span>save the playtest log of your recent matches</span></div>
 </div>
 
 <div class="panel hide" id="tune">
@@ -237,7 +246,7 @@
 <script>
 "use strict";
 /* ═══════════════════════════════════════════════════════════════════════
-   HEARTWOOD — a duel fought by shaping a thing that grows on its own.
+   LIGNUM VITAE — a duel fought by shaping a thing that grows on its own.
 
    Three gestures. Slicing cuts and fires; bending occupies the hand while the
    wood follows it; grafting fuses two tips into a circuit. Everything else
@@ -246,7 +255,7 @@
    weapon, economy, and armour.
 
    The file is in two halves. The SIM block below is the model and holds no
-   reference to the DOM — heartwood_tests.js pulls it straight out of this
+   reference to the DOM — lignum_vitae_tests.js pulls it straight out of this
    file and runs it headless, so the tests cannot drift from the game. Below
    that is the interface: planting, input, drawing, and a tuning drawer.
 
@@ -273,6 +282,7 @@ var S = {
   firstFork:   9,       // how far the trunk runs before it forks at all, units
   forkDecay:   0.82,    // fork length shrinks by this per generation
   chopRamify:  1,       // levels a regrown shoot gains for having been cut back
+  ramFade:     12,      // levels of that a shoot sheds every time it forks; 12 spends it all at the first fork, so cut wood bunches once and then runs
   diverge:     46,      // total angle opened at a fork, degrees
   forkBias:    0.38,    // how that angle splits: 0 = axis stays straight, .5 = a symmetric Y
   wander:      0,       // per-internode drift of a continuing axis, degrees
@@ -342,13 +352,18 @@ var S = {
   // wards
   leafLen:     18,      // the most wood a cut may take and still be a trim of leaves, units
   wardK:       1,       // what a ward holds, as a multiple of a full-channel shot off a kinked stem
-  wardNear:    24,      // the tightest orbit a ward keeps round its core, units
-  wardFar:     72,      // the widest
-  wardKeep:    0.3,     // how much of the way out it was cut a leaf keeps as its orbit
+  wardNear:    24,      // the nearest a ward's orbit may swing out to, units
+  wardFar:     96,      // the farthest
+  wardPeri:    18,      // the closest any orbit dips toward the core, units
+  wardKeep:    0.5,     // how much of the way out it was cut a leaf keeps as the far end of its orbit
+  wardEcc:     0.5,     // how eccentric the orbit of a leaf cut pointing at the core is; one lying across goes round true
   wardSpin:    2.4,     // how fast a ward goes round at 30 units out, radians per second
-  wardSink:    90,      // the fastest a trimmed leaf falls toward its orbit, units per second
+  wardDrift:   36,      // how fast a trimmed leaf floats down to its orbit, units per second
   wardSize:    7,       // how close a shot must pass a ward to be caught, units
   wardFloor:   0.25,    // a ward faded below this fraction of what it held is gone
+
+  // the campaign
+  boutHead:    300,     // the most growth an opponent starts a bout with, seconds; otherwise as old as your tree
 
 };
 var D2R = Math.PI / 180;
@@ -430,8 +445,10 @@ function newTree(seedRot, g){
 }
 
 // A shoot's fork interval shortens with branching depth and again with every
-// time the wood it grew back from was cut. Chop a limb repeatedly and it stops
-// running and starts ramifying: short stems, crowded, close to the trunk.
+// time the wood it grew back from was cut, so a chopped spot puts out a
+// short-stemmed knuckle at the cut face. The shoot spends that ramification as
+// it forks (ramFade), and the wood past the knuckle runs as wood does: cutting
+// thickens a tree, it does not grind it down into a bush.
 function forkLen(n){
   var g = n.g || (DEFAULT_G || (DEFAULT_G = genome()));
   if (n.gen === 0 && n.ram === 0) return g.firstFork;   // the trunk forks early
@@ -796,12 +813,12 @@ function step(T, dt, frozen){
       cont.share = cur.share;
       cont.sinceFork = forking ? 0 : sf;
       cont.forkSide = forking ? -fs : fs;
-      cont.ram = cur.ram;
+      cont.ram = forking ? Math.max(0, cur.ram - S.ramFade) : cur.ram;
       cont.gen = cur.gen + (forking ? 1 : 0);
       if (forking){
         var lat = mkNode(T, cur.id, fs*S.diverge*(1-S.forkBias)*D2R, cur.order + 1, side);
         lat.forkSide = fs;
-        lat.ram = cur.ram;
+        lat.ram = Math.max(0, cur.ram - S.ramFade);
         lat.gen = cur.gen + 1;
         lat.share = 0;
       }
@@ -1503,10 +1520,13 @@ function volleyFrom(fig, faces, tgt){
    Not every cut is a shot. A stroke that takes only leaves — a tuft of wood
    at a tip, no more than leafLen of it and no graft in it — has no stem
    behind it worth the name, so nothing is thrown at the other mage. Each
-   leaf falls instead toward your own core, gathering way as it goes, and
-   locks into a circular orbit of its own; the further out it was cut, the
-   wider its orbit, and the wider an orbit, the slower it goes round. A
-   shot of theirs that passes close to a ward loses what the ward holds, and
+   leaf floats instead halfway down toward your own core, tumbling or
+   fluttering as the way it was lying sends it, and where it stops falling it
+   is caught into an ellipse of its own: that point is the far end of its
+   orbit, a leaf cut lying across the line to the core goes round nearly
+   true, and one cut pointing at it swings in close and out again. Wider
+   orbits go round slower, by Kepler's third law. A shot of theirs that
+   passes close to a ward loses what the ward holds, and
    the ward loses what the shot carried: a ward holds exactly what a
    full-channel shot off a kinked stem would carry, so one stops anything
    thrown unaimed, and a straightened barrel or a graft punches through it
@@ -1532,32 +1552,67 @@ function isTrim(T, cut){
   return true;
 }
 function wardHold(W, gain){ return S.wardK*shotForce(capacity(W.girth), 0, gain); }
-function wardOrbitOf(r, a){
-  var o = S.wardNear + Math.max(0, r - S.wardNear)*S.wardKeep + 3*Math.sin(a*7);
-  return Math.max(S.wardNear, Math.min(S.wardFar, o));
+// The far end of the orbit a leaf cut at radius r falls into.
+function wardApoOf(r){
+  return Math.max(S.wardNear, Math.min(S.wardFar, S.wardNear + (r - S.wardNear)*S.wardKeep));
 }
-function makeWard(W, x, y, hold){
-  var r = Math.hypot(x, y), a = Math.atan2(y, x), o = wardOrbitOf(r, a);
-  var w = { a: a, r: r, r0: r, orbit: o, hold: hold, hold0: hold };
+// A leaf cut at (x, y), its stem lying along th. Where it stops falling it is
+// at the far end of its orbit and going round as fast as an orbit goes there,
+// so the fall hands over to the ellipse without a jolt.
+function makeWard(W, x, y, hold, th){
+  var r = Math.hypot(x, y), a = Math.atan2(y, x);
+  if (th === undefined) th = a + Math.PI/2;
+  var lie = wrapA(th - a), across = Math.abs(Math.sin(lie)), along = Math.abs(Math.cos(lie));
+  var apo = wardApoOf(r);
+  var e = Math.min(S.wardEcc*along, Math.max(0, (apo - S.wardPeri)/(apo + S.wardPeri)));
+  var semi = apo/(1 + e), mean = S.wardSpin*Math.pow(30/semi, 1.5);
+  var dir = Math.sin(lie)*Math.cos(lie) >= 0 ? 1 : -1;     // which way the stem leans round the core
+  var spinApo = mean*Math.sqrt(1 - e)/Math.pow(1 + e, 1.5);  // its angular speed at the far end
+  var fall = Math.max(0.8, Math.abs(r - apo)/S.wardDrift);
+  var w = { a: a, r: r, r0: r, a0: a, th: th, g: th, t: 0, fall: fall,
+            apo: apo, e: e, semi: semi, mean: mean, dir: dir, spinApo: spinApo,
+            far: a + dir*spinApo*fall/3, M: Math.PI,
+            tumble: Math.max(0, Math.min(1, (along - 0.55)/0.3)),
+            sway: 4 + 8*across, hold: hold, hold0: hold };
   if (!W.wards) W.wards = [];
   W.wards.push(w);
   return w;
+}
+// where a ward is on its ellipse, from its mean anomaly
+function wardOnOrbit(w){
+  var e = w.e, E = w.M, k;
+  for (k = 0; k < 6; k++) E -= (E - e*Math.sin(E) - w.M)/(1 - e*Math.cos(E));
+  var nu = 2*Math.atan2(Math.sqrt(1 + e)*Math.sin(E/2), Math.sqrt(1 - e)*Math.cos(E/2));
+  w.r = w.semi*(1 - e*Math.cos(E));
+  w.a = wrapA(w.far + w.dir*(nu - Math.PI));
+  // the leaf lies along the way it is going
+  w.g = w.a + Math.atan2(w.dir*(1 + e*Math.cos(nu)), e*Math.sin(nu));
 }
 function stepWards(W, dt){
   var ws = W.wards, n = ws ? ws.length : 0, i, w;
   if (!n) return;
   for (i = 0; i < n; i++){
     w = ws[i];
-    // it falls, easing as it nears its orbit, and gathers its spin as it
-    // arrives, so it spirals in and settles on a circle rather than swinging
-    // out again to where it was cut
-    var dr = w.orbit - w.r;
-    var moved = Math.min(Math.abs(dr), S.wardSink*dt, Math.abs(dr)*4*dt + 0.02);
-    w.r += dr >= 0 ? moved : -moved;
-    var got = 1 - Math.abs(w.orbit - w.r)/Math.max(1, Math.abs(w.orbit - w.r0));
-    var om = S.wardSpin*Math.pow(30/w.orbit, 1.5)*got*got;
-    w.a = wrapA(w.a + om*dt);
-    var flew = om*w.r*dt + moved;
+    var ox = Math.cos(w.a)*w.r, oy = Math.sin(w.a)*w.r;
+    w.t += dt;
+    if (w.t < w.fall){
+      // Falling: it eases down to the far end of its orbit and gathers the
+      // speed it will go round at, swaying across its path as a leaf does and
+      // turning as it goes, end over end if it was cut pointing at the core,
+      // rocking if it was lying across. The sway dies out as it arrives.
+      var u = w.t/w.fall, ease = 1 - (1 - u)*(1 - u)*(1 - u);
+      var damp = (1 - u)*(1 - u), ph = 2*Math.PI*1.3*w.t;
+      w.r = w.r0 + (w.apo - w.r0)*ease;
+      w.a = wrapA(w.a0 + w.dir*w.spinApo*w.fall*u*u*u/3 + w.sway*damp*Math.sin(ph)/Math.max(8, w.r));
+      var free = w.th + w.tumble*w.dir*7*w.t + (1 - w.tumble)*0.8*damp*Math.sin(ph + 0.6);
+      var settle = Math.max(0, (u - 0.6)/0.4), heading = w.a + w.dir*Math.PI/2;
+      w.g = free + wrapA(heading - free)*settle*settle*(3 - 2*settle);
+    } else {
+      w.M += w.mean*dt;
+      if (w.M > 3*Math.PI) w.M -= 2*Math.PI;
+      wardOnOrbit(w);
+    }
+    var flew = Math.hypot(Math.cos(w.a)*w.r - ox, Math.sin(w.a)*w.r - oy);
     if (S.fadeHalf > 0) w.hold *= Math.pow(0.5, flew/S.fadeHalf);
   }
   for (i = n - 1; i >= 0; i--) if (ws[i].hold < ws[i].hold0*S.wardFloor) ws.splice(i, 1);
@@ -1603,10 +1658,12 @@ var MINDS = {
     blurb: "Cuts whatever glows brightest on its own tree and lets fly without aiming. Slow, and most of what it throws goes wide." },
   keeper: { name: "Keeper", fires: true, aimTo: 0.5, aimFor: 2.5, tries: 1, every: 20, windup: 2.5, first: 75, fill: 0.45,
     blurb: "Takes hold of a stem well before it means to fire and works it round toward your heartwood, but gives up on an aim early and waits a long time between shots." },
+  adept:  { name: "Adept",  fires: true, aimTo: 0.5, aimFor: 4, tries: 1, every: 17, windup: 2.0, first: 70, fill: 0.5,
+    blurb: "Aims as a Keeper aims but holds the stem longer, and fires more often. Not yet a Master: it gives up on a hard aim and takes the next limb." },
   master: { name: "Master", fires: true, aimTo: 0.5, aimFor: 6, tries: 2, every: 14, windup: 1.6, first: 60, fill: 0.6,
     blurb: "Chooses its limb early and will not let go of the stem until the arc runs into your heartwood. Fires often, and does not miss by much." }
 };
-var MIND_ORDER = ["still", "feral", "keeper", "master"];
+var MIND_ORDER = ["still", "feral", "keeper", "adept", "master"];
 
 function newMind(level, seed){
   var lv = MINDS[level] || MINDS.keeper;
@@ -1790,6 +1847,39 @@ function mindStep(W, M, dt, X){
   M.shots++;
   mindReset(M, M.lv.every*(0.85 + 0.3*mindRnd(M)));
   return bolt;
+}
+/* A tree as plain data, to carry between bouts and keep across visits. Only
+   what cannot be worked out again is kept; layout and the figures rebuild
+   the rest, and a tree unpacked grows on exactly as the one packed. */
+// what layout and the figures work out again from the rest
+var TREE_DROP = new Set(["g", "pass", "x0", "y0", "x1", "y1", "abs", "bx", "by", "pabs", "thick", "shoe",
+                         "nx1", "ny1", "nbx", "nby", "npabs", "val", "eff", "reach", "front", "peri"]);
+var TREE_KEEP = ["nextId", "clock", "roots", "grafts", "cgx", "cgy", "attach", "girth", "maxR"];
+function packTree(W){
+  // one row per node, the fields named once
+  var o = { picks: W.g.picks, fields: [], nodes: [] }, first = W.nodes.values().next().value;
+  for (var i = 0; i < TREE_KEEP.length; i++) o[TREE_KEEP[i]] = W[TREE_KEEP[i]];
+  for (var k in first) if (!TREE_DROP.has(k)) o.fields.push(k);
+  W.nodes.forEach(function(n){
+    var row = new Array(o.fields.length);
+    for (var j = 0; j < o.fields.length; j++) row[j] = n[o.fields[j]];
+    o.nodes.push(row);
+  });
+  return JSON.stringify(o, function(k, v){
+    return typeof v === "number" && !Number.isInteger(v) ? +v.toPrecision(7) : v;
+  });
+}
+function unpackTree(str){
+  var o = JSON.parse(str), W = newTree(0, genome(o.picks));
+  W.nodes.clear();
+  for (var i = 0; i < TREE_KEEP.length; i++) W[TREE_KEEP[i]] = o[TREE_KEEP[i]];
+  for (i = 0; i < o.nodes.length; i++){
+    var n = {}, row = o.nodes[i];
+    for (var j = 0; j < o.fields.length; j++) n[o.fields[j]] = row[j];
+    n.g = W.g; W.nodes.set(n.id, n);
+  }
+  layout(W); buildGrid(W);
+  return W;
 }
 /*END SIM*/
 
@@ -1990,8 +2080,8 @@ function startGesture(w, button){
   if (n){
     var g = bendGroup(T, n), pli = 0;
     for (var i = 0; i < g.length; i++) pli += bendLimit(g[i]);
-    if (pli < 0.02){ flash.push({x:n.x1, y:n.y1, t:0.6, kind:"rigid"}); return; }
-    drag = { node:n, group:g, px:w.x, py:w.y, tx:n.x1, ty:n.y1, lx:w.x, ly:w.y, graft:null, gh:0,
+    if (pli < 0.02){ flash.push({x:n.x1, y:n.y1, t:0.6, kind:"rigid"}); note("rigid"); return; }
+    drag = { t0:performance.now(), node:n, group:g, px:w.x, py:w.y, tx:n.x1, ty:n.y1, lx:w.x, ly:w.y, graft:null, gh:0,
              held: new Set(g.map(function(m){ return m.id; })), follow: new Set() };
   } else {
     slice = { pts:[[w.x, w.y]], victims:[], cut:[], faces:[], shots:[], charge:0, muzzle:null,
@@ -2004,6 +2094,7 @@ function startGesture(w, button){
 // finger. The button still held does nothing more until it is let go.
 function sheathe(){
   if (!slice) return;
+  note("sheathe");
   var p = slice.pts[slice.pts.length-1];
   flash.push({x:p[0], y:p[1], t:0.5, kind:"sheathe"});
   slice = null; hover = null;
@@ -2129,11 +2220,14 @@ function endPointer(){
     sliceReview();
     var faces = slice.faces.map(function(f){ return { charge:f.charge, muzzle:f.muzzle }; });
     var v = slice.victims;
+    note(slice.trim ? "ward" : faces.length > 1 ? "volley" : faces.length ? "shot" : "miss",
+         { cut: slice.cut.length, share: +slice.share.toFixed(3), breaks: slice.breaks,
+           into: slice.trim || !faces.length ? null : !FCimpact ? "past" : FCimpact.core ? "core" : "wood" });
     if (slice.trim){
       var hold = wardHold(T, FIG.gain);
       for (var wi = 0; wi < slice.cut.length; wi++){
         var lf = slice.cut[wi];
-        makeWard(T, lf.x1, lf.y1, hold);
+        makeWard(T, lf.x1, lf.y1, hold, lf.abs);
         flash.push({x:lf.x1, y:lf.y1, t:0.6, kind:"ward"});
       }
       faces.length = 0;
@@ -2151,6 +2245,7 @@ function endPointer(){
     // A pull is limited, not a hold: to take a limb further you let go and
     // take hold of it again.
     setPull(drag.group); setPull(drag.follow);
+    note("bend", { ms: Math.round(performance.now() - drag.t0), joints: drag.group.length });
     drag = null;
   }
   hover = null;
@@ -2176,7 +2271,8 @@ addEventListener("keydown", function(e){
     if (e.key === "Escape"){ hideLaurel(); return; }
   }
   if (e.key === "Escape"){ sheathe(); return; }
-  if (e.code === "Space"){ paused = !paused; e.preventDefault(); }
+  if (e.code === "Space"){ paused = !paused; note("pause", { on: paused }); e.preventDefault(); }
+  if (e.key === "l" || e.key === "L") saveLog();
   if (e.key === "r" || e.key === "R") openChooser(true);
   // the tuning drawer is for development and has no button
   if (e.key === "t" || e.key === "T") document.getElementById("tune").classList.toggle("hide");
@@ -2193,6 +2289,7 @@ function holdTick(dt){
     fuse.h += dt;
     if (fuse.h >= S.graftHold){
       makeGraft(T, fuse.a, fuse.b);
+      note("graft", { by: "hint" });
       flash.push({x:(fuse.a.x1+fuse.b.x1)/2, y:(fuse.a.y1+fuse.b.y1)/2, t:0.8, kind:"graft"});
       fuse = null; hoverPair = null; layout(T); measure();
     }
@@ -2218,6 +2315,7 @@ function holdTick(dt){
     if (drag.gh >= S.graftHold){
       setPull(drag.group); setPull(drag.follow);
       makeGraft(T, drag.node, drag.graft);
+      note("graft", { by: "hand", ms: Math.round(performance.now() - drag.t0) });
       flash.push({x:drag.node.x1, y:drag.node.y1, t:0.8, kind:"graft"});
       drag.graft = null; drag.gh = 0; drag = null; layout(T);
       return;
@@ -2618,18 +2716,22 @@ function draw(){
 }
 
 // Wards, in their tree's own frame: leaves going round the core, each on its
-// own orbit and with a
-// faint halo the width of what it will catch, dimming as it runs down.
+// own ellipse and with a faint halo the width of what it will catch, dimming
+// as it runs down.
 function drawWards(W, pal){
   var ws = W.wards, k = 1/view.scale;
   if (!ws || !ws.length) return;
   for (var i = 0; i < ws.length; i++){
     var w = ws[i], x = Math.cos(w.a)*w.r, y = Math.sin(w.a)*w.r;
     var lit = Math.max(0.2, Math.min(1, w.hold/w.hold0));
-    // its orbit, faintly, once it has settled onto it
-    if (Math.abs(w.r - w.orbit) < 1){
-      ctx.beginPath(); ctx.arc(0, 0, w.orbit, 0, 7);
-      ctx.strokeStyle = "rgba(" + pal.vein + "," + (0.07*lit).toFixed(3) + ")";
+    // its orbit, faintly, fading in once it has settled onto it: the core is
+    // at one focus, the far end where the leaf stopped falling
+    var shown = Math.min(1, (w.t - w.fall)/1.5);
+    if (shown > 0){
+      var c = w.semi*w.e, ax = w.far + Math.PI;
+      ctx.beginPath();
+      ctx.ellipse(-Math.cos(ax)*c, -Math.sin(ax)*c, w.semi, w.semi*Math.sqrt(1 - w.e*w.e), ax, 0, 7);
+      ctx.strokeStyle = "rgba(" + pal.vein + "," + (0.07*lit*shown).toFixed(3) + ")";
       ctx.lineWidth = 1*k; ctx.stroke();
     }
     ctx.beginPath(); ctx.arc(x, y, S.wardSize, 0, 7);
@@ -2637,7 +2739,7 @@ function drawWards(W, pal){
     ctx.strokeStyle = "rgba(" + pal.vein + "," + (0.55*lit).toFixed(3) + ")";
     ctx.lineWidth = 1.2*k; ctx.stroke();
     ctx.globalAlpha = 0.35 + 0.65*lit;
-    leaf(x, y, w.a + Math.PI/2, 6, pal);
+    leaf(x, y, w.g, 6, pal);
     ctx.globalAlpha = 1;
   }
 }
@@ -3085,14 +3187,19 @@ function newSeedling(){
   // your side can be handed to a temper as well, and then the match plays itself
   T.mind = MY_MIND === "hand" ? null : newMind(MY_MIND, 1 + Math.floor(Math.random()*1e9));
   T.arc = []; T.arcHit = null;
+  clearBoard();
+  BOUT = false;
+  newFoe(genome(FOE_PICKS), FOE_MIND);
+  startLog();
+}
+function clearBoard(){
   hoverPair = null; fuse = null;
   drag = null; slice = null; hover = null;
   FIG.fan = null; FIG.aim = null; FIG.spire = null; FIG.muzzle = null;
   FIG.loops.length = 0; FIG.area = 0; FIG.gain = 1;
   FC.length = 0; FCimpact = null;
   bolts.length = 0; hits.length = 0; fete.length = 0;
-  LAUREL.won = false; LAUREL.wait = 0; hideLaurel();
-  newFoe(genome(FOE_PICKS), FOE_MIND);
+  LAUREL.won = false; LAUREL.lost = false; LAUREL.wait = 0; hideLaurel();
 }
 
 /* ── the other side ────────────────────────────────────────────────── */
@@ -3193,11 +3300,13 @@ function stepBolts(dt){
 
     var caught = wardCatch(W, b, px, py, cx, cy);   // a ward in the way takes what it holds
     if (caught){
+      if (typeof note === "function") note("ward-catch", { foe: b.foe, stopped: caught.stopped });
       hits.push({x:wo + wx*caught.x, y:caught.y, t:0.6, big:caught.stopped, foe:b.foe, ward:true});
       if (caught.stopped){ bolts.splice(i,1); continue; }
     }
     if (cx*cx + cy*cy < S.coreR*S.coreR){       // struck the core
       if (W.hp !== undefined) W.hp = Math.max(0, W.hp - b.F);
+      if (typeof note === "function") note("core", { foe: b.foe, F: +b.F.toFixed(2) });
       hits.push({x:ox + sx*b.x, y:b.y, t:0.7, big:true, foe:b.foe});
       bolts.splice(i,1); continue;
     }
@@ -3244,36 +3353,110 @@ function stepBolts(dt){
 }
 
 /*END VIEW*/
-/* ── rank ──────────────────────────────────────────────────────────── */
+/* ── rank and the campaign ──────────────────────────────────────────── */
 // A mage starts a novice and is raised a class by beating another mage with
-// their own hand. The ladder runs down from the fifth class to the first; only
-// its first rung can be earned so far. Rank is kept in this browser.
-var RANKS = ["Novice Mage", "Fifth-Class Mage"];
+// their own hand, in the campaign: five bouts, each against a better temper,
+// and the tree you finish one bout with is the tree you start the next with.
+// Where you stand in the campaign is your rank. Lose a bout and you fight it
+// again with the tree you began it with. Rank and tree are kept in this browser.
+var RANKS = ["Novice Mage", "Fifth-Class Mage", "Fourth-Class Mage", "Third-Class Mage",
+             "Second-Class Mage", "First-Class Mage"];
+var BOUTS = ["still", "feral", "keeper", "adept", "master"];
 var MY_RANK = 0;
 try { MY_RANK = Math.max(0, Math.min(RANKS.length-1,
-        parseInt(localStorage.getItem("heartwood.rank") || "0", 10) || 0)); } catch (e) {}
-function saveRank(){ try { localStorage.setItem("heartwood.rank", String(MY_RANK)); } catch (e) {} }
+        parseInt(localStorage.getItem("lignum-vitae.rank") ||
+                 localStorage.getItem("heartwood.rank") || "0", 10) || 0)); } catch (e) {}
+function saveRank(){ try { localStorage.setItem("lignum-vitae.rank", String(MY_RANK)); } catch (e) {} }
+function boutMind(){ return BOUTS[Math.min(MY_RANK, BOUTS.length-1)]; }
+var BOUT_FOE = { still: "a sapling that never fires", feral: "a Feral mage", keeper: "a Keeper",
+                 adept: "an Adept", master: "a Master" };
 
-var LAUREL = { won:false, wait:0, from:0, to:0, own:true };
+var PLAY = "campaign", CAMP = null, BOUT = false;
+try { CAMP = localStorage.getItem("lignum-vitae.tree") || null; } catch (e) { CAMP = null; }
+function keepTree(){
+  CAMP = packTree(T);
+  try { localStorage.setItem("lignum-vitae.tree", CAMP); } catch (e) {}
+}
+function forgetTree(){
+  CAMP = null;
+  try { localStorage.removeItem("lignum-vitae.tree"); } catch (e) {}
+}
+function carriedPicks(){
+  try { return CAMP ? JSON.parse(CAMP).picks : null; } catch (e) { return null; }
+}
+
+// A bout: your carried tree (or a new seedling, for the first), at full
+// heart and with no wards, against a temper as old as your tree, up to a
+// point, so a tree you have kept for twenty minutes is not met by a sapling.
+function startBout(){
+  var carried = null;
+  if (CAMP){ try { carried = unpackTree(CAMP); } catch (e) { forgetTree(); } }
+  T = carried || newTree(0, genome(MY_PICKS));
+  layout(T); buildGrid(T);
+  T.hpMax = T.hp = coreOf(T.g);
+  T.mind = null; T.arc = []; T.arcHit = null; T.wards = [];
+  clearBoard();
+  var head = S.foeHead;
+  S.foeHead = Math.min(T.clock, S.boutHead);
+  newFoe(genome(FOE_PICKS), boutMind());
+  S.foeHead = head;
+  BOUT = true;
+  if (!carried) keepTree();
+  startLog();
+}
+// on from a won bout, keeping the tree exactly as it stands
+function nextBout(){
+  hideLaurel();
+  FOE_PICKS = drawPicks();
+  startBout();
+}
+
+var LAUREL = { won:false, lost:false, wait:0, from:0, to:0, own:true, bout:false };
 function victory(){
-  LAUREL.won = true; LAUREL.wait = 1.4;          // let the burst be seen first
-  LAUREL.own = !T.mind;
+  endLog(T.mind ? "temper won" : "won");
+  LAUREL.won = true; LAUREL.lost = false; LAUREL.wait = 1.4;   // let the burst be seen first
+  LAUREL.own = !T.mind; LAUREL.bout = BOUT;
   LAUREL.from = MY_RANK;
-  if (LAUREL.own && MY_RANK < RANKS.length-1){ MY_RANK++; saveRank(); }
+  if (BOUT){
+    if (MY_RANK < RANKS.length-1){ MY_RANK++; saveRank(); }
+    keepTree();                   // the tree you won with is the one you go on with
+  }
   LAUREL.to = MY_RANK;
   feteBurst(S.coreSep, 0);
   hits.push({x:S.coreSep, y:0, t:0.7, big:true, foe:false});
 }
+function defeat(){
+  if (LAUREL.lost || LAUREL.won) return;
+  endLog("lost");
+  LAUREL.lost = true; LAUREL.wait = 2.6; LAUREL.bout = BOUT;    // let the split run up the trunk
+  LAUREL.from = LAUREL.to = MY_RANK; LAUREL.own = !T.mind;
+}
 function showLaurel(){
-  var el = document.getElementById("laurel");
-  var up = LAUREL.own && LAUREL.to > LAUREL.from;
-  el.querySelector(".kick").textContent = "Their heartwood is spent";
-  el.querySelector("h2").textContent = LAUREL.own ? "Victory" : "Your temper has won";
-  el.querySelector(".adv").textContent = up ? "You have advanced to the rank of"
-                                       : LAUREL.own ? "You remain a" : "Rank is earned by your own hand. You are a";
+  var el = document.getElementById("laurel"), lost = LAUREL.lost;
+  var up = !lost && LAUREL.own && LAUREL.to > LAUREL.from;
+  var more = LAUREL.bout && MY_RANK < RANKS.length - 1;
+  el.querySelector(".kick").textContent = lost ? "Your heartwood is spent" : "Their heartwood is spent";
+  el.querySelector("h2").textContent = lost ? "Defeat" : LAUREL.own ? "Victory" : "Your temper has won";
+  el.querySelector(".adv").textContent =
+      lost ? (LAUREL.bout ? "Fight the bout again with the tree you began it with. You are a"
+                          : "You are a")
+    : up ? "You have advanced to the rank of"
+    : LAUREL.bout ? "You remain a"
+    : "Rank is earned in the campaign. You are a";
   el.querySelector(".from").textContent = up ? RANKS[LAUREL.from] + " \u2192" : "";
   el.querySelector(".rank").textContent = RANKS[LAUREL.to];
+  var go = el.querySelector("#l-plant"), alt = el.querySelector("#l-alt");
+  if (LAUREL.bout){
+    go.textContent = lost ? "Fight it again"
+                   : more ? "On to bout " + (MY_RANK + 1) + ": " + BOUT_FOE[boutMind()]
+                          : "Another bout against a Master";
+    alt.classList.remove("hide");
+  } else {
+    go.textContent = "Plant again";
+    alt.classList.add("hide");
+  }
   el.classList.toggle("up", up);
+  el.classList.toggle("lost", lost);
   el.classList.remove("hide");
   refreshRank();
 }
@@ -3319,6 +3502,15 @@ function preview(canvas, picks, pal){
     layout(P);
     PREVIEW.set(key, P);
   }
+  drawPreview(canvas, P, pal);
+}
+// the tree you are carrying, drawn the same way, so you can see what you are taking on
+var CARRIED = { str: null, tree: null };
+function previewCarried(canvas, pal){
+  if (CARRIED.str !== CAMP){ CARRIED.str = CAMP; CARRIED.tree = unpackTree(CAMP); }
+  drawPreview(canvas, CARRIED.tree, pal);
+}
+function drawPreview(canvas, P, pal){
   var c = canvas.getContext("2d"), W = canvas.width, H = canvas.height;
   c.clearRect(0, 0, W, H);
   var sc = Math.min((H - 24)/290, W/2/170), ox = W/2, oy = H - 12;   // fixed, so reach reads
@@ -3388,11 +3580,35 @@ function refreshChooser(){
     ? "You shape this one: bend it, cut it, graft it."
     : "Hand it to a temper and watch the two of them fight. " + MINDS[MY_MIND].blurb;
   refreshRank();
-  document.getElementById("p-mine").textContent = pickNames({ picks: MY_PICKS });
-  document.getElementById("p-theirs").textContent = pickNames({ picks: FOE_PICKS });
+  // the campaign fixes who you face, and from the second bout what you grow
+  var camp = PLAY === "campaign", carried = camp && CAMP ? carriedPicks() : null;
+  var pb = document.querySelectorAll("#play-row button");
+  for (q = 0; q < pb.length; q++) pb[q].classList.toggle("on", pb[q].dataset.k === PLAY);
+  var bm = MINDS[boutMind()], done = MY_RANK >= RANKS.length - 1;
+  document.querySelector("#play-row .blurb").textContent = !camp
+    ? "One match on your own terms: any seedling, any temper, either side. Rank is not earned here."
+    : (done ? "You are a First-Class Mage. Every bout from here is against a Master, and earns nothing but the fight."
+            : "Bout " + (MY_RANK + 1) + " of " + BOUTS.length + ": against " + BOUT_FOE[boutMind()] +
+              ". Win, and you rise to " + RANKS[MY_RANK + 1] + ".") +
+      (carried ? " You fight with the tree you have kept, as it stands." : " The tree you plant now is the one you keep from bout to bout.");
+  document.getElementById("axes").classList.toggle("hide", !!carried);
+  mr.classList.toggle("hide", camp);
+  hr.classList.toggle("hide", camp);
+  document.getElementById("p-restart").classList.toggle("hide", !camp || (!CAMP && !MY_RANK));
+  document.getElementById("p-plant").textContent = !camp ? "Plant" : carried ? "Fight the bout" : "Plant, and begin";
+  document.querySelector("#plant h2").textContent = carried ? "The next bout" : "Plant a seedling";
+  document.getElementById("p-sub").textContent = carried
+    ? "Your tree comes with you, every limb you have bent and every graft you have closed."
+    : "What kind of tree you grow is chosen once, now. Every choice is a trade.";
+  var mineLabel = carried ? pickNames({ picks: carried }) + " \u00b7 kept " + mmss(JSON.parse(CAMP).clock)
+                          : pickNames({ picks: MY_PICKS });
+  document.getElementById("p-mine").textContent = mineLabel;
+  document.getElementById("p-theirs").textContent = pickNames({ picks: FOE_PICKS }) +
+    (camp ? " \u00b7 " + bm.name : "");
   // let the buttons repaint before the previews are grown
   setTimeout(function(){
-    preview(document.getElementById("pv-mine"), MY_PICKS, MINE);
+    if (carried) previewCarried(document.getElementById("pv-mine"), MINE);
+    else preview(document.getElementById("pv-mine"), MY_PICKS, MINE);
     preview(document.getElementById("pv-theirs"), FOE_PICKS, FOE);
   }, 0);
 }
@@ -3405,17 +3621,77 @@ function openChooser(cancellable){
   document.getElementById("plant").classList.remove("hide");
   refreshChooser();
 }
+function mmss(t){ return Math.floor(t/60) + ":" + String(Math.floor(t % 60)).padStart(2, "0"); }
 function closeChooser(){
   choosing = false;
   document.getElementById("plant").classList.add("hide");
 }
-function plantChosen(){ closeChooser(); newSeedling(); }
+function plantChosen(){
+  closeChooser();
+  if (PLAY === "campaign") startBout(); else newSeedling();
+}
 buildChooser();
 document.getElementById("p-plant").onclick = plantChosen;
 document.getElementById("p-cancel").onclick = closeChooser;
 document.getElementById("l-stay").onclick = hideLaurel;
-document.getElementById("l-plant").onclick = function(){ openChooser(true); };
+document.getElementById("l-plant").onclick = function(){
+  if (!LAUREL.bout){ openChooser(true); return; }
+  if (LAUREL.lost){ hideLaurel(); startBout(); } else nextBout();
+};
+document.getElementById("l-alt").onclick = function(){ forgetTree(); openChooser(true); };
+(function(){
+  var bs = document.querySelectorAll("#play-row button");
+  for (var i = 0; i < bs.length; i++) bs[i].onclick = function(){ PLAY = this.dataset.k; refreshChooser(); };
+})();
+document.getElementById("p-restart").onclick = function(){
+  if (!confirm("Forget your tree and your rank, and begin the campaign again as a novice?")) return;
+  forgetTree(); MY_RANK = 0; saveRank(); refreshChooser();
+};
 document.getElementById("p-reroll").onclick = function(){ FOE_PICKS = drawPicks(); refreshChooser(); };
+
+/* ── the playtest log ───────────────────────────────────────────────────
+   Every match keeps a plain record of what the hand did and what came of
+   it: bends and how long they took, strokes and what they were, strokes put
+   away, grafts, wood too set to move, shots on either core, wards that
+   caught something, their shots, pauses, and how it ended. Nothing is sent
+   anywhere. The last thirty matches are kept in this browser, and `l` saves
+   them as a file for playlog.js to read. */
+var PLOG = null, PLOGS = [], S0 = JSON.parse(JSON.stringify(S));
+try { PLOGS = JSON.parse(localStorage.getItem("lignum-vitae.playlog") || "[]") || []; } catch (e) { PLOGS = []; }
+function startLog(){
+  if (PLOG && !PLOG.end) endLog("abandoned");
+  PLOG = { at: new Date().toISOString(), wall0: performance.now(),
+           mine: T.g.picks, theirs: FOE_PICKS, hand: T.mind ? T.mind.level : "hand", foe: TD.mind.level,
+           bout: BOUT ? MY_RANK + 1 : null, age: +T.clock.toFixed(1),
+           hp: [T.hpMax, TD.hpMax], tuned: {}, ev: [], end: null };
+  // anything moved in the tuning drawer, so a match played on other numbers says so
+  for (var k in S0) if (S[k] !== S0[k]) PLOG.tuned[k] = S[k];
+  PLOGS.push(PLOG);
+  if (PLOGS.length > 30) PLOGS.splice(0, PLOGS.length - 30);
+}
+function note(k, d){
+  if (!PLOG || PLOG.end) return;
+  var e = { k: k, t: +T.clock.toFixed(2), w: Math.round(performance.now() - PLOG.wall0) };
+  if (d) for (var key in d) e[key] = d[key];
+  PLOG.ev.push(e);
+}
+function endLog(how){
+  if (!PLOG || PLOG.end) return;
+  note("end", { how: how, hp: [+(T.hp || 0).toFixed(1), +(TD ? TD.hp : 0).toFixed(1)] });
+  PLOG.end = how;
+  keepLog();
+}
+function keepLog(){
+  try { localStorage.setItem("lignum-vitae.playlog", JSON.stringify(PLOGS)); } catch (e) {}
+}
+function saveLog(){
+  keepLog();
+  var a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([JSON.stringify(PLOGS, null, 1)], { type: "application/json" }));
+  a.download = "lignum-vitae-playlog-" + new Date().toISOString().slice(0, 16).replace(/[:T]/g, "-") + ".json";
+  document.body.appendChild(a); a.click(); a.remove();
+}
+addEventListener("pagehide", keepLog);
 
 /* ── loop ──────────────────────────────────────────────────────────── */
 var FROZEN = new Set();
@@ -3459,6 +3735,7 @@ function frame(now){
         }
         var shot = mindStep(TD, TD.mind, total, atT);
         if (shot){
+          note("their-shot");
           launch(shot, true);
           flash.push({x:S.coreSep - shot.x, y:shot.y, t:0.6, kind:"foe"});
         }
@@ -3477,7 +3754,7 @@ function frame(now){
   for (var f = flash.length-1; f >= 0; f--){ flash[f].t -= dt; if (flash[f].t <= 0) flash.splice(f,1); }
   // a spent tree splits up the trunk over the next seconds
   // and its wards go out with it
-  if (T.hp !== undefined && T.hp <= 0){ T.deathT = (T.deathT || 0) + dt; T.wards.length = 0; }
+  if (T.hp !== undefined && T.hp <= 0){ T.deathT = (T.deathT || 0) + dt; T.wards.length = 0; defeat(); }
   if (TD && TD.hp <= 0){ TD.deathT = (TD.deathT || 0) + dt; TD.wards.length = 0; }
   figT += dt;
   if (figT > 0.12){ figT = 0; measure(); }
@@ -3616,6 +3893,7 @@ var TUNABLE = [
   ["forkBias",   0,   0.5, 0.01, "fork balance",       ""],
   ["healShare",  0,   0.9, 0.02, "healing claim",      ""],
   ["setFlow",   50, 12000, 50,   "set flow",           " u"],
+  ["ramFade",    0,   12,  1,    "ramification fade",  ""],
   "Hands",
   ["bendPer",    1,   25,  0.5,  "bend per pull",      "\u00b0"],
   ["bendRate",   2,  120,  2,    "wood speed",         "\u00b0/s"],
@@ -3627,6 +3905,10 @@ var TUNABLE = [
   ["loopGain",   0,   0.3, 0.005,"graft gain",         "/area"],
   ["volleyExp",  0,   1,   0.05, "volley widening",    ""],
   ["fadeHalf",   200,20000,100,  "force half-life",    " u"],
+  "Wards",
+  ["wardKeep",   0,   1,   0.05, "ward fall",          ""],
+  ["wardEcc",    0,   0.9, 0.05, "ward eccentricity",  ""],
+  ["wardSpin",   0.2, 8,   0.1,  "ward speed",         " rad/s"],
   "The field",
   ["foeHead",    0,   600, 10,   "their head start",   " s"],
   ["coreSep",    200,1200, 20,   "core separation",    " u"]
@@ -3646,6 +3928,10 @@ var CHEAT = [
   ["volley widening", "How much more a stroke can channel for opening several faces at once. Every face shares the one trunk, so at 0 a volley passes exactly what a single cut would and only spreads it thinner; at 0.5 four evenly loaded faces pass twice what one would; at 1 they pass four times, and cutting one limb at a time is a mistake. The count is how evenly the charge is spread across the faces, not how many there are, so nicking twigs on the way to a limb earns nothing."],
   ["force half-life", "How far a bolt flies before it has spent half its force. This is the only thing on the field that runs down, and it is measured in units of flight rather than seconds \u2014 so it scales with the separation like everything else, and a captured orbit goes round five or six times, dimming, rather than circling for ever. Raise it and old shots accumulate into a hazard; lower it and only direct approaches matter."],
   ["force per charge\u00b7speed", "Converts a shot's mass and speed into force: mass is the charge the cut let go of, up to what the trunk can channel, and speed is what the straight run behind the cut gave it. Force is measured against wood thickness. A bolt pressing harder than a segment is thick cuts through and comes out the far side slower by what it spent; less, and the wood absorbs it and scars. Trunks stop what twigs cannot."],
+  ["ramification fade", "How many levels of ramification a regrown shoot sheds each time it forks. A cut leaves the stub one level more ramified, so what breaks from it forks sooner; at 12 that is spent at the first fork, a knuckle at the cut face, and the wood beyond it runs at the tree's own interval. At 0 it is inherited by everything that grows from there, and a limb cut back again and again stops running altogether and closes into a dense, short bush."],
+  ["ward fall", "How far down toward the core a trimmed leaf floats before it is caught into orbit, as a share of the way from the inner limit of a ward's orbit out to where the leaf was cut. Where it stops falling is the far end of its ellipse. At 0.5 a leaf falls halfway; higher and the wards circle wide, meeting shots early and spread thin."],
+  ["ward eccentricity", "How elongated the orbit of a leaf cut pointing straight at the core is. A leaf lying across the line to the core goes round nearly true whatever this says; one pointing at it swings in close and out again, sweeping a band rather than a ring. At 0 every ward goes round on a circle."],
+  ["ward speed", "How fast a ward goes round at 30 units out, in radians a second. Wider orbits go round slower, by the three-halves power, so a shell of wards drifts through itself."],
   ["their head start", "Seconds of growth the opponent begins the match with. At zero you both start as seedlings and race; wind it up and you are fighting something already grown, which is the practice setting. It only takes effect on a new seedling."],
   ["core separation", "How far apart the two cores stand. Every other ballistic number is really a ratio against this one."],
 ];

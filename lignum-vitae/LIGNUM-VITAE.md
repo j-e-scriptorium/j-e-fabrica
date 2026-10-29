@@ -1,8 +1,8 @@
-# Heartwood
+# Lignum Vitae
 
 *A real-time duel fought by shaping a thing that grows on its own.*
 
-**Manual, v0.21.** This describes the game as built. Anything not yet built is
+**Manual, v0.22.** This describes the game as built. Anything not yet built is
 marked **[not built]** and collected in §11. Every number quoted is the current
 default and is a slider in the Constants panel.
 
@@ -122,11 +122,14 @@ line it keeps.
 
 **Healing and ramification.** A slice leaves a stub that keeps every bit of
 girth it earned, and a fresh shoot climbs inside the stem to break out at the
-cut face ready to branch. The stub gains a **level of ramification**: cut the
-same spot five times and its fork interval goes from 26u to 9.6u. Chop, let it
-run, chop again — the trunk fattens while the tree stays small. Where scarred
-wood puts out no shoot the fattest stub **coppices** instead, and an empty pot
-starts again from a seedling.
+cut face ready to branch. The stub gains a **level of ramification**, so what
+breaks from it forks sooner — cut the same spot five times and its first fork
+comes at 9.6u instead of 26u — but the shoot **spends that at its first fork**:
+a knuckle of short twigs at the cut face, and past it wood that runs at the
+tree's own interval. Cutting thickens a tree; it does not grind it down. Chop,
+let it run, chop again — the trunk fattens, and the tree is as small as you keep
+it and no smaller (§12.17). Where scarred wood puts out no shoot the fattest
+stub **coppices** instead, and an empty pot starts again from a seedling.
 
 **No shell.** A seedling's core is bare from the first second. What protects it
 is what you make: wards (§5), and the wood in front of it.
@@ -281,14 +284,22 @@ of them and you have a spray. Anything heavier fires as before, so the same
 blade does both and the stroke preview shows which: blue for a trim,
 red-tinted white for a shot.
 
-**Each ward keeps its own orbit.** A trimmed leaf drops toward your core,
-gathering spin as it falls and easing as it arrives, and locks onto a circle of
-its own rather than swinging back out to where it was cut. The orbit is 24 units
-plus three-tenths of the way further out the leaf was, up to 72: leaves from the
-rim of the crown make the outer shells, leaves from near the trunk the inner
-ones. Wider orbits go round slower (2.4 radians a second at 30 units, falling as
-the three-halves power), so a shell of wards drifts through itself and never
-holds one pattern for long.
+**Each ward keeps its own orbit, and the leaf decides it.** A trimmed leaf
+floats about halfway down toward your core — from 24 units, half the way out to
+where it was cut, up to 96 — and how it falls depends on how it was lying. Cut
+pointing at the core, it tumbles end over end; lying across the line to the
+core, it rocks from side to side as it drifts. Either way it sways across its
+path, the sway dying as it arrives, and gathers way round the core as it goes.
+Where it stops falling it is caught into an **ellipse** with the core at one
+focus: that point is the far end of the orbit, and the leaf comes in from
+there toward its near end and swings back out. A leaf lying across goes round
+nearly true; one pointing at the core swings in to a third of that distance
+(eccentricity 0.5, never closer than 18 units), so it sweeps a band rather than
+a ring.
+Which way it goes round is which way its stem leaned. Wider orbits go round
+slower (2.4 radians a second at 30 units, falling as the three-halves power of
+the half-width), and every ward is fastest at its near end, so a shell of wards
+drifts through itself, bunches and thins, and never holds one pattern for long.
 
 **A ward holds what an unaimed shot carries**: exactly the force of a
 full-channel cut off a kinked stem, `capacity × 0.03 × 28`, times your graft
@@ -362,8 +373,10 @@ the reach column does not move, because nothing lengthens. Pruning does not make
 the trunk fatten faster; it keeps the tree *short* while the girth accrues, and
 a squat tree is hard to hit and cheap to reload.
 
-The tree is just state, so it carries between matches for nothing. **[not
-built]** A campaign that keeps your tree across opponents.
+The tree is just state, so it carries between matches for nothing, and the
+campaign (§8) is built on that: the tree you finish one bout with is the tree
+you start the next with, so everything in this section is played out across a
+whole career rather than a single match.
 
 ---
 
@@ -378,34 +391,60 @@ fewer as your trunk thickens and the channel widens, fewer again with grafts.
 **But their wood grows back, and that is the clock.** A shot spends most of its
 force boring through their canopy, which they are replacing the whole time. Four
 shots take 220 nodes off a four-minute tree; two hundred seconds later it is
-larger than before, because a chopped stub ramifies and comes back denser. So
+larger than it was before them (2,041 nodes against 1,265). So
 there is no accumulating siege: either your cadence beats their growth and you
 reach the core in a handful of shots, or you are pruning them for free while
 spending your own limbs on it — which is the pressure behind aiming properly and
 behind grafts.
 
-When your core is spent your tree stops, your hand stops, and `r` plants again.
+When your core is spent your tree stops and your hand stops; the card that
+says so offers the way on.
 
-**Rank.** A mage starts as a **Novice**. Spend another mage's heartwood with
-your own hand and you are raised to **Fifth-Class Mage**: the spent core throws
-up a burst of leaves and sparks, and a card announces the promotion. The ladder
-runs down through the fourth, third and second classes to the first, but only
-the first rung can be earned so far; a win after that says you remain what you
-are. A match your side's temper won earns nothing. Rank is kept in the browser,
-shown on the planting screen and in the readout.
+### The campaign, and rank
+
+A mage starts as a **Novice** and rises by bouts, each against a better hand:
+
+| bout | across the field | win, and you are |
+|---|---|---|
+| 1 | a sapling that never fires (Still) | Fifth-Class Mage |
+| 2 | a Feral mage | Fourth-Class |
+| 3 | a Keeper | Third-Class |
+| 4 | an Adept | Second-Class |
+| 5 | a Master | First-Class |
+
+**Your tree carries.** You plant once, for the first bout, and from then on you
+fight with whatever you have made of it: every limb you bent, every graft you
+closed, every year of girth. Each bout starts your core whole and your wards
+gone, against a temper whose seedling is drawn at random and grown as long as
+yours has been, up to five minutes (`boutHead`), so a tree you have kept for a
+quarter of an hour is not met by a sapling. The first bout is where you learn
+the hand with nothing shooting back; the last is against the hardest temper
+there is, with a tree old enough that most of it will no longer bend (§3) — the
+shape you gave it early is the shape you fight the Master with.
+
+**Losing a bout** spends your core, but not the campaign: you fight the bout
+again with the tree you began it with, or plant a new seedling and carry that
+on from the bout you reached. A win throws up a burst of leaves and sparks from
+the spent core and a card announces the promotion. Past the first class every
+bout is against a Master and earns nothing but the fight. Where you stand in the
+campaign *is* your rank: it and your tree are kept in the browser, the tree as
+plain data (about 170 bytes a node), and **Begin again** on the planting screen
+forgets both. A single match, chosen on the same screen, is any seedling
+against any temper with either side played by a temper, and earns no rank.
 
 ### The other mage
 
 Across the field is a mage with the same hand you have and no other. It grows by
 your rules, reads its own tree the way the glow reads yours, and fires by
-cutting a limb off; it is told nothing you are not. How it plays is chosen on
-the planting screen:
+cutting a limb off; it is told nothing you are not. How it plays is set by the
+campaign's bout, or chosen on the planting screen for a single match:
 
 | | first shot | between shots | aims | wind-up |
 |---|---|---|---|---|
 | **Still** | never | — | — | — |
 | **Feral** | 90 s | 16 s | not at all: cuts whatever glows brightest and lets fly | 3.0 s |
 | **Keeper** | 75 s | 20 s | walks the stem across for up to 2.5 s, one reversal | 2.5 s |
+| **Adept** | 70 s | 17 s | up to 4 s, one reversal | 2.0 s |
 | **Master** | 60 s | 14 s | up to 6 s and two reversals, or until the arc runs into your heartwood | 1.6 s |
 
 **Its hand is your hand**: the same two speeds, through the same function, down
@@ -455,17 +494,20 @@ for ever. With Still across the field that is every match.
 
 ## 9. What you see
 
-A match opens on the **planting** screen: the three axes, a row for how the
-other mage plays, a row for whether this side is yours or a temper's, and
-previews of what each seedling grows into if left alone. Nothing grows until you
-plant; **New seedling** or `r` brings the screen back mid-match.
+A match opens on the **planting** screen: campaign or a single match, the three
+axes, and previews of what each seedling grows into if left alone; for a single
+match, a row for how the other mage plays and a row for whether this side is
+yours or a temper's. In the campaign after the first bout the axes give way to
+the tree you are carrying, drawn as it stands. Nothing grows until you plant;
+**New seedling** or `r` brings the screen back mid-match, which in the campaign
+starts the bout again from where it began.
 
 Then the board, and one row of buttons: **Pause · 1× · New seedling ‖ Charge
 Aim Fan Spire Grafts ‖ Readout**. Charge, Aim and Grafts are on by default —
 between them, how a stroke is aimed and how a graft is found; everything with a
 number on it starts hidden. Keys: `space` pause, `r` new seedling, `Esc` put
 away a stroke, `c a f s g` the overlays, `h` the readout, `t` a drawer of tuning knobs with hand speed and
-wood speed among them.
+wood speed among them, `l` save the playtest log (PLAYTEST.md).
 
 **The board does not move.** The view is set by the field and the window and
 never by how big either tree has grown, so nothing slides under the hand taking
@@ -482,8 +524,9 @@ across the pot, lit from inside: more of them and longer as it is spent.
 **Death is a different thing to look at:** the light in the cracks goes out, a
 black split runs up the trunk and out along every limb of any weight, the wood
 behind it goes to ash and the leaves wither. Wards are leaves going round the
-core, each on the faint circle of its own orbit once it has settled, each haloed at the width it catches and dimming as it runs down; a
-ward that catches a shot flares in its owner's colour.
+core, each on the faint ellipse of its own orbit once it has settled, each
+lying along the way it is going, haloed at the width it catches and dimming as
+it runs down; a ward that catches a shot flares in its owner's colour.
 
 **The charge glow** is the sap alight in the wood, not instrumentation. Every
 limb is scored by the shot a cut there would throw and reads three ways at once:
@@ -572,11 +615,20 @@ information.
 your wards were not there. A temper that reads your ring and waits for a gap,
 or throws a cheap shot to strip a ward before the heavy one, is the obvious
 answer and is unbuilt. Whether an unlimited ring of wards at a full unaimed shot
-each is too much shelter, or a single ward too little, is unmeasured.
+each is too much shelter, or a single ward too little, is unmeasured; so is
+whether elliptical orbits, which bunch at their near ends and sweep a band,
+shelter better or worse than circles would.
 
-**The classes above the fifth.** Fourth to first class need something to be
-earned against — harder tempers, a campaign, conditions on the win — and none
-of it is decided.
+**The campaign's curve is a guess.** Five tempers in a row, with nothing but
+the Adept built to fill the gap between Keeper and Master, and none of it
+played through by a person. Two things in it are untested and could each break
+it: whether a tree old enough for the fourth and fifth bouts is still a tree
+you can aim with, since by then almost nothing on it bends (the late-game
+rigidity question below, which the campaign turns from a curiosity into the
+whole endgame); and whether a tree kept from bout to bout outgrows a temper's
+five-minute tree so far that the later bouts are easier than the earlier ones.
+Conditions on a win — beat the Keeper without a ward, the Master in under three
+minutes — are the obvious lever if the ladder needs more rungs.
 
 **Nobody volleys but you.** The tempers cut one limb at a time. A temper that
 answers a thin crown with a volley, and one that strips a canopy before a heavy
@@ -623,7 +675,7 @@ chain to the pot. Supple wood pays only once a bend stays near the hand.
 **Concealment.** Fog-of-war for *state* rather than shape: they see your
 silhouette but not what is set, dormant or held, unless they spend an action to
 read you. Best idea in the drawer and the one most likely to make the game
-unteachable. **Campaign:** keep your tree between opponents (§7).
+unteachable.
 
 **Open questions I could not settle headlessly:**
 
@@ -710,3 +762,9 @@ did not watch it break.
    for the ring it would close walked both limbs down to where they part. The
    shoelace summed from the pot outward makes it two lookups and a subtraction,
    because the shared wood cancels: 56 ms a reading to 8.
+17. **A cost that compounds on the main verb is a tax on playing.** Every cut
+   used to leave the wood that grew back one level more ramified, for good, so
+   a limb kept in trim closed into a dense short bush and a tree became harder
+   to shoot from the more it had been shot from. True to bonsai and miserable
+   in play. The cut still leaves its mark — a knuckle of twigs at the face — and
+   then the wood runs again.
