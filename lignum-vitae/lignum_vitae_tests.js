@@ -1,6 +1,6 @@
-// Heartwood — regression suite. Pulls the model straight out of the HTML
+// Lignum Vitae — regression suite. Pulls the model straight out of the HTML
 // between /*BEGIN SIM*/ and /*END SIM*/, so the tests cannot drift from the game.
-//   node heartwood_tests.js [index.html]
+//   node lignum_vitae_tests.js [index.html]
 const fs = require("fs");
 const FILE = process.argv[2] || __dirname + "/index.html";
 const html = fs.readFileSync(FILE, "utf8");
@@ -11,7 +11,8 @@ const sim = new Function(html.split("/*BEGIN SIM*/")[1].split("/*END SIM*/")[0] 
           valueCuts, loopAmp, markLoops, periapsis, frameView, circuitArea,
           genome, resist, coreOf, targetOf, shotForce, frontWide, bindGrafts, graftSides,
           biteBolt, muzzleSpeed, reachChain, chainTip, volleyFrom, shotFrom,
-          isLeaf, isTrim, wardHold, makeWard, stepWards, wardCatch, below};`)();
+          isLeaf, isTrim, wardHold, wardApoOf, makeWard, stepWards, wardCatch, below,
+          packTree, unpackTree};`)();
 const S = sim.S, D2R = Math.PI/180;
 const BASE = JSON.parse(JSON.stringify(S));
 function reset(){ for (const k in BASE) S[k] = BASE[k]; }
@@ -258,12 +259,12 @@ suite("Cutting and recovery");
   check("shoots break out and branch", tips(U) > 8, tips(U) + " tips 60s after the chop");
 }
 {
-  // eleven chops: reach should fall and the trunk should win on ratio
+  // eleven chops: the cut spot bunches, the wood past it runs, the trunk fattens
   // Chop back to the same structure every time, the way a keeper does, rather
   // than to a fixed radius: with age the tree grows out faster and a fixed
   // radius stops landing on the same stubs at all.
-  function regime(ramify){
-    reset(); S.chopRamify = ramify;
+  function regime(ramify, fade){
+    reset(); S.chopRamify = ramify; if (fade !== undefined) S.ramFade = fade;
     const T = sim.newTree(0);
     for (let t = 0; t < 120; t += 0.05) sim.step(T, 0.05);
     sim.layout(T);
@@ -290,12 +291,12 @@ suite("Cutting and recovery");
     const trunk = T.nodes.get(T.roots[0]).thick;
     return { reach: T.maxR, ratio: trunk/T.maxR, tips: tips(T) };
   }
-  const off = regime(0), on = regime(1);
+  const off = regime(0), on = regime(1), kept = regime(1, 0);
   reset();
-  check("ramification makes it squat", on.reach < off.reach*0.85,
-        off.reach.toFixed(0) + "u -> " + on.reach.toFixed(0) + "u");
-  check("ramification makes it denser", on.tips > off.tips,
-        off.tips + " tips -> " + on.tips);
+  check("ramification inherited for ever grinds a kept tree into a bush", kept.reach < off.reach*0.75,
+        off.reach.toFixed(0) + "u -> " + kept.reach.toFixed(0) + "u, " + off.tips + " tips -> " + kept.tips);
+  check("spent at the fork, cut wood runs again", on.reach > kept.reach*1.2 && on.reach > off.reach*0.8,
+        "reach " + on.reach.toFixed(0) + "u against " + off.reach.toFixed(0) + "u unramified");
   {
     // the claim at its own scale: cut the same spot again and again, and the
     // wood that grows back forks sooner every time
@@ -317,7 +318,7 @@ suite("Cutting and recovery");
           "fork interval " + first.toFixed(1) + "u -> " + sim.forkLen(stub).toFixed(1) +
           "u after five chops, " + stub.ram + " levels of ramification");
   }
-  check("the trunk wins on ratio", on.ratio > off.ratio*1.3,
+  check("and the trunk still gains on the reach", on.ratio > off.ratio,
         (off.ratio*100).toFixed(1) + "% -> " + (on.ratio*100).toFixed(1) + "%");
 }
 
@@ -1334,19 +1335,48 @@ suite("Wards");
   check("a ward holds what a full-channel shot off a kinked stem carries",
         Math.abs(hold - sim.shotForce(sim.capacity(T.girth), 0, 1)) < 1e-9, hold.toFixed(1) + " force");
 
-  // each falls toward the core and settles on a circular orbit of its own
+  // each floats about halfway down toward the core and is caught into an
+  // ellipse of its own, round or long as the leaf was lying
   T.wards = [];
   const starts = [40, 80, 120, 160];
-  for (const r of starts) sim.makeWard(T, r, 0.5*r, hold);
-  const track = [];
-  for (let t = 0; t < 6; t += 0.02){ sim.stepWards(T, 0.02); if (t > 4) track.push(T.wards.map(w => w.r)); }
-  const orbits = T.wards.map(w => w.orbit);
-  const round = track.every(rs => rs.every((r, i) => Math.abs(r - orbits[i]) < 0.5));
-  const inward = T.wards.every((w, i) => w.orbit < Math.hypot(starts[i], 0.5*starts[i]));
-  const apart = orbits.every((o, i) => i === 0 || o > orbits[i-1] + 4);
-  check("a trimmed leaf falls inward and locks onto a circular orbit", round && inward,
-        orbits.map(o => o.toFixed(0)).join(", ") + " u");
-  check("each on its own, wider the further out it was cut", apart);
+  for (const r of starts) sim.makeWard(T, r, 0.5*r, hold, Math.atan2(0.5, 1));          // pointing at the core
+  for (const r of starts) sim.makeWard(T, r, 0.5*r, hold, Math.atan2(0.5, 1) + Math.PI/2); // lying across
+  const fall = Math.max(...T.wards.map(w => w.fall));
+  const lo = T.wards.map(() => 1e9), hi = T.wards.map(() => 0);
+  let jump = 0, prev = T.wards.map(w => [Math.cos(w.a)*w.r, Math.sin(w.a)*w.r]);
+  for (let t = 0; t < fall + 30; t += 0.02){
+    sim.stepWards(T, 0.02);
+    T.wards.forEach((w, i) => {
+      const x = Math.cos(w.a)*w.r, y = Math.sin(w.a)*w.r;
+      jump = Math.max(jump, Math.hypot(x - prev[i][0], y - prev[i][1]));
+      prev[i] = [x, y];
+      if (t > fall){ lo[i] = Math.min(lo[i], w.r); hi[i] = Math.max(hi[i], w.r); }
+    });
+  }
+  const radial = T.wards.slice(0, 4), across = T.wards.slice(4);
+  const halfway = T.wards.every((w, i) => {
+    const r0 = Math.hypot(starts[i % 4], 0.5*starts[i % 4]);
+    return w.apo < r0 && Math.abs(w.apo - sim.wardApoOf(r0)) < 1e-9;
+  });
+  check("a trimmed leaf floats down toward the core and is caught where it stops",
+        halfway && T.wards.every((w, i) => Math.abs(hi[i] - w.apo) < 0.5),
+        radial.map(w => w.apo.toFixed(0)).join(", ") + " u out");
+  check("one cut pointing at the core swings in on an ellipse",
+        radial.every((w, i) => w.e > 0.2 && Math.abs(lo[i] - w.apo*(1 - w.e)/(1 + w.e)) < 0.5 &&
+                               lo[i] >= S.wardPeri - 1e-6),
+        radial.map((w, i) => lo[i].toFixed(0) + "–" + hi[i].toFixed(0)).join(", ") + " u");
+  check("one lying across goes round nearly true",
+        across.every((w, i) => hi[i + 4] - lo[i + 4] < 1),
+        across.map((w, i) => (hi[i + 4] - lo[i + 4]).toFixed(2)).join(", ") + " u of swing");
+  check("and the fall hands over to the orbit without a jolt", jump < 4, jump.toFixed(2) + " u in a step at most");
+  check("each on its own, wider the further out it was cut",
+        radial.every((w, i) => i === 0 || w.semi > radial[i-1].semi + 4) &&
+        across.every((w, i) => i === 0 || w.semi > across[i-1].semi + 4));
+  {
+    const U = { wards: [] };
+    const l = sim.makeWard(U, 60, 0, 1, 0.6), r = sim.makeWard(U, 60, 0, 1, -0.6);
+    check("which way it goes round is which way it leaned", l.dir === -r.dir);
+  }
   check("they run down as they go round", T.wards.every(w => w.hold < hold && w.hold > 0.3*hold));
 
   {
@@ -1382,6 +1412,35 @@ suite("Wards");
   check("a shot that passes clear is not touched",
         sim.wardCatch(T, wide, wx - 3, wy + 60, wx + 3, wy + 60) === null && wide.F === 6);
   reset();
+}
+
+// ── the campaign ───────────────────────────────────────────────────────
+suite("The campaign");
+{
+  reset();
+  GENES = { picks: { habit: "spear", grain: "fine", wood: "dense" } };
+  const T = sim.newTree(0, sim.genome({ habit: "spear", grain: "fine", wood: "dense" }));
+  GENES = null;
+  for (let t = 0; t < 300; t += 0.05) sim.step(T, 0.05);
+  sim.layout(T);
+  // shape it the way a player would: a cut, a bend, a graft
+  const limb = T.list.find(n => n.parent !== null && n.children.length && Math.hypot(n.x1, n.y1) > 0.5*T.maxR);
+  sim.cutNode(T, limb); sim.layout(T);
+  for (let t = 0; t < 20; t += 0.05) sim.step(T, 0.05);
+  sim.layout(T);
+  const str = sim.packTree(T), U = sim.unpackTree(str);
+  let off = 0;
+  T.nodes.forEach(n => { const m = U.nodes.get(n.id); off = m ? Math.max(off, Math.hypot(n.x1 - m.x1, n.y1 - m.y1), Math.abs(n.thick - m.thick)) : 1e9; });
+  check("a tree carried to the next bout is the tree you left",
+        U.nodes.size === T.nodes.size && off < 1e-3 && Math.abs(U.clock - T.clock) < 1e-3 &&
+        U.g.picks.habit === "spear" && U.g.forkLen === T.g.forkLen,
+        T.nodes.size + " nodes, " + (str.length/1024).toFixed(0) + " KB, " + off.toExponential(1) + " u apart");
+  for (let t = 0; t < 40; t += 0.05){ sim.step(T, 0.05); sim.step(U, 0.05); }
+  sim.layout(T); sim.layout(U);
+  off = 0;
+  T.nodes.forEach(n => { const m = U.nodes.get(n.id); off = m ? Math.max(off, Math.hypot(n.x1 - m.x1, n.y1 - m.y1)) : 1e9; });
+  check("and grows on exactly as it would have", U.nodes.size === T.nodes.size && off < 1e-3,
+        off.toExponential(1) + " u apart after 40 s");
 }
 
 console.log("\n" + (failures ? failures + " FAILURES" : "all checks passed"));
