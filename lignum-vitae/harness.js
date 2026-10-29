@@ -62,7 +62,8 @@ return { S:S, get T(){return T;}, set T(v){T=v;}, get TD(){return TD;},
   MINDS:MINDS, MIND_ORDER:MIND_ORDER, newMind:newMind, mindStep:mindStep,
   launch:launch, forecastInto:forecastInto, targetOf:targetOf, shotForce:shotForce,
   muzzleSpeed:muzzleSpeed, biteBolt:biteBolt, PASS:PASS, bindGrafts:bindGrafts,
-  graftSides:graftSides, chainTip:chainTip };
+  graftSides:graftSides, chainTip:chainTip, stepWards:stepWards, makeWard:makeWard,
+  pairsOf:pairsOf, isLeaf:isLeaf };
 `;
   return new Function(pre + SIM + glue + VIEW + tail)();
 };

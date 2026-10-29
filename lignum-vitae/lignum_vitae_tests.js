@@ -1174,11 +1174,13 @@ suite("The other mage");
         out.dmg += hp - g.T.hp;
       }
       const st = g.TD.mind.stat;
-      if (st) for (const k in st) out.stat[k] += st[k];
+      if (st) for (const k in st) out.stat[k] = (out.stat[k] || 0) + st[k];
+      out.grafted = (out.grafted || 0) + g.TD.mind.grafted;
+      out.warded = (out.warded || 0) + g.TD.mind.warded;
     }
     return out;
   }
-  const hF = harass("feral", 400), hK = harass("keeper", 400), hM = harass("master", 400);
+  const hF = harass("feral", 400), hK = harass("keeper", 400), hA = harass("adept", 400), hM = harass("master", 400);
   const aim = h => h.stat || { shots: 0, pass0: 0, pass1: 0, better: 0, worse: 0, bent: 0 };
   const aF = aim(hF), aK = aim(hK), aM = aim(hM);
   check("a Feral mage never touches the stem before it fires",
@@ -1190,12 +1192,24 @@ suite("The other mage");
         "Keeper " + (aK.pass0/aK.shots).toFixed(0) + "u \u2192 " + (aK.pass1/aK.shots).toFixed(0) +
         "u, Master " + (aM.pass0/aM.shots).toFixed(0) + "u \u2192 " + (aM.pass1/aM.shots).toFixed(0) +
         "u from their cores");
-  check("and they fire at the cadence their temper says",
-        hM.shots > hK.shots && hK.shots > 3 && hF.shots > 3,
-        "over three seeds and 400s: Master " + hM.shots + " shots, Keeper " + hK.shots +
-        ", Feral " + hF.shots + "; into the core, " + hM.dmg.toFixed(0) + ", " +
-        hK.dmg.toFixed(0) + " and " + hF.dmg.toFixed(0) + " force against a core that holds " + S.coreHP +
-        " (which shot lands is luck enough that these do not rank reliably)");
+  const most = Math.max(hF.shots, hK.shots, hA.shots, hM.shots), least = Math.min(hF.shots, hK.shots, hA.shots, hM.shots);
+  check("every temper keeps the same pace",
+        least > 3 && most <= least*1.25,
+        "over three seeds and 400s: Feral " + hF.shots + " shots, Keeper " + hK.shots + ", Adept " + hA.shots +
+        ", Master " + hM.shots);
+  check("so what lands is down to the verbs",
+        hM.dmg > hK.dmg && hK.dmg > hF.dmg,
+        "into a core that holds " + S.coreHP + ": Feral " + hF.dmg.toFixed(0) + ", Keeper " + hK.dmg.toFixed(0) +
+        ", Master " + hM.dmg.toFixed(0) + " force");
+  check("only a temper that wards trims leaves into wards",
+        hA.warded > 0 && hM.warded > 0 && !hF.warded && !hK.warded,
+        "Adept " + hA.warded + ", Master " + hM.warded + " wards over three seeds");
+  check("only the Master grafts", hM.grafted > 0 && !hA.grafted && !hK.grafted && !hF.grafted,
+        hM.grafted + " grafts, every shot after the first ring at \u00d7" + (aM.gain/aM.shots).toFixed(2) + " on average");
+  check("and straightens a barrel behind its cut",
+        aM.run/aM.shots > 1.5*aK.run/aK.shots,
+        "a straight run of " + (aM.run/aM.shots).toFixed(0) + "u behind the Master's cut, " +
+        (aK.run/aK.shots).toFixed(0) + "u behind the Keeper's");
   const tell = [].concat(hK.ready, hM.ready);
   const MN = g0.MINDS;
   check("every shot is telegraphed for its full wind-up", tell.length > 5 &&
@@ -1209,11 +1223,11 @@ suite("The other mage");
     g.newFoe(g.genome({}), "master", 5);
     const TD = g.TD, M = TD.mind;
     let t = 0;
-    for (; t < 300 && M.state === "grow"; t += 0.05){
+    for (; t < 300 && !M.limb; t += 0.05){
       g.step(g.T, 0.05, null); g.step(TD, 0.05, null); g.layout(g.T);
       g.mindStep(TD, M, 0.05, g.T);
     }
-    const had = M.state !== "grow", limb = M.limb;
+    const had = !!M.limb, limb = M.limb;
     g.cutNode(TD, TD.nodes.get(limb.parent) || limb); g.layout(TD);
     const shot = g.mindStep(TD, M, 0.05, g.T);
     check("cutting the limb it is aiming disarms it", had && !shot && M.state === "grow" && M.limb === null,

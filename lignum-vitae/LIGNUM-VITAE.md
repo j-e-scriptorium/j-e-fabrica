@@ -415,56 +415,96 @@ A mage starts as a **Novice** and rises by bouts, each against a better hand:
 **Your tree carries.** You plant once, for the first bout, and from then on you
 fight with whatever you have made of it: every limb you bent, every graft you
 closed, every year of girth. Each bout starts your core whole and your wards
-gone, against a temper whose seedling is drawn at random and grown as long as
-yours has been, up to five minutes (`boutHead`), so a tree you have kept for a
-quarter of an hour is not met by a sapling. The first bout is where you learn
-the hand with nothing shooting back; the last is against the hardest temper
-there is, with a tree old enough that most of it will no longer bend (§3) — the
-shape you gave it early is the shape you fight the Master with.
+gone, against a temper planted as a seedling, drawn at random: **your tree is
+the whole of what you have earned**, and it is what makes each bout winnable.
+The first bout is where you learn the hand with nothing shooting back; the last
+is against the hardest temper there is, which is beatable only because it is
+young and you are not — with a tree old enough that most of it will no longer
+bend (§3), so the shape you gave it early is the shape you fight the Master
+with.
 
 **Losing a bout** spends your core, but not the campaign: you fight the bout
 again with the tree you began it with, or plant a new seedling and carry that
 on from the bout you reached. A win throws up a burst of leaves and sparks from
-the spent core and a card announces the promotion. Past the first class every
-bout is against a Master and earns nothing but the fight. Where you stand in the
+the spent core and a card announces the promotion. Where you stand in the
 campaign *is* your rank: it and your tree are kept in the browser, the tree as
 plain data (about 170 bytes a node), and **Begin again** on the planting screen
 forgets both. A single match, chosen on the same screen, is any seedling
 against any temper with either side played by a temper, and earns no rank.
+
+**Past the first class, trials.** A First-Class Mage keeps fighting Masters
+with the same tree, and each one has grown for longer before you meet it: a
+minute for the first trial, two for the second, a minute more for every trial
+won (`trialStep`). The count of trials won is kept with your rank. There is no
+last trial; there is a Master old enough that your tree cannot beat it, and
+how far you get toward it is the score.
+
+How fast that comes, measured headless (`ladder.js ageA=900 ageB=…`): an
+Adept holding a fifteen-minute tree against a Master grown for
+
+| the Master grown for | 0:00 | 1:00 | 2:00 | 3:00 | 4:00 | 5:00 |
+|---|---|---|---|---|---|---|
+| the Adept wins, of 30 | 29 (ten-minute tree) | 29 | 22 | 23 | 23 | 13 |
+
+— so an old tree's advantage is worth about four minutes of a Master's growth,
+and a player of the Adept's strength would run out of trials around the fifth.
+Fifteen seeds a cell; the middle three are not distinguishable from each other.
 
 ### The other mage
 
 Across the field is a mage with the same hand you have and no other. It grows by
 your rules, reads its own tree the way the glow reads yours, and fires by
 cutting a limb off; it is told nothing you are not. How it plays is set by the
-campaign's bout, or chosen on the planting screen for a single match:
+campaign's bout, or chosen on the planting screen for a single match.
 
-| | first shot | between shots | aims | wind-up |
-|---|---|---|---|---|
-| **Still** | never | — | — | — |
-| **Feral** | 90 s | 16 s | not at all: cuts whatever glows brightest and lets fly | 3.0 s |
-| **Keeper** | 75 s | 20 s | walks the stem across for up to 2.5 s, one reversal | 2.5 s |
-| **Adept** | 70 s | 17 s | up to 4 s, one reversal | 2.0 s |
-| **Master** | 60 s | 14 s | up to 6 s and two reversals, or until the arc runs into your heartwood | 1.6 s |
+**Every temper keeps the same pace** — first shot at 75 s, one every 17 s or
+so after, a 2-second wind-up, and none until the limb holds 45% of what its
+trunk can channel — so what separates one from the next is only what its hand
+knows how to do. **Each rung adds a verb:**
+
+| | what it does | what that adds |
+|---|---|---|
+| **Still** | grows | — |
+| **Feral** | cuts the heaviest shot on its tree and lets fly | nothing aimed: it does not ask where the shot will go |
+| **Keeper** | cuts the limb its glow says will land, and works the stem toward your core for up to 4 s | aim |
+| **Adept** | as the Keeper, and keeps a shell of ten wards round its core | defence |
+| **Master** | as the Adept, grafts the widest ring its crown offers, and straightens a barrel behind every cut before aiming it | weight and speed |
 
 **Its hand is your hand**: the same two speeds, through the same function, down
 to paying for changing its mind with the walk back.
 
-**How it chooses.** It takes whatever its own glow says is brightest, but never
-a limb carrying more than a third of its green wood and only once that limb
-holds a fair part of what its trunk can channel (30% Feral, 45% Keeper, 60%
-Master). It picks that limb **early**, a whole aim and wind-up before firing.
-Then it aims as a hand aims: hold the stem, walk the grip sideways while the
-predicted pass keeps closing, and when it stops come back to the best line and
-try the other way. It keeps no joint more than 5° from where it grew, works only
-the dozen joints behind the cut, and will not fire over its own shoulder
-(§12.10, §12.15).
+**How it chooses.** Never a limb carrying more than a third of its green wood,
+and never one in a ring. The Feral mage takes the heaviest shot that is not
+mostly waste; every other temper takes what its glow says is brightest, which
+already weighs whether the shot would land. It picks that limb **early**, a
+whole aim and wind-up before firing. Then it aims as a hand aims: hold the stem,
+walk the grip sideways while the predicted pass keeps closing, and when it stops
+come back to the best line and try the other way. It keeps no joint more than
+5° from where it grew, works only the dozen joints behind the cut, and will not
+fire over its own shoulder (§12.10, §12.15).
 
-**Every shot is telegraphed**, for the five to eight seconds between choosing
-and firing: the limb lit white, the stem it is working drawn, the arc it would
-fly dashed in pink with a ring where it would first meet your wood or core, and
-a ring closing round the cut face for the wind-up. Take the loaded limb, or the
-stem behind it, and the shot never comes.
+**Between shots, a free hand.** An Adept or a Master whose shell has fallen
+below ten trims three leaves from nearest its trunk, never from the limb it
+means to fire, and not before its crown has forty growing tips to spare; each
+leaf becomes a ward exactly as yours do. A Master also looks every five seconds
+for the widest ring the board would suggest to it, and if that adds anything to
+what its rings are already worth, holds the two tips together for the same
+0.8 s you do. Before it aims, it **straightens**: the stem behind the cut, up to
+two dozen joints back, pulled joint by joint toward straight at the pace wood
+turns, letting go and taking hold again when a pull has given all it will, for
+up to 3 s. Taste allows it — a kink pulled out toward the straight is a formal
+upright, not a spring — and set wood will not move however it pulls, so the
+barrel it gets is as long as the stem is green. Its shots average 50 units of
+straight run behind the cut against 15 for a Keeper's, and leave at ×1.8 from
+its rings.
+
+**Every shot is telegraphed**, for the six seconds or more between choosing and
+firing: the limb lit white, the stem it is working drawn, the arc it would fly
+dashed in pink with a ring where it would first meet your wood or core, and a
+ring closing round the cut face for the wind-up. Take the loaded limb, or the
+stem behind it, and the shot never comes. A graft it is holding shows as a line
+between the two tips with a ring filling at its middle; shoot either tip off
+and the graft never takes. A trim flashes where the leaves left.
 
 **Or hand it your own side.** The planting screen has a row for this side too:
 leave it on **Yours** and you play, or give it to a temper and watch the two of
@@ -472,20 +512,29 @@ them fight. Both hands read the board before either cuts, so the match is not
 decided by who moves first, and while a temper holds your tree the board ignores
 your hand entirely.
 
-**How hard each is,** over three seeds of four minutes' fire against a tree
-nobody tends: Master lands 151 force into a core that holds 60, Keeper 133,
-Feral 52. **Those numbers do not rank reliably** — change a cadence by three
-seconds and the measurement swings fivefold either way. What measures cleanly is
-what a temper controls: Feral never touches a stem before firing, a Keeper's aim
-brings its predicted pass from 41 units of the core to 36 and a Master's from 93
-to 77, and Master fires half again as often as Keeper.
+**How hard each is.** `ladder.js` plays every pairing from both sides on a
+seedling the two share, so the hand is the only difference. Over thirty random
+seedlings, sixty matches a pairing, fifteen minutes at most:
 
-**Aiming past a couple of seconds measured worse, every time**: eight seconds of
-aim did a quarter of the damage of two and a half, across every configuration
-and fix I tried, and I do not know why. Every temper also loses to both headless
-players, who bend instantly while everything else now takes seconds. Against a
-human, Keeper is meant to be the fair fight and Master the hard one — a guess
-about human pace that nothing headless can settle.
+| | Keeper | Adept | Master |
+|---|---|---|---|
+| **Feral** | 7–53 | 3–57 | 0–60 |
+| **Keeper** | | 11–49 | 0–60 |
+| **Adept** | | | 0–60 |
+
+Every rung beats every rung below it, and the Master kills the Adept in a
+little over three minutes, every time. On the default seedling the order is the
+same. Two things measured on the way there are worth keeping: when every temper
+differed only in timing, the four were within noise of each other and a few
+seconds' change in one cadence reversed a pairing; and aiming bought nothing
+until the Feral mage stopped choosing by the glow, because choosing the limb
+whose shot lands *is* most of aiming, and the walk a hand can give a stem in a
+few seconds barely moves the pass (§12.18).
+
+Against a human, nothing headless can say how hard any of this is: the
+headless players bend instantly, and a person does not. A Master that grafts
+and straightens may be beyond a person entirely, and is meant to be the last
+bout of the campaign rather than a fair fight.
 
 **[not built]** A wither timer, so two mages who never commit do not sit there
 for ever. With Still across the field that is every match.
@@ -611,17 +660,25 @@ bolt arrives from behind, where nothing is softer. Both pay only once something
 faces the wrong way, which is also why the glow's halo-width channel carries no
 information.
 
-**Nobody wards but you.** The tempers never trim, and they aim as though
-your wards were not there. A temper that reads your ring and waits for a gap,
-or throws a cheap shot to strip a ward before the heavy one, is the obvious
-answer and is unbuilt. Whether an unlimited ring of wards at a full unaimed shot
+**Nobody aims round a ward.** The Adept and the Master keep shells of their
+own, but every temper aims as though yours were not there. A temper that reads
+your shell and waits for a gap, or throws a cheap shot to strip a ward before
+the heavy one, is the obvious next verb and is unbuilt. Whether an unlimited ring of wards at a full unaimed shot
 each is too much shelter, or a single ward too little, is unmeasured; so is
 whether elliptical orbits, which bunch at their near ends and sweep a band,
 shelter better or worse than circles would.
 
-**The campaign's curve is a guess.** Five tempers in a row, with nothing but
-the Adept built to fill the gap between Keeper and Master, and none of it
-played through by a person. Two things in it are untested and could each break
+**The Master is beaten by age, and nothing else has been tried.** Seedling
+against seedling it beats the Adept sixty times in sixty, with rings at ×1.8
+and barrels three times a Keeper's; the campaign makes it beatable by setting
+your old tree against a young one, and the trials measure how old a Master your
+tree can take (§8). Whether a person, who bends slower than any temper, gets
+the same mileage out of an old tree as the Adept does is the question. If the
+fifth bout is a wall, the levers are the Master's verbs rather than its pace:
+fewer grafts, a shorter barrel, a thinner shell.
+
+**The campaign's curve is a guess.** Five tempers in a row that rank cleanly
+against each other, and none of it played through by a person. Two things in it are untested and could each break
 it: whether a tree old enough for the fourth and fifth bouts is still a tree
 you can aim with, since by then almost nothing on it bends (the late-game
 rigidity question below, which the campaign turns from a curiosity into the
@@ -768,3 +825,10 @@ did not watch it break.
    to shoot from the more it had been shot from. True to bonsai and miserable
    in play. The cut still leaves its mark — a knuckle of twigs at the face — and
    then the wood runs again.
+18. **A temper is what its hand can do, not how fast it does it.** Four tempers
+   that differed only in when they fired and how long they aimed were within
+   noise of each other, and three seconds on one cadence reversed a pairing;
+   the measurement was of how two clocks fell against each other. Given one
+   pace and a verb a rung, they ranked at once. And the verb has to be one the
+   rung below does not already have by another route: the Feral mage chose by
+   the glow, the glow weighs where a shot lands, so it was aiming all along.
