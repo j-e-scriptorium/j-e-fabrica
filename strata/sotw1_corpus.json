@@ -1754,7 +1754,7 @@
    "lambdaKm": 800,
    "dateBasis": "archaeological",
    "confidence": "medium",
-   "reveal": "Ancient Mesopotamian scholars, especially astronomers who spent their careers tracking the movements of the sun, moon, and stars, used a counting system based on sixty rather than the ten most people count by today. That system is why, to this day, an hour is divided into sixty minutes, a minute into sixty seconds, and a circle into 360 degrees. The base-sixty system is actually older than Babylon itself, going back to the Sumerians before it, meaning that every time a clock or a compass is read, an idea invented in ancient Mesopotamia is still quietly in use.",
+   "reveal": "Ancient Mesopotamian scholars counted in sixties rather than tens, a base-sixty system older than Babylon itself that goes back to the Sumerians, and Babylonian astronomers, who spent their careers tracking the sun, moon, and stars, worked all their calculations in it. They did not themselves cut the hour into minutes: they divided the day into twelve “double hours” and the circle of the sky into 360 parts. Greek astronomers such as Hipparchus and Ptolemy inherited Babylonian observations along with the habit of counting in sixtieths, splitting degrees, and later hours, into sixty small parts and each of those into sixty again — the “first small parts” and “second small parts” that Latin made into minutes and seconds. So every clock face and compass still runs on Mesopotamian arithmetic, passed down through Greek hands.",
    "timeShare": 0.28,
    "timeMax": 1400,
    "placeMax": 3600,
@@ -3031,9 +3031,9 @@
    },
    "time": {
     "start": -1620,
-    "end": -1600,
+    "end": -1500,
     "timeBasis": "event-year",
-    "label": "Radiocarbon date"
+    "label": "Radiocarbon c. 1610 BC; Egyptian-linked archaeology c. 1500 BC"
    },
    "lambdaYears": 120,
    "lambdaKm": 500,
@@ -3043,7 +3043,7 @@
    "timeShare": 0.31,
    "timeMax": 1550,
    "placeMax": 3450,
-   "precisionLabel": "dated to the decade"
+   "precisionLabel": "dated to about a century"
   },
   {
    "id": "c13-amenemhet",
@@ -3297,13 +3297,13 @@
     "start": -2000,
     "end": 500,
     "timeBasis": "attestation",
-    "label": "In use from the Middle Kingdom onward"
+    "label": "Book: from the Middle Kingdom; depicted in Egypt from the New Kingdom"
    },
    "lambdaYears": 350,
    "lambdaKm": 700,
    "dateBasis": "archaeological",
    "confidence": "medium",
-   "reveal": "A shaduf is a simple but effective machine for lifting water: a long wooden pole balanced on a post, with a bucket hanging from one end and a heavy counterweight, often a lump of dried clay, on the other, letting one person raise and pour water using far less effort than lifting a full bucket by hand. Along the Nile, this device let farming families irrigate land that the yearly flood didn't naturally reach, extending the amount of usable farmland well beyond the riverbanks. It came into use during Egypt's Middle Kingdom and remained a normal sight along the Nile within living memory, essentially unchanged for thousands of years.",
+   "reveal": "A shaduf is a simple but effective machine for lifting water: a long wooden pole balanced on a post, with a bucket hanging from one end and a heavy counterweight, often a lump of dried clay, on the other, letting one person raise and pour water using far less effort than lifting a full bucket by hand. Along the Nile, this device let farming families irrigate land that the yearly flood didn't naturally reach, extending the amount of usable farmland well beyond the riverbanks. It was already known in Mesopotamia before 2000 BC; in Egypt it first shows up in New Kingdom tomb paintings, and it remained a normal sight along the Nile within living memory, essentially unchanged for thousands of years.",
    "timeShare": 0.28,
    "timeMax": 1400,
    "placeMax": 3600,
