@@ -41,6 +41,8 @@ const COPY = {
   bc:           "BC",
   ad:           "AD",
   timeHint:     "Drag the layers, or type the year for an exact answer.",
+  stripGuess:   "Your guess",
+  stripAnswer:  "The answer",
 
   /* ---- how the points are split -----------------------------------------
      Shown before the player answers, so they know whether the date is
@@ -73,6 +75,9 @@ const COPY = {
 
   /* ---- buttons ---------------------------------------------------------- */
   submit:       "Submit guess",
+  needPin:      "Drop a pin",
+  needYear:     "Set a year",
+  needBoth:     "Drop a pin · set a year",
   next:         "Next round",
   lastRound:    "See final score",
   playAgain:    "Play again",
@@ -154,7 +159,7 @@ header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
   font-size:9.5px;color:var(--ink-3)}
 .chreadout{display:flex;gap:20px;flex-wrap:wrap;margin:14px 0 4px;align-items:baseline}
 .chnum{display:flex;align-items:center;gap:8px;max-width:100%}
-.chnum label{font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;
+.chnum label{min-width:3.4em;font-family:'Space Mono',monospace;font-size:10px;letter-spacing:.1em;
   text-transform:uppercase;color:var(--ink-3)}
 .chnum input{width:48px;font-family:'Space Mono',monospace;font-size:14px;font-weight:700;
   text-align:center;border:1.5px solid var(--ink);background:var(--paper);padding:5px 2px}
@@ -166,6 +171,7 @@ header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
 .readout{display:flex;align-items:baseline;gap:14px;flex-wrap:wrap;margin-bottom:7px}
 .year{font-family:'Zilla Slab',serif;font-weight:700;font-size:clamp(34px,6.4vw,50px);line-height:1;
   letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.year.unset{color:var(--rule)}
 .year .era{font-size:.42em;font-weight:600;color:var(--ink-3);margin-left:.12em}
 .entry{display:flex;align-items:center;gap:5px;border:1.5px solid var(--ink);background:var(--paper);
   padding:5px 9px;box-shadow:var(--shadow)}
@@ -182,15 +188,16 @@ header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
 .band{position:relative;height:100%;border-right:1px solid rgba(34,30,25,.34)}
 .band:last-child{border-right:0}
 .band .fill{position:absolute;inset:0}
-.bandlabel{position:absolute;left:6px;bottom:5px;font-family:'Space Mono',monospace;font-size:8.5px;
+.bandlabel{position:absolute;left:6px;bottom:5px;white-space:nowrap;font-family:'Space Mono',monospace;font-size:8.5px;
   letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.92);pointer-events:none;
   text-shadow:0 1px 2px rgba(0,0,0,.45)}
 .handle{position:absolute;top:-8px;bottom:-8px;width:2px;background:var(--ink);transform:translateX(-1px);pointer-events:none}
 .handle::before,.handle::after{content:"";position:absolute;left:50%;width:12px;height:12px;
   background:var(--sienna);border:1.5px solid var(--ink);transform:translateX(-50%) rotate(45deg)}
 .handle::before{top:-1px} .handle::after{bottom:-1px}
-.ansband{position:absolute;top:0;bottom:0;background:rgba(47,99,87,.36);
-  border-left:2px solid var(--patina);border-right:2px solid var(--patina);pointer-events:none;display:none}
+/* a pale wash with dark edges, so the answer reads on every layer's colour */
+.ansband{position:absolute;top:0;bottom:0;background:rgba(242,237,224,.62);min-width:4px;
+  border-left:2px solid var(--ink);border-right:2px solid var(--ink);pointer-events:none;display:none}
 .axis{position:relative;height:20px;margin-bottom:12px}
 .tick{position:absolute;top:0;transform:translateX(-50%)}
 /* the end labels hang inward so they aren't clipped at the edges */
@@ -222,6 +229,7 @@ header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
     box-shadow:-2px 0 14px rgba(34,30,25,.25)}
   .card .scorerow{grid-template-columns:1fr 1fr}
   .card .sc.total{grid-column:1/-1;border-top:1px solid var(--rule);padding-top:9px}
+  .card .tstrip,.card .tlegend{display:none}
   body.revealing .wrap{margin-right:var(--panel);
     margin-left:max(0px,calc((100vw - var(--panel) - 1120px) / 2))}
 }
@@ -237,6 +245,16 @@ header{display:flex;align-items:baseline;justify-content:space-between;gap:12px;
 .sc .sub{font-size:11.5px;color:var(--ink-3);font-family:'Space Mono',monospace}
 .sc.total .val{color:var(--patina);font-size:33px}
 .perfect{color:var(--patina)}
+/* the answer's timeline in miniature, for when the sheet covers the real one */
+.tstrip{position:relative;height:12px;border:1px solid var(--ink);margin:2px 0 4px;overflow:visible}
+.tstrip .b{position:absolute;top:0;bottom:0;opacity:.55}
+.tstrip .ans{position:absolute;top:-3px;bottom:-3px;min-width:3px;background:var(--patina);border:1px solid var(--ink)}
+.tstrip .miss{position:absolute;top:4px;height:0;border-top:1.5px dashed var(--sienna)}
+.tstrip .g{position:absolute;top:50%;width:9px;height:9px;margin:-5.5px 0 0 -5.5px;background:var(--sienna);
+  border:1.5px solid var(--ink);transform:rotate(45deg)}
+.tlegend{display:flex;justify-content:space-between;gap:10px;font-family:'Space Mono',monospace;font-size:10px;
+  color:var(--ink-3);margin-bottom:14px}
+.tlegend b{color:var(--ink);font-weight:700}
 .card h3{font-family:'Zilla Slab',serif;font-size:20px;margin:0 0 3px;font-weight:700}
 .answerline{font-family:'Space Mono',monospace;font-size:11.5px;color:var(--ink-3);margin-bottom:12px}
 .reveal{font-size:14.5px;line-height:1.62;max-width:74ch;margin:0 0 18px}
@@ -414,6 +432,23 @@ function placeMiss(g,p){
  return {km:0,dirDeg:null};}
 /* Years run 1 BC (-1) straight to AD 1 (1): there is no year 0, so a span
    that crosses it is one year shorter than plain subtraction says. */
+/* The point of the answer shape nearest the guess, for drawing the miss. */
+function destPoint(lat,lon,brg,km){const d=km/R,t=rad(brg),p1=rad(lat),l1=rad(lon);
+ const p2=Math.asin(Math.sin(p1)*Math.cos(d)+Math.cos(p1)*Math.sin(d)*Math.cos(t));
+ const l2=l1+Math.atan2(Math.sin(t)*Math.sin(d)*Math.cos(p1),Math.cos(d)-Math.sin(p1)*Math.sin(p2));
+ return [p2*180/Math.PI,l2*180/Math.PI];}
+function nearestOnShape(g,p){
+ const edge=(lat,lon,r)=>destPoint(lat,lon,bearingDeg(lat,lon,g.lat,g.lng),r);
+ if(p.shape==='circle')return edge(p.lat,p.lon,p.radiusKm);
+ if(p.shape==='multipoint'){let q=p.points[0],best=Infinity;
+  p.points.forEach(c=>{const d=haversine(g.lat,g.lng,c[0],c[1]);if(d<best){best=d;q=c;}});
+  return edge(q[0],q[1],p.radiusKm||100);}
+ const lat0=p.points.reduce((s,q)=>s+q[0],0)/p.points.length,P=proj(g.lat,g.lng,lat0),
+  V=p.points.map(q=>proj(q[0],q[1],lat0));let best=Infinity,pt=V[0];
+ for(let i=0,j=V.length-1;i<V.length;j=i++){const a=V[j],b=V[i],vx=b[0]-a[0],vy=b[1]-a[1],L=vx*vx+vy*vy;
+  let t=L?((P[0]-a[0])*vx+(P[1]-a[1])*vy)/L:0;t=Math.max(0,Math.min(1,t));
+  const x=a[0]+t*vx,y=a[1]+t*vy,d=Math.hypot(P[0]-x,P[1]-y);if(d<best){best=d;pt=[x,y];}}
+ return [pt[1]/R*180/Math.PI,pt[0]/(R*Math.cos(rad(lat0)))*180/Math.PI];}
 const yearsBetween=(a,b)=>b-a-(a<0&&b>0?1:0);
 const yearsOutside=(y,t)=>y<t.start?yearsBetween(y,t.start):y>t.end?yearsBetween(t.end,y):0;
 const decay=(d,l,max)=>Math.round(max*Math.exp(-d/l));
@@ -526,7 +561,7 @@ BANDS.forEach(b=>{const el=document.createElement('div');
  t.className='tick'+([-3000,-2000,250].includes(y)?' minor':'');t.style.left=(yearToFrac(y)*100)+'%';
  t.innerHTML='<i></i><span>'+(y<0?Math.abs(y)+' '+COPY.bc:COPY.ad+' '+(y||1))+'</span>';axis.appendChild(t);});
 
-let lastYear=SETTINGS.startYear;
+let lastYear=SETTINGS.startYear,yearSet=false;
 function drawYear(){
  year=Math.max(MIN,Math.min(MAX,Math.round(year)));
  if(year===0)year=lastYear<0?1:-1;   /* no year 0: step across it */
@@ -537,22 +572,30 @@ function drawYear(){
  strata.setAttribute('aria-valuenow',year);
  strata.setAttribute('aria-valuetext',fmtY(year));
  if(document.activeElement!==entry){entry.value=a;eraSel.value=year<0?'-1':'1';}
- eraName.textContent=bandOf(year).name;}
-function fromEvt(e){if(locked)return;const r=strata.getBoundingClientRect();
+ yearOut.classList.toggle('unset',!yearSet);
+ eraName.textContent=yearSet?bandOf(year).name:'';}
+function fromEvt(e){if(locked)return;const r=strata.getBoundingClientRect();yearSet=true;
  year=fracToYear((e.clientX-r.left)/r.width);drawYear();ready();}
 strata.addEventListener('pointerdown',e=>{if(locked)return;drag=true;strata.setPointerCapture(e.pointerId);fromEvt(e);});
 strata.addEventListener('pointermove',e=>{if(drag)fromEvt(e);});
 strata.addEventListener('pointerup',()=>drag=false);
 strata.addEventListener('pointercancel',()=>drag=false);
 strata.addEventListener('keydown',e=>{if(locked)return;const s=e.shiftKey?100:1;
+ if(e.key==='ArrowLeft'||e.key==='ArrowRight')yearSet=true;
  if(e.key==='ArrowLeft'){year-=s;drawYear();ready();e.preventDefault();}
  else if(e.key==='ArrowRight'){year+=s;drawYear();ready();e.preventDefault();}});
-const nudge=(id,d)=>document.getElementById(id).onclick=()=>{if(locked)return;year+=d;drawYear();ready();};
+const nudge=(id,d)=>document.getElementById(id).onclick=()=>{if(locked)return;yearSet=true;year+=d;drawYear();ready();};
 nudge('dec1',-1);nudge('inc1',1);nudge('dec10',-10);nudge('inc10',10);
 function fromEntry(){if(locked)return;const v=parseInt(entry.value.replace(/[^0-9]/g,''),10);
- if(!isNaN(v)&&v>0){year=v*(+eraSel.value);drawYear();ready();}}
+ if(!isNaN(v)&&v>0){yearSet=true;year=v*(+eraSel.value);drawYear();ready();}}
 entry.addEventListener('input',fromEntry);eraSel.addEventListener('change',fromEntry);
-function ready(){submit.disabled=!guess;}
+function ready(){submit.disabled=!(guess&&yearSet);
+ submit.textContent=guess?(yearSet?COPY.submit:COPY.needYear):(yearSet?COPY.needPin:COPY.needBoth);}
+/* band names that don't fit their band (the oldest, on a phone) are hidden;
+   the name of the band the handle is in shows beside the year anyway */
+function fitBandLabels(){document.querySelectorAll('.bandlabel').forEach(l=>{l.style.visibility='';
+ if(l.offsetWidth+8>l.parentElement.clientWidth)l.style.visibility='hidden';});}
+window.addEventListener('resize',fitBandLabels);
 
 /* ---------- round lifecycle ---------- */
 function header(){document.getElementById('hstat').innerHTML=
@@ -563,7 +606,7 @@ function loadRound(){
  if(marker){map.removeLayer(marker);marker=null;}
  if(layer){map.removeLayer(layer);layer=null;}
  hideCountries();
- ansBand.style.display='none';submit.disabled=true;submit.textContent=COPY.submit;
+ ansBand.style.display='none';yearSet=false;
  header();
  document.getElementById('pTitle').textContent=it.prompt;
  document.getElementById('pSub').textContent=it.subtitle;
@@ -573,12 +616,15 @@ function loadRound(){
   '<span class="pn">'+COPY.splitTime+' '+it.timeMax.toLocaleString()+
     ' &nbsp;·&nbsp; '+COPY.splitPlace+' '+it.placeMax.toLocaleString()+'</span>';
  document.getElementById('mapMsg').textContent=COPY.mapBefore;
- year=SETTINGS.startYear;drawYear();}
+ year=lastYear=SETTINGS.startYear;drawYear();ready();}
 function drawAnswer(it){
  const p=it.place,st={color:'#2F6357',weight:2,fillColor:'#2F6357',fillOpacity:.18};
- if(p.shape==='circle')layer=L.circle([p.lat,p.lon],Object.assign({radius:p.radiusKm*1000},st));
- else if(p.shape==='polygon')layer=L.polygon(p.points.map(x=>[x[0],x[1]]),st);
- else layer=L.layerGroup(p.points.map(x=>L.circle([x[0],x[1]],Object.assign({radius:(p.radiusKm||100)*1000},st))));
+ layer=L.layerGroup();
+ if(p.shape==='circle')layer.addLayer(L.circle([p.lat,p.lon],Object.assign({radius:p.radiusKm*1000},st)));
+ else if(p.shape==='polygon')layer.addLayer(L.polygon(p.points.map(x=>[x[0],x[1]]),st));
+ else p.points.forEach(x=>layer.addLayer(L.circle([x[0],x[1]],Object.assign({radius:(p.radiusKm||100)*1000},st))));
+ if(placeMiss(guess,p).km>0)layer.addLayer(L.polyline([[guess.lat,guess.lng],nearestOnShape(guess,p)],
+  {color:'#8A4B24',weight:1.8,dashArray:'5 6',interactive:false}));
  layer.addTo(map);showCountries();
  const g=[L.latLng(guess)];
  (p.shape==='circle'?[[p.lat,p.lon]]:p.points).forEach(c=>g.push(L.latLng(c[0],c[1])));
@@ -619,6 +665,14 @@ function showReveal(it,km,yrs,ps,ts,sum,dir,early){
  const inP=km===0,inT=yrs===0,last=idx>=rounds.length-1;
  const placeText=inP?COPY.placeInRange:fill(COPY.placeMiss,{km:Math.round(km).toLocaleString(),dir:dir});
  const timeText=inT?COPY.timeInRange:fill(early?COPY.timeEarly:COPY.timeLate,{years:yrs.toLocaleString()});
+ const pc=y=>(yearToFrac(y)*100).toFixed(2)+'%',fa=yearToFrac(it.time.start),fb=yearToFrac(it.time.end),fg=yearToFrac(year);
+ const dateText=it.time.start===it.time.end?fmtY(it.time.start):fmtY(it.time.start)+' – '+fmtY(it.time.end);
+ const strip='<div class="tstrip">'+
+  BANDS.map(b=>'<div class="b" style="left:'+pc(b.a)+';width:'+(b.w)+'%;background:'+b.c+'"></div>').join('')+
+  (inT?'':'<div class="miss" style="left:'+(100*Math.min(fg,fb))+'%;width:'+(100*Math.abs(fg-(fg<fa?fa:fb)))+'%"></div>')+
+  '<div class="ans" style="left:'+(100*fa)+'%;width:'+(100*(fb-fa))+'%"></div>'+
+  '<div class="g" style="left:'+(100*fg)+'%"></div></div>'+
+  '<div class="tlegend"><span>'+COPY.stripGuess+' <b>'+fmtY(year)+'</b></span><span>'+COPY.stripAnswer+' <b>'+dateText+'</b></span></div>';
  document.getElementById('card').innerHTML=
  '<div class="scorerow">'+
   '<div class="sc"><div class="lab">'+COPY.scorePlace+'</div><div class="val txt'+(inP?' perfect':'')+'">'+placeText+'</div>'+
@@ -627,11 +681,10 @@ function showReveal(it,km,yrs,ps,ts,sum,dir,early){
    '<div class="sub">'+fill(COPY.ptsOfMax,{score:ts.toLocaleString(),max:it.timeMax.toLocaleString()})+'</div></div>'+
   '<div class="sc total"><div class="lab">'+COPY.scoreRound+'</div><div class="val">'+sum.toLocaleString()+'</div>'+
    '<div class="sub">'+fill(COPY.outOfMax,{max:T.toLocaleString()})+'</div></div>'+
- '</div>'+
+ '</div>'+strip+
  '<h3>'+it.prompt+'</h3>'+
- '<div class="answerline">'+it.place.label+' &nbsp;·&nbsp; '+
-   (it.time.start===it.time.end?fmtY(it.time.start):fmtY(it.time.start)+' – '+fmtY(it.time.end))+
-   (it.time.label?' &nbsp;·&nbsp; '+it.time.label:'')+'</div>'+
+ '<div class="answerline">'+it.place.label+' &nbsp;·&nbsp; '+dateText+
+   (it.time.label&&it.time.label!==dateText?' &nbsp;·&nbsp; '+it.time.label:'')+'</div>'+
  '<p class="reveal">'+it.reveal+'</p>'+
  '<div class="tags"><span class="tag">'+fill(COPY.tagChapter,{n:it.chapter})+'</span>'+
    '<span class="tag">'+it.category.replace(/-/g,' ')+'</span>'+
@@ -728,7 +781,7 @@ function beginGame(){
  document.getElementById('gameScreen').style.display='';
  /* the map was born inside a display:none ancestor and sized itself 0x0;
     it needs a resize nudge now that its container actually has room. */
- setTimeout(()=>map.invalidateSize(),0);
+ setTimeout(()=>{map.invalidateSize();fitBandLabels();},0);
  loadRound();}
 chStartBtn.onclick=beginGame;
 drawChRange();
