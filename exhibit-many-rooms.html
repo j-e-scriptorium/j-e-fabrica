@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Isid. UW - Many Rooms</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <p><a href="recreations.html">&larr; Recreations</a></p>
+        <div class="exhibit-entry exhibit-page">
+            <div class="exhibit-glyph" aria-hidden="true">
+                <svg viewBox="0 0 100 100"><rect x="16" y="20" width="30" height="30" fill="none" stroke="#9C4A2B" stroke-width="2.5"/><rect x="54" y="20" width="30" height="30" fill="none" stroke="#9C4A2B" stroke-width="2.5"/><rect x="16" y="58" width="30" height="30" fill="none" stroke="#9C4A2B" stroke-width="2.5"/><rect x="54" y="58" width="30" height="30" fill="none" stroke="#9C4A2B" stroke-width="2.5" opacity="0.4"/></svg>
+            </div>
+            <div class="exhibit-details">
+                <h1>Many Rooms <span class="status-tag wip">[WIP]</span></h1>
+                <p class="exhibit-kind">a sonnet-dating game</p>
+                <p class="exhibit-blurb">Given a sonnet and nothing else &mdash; no name, no date &mdash; guess the year it was written, in the style of Anthropeum. Five new rooms a day, drawn from a corpus of 2,387 sonnets (plus a few deliberate irregulars) by 87 authors, 1535&ndash;1928, plus unlimited Practice.</p>
+                <div class="exhibit-links">
+                    <a href="many-rooms/">Open</a>
+                    <a href="about-many-rooms.html">About</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponents() {
+            const response = await fetch('assets/fabrica-components.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+
+            const headerTemplate = doc.getElementById('site-header');
+            document.getElementById('header-placeholder').innerHTML = headerTemplate.innerHTML;
+
+            const footerTemplate = doc.getElementById('site-footer');
+            document.getElementById('footer-placeholder').innerHTML = footerTemplate.innerHTML;
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>

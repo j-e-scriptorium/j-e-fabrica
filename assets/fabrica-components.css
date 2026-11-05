@@ -168,6 +168,13 @@ a.exhibit-glyph:hover {
     color: var(--chalk-white);
 }
 
+.status-tag.wip {
+    padding: 0;
+    margin-left: 0.4rem;
+    color: #777;
+    font-size: 0.85rem;
+}
+
 .status-tag.soon {
     border: 1px dashed var(--rule-color);
     color: #666;
@@ -195,6 +202,66 @@ a.exhibit-glyph:hover {
 
 .exhibit-links a:hover {
     text-decoration: underline;
+}
+
+/* Single-exhibit landing page */
+.exhibit-page {
+    border-bottom: none;
+}
+
+.exhibit-page .exhibit-glyph {
+    width: 160px;
+    height: 160px;
+}
+
+.exhibit-details h1 {
+    margin: 0 0 0.5rem;
+    font-size: 1.6rem;
+    font-weight: normal;
+    font-style: italic;
+    line-height: 1.3;
+}
+
+.exhibit-page .exhibit-blurb {
+    font-size: 0.95rem;
+}
+
+/* Essay on an About-the-work page */
+.essay-rule {
+    border: none;
+    border-top: 1px solid #ddd;
+    margin: 2.5rem 0 2rem;
+}
+
+.essay-title {
+    margin: 0 0 0.25rem;
+    font-weight: normal;
+    font-style: italic;
+}
+
+.essay-section {
+    margin: 2rem 0 0.75rem;
+    font-size: 1.1rem;
+    font-variant: small-caps;
+    letter-spacing: 0.03em;
+}
+
+.essay-figure {
+    margin: 1.5rem 0;
+}
+
+.essay-figure img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+    border: 1px solid #ddd;
+}
+
+.essay-figure figcaption {
+    margin-top: 0.4rem;
+    font-size: 0.85rem;
+    font-style: italic;
+    color: #666;
 }
 
 /* Byline under a work's standfirst, on its About-the-work page */
@@ -287,5 +354,10 @@ footer {
     .exhibit-glyph {
         width: 72px;
         height: 72px;
+    }
+
+    .exhibit-page .exhibit-glyph {
+        width: 120px;
+        height: 120px;
     }
 }
