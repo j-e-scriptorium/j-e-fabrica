@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Isid. UW - Thirty-Two Journeys</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <p><a href="visualizations.html">&larr; Visualizations</a></p>
+        <div class="exhibit-entry exhibit-page">
+            <div class="exhibit-glyph" aria-hidden="true">
+                <svg viewBox="0 0 100 100"><path d="M8,55 Q30,30 50,50 T92,45" fill="none" stroke="#9C4A2B" stroke-width="3"/><circle cx="8" cy="55" r="3" fill="#9C4A2B"/><circle cx="50" cy="50" r="3" fill="#9C4A2B"/><circle cx="92" cy="45" r="3" fill="#9C4A2B"/></svg>
+            </div>
+            <div class="exhibit-details">
+                <h1>Thirty-Two Journeys <span class="status-tag wip">[WIP]</span></h1>
+                <p class="exhibit-kind">an atlas</p>
+                <p class="exhibit-blurb">Sixteen journeys that happened and sixteen that did not, by land and by sea, charted on the same coastlines &mdash; from Magellan and the Beagle to Alexander and the Long March to Odysseus and Frodo Baggins. Click a name to trace it; click two to compare.</p>
+                <div class="exhibit-links">
+                    <a href="voyages/">Open</a>
+                    <a href="about-voyages.html">About</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponents() {
+            const response = await fetch('assets/fabrica-components.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+
+            const headerTemplate = doc.getElementById('site-header');
+            document.getElementById('header-placeholder').innerHTML = headerTemplate.innerHTML;
+
+            const footerTemplate = doc.getElementById('site-footer');
+            document.getElementById('footer-placeholder').innerHTML = footerTemplate.innerHTML;
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>

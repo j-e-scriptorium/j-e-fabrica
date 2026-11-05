@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Isid. UW - The Expansion of America</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <p><a href="visualizations.html">&larr; Visualizations</a></p>
+        <div class="exhibit-entry exhibit-page">
+            <div class="exhibit-glyph" aria-hidden="true">
+                <svg viewBox="0 0 100 100"><rect x="42" y="42" width="16" height="16" fill="none" stroke="#9C4A2B" stroke-width="2"/><rect x="30" y="30" width="40" height="40" fill="none" stroke="#9C4A2B" stroke-width="2" opacity="0.6"/><rect x="16" y="16" width="68" height="68" fill="none" stroke="#9C4A2B" stroke-width="2" opacity="0.3"/></svg>
+            </div>
+            <div class="exhibit-details">
+                <h1>The Expansion of America <span class="status-tag wip">[WIP]</span></h1>
+                <p class="exhibit-kind">a map growing outward</p>
+                <p class="exhibit-blurb">Scrub the year from 1776 to 1959 and watch territory arrive and states get admitted into it &mdash; hover a state for its own origin story.</p>
+                <div class="exhibit-links">
+                    <a href="expansion-of-america/">Open</a>
+                    <a href="about-expansion-of-america.html">About</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponents() {
+            const response = await fetch('assets/fabrica-components.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+
+            const headerTemplate = doc.getElementById('site-header');
+            document.getElementById('header-placeholder').innerHTML = headerTemplate.innerHTML;
+
+            const footerTemplate = doc.getElementById('site-footer');
+            document.getElementById('footer-placeholder').innerHTML = footerTemplate.innerHTML;
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>

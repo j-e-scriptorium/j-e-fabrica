@@ -8,6 +8,7 @@ Live at whatever this repo's GitHub Pages URL is; `index.html` is the homepage.
 
 ```
 index.html, about.html, visualizations.html, recreations.html   the site shell (see assets/)
+exhibit-*.html, about-*.html  one card page and one About page per exhibit
 assets/                     shared header/footer, styles, logo, favicon
 voyages/                    exhibit: Twenty Voyages (an atlas)
 school/                     exhibit: School (a recreation)
@@ -21,7 +22,9 @@ Each exhibit is self-contained in its own folder (its own `index.html`, plus wha
 ## Adding an exhibit
 
 1. Build it in its own folder as `<name>/index.html` (+ any assets it needs, alongside it).
-2. Add an entry to `visualizations.html` or `recreations.html` (copy an existing `.exhibit-entry` block).
-3. Optionally add it to the homepage teaser list in `index.html`.
+2. Add an entry to `visualizations.html` or `recreations.html` (copy an existing `.exhibit-entry` block). The title and glyph link to the exhibit's card page; mark unfinished work with `<span class="status-tag wip">[WIP]</span>` after the title.
+3. Add the card page, `exhibit-<name>.html` (copy an existing one): the same card alone, with an `h1` title.
+4. Add `about-<name>.html` (copy an existing one). The byline credits the work's makers and says who wrote the notes (`By …; notes by A. Clanker.`).
+5. Optionally add it to the homepage teaser list in `index.html`.
 
 No build step, no server required for local dev — just open the HTML files, though the shared header/footer (`assets/fabrica-components.html`) is loaded via `fetch`, which needs `http://`, not `file://` (e.g. `python3 -m http.server`).

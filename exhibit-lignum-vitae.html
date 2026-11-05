@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Isid. UW - Lignum Vitae</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <p><a href="recreations.html">&larr; Recreations</a></p>
+        <div class="exhibit-entry exhibit-page">
+            <div class="exhibit-glyph" aria-hidden="true">
+                <svg viewBox="0 0 100 100"><circle cx="20" cy="50" r="8" fill="#9C4A2B"/><path d="M28 50 L50 50 M50 50 L70 36 M50 50 L70 64 M70 36 L86 26 M70 36 L88 40 M70 64 L88 60 M70 64 L86 74" fill="none" stroke="#9C4A2B" stroke-width="3" stroke-linecap="round"/><circle cx="87" cy="33" r="3" fill="none" stroke="#9C4A2B" stroke-width="1.5" opacity="0.5"/></svg>
+            </div>
+            <div class="exhibit-details">
+                <h1>Lignum Vitae <span class="status-tag wip">[WIP]</span></h1>
+                <p class="exhibit-kind">a duel of growing trees</p>
+                <p class="exhibit-blurb">Two mages face each other across a field, and neither casts. Each tends a tree that grows on its own &mdash; bend it into barrels and fans, graft its tips into rings that ring the charge louder, and fire by cutting a limb off. A campaign of five bouts against better and better opponents, and the tree you shape in the first is the tree you fight the last with.</p>
+                <div class="exhibit-links">
+                    <a href="lignum-vitae/">Open</a>
+                    <a href="about-lignum-vitae.html">About</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponents() {
+            const response = await fetch('assets/fabrica-components.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+
+            const headerTemplate = doc.getElementById('site-header');
+            document.getElementById('header-placeholder').innerHTML = headerTemplate.innerHTML;
+
+            const footerTemplate = doc.getElementById('site-footer');
+            document.getElementById('footer-placeholder').innerHTML = footerTemplate.innerHTML;
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Isid. UW - School</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <p><a href="recreations.html">&larr; Recreations</a></p>
+        <div class="exhibit-entry exhibit-page">
+            <div class="exhibit-glyph" aria-hidden="true">
+                <svg viewBox="0 0 100 100"><circle cx="50" cy="50" r="8" fill="#9C4A2B"/><circle cx="35" cy="60" r="8" fill="#9C4A2B"/><circle cx="65" cy="60" r="8" fill="#9C4A2B"/><circle cx="50" cy="35" r="8" fill="#9C4A2B"/></svg>
+            </div>
+            <div class="exhibit-details">
+                <h1>School <span class="status-tag wip">[WIP]</span></h1>
+                <p class="exhibit-kind">a mancala for the hand</p>
+                <p class="exhibit-blurb">Stretch the string from peg to peg; the bones it crosses are yours &mdash; then return one tithe to the water. Play against a friend or four grades of computer.</p>
+                <div class="exhibit-links">
+                    <a href="school/">Open</a>
+                    <a href="about-school.html">About</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponents() {
+            const response = await fetch('assets/fabrica-components.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+
+            const headerTemplate = doc.getElementById('site-header');
+            document.getElementById('header-placeholder').innerHTML = headerTemplate.innerHTML;
+
+            const footerTemplate = doc.getElementById('site-footer');
+            document.getElementById('footer-placeholder').innerHTML = footerTemplate.innerHTML;
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>St. Isid. UW - Campus Magnus</title>
+    <link rel="icon" type="image/svg+xml" href="assets/favicon.svg">
+    <link rel="stylesheet" href="assets/fabrica-components.css">
+</head>
+<body>
+    <div id="header-placeholder"></div>
+
+    <main class="container">
+        <p><a href="visualizations.html">&larr; Visualizations</a></p>
+        <div class="exhibit-entry exhibit-page">
+            <div class="exhibit-glyph" aria-hidden="true">
+                <svg viewBox="0 0 100 100"><path d="M8,70 Q50,58 92,66" fill="none" stroke="#9C4A2B" stroke-width="1.5" opacity="0.5"/><circle cx="28" cy="34" r="9" fill="#9C4A2B" opacity="0.85"/><circle cx="58" cy="26" r="5" fill="#9C4A2B" opacity="0.6"/><circle cx="70" cy="48" r="11" fill="#9C4A2B" opacity="0.4"/><circle cx="40" cy="56" r="4" fill="#9C4A2B" opacity="0.7"/><rect x="18" y="74" width="9" height="9" rx="2" fill="#9C4A2B" opacity="0.8"/><rect x="62" y="76" width="7" height="7" rx="2" fill="#9C4A2B" opacity="0.55"/></svg>
+            </div>
+            <div class="exhibit-details">
+                <h1>Campus Magnus</h1>
+                <p class="exhibit-kind">a map of peoples in motion</p>
+                <p class="exhibit-blurb">Every division, band and village of the Great Plains peoples, from the Saskatchewan to the Rio Grande, year by year from 1700 to 1900 &mdash; where each was and how many, documented where a source recorded it and modelled where none did, with every record and every guess behind it.</p>
+                <div class="exhibit-links">
+                    <a href="campus-magnus/">Open</a>
+                    <a href="about-campus-magnus.html">About</a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-placeholder"></div>
+
+    <script>
+        async function loadComponents() {
+            const response = await fetch('assets/fabrica-components.html');
+            const text = await response.text();
+            const parser = new DOMParser();
+            const doc = parser.parseFromString(text, 'text/html');
+
+            const headerTemplate = doc.getElementById('site-header');
+            document.getElementById('header-placeholder').innerHTML = headerTemplate.innerHTML;
+
+            const footerTemplate = doc.getElementById('site-footer');
+            document.getElementById('footer-placeholder').innerHTML = footerTemplate.innerHTML;
+        }
+
+        loadComponents();
+    </script>
+</body>
+</html>
